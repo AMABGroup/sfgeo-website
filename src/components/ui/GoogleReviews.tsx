@@ -54,33 +54,8 @@ export default function GoogleReviews() {
      </div>;
   }
 
-  // Filter for high quality reviews that ACTUALLY have text
-  const apiReviews = data?.reviews?.filter(r => r.rating >= 4 && r.text && r.text.trim().length > 0) || [];
-  
-  // Hardcoded fallback reviews to fill the grid if API doesn't return enough text reviews
-  const fallbackReviews = [
-    {
-      author_name: "Marcus T., Architect",
-      rating: 5,
-      text: "SFGEO delivered our site classification with exceptional speed. Their bearing capacity assessment was thorough and allowed us to proceed with a complex cantilever design without delays.",
-      time: 0
-    },
-    {
-      author_name: "David K., Commercial Builder",
-      rating: 5,
-      text: "We rely on SFGEO for all our construction phase support. Their on-call piling inspections and DCP testing have saved us countless hours of downtime on site. True professionals.",
-      time: 0
-    },
-    {
-      author_name: "Sarah L., Homeowner",
-      rating: 5,
-      text: "Building our first duplex was stressful, but the team at Solid Foundation made the soil testing phase seamless. They explained the AS2870 standard in plain English. Highly recommended.",
-      time: 0
-    }
-  ];
-
-  // Combine real reviews with fallbacks, prioritizing real reviews, then slice to exactly 3
-  const topReviews = [...apiReviews, ...fallbackReviews].slice(0, 3);
+  // Filter for high quality reviews that ACTUALLY have text, limit to max 3
+  const topReviews = data?.reviews?.filter(r => r.rating >= 4 && r.text && r.text.trim().length > 0).slice(0, 3) || [];
   
   const overallRating = data?.rating || 5.0;
 
@@ -109,7 +84,7 @@ export default function GoogleReviews() {
         </motion.div>
       </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className={`flex flex-wrap justify-center gap-8 ${topReviews.length === 3 ? 'md:grid md:grid-cols-3 md:flex-none' : ''}`}>
         {topReviews.length > 0 ? topReviews.map((review, index) => (
           <motion.div 
             key={index}
@@ -117,7 +92,7 @@ export default function GoogleReviews() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: index * 0.15 }}
-            className="flex flex-col relative px-8 py-10 rounded-2xl backdrop-blur-xl bg-white/60 border border-white shadow-[0_8px_32px_0_rgba(31,38,135,0.05)] hover:-translate-y-1 transition-transform duration-300"
+            className={`flex flex-col relative px-8 py-10 rounded-2xl backdrop-blur-xl bg-white/60 border border-white shadow-[0_8px_32px_0_rgba(31,38,135,0.05)] hover:-translate-y-1 transition-transform duration-300 ${topReviews.length < 3 ? 'w-full md:w-[calc(50%-1rem)] max-w-md' : 'w-full'}`}
           >
              <div className="flex gap-1 text-accent-gold mb-6">
               {[...Array(5)].map((_, i) => (
@@ -132,7 +107,7 @@ export default function GoogleReviews() {
             </div>
           </motion.div>
         )) : (
-          <div className="col-span-3 text-center text-gray-500 font-light">Loading latest reviews...</div>
+          <div className="w-full text-center text-gray-500 font-light">Loading latest reviews...</div>
         )}
       </div>
 

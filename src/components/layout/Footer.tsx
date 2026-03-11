@@ -28,23 +28,23 @@ export default function Footer() {
                     </Link>
                   </li>
                   <li>
-                    <Link href="/preliminary" className="text-sm leading-6 text-gray-300 hover:text-white transition-colors tracking-wide">
-                      Soil Reports &amp; Site Classifications
+                    <Link href="/services#site-class" className="text-sm leading-6 text-gray-300 hover:text-white transition-colors tracking-wide">
+                      Site Investigations &amp; Soil Reports
                     </Link>
                   </li>
                   <li>
-                    <Link href="/construction-support" className="text-sm leading-6 text-gray-300 hover:text-white transition-colors tracking-wide">
-                      Construction Support &amp; Site Inspections
+                    <Link href="/services#inspections" className="text-sm leading-6 text-gray-300 hover:text-white transition-colors tracking-wide">
+                      Construction Phase Support
                     </Link>
                   </li>
                   <li>
-                    <Link href="/commercial" className="text-sm leading-6 text-gray-300 hover:text-white transition-colors tracking-wide">
-                      Commercial Geotechnical &amp; Earthworks
+                    <Link href="/services#geotech" className="text-sm leading-6 text-gray-300 hover:text-white transition-colors tracking-wide">
+                      Contractor &amp; Commercial Support
                     </Link>
                   </li>
                   <li>
-                    <Link href="/partners" className="text-sm leading-6 text-gray-300 hover:text-white transition-colors tracking-wide">
-                      Our Professional Partner Network
+                    <Link href="/services#partners" className="text-sm leading-6 text-gray-300 hover:text-white transition-colors tracking-wide">
+                      Professional Partner Network
                     </Link>
                   </li>
                 </ul>
