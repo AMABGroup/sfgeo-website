@@ -23,21 +23,21 @@ export default function ContactPage() {
     setSubmitStatus("idle");
 
     const formData = new FormData(e.currentTarget);
-    const data = {
-      name: formData.get("name"),
-      email: formData.get("email"),
-      siteAddress: formData.get("siteAddress"),
-      phone: formData.get("phone"),
-      message: formData.get("message"),
-    };
+    const urlEncodedData = new URLSearchParams();
+    urlEncodedData.append("form-name", "contactPage");
+    urlEncodedData.append("name", formData.get("name") as string);
+    urlEncodedData.append("phone", formData.get("phone") as string);
+    urlEncodedData.append("email", formData.get("email") as string);
+    urlEncodedData.append("siteAddress", formData.get("siteAddress") as string);
+    urlEncodedData.append("message", formData.get("message") as string);
 
     try {
-      const response = await fetch("/api/contact", {
+      const response = await fetch("/", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "application/x-www-form-urlencoded",
         },
-        body: JSON.stringify(data),
+        body: urlEncodedData.toString(),
       });
 
       if (response.ok) {
@@ -135,6 +135,7 @@ export default function ContactPage() {
             <div className="bg-slate-50 border border-gray-100 p-8 sm:p-10 rounded-2xl shadow-sm">
               <h3 className="text-2xl font-montserrat font-bold text-slate-black mb-6">Send a Request</h3>
               <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+                <input type="hidden" name="form-name" value="contactPage" />
                 <div className="flex flex-col gap-2">
                   <label htmlFor="name" className="text-sm font-semibold text-slate-black">Name</label>
                   <input type="text" id="name" name="name" required className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-forest-green focus:border-transparent transition-all" placeholder="John Doe" />
