@@ -18,21 +18,33 @@ export default function LeadForm() {
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     setIsSubmitting(true);
-    // Simulate network request
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    console.log("Form submission data:", data);
     
-    // Here we would integrate Resend or Formspree
-    // await fetch('/api/contact', { method: 'POST', body: JSON.stringify(data) });
+    try {
+      const formData = new URLSearchParams();
+      formData.append("form-name", "contact");
+      formData.append("name", data.name);
+      formData.append("email", data.email);
+      formData.append("phone", data.phone);
+      formData.append("projectDescription", data.projectDescription || "");
 
-    setIsSubmitting(false);
-    setIsSuccess(true);
-    reset();
+      const res = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: formData.toString(),
+      });
 
-    // Reset success message after 5 seconds
-    setTimeout(() => {
-      setIsSuccess(false);
-    }, 5000);
+      if (res.ok) {
+        setIsSuccess(true);
+        reset();
+      } else {
+        console.error("Form submission failed");
+      }
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setIsSubmitting(false);
+      setTimeout(() => setIsSuccess(false), 5000);
+    }
   };
 
   return (
@@ -71,6 +83,7 @@ export default function LeadForm() {
           >
             <h3 className="text-2xl font-bold text-slate-black font-montserrat mb-6">Request a Free Quote</h3>
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+              <input type="hidden" name="form-name" value="contact" />
               <div>
                 <label htmlFor="name" className="block text-sm font-medium leading-6 text-gray-900">
                   Full Name
