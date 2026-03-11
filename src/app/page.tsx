@@ -10,6 +10,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
 import { StarIcon } from "@heroicons/react/24/solid";
+import GoogleReviews from "@/components/ui/GoogleReviews";
 
 export default function Home() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -40,21 +41,6 @@ export default function Home() {
     hidden: { opacity: 0 },
     visible: { opacity: 1, transition: { staggerChildren: 0.15 } }
   };
-
-  const reviews = [
-    {
-      name: "Marcus T., Architect",
-      text: "SFGEO delivered our site classification with exceptional speed. Their bearing capacity assessment was thorough and allowed us to proceed with a complex cantilever design without delays.",
-    },
-    {
-      name: "Sarah L., Homeowner",
-      text: "Building our first duplex was stressful, but the team at Solid Foundation made the soil testing phase seamless. They explained the AS2870 standard in plain English. Highly recommended.",
-    },
-    {
-      name: "David K., Commercial Builder",
-      text: "We rely on SFGEO for all our construction phase support. Their on-call piling inspections and DCP testing have saved us countless hours of downtime on site. True professionals.",
-    }
-  ];
 
   return (
     <div className="bg-white text-slate-black font-inter selection:bg-forest-green selection:text-white">
@@ -253,80 +239,7 @@ export default function Home() {
         </div>
         
         <div className="mx-auto max-w-7xl px-6 lg:px-12 relative z-10">
-           <motion.div 
-            initial="hidden" 
-            whileInView="visible" 
-            viewport={{ once: true, margin: "-100px" }}
-            variants={staggerContainer}
-            className="text-center mb-16"
-          >
-            <motion.h2 variants={fadeIn} className="text-3xl font-light tracking-tight font-montserrat text-slate-black">
-              Client Feedback
-            </motion.h2>
-            <motion.div variants={fadeIn} className="mt-6 h-px bg-forest-green w-12 mx-auto" />
-            <motion.div variants={fadeIn} className="mt-4 flex items-center justify-center gap-2">
-              <div className="flex text-accent-gold gap-0.5">
-                <StarIcon className="w-5 h-5 text-yellow-500" />
-                <StarIcon className="w-5 h-5 text-yellow-500" />
-                <StarIcon className="w-5 h-5 text-yellow-500" />
-                <StarIcon className="w-5 h-5 text-yellow-500" />
-                <StarIcon className="w-5 h-5 text-yellow-500" />
-              </div>
-              <span className="text-sm font-semibold text-slate-black tracking-wide ml-1">5.0 Google Reviews</span>
-            </motion.div>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {reviews.map((review, index) => (
-              <motion.div 
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.15 }}
-                className="flex flex-col relative px-8 py-10 rounded-2xl backdrop-blur-xl bg-white/60 border border-white shadow-[0_8px_32px_0_rgba(31,38,135,0.05)] hover:-translate-y-1 transition-transform duration-300"
-              >
-                <div className="flex gap-1 text-accent-gold mb-6">
-                  {[...Array(5)].map((_, i) => (
-                    <StarIcon key={i} className="w-5 h-5 text-yellow-500 drop-shadow-sm" />
-                  ))}
-                </div>
-                <blockquote className="text-gray-800 text-base leading-relaxed font-light mb-8 relative z-10 flex-grow">
-                  "{review.text}"
-                </blockquote>
-                <div className="pt-6 border-t border-gray-300 flex flex-col gap-1">
-                  <span className="text-slate-black font-semibold tracking-wide text-sm">{review.name}</span>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={staggerContainer}
-            className="mt-16 flex flex-col sm:flex-row items-center justify-center gap-6"
-          >
-            <motion.a 
-              variants={fadeIn}
-              href="https://search.google.com/local/reviews?placeid=ChIJkbo3DVqq1IMRQYQUbuD9XDc"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-8 py-3.5 bg-white text-slate-black text-sm font-semibold tracking-wide rounded-full shadow-md hover:shadow-lg transition-all hover:-translate-y-0.5 border border-gray-200"
-            >
-              Read Our Reviews
-            </motion.a>
-            <motion.a 
-              variants={fadeIn}
-              href="https://search.google.com/local/writereview?placeid=ChIJkbo3DVqq1IMRQYQUbuD9XDc"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-8 py-3.5 bg-forest-green text-white text-sm font-semibold tracking-wide rounded-full shadow-md hover:shadow-lg transition-all hover:-translate-y-0.5 hover:bg-forest-green/90"
-            >
-              Leave a Review
-            </motion.a>
-          </motion.div>
+           <GoogleReviews />
         </div>
       </section>
 

@@ -194,7 +194,7 @@ export default function ServicesHubPage() {
         <section id="partners" className="scroll-mt-[100px] py-24 lg:py-32 border-t border-gray-100 flex flex-col md:flex-row-reverse items-center gap-16 lg:gap-24">
           <div className="w-full md:w-1/2 relative aspect-[4/3] rounded-sm overflow-hidden bg-gray-100 shadow-sm group">
             <Image 
-              src="/service-partner-detail.jpg" 
+              src="/service-partner-detail-new.png" 
               alt="Professional Partner Network" 
               fill 
               className="object-cover transition-transform duration-1000 ease-in-out group-hover:scale-105" 
