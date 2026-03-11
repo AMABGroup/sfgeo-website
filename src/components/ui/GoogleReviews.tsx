@@ -54,8 +54,8 @@ export default function GoogleReviews() {
      </div>;
   }
 
-  // Filter for high quality reviews or show all 5-stars, limit to 3 for design
-  const topReviews = data?.reviews?.filter(r => r.rating >= 4).slice(0, 3) || [];
+  // Filter for high quality reviews that ACTUALLY have text, limit to 3 for design
+  const topReviews = data?.reviews?.filter(r => r.rating >= 4 && r.text && r.text.trim().length > 0).slice(0, 3) || [];
   const overallRating = data?.rating || 5.0;
 
   return (
