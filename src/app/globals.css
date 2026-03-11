@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+@theme {
+  --color-forest-green: #2D5A3A;
+  --color-slate-black: #0A0A0A;
+  --color-off-white: #FAFAFA;
+  --color-accent-gold: #D4AF37;
+  
+  --font-inter: var(--font-inter);
+  --font-montserrat: var(--font-montserrat);
+}
+
+:root {
+  --background: #FAFAFA;
+  --foreground: #0A0A0A;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0A0A0A;
+    --foreground: #FAFAFA;
+  }
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom utilities for Framer Motion or smooth scrolling if needed */
+html {
+  scroll-behavior: smooth;
+}
