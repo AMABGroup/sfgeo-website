@@ -23,21 +23,23 @@ export default function ContactPage() {
     setSubmitStatus("idle");
 
     const formData = new FormData(e.currentTarget);
-    const urlEncodedData = new URLSearchParams();
-    urlEncodedData.append("form-name", "contactPage");
-    urlEncodedData.append("name", formData.get("name") as string);
-    urlEncodedData.append("phone", formData.get("phone") as string);
-    urlEncodedData.append("email", formData.get("email") as string);
-    urlEncodedData.append("siteAddress", formData.get("siteAddress") as string);
-    urlEncodedData.append("message", formData.get("message") as string);
+    
+    const data = {
+      name: formData.get("name"),
+      phone: formData.get("phone"),
+      email: formData.get("email"),
+      siteAddress: formData.get("siteAddress"),
+      message: formData.get("message"),
+    };
 
     try {
-      const response = await fetch("/", {
+      const response = await fetch("https://formspree.io/f/xjgawzgr", {
         method: "POST",
         headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
+          "Content-Type": "application/json",
+          "Accept": "application/json"
         },
-        body: urlEncodedData.toString(),
+        body: JSON.stringify(data),
       });
 
       if (response.ok) {
