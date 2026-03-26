@@ -8,6 +8,7 @@ type Inputs = {
   name: string;
   email: string;
   phone: string;
+  role: string;
   projectDescription: string;
 };
 
@@ -25,6 +26,7 @@ export default function LeadForm() {
       formData.append("name", data.name);
       formData.append("email", data.email);
       formData.append("phone", data.phone);
+      formData.append("role", data.role);
       formData.append("projectDescription", data.projectDescription || "");
 
       const res = await fetch("/", {
@@ -140,6 +142,28 @@ export default function LeadForm() {
               </div>
 
               <div>
+                <label htmlFor="role" className="block text-sm font-medium leading-6 text-gray-900">
+                  I am a:
+                </label>
+                <div className="mt-2">
+                  <select
+                    id="role"
+                    {...register("role", { required: "Please select your role" })}
+                    className={`block w-full rounded-md border-0 py-2.5 px-3.5 text-gray-900 shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 appearance-none bg-white cursor-pointer ${errors.role ? 'ring-red-500 focus:ring-red-500' : 'ring-gray-300 focus:ring-forest-green'}`}
+                    defaultValue=""
+                  >
+                    <option value="" disabled>Select your role</option>
+                    <option value="Homeowner/Owner-Builder">Homeowner / Owner-Builder</option>
+                    <option value="Builder/Developer">Builder / Developer</option>
+                    <option value="Structural/Civil Engineer">Structural / Civil Engineer</option>
+                    <option value="Environmental Consultant">Environmental Consultant</option>
+                    <option value="Architect/Designer">Architect / Designer</option>
+                  </select>
+                  {errors.role && <p className="mt-1 flex text-sm text-red-500">{errors.role.message}</p>}
+                </div>
+              </div>
+
+              <div>
                 <label htmlFor="projectDescription" className="block text-sm font-medium leading-6 text-gray-900">
                   Project Details
                 </label>
@@ -169,7 +193,7 @@ export default function LeadForm() {
                       </svg>
                       Submitting...
                     </span>
-                  ) : "Submit Request"}
+                  ) : "Get a Fixed-Fee Quote"}
                 </button>
               </div>
             </form>

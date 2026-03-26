@@ -21,7 +21,7 @@ export default function PrivacyPolicyPage() {
           {/* Single horizontal row for header signature */}
           <motion.div variants={fadeIn} className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-10 pb-10 border-b border-gray-100">
             <h3 className="text-[11px] font-bold tracking-[0.2em] text-forest-green uppercase m-0 max-w-sm">
-              LOCALLY OWNED • INDEPENDENT • SYDNEY BASED
+              FAMILY OWNED • INDEPENDENT • SYDNEY BASED
             </h3>
             
             <div className="flex flex-col sm:flex-row gap-4">

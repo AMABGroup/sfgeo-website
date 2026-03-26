@@ -5,15 +5,15 @@ import { ChatBubbleLeftEllipsisIcon } from "@heroicons/react/24/solid";
 
 export default function ContactBubble() {
   return (
-    <Link
-      href="/contact"
+    <a
+      href="sms:+61423483555"
       className="fixed bottom-6 right-6 z-50 bg-forest-green text-white p-4 rounded-full shadow-lg hover:bg-forest-green/90 hover:scale-105 hover:shadow-xl transition-all duration-300 flex items-center justify-center group"
       aria-label="Contact Us"
     >
-      <ChatBubbleLeftEllipsisIcon className="w-6 h-6" />
-      <span className="absolute right-full mr-4 bg-slate-black text-white text-xs font-semibold px-3 py-1.5 rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap">
-        Initiate a Dialogue
+      <span className="absolute right-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-slate-black text-white text-xs font-semibold py-1.5 px-3 rounded whitespace-nowrap pointer-events-none shadow-md">
+        Text SFGEO
       </span>
-    </Link>
+      <ChatBubbleLeftEllipsisIcon className="w-6 h-6 flex-shrink-0" />
+    </a>
   );
 }

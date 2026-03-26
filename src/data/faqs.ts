@@ -1,85 +1,82 @@
 export const faqs = [
   {
-    question: "What is the difference between a soil report and a site classification?",
-    answer: "A site classification (AS 2870) assesses soil reactivity for residential slabs. A geotechnical report is deeper, covering excavation and bearing capacity for complex designs. SFGEO provides the exact data your structural engineer needs for Sydney Council approvals."
+    question: "How much does a geotechnical report or soil test cost in Sydney?",
+    answer: "Residential soil testing in Sydney typically ranges from $1,200 to $2,500 depending on site access, the underlying geology, and the proposed structural works. At SFGEO, we don’t believe in hidden drilling extras or vague estimates. We review your site address and architectural plans upfront to provide a tailored, fixed-fee quote so you understand the likely geotechnical cost upfront."
   },
   {
-    question: "How much does a geotechnical report cost in Sydney?",
-    answer: "Residential soil testing usually ranges from $1,200 to $2,500. To give you certainty, SFGEO offers a complimentary site inspection followed by a tailored, fixed-price fee proposal with no hidden drilling extras.",
-    highlightedAnswer: "Residential soil testing usually ranges from $1,200 to $2,500. To give you certainty, SFGEO offers a complimentary site inspection followed by a tailored, <strong>fixed-price fee proposal</strong> with no hidden drilling extras."
+    question: "Do I need a soil test for a house extension, pool, granny flat, or knockdown rebuild?",
+    answer: "Often, yes. Whether you are navigating a Development Application (DA) or a Complying Development Certificate (CDC), a geotechnical report or AS2870 site classification is commonly required. We provide the parameters your engineer needs for foundation design on Sydney’s reactive clay sites."
   },
   {
-    question: "Do I need a soil report for a house extension or granny flat?",
-    answer: "Yes. Most Sydney Councils require a geotechnical report for DA approvals on new structural footprints to prevent foundation failure, especially on reactive clay sites."
+    question: "What makes SFGEO different from other geotechnical firms in Sydney?",
+    answer: "We combine field practicality with precise engineering judgment. Our unique background in construction and drilling ensures we provide clear, usable parameters that prevent over-engineering."
   },
   {
-    question: "How quickly can SFGEO get to my site?",
-    answer: "We understand delays cost money. Subject to availability, we can commence site investigations the next business day after you accept our fee proposal.",
-    highlightedAnswer: "We understand delays cost money. Subject to availability, we can commence site investigations the <strong>next business day</strong> after you accept our fee proposal."
-  },
-  {
-    question: "How long does it take to get the final geotechnical report?",
-    answer: "SFGEO delivers finalized, engineer-signed reports within 3 business days of completing the on-site works, keeping your project schedule on track.",
-    highlightedAnswer: "SFGEO delivers finalized, engineer-signed reports within <strong>3 business days</strong> of completing the on-site works, keeping your project schedule on track."
+    question: "What is the difference between a site classification and a full geotechnical report?",
+    answer: "A Site Classification (AS2870) primarily assesses how reactive (prone to shrinking and swelling) the surface soils are, which is used for standard residential slabs and footings (Class M, H1, H2, E, etc.). A full Geotechnical Investigation goes deeper. It involves drilling boreholes to assess the underlying soil and rock profile, providing the specific bearing capacities required for heavier or more complex designs like retaining walls, rock excavations, or deep piers."
   },
   {
     question: "What does a 'Class P' site classification mean?",
-    answer: "'P' stands for Problem site (often due to uncontrolled fill, trees, or abnormal moisture). SFGEO specializes in navigating P-class sites in Sydney to provide practical, cost-effective foundation parameters."
+    answer: "'Class P' stands for a 'Problem' site, common in areas like Liverpool and Campbelltown. It means site-specific geotechnical advice is required for your footing design."
   },
   {
-    question: "Can you perform footing and pier inspections on short notice?",
-    answer: "Yes. We prioritize urgent on-site inspections for active construction in the Sydney Metro area, ensuring you get the required engineering sign-off before your concrete pour."
+    question: "Can you perform tight-access soil testing on restricted Sydney sites?",
+    answer: "Yes. We use specialized, highly mobile tight-access drilling rigs for narrow Sydney properties like Inner West terraces, ensuring minimal disruption while obtaining vital data."
+  },
+  {
+    question: "Can you test soil on sloping blocks?",
+    answer: "Yes. Our rigs are built for steep terrain. Our reports address risks like differential settlement and slope stability, providing the rock and soil data your engineer needs."
+  },
+  {
+    question: "How long does a soil test and geotechnical report take?",
+    answer: "We typically mobilize within days and deliver finalized, engineer-reviewed reports within 3 to 5 business days of completing fieldwork."
+  },
+  {
+    question: "What is 'Bearing Capacity' and why does my engineer need it?",
+    answer: "Bearing capacity measures how much weight the ground can safely support. We provide precise parameters so your engineer doesn't have to rely on generic, worst-case assumptions."
+  },
+  {
+    question: "Can you perform footing inspections, pier inspections, and proof rolling across Sydney?",
+    answer: "Yes. We offer rapid, on-site geotechnical verification across Sydney to reduce construction delays for footings, piers, and proof rolling."
   },
   {
     question: "What is 'Proof Rolling' and when is it required?",
-    answer: "It is a physical test using heavy plant to verify earthworks subgrade stability (AS 3798). It is an essential sign-off before laying expensive pavement or commercial slabs."
+    answer: "Proof rolling is an on-site test where heavy machinery (like a loaded water cart) is driven over prepared earthworks to observe how the ground reacts. It is commonly used as part of earthworks verification under AS3798 and helps identify unsuitable or soft areas before construction proceeds."
   },
   {
-    question: "Does SFGEO service Western Sydney and Greater Sydney?",
-    answer: "Yes. We operate across the entire Sydney Metro area. From the reactive clays of Western Sydney to the sandstone of the Inner West, we know the local geology."
+    question: "Do you provide permeability or infiltration testing for stormwater design?",
+    answer: "Yes. If your local council requires On-Site Stormwater Detention (OSD) or absorption trenches, we conduct in-situ permeability testing. This provides the specific infiltration rates your civil engineer needs for their stormwater design submission."
   },
   {
-    question: "Do you provide infiltration testing for stormwater design?",
-    answer: "Yes. If your Sydney Council requires On-site Stormwater Detention (OSD), SFGEO provides the necessary soil permeability and infiltration rate testing."
+    question: "Does SFGEO service Western Sydney, the Inner West, and Greater Sydney?",
+    answer: "Yes, we operate across the entire Sydney Metro area. We understand the complex regional geology—from the highly reactive clays common across Western Sydney, to the Hawkesbury sandstone of the Northern Beaches and Hills District, through to the complex shale-clay transitions you encounter across much of the Lower North Shore and Inner West."
   },
   {
     question: "What does a geotechnical investigation actually involve?",
-    answer: "It involves drilling boreholes to sample soil and rock at depth. This determines the ground's load-bearing capacity, which is essential for safe basement excavations and heavy structural loads."
+    answer: "Our investigations are hands-on and site-specific. We extract soil and rock samples, log the geological profile, perform in-situ strength testing (like DCPs), and analyze this data. We then translate the raw site data into a comprehensive engineering report tailored for your design team."
   },
   {
     question: "Is SFGEO an independent engineering consultancy?",
-    answer: "Absolutely. We are a boutique, independent firm. Our geotechnical advice is conflict-free and strictly focused on the safety and cost-efficiency of your specific project."
-  },
-  {
-    question: "Can I test soil on sloping blocks?",
-    answer: "Yes. Sloping blocks in areas like the Northern Beaches or Sutherland Shire require specific slope stability assessments to ensure your foundation is anchored safely."
+    answer: "Absolutely. We are a boutique, independent geotechnical firm. This means our advice is conflict-free and strictly focused on providing objective geotechnical data. We don't sell construction materials or construction services."
   },
   {
     question: "What Australian Standards do your reports comply with?",
-    answer: "All SFGEO testing and reporting complies strictly with AS 1726 (Geotechnical Site Investigations) and AS 2870 (Residential Slabs and Footings)."
+    answer: "All SFGEO testing, investigations, and reporting are carried out in accordance with the relevant Australian Standards and project requirements, where applicable. Commonly referenced standards include AS1726 (Geotechnical Site Investigations), AS2870 (Residential Slabs and Footings), and AS3798 (Guidelines on Earthworks)."
   },
   {
-    question: "Can you recommend a Sydney structural engineer?",
-    answer: "Yes. Through our trusted partner network, we can connect you with proven structural engineers, land surveyors, and private certifiers we have worked with for years."
-  },
-  {
-    question: "Can you perform soil testing on tight or restricted access sites?",
-    answer: "Yes. Many Sydney properties, especially Inner West terraces, have narrow boundaries. SFGEO uses specialized portable equipment to perform accurate soil testing in tight backyards without compromising data."
+    question: "How does SFGEO's report work with my structural engineer's design?",
+    answer: "Our reports are written to be immediately usable by your structural or civil engineer. We provide the specific bearing capacities, soil profiles, and design parameters in the format engineers need to get straight to work. If you don't yet have a structural engineer, we are happy to make a tailored introduction to reputable Sydney firms experienced in working with precise geotechnical data."
   },
   {
     question: "Do I need to be on-site during the soil testing?",
-    answer: "No. As long as our engineers have clear, safe access to the property, we can conduct the site investigation independently while you go about your day."
-  },
-  {
-    question: "What is 'Bearing Capacity'?",
-    answer: "It is simply the measure of how much weight the ground can safely hold. SFGEO provides the exact 'Allowable Bearing Pressure' so your engineer doesn't over-design the footings."
+    answer: "No. As long as our team has clear, safe access to the property and any locked gates are opened, we can conduct the site investigation independently."
   },
   {
     question: "Is SFGEO fully insured for residential and commercial work?",
-    answer: "Yes. We carry comprehensive Professional Indemnity (PI) and Public Liability (PL) insurance for complete peace of mind."
+    answer: "Yes. We carry comprehensive Professional Indemnity (PI) and Public Liability (PL) insurance tailored for geotechnical engineering and drilling operations. Certificates of currency can be provided on request for both residential and commercial projects."
   },
   {
     question: "How do I get a quote for my project?",
-    answer: "Send us your site address or architectural plans. We will arrange a complimentary site inspection and send you a fixed-price fee proposal within 24 hours."
+    answer: "Send us an inquiry with your site address and any architectural or structural plans you have. We will arrange a complimentary desktop review of your site and provide a tailored, fixed-fee proposal, typically within one business day."
   }
 ];
