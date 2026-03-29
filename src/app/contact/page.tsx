@@ -138,7 +138,7 @@ export default function ContactPage() {
             <div className="bg-slate-50 border border-gray-100 p-8 sm:p-10 rounded-2xl shadow-sm">
               <h3 className="text-2xl font-montserrat font-bold text-slate-950 mb-6">Send a Request</h3>
               <form onSubmit={handleSubmit} className="flex flex-col gap-6">
-                <input type="hidden" name="form-name" value="contactPage" />
+
                 <div className="flex flex-col gap-2">
                   <label htmlFor="name" className="text-sm font-semibold text-slate-950">Name</label>
                   <input type="text" id="name" name="name" required className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-forest-green focus:border-transparent transition-all" placeholder="John Doe" />
