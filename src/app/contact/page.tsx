@@ -165,9 +165,10 @@ export default function ContactPage() {
                     id="role" 
                     name="role" 
                     required 
+                    defaultValue=""
                     className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-forest-green focus:border-transparent transition-all appearance-none cursor-pointer"
                   >
-                    <option value="" disabled selected>Select your role</option>
+                    <option value="" disabled>Select your role</option>
                     <option value="Homeowner/Owner-Builder">Homeowner / Owner-Builder</option>
                     <option value="Builder/Developer">Builder / Developer</option>
                     <option value="Structural/Civil Engineer">Structural / Civil Engineer</option>
