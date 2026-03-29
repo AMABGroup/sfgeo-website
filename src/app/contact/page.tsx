@@ -96,9 +96,19 @@ export default function ContactPage() {
                   <svg className="w-4 h-4 text-forest-green" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                   Trading Hours
                 </h4>
-                <div className="flex flex-col gap-1 text-base text-slate-950">
-                  <p className="font-medium">Mon–Fri: <span className="font-light text-gray-500 ml-1">6:00 AM – 6:00 PM</span></p>
-                  <p className="font-medium">Saturday: <span className="font-light text-gray-500 ml-1">8:00 AM – 2:00 PM (Sunday Closed)</span></p>
+                <div className="flex flex-col gap-2 text-base text-slate-950 w-full mt-1">
+                  <div className="flex justify-between items-center border-b border-gray-100 pb-2">
+                    <span className="font-medium tracking-wide">Mon - Fri:</span>
+                    <span className="font-light text-gray-500 whitespace-nowrap">6:00 AM – 6:00 PM</span>
+                  </div>
+                  <div className="flex justify-between items-center border-b border-gray-100 pb-2">
+                    <span className="font-medium tracking-wide">Saturday:</span>
+                    <span className="font-light text-gray-500 whitespace-nowrap">8:00 AM – 2:00 PM</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="font-medium tracking-wide">Sunday:</span>
+                    <span className="font-light text-gray-400 whitespace-nowrap uppercase text-sm tracking-widest">Closed</span>
+                  </div>
                 </div>
               </div>
             </div>
