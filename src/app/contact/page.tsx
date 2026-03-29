@@ -47,8 +47,8 @@ export default function ContactPage() {
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-montserrat font-light tracking-tight text-slate-950 max-w-4xl mb-6 leading-tight">
           Contact Our Sydney Geotechnical Engineers
         </h1>
-        <p className="text-xl text-gray-500 font-light leading-relaxed max-w-3xl mb-16">
-          Reach out directly to secure field dates, request tailored fixed-price fee proposals, and obtain reliable on-site engineering support. Whether you need an <span className="font-medium text-slate-950">AS2870 Site Classification</span>, <span className="font-medium text-slate-950">Soil Testing</span>, or a <span className="font-medium text-slate-950">Drilling Subcontractor</span>, we deploy across the Sydney Metro.
+        <p className="text-xl text-gray-500 font-light leading-relaxed max-w-4xl mb-16">
+          Whether you are a Homeowner planning a premium extension, an Architect detailing a new build, or a Developer scaling a commercial project—we provide the geotechnical expertise to get your foundations right.
         </p>
 
         {/* Content Grid */}
@@ -86,7 +86,7 @@ export default function ContactPage() {
                   Office Location
                 </h4>
                 <p className="text-base text-slate-950 font-medium leading-relaxed">
-                  Suite 3.01 - Level 3, 107 Sydenham Road<br />
+                  Suite 3.01 - Level 3, <span className="whitespace-nowrap">107 Sydenham Road</span><br />
                   <span className="text-gray-500 font-light">Marrickville, NSW 2204</span>
                 </p>
               </div>
@@ -96,19 +96,15 @@ export default function ContactPage() {
                   <svg className="w-4 h-4 text-forest-green" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                   Trading Hours
                 </h4>
-                <div className="flex flex-col gap-2 text-base text-slate-950 w-full mt-1">
-                  <div className="flex justify-between items-center border-b border-gray-100 pb-2">
-                    <span className="font-medium tracking-wide">Mon - Fri:</span>
-                    <span className="font-light text-gray-500 whitespace-nowrap">6:00 AM – 6:00 PM</span>
-                  </div>
-                  <div className="flex justify-between items-center border-b border-gray-100 pb-2">
-                    <span className="font-medium tracking-wide">Saturday:</span>
-                    <span className="font-light text-gray-500 whitespace-nowrap">8:00 AM – 2:00 PM</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="font-medium tracking-wide">Sunday:</span>
-                    <span className="font-light text-gray-400 whitespace-nowrap uppercase text-sm tracking-widest">Closed</span>
-                  </div>
+                <div className="grid grid-cols-[auto_1fr] gap-x-6 gap-y-2 text-base text-slate-950 w-full mt-1">
+                  <span className="font-medium tracking-wide">Mon - Fri:</span>
+                  <span className="font-light text-gray-500 whitespace-nowrap">6:00 AM – 6:00 PM</span>
+                  
+                  <span className="font-medium tracking-wide">Saturday:</span>
+                  <span className="font-light text-gray-500 whitespace-nowrap">8:00 AM – 2:00 PM</span>
+                  
+                  <span className="font-medium tracking-wide">Sunday:</span>
+                  <span className="font-light text-gray-400 whitespace-nowrap uppercase text-sm tracking-widest flex items-center">Closed</span>
                 </div>
               </div>
             </div>
@@ -116,7 +112,7 @@ export default function ContactPage() {
 
           {/* Social Proof & Reviews Layer */}
           <div className="flex flex-col h-full group">
-            <div className="bg-forest-green/10 rounded-3xl p-8 sm:p-12 shadow-sm flex flex-col justify-center h-full relative overflow-hidden border border-forest-green/20 transition-all hover:border-forest-green/30">
+            <div className="bg-forest-green/5 rounded-3xl p-8 sm:p-12 flex flex-col justify-center h-full relative overflow-hidden transition-all">
               
               {/* Decorative Subtle Background Element */}
               <div className="absolute top-[-20%] right-[-10%] w-96 h-96 bg-forest-green/20 rounded-full blur-[100px] pointer-events-none group-hover:bg-forest-green/30 transition-all duration-700"></div>
