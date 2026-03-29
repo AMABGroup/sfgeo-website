@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "Contact Our Sydney Geotechnical Engineers | SFGEO",
@@ -91,7 +92,8 @@ export default function ContactLayout({ children }: { children: React.ReactNode 
 
   return (
     <>
-      <script
+      <Script
+        id="schema-jsonld"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
