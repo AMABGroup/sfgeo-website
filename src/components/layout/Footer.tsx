@@ -14,7 +14,7 @@ export default function Footer() {
               <Image src="/SFGEO_logo_black.png" alt="SFGEO Logo" fill className="object-contain object-left invert brightness-0" />
             </div>
             <p className="text-sm leading-6 text-gray-300">
-              Premium boutique engineering consultancy providing expert Residential and Construction phase support in Sydney.
+              Premium independent engineering consultancy providing expert Residential and Construction phase support in Sydney.
             </p>
           </div>
           <div className="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">

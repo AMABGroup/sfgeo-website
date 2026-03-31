@@ -189,35 +189,37 @@ export default function Home() {
               className="text-5xl tracking-tight sm:text-7xl font-montserrat font-light text-slate-950 leading-[1.1]"
             >
               Geotechnical <br className="hidden sm:block" />
-              Clarity. <span className="font-semibold">Built On</span> <br className="hidden sm:block" />
-              <span className="font-semibold">Local Expertise.</span>
+              Done Properly. <br className="hidden sm:block" />
+              <span className="font-semibold">Built On Local Expertise.</span>
             </motion.h1>
             <motion.div variants={fadeIn} className="mt-8 h-px bg-slate-black/20 w-1/4" />
             <motion.p variants={fadeIn} className="text-xl sm:text-2xl text-gray-600 font-light leading-relaxed mb-6 max-w-3xl">
-              Solid Foundation Geotechnical is a boutique Sydney <br className="hidden sm:block" />
-              consultancy delivering tailored site classifications and <br className="hidden sm:block" />
-              soil testing for homeowners, architects, and builders.
+              Solid Foundation Geotechnical is a locally-owned, independent Sydney consultancy. Your project is handled by the Principal Engineer, from first drilled borehole to concrete pour. NATA lab-backed. Fixed-fee quotes. No corporate overhead.
             </motion.p>
             <motion.div variants={fadeIn} className="mt-12 flex flex-col sm:flex-row items-start sm:items-center gap-6">
               <Link
                 href="/contact"
                 className="group relative px-6 sm:px-8 py-3.5 text-sm sm:text-base font-medium text-white bg-slate-950 overflow-hidden flex items-center justify-center gap-2 rounded-full hover:bg-slate-800 transition-colors shadow-sm hover:shadow-md w-full sm:w-auto text-center"
               >
-                Request a Fixed-Fee Quote <ArrowRightIcon className="w-4 h-4 shrink-0 transition-transform group-hover:translate-x-1" />
+                Request a Site Assessment <ArrowRightIcon className="w-4 h-4 shrink-0 transition-transform group-hover:translate-x-1" />
               </Link>
               <Link
                 href="/contact"
                 className="group relative px-6 sm:px-8 py-3.5 text-sm sm:text-base font-medium text-slate-950 bg-white border border-slate-950 overflow-hidden flex items-center justify-center gap-2 rounded-full hover:bg-gray-50 transition-colors shadow-sm hover:shadow-md w-full sm:w-auto text-center"
               >
-                Professional Enquiry <ArrowRightIcon className="w-4 h-4 shrink-0 transition-transform group-hover:translate-x-1" />
+                Subcontract &amp; B2B Enquiries <ArrowRightIcon className="w-4 h-4 shrink-0 transition-transform group-hover:translate-x-1" />
               </Link>
             </motion.div>
           </motion.div>
         </div>
       </section>
 
-      {/* Thin Line Separator */}
-      <div className="w-full h-px bg-gray-200" />
+      {/* The Trust Strip */}
+      <div className="w-full border-y border-gray-200 bg-gray-50 py-4 text-center px-4">
+        <p className="text-xs sm:text-sm font-medium text-slate-800 tracking-wide">
+          <span className="text-forest-green">★★★★★</span> Five-Star Reviews · Third Party NATA Lab Testing · Engineers Australia Member · PI &amp; PL Insured · Sydney-Based Consultancy
+        </p>
+      </div>
 
       {/* Main Service Sections */}
       <section className="py-24 px-6 lg:px-12 max-w-7xl mx-auto">
@@ -362,7 +364,7 @@ export default function Home() {
             </div>
             <h3 className="text-xl font-montserrat font-semibold mb-3 tracking-tight">Drilling & Sampling Services</h3>
             <p className="text-sm text-gray-600 font-light leading-relaxed flex-grow mb-6">
-              The core of our field capability. We operate specialized, highly mobile rigs for auger drilling, tight-access drilling, and DCP testing across the Sydney Metro. We conduct in-situ testing for our own investigations and provide specialist drilling services to consulting firms requiring additional capacity. We also extract precise soil and groundwater samples to support environmental consultants undertaking Stage 1 & Stage 2 investigations (PSI & DSI).
+              Our 4WD Mounted Drill Rig mobilises rapidly across the Sydney Metro. From prestige North Shore sites to tight Inner West terraces. For zero-clearance locations, internal courtyards, and rear-yard investigations, we deploy manual augers and in-situ testing that extract the same quality data without machinery access.
             </p>
             <Link 
               href="/drilling-and-sampling#drilling" 

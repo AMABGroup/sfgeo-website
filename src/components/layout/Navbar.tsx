@@ -36,7 +36,7 @@ export default function Navbar() {
       sublinks: [
         { name: "Borehole Drilling", href: "/drilling-and-sampling#drilling" },
         { name: "Environmental Sampling", href: "/drilling-and-sampling#environmental" },
-        { name: "Limited Access Specialist", href: "/drilling-and-sampling#tight-access" }
+        { name: "Tight Access Sites", href: "/drilling-and-sampling#tight-access" }
       ]
     },
     { name: "FAQ", href: "/faq" },

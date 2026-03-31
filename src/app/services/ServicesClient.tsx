@@ -103,7 +103,7 @@ export default function ServicesClient() {
           </motion.h1>
           
           <motion.p variants={fadeIn} className="text-xl text-gray-500 font-light leading-relaxed max-w-2xl mb-16">
-            Based in Marrickville and servicing Parramatta, Western Sydney, and the wider metropolitan region, we bring commercial-grade geotechnical expertise to residential and mid-scale commercial projects. As a proudly family-owned Sydney consultancy, we bridge the gap between the ground investigation and the build. We deliver site-specific soil parameters and practical advice for builders, contractors, engineers, and homeowners.
+            Based in Marrickville and mobilising 4WD across the Sydney Metro, we bring infrastructure-grade geotechnical expertise to residential and commercial projects. Delivered with the personal attention that only an independent, locally-owned practice can offer.<br/><br/>Every service is scoped and delivered by our Principal. No subcontracted fieldwork, no templated reports. Site-specific data, signed by the Engineer who was on your ground.
           </motion.p>
         </motion.div>
       </section>
@@ -288,7 +288,7 @@ export default function ServicesClient() {
           <div className="w-full md:w-1/2">
             <h2 className="text-3xl font-light tracking-tight font-montserrat text-slate-950 mb-6">Our Trusted Partner Network</h2>
             <p className="text-lg text-gray-600 font-light leading-loose mb-8">
-              As a proudly Sydney-bred small business, we believe in supporting the local ecosystem. Over the years, we have built a trusted network of highly reputable professionals who understand how to utilize precise, practical geotechnical data. If your project needs a collaborative team, we are happy to make a tailored introduction.
+              As a proudly Sydney-bred small business, we believe in supporting the local ecosystem. Over the years, we have built a trusted network of highly reputable professionals who understand how to utilize precise, practical geotechnical data. If your project needs a collaborative team, we are happy to make a site-specific introduction.
             </p>
             <motion.div variants={fadeIn}>
               <Link href="/contact" 
