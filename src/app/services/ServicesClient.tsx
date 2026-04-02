@@ -131,13 +131,11 @@ export default function ServicesClient() {
             <p className="text-lg text-gray-600 font-light leading-loose mb-8">
               Most people know it as a "soil report" or "geotechnical report"—in engineering terms, it's a Site Classification. Whether you are planning a simple house extension, a granny flat, a duplex, or a high-end architecturally designed home, we know Sydney ground conditions. We provide the site-specific AS2870 classifications and soil parameters to support your structural engineer’s footing design, helping your DA or CDC documentation pathway move forward with less guesswork.
             </p>
-            <motion.div variants={fadeIn}>
               <Link href="/contact" 
                 className="inline-flex items-center px-8 py-3.5 bg-forest-green text-white text-sm font-semibold tracking-wide rounded-full shadow-md hover:shadow-lg transition-all hover:-translate-y-0.5 hover:bg-forest-green/90 mb-2"
               >
                 Get a Fixed-Fee Quote
               </Link>
-            </motion.div>
             <ExpandableDetails 
               title="View Scope: AS2870, Lot Classifications & Testing"
               items={[

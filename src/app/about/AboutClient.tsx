@@ -188,7 +188,7 @@ export default function AboutClient() {
             Our Foundation & Mission
           </h2>
           <p className="text-lg text-gray-600 font-light leading-loose mb-6">
-            SFGEO is a locally-owned, independent geotechnical consultancy based in Marrickville, built on 15 years of hands-on Sydney experience across residential projects, bespoke architectural homes, and landmark infrastructure.
+            SFGEO is a locally-owned, independent geotechnical consultancy based in Marrickville, built on 15 years of hands-on Sydney experience across residential <Link href="/services" className="text-forest-green hover:underline">site classifications</Link>, bespoke architectural homes, and landmark infrastructure.
           </p>
           <p className="text-lg text-gray-600 font-light leading-loose mb-6">
             We were founded on a straightforward belief: that clients deserve direct access to a professional that cares about their project, not a corporate firm that passes your project down the chain. When you work with SFGEO, you work with our consultants, start to finish.

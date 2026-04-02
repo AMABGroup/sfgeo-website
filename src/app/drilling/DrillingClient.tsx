@@ -117,7 +117,7 @@ export default function DrillingClient() {
           <div className="w-full md:w-1/2 relative aspect-[4/3] rounded-sm overflow-hidden bg-gray-100 shadow-sm group">
             <Image 
               src="/4wd-geotechnical-drilling-rig-residential-sydney-mobilisation.jpg" 
-              alt="Suburban geotechnical drilling mobilization in Leppington by SFGEO." 
+              alt="Toyota Land Cruiser Drillman rig geotechnical drilling Sydney Metro" 
               fill 
               sizes="(max-width: 768px) 100vw, 50vw"
               quality={75}
@@ -125,7 +125,7 @@ export default function DrillingClient() {
             />
             <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-6 text-center">
               <p className="text-white text-sm md:text-base font-semibold tracking-widest uppercase">
-                Site Classification & Geotechnical Investigation Drilling | Sydney Metro
+                Site Classification & <Link href="/services" className="hover:underline">Geotechnical Investigation</Link> Drilling | Sydney Metro
               </p>
             </div>
           </div>
@@ -168,7 +168,7 @@ export default function DrillingClient() {
           <div className="w-full md:w-1/2 relative aspect-[4/3] rounded-sm overflow-hidden bg-gray-100 shadow-sm group">
             <Image 
               src="/tight-access-track-rig-excavator.jpg" 
-              alt="Tight-access track rig and basement drilling operations in Glenhaven." 
+              alt="Restricted access drilling Inner West Sydney residential site" 
               fill 
               className="object-cover transition-transform duration-1000 ease-in-out group-hover:scale-105" 
             />
@@ -217,7 +217,7 @@ export default function DrillingClient() {
           <div className="w-full md:w-1/2 relative aspect-[4/3] rounded-sm overflow-hidden bg-gray-100 shadow-sm group">
             <Image 
               src="/environmental-soil-groundwater-sampling-rock-logging-geotechnical-engineer.jpg" 
-              alt="Geotechnical engineer logging soil and rock samples during environmental fieldwork." 
+              alt="Environmental soil and groundwater sampling PSI DSI fieldwork Sydney" 
               fill 
               sizes="(max-width: 768px) 100vw, 50vw"
               quality={75}
