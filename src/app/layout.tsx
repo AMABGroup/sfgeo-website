@@ -17,7 +17,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Geotechnical Engineer Sydney | Site Classifications AS 2870 | Geotechnical Investigation AS 1726 | Third Party NATA Accredited Testing | SFGEO",
+  title: "Geotechnical Engineer Sydney | Locally-Owned, NATA Lab-Backed | SFGEO",
   description: "Sydney's locally owned geotechnical consultancy. Site Classifications, Geotechnical investigations, and Geotechnical/Environmental Drilling. Principal Engineer led, backed by NATA-accredited lab results. Fixed-fee quotes.",
   keywords: [
     "Geotechnical Engineer Sydney",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     canonical: 'https://www.sfgeo.com.au',
   },
   openGraph: {
-    title: "Geotechnical Engineer Sydney | Site Classifications AS 2870 | Geotechnical Investigation AS 1726 | Third Party NATA Accredited Testing | SFGEO",
+    title: "Geotechnical Engineer Sydney | Locally-Owned, NATA Lab-Backed | SFGEO",
     description: "Sydney's locally owned geotechnical consultancy. Site Classifications, Geotechnical investigations, and Geotechnical/Environmental Drilling. Principal Engineer led, backed by NATA-accredited lab results. Fixed-fee quotes.",
     url: "https://www.sfgeo.com.au",
     siteName: "SFGEO",
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Geotechnical Engineer Sydney | Site Classifications AS 2870 | Geotechnical Investigation AS 1726 | Third Party NATA Accredited Testing | SFGEO",
+    title: "Geotechnical Engineer Sydney | Locally-Owned, NATA Lab-Backed | SFGEO",
     description: "Sydney's locally owned geotechnical consultancy. Site Classifications, Geotechnical investigations, and Geotechnical/Environmental Drilling. Principal Engineer led, backed by NATA-accredited lab results. Fixed-fee quotes.",
   },
 };

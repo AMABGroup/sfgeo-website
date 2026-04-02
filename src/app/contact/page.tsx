@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Contact Our Sydney Geotechnical Engineers | SFGEO",
-  description: "Get in touch for bespoke fixed-price fee proposals, site classifications, or urgent construction inspections. We cover the entire Greater Sydney Metro area.",
+  description: "Speak directly with a Sydney geotechnical consultant. Fixed-fee quotes for site classifications, investigations, and drilling services across Greater Sydney.",
 };
 
 export default function ContactPage() {
@@ -76,6 +76,9 @@ export default function ContactPage() {
                    </span>
                    <span className="text-xl sm:text-2xl font-montserrat font-semibold text-slate-950 group-hover:text-forest-green transition-colors">info@sfgeo.com.au</span>
                 </a>
+                <p className="text-sm text-gray-500 font-light leading-relaxed mt-2 pl-2 md:pl-4">
+                  To help us prepare your fixed-fee scope, please include your site address, project type, and proposed start date when you get in touch.
+                </p>
               </div>
             </div>
 
@@ -97,7 +100,7 @@ export default function ContactPage() {
                   Trading Hours
                 </h4>
                 <div className="grid grid-cols-[auto_1fr] gap-x-6 gap-y-2 text-base text-slate-950 w-full mt-1">
-                  <span className="font-medium tracking-wide">Mon - Fri:</span>
+                  <span className="font-medium tracking-wide">Mon–Fri:</span>
                   <span className="font-light text-gray-500 whitespace-nowrap">6:00 AM – 6:00 PM</span>
                   
                   <span className="font-medium tracking-wide">Saturday:</span>
@@ -133,7 +136,7 @@ export default function ContactPage() {
                 </div>
                 
                 <h3 className="text-3xl sm:text-4xl font-montserrat font-semibold text-slate-950 mb-6 leading-tight max-w-sm">
-                  Trusted by builders and developers across Sydney.
+                  Trusted by homeowners, architects & builders across Sydney.
                 </h3>
                 
                 <p className="text-gray-600 font-light text-lg mb-10 leading-relaxed">

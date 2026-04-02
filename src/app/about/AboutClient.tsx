@@ -160,14 +160,14 @@ export default function AboutClient() {
                 href="/contact"
                 className="group relative px-8 py-3.5 font-medium text-white bg-slate-950 overflow-hidden flex items-center gap-2 rounded-full hover:bg-slate-800 transition-colors shadow-sm hover:shadow-md"
               >
-                Request a Fixed-Fee Quote{" "}
+                Request a Site Assessment{" "}
                 <ArrowRightIcon className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </Link>
               <Link
                 href="/contact"
                 className="group relative px-8 py-3.5 font-medium text-slate-950 bg-white border border-slate-950 overflow-hidden flex items-center gap-2 rounded-full hover:bg-gray-50 transition-colors shadow-sm hover:shadow-md"
               >
-                Talk to a Geotechnical Engineer{" "}
+                Speak to an Engineer{" "}
                 <ArrowRightIcon className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </Link>
             </motion.div>
@@ -191,7 +191,7 @@ export default function AboutClient() {
             SFGEO is a locally-owned, independent geotechnical consultancy based in Marrickville, built on 15 years of hands-on Sydney experience across residential projects, bespoke architectural homes, and landmark infrastructure.
           </p>
           <p className="text-lg text-gray-600 font-light leading-loose mb-6">
-            We were founded on a straightforward belief: that clients deserve direct access to a professional that cares about their project, not a corporate firm that delegates your key foundation parameters to junior staff. When you work with SFGEO, you work with our experienced team, start to finish.
+            We were founded on a straightforward belief: that clients deserve direct access to a professional that cares about their project, not a corporate firm that passes your project down the chain. When you work with SFGEO, you work with our consultants, start to finish.
           </p>
           <p className="text-lg text-gray-600 font-light leading-loose">
             Our Principal Engineer has contributed to Sydney Gateway, the M12 Motorway, Western Sydney Airport, and the Canterbury Aquatic Centre. That depth of experience now serves your project with the responsiveness, transparency, and personal care that only an independent practice can offer.
@@ -232,10 +232,10 @@ export default function AboutClient() {
             className="bg-white p-10 rounded-none border-[1px] border-gray-200 shadow-none hover:shadow-[0_10px_30px_rgba(0,0,0,0.08)] transition-all duration-500 hover:-translate-y-1"
           >
             <h3 className="text-xl font-bold font-montserrat mb-4 tracking-tight">
-              You Work Your Consultant
+              Direct Access. Always.
             </h3>
             <p className="text-gray-600 font-light leading-relaxed">
-              Your project is handled in-house from first enquiry to final sign-off. We don't hand your site down to subcontractors to interpret.
+              Call us, email us, turn up. You reach your consultant directly — no admin queues, no message chains.
             </p>
           </motion.div>
 
@@ -244,10 +244,10 @@ export default function AboutClient() {
             className="bg-white p-10 rounded-none border-[1px] border-gray-200 shadow-none hover:shadow-[0_10px_30px_rgba(0,0,0,0.08)] transition-all duration-500 hover:-translate-y-1"
           >
             <h3 className="text-xl font-bold font-montserrat mb-4 tracking-tight">
-              Marrickville-Based. Sydney-Bred.
+              Sydney Is Our Backyard.
             </h3>
             <p className="text-gray-600 font-light leading-relaxed">
-              We're based in Marrickville and we've spent 15 years in Sydney construction learning this city's diverse ground conditions.
+              Locally owned, locally based. We know Sydney's ground conditions, its councils, and its sites — because we've worked them for 15 years.
             </p>
           </motion.div>
 
@@ -256,10 +256,10 @@ export default function AboutClient() {
             className="bg-white p-10 rounded-none border-[1px] border-gray-200 shadow-none hover:shadow-[0_10px_30px_rgba(0,0,0,0.08)] transition-all duration-500 hover:-translate-y-1"
           >
             <h3 className="text-xl font-bold font-montserrat mb-4 tracking-tight">
-              Fast. Because Delays Cost Money.
+              On Site. On Time. On Call.
             </h3>
             <p className="text-gray-600 font-light leading-relaxed">
-              No corporate sign-off chains, no scheduling queues. We mobilise quickly and deliver reports on schedule.
+              We mobilise fast, deliver reports quickly, and pick up the phone when you need an answer. Quality work, without the wait.
             </p>
           </motion.div>
         </motion.div>

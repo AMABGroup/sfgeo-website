@@ -127,7 +127,7 @@ export default function ServicesClient() {
             </div>
           </div>
           <div className="w-full md:w-1/2">
-            <h2 className="text-3xl font-light tracking-tight font-montserrat text-slate-950 mb-6">Site Classification & Soil Reports for Homeowners</h2>
+            <h2 className="text-3xl font-light tracking-tight font-montserrat text-slate-950 mb-6">Site Classification & Soil Reports for Homeowners, Builders & Designers</h2>
             <p className="text-lg text-gray-600 font-light leading-loose mb-8">
               Most people know it as a "soil report" or "geotechnical report"—in engineering terms, it's a Site Classification. Whether you are planning a simple house extension, a granny flat, a duplex, or a high-end architecturally designed home, we know Sydney ground conditions. We provide the site-specific AS2870 classifications and soil parameters to support your structural engineer’s footing design, helping your DA or CDC documentation pathway move forward with less guesswork.
             </p>
@@ -166,7 +166,7 @@ export default function ServicesClient() {
             </div>
           </div>
           <div className="w-full md:w-1/2">
-            <h2 className="text-3xl font-light tracking-tight font-montserrat text-slate-950 mb-6">Comprehensive Geotechnical Investigations</h2>
+            <h2 className="text-3xl font-light tracking-tight font-montserrat text-slate-950 mb-6">Comprehensive Geotechnical & Pavement Investigations</h2>
             <p className="text-lg text-gray-600 font-light leading-loose mb-8">
               Built from real, ground-up experience spanning the trades, drilling, and senior engineering, we understand what is happening below your site surface. From our Sydney team, we carry out comprehensive geotechnical investigations for residential, commercial, and land development projects. We define subsurface conditions through boreholes and test pits, providing reliable parameters to support foundation design, excavation planning, and site remediation.
             </p>
@@ -206,7 +206,7 @@ export default function ServicesClient() {
             </div>
           </div>
           <div className="w-full md:w-1/2">
-            <h2 className="text-3xl font-light tracking-tight font-montserrat text-slate-950 mb-6">Construction Phase Support & Inspections</h2>
+            <h2 className="text-3xl font-light tracking-tight font-montserrat text-slate-950 mb-6">Construction Phase Support, Site Inspections & Testing</h2>
             <p className="text-lg text-gray-600 font-light leading-loose mb-8">
               We know that open trenches and idle machinery cost our local builders money. We provide highly responsive, practical site support across Greater Sydney. By delivering timely geotechnical site assessment findings and verification during the build, we help reduce avoidable delays and keep works progressing safely on site.
             </p>
@@ -247,7 +247,7 @@ export default function ServicesClient() {
             </div>
           </div>
           <div className="w-full md:w-1/2">
-            <h2 className="text-3xl font-light tracking-tight font-montserrat text-slate-950 mb-6">Geotechnical Inputs for Complex Design</h2>
+            <h2 className="text-3xl font-light tracking-tight font-montserrat text-slate-950 mb-6">Geotechnical Design & Parameters</h2>
             <p className="text-lg text-gray-600 font-light leading-loose mb-8">
               We partner with top structural and civil engineers, supplying the critical foundational data they rely on. We do not provide the structural design ourselves; instead, we deliver the site-specific geotechnical inputs and parameters your design team may use to engineer safe, efficient, and commercially sensible solutions for complex builds.
             </p>
@@ -288,7 +288,7 @@ export default function ServicesClient() {
           <div className="w-full md:w-1/2">
             <h2 className="text-3xl font-light tracking-tight font-montserrat text-slate-950 mb-6">Our Trusted Partner Network</h2>
             <p className="text-lg text-gray-600 font-light leading-loose mb-8">
-              As a proudly Sydney-bred small business, we believe in supporting the local ecosystem. Over the years, we have built a trusted network of highly reputable professionals who understand how to utilize precise, practical geotechnical data. If your project needs a collaborative team, we are happy to make a site-specific introduction.
+              As a proudly Sydney-bred independent practice, we believe in supporting the local ecosystem. Over the years, we have built a trusted network of highly reputable professionals who understand how to utilize precise, practical geotechnical data. If your project needs a collaborative team, we are happy to make a site-specific introduction.
             </p>
             <motion.div variants={fadeIn}>
               <Link href="/contact" 

@@ -28,8 +28,8 @@ export default function Footer() {
                     </Link>
                   </li>
                   <li>
-                    <Link href="/drilling-and-sampling" className="text-sm leading-6 text-gray-300 hover:text-white transition-colors tracking-wide">
-                      Drilling &amp; Sampling
+                    <Link href="/drilling" className="text-sm leading-6 text-gray-300 hover:text-white transition-colors tracking-wide">
+                      Drilling Services
                     </Link>
                   </li>
                 </ul>

@@ -104,7 +104,7 @@ export default function DrillingClient() {
           </motion.h1>
           
           <motion.p variants={fadeIn} className="text-xl text-gray-500 font-light leading-relaxed max-w-2xl mb-16">
-            Headquartered in Marrickville with rapid mobilisation across the Sydney Metro, we provide dual-audience field support for environmental consultants and residential builders.
+            Headquartered in Marrickville with rapid mobilisation across the Sydney Metro, we provide specialist drilling and sampling support for environmental consultants, geotechnical firms, and residential projects across Sydney.
           </motion.p>
         </motion.div>
       </section>
@@ -179,7 +179,7 @@ export default function DrillingClient() {
             </div>
           </div>
           <div className="w-full md:w-1/2">
-            <h2 className="text-3xl font-light tracking-tight font-montserrat text-slate-950 mb-8">Tight-Access & Restricted Access Specialists</h2>
+            <h2 className="text-3xl font-light tracking-tight font-montserrat text-slate-950 mb-8">Tight & Restricted Access Drilling</h2>
             <div className="text-lg text-gray-600 font-light leading-relaxed space-y-6 mb-10">
               <p>
                 We specialise in narrow, restricted-access urban sites. From the heritage terraces of the Inner West to the steep, tight boundaries of the Eastern Suburbs, access shouldn't compromise your engineering data.
@@ -230,7 +230,7 @@ export default function DrillingClient() {
             </div>
           </div>
           <div className="w-full md:w-1/2">
-            <h2 className="text-3xl font-light tracking-tight font-montserrat text-slate-950 mb-8">Environmental Sampling for PSI/DSI Programs</h2>
+            <h2 className="text-3xl font-light tracking-tight font-montserrat text-slate-950 mb-8">Environmental Sampling for PSI/DSI, VENM/ENM & Waste Classification</h2>
             <div className="text-lg text-gray-600 font-light leading-relaxed space-y-6 mb-10">
               <p>
                 Environmental investigations stall when fieldwork falls short. We provide precise, reliable fieldwork for environmental consultants and project managers undertaking contaminated land assessments.

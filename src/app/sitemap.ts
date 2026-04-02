@@ -7,7 +7,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '',
     '/about',
     '/services',
-    '/drilling-and-sampling',
+    '/drilling',
     '/faq',
     '/contact',
     '/privacy-policy',

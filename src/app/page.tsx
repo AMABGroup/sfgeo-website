@@ -189,12 +189,11 @@ export default function Home() {
               className="text-5xl tracking-tight sm:text-7xl font-montserrat font-light text-slate-950 leading-[1.1]"
             >
               Geotechnical <br className="hidden sm:block" />
-              Done Properly. <br className="hidden sm:block" />
-              <span className="font-semibold">Built On Local Expertise.</span>
+              <span className="font-semibold">Done Properly.</span>
             </motion.h1>
             <motion.div variants={fadeIn} className="mt-8 h-px bg-slate-black/20 w-1/4" />
-            <motion.p variants={fadeIn} className="text-xl sm:text-2xl text-gray-600 font-light leading-relaxed mb-6 max-w-3xl">
-              Solid Foundation Geotechnical is a locally-owned, independent Sydney consultancy. Your project is handled by the Principal Engineer, from first drilled borehole to concrete pour. NATA lab-backed. Fixed-fee quotes. No corporate overhead.
+            <motion.p variants={fadeIn} className="text-lg sm:text-xl text-gray-600 font-light leading-relaxed mb-6 max-w-3xl">
+              Solid Foundation Geotechnical is a locally-owned, independent Sydney consultancy. Built on local expertise, we are your trusted consulting engineers. There from discussing ideas with your architect to the day your slab is poured, making sure it's built right. NATA lab-backed. Fixed-fee quotes. No corporate overhead.
             </motion.p>
             <motion.div variants={fadeIn} className="mt-12 flex flex-col sm:flex-row items-start sm:items-center gap-6">
               <Link
@@ -214,12 +213,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* The Trust Strip */}
-      <div className="w-full border-y border-gray-200 bg-gray-50 py-4 text-center px-4">
-        <p className="text-xs sm:text-sm font-medium text-slate-800 tracking-wide">
-          <span className="text-forest-green">★★★★★</span> Five-Star Reviews · Third Party NATA Lab Testing · Engineers Australia Member · PI &amp; PL Insured · Sydney-Based Consultancy
-        </p>
-      </div>
 
       {/* Main Service Sections */}
       <section className="py-24 px-6 lg:px-12 max-w-7xl mx-auto">
@@ -232,7 +225,7 @@ export default function Home() {
         >
           <div>
             <motion.h2 variants={fadeIn} className="text-3xl font-light tracking-tight sm:text-4xl font-montserrat">
-              Geotechnical Services | <span className="font-semibold">Drilling & Sampling</span>
+              Geotechnical Services | <span className="font-semibold">Drilling Services</span>
             </motion.h2>
             <motion.div variants={fadeIn} className="mt-4 h-px bg-forest-green w-12" />
           </div>
@@ -362,15 +355,15 @@ export default function Home() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </div>
-            <h3 className="text-xl font-montserrat font-semibold mb-3 tracking-tight">Drilling & Sampling Services</h3>
+            <h3 className="text-xl font-montserrat font-semibold mb-3 tracking-tight">Drilling Services</h3>
             <p className="text-sm text-gray-600 font-light leading-relaxed flex-grow mb-6">
-              Our 4WD Mounted Drill Rig mobilises rapidly across the Sydney Metro. From prestige North Shore sites to tight Inner West terraces. For zero-clearance locations, internal courtyards, and rear-yard investigations, we deploy manual augers and in-situ testing that extract the same quality data without machinery access.
+              Our 4WD Mounted Drill Rig mobilises rapidly across the Sydney Metro. From prestige North Shore sites to tight Inner West terraces. For zero-clearance locations, internal courtyards, and rear-yard investigations, we deploy motorised hand augers and in-situ testing that extract the same quality data without machinery access.
             </p>
             <Link 
-              href="/drilling-and-sampling#drilling" 
+              href="/drilling#drilling" 
               className="mt-auto text-sm font-medium tracking-wide flex items-center gap-1.5 text-slate-950 hover:text-forest-green transition-colors group/link"
               title="Learn more about our Tight-Access Drilling & Environmental Sampling Services in Sydney Metro"
-              aria-label="Explore Drilling & Sampling Services"
+              aria-label="Explore Drilling Services"
             >
               <span className="relative overflow-hidden">
                 Explore Drilling Services &rarr;
