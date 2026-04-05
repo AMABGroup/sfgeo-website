@@ -31,12 +31,12 @@ export default function Navbar() {
       ]
     },
     { 
-      name: "Drilling & Sampling", 
-      href: "/drilling-and-sampling",
+      name: "Drilling Services", 
+      href: "/drilling",
       sublinks: [
-        { name: "Borehole Drilling", href: "/drilling-and-sampling#drilling" },
-        { name: "Environmental Sampling", href: "/drilling-and-sampling#environmental" },
-        { name: "Limited Access Specialist", href: "/drilling-and-sampling#tight-access" }
+        { name: "Borehole Drilling", href: "/drilling#drilling" },
+        { name: "Environmental Sampling", href: "/drilling#environmental" },
+        { name: "Tight Access Sites", href: "/drilling#tight-access" }
       ]
     },
     { name: "FAQ", href: "/faq" },

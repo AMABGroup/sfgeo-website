@@ -160,14 +160,14 @@ export default function AboutClient() {
                 href="/contact"
                 className="group relative px-8 py-3.5 font-medium text-white bg-slate-950 overflow-hidden flex items-center gap-2 rounded-full hover:bg-slate-800 transition-colors shadow-sm hover:shadow-md"
               >
-                Request a Fixed-Fee Quote{" "}
+                Request a Site Assessment{" "}
                 <ArrowRightIcon className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </Link>
               <Link
                 href="/contact"
                 className="group relative px-8 py-3.5 font-medium text-slate-950 bg-white border border-slate-950 overflow-hidden flex items-center gap-2 rounded-full hover:bg-gray-50 transition-colors shadow-sm hover:shadow-md"
               >
-                Talk to a Geotechnical Engineer{" "}
+                Speak to an Engineer{" "}
                 <ArrowRightIcon className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </Link>
             </motion.div>
@@ -188,13 +188,13 @@ export default function AboutClient() {
             Our Foundation & Mission
           </h2>
           <p className="text-lg text-gray-600 font-light leading-loose mb-6">
-            I founded Solid Foundation Geotechnical (SFGEO) to bridge a gap I kept seeing in the industry. After a career spanning the construction trades, geotechnical drilling, and senior engineering roles on major commercial projects, I saw residential clients and local builders receiving conservative, heavily caveated reports that didn't reflect actual site conditions—and paying for structural designs to match.
+            SFGEO is a locally-owned, independent geotechnical consultancy based in Marrickville, built on 15 years of hands-on Sydney experience across residential <Link href="/services" className="text-forest-green hover:underline">site classifications</Link>, bespoke architectural homes, and landmark infrastructure.
           </p>
           <p className="text-lg text-gray-600 font-light leading-loose mb-6">
-            SFGEO was built to bring commercial-grade geotechnical expertise into the residential and local building space. As a proud small business, we understand the pressures that local builders, developers, and fellow consultants face. We actively partner with and support other local businesses by providing the precise, site-specific soil parameters that give your structural engineer the confidence to right-size their design.
+            We were founded on a straightforward belief: that clients deserve direct access to a professional that cares about their project, not a corporate firm that passes your project down the chain. When you work with SFGEO, you work with our consultants, start to finish.
           </p>
           <p className="text-lg text-gray-600 font-light leading-loose">
-            Our mission is to deliver practical, plain-English advice that connects the dirt to the build, keeping your foundation costs grounded in what the site actually needs—not just in our report, but throughout your entire construction process.
+            Our Principal Engineer has contributed to Sydney Gateway, the M12 Motorway, Western Sydney Airport, and the Canterbury Aquatic Centre. That depth of experience now serves your project with the responsiveness, transparency, and personal care that only an independent practice can offer.
           </p>
         </motion.div>
 
@@ -232,10 +232,10 @@ export default function AboutClient() {
             className="bg-white p-10 rounded-none border-[1px] border-gray-200 shadow-none hover:shadow-[0_10px_30px_rgba(0,0,0,0.08)] transition-all duration-500 hover:-translate-y-1"
           >
             <h3 className="text-xl font-bold font-montserrat mb-4 tracking-tight">
-              Direct Access
+              Direct Access. Always.
             </h3>
             <p className="text-gray-600 font-light leading-relaxed">
-              Principal-led from start to finish, with direct access from initial site consult, until handover and you recieve the keys.
+              Call us, email us, turn up. You reach your consultant directly — no admin queues, no message chains.
             </p>
           </motion.div>
 
@@ -244,10 +244,10 @@ export default function AboutClient() {
             className="bg-white p-10 rounded-none border-[1px] border-gray-200 shadow-none hover:shadow-[0_10px_30px_rgba(0,0,0,0.08)] transition-all duration-500 hover:-translate-y-1"
           >
             <h3 className="text-xl font-bold font-montserrat mb-4 tracking-tight">
-              Responsive & Local
+              Sydney Is Our Backyard.
             </h3>
             <p className="text-gray-600 font-light leading-relaxed">
-              Based in Marrickville and working across Sydney Metro and Greater Sydney. From North Shore sandstone to Western Sydney reactive clays.
+              Locally owned, locally based. We know Sydney's ground conditions, its councils, and its sites — because we've worked them for 15 years.
             </p>
           </motion.div>
 
@@ -256,10 +256,10 @@ export default function AboutClient() {
             className="bg-white p-10 rounded-none border-[1px] border-gray-200 shadow-none hover:shadow-[0_10px_30px_rgba(0,0,0,0.08)] transition-all duration-500 hover:-translate-y-1"
           >
             <h3 className="text-xl font-bold font-montserrat mb-4 tracking-tight">
-              Agile & Cost-Effective
+              On Site. On Time. On Call.
             </h3>
             <p className="text-gray-600 font-light leading-relaxed">
-              Lean, fixed-fee service with practical geotechnical advice for efficient, cost-conscious project decisions.
+              We mobilise fast, deliver reports quickly, and pick up the phone when you need an answer. Quality work, without the wait.
             </p>
           </motion.div>
         </motion.div>
@@ -433,7 +433,7 @@ export default function AboutClient() {
             <motion.div variants={fadeIn} className="mt-4 h-px bg-forest-green w-12" />
           </div>
           <motion.p variants={fadeIn} className="text-sm text-gray-500 max-w-md font-light leading-relaxed">
-            SFGEO strictly complies with AS1726, AS2870, and AS3798, with fieldwork and reporting fully tailored to meet Sydney Water, local Council, and CDC requirements.
+            SFGEO strictly complies with AS1726, AS2870, and AS3798, with fieldwork and reporting fully site-specific to meet Sydney Water, local Council, and CDC requirements.
           </motion.p>
         </motion.div>
 

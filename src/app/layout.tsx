@@ -17,8 +17,8 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Geotechnical Engineer Sydney | Soil Testing & Site Classifications | SFGEO",
-  description: "SFGEO bridges the gap between the dirt and the build. Boutique geotechnical engineering & drilling in Sydney. Practical advice and precise soil parameters.",
+  title: "Geotechnical Engineer Sydney | Locally-Owned, NATA Lab-Backed | SFGEO",
+  description: "Sydney's locally owned geotechnical consultancy. Site Classifications, Geotechnical investigations, and Geotechnical/Environmental Drilling. Principal Engineer led, backed by NATA-accredited lab results. Fixed-fee quotes.",
   keywords: [
     "Geotechnical Engineer Sydney",
     "Soil Testing Sydney",
@@ -42,8 +42,8 @@ export const metadata: Metadata = {
     canonical: 'https://www.sfgeo.com.au',
   },
   openGraph: {
-    title: "Geotechnical Engineer Sydney | Soil Testing & Site Classifications | SFGEO",
-    description: "Expert Soil Testing, Site Classifications, and Geotechnical Reports across Sydney. Specialized in residential and tight-access projects.",
+    title: "Geotechnical Engineer Sydney | Locally-Owned, NATA Lab-Backed | SFGEO",
+    description: "Sydney's locally owned geotechnical consultancy. Site Classifications, Geotechnical investigations, and Geotechnical/Environmental Drilling. Principal Engineer led, backed by NATA-accredited lab results. Fixed-fee quotes.",
     url: "https://www.sfgeo.com.au",
     siteName: "SFGEO",
     locale: "en_AU",
@@ -51,8 +51,11 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Geotechnical Engineer Sydney | Soil Testing & Site Classifications | SFGEO",
-    description: "Expert Soil Testing, Site Classifications, and Geotechnical Reports across Sydney.",
+    title: "Geotechnical Engineer Sydney | Locally-Owned, NATA Lab-Backed | SFGEO",
+    description: "Sydney's locally owned geotechnical consultancy. Site Classifications, Geotechnical investigations, and Geotechnical/Environmental Drilling. Principal Engineer led, backed by NATA-accredited lab results. Fixed-fee quotes.",
+  },
+  icons: {
+    icon: "/favicon.png",
   },
 };
 

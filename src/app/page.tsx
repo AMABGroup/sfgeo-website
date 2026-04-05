@@ -164,7 +164,7 @@ export default function Home() {
         <div className="absolute inset-0 z-0">
           <Image
             src="/img_0078_v3.png"
-            alt="Geotechnical Engineering Sydney - SFGEO Skyline View"
+            alt="Sydney geotechnical engineer site assessment — SFGEO"
             fill
             className="object-cover"
             priority
@@ -189,35 +189,30 @@ export default function Home() {
               className="text-5xl tracking-tight sm:text-7xl font-montserrat font-light text-slate-950 leading-[1.1]"
             >
               Geotechnical <br className="hidden sm:block" />
-              Clarity. <span className="font-semibold">Built On</span> <br className="hidden sm:block" />
-              <span className="font-semibold">Local Expertise.</span>
+              <span className="font-semibold">Done Properly.</span>
             </motion.h1>
             <motion.div variants={fadeIn} className="mt-8 h-px bg-slate-black/20 w-1/4" />
-            <motion.p variants={fadeIn} className="text-xl sm:text-2xl text-gray-600 font-light leading-relaxed mb-6 max-w-3xl">
-              Solid Foundation Geotechnical is a boutique Sydney <br className="hidden sm:block" />
-              consultancy delivering tailored site classifications and <br className="hidden sm:block" />
-              soil testing for homeowners, architects, and builders.
+            <motion.p variants={fadeIn} className="text-lg sm:text-xl text-gray-600 font-light leading-relaxed mb-6 max-w-3xl">
+              Solid Foundation Geotechnical is a locally-owned, independent Sydney consultancy. Built on local expertise, we are your trusted consulting engineers. There from discussing ideas with your architect to the day your slab is poured, making sure it's built right. NATA lab-backed. Fixed-fee quotes. No corporate overhead.
             </motion.p>
             <motion.div variants={fadeIn} className="mt-12 flex flex-col sm:flex-row items-start sm:items-center gap-6">
               <Link
                 href="/contact"
                 className="group relative px-6 sm:px-8 py-3.5 text-sm sm:text-base font-medium text-white bg-slate-950 overflow-hidden flex items-center justify-center gap-2 rounded-full hover:bg-slate-800 transition-colors shadow-sm hover:shadow-md w-full sm:w-auto text-center"
               >
-                Request a Fixed-Fee Quote <ArrowRightIcon className="w-4 h-4 shrink-0 transition-transform group-hover:translate-x-1" />
+                Request a Site Assessment <ArrowRightIcon className="w-4 h-4 shrink-0 transition-transform group-hover:translate-x-1" />
               </Link>
               <Link
                 href="/contact"
                 className="group relative px-6 sm:px-8 py-3.5 text-sm sm:text-base font-medium text-slate-950 bg-white border border-slate-950 overflow-hidden flex items-center justify-center gap-2 rounded-full hover:bg-gray-50 transition-colors shadow-sm hover:shadow-md w-full sm:w-auto text-center"
               >
-                Professional Enquiry <ArrowRightIcon className="w-4 h-4 shrink-0 transition-transform group-hover:translate-x-1" />
+                Subcontract &amp; B2B Enquiries <ArrowRightIcon className="w-4 h-4 shrink-0 transition-transform group-hover:translate-x-1" />
               </Link>
             </motion.div>
           </motion.div>
         </div>
       </section>
 
-      {/* Thin Line Separator */}
-      <div className="w-full h-px bg-gray-200" />
 
       {/* Main Service Sections */}
       <section className="py-24 px-6 lg:px-12 max-w-7xl mx-auto">
@@ -230,7 +225,7 @@ export default function Home() {
         >
           <div>
             <motion.h2 variants={fadeIn} className="text-3xl font-light tracking-tight sm:text-4xl font-montserrat">
-              Geotechnical Services | <span className="font-semibold">Drilling & Sampling</span>
+              Geotechnical Services | <span className="font-semibold">Drilling Services</span>
             </motion.h2>
             <motion.div variants={fadeIn} className="mt-4 h-px bg-forest-green w-12" />
           </div>
@@ -252,7 +247,7 @@ export default function Home() {
             <div className="relative h-32 mb-6 overflow-hidden rounded-lg bg-gray-100 flex-shrink-0">
               <Image 
                 src="/clay-sample.png" 
-                alt="Residential Soil Testing and AS2870 Site Classifications Sydney" 
+                alt="Residential soil sample AS2870 site classification Sydney" 
                 fill 
                 className="object-cover transition-transform duration-700 ease-in-out group-hover:scale-105"
               />
@@ -260,7 +255,7 @@ export default function Home() {
             </div>
             <h3 className="text-xl font-montserrat font-semibold mb-3 tracking-tight">Preliminary Site Works</h3>
             <p className="text-sm text-gray-600 font-light leading-relaxed flex-grow mb-6">
-              Essential soil testing for residential projects—from new homes and extensions to granny flats and in-ground pools. We deliver fast, accurate Site Classifications (AS2870) and Geotechnical Investigations (AS1726). We provide clear foundation advice and the geotechnical reporting necessary to support DA and CDC pathways, partnering directly with homeowners, architects, and builders to get projects out of the ground.
+              Essential soil testing for residential projects—from new homes and extensions to granny flats and in-ground pools. We deliver fast, accurate Site Classifications (<Link href="/services#site-class" className="text-forest-green hover:underline font-medium">AS2870</Link>) and Geotechnical Investigations (AS1726). We provide clear foundation advice and the geotechnical reporting necessary to support DA and CDC pathways, partnering directly with homeowners, architects, and builders to get projects out of the ground.
             </p>
             <Link 
               href="/services#site-class" 
@@ -286,7 +281,7 @@ export default function Home() {
             <div className="relative h-32 mb-6 overflow-hidden rounded-lg bg-gray-100 flex-shrink-0">
               <Image 
                 src="/construction-support.jpg" 
-                alt="Geotechnical Construction Support and Footing Inspections Sydney" 
+                alt="Geotechnical construction phase inspection Sydney footing" 
                 fill 
                 className="object-cover transition-transform duration-700 ease-in-out group-hover:scale-105"
               />
@@ -320,7 +315,7 @@ export default function Home() {
             <div className="relative h-32 mb-6 overflow-hidden rounded-lg bg-gray-100 flex-shrink-0">
               <Image 
                 src="/rw-design.png" 
-                alt="Geotechnical Design and Deep Foundation Parameters Sydney" 
+                alt="Geotechnical design parameters retaining wall Sydney" 
                 fill 
                 className="object-cover transition-transform duration-700 ease-in-out group-hover:scale-105"
               />
@@ -354,21 +349,21 @@ export default function Home() {
             <div className="relative h-32 mb-6 overflow-hidden rounded-lg bg-gray-100 flex-shrink-0">
               <Image 
                 src="/drilling-bh.png" 
-                alt="Tight Access Drilling and Geotechnical Sampling Services Sydney" 
+                alt="4WD borehole drilling geotechnical investigation Sydney" 
                 fill 
                 className="object-cover transition-transform duration-700 ease-in-out group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </div>
-            <h3 className="text-xl font-montserrat font-semibold mb-3 tracking-tight">Drilling & Sampling Services</h3>
+            <h3 className="text-xl font-montserrat font-semibold mb-3 tracking-tight">Drilling Services</h3>
             <p className="text-sm text-gray-600 font-light leading-relaxed flex-grow mb-6">
-              The core of our field capability. We operate specialized, highly mobile rigs for auger drilling, tight-access drilling, and DCP testing across the Sydney Metro. We conduct in-situ testing for our own investigations and provide specialist drilling services to consulting firms requiring additional capacity. We also extract precise soil and groundwater samples to support environmental consultants undertaking Stage 1 & Stage 2 investigations (PSI & DSI).
+              Our <Link href="/drilling" className="text-forest-green hover:underline font-medium">4WD Mounted Drill Rig</Link> mobilises rapidly across the Sydney Metro. From prestige North Shore sites to tight Inner West terraces. For zero-clearance locations, internal courtyards, and rear-yard investigations, we deploy motorised hand augers and in-situ testing that extract the same quality data without machinery access.
             </p>
             <Link 
-              href="/drilling-and-sampling#drilling" 
+              href="/drilling#drilling" 
               className="mt-auto text-sm font-medium tracking-wide flex items-center gap-1.5 text-slate-950 hover:text-forest-green transition-colors group/link"
               title="Learn more about our Tight-Access Drilling & Environmental Sampling Services in Sydney Metro"
-              aria-label="Explore Drilling & Sampling Services"
+              aria-label="Explore Drilling Services"
             >
               <span className="relative overflow-hidden">
                 Explore Drilling Services &rarr;
@@ -384,7 +379,7 @@ export default function Home() {
 {/* Client Success / Testimonials via Glassmorphism */}
       <section className="py-32 relative overflow-hidden bg-slate-200 border-y border-gray-200">
         <div className="absolute inset-0 z-0">
-          <Image src="/img_0078_v3.png" alt="Sydney Skyline Blur" fill className="object-cover opacity-60 blur-xl scale-110" />
+          <Image src="/img_0078_v3.png" alt="Sydney geotechnical engineer site assessment — SFGEO" fill className="object-cover opacity-60 blur-xl scale-110" />
           <div className="absolute inset-0 bg-slate-100/40 mix-blend-overlay" />
         </div>
         

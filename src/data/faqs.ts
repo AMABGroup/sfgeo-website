@@ -1,7 +1,7 @@
 export const faqs = [
   {
     question: "How much does a geotechnical report or soil test cost in Sydney?",
-    answer: "Residential soil testing in Sydney typically ranges from $1,200 to $2,500 depending on site access, the underlying geology, and the proposed structural works. At SFGEO, we don’t believe in hidden drilling extras or vague estimates. We review your site address and architectural plans upfront to provide a tailored, fixed-fee quote so you understand the likely geotechnical cost upfront."
+    answer: "A professional geotechnical investigation by a qualified engineer starts from $1,200 for a standard AS2870 site classification, and ranges to $2,500+ for complex sites, full investigations, or rock coring work.<br/><br/>All laboratory testing is conducted through a Third Party NATA-accredited facility, so your report carries the same evidentiary standard as the major firms, delivered with the personal attention of an independent practice.<br/><br/>We review your site address and proposed works before quoting so you receive a fixed-fee scope with no hidden drilling extras. A precise scope upfront is also the best protection against over-engineered foundations downstream.<br/><br/>Ready to get started? <a href=\"/contact\">Request a fixed-fee site assessment</a>."
   },
   {
     question: "Do I need a soil test for a house extension, pool, granny flat, or knockdown rebuild?",
@@ -9,7 +9,7 @@ export const faqs = [
   },
   {
     question: "What makes SFGEO different from other geotechnical firms in Sydney?",
-    answer: "We combine field practicality with precise engineering judgment. Our unique background in construction and drilling ensures we provide clear, usable parameters that prevent over-engineering."
+    answer: "Three things set us apart from both large multi-disciplinary firms and lower-cost express operators.<br/><br/><strong>The engineer drills your site.</strong> Our Engineers, — not drilling subcontractors — are on the ground for every investigation. The person who signs your report is the same person who extracted the samples.<br/><br/><strong>NATA-accredited lab data.</strong> All testing goes through third party NATA-accredited facility, to ensure no conflict of interest. Your report carries the evidentiary standard councils and structural engineers trust.<br/><br/><strong>Local knowledge that takes years to build.</strong> We know Ashfield Shale, Hawkesbury Sandstone, and Bringelly Shale the way only a Sydney-based practice can. That local depth is in every report we write.<br/><br/>See our full range of services or <a href=\"/contact\">speak to our team directly</a>."
   },
   {
     question: "What is the difference between a site classification and a full geotechnical report?",
@@ -21,7 +21,7 @@ export const faqs = [
   },
   {
     question: "Can you perform tight-access soil testing on restricted Sydney sites?",
-    answer: "Yes. We use specialized, highly mobile tight-access drilling rigs for narrow Sydney properties like Inner West terraces, ensuring minimal disruption while obtaining vital data."
+    answer: "Yes. We use specialized, highly mobile tight access drilling rigs for narrow Sydney properties like Inner West terraces, ensuring minimal disruption while obtaining vital data."
   },
   {
     question: "Can you test soil on sloping blocks?",
@@ -53,7 +53,7 @@ export const faqs = [
   },
   {
     question: "What does a geotechnical investigation actually involve?",
-    answer: "Our investigations are hands-on and site-specific. We extract soil and rock samples, log the geological profile, perform in-situ strength testing (like DCPs), and analyze this data. We then translate the raw site data into a comprehensive engineering report tailored for your design team."
+    answer: "Our investigations are hands-on and site-specific. We extract soil and rock samples, log the geological profile, perform in-situ strength testing (like DCPs), and analyze this data. We then translate the raw site data into a comprehensive engineering report site-specific for your design team."
   },
   {
     question: "Is SFGEO an independent engineering consultancy?",
@@ -65,7 +65,7 @@ export const faqs = [
   },
   {
     question: "How does SFGEO's report work with my structural engineer's design?",
-    answer: "Our reports are written to be immediately usable by your structural or civil engineer. We provide the specific bearing capacities, soil profiles, and design parameters in the format engineers need to get straight to work. If you don't yet have a structural engineer, we are happy to make a tailored introduction to reputable Sydney firms experienced in working with precise geotechnical data."
+    answer: "Our reports are written to be immediately usable by your structural or civil engineer. We provide the specific bearing capacities, soil profiles, and design parameters in the format engineers need to get straight to work. If you don't yet have a structural engineer, we are happy to make a site-specific introduction to reputable Sydney firms experienced in working with precise geotechnical data."
   },
   {
     question: "Do I need to be on-site during the soil testing?",
@@ -73,10 +73,10 @@ export const faqs = [
   },
   {
     question: "Is SFGEO fully insured for residential and commercial work?",
-    answer: "Yes. We carry comprehensive Professional Indemnity (PI) and Public Liability (PL) insurance tailored for geotechnical engineering and drilling operations. Certificates of currency can be provided on request for both residential and commercial projects."
+    answer: "Yes. We carry comprehensive Professional Indemnity (PI) and Public Liability (PL) insurance site-specific for geotechnical engineering and drilling operations. Certificates of currency can be provided on request for both residential and commercial projects."
   },
   {
     question: "How do I get a quote for my project?",
-    answer: "Send us an inquiry with your site address and any architectural or structural plans you have. We will arrange a complimentary desktop review of your site and provide a tailored, fixed-fee proposal, typically within one business day."
+    answer: "Send us an inquiry with your site address and any architectural or structural plans you have. We will arrange a complimentary desktop review of your site and provide a site-specific, fixed-fee proposal, typically within one business day."
   }
 ];

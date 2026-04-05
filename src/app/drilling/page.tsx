@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 import DrillingClient from './DrillingClient';
 
 export const metadata: Metadata = {
-  title: "Environmental Drilling & Rock Coring Sydney | SFGEO",
-  description: "Sydney's tight-access subsurface drilling specialists. Core drilling, environmental sampling, and reliable rock core logging for complex sites.",
+  title: "Geotechnical & Environmental Drilling Sydney | 4WD Mobilised | SFGEO",
+  description: "4WD-mobilised drilling and environmental sampling across Greater Sydney. Borehole drilling, rock coring, DCP testing, and PSI/DSI fieldwork delivered by a locally-owned independent consultancy.",
   keywords: "Rock Drilling Sydney, Restricted Access Rig, NMLC Coring, Environmental Soil Sampling, Geotech Boreholes Inner West, Auger Drilling",
   alternates: {
     canonical: '/drilling-and-sampling',

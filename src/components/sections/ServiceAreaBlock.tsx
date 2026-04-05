@@ -73,7 +73,7 @@ export default function ServiceAreaBlock({ pageType }: ServiceAreaBlockProps) {
               href="/contact" 
               className="text-forest-green font-bold text-sm tracking-widest uppercase hover:text-slate-950 transition-colors flex items-center gap-2 group"
             >
-              Secure Your Field Dates
+              Book a Field Assessment
               <ArrowRightIcon className="w-4 h-4 transition-transform group-hover:translate-x-2" />
             </Link>
           </div>
