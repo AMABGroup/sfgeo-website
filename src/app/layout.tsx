@@ -54,6 +54,9 @@ export const metadata: Metadata = {
     title: "Geotechnical Engineer Sydney | Locally-Owned, NATA Lab-Backed | SFGEO",
     description: "Sydney's locally owned geotechnical consultancy. Site Classifications, Geotechnical investigations, and Geotechnical/Environmental Drilling. Principal Engineer led, backed by NATA-accredited lab results. Fixed-fee quotes.",
   },
+  icons: {
+    icon: "/favicon.png",
+  },
 };
 
 export default function RootLayout({
