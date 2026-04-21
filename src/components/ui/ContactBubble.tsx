@@ -1,12 +1,26 @@
 "use client";
 
-import Link from "next/link";
 import { ChatBubbleLeftEllipsisIcon } from "@heroicons/react/24/solid";
 
+declare global {
+  interface Window {
+    gtag?: (...args: unknown[]) => void;
+  }
+}
+
 export default function ContactBubble() {
+  const handleClick = () => {
+    if (typeof window !== "undefined" && window.gtag) {
+      window.gtag("event", "conversion", {
+        send_to: "AW-18053070765/53SQCIy9158cEK3_r6BD",
+      });
+    }
+  };
+
   return (
-    <a
+    
       href="sms:+61423483555"
+      onClick={handleClick}
       className="fixed bottom-6 right-6 z-50 bg-forest-green text-white p-4 rounded-full shadow-lg hover:bg-forest-green/90 hover:scale-105 hover:shadow-xl transition-all duration-300 flex items-center justify-center group"
       aria-label="Contact Us"
     >
