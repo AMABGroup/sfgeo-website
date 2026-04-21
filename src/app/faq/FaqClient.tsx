@@ -46,7 +46,7 @@ export default function FaqClient() {
                 <span className="text-xs font-semibold text-slate-950 tracking-wide">Connect on LinkedIn</span>
               </a>
               <a 
-                href="https://www.instagram.com/sfgeo_syd/" 
+                href="https://www.instagram.com/sfgeo.syd/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 px-5 py-2.5 bg-white border border-gray-200 rounded-full shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5 group/link w-max"
