@@ -37,7 +37,7 @@ export async function POST(request: Request) {
     const { data, error } = await resend.emails.send({
       from: "SFGEO Website <noreply@sfgeo.com.au>",
       to: ["alli@sfgeo.com.au"],
-      reply_to: email,
+      replyTo: email,
       subject: `New enquiry from ${name} — ${projectType}`,
       text: `
 New enquiry received via sfgeo.com.au contact form.
