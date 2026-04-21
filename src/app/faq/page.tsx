@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import FaqClient from './FaqClient';
+import { faqs } from '@/data/faqs';
 
 export const metadata: Metadata = {
   title: "Frequently Asked Questions | Geotechnical Engineering Sydney | SFGEO",
@@ -7,5 +8,26 @@ export const metadata: Metadata = {
 };
 
 export default function FaqPage() {
-  return <FaqClient />;
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer.replace(/<br\/>/g, ' ')
+      }
+    }))
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <FaqClient />
+    </>
+  );
 }

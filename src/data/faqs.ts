@@ -1,19 +1,19 @@
 export const faqs = [
   {
     question: "How much does a geotechnical report or soil test cost in Sydney?",
-    answer: "A professional geotechnical investigation by a qualified engineer starts from $1,200 for a standard AS2870 site classification, and ranges to $2,500+ for complex sites, full investigations, or rock coring work.<br/><br/>All laboratory testing is conducted through a Third Party NATA-accredited facility, so your report carries the same evidentiary standard as the major firms, delivered with the personal attention of an independent practice.<br/><br/>We review your site address and proposed works before quoting so you receive a fixed-fee scope with no hidden drilling extras. A precise scope upfront is also the best protection against over-engineered foundations downstream.<br/><br/>Ready to get started? <a href=\"/contact\">Request a fixed-fee site assessment</a>."
+    answer: "Fixed fees start from $750 for smaller, tightly scoped jobs such as a granny flat, in-ground pool, or addition to an existing home. A standard AS 2870 site classification for a single-storey dwelling on a flat block with easy access typically starts from $1,000. Larger sites, restricted access, sloping blocks, or council-specified testing requirements scale the fee accordingly.<br/><br/>Before quoting, we complete a desktop study, speak with you directly, and where useful, visit the site. You receive a fixed-fee proposal with no hidden drilling extras.<br/><br/>All fees are exclusive of GST. <a href=\"/contact\">Request a fixed-fee site assessment</a>."
   },
   {
     question: "Do I need a soil test for a house extension, pool, granny flat, or knockdown rebuild?",
-    answer: "Often, yes. Whether you are navigating a Development Application (DA) or a Complying Development Certificate (CDC), a geotechnical report or AS2870 site classification is commonly required. We provide the parameters your engineer needs for foundation design on Sydney’s reactive clay sites."
+    answer: "Often, yes. Whether you are navigating a Development Application (DA) or a Complying Development Certificate (CDC), a geotechnical report or AS 2870 site classification is commonly required. We provide the parameters your engineer needs for foundation design on Sydney’s reactive clay sites."
   },
   {
     question: "What makes SFGEO different from other geotechnical firms in Sydney?",
-    answer: "Three things set us apart from both large multi-disciplinary firms and lower-cost express operators.<br/><br/><strong>The engineer drills your site.</strong> Our Engineers, — not drilling subcontractors — are on the ground for every investigation. The person who signs your report is the same person who extracted the samples.<br/><br/><strong>NATA-accredited lab data.</strong> All testing goes through third party NATA-accredited facility, to ensure no conflict of interest. Your report carries the evidentiary standard councils and structural engineers trust.<br/><br/><strong>Local knowledge that takes years to build.</strong> We know Ashfield Shale, Hawkesbury Sandstone, and Bringelly Shale the way only a Sydney-based practice can. That local depth is in every report we write.<br/><br/>See our full range of services or <a href=\"/contact\">speak to our team directly</a>."
+    answer: "The engineer drills your site. The person who signs your report is the person who extracted the samples, cross-verified the data on site, and sat down to interpret it. No drilling subcontractors, no drive-by inspections.<br/><br/>Every SFGEO report is a comprehensive document, not a template with a few values dropped in. Where practical, we use the drill rig to reach greater depth, and we supplement boreholes with in-situ testing so the data is cross-verified on site before it reaches you. The intent is simple: the right data, the first time, so your structural engineer designs accurately, your certifier's requirements are met, and your builder prices against a design that reflects the ground.<br/><br/>All laboratory work is conducted through a third-party NATA-accredited facility. <a href=\"/contact\">Speak to our team directly</a>."
   },
   {
     question: "What is the difference between a site classification and a full geotechnical report?",
-    answer: "A Site Classification (AS2870) primarily assesses how reactive (prone to shrinking and swelling) the surface soils are, which is used for standard residential slabs and footings (Class M, H1, H2, E, etc.). A full Geotechnical Investigation goes deeper. It involves drilling boreholes to assess the underlying soil and rock profile, providing the specific bearing capacities required for heavier or more complex designs like retaining walls, rock excavations, or deep piers."
+    answer: "A Site Classification (AS 2870) primarily assesses how reactive (prone to shrinking and swelling) the surface soils are, which is used for standard residential slabs and footings (Class M, H1, H2, E, etc.). A full Geotechnical Investigation goes deeper. It involves drilling boreholes to assess the underlying soil and rock profile, providing the specific bearing capacities required for heavier or more complex designs like retaining walls, rock excavations, or deep piers."
   },
   {
     question: "What does a 'Class P' site classification mean?",
@@ -29,7 +29,7 @@ export const faqs = [
   },
   {
     question: "How long does a soil test and geotechnical report take?",
-    answer: "We typically mobilize within days and deliver finalized, engineer-reviewed reports within 3 to 5 business days of completing fieldwork."
+    answer: "For a straightforward AS 2870 site classification, expect two to three business days from proposal acceptance to final report. A standard geotechnical investigation that includes NATA-accredited laboratory testing typically lands within five to seven business days, with the lab schedule being the main variable.<br/><br/>Urgent turnarounds are possible, and we handle them regularly for time-critical DAs, CDCs, and construction programs. We will tell you honestly whether your timeline is workable before you commit.<br/><br/>The only factors that realistically extend a project are the client's own site readiness and specific lab testing requirements written into the scope. Everything within our control, we move on quickly."
   },
   {
     question: "What is 'Bearing Capacity' and why does my engineer need it?",
@@ -78,5 +78,32 @@ export const faqs = [
   {
     question: "How do I get a quote for my project?",
     answer: "Send us an inquiry with your site address and any architectural or structural plans you have. We will arrange a complimentary desktop review of your site and provide a site-specific, fixed-fee proposal, typically within one business day."
+  }
+];
+
+export const homeFaqs = [
+  {
+    question: "How much does a geotechnical report or soil test cost in Sydney?",
+    answer: "Fixed fees start from $750 for smaller, tightly scoped jobs such as a granny flat, in-ground pool, or addition to an existing home. A standard AS 2870 site classification for a single-storey dwelling on a flat block with easy access typically starts from $1,000. Larger sites, restricted access, sloping blocks, or council-specified testing requirements scale the fee accordingly.<br/><br/>Before quoting, we complete a desktop study, speak with you directly, and where useful, visit the site. You receive a fixed-fee proposal with no hidden drilling extras.<br/><br/>All fees are exclusive of GST. <a href=\"/contact\">Request a fixed-fee site assessment</a>."
+  },
+  {
+    question: "What makes SFGEO different from other geotechnical firms in Sydney?",
+    answer: "The engineer drills your site. The person who signs your report is the person who extracted the samples, cross-verified the data on site, and sat down to interpret it. No drilling subcontractors, no drive-by inspections.<br/><br/>Every SFGEO report is a comprehensive document, not a template with a few values dropped in. Where practical, we use the drill rig to reach greater depth, and we supplement boreholes with in-situ testing so the data is cross-verified on site before it reaches you. The intent is simple: the right data, the first time, so your structural engineer designs accurately, your certifier's requirements are met, and your builder prices against a design that reflects the ground.<br/><br/>All laboratory work is conducted through a third-party NATA-accredited facility. <a href=\"/contact\">Speak to our team directly</a>."
+  },
+  {
+    question: "Do I need a soil test for my project?",
+    answer: "In most cases, yes. Whether you are navigating a Development Application (DA) or Complying Development Certificate (CDC), a geotechnical report or AS 2870 site classification is commonly required for new builds, knockdown rebuilds, extensions, granny flats, in-ground pools, and retaining works. We provide the parameters your engineer needs for foundation design on Sydney's reactive clay, shale, and sandstone sites.<br/><br/>Unsure what your project needs? <a href=\"/contact\">Send us your site address and we will advise</a>."
+  },
+  {
+    question: "How long does a soil test and geotechnical report take?",
+    answer: "For a straightforward AS 2870 site classification, expect two to three business days from proposal acceptance to final report. A standard geotechnical investigation that includes NATA-accredited laboratory testing typically lands within five to seven business days, with the lab schedule being the main variable.<br/><br/>Urgent turnarounds are possible, and we handle them regularly for time-critical DAs, CDCs, and construction programs. We will tell you honestly whether your timeline is workable before you commit.<br/><br/>The only factors that realistically extend a project are the client's own site readiness and specific lab testing requirements written into the scope. Everything within our control, we move on quickly."
+  },
+  {
+    question: "Can you work on tight-access, sloping, or restricted sites?",
+    answer: "Yes. Our 4WD-mounted drill rig reaches sites many operators turn down, and where machine access is not possible, we deploy motorised hand augers and in-situ testing to extract the same quality of data. Internal courtyards, zero-clearance laneways, rear-yard investigations, and steeply sloping blocks across Sydney are routine work for us.<br/><br/>We assess access as part of the desktop study before quoting, so there are no surprises on mobilisation day. <a href=\"/drilling\">See our drilling capability</a>."
+  },
+  {
+    question: "How do I get a quote?",
+    answer: "Send us your site address, a brief on the proposed works, and any council or engineer requirements you already have. We complete a desktop study, call you to discuss the scope, and issue a fixed-fee proposal tailored to your project.<br/><br/>There is no charge for the quote, and there is no obligation once you receive it. <a href=\"/contact\">Request a fixed-fee site assessment</a>."
   }
 ];
