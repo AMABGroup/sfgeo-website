@@ -1,89 +1,72 @@
-import { NextResponse } from 'next/server';
-import nodemailer from 'nodemailer';
+import { NextResponse } from "next/server";
+import { Resend } from "resend";
 
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { name, email, phone, siteAddress, message } = body;
+    const { 
+      name, 
+      email, 
+      phone, 
+      siteAddress, 
+      projectType, 
+      startDate, 
+      message, 
+      website // Honeypot
+    } = body;
 
-    // Validate minimum required fields
-    if (!name || !email || !phone || !siteAddress || !message) {
+    // Check Honeypot
+    if (website && website.length > 0) {
+      console.log("Honeypot triggered, silently ignoring submission.");
+      return NextResponse.json({ success: true }, { status: 200 });
+    }
+
+    // Validate required fields
+    if (!name || !email || !phone || !siteAddress || !projectType || !startDate) {
       return NextResponse.json(
-        { error: 'Missing required fields' },
+        { error: "Missing required fields" },
         { status: 400 }
       );
     }
 
-    // Configure Nodemailer transporter using Environment Variables
-    // Note: To use this in production, create a .env file and add these SMTP variables.
-    const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST || 'smtp.gmail.com',
-      port: Number(process.env.SMTP_PORT) || 587,
-      secure: process.env.SMTP_SECURE === 'true', // true for 465, false for other ports
-      auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
-      },
-    });
+    // Sanitize phone number (strip non-digits)
+    const sanitizedPhone = phone.replace(/\D/g, "");
 
-    // Verify connection configuration (optional, helps with debugging if auth fails)
-    if (process.env.SMTP_USER && process.env.SMTP_PASS) {
-        await transporter.verify();
-    } else {
-        console.warn("SMTP credentials not provided in .env. Form submission will be mocked.");
-    }
+    const resend = new Resend(process.env.RESEND_API_KEY);
 
-    const mailOptions = {
-      from: process.env.SMTP_USER, // Sender address (must match authenticated user)
-      replyTo: email,              // Allow direct reply to the lead
-      to: 'info@sfgeo.com.au',     // Primary Recipient
-      cc: 'all.m.atmar@outlook.com', // CC Recipient
-      subject: `New SFGEO Website Enquiry from ${name}`,
+    const { data, error } = await resend.emails.send({
+      from: "SFGEO Website <noreply@sfgeo.com.au>",
+      to: ["alli@sfgeo.com.au"],
+      reply_to: email,
+      subject: `New enquiry from ${name} — ${projectType}`,
       text: `
-You have received a new enquiry via the SFGEO Contact Form.
+New enquiry received via sfgeo.com.au contact form.
 
 Name: ${name}
 Email: ${email}
-Contact Number: ${phone}
-Site Address: ${siteAddress}
+Phone: ${sanitizedPhone}
+Site address: ${siteAddress}
+Project type: ${projectType}
+Proposed start date: ${startDate}
 
 Message:
-${message}
-      `,
-      html: `
-        <div style="font-family: sans-serif; color: #333; max-w-xl; margin: 0 auto;">
-          <h2 style="color: #1b4b36;">New Website Enquiry</h2>
-          <p>You have received a new message via the SFGEO Contact Form.</p>
-          <hr style="border: 1px solid #eaeaea; margin: 20px 0;" />
-          <p><strong>Name:</strong> ${name}</p>
-          <p><strong>Email:</strong> ${email}</p>
-          <p><strong>Contact Number:</strong> ${phone}</p>
-          <p><strong>Site Address:</strong> ${siteAddress}</p>
-          <br />
-          <p><strong>Message:</strong></p>
-          <p style="background-color: #f9f9f9; padding: 15px; border-radius: 5px;">${message.replace(/\n/g, '<br />')}</p>
-        </div>
-      `,
-    };
+${message || "(none provided)"}
 
-    // If SMTP credentials exist, attempt to send real email. Otherwise mock it for preview mode.
-    if (process.env.SMTP_USER && process.env.SMTP_PASS) {
-        await transporter.sendMail(mailOptions);
-    } else {
-        // Mock successful email send for local frontend testing
-        console.log("Mock Email Dispatched:", mailOptions);
-        // Simulate a tiny network delay
-        await new Promise(resolve => setTimeout(resolve, 1000));
+---
+Submitted at: ${new Date().toISOString()}
+      `,
+    });
+
+    if (error) {
+      console.error("Resend error:", error);
+      return NextResponse.json({ error: "Failed to send email" }, { status: 500 });
     }
 
-    return NextResponse.json(
-      { message: 'Email sent successfully' },
-      { status: 200 }
-    );
+    return NextResponse.json({ success: true }, { status: 200 });
   } catch (error) {
-    console.error('Error sending email:', error);
+    console.error("API error:", error);
     return NextResponse.json(
-      { error: 'Failed to send email' },
+      { error: "Internal server error" },
       { status: 500 }
     );
   }

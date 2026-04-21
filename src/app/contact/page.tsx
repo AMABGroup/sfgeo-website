@@ -1,4 +1,5 @@
 import ServiceAreaBlock from "@/components/sections/ServiceAreaBlock";
+import ContactForm from "@/components/forms/ContactForm";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -50,6 +51,11 @@ export default function ContactPage() {
         <p className="text-xl text-gray-500 font-light leading-relaxed max-w-4xl mb-16">
           Whether you are a Homeowner planning a premium extension, an Architect detailing a new build, or a Developer scaling a commercial project—we provide the geotechnical expertise to get your foundations right.
         </p>
+
+        {/* Contact Form Section */}
+        <div className="max-w-[640px] mb-24">
+          <ContactForm />
+        </div>
 
         {/* Content Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 mb-16">
