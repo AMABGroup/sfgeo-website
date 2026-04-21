@@ -18,7 +18,7 @@ export default function ContactBubble() {
   };
 
   return (
-    
+    <a    
       href="sms:+61423483555"
       onClick={handleClick}
       className="fixed bottom-6 right-6 z-50 bg-forest-green text-white p-4 rounded-full shadow-lg hover:bg-forest-green/90 hover:scale-105 hover:shadow-xl transition-all duration-300 flex items-center justify-center group"
