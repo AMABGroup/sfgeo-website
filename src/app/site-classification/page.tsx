@@ -80,14 +80,15 @@ export default function SiteClassificationPage() {
           </FadeInChild>
 
           <FadeInChild>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-montserrat font-light tracking-tight text-slate-950 max-w-4xl mb-6">
-              Site Classifications, Engineered Properly
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-montserrat tracking-tight text-slate-950 max-w-4xl mb-6">
+              <span className="font-light block">Site Classifications.</span>
+              <span className="font-semibold block">Engineered Properly.</span>
             </h1>
           </FadeInChild>
           
           <FadeInChild>
             <p className="text-xl text-gray-500 font-light leading-relaxed max-w-3xl mb-12">
-              Sydney family-owned, Principal-Engineer-led. Every AS 2870 report is tailored to your site, your design, and your certifier's requirements. No templates. No surprises.
+              Principal-Engineer-led, every geotechnical report is tailored to your site, your design, and your requirements. No templates. No surprises.
             </p>
           </FadeInChild>
 
@@ -102,18 +103,14 @@ export default function SiteClassificationPage() {
               href="tel:0423483555"
               className="group relative px-8 py-4 text-sm font-semibold tracking-wide text-slate-950 bg-white border border-slate-950 overflow-hidden flex items-center justify-center gap-2 rounded-full hover:bg-gray-50 transition-colors shadow-sm hover:shadow-md w-full sm:w-auto"
             >
-              0423 483 555
+              Discuss your project
             </a>
           </FadeInChild>
 
-          <FadeInChild className="relative w-full aspect-[4/3] rounded-xl overflow-hidden bg-gray-100 shadow-sm">
-            <Image 
-              src="/placeholder-hero-sc.svg" 
-              alt="Draft: Principal Engineer assessing soil samples on site" 
-              fill 
-              className="object-cover" 
-              priority
-            />
+          <FadeInChild className="relative w-full max-w-5xl mx-auto aspect-video rounded-xl overflow-hidden bg-gray-100 shadow-sm flex items-center justify-center border border-gray-200">
+            <div className="text-gray-400 font-medium tracking-widest uppercase text-sm">
+              YouTube video embed
+            </div>
           </FadeInChild>
         </StaggerContainer>
       </section>
@@ -193,13 +190,13 @@ export default function SiteClassificationPage() {
         </FadeIn>
 
         <FadeIn>
-          <div className="relative w-full aspect-[4/3] sm:aspect-[21/9] rounded-xl overflow-hidden bg-gray-100 shadow-sm mb-12">
-            <Image 
-              src="/placeholder-field-sc.svg" 
-              alt="Draft: Principal Engineer operating auger and logging soil" 
-              fill 
-              className="object-cover" 
-            />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+            <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden bg-gray-100 shadow-sm flex items-center justify-center border border-gray-200 text-center p-6">
+              <span className="text-gray-400 font-medium uppercase tracking-widest text-xs">Section 2 Image A — Fieldwork</span>
+            </div>
+            <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden bg-gray-100 shadow-sm flex items-center justify-center border border-gray-200 text-center p-6">
+              <span className="text-gray-400 font-medium uppercase tracking-widest text-xs">Section 2 Image B — Report</span>
+            </div>
           </div>
           <div className="text-lg text-gray-600 font-light leading-relaxed space-y-6">
             <p>
@@ -239,7 +236,7 @@ export default function SiteClassificationPage() {
           <FadeIn>
             <div className="max-w-4xl mb-12">
               <h2 className="text-3xl font-light tracking-tight font-montserrat text-slate-950 mb-6">
-                Pricing
+                Scope & Pricing
               </h2>
               <div className="text-lg text-gray-600 font-light leading-relaxed space-y-6">
                 <p>
@@ -260,8 +257,8 @@ export default function SiteClassificationPage() {
                   <div className="mb-4">
                     <span className="text-[11px] font-bold tracking-[0.2em] text-forest-green uppercase">ANCILLARY RESIDENTIAL</span>
                   </div>
-                  <h3 className="text-4xl font-montserrat font-light text-slate-950 tracking-tight mb-4">
-                    From $750 <span className="text-lg text-gray-400 font-medium">+ GST</span>
+                  <h3 className="text-4xl font-montserrat font-light text-slate-950 tracking-tight mb-4 flex items-baseline gap-2">
+                    <span className="text-lg text-gray-400 font-medium lowercase">from</span> $750 <span className="text-lg text-gray-400 font-medium">+ GST</span>
                   </h3>
                   <p className="text-sm text-gray-600 font-light leading-relaxed flex-grow">
                     Granny flats, in-ground pools, small alterations and additions. Final fee tailored to your site.
@@ -275,8 +272,8 @@ export default function SiteClassificationPage() {
                   <div className="mb-4">
                     <span className="text-[11px] font-bold tracking-[0.2em] text-forest-green uppercase">STANDARD RESIDENTIAL</span>
                   </div>
-                  <h3 className="text-4xl font-montserrat font-light text-slate-950 tracking-tight mb-4">
-                    From $1,000 <span className="text-lg text-gray-400 font-medium">+ GST</span>
+                  <h3 className="text-4xl font-montserrat font-light text-slate-950 tracking-tight mb-4 flex items-baseline gap-2">
+                    <span className="text-lg text-gray-400 font-medium lowercase">from</span> $1,000 <span className="text-lg text-gray-400 font-medium">+ GST</span>
                   </h3>
                   <p className="text-sm text-gray-600 font-light leading-relaxed flex-grow">
                     Standard AS 2870 classifications for single and double-storey homes on straightforward blocks. Final fee tailored to your site.
@@ -291,7 +288,7 @@ export default function SiteClassificationPage() {
                     <span className="text-[11px] font-bold tracking-[0.2em] text-forest-green uppercase">COMPLEX PROJECTS & SITES</span>
                   </div>
                   <h3 className="text-4xl font-montserrat font-light text-slate-950 tracking-tight mb-4">
-                    From $1,800 <span className="text-lg text-gray-400 font-medium">+ GST</span>
+                    Custom quote
                   </h3>
                   <p className="text-sm text-gray-600 font-light leading-relaxed flex-grow">
                     Basements, duplexes, multi-storey, strata, high-risk or restricted sites. Full geotechnical investigations. Final fee tailored to your site.
@@ -309,8 +306,9 @@ export default function SiteClassificationPage() {
           <h2 className="text-3xl font-light tracking-tight font-montserrat text-slate-950 mb-6">
             Turnaround
           </h2>
-          <p className="text-lg text-gray-600 font-light leading-relaxed">
-            <strong className="font-medium text-slate-950">2–3 business days</strong> from fieldwork to signed report, standard. Lab work runs in parallel when required. Urgent turnaround available for DA, CC or settlement timelines, call the Principal directly to arrange.
+          <p className="text-lg text-gray-600 font-light leading-relaxed space-y-6">
+            <span className="block">Turnaround times from initial contact to final report can be as soon as 2–3 business days. Complex sites, Class P investigations, and projects requiring laboratory testing take longer and are scoped at the site meeting.</span>
+            <span className="block mt-6">Urgent turnaround is available where a DA, CC or settlement timeline requires it. Call the Principal directly to arrange priority scheduling.</span>
           </p>
         </FadeIn>
       </section>
@@ -324,13 +322,13 @@ export default function SiteClassificationPage() {
           <p className="text-lg text-gray-600 font-light leading-relaxed mb-8">
             Many Sydney sites cannot be reached by a conventional truck-mounted rig. Inner West terraces, Eastern Suburbs battleaxe blocks, rear-yard granny flat positions, stepped blocks with deep investigation points. SFGEO operates a 4WD-mounted rig for sites where standard rigs stop at the kerb, with motorised hand augers covering zero-clearance and internal courtyard work. Access-ready from first contact, so your program does not slip waiting on a rig that cannot reach the investigation points. <Link href="/drilling" className="text-forest-green hover:underline font-medium">Full access capability.</Link>
           </p>
-          <div className="relative w-full aspect-[4/3] sm:aspect-[21/9] rounded-xl overflow-hidden bg-gray-100 shadow-sm">
-            <Image 
-              src="/placeholder-access-sc.svg" 
-              alt="Draft: SFGEO 4WD mounted drill rig accessing tight residential site" 
-              fill 
-              className="object-cover" 
-            />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden bg-gray-100 shadow-sm flex items-center justify-center border border-gray-200 text-center p-6">
+              <span className="text-gray-400 font-medium uppercase tracking-widest text-xs">Section 6 Image A — Standard Access Site</span>
+            </div>
+            <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden bg-gray-100 shadow-sm flex items-center justify-center border border-gray-200 text-center p-6">
+              <span className="text-gray-400 font-medium uppercase tracking-widest text-xs">Section 6 Image B — Restricted Access Site</span>
+            </div>
           </div>
         </FadeIn>
       </section>
@@ -427,7 +425,7 @@ export default function SiteClassificationPage() {
                 href="tel:0423483555"
                 className="group relative px-8 py-4 text-sm font-semibold tracking-wide text-white border border-white/30 overflow-hidden flex items-center justify-center gap-2 rounded-full hover:bg-white/10 transition-colors w-full sm:w-auto"
               >
-                0423 483 555
+                Discuss your project
               </a>
             </div>
           </FadeIn>
