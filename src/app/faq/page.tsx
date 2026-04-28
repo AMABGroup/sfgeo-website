@@ -3,8 +3,20 @@ import FaqClient from './FaqClient';
 import { faqs } from '@/data/faqs';
 
 export const metadata: Metadata = {
-  title: "Frequently Asked Questions | Geotechnical Engineering Sydney | SFGEO",
-  description: "Everything you need to know about geotechnical investigations, AS2870 site classifications, NATA-accredited testing, and construction support in Sydney — answered in plain English.",
+  title: "Geotechnical Engineering FAQ Sydney | SFGEO",
+  description: "Common questions about geotechnical investigations, site classifications, and soil testing in Sydney. Clear, technical advice for homeowners and builders.",
+  alternates: {
+    canonical: '/faq',
+  },
+  openGraph: {
+    title: "Geotechnical Engineering FAQ Sydney | SFGEO",
+    description: "Common questions about geotechnical investigations, site classifications, and soil testing in Sydney. Clear, technical advice for homeowners and builders.",
+    url: '/faq',
+  },
+  twitter: {
+    title: "Geotechnical Engineering FAQ Sydney | SFGEO",
+    description: "Common questions about geotechnical investigations, site classifications, and soil testing in Sydney. Clear, technical advice for homeowners and builders.",
+  },
 };
 
 export default function FaqPage() {

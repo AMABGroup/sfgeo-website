@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowRightIcon } from "@heroicons/react/24/outline";
 
 type PageType = "services" | "drilling" | "faq" | "contact" | "home" | "about";
 
@@ -74,7 +73,6 @@ export default function ServiceAreaBlock({ pageType }: ServiceAreaBlockProps) {
               className="text-forest-green font-bold text-sm tracking-widest uppercase hover:text-slate-950 transition-colors flex items-center gap-2 group"
             >
               Book a Field Assessment
-              <ArrowRightIcon className="w-4 h-4 transition-transform group-hover:translate-x-2" />
             </Link>
           </div>
         </motion.div>

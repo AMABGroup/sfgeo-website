@@ -17,8 +17,9 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.sfgeo.com.au'),
   title: "Solid Foundation Geotechnical | Sydney Engineers & Drilling",
-  description: "Sydney's locally owned geotechnical consultancy. Site Classifications, Geotechnical investigations, and Geotechnical/Environmental Drilling. Principal Engineer led, backed by NATA-accredited lab results. Fixed-fee quotes.",
+  description: "Sydney's boutique geotechnical consultancy. Principal-led site classifications, investigations, and 4WD drilling with fixed-fee quotes and local expertise.",
   keywords: [
     "Geotechnical Engineer Sydney",
     "Soil Testing Sydney",
@@ -39,20 +40,29 @@ export const metadata: Metadata = {
     "Western Sydney Geotechnical Services"
   ],
   alternates: {
-    canonical: 'https://www.sfgeo.com.au',
+    canonical: '/',
   },
   openGraph: {
-    title: "Geotechnical Engineer Sydney | Locally-Owned, NATA Lab-Backed | SFGEO",
-    description: "Sydney's locally owned geotechnical consultancy. Site Classifications, Geotechnical investigations, and Geotechnical/Environmental Drilling. Principal Engineer led, backed by NATA-accredited lab results. Fixed-fee quotes.",
-    url: "https://www.sfgeo.com.au",
+    title: "Solid Foundation Geotechnical | Sydney Engineers & Drilling",
+    description: "Sydney's boutique geotechnical consultancy. Principal-led site classifications, investigations, and 4WD drilling with fixed-fee quotes and local expertise.",
+    url: "/",
     siteName: "SFGEO",
     locale: "en_AU",
     type: "website",
+    images: [
+      {
+        url: '/og/sfgeo-og.png',
+        width: 1200,
+        height: 630,
+        alt: 'SFGEO Geotechnical Engineering Sydney',
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Geotechnical Engineer Sydney | Locally-Owned, NATA Lab-Backed | SFGEO",
-    description: "Sydney's locally owned geotechnical consultancy. Site Classifications, Geotechnical investigations, and Geotechnical/Environmental Drilling. Principal Engineer led, backed by NATA-accredited lab results. Fixed-fee quotes.",
+    title: "Solid Foundation Geotechnical | Sydney Engineers & Drilling",
+    description: "Sydney's boutique geotechnical consultancy. Principal-led site classifications, investigations, and 4WD drilling with fixed-fee quotes and local expertise.",
+    images: ['/og/sfgeo-og.png'],
   },
   icons: {
     icon: "/favicon.png",

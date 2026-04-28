@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 
 declare global {
@@ -24,6 +25,18 @@ export default function ContactForm() {
     consent: false,
     website: "", // Honeypot
   });
+
+  const searchParams = useSearchParams();
+
+  useEffect(() => {
+    if (!searchParams) return;
+    const subject = searchParams.get("subject");
+    if (subject === "b2b-enquiry" || subject === "Subcontract Drilling Enquiry") {
+      setFormData(prev => ({ ...prev, projectType: "B2B subcontract drilling" }));
+    } else if (subject === "site-inspection") {
+      setFormData(prev => ({ ...prev, projectType: "Other", message: "I would like to request a site inspection." }));
+    }
+  }, [searchParams]);
 
   const [errors, setErrors] = useState<Record<string, string>>({});
 
@@ -421,7 +434,7 @@ export default function ContactForm() {
           <button
             type="submit"
             disabled={status === "submitting"}
-            className="w-full md:w-auto md:min-w-[260px] bg-forest-green text-white px-10 py-5 rounded-full text-base font-semibold shadow-lg shadow-forest-green/20 hover:bg-forest-green/90 transition-all hover:-translate-y-0.5 disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-3"
+            className="w-full md:w-auto md:min-w-[260px] bg-forest-green text-white px-10 py-2.5 rounded-full text-sm font-semibold shadow-lg shadow-forest-green/20 hover:bg-forest-green/90 transition-all hover:-translate-y-0.5 disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-3 h-[46px]"
           >
             {status === "submitting" ? (
               <>

@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { PlusIcon, MinusIcon, ArrowRightIcon } from "@heroicons/react/24/outline";
+import { PlusIcon, MinusIcon } from "@heroicons/react/24/outline";
 import ServiceAreaBlock from "@/components/sections/ServiceAreaBlock";
 
 function ExpandableDetails({ title, items }: { title: string, items: string[] }) {
@@ -60,63 +60,107 @@ export default function ServicesClient() {
   return (
     <div className="bg-white text-slate-950 font-inter min-h-screen">
       
-      <section className="pt-32 pb-16 px-6 lg:px-12 max-w-7xl mx-auto">
-        <motion.div initial="hidden" animate="visible" variants={stagger}>
+                  <section className="pt-32 pb-16 px-6 lg:px-12 max-w-7xl mx-auto">
+        <div className="flex flex-col gap-10">
           
-          <motion.div variants={fadeIn} className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-10 pb-10 border-b border-gray-100">
-            <h3 className="text-[11px] font-bold tracking-[0.2em] text-forest-green uppercase m-0 max-w-sm">
+          {/* Row 1: Social Links */}
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 w-full border-b border-gray-100 lg:border-none pb-6 lg:pb-0">
+            <h3 className="text-[11px] font-bold tracking-[0.2em] text-forest-green uppercase m-0 text-center lg:text-left w-full lg:w-auto">
               FAMILY OWNED • INDEPENDENT • SYDNEY BASED
             </h3>
-            
-            <div className="flex flex-col sm:flex-row gap-4">
-              <a 
-                href="https://au.linkedin.com/company/sfgeo" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 px-5 py-2.5 bg-white border border-gray-200 rounded-full shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5 group/link w-max"
-              >
-                <svg className="w-4 h-4 text-[#0A66C2] transition-transform group-hover/link:scale-110" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.475-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                </svg>
-                <span className="text-xs font-semibold text-slate-950 tracking-wide">Connect on LinkedIn</span>
-              </a>
-              <a 
-                href="https://www.instagram.com/sfgeo.syd/" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 px-5 py-2.5 bg-white border border-gray-200 rounded-full shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5 group/link w-max"
-              >
-                <svg className="w-4 h-4 text-[#E1306C] transition-transform group-hover/link:scale-110" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path fillRule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clipRule="evenodd" />
-                </svg>
-                <span className="text-xs font-semibold text-slate-950 tracking-wide">Follow on Instagram</span>
-              </a>
+            <div className="flex flex-row justify-center lg:justify-end gap-3 sm:gap-4 w-full lg:w-auto">
+            <a 
+              href="https://au.linkedin.com/company/sfgeo" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex-1 sm:flex-none flex items-center justify-center gap-2 px-3 sm:px-5 py-2.5 bg-white border border-gray-200 rounded-full shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5 sm:w-[240px] h-[46px] group/link"
+            >
+              <svg className="w-4 h-4 shrink-0 text-[#0A66C2] transition-transform group-hover/link:scale-110" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.475-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+              <span className="text-[11px] sm:text-xs font-semibold text-slate-950 tracking-wide truncate">
+                <span className="hidden sm:inline">Connect on </span>LinkedIn
+              </span>
+            </a>
+            <a 
+              href="https://www.instagram.com/sfgeo.syd/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex-1 sm:flex-none flex items-center justify-center gap-2 px-3 sm:px-5 py-2.5 bg-white border border-gray-200 rounded-full shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5 sm:w-[240px] h-[46px] group/link"
+            >
+              <svg className="w-4 h-4 shrink-0 text-[#E1306C] transition-transform group-hover/link:scale-110" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path fillRule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clipRule="evenodd" />
+              </svg>
+              <span className="text-[11px] sm:text-xs font-semibold text-slate-950 tracking-wide truncate">
+                <span className="hidden sm:inline">Follow on </span>Instagram
+              </span>
+            </a>
             </div>
-          </motion.div>
+          </div>
 
-          {/* H1 and Subtitle */}
-          <motion.h1 
-            variants={fadeIn} 
-            className="text-4xl sm:text-5xl font-montserrat font-light tracking-tight text-slate-950 max-w-4xl mb-6"
-          >
-            Geotechnical Services & Site Investigations Across Sydney
-          </motion.h1>
-          
-          <motion.p variants={fadeIn} className="text-xl text-gray-500 font-light leading-relaxed max-w-2xl mb-16">
-            Based in Marrickville and mobilising 4WD across the Sydney Metro, we bring infrastructure-grade geotechnical expertise to residential and commercial projects. Delivered with the personal attention that only an independent, locally-owned practice can offer.<br/><br/>Every service is scoped and delivered by our Principal. No subcontracted fieldwork, no templated reports. Site-specific data, signed by the Engineer who was on your ground.
-          </motion.p>
-        </motion.div>
+          {/* Row 2: H1 + CTAs */}
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-10">
+            {/* H1 */}
+            <div className="flex flex-col items-center lg:items-start text-center lg:text-left flex-1">
+              <h1 className="text-4xl sm:text-5xl font-montserrat font-light tracking-tight text-slate-950 max-w-4xl mb-0 leading-tight w-full">
+                Geotechnical Services<br />
+                Across <span className="font-semibold">Sydney Metro</span>
+              </h1>
+              
+              <div className="w-[96px] h-[3px] bg-forest-green mt-5 mb-5 mx-auto lg:mx-0"></div>
+              
+              {/* Mobile CTAs sit here above subhead */}
+              <div className="lg:hidden flex flex-col items-center gap-4 w-full mb-8">
+                <Link 
+                  href="/contact" 
+                  className="flex items-center justify-center px-5 py-2.5 bg-gradient-to-b from-[#346b43] to-forest-green text-white rounded-full shadow-[0_8px_20px_-6px_rgba(45,90,58,0.4)] hover:shadow-[0_12px_24px_-8px_rgba(45,90,58,0.6)] hover:brightness-105 transition-all hover:-translate-y-0.5 w-[70%] sm:w-[240px] h-[46px]"
+                >
+                  <span className="text-xs font-semibold tracking-wide">Discuss your project</span>
+                </Link>
+                <Link 
+                  href="tel:+61423483555" 
+                  className="flex items-center justify-center px-5 py-2.5 bg-white text-forest-green rounded-full shadow-[inset_0_0_0_1px_rgba(45,90,58,0.25),0_4px_10px_-4px_rgba(0,0,0,0.05)] hover:bg-forest-green/5 hover:shadow-[inset_0_0_0_1px_rgba(45,90,58,0.4),0_6px_14px_-4px_rgba(0,0,0,0.1)] transition-all hover:-translate-y-0.5 w-[70%] sm:w-[240px] h-[46px]"
+                >
+                  <span className="text-xs font-semibold tracking-wide">Request a quote</span>
+                </Link>
+              </div>
+
+              <p className="text-xl text-gray-500 font-light leading-relaxed max-w-2xl mb-8 lg:mb-0 w-full">
+
+
+              Based in Marrickville and mobilising 4WD across the Sydney Metro, we bring infrastructure-grade geotechnical expertise to residential and commercial projects. Delivered with the personal attention that only an independent, locally-owned practice can offer.<br/><br/>Every service is scoped and delivered by our Principal. No subcontracted fieldwork, no templated reports. Site-specific data, signed by the Engineer who was on your ground.
+            
+              
+              </p>
+            </div>
+
+            {/* Desktop CTAs */}
+            <div className="hidden lg:flex flex-row items-center gap-4 shrink-0">
+              <Link 
+                href="/contact" 
+                className="flex items-center justify-center px-5 py-2.5 bg-gradient-to-b from-[#346b43] to-forest-green text-white rounded-full shadow-[0_8px_20px_-6px_rgba(45,90,58,0.4)] hover:shadow-[0_12px_24px_-8px_rgba(45,90,58,0.6)] hover:brightness-105 transition-all hover:-translate-y-0.5 w-[240px] h-[46px]"
+              >
+                <span className="text-xs font-semibold tracking-wide">Discuss your project</span>
+              </Link>
+              <Link 
+                href="tel:+61423483555" 
+                className="flex items-center justify-center px-5 py-2.5 bg-white text-forest-green rounded-full shadow-[inset_0_0_0_1px_rgba(45,90,58,0.25),0_4px_10px_-4px_rgba(0,0,0,0.05)] hover:bg-forest-green/5 hover:shadow-[inset_0_0_0_1px_rgba(45,90,58,0.4),0_6px_14px_-4px_rgba(0,0,0,0.1)] transition-all hover:-translate-y-0.5 w-[240px] h-[46px]"
+              >
+                <span className="text-xs font-semibold tracking-wide">Request a quote</span>
+              </Link>
+            </div>
+          </div>
+        </div>
       </section>
-
       {/* Content Blocks */}
       <div className="max-w-7xl mx-auto px-6 lg:px-12 pb-32">
         
-        {/* Block 1: Site Classification */}
         <section id="site-class" className="scroll-mt-[100px] py-24 lg:py-32 border-t border-gray-100 flex flex-col md:flex-row items-center gap-16 lg:gap-24">
           <div className="w-full md:w-1/2 relative aspect-[4/3] rounded-sm overflow-hidden bg-gray-100 shadow-sm group">
             <Image 
-              src="/residential-soil-testing-sydney.jpg" 
+              src="/residential-soil-testing-sydney.webp" 
               alt="Residential site classification and soil testing in Sydney by SFGEO." 
+              title="Residential soil testing and site classification in Sydney - SFGEO"
               fill 
               className="object-cover transition-transform duration-1000 ease-in-out group-hover:scale-105" 
             />
@@ -129,22 +173,20 @@ export default function ServicesClient() {
           <div className="w-full md:w-1/2">
             <h2 className="text-3xl font-light tracking-tight font-montserrat text-slate-950 mb-6">Site Classification & Soil Reports for Homeowners, Builders & Designers</h2>
             <p className="text-lg text-gray-600 font-light leading-loose mb-8">
-              Most people know it as a "soil report" or "geotechnical report"—in engineering terms, it's a Site Classification. Whether you are planning a simple house extension, a granny flat, a duplex, or a high-end architecturally designed home, we know Sydney ground conditions. We provide the site-specific AS2870 classifications and soil parameters to support your structural engineer’s footing design, helping your DA or CDC documentation pathway move forward with less guesswork.
+              Most people call it a "soil report." In engineering terms, it's a Site Classification — the AS2870 assessment that tells your structural engineer what footing system your ground will support. Whether it's an extension, a granny flat, a duplex, or an architect-designed home, we deliver site-specific classifications that move your DA or CDC pathway forward with less guesswork.
             </p>
+            <div className="flex flex-col sm:flex-row items-center gap-4">
+              <Link href="/site-classification" 
+                className="inline-flex items-center justify-center px-8 py-2.5 bg-forest-green text-white text-sm font-semibold tracking-wide rounded-full shadow-md hover:shadow-lg transition-all hover:-translate-y-0.5 hover:bg-forest-green/90 h-[46px]"
+              >
+                Explore Site Classifications →
+              </Link>
               <Link href="/contact" 
-                className="inline-flex items-center px-8 py-3.5 bg-forest-green text-white text-sm font-semibold tracking-wide rounded-full shadow-md hover:shadow-lg transition-all hover:-translate-y-0.5 hover:bg-forest-green/90 mb-2"
+                className="inline-flex items-center justify-center px-8 py-2.5 bg-white text-forest-green text-sm font-semibold tracking-wide rounded-full shadow-[inset_0_0_0_1px_rgba(45,90,58,0.25)] hover:shadow-md transition-all hover:-translate-y-0.5 h-[46px]"
               >
                 Get a Fixed-Fee Quote
               </Link>
-            <ExpandableDetails 
-              title="View Scope: AS2870, Lot Classifications & Testing"
-              items={[
-                "AS2870 Site & Lot Classifications for residential sites (Class A, S, M, H1, H2, E, and P)",
-                "Soil profiling, Plasticity Index, and Salinity testing",
-                "Surface reactivity and abnormal moisture observations",
-                "Allowable bearing pressure parameters for residential basements and dwelling standards"
-              ]}
-            />
+            </div>
           </div>
         </section>
 
@@ -154,6 +196,7 @@ export default function ServicesClient() {
             <Image 
               src="/service-investigation-detail.png" 
               alt="Comprehensive geotechnical subsurface investigations for commercial and residential projects." 
+              title="Geotechnical subsurface investigation for Sydney commercial and residential sites"
               fill 
               className="object-cover transition-transform duration-1000 ease-in-out group-hover:scale-105" 
             />
@@ -170,7 +213,7 @@ export default function ServicesClient() {
             </p>
             <motion.div variants={fadeIn}>
               <Link href="/contact" 
-                className="inline-flex items-center px-8 py-3.5 bg-slate-black text-white text-sm font-semibold tracking-wide rounded-full shadow-md hover:shadow-lg transition-all hover:-translate-y-0.5 hover:bg-slate-800 mb-2"
+                className="inline-flex items-center justify-center px-8 py-2.5 bg-slate-black text-white text-sm font-semibold tracking-wide rounded-full shadow-md hover:shadow-lg transition-all hover:-translate-y-0.5 hover:bg-slate-800 mb-2 h-[46px]"
               >
                 Discuss Your Site With an Engineer
               </Link>
@@ -194,6 +237,7 @@ export default function ServicesClient() {
             <Image 
               src="/service-construction-detail.jpg" 
               alt="Rapid response construction phase support and footing inspections in Greater Sydney." 
+              title="Geotechnical construction phase support and footing inspection in Sydney"
               fill 
               className="object-cover transition-transform duration-1000 ease-in-out group-hover:scale-105" 
             />
@@ -210,7 +254,7 @@ export default function ServicesClient() {
             </p>
             <motion.div variants={fadeIn}>
               <Link href="/contact" 
-                className="inline-flex items-center px-8 py-3.5 bg-forest-green text-white text-sm font-semibold tracking-wide rounded-full shadow-md hover:shadow-lg transition-all hover:-translate-y-0.5 hover:bg-forest-green/90 mb-2"
+                className="inline-flex items-center justify-center px-8 py-2.5 bg-forest-green text-white text-sm font-semibold tracking-wide rounded-full shadow-md hover:shadow-lg transition-all hover:-translate-y-0.5 hover:bg-forest-green/90 mb-2 h-[46px]"
               >
                 Book a Site Inspection
               </Link>
@@ -235,6 +279,7 @@ export default function ServicesClient() {
             <Image 
               src="/partner-network.jpg" 
               alt="Reliable geotechnical design parameters and inputs for complex structural engineering." 
+              title="Geotechnical design parameters for complex structural and civil engineering"
               fill 
               className="object-cover transition-transform duration-1000 ease-in-out group-hover:scale-105" 
             />
@@ -251,7 +296,7 @@ export default function ServicesClient() {
             </p>
             <motion.div variants={fadeIn}>
               <Link href="/contact" 
-                className="inline-flex items-center px-8 py-3.5 bg-slate-black text-white text-sm font-semibold tracking-wide rounded-full shadow-md hover:shadow-lg transition-all hover:-translate-y-0.5 hover:bg-slate-800 mb-2"
+                className="inline-flex items-center justify-center px-8 py-2.5 bg-slate-black text-white text-sm font-semibold tracking-wide rounded-full shadow-md hover:shadow-lg transition-all hover:-translate-y-0.5 hover:bg-slate-800 mb-2 h-[46px]"
               >
                 Request Design Parameters
               </Link>
@@ -274,6 +319,7 @@ export default function ServicesClient() {
             <Image 
               src="/service-partner-detail-new.png" 
               alt="SFGEO's trusted partner network of Sydney structural engineers, civil engineers, and environmental consultants." 
+              title="SFGEO partner network: structural engineers and environmental consultants in Sydney"
               fill 
               className="object-cover transition-transform duration-1000 ease-in-out group-hover:scale-105" 
             />

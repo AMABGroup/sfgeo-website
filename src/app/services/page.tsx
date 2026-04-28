@@ -2,9 +2,20 @@ import { Metadata } from 'next';
 import ServicesClient from './ServicesClient';
 
 export const metadata: Metadata = {
-  title: "Geotechnical Services Sydney | Site Classifications & Investigations | SFGEO",
-  description: "Site classifications, geotechnical investigations, construction inspections, and design parameters delivered by a locally-owned Sydney consultancy with 15 years of Sydney construction experience.",
-  keywords: "Site Classification Sydney, AS2870 Soil Report, NSW Geotech Services, Pavement Design Parramatta, Temporary Works Verification, Slope Stability"
+  title: "Geotechnical Services Sydney | SFGEO",
+  description: "Specialist geotechnical services across Sydney. Principal-led site classifications, investigations, and construction support for residential and commercial builds.",
+  alternates: {
+    canonical: '/services',
+  },
+  openGraph: {
+    title: "Geotechnical Services Sydney | SFGEO",
+    description: "Specialist geotechnical services across Sydney. Principal-led site classifications, investigations, and construction support for residential and commercial builds.",
+    url: '/services',
+  },
+  twitter: {
+    title: "Geotechnical Services Sydney | SFGEO",
+    description: "Specialist geotechnical services across Sydney. Principal-led site classifications, investigations, and construction support for residential and commercial builds.",
+  },
 };
 
 export default function ServicesHubPage() {

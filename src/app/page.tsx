@@ -6,7 +6,7 @@ import { faqs, homeFaqs } from "@/data/faqs";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRightIcon, PlusIcon, MinusIcon } from "@heroicons/react/24/outline";
+import { PlusIcon, MinusIcon } from "@heroicons/react/24/outline";
 import { StarIcon } from "@heroicons/react/24/solid";
 import GoogleReviews from "@/components/ui/GoogleReviews";
 import ServiceAreaBlock from "@/components/sections/ServiceAreaBlock";
@@ -30,7 +30,7 @@ export default function Home() {
     "@context": "https://schema.org",
     "@type": "GeotechnicalEngineer", 
     "name": "Solid Foundation Geotechnical",
-    "image": "https://www.sfgeo.com.au/SFGEO_logo.png",
+    "image": "https://www.sfgeo.com.au/SFGEO_logo_black.png",
     "@id": "https://www.sfgeo.com.au/#organization",
     "url": "https://www.sfgeo.com.au",
     "telephone": "+61423483555",
@@ -171,7 +171,9 @@ export default function Home() {
           <Image
             src="/img_0078_v3.png"
             alt="Sydney geotechnical engineer site assessment — SFGEO"
+            title="Sydney geotechnical engineer conducting site assessment - SFGEO"
             fill
+            sizes="100vw"
             className="object-cover"
             priority
           />
@@ -181,40 +183,63 @@ export default function Home() {
         </div>
         
         <div className="mx-auto max-w-7xl relative z-10 w-full">
-          <motion.div 
-            initial="hidden" 
-            animate="visible" 
+          <motion.div
+            initial="hidden"
+            animate="visible"
             variants={staggerContainer}
-            className="max-w-3xl"
+            className="flex flex-col lg:flex-row lg:items-center justify-between gap-10"
           >
-            <motion.p variants={fadeIn} className="text-sm uppercase tracking-[0.2em] text-forest-green mb-6 font-semibold">
-              Sydney, Australia
-            </motion.p>
-            <motion.h1 
-              variants={fadeIn}
-              className="text-5xl tracking-tight sm:text-7xl font-montserrat font-light text-slate-950 leading-[1.1]"
-            >
-              Geotechnical <br className="hidden sm:block" />
-              <span className="font-semibold">Done Properly.</span>
-            </motion.h1>
-            <motion.div variants={fadeIn} className="mt-8 h-px bg-slate-black/20 w-1/4" />
-            <motion.p variants={fadeIn} className="text-lg sm:text-xl text-gray-600 font-light leading-relaxed mb-6 max-w-3xl">
-              Solid Foundation Geotechnical is a locally-owned, independent Sydney consultancy. Built on local expertise, we are your trusted consulting engineers. There from discussing ideas with your architect to the day your slab is poured, making sure it's built right. NATA lab-backed. Fixed-fee quotes. No corporate overhead.
-            </motion.p>
-            <motion.div variants={fadeIn} className="mt-12 flex flex-col sm:flex-row items-start sm:items-center gap-6">
-              <Link
-                href="/contact"
-                className="group relative px-6 sm:px-8 py-3.5 text-sm sm:text-base font-medium text-white bg-slate-950 overflow-hidden flex items-center justify-center gap-2 rounded-full hover:bg-slate-800 transition-colors shadow-sm hover:shadow-md w-full sm:w-auto text-center"
+            {/* H1 and Subhead Block */}
+            <div className="flex flex-col items-center lg:items-start text-center lg:text-left flex-1 max-w-3xl">
+              <motion.p variants={fadeIn} className="text-sm uppercase tracking-[0.2em] text-forest-green mb-6 font-semibold">
+                Sydney, Australia
+              </motion.p>
+              <motion.h1 
+                variants={fadeIn}
+                className="text-5xl tracking-tight sm:text-7xl font-montserrat font-light text-slate-950 leading-[1.1] mb-8"
               >
-                Request a Site Assessment <ArrowRightIcon className="w-4 h-4 shrink-0 transition-transform group-hover:translate-x-1" />
+                Geotechnical. <br />
+                <span className="font-semibold">Done Properly.</span>
+              </motion.h1>
+              <div className="w-[96px] h-[3px] bg-forest-green mt-5 mb-5 mx-auto lg:mx-0"></div>
+              
+              {/* Mobile CTAs */}
+              <motion.div variants={fadeIn} className="lg:hidden flex flex-col items-center gap-4 w-full mb-8">
+                <Link
+                  href="/contact?subject=site-inspection"
+                  className="flex items-center justify-center px-5 py-2.5 bg-gradient-to-b from-[#346b43] to-forest-green text-white rounded-full shadow-[0_8px_20px_-6px_rgba(45,90,58,0.4)] hover:shadow-[0_12px_24px_-8px_rgba(45,90,58,0.6)] hover:brightness-105 transition-all hover:-translate-y-0.5 w-[70%] sm:w-[240px] h-[46px]"
+                >
+                  <span className="text-xs font-semibold tracking-wide">Request an Inspection</span>
+                </Link>
+                <Link
+                  href="/contact?subject=b2b-enquiry"
+                  className="flex items-center justify-center px-5 py-2.5 bg-white text-forest-green rounded-full shadow-[inset_0_0_0_1px_rgba(45,90,58,0.25),0_4px_10px_-4px_rgba(0,0,0,0.05)] hover:bg-forest-green/5 hover:shadow-[inset_0_0_0_1px_rgba(45,90,58,0.4),0_6px_14px_-4px_rgba(0,0,0,0.1)] transition-all hover:-translate-y-0.5 w-[70%] sm:w-[240px] h-[46px]"
+                >
+                  <span className="text-xs font-semibold tracking-wide">B2B Enquiries</span>
+                </Link>
+              </motion.div>
+
+              <motion.p variants={fadeIn} className="text-lg sm:text-xl text-gray-600 font-light leading-relaxed mb-6 max-w-3xl w-full">
+                Solid Foundation Geotechnical is a locally-owned, independent Sydney consultancy. Built on local expertise, we are your trusted consulting engineers. There from discussing ideas with your architect to the day your slab is poured, making sure it's built right. NATA lab-backed. Fixed-fee quotes. No corporate overhead.
+              </motion.p>
+            </div>
+
+            {/* Desktop CTAs */}
+            <motion.div variants={fadeIn} className="hidden lg:flex flex-row items-center gap-4 shrink-0">
+              <Link
+                href="/contact?subject=site-inspection"
+                className="flex items-center justify-center px-5 py-2.5 bg-gradient-to-b from-[#346b43] to-forest-green text-white rounded-full shadow-[0_8px_20px_-6px_rgba(45,90,58,0.4)] hover:shadow-[0_12px_24px_-8px_rgba(45,90,58,0.6)] hover:brightness-105 transition-all hover:-translate-y-0.5 w-[240px] h-[46px]"
+              >
+                <span className="text-xs font-semibold tracking-wide">Request an Inspection</span>
               </Link>
               <Link
-                href="/contact"
-                className="group relative px-6 sm:px-8 py-3.5 text-sm sm:text-base font-medium text-slate-950 bg-white border border-slate-950 overflow-hidden flex items-center justify-center gap-2 rounded-full hover:bg-gray-50 transition-colors shadow-sm hover:shadow-md w-full sm:w-auto text-center"
+                href="/contact?subject=b2b-enquiry"
+                className="flex items-center justify-center px-5 py-2.5 bg-white text-forest-green rounded-full shadow-[inset_0_0_0_1px_rgba(45,90,58,0.25),0_4px_10px_-4px_rgba(0,0,0,0.05)] hover:bg-forest-green/5 hover:shadow-[inset_0_0_0_1px_rgba(45,90,58,0.4),0_6px_14px_-4px_rgba(0,0,0,0.1)] transition-all hover:-translate-y-0.5 w-[240px] h-[46px]"
               >
-                Subcontract &amp; B2B Enquiries <ArrowRightIcon className="w-4 h-4 shrink-0 transition-transform group-hover:translate-x-1" />
+                <span className="text-xs font-semibold tracking-wide">B2B Enquiries</span>
               </Link>
             </motion.div>
+
           </motion.div>
         </div>
       </section>
@@ -252,25 +277,26 @@ export default function Home() {
           >
             <div className="relative h-32 mb-6 overflow-hidden rounded-lg bg-gray-100 flex-shrink-0">
               <Image 
-                src="/clay-sample.png" 
+                src="/clay-sample.webp" 
                 alt="Residential soil sample AS2870 site classification Sydney" 
                 fill 
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover transition-transform duration-700 ease-in-out group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </div>
             <h3 className="text-xl font-montserrat font-semibold mb-3 tracking-tight">Preliminary Site Works</h3>
             <p className="text-sm text-gray-600 font-light leading-relaxed flex-grow mb-6">
-              Essential soil testing for residential projects—from new homes and extensions to granny flats and in-ground pools. We deliver fast, accurate Site Classifications (<Link href="/services#site-class" className="text-forest-green hover:underline font-medium">AS2870</Link>) and Geotechnical Investigations (AS1726). We provide clear foundation advice and the geotechnical reporting necessary to support DA and CDC pathways, partnering directly with homeowners, architects, and builders to get projects out of the ground.
+              Essential soil testing for residential projects—from new homes and extensions to granny flats and in-ground pools. We deliver fast, accurate <Link href="/site-classification" className="text-forest-green hover:underline font-medium relative z-10">Site Classifications (AS2870)</Link> and Geotechnical Investigations (AS1726). We provide clear foundation advice and the geotechnical reporting necessary to support DA and CDC pathways, partnering directly with homeowners, architects, and builders to get projects out of the ground.
             </p>
             <Link 
-              href="/services#site-class" 
-              className="mt-auto text-sm font-medium tracking-wide flex items-center gap-1.5 text-slate-950 hover:text-forest-green transition-colors group/link"
+              href="/services" 
+              className="mt-auto text-sm font-medium tracking-wide flex items-center gap-1.5 text-slate-950 hover:text-forest-green transition-colors group/link after:absolute after:inset-0 after:z-0"
               title="Learn more about our Preliminary Site Works & Soil Testing Services in Sydney"
               aria-label="Explore Preliminary Site Works"
             >
-              <span className="relative overflow-hidden">
-                Explore Preliminary Works &rarr;
+              <span className="relative overflow-hidden z-10">
+                Explore Preliminary Works
                 <span className="absolute bottom-0 left-0 w-full h-[1px] bg-forest-green transform scale-x-0 origin-left transition-transform duration-300 ease-out group-hover/link:scale-x-100" />
               </span>
             </Link>
@@ -288,7 +314,9 @@ export default function Home() {
               <Image 
                 src="/construction-support.jpg" 
                 alt="Geotechnical construction phase inspection Sydney footing" 
+                title="Geotechnical engineer performing footing inspection on a Sydney construction site"
                 fill 
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover transition-transform duration-700 ease-in-out group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -299,12 +327,12 @@ export default function Home() {
             </p>
             <Link 
               href="/services#inspections" 
-              className="mt-auto text-sm font-medium tracking-wide flex items-center gap-1.5 text-slate-950 hover:text-forest-green transition-colors group/link"
+              className="mt-auto text-sm font-medium tracking-wide flex items-center gap-1.5 text-slate-950 hover:text-forest-green transition-colors group/link after:absolute after:inset-0 after:z-0"
               title="Learn more about our Geotechnical Inspections and Construction Phase Support in Sydney"
               aria-label="Explore Construction Phase Support"
             >
-              <span className="relative overflow-hidden">
-                Explore Construction Support &rarr;
+              <span className="relative overflow-hidden z-10">
+                Explore Construction Support
                 <span className="absolute bottom-0 left-0 w-full h-[1px] bg-forest-green transform scale-x-0 origin-left transition-transform duration-300 ease-out group-hover/link:scale-x-100" />
               </span>
             </Link>
@@ -322,7 +350,9 @@ export default function Home() {
               <Image 
                 src="/rw-design.png" 
                 alt="Geotechnical design parameters retaining wall Sydney" 
+                title="Geotechnical design parameters for retaining walls - Sydney project"
                 fill 
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover transition-transform duration-700 ease-in-out group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -333,12 +363,12 @@ export default function Home() {
             </p>
             <Link 
               href="/services#design" 
-              className="mt-auto text-sm font-medium tracking-wide flex items-center gap-1.5 text-slate-950 hover:text-forest-green transition-colors group/link"
+              className="mt-auto text-sm font-medium tracking-wide flex items-center gap-1.5 text-slate-950 hover:text-forest-green transition-colors group/link after:absolute after:inset-0 after:z-0"
               title="Learn more about our Geotechnical Design, Pile Design, and Foundation Parameters in Sydney"
               aria-label="Explore Geotechnical Design"
             >
-              <span className="relative overflow-hidden">
-                Explore Geotechnical Design &rarr;
+              <span className="relative overflow-hidden z-10">
+                Explore Geotechnical Design
                 <span className="absolute bottom-0 left-0 w-full h-[1px] bg-forest-green transform scale-x-0 origin-left transition-transform duration-300 ease-out group-hover/link:scale-x-100" />
               </span>
             </Link>
@@ -356,7 +386,9 @@ export default function Home() {
               <Image 
                 src="/drilling-bh.png" 
                 alt="4WD borehole drilling geotechnical investigation Sydney" 
+                title="4WD mounted drill rig performing borehole drilling in Sydney"
                 fill 
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover transition-transform duration-700 ease-in-out group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -367,12 +399,12 @@ export default function Home() {
             </p>
             <Link 
               href="/drilling#drilling" 
-              className="mt-auto text-sm font-medium tracking-wide flex items-center gap-1.5 text-slate-950 hover:text-forest-green transition-colors group/link"
+              className="mt-auto text-sm font-medium tracking-wide flex items-center gap-1.5 text-slate-950 hover:text-forest-green transition-colors group/link after:absolute after:inset-0 after:z-0"
               title="Learn more about our Tight-Access Drilling & Environmental Sampling Services in Sydney Metro"
               aria-label="Explore Drilling Services"
             >
-              <span className="relative overflow-hidden">
-                Explore Drilling Services &rarr;
+              <span className="relative overflow-hidden z-10">
+                Explore Drilling Services
                 <span className="absolute bottom-0 left-0 w-full h-[1px] bg-forest-green transform scale-x-0 origin-left transition-transform duration-300 ease-out group-hover/link:scale-x-100" />
               </span>
             </Link>
@@ -385,7 +417,7 @@ export default function Home() {
 {/* Client Success / Testimonials via Glassmorphism */}
       <section className="py-32 relative overflow-hidden bg-slate-200 border-y border-gray-200">
         <div className="absolute inset-0 z-0">
-          <Image src="/img_0078_v3.png" alt="Sydney geotechnical engineer site assessment — SFGEO" fill className="object-cover opacity-60 blur-xl scale-110" />
+          <Image src="/img_0078_v3.png" alt="Sydney geotechnical engineer site assessment — SFGEO" title="Sydney geotechnical engineering site investigation - SFGEO" fill className="object-cover opacity-60 blur-xl scale-110" />
           <div className="absolute inset-0 bg-slate-100/40 mix-blend-overlay" />
         </div>
         

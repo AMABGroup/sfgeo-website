@@ -11,7 +11,7 @@ export default function Footer() {
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           <div className="space-y-8">
             <div className="relative h-12 w-32 flex items-center justify-start opacity-90 hover:opacity-100 transition-opacity">
-              <Image src="/SFGEO_logo_black.png" alt="SFGEO Logo" fill className="object-contain object-left invert brightness-0" />
+              <Image src="/SFGEO_logo_black.png" alt="SFGEO Logo" title="SFGEO - Solid Foundation Geotechnical Logo" fill className="object-contain object-left invert brightness-0" />
             </div>
             <p className="text-sm leading-6 text-gray-300">
               Premium independent engineering consultancy providing expert Residential and Construction phase support in Sydney.

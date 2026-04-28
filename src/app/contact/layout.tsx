@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Contact Our Sydney Geotechnical Engineers | SFGEO",
   description: "Request a bespoke fixed-price fee proposal, site classification, or urgent construction inspection. Our team spans the entire Greater Sydney Metro area including Marrickville and Parramatta.",
   alternates: {
-    canonical: "https://sfgeo.com.au/contact",
+    canonical: "https://www.sfgeo.com.au/contact",
   },
 };
 
@@ -15,19 +15,19 @@ export default function ContactLayout({ children }: { children: React.ReactNode 
     "@graph": [
       {
         "@type": "ContactPage",
-        "@id": "https://sfgeo.com.au/contact/#webpage",
-        "url": "https://sfgeo.com.au/contact",
+        "@id": "https://www.sfgeo.com.au/contact/#webpage",
+        "url": "https://www.sfgeo.com.au/contact",
         "name": "Contact Solid Foundation Geotechnical",
         "description": "Contact Sydney's leading boutique geotechnical consultancy for soil testing, site classifications, and drilling services.",
         "breadcrumb": {
-          "@id": "https://sfgeo.com.au/contact/#breadcrumb"
+          "@id": "https://www.sfgeo.com.au/contact/#breadcrumb"
         },
         "mainEntity": {
           "@type": "LocalBusiness",
           "name": "Solid Foundation Geotechnical",
-          "image": "https://sfgeo.com.au/logo.png",
-          "@id": "https://sfgeo.com.au/#organization",
-          "url": "https://sfgeo.com.au",
+          "image": "https://www.sfgeo.com.au/logo.png",
+          "@id": "https://www.sfgeo.com.au/#organization",
+          "url": "https://www.sfgeo.com.au",
           "telephone": "0423 483 555",
           "address": {
             "@type": "PostalAddress",
@@ -67,13 +67,13 @@ export default function ContactLayout({ children }: { children: React.ReactNode 
       },
       {
         "@type": "BreadcrumbList",
-        "@id": "https://sfgeo.com.au/contact/#breadcrumb",
+        "@id": "https://www.sfgeo.com.au/contact/#breadcrumb",
         "itemListElement": [
           {
             "@type": "ListItem",
             "position": 1,
             "item": {
-              "@id": "https://sfgeo.com.au/",
+              "@id": "https://www.sfgeo.com.au/",
               "name": "Home"
             }
           },
@@ -81,7 +81,7 @@ export default function ContactLayout({ children }: { children: React.ReactNode 
             "@type": "ListItem",
             "position": 2,
             "item": {
-              "@id": "https://sfgeo.com.au/contact",
+              "@id": "https://www.sfgeo.com.au/contact",
               "name": "Contact"
             }
           }

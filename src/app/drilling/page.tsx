@@ -2,12 +2,20 @@ import { Metadata } from 'next';
 import DrillingClient from './DrillingClient';
 
 export const metadata: Metadata = {
-  title: "Geotechnical & Environmental Drilling Sydney | 4WD Mobilised | SFGEO",
-  description: "4WD-mobilised drilling and environmental sampling across Greater Sydney. Borehole drilling, rock coring, DCP testing, and PSI/DSI fieldwork delivered by a locally-owned independent consultancy.",
-  keywords: "Rock Drilling Sydney, Restricted Access Rig, NMLC Coring, Environmental Soil Sampling, Geotech Boreholes Inner West, Auger Drilling",
+  title: "Geotechnical Drilling Sydney | 4WD Mobilised | SFGEO",
+  description: "Boutique geotechnical and environmental drilling in Sydney. 4WD-mobilised rigs, tight access expertise, and PSI/DSI sampling for residential and commercial sites.",
   alternates: {
-    canonical: '/drilling-and-sampling',
-  }
+    canonical: '/drilling',
+  },
+  openGraph: {
+    title: "Geotechnical Drilling Sydney | 4WD Mobilised | SFGEO",
+    description: "Boutique geotechnical and environmental drilling in Sydney. 4WD-mobilised rigs, tight access expertise, and PSI/DSI sampling for residential and commercial sites.",
+    url: '/drilling',
+  },
+  twitter: {
+    title: "Geotechnical Drilling Sydney | 4WD Mobilised | SFGEO",
+    description: "Boutique geotechnical and environmental drilling in Sydney. 4WD-mobilised rigs, tight access expertise, and PSI/DSI sampling for residential and commercial sites.",
+  },
 };
 
 export default function DrillingSamplingPage() {
