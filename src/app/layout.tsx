@@ -75,9 +75,9 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const organizationSchema = {
+  const combinedSchema = {
     "@context": "https://schema.org",
-    "@type": "Organization",
+    "@type": ["Organization", "ProfessionalService"],
     "@id": "https://sfgeo.com.au/#organization",
     "name": "Solid Foundation Geotechnical",
     "url": "https://sfgeo.com.au",
@@ -86,26 +86,6 @@ export default function RootLayout({
       "url": "https://sfgeo.com.au/og/sfgeo-og.png"
     },
     "image": "https://sfgeo.com.au/og/sfgeo-og.png",
-    "sameAs": [
-      "https://au.linkedin.com/company/sfgeo",
-      "https://www.instagram.com/sfgeo.syd/"
-    ],
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "+61423483555",
-      "contactType": "customer service",
-      "areaServed": "AU",
-      "availableLanguage": "en"
-    }
-  };
-
-  const localBusinessSchema = {
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "@id": "https://sfgeo.com.au/#localbusiness",
-    "name": "Solid Foundation Geotechnical",
-    "image": "https://sfgeo.com.au/og/sfgeo-og.png",
-    "url": "https://sfgeo.com.au",
     "telephone": "+61423483555",
     "priceRange": "$$",
     "address": {
@@ -132,7 +112,14 @@ export default function RootLayout({
     "sameAs": [
       "https://au.linkedin.com/company/sfgeo",
       "https://www.instagram.com/sfgeo.syd/"
-    ]
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+61423483555",
+      "contactType": "customer service",
+      "areaServed": "AU",
+      "availableLanguage": "en"
+    }
   };
 
   return (
@@ -156,12 +143,7 @@ export default function RootLayout({
         <script
           id="schema-org"
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
-        />
-        <script
-          id="schema-local-business"
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(combinedSchema) }}
         />
         <Navbar />
         <main className="flex-grow">
