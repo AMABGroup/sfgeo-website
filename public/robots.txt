@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.sfgeo.com.au/sitemap.xml
+Sitemap: https://sfgeo.com.au/sitemap.xml

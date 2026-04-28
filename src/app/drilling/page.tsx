@@ -19,35 +19,27 @@ export const metadata: Metadata = {
 };
 
 export default function DrillingSamplingPage() {
-  const localBusinessSchema = {
+  const breadcrumbSchema = {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Solid Foundation Geotechnical (SFGEO)",
-    "image": "https://www.sfgeo.com.au/img_0078_v3.png",
-    "@id": "https://www.sfgeo.com.au/drilling-and-sampling",
-    "url": "https://www.sfgeo.com.au/drilling-and-sampling",
-    "telephone": "+61400000000",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Marrickville",
-      "addressLocality": "Sydney",
-      "addressRegion": "NSW",
-      "postalCode": "2204",
-      "addressCountry": "AU"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": -33.9111,
-      "longitude": 151.1578
-    },
-    "areaServed": [
-      { "@type": "City", "name": "Marrickville" },
-      { "@type": "City", "name": "Inner West" },
-      { "@type": "City", "name": "Parramatta" },
-      { "@type": "City", "name": "Western Sydney" },
-      { "@type": "City", "name": "Greater Sydney" }
-    ],
-    "priceRange": "$$"
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https://sfgeo.com.au/",
+          "name": "Home"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "item": {
+          "@id": "https://sfgeo.com.au/drilling",
+          "name": "Drilling"
+        }
+      }
+    ]
   };
 
   const serviceSchema = {
@@ -55,8 +47,7 @@ export default function DrillingSamplingPage() {
     "@type": "Service",
     "serviceType": "Geotechnical Drilling & Environmental Sampling",
     "provider": {
-      "@type": "LocalBusiness",
-      "name": "Solid Foundation Geotechnical"
+      "@id": "https://sfgeo.com.au/#organization"
     },
     "areaServed": {
       "@type": "City",
@@ -95,7 +86,7 @@ export default function DrillingSamplingPage() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       <script
         type="application/ld+json"

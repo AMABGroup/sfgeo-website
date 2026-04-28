@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://www.sfgeo.com.au';
+  const baseUrl = 'https://sfgeo.com.au';
   const today = new Date('2026-04-28');
 
   return [

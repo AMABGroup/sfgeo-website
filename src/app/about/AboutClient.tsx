@@ -18,39 +18,8 @@ export default function AboutClient() {
     visible: { opacity: 1, transition: { staggerChildren: 0.15 } },
   };
 
-  const localBusinessSchema = {
-    "@context": "https://schema.org",
-    "@type": "GeotechnicalEngineer", 
-    "name": "Solid Foundation Geotechnical (SFGEO)",
-    "description": "Boutique geotechnical engineering consultancy based in Marrickville, delivering precise site investigations, soil testing, and practical foundation advice directly to residential clients, architects, and local builders.",
-    "founder": {
-      "@type": "Person",
-      "name": "Company Director"
-    },
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Marrickville",
-      "addressRegion": "NSW",
-      "addressCountry": "AU"
-    },
-    "areaServed": [
-      { "@type": "City", "name": "Sydney Metro" },
-      { "@type": "City", "name": "Greater Sydney" },
-      { "@type": "City", "name": "North Shore" },
-      { "@type": "City", "name": "Inner West" },
-      { "@type": "City", "name": "Western Sydney" },
-      { "@type": "City", "name": "Eastern Suburbs" },
-      { "@type": "City", "name": "Sutherland Shire" }
-    ],
-    "image": "https://www.sfgeo.com.au/SFGEO_logo_black.png"
-  };
-
   return (
     <div className="bg-white text-slate-950 font-inter min-h-screen pb-32">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
-      />
       {/* 1. Eyebrow */}
       <div className="pt-24 px-6 lg:px-12 max-w-7xl mx-auto">
         <motion.div

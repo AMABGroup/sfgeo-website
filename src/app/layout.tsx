@@ -5,6 +5,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import ContactBubble from "@/components/ui/ContactBubble";
 import CallBubble from "@/components/ui/CallBubble";
+import Script from "next/script";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -17,7 +18,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://www.sfgeo.com.au'),
+  metadataBase: new URL('https://sfgeo.com.au'),
   title: "Solid Foundation Geotechnical | Sydney Engineers & Drilling",
   description: "Sydney's boutique geotechnical consultancy. Principal-led site classifications, investigations, and 4WD drilling with fixed-fee quotes and local expertise.",
   keywords: [
@@ -74,24 +75,94 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://sfgeo.com.au/#organization",
+    "name": "Solid Foundation Geotechnical",
+    "url": "https://sfgeo.com.au",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://sfgeo.com.au/og/sfgeo-og.png"
+    },
+    "image": "https://sfgeo.com.au/og/sfgeo-og.png",
+    "sameAs": [
+      "https://au.linkedin.com/company/sfgeo",
+      "https://www.instagram.com/sfgeo.syd/"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+61423483555",
+      "contactType": "customer service",
+      "areaServed": "AU",
+      "availableLanguage": "en"
+    }
+  };
+
+  const localBusinessSchema = {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "@id": "https://sfgeo.com.au/#localbusiness",
+    "name": "Solid Foundation Geotechnical",
+    "image": "https://sfgeo.com.au/og/sfgeo-og.png",
+    "url": "https://sfgeo.com.au",
+    "telephone": "+61423483555",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Suite 3.01, Level 3, 107 Sydenham Road",
+      "addressLocality": "Marrickville",
+      "addressRegion": "NSW",
+      "postalCode": "2204",
+      "addressCountry": "AU"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": -33.911,
+      "longitude": 151.166
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"
+      ],
+      "opens": "08:00",
+      "closes": "18:00"
+    },
+    "sameAs": [
+      "https://au.linkedin.com/company/sfgeo",
+      "https://www.instagram.com/sfgeo.syd/"
+    ]
+  };
+
   return (
     <html lang="en" className="scroll-smooth">
       <head>
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18053070765"></script>
-<script
-  dangerouslySetInnerHTML={{
-    __html: `
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'AW-18053070765');
-    `,
-  }}
-/>
-</head>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18053070765"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'AW-18053070765');
+            `,
+          }}
+        />
+      </head>
       <body
         className={`${inter.variable} ${montserrat.variable} antialiased min-h-screen flex flex-col`}
       >
+        <script
+          id="schema-org"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+        <script
+          id="schema-local-business"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        />
         <Navbar />
         <main className="flex-grow">
           {children}

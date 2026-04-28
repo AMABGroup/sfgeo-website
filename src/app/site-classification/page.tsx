@@ -24,19 +24,38 @@ export const metadata: Metadata = {
 };
 
 export default function SiteClassificationPage() {
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https://sfgeo.com.au/",
+          "name": "Home"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "item": {
+          "@id": "https://sfgeo.com.au/site-classification",
+          "name": "Site Classification"
+        }
+      }
+    ]
+  };
+
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
     "name": "Site Classification",
     "serviceType": "Site Classification",
     "description": "Fast, accurate AS2870 site classifications for Sydney homes, extensions, granny flats and duplexes. Independent, NATA lab-backed, fixed-fee. Signed by the engineer on your ground.",
-    "url": "https://www.sfgeo.com.au/site-classification",
+    "url": "https://sfgeo.com.au/site-classification",
     "provider": {
-      "@type": "Organization",
-      "@id": "https://www.sfgeo.com.au/#organization",
-      "name": "Solid Foundation Geotechnical",
-      "url": "https://www.sfgeo.com.au",
-      "telephone": "+61423483555"
+      "@id": "https://sfgeo.com.au/#organization"
     },
     "areaServed": {
       "@type": "City",
@@ -46,6 +65,10 @@ export default function SiteClassificationPage() {
 
   return (
     <div className="bg-white text-slate-950 font-inter min-h-screen selection:bg-forest-green selection:text-white pb-24">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}

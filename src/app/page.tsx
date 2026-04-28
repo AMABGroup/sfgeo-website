@@ -26,117 +26,6 @@ export default function Home() {
     }))
   };
 
-  const localBusinessSchema = {
-    "@context": "https://schema.org",
-    "@type": "GeotechnicalEngineer", 
-    "name": "Solid Foundation Geotechnical",
-    "image": "https://www.sfgeo.com.au/SFGEO_logo_black.png",
-    "@id": "https://www.sfgeo.com.au/#organization",
-    "url": "https://www.sfgeo.com.au",
-    "telephone": "+61423483555",
-    "priceRange": "$$",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Suite 3.01, Level 3, 107 Sydenham Road",
-      "addressLocality": "Marrickville",
-      "addressRegion": "NSW",
-      "postalCode": "2204",
-      "addressCountry": "AU"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": -33.911,
-      "longitude": 151.166
-    },
-    "openingHoursSpecification": {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": [
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday"
-      ],
-      "opens": "08:00",
-      "closes": "18:00"
-    },
-    "areaServed": [
-      { "@type": "City", "name": "Sydney" },
-      { "@type": "City", "name": "Inner West" },
-      { "@type": "City", "name": "Eastern Suburbs" },
-      { "@type": "City", "name": "Western Sydney" },
-      { "@type": "City", "name": "Northern Beaches" },
-      { "@type": "City", "name": "Sutherland Shire" },
-      { "@type": "City", "name": "North Shore" },
-      { "@type": "City", "name": "Hills District" },
-      { "@type": "City", "name": "Parramatta" },
-      { "@type": "City", "name": "Liverpool" },
-      { "@type": "City", "name": "Campbelltown" },
-      { "@type": "City", "name": "Marrickville" },
-      { "@type": "City", "name": "Newtown" },
-      { "@type": "City", "name": "Ashfield" },
-      { "@type": "City", "name": "Burwood" },
-      { "@type": "City", "name": "Strathfield" },
-      { "@type": "City", "name": "Surry Hills" },
-      { "@type": "City", "name": "Paddington" },
-      { "@type": "City", "name": "Bondi" },
-      { "@type": "City", "name": "Randwick" },
-      { "@type": "City", "name": "Coogee" },
-      { "@type": "City", "name": "Manly" },
-      { "@type": "City", "name": "Mosman" },
-      { "@type": "City", "name": "Chatswood" },
-      { "@type": "City", "name": "Ryde" },
-      { "@type": "City", "name": "Epping" },
-      { "@type": "City", "name": "Blacktown" },
-      { "@type": "City", "name": "Penrith" },
-      { "@type": "City", "name": "Bankstown" },
-      { "@type": "City", "name": "Hurstville" },
-      { "@type": "City", "name": "Cronulla" }
-    ],
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Geotechnical Engineering Services",
-      "itemListElement": [
-        {
-          "@type": "Offer",
-          "itemOffered": { "@type": "Service", "name": "Residential Soil Testing" }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": { "@type": "Service", "name": "AS2870 Site Classification" }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": { "@type": "Service", "name": "Geotechnical Investigation & Reporting" }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": { "@type": "Service", "name": "Construction Phase Support" }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": { "@type": "Service", "name": "Footing & Pier Inspections" }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": { "@type": "Service", "name": "Tight Access Drilling Services" }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": { "@type": "Service", "name": "Permeability & Infiltration Testing" }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": { "@type": "Service", "name": "Slope Stability Assessment" }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": { "@type": "Service", "name": "Level 1 Earthworks Supervision" }
-        }
-      ]
-    }
-  };
-
   const fadeIn = {
     hidden: { opacity: 0, y: 30 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
@@ -158,10 +47,6 @@ export default function Home() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
       />
 
       {/* ArchDaily Minimal Hero Section */}
