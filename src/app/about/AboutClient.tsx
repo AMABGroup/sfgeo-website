@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import ServiceAreaBlock from "@/components/sections/ServiceAreaBlock";
+import ImageOverlay from "@/components/ui/ImageOverlay";
+import { OverlayGroup } from "@/components/ui/OverlayGroup";
 
 export default function AboutClient() {
   const fadeIn = {
@@ -301,135 +303,123 @@ export default function AboutClient() {
           </motion.div>
 
           {/* Gallery Rows */}
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={staggerContainer}
-            className="flex flex-col gap-6"
-          >
-            {/* Top Row: Current Projects */}
-            <div>
-              <motion.h4
-                variants={fadeIn}
-                className="text-sm font-semibold tracking-widest uppercase text-forest-green mb-6 border-b border-gray-200 pb-2"
-              >
-                Current Projects
-              </motion.h4>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div className="relative aspect-[4/3] rounded-none border border-gray-200 overflow-hidden group shadow-none">
-                  <Image
-                    src="/footing-pile-inspection-north-willoughby-geotechnical.jpg"
-                    alt="Responsive construction-phase footing and pile inspections in North Willoughby by SFGEO."
-                    title="Construction-phase footing inspection in North Willoughby - SFGEO"
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-6">
-                    <p className="text-white text-sm tracking-widest font-semibold uppercase text-center leading-relaxed">
+          <OverlayGroup>
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              variants={staggerContainer}
+              className="flex flex-col gap-6"
+            >
+              {/* Top Row: Current Projects */}
+              <div>
+                <motion.h4
+                  variants={fadeIn}
+                  className="text-sm font-semibold tracking-widest uppercase text-forest-green mb-6 border-b border-gray-200 pb-2"
+                >
+                  Current Projects
+                </motion.h4>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                  <div className="relative aspect-[4/3] rounded-none border border-gray-200 overflow-hidden group shadow-none">
+                    <Image
+                      src="/footing-pile-inspection-north-willoughby-geotechnical.jpg"
+                      alt="Responsive construction-phase footing and pile inspections in North Willoughby by SFGEO."
+                      title="Construction-phase footing inspection in North Willoughby - SFGEO"
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                    <ImageOverlay hoverShow tracking="tracking-widest">
                       Footing & Pile Inspection <br/><span className="text-xs font-light text-gray-300">North Willoughby</span>
-                    </p>
+                    </ImageOverlay>
                   </div>
-                </div>
-                <div className="relative aspect-[4/3] rounded-none border border-gray-200 overflow-hidden group shadow-none">
-                  <Image
-                    src="/geotechnical-investigation-borehole-baulkham-hills.webp"
-                    alt="Comprehensive subsurface drilling and soil testing for residential foundation design in Baulkham Hills."
-                    title="Borehole drilling for geotechnical investigation in Baulkham Hills"
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-6">
-                    <p className="text-white text-sm tracking-widest font-semibold uppercase text-center leading-relaxed">
+                  <div className="relative aspect-[4/3] rounded-none border border-gray-200 overflow-hidden group shadow-none">
+                    <Image
+                      src="/geotechnical-investigation-borehole-baulkham-hills.webp"
+                      alt="Comprehensive subsurface drilling and soil testing for residential foundation design in Baulkham Hills."
+                      title="Borehole drilling for geotechnical investigation in Baulkham Hills"
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                    <ImageOverlay hoverShow tracking="tracking-widest">
                       Geotechnical Investigation <br/><span className="text-xs font-light text-gray-300">Baulkham Hills</span>
-                    </p>
+                    </ImageOverlay>
                   </div>
-                </div>
-                <div className="relative aspect-[4/3] rounded-none border border-gray-200 overflow-hidden group shadow-none">
-                  <Image
-                    src="/geotechnical-project-management-marrickville.png"
-                    alt="Local geotechnical project management and precise field data collection in Marrickville."
-                    title="Geotechnical project management and field data collection - Marrickville"
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-6">
-                    <p className="text-white text-sm tracking-widest font-semibold uppercase text-center leading-relaxed">
+                  <div className="relative aspect-[4/3] rounded-none border border-gray-200 overflow-hidden group shadow-none">
+                    <Image
+                      src="/geotechnical-project-management-marrickville.png"
+                      alt="Local geotechnical project management and precise field data collection in Marrickville."
+                      title="Geotechnical project management and field data collection - Marrickville"
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                    <ImageOverlay hoverShow tracking="tracking-widest">
                       Project Management <br/><span className="text-xs font-light text-gray-300">Marrickville</span>
-                    </p>
+                    </ImageOverlay>
                   </div>
                 </div>
               </div>
-            </div>
 
-            {/* Second Row: Previous Experience */}
-            <div className="pt-8">
-              <motion.h4
-                variants={fadeIn}
-                className="text-sm font-semibold tracking-widest uppercase text-forest-green mb-6 border-b border-gray-200 pb-2"
-              >
-                Previous Project Experience
-              </motion.h4>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div className="relative aspect-[4/3] rounded-none border border-gray-200 overflow-hidden group shadow-none">
-                  <Image
-                    src="/commercial-geotechnical-eastern-creek-light-horse.jpeg"
-                    alt="Commercial geotechnical site support for large-scale infrastructure at Light Horse Interchange."
-                    title="Geotechnical site support at Light Horse Interchange, Eastern Creek"
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-6">
-                    <p className="text-white text-sm tracking-widest font-semibold uppercase text-center leading-relaxed">
+              {/* Second Row: Previous Experience */}
+              <div className="pt-8">
+                <motion.h4
+                  variants={fadeIn}
+                  className="text-sm font-semibold tracking-widest uppercase text-forest-green mb-6 border-b border-gray-200 pb-2"
+                >
+                  Previous Project Experience
+                </motion.h4>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                  <div className="relative aspect-[4/3] rounded-none border border-gray-200 overflow-hidden group shadow-none">
+                    <Image
+                      src="/commercial-geotechnical-eastern-creek-light-horse.jpeg"
+                      alt="Commercial geotechnical site support for large-scale infrastructure at Light Horse Interchange."
+                      title="Geotechnical site support at Light Horse Interchange, Eastern Creek"
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                    <ImageOverlay hoverShow tracking="tracking-widest">
                       Light Horse Interchange <br/><span className="text-xs font-light text-gray-300">Eastern Creek</span>
-                    </p>
+                    </ImageOverlay>
                   </div>
-                </div>
-                <div className="relative aspect-[4/3] rounded-none border border-gray-200 overflow-hidden group shadow-none">
-                  <Image
-                    src="/infrastructure-drilling-sydney-gateway-airport.jpeg"
-                    alt="Complex infrastructure geotechnical drilling and site investigation at Sydney Gateway Airport."
-                    title="Geotechnical drilling at Sydney Gateway Airport project"
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-6">
-                    <p className="text-white text-sm tracking-widest font-semibold uppercase text-center leading-relaxed">
+                  <div className="relative aspect-[4/3] rounded-none border border-gray-200 overflow-hidden group shadow-none">
+                    <Image
+                      src="/infrastructure-drilling-sydney-gateway-airport.jpeg"
+                      alt="Complex infrastructure geotechnical drilling and site investigation at Sydney Gateway Airport."
+                      title="Geotechnical drilling at Sydney Gateway Airport project"
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                    <ImageOverlay hoverShow tracking="tracking-widest">
                       Sydney Gateway <br/><span className="text-xs font-light text-gray-300">Sydney Airport</span>
-                    </p>
+                    </ImageOverlay>
                   </div>
-                </div>
-                <div className="relative aspect-[4/3] rounded-none border border-gray-200 overflow-hidden group shadow-none">
-                  <Image
-                    src="/civil-geotechnical-data-m7-m12-link-sydney.jpeg"
-                    alt="Large-scale civil infrastructure fieldwork delivering reliable geotechnical data for the M7-M12 Link."
-                    title="Geotechnical fieldwork for the M7-M12 Link infrastructure project"
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-6">
-                    <p className="text-white text-sm tracking-widest font-semibold uppercase text-center leading-relaxed">
+                  <div className="relative aspect-[4/3] rounded-none border border-gray-200 overflow-hidden group shadow-none">
+                    <Image
+                      src="/civil-geotechnical-data-m7-m12-link-sydney.jpeg"
+                      alt="Large-scale civil infrastructure fieldwork delivering reliable geotechnical data for the M7-M12 Link."
+                      title="Geotechnical fieldwork for the M7-M12 Link infrastructure project"
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                    <ImageOverlay hoverShow tracking="tracking-widest">
                       M7-M12 Link <br/><span className="text-xs font-light text-gray-300">South West Sydney</span>
-                    </p>
+                    </ImageOverlay>
                   </div>
-                </div>
-                <div className="relative aspect-[4/3] rounded-none border border-gray-200 overflow-hidden group shadow-none">
-                  <Image
-                    src="/tier-1-infrastructure-drilling-sydney-metro-hurlstone.jpg"
-                    alt="Specialised geotechnical drilling for Tier-1 rail infrastructure at Sydney Metro Hurlstone Park."
-                    title="Tier-1 infrastructure drilling for Sydney Metro at Hurlstone Park"
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-6">
-                    <p className="text-white text-sm tracking-widest font-semibold uppercase text-center leading-relaxed">
+                  <div className="relative aspect-[4/3] rounded-none border border-gray-200 overflow-hidden group shadow-none">
+                    <Image
+                      src="/tier-1-infrastructure-drilling-sydney-metro-hurlstone.jpg"
+                      alt="Specialised geotechnical drilling for Tier-1 rail infrastructure at Sydney Metro Hurlstone Park."
+                      title="Tier-1 infrastructure drilling for Sydney Metro at Hurlstone Park"
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                    <ImageOverlay hoverShow tracking="tracking-widest">
                       Sydney Metro <br/><span className="text-xs font-light text-gray-300">Hurlstone Park</span>
-                    </p>
+                    </ImageOverlay>
                   </div>
                 </div>
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          </OverlayGroup>
         </div>
       </section>
 

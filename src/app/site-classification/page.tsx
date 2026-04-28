@@ -4,6 +4,7 @@ import Link from "next/link";
 import { FadeIn, StaggerContainer, FadeInChild } from "./MotionWrapper";
 import VideoEmbed from "./VideoEmbed";
 import ImageOverlay from "@/components/ui/ImageOverlay";
+import { OverlayGroup } from "@/components/ui/OverlayGroup";
 
 export const metadata: Metadata = {
   title: "Site Classification Sydney | AS2870 Soil Reports | SFGEO",
@@ -211,34 +212,36 @@ export default function SiteClassificationPage() {
           <h2 className="text-3xl font-light tracking-tight font-montserrat text-slate-950 mb-8">
             Preparation & Execution
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-            <div className="relative w-full aspect-[4/3] rounded-sm overflow-hidden shadow-sm group">
-              <Image 
-                src="/sfgeo-principal-engineer-reviewing-architectural-plans-as2870.jpg" 
-                alt="SFGEO principal engineer reviewing architectural plans against AS 2870" 
-                title="Site classification review — AS 2870"
-                fill 
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover transition-transform duration-1000 group-hover:scale-105"
-              />
-              <ImageOverlay compact hoverReveal>
-                PREPARATION
-              </ImageOverlay>
+          <OverlayGroup>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+              <div className="relative w-full aspect-[4/3] rounded-sm overflow-hidden shadow-sm group">
+                <Image 
+                  src="/sfgeo-principal-engineer-reviewing-architectural-plans-as2870.jpg" 
+                  alt="SFGEO principal engineer reviewing architectural plans against AS 2870" 
+                  title="Site classification review — AS 2870"
+                  fill 
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover transition-transform duration-1000 group-hover:scale-105"
+                />
+                <ImageOverlay compact hoverReveal>
+                  PREPARATION
+                </ImageOverlay>
+              </div>
+              <div className="relative w-full aspect-[4/3] rounded-sm overflow-hidden shadow-sm group">
+                <Image 
+                  src="/sfgeo-drilling-heritage-home-inner-west-sydney.jpg" 
+                  alt="Geotechnical drilling in progress at a heritage Inner West Sydney home" 
+                  title="Geotechnical investigation, Inner West Sydney"
+                  fill 
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover transition-transform duration-1000 group-hover:scale-105"
+                />
+                <ImageOverlay compact hoverReveal>
+                  EXECUTION
+                </ImageOverlay>
+              </div>
             </div>
-            <div className="relative w-full aspect-[4/3] rounded-sm overflow-hidden shadow-sm group">
-              <Image 
-                src="/sfgeo-drilling-heritage-home-inner-west-sydney.jpg" 
-                alt="Geotechnical drilling in progress at a heritage Inner West Sydney home" 
-                title="Geotechnical investigation, Inner West Sydney"
-                fill 
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover transition-transform duration-1000 group-hover:scale-105"
-              />
-              <ImageOverlay compact hoverReveal>
-                EXECUTION
-              </ImageOverlay>
-            </div>
-          </div>
+          </OverlayGroup>
           <div className="text-lg text-gray-600 font-light leading-relaxed space-y-6">
             <p>
               <strong className="font-medium text-slate-950">One professional, not three.</strong> The Principal Engineer's background is hands-on residential construction across multiple trades, years of drilling Sydney sites personally, and the engineering qualifications on top. When the rig goes down, the person reading the ground has drilled ground like it before. When the plans come out, the person reading them has built against ground conditions before. That combination, in one professional, is rare in the Sydney market.
@@ -418,34 +421,36 @@ export default function SiteClassificationPage() {
           <p className="text-lg text-gray-600 font-light leading-relaxed mb-8">
             Many Sydney sites cannot be reached by a conventional truck-mounted rig. Inner West terraces, Eastern Suburbs battleaxe blocks, rear-yard granny flat positions, stepped blocks with deep investigation points. SFGEO operates a 4WD-mounted rig for sites where standard rigs stop at the kerb, with motorised hand augers covering zero-clearance and internal courtyard work. Access-ready from first contact, so your program does not slip waiting on a rig that cannot reach the investigation points. <Link href="/drilling" className="text-forest-green hover:underline font-medium">Full access capability.</Link>
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="relative w-full aspect-[4/3] rounded-sm overflow-hidden shadow-sm group">
-              <Image 
-                src="/sfgeo-4wd-drill-rig-open-residential-block-sydney.jpg" 
-                alt="SFGEO 4WD-mounted geotechnical drill rig set up on an open residential block in Sydney" 
-                title="Standard residential access — drill rig deployed"
-                fill 
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover transition-transform duration-1000 group-hover:scale-105"
-              />
-              <ImageOverlay compact hoverReveal>
-                STANDARD RESIDENTIAL ACCESS
-              </ImageOverlay>
+          <OverlayGroup>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="relative w-full aspect-[4/3] rounded-sm overflow-hidden shadow-sm group">
+                <Image 
+                  src="/sfgeo-4wd-drill-rig-open-residential-block-sydney.jpg" 
+                  alt="SFGEO 4WD-mounted geotechnical drill rig set up on an open residential block in Sydney" 
+                  title="Standard residential access — drill rig deployed"
+                  fill 
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover transition-transform duration-1000 group-hover:scale-105"
+                />
+                <ImageOverlay compact hoverReveal>
+                  STANDARD RESIDENTIAL ACCESS
+                </ImageOverlay>
+              </div>
+              <div className="relative w-full aspect-[4/3] rounded-sm overflow-hidden shadow-sm group">
+                <Image 
+                  src="/sfgeo-hand-auger-borehole-restricted-access-sydney-backyard.jpg" 
+                  alt="Hand auger borehole and field logging in a restricted-access Sydney backyard for AS 2870 site classification" 
+                  title="Restricted access — hand auger investigation"
+                  fill 
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover transition-transform duration-1000 group-hover:scale-105"
+                />
+                <ImageOverlay compact hoverReveal>
+                  RESTRICTED & TIGHT ACCESS
+                </ImageOverlay>
+              </div>
             </div>
-            <div className="relative w-full aspect-[4/3] rounded-sm overflow-hidden shadow-sm group">
-              <Image 
-                src="/sfgeo-hand-auger-borehole-restricted-access-sydney-backyard.jpg" 
-                alt="Hand auger borehole and field logging in a restricted-access Sydney backyard for AS 2870 site classification" 
-                title="Restricted access — hand auger investigation"
-                fill 
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover transition-transform duration-1000 group-hover:scale-105"
-              />
-              <ImageOverlay compact hoverReveal>
-                RESTRICTED & TIGHT ACCESS
-              </ImageOverlay>
-            </div>
-          </div>
+          </OverlayGroup>
         </FadeIn>
       </section>
 
