@@ -2,48 +2,48 @@ import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://sfgeo.com.au';
-  const today = new Date('2026-04-28');
+  const now = new Date();
 
   return [
     {
       url: `${baseUrl}`,
-      lastModified: today,
+      lastModified: now,
       changeFrequency: 'weekly',
       priority: 1.0,
     },
     {
       url: `${baseUrl}/about`,
-      lastModified: today,
+      lastModified: now,
       changeFrequency: 'monthly',
       priority: 0.7,
     },
     {
       url: `${baseUrl}/services`,
-      lastModified: today,
+      lastModified: now,
       changeFrequency: 'monthly',
       priority: 0.9,
     },
     {
       url: `${baseUrl}/site-classification`,
-      lastModified: today,
+      lastModified: now,
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
       url: `${baseUrl}/drilling`,
-      lastModified: today,
+      lastModified: now,
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
       url: `${baseUrl}/faq`,
-      lastModified: today,
+      lastModified: now,
       changeFrequency: 'monthly',
       priority: 0.7,
     },
     {
       url: `${baseUrl}/contact`,
-      lastModified: new Date('2026-04-22'),
+      lastModified: now,
       changeFrequency: 'monthly',
       priority: 0.7,
     },
