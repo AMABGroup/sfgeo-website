@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { faqs, homeFaqs } from "@/data/faqs";
+import { homeFaqs } from "@/data/faqs";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -12,19 +12,6 @@ import GoogleReviews from "@/components/ui/GoogleReviews";
 import ServiceAreaBlock from "@/components/sections/ServiceAreaBlock";
 
 export default function Home() {
-
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": homeFaqs.map(faq => ({
-      "@type": "Question",
-      "name": faq.question,
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": faq.answer.replace(/<br\/>/g, ' ')
-      }
-    }))
-  };
 
   const fadeIn = {
     hidden: { opacity: 0, y: 30 },
@@ -44,11 +31,6 @@ export default function Home() {
 
   return (
     <div className="bg-white text-slate-950 font-inter selection:bg-forest-green selection:text-white">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
-
       {/* ArchDaily Minimal Hero Section */}
       <section className="relative px-6 lg:px-12 py-32 min-h-[90vh] flex flex-col justify-center overflow-hidden">
         {/* Full Bleed Background Image with Subtle Gradient */}
