@@ -112,6 +112,13 @@ export default function RootLayout({
       "contactType": "customer service",
       "areaServed": "AU",
       "availableLanguage": "en"
+    },
+    "founder": {
+      "@type": "Person",
+      "@id": "https://sfgeo.com.au/about#alli-atmar",
+      "name": "Alli Atmar",
+      "jobTitle": "Principal Engineer",
+      "worksFor": { "@id": "https://sfgeo.com.au/#organization" }
     }
   };
 

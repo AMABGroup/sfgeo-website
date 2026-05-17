@@ -60,7 +60,33 @@ export default function SiteClassificationPage() {
     "areaServed": {
       "@type": "City",
       "name": "Sydney, New South Wales, Australia"
-    }
+    },
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "Ancillary residential",
+        "description": "Granny flats, in-ground pools, small alterations and additions. Final fee tailored to your site.",
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "price": "750",
+          "priceCurrency": "AUD",
+          "valueAddedTaxIncluded": false,
+          "description": "from $750 + GST"
+        }
+      },
+      {
+        "@type": "Offer",
+        "name": "Standard residential",
+        "description": "Standard AS 2870 classifications for single and double-storey homes on straightforward blocks. Final fee tailored to your site.",
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "price": "1000",
+          "priceCurrency": "AUD",
+          "valueAddedTaxIncluded": false,
+          "description": "from $1,000 + GST"
+        }
+      }
+    ]
   };
 
   return (
