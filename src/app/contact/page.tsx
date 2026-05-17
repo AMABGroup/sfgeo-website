@@ -47,7 +47,7 @@ export default function ContactPage() {
               </span>
             </a>
             <a 
-              href="https://www.instagram.com/sfgeo.syd/" 
+              href="https://instagram.com/sfgeo.syd" 
               target="_blank" 
               rel="noopener noreferrer"
               className="flex-1 sm:flex-none flex items-center justify-center gap-2 px-3 sm:px-5 py-2.5 bg-white border border-gray-200 rounded-full shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5 sm:w-[240px] h-[46px] group/link"
@@ -130,8 +130,7 @@ export default function ContactPage() {
                   Office Location
                 </h4>
                 <p className="text-base text-slate-950 font-medium leading-relaxed">
-                  Suite 3.01 - Level 3, <span className="whitespace-nowrap">107 Sydenham Road</span><br />
-                  <span className="text-gray-500 font-light">Marrickville, NSW 2204</span>
+                  Suite 3.01, Level 3, 107 Sydenham Road, Marrickville, NSW 2204
                 </p>
               </div>
 

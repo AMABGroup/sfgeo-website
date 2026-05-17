@@ -88,14 +88,7 @@ export default function RootLayout({
     "image": "https://sfgeo.com.au/og/sfgeo-og.png",
     "telephone": "+61423483555",
     "priceRange": "$$",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Suite 3.01, Level 3, 107 Sydenham Road",
-      "addressLocality": "Marrickville",
-      "addressRegion": "NSW",
-      "postalCode": "2204",
-      "addressCountry": "AU"
-    },
+    "address": "Suite 3.01, Level 3, 107 Sydenham Road, Marrickville, NSW 2204",
     "geo": {
       "@type": "GeoCoordinates",
       "latitude": -33.911,
@@ -111,7 +104,7 @@ export default function RootLayout({
     },
     "sameAs": [
       "https://au.linkedin.com/company/sfgeo",
-      "https://www.instagram.com/sfgeo.syd/"
+      "https://instagram.com/sfgeo.syd"
     ],
     "contactPoint": {
       "@type": "ContactPoint",
