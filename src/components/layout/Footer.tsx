@@ -23,6 +23,11 @@ export default function Footer() {
                 <h3 className="text-sm font-semibold leading-6 text-white font-montserrat">Services</h3>
                 <ul role="list" className="mt-6 space-y-4">
                   <li>
+                    <Link href="/site-classification" className="text-sm leading-6 text-gray-300 hover:text-white transition-colors tracking-wide">
+                      Site Classification
+                    </Link>
+                  </li>
+                  <li>
                     <Link href="/services" className="text-sm leading-6 text-gray-300 hover:text-white transition-colors tracking-wide">
                       Geotechnical Services
                     </Link>
@@ -30,6 +35,11 @@ export default function Footer() {
                   <li>
                     <Link href="/drilling" className="text-sm leading-6 text-gray-300 hover:text-white transition-colors tracking-wide">
                       Drilling Services
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/faq" className="text-sm leading-6 text-gray-300 hover:text-white transition-colors tracking-wide">
+                      FAQ
                     </Link>
                   </li>
                 </ul>
