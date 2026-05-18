@@ -36,7 +36,7 @@ export default function PrivacyPolicyPage() {
             variants={fadeIn} 
             className="text-sm text-gray-400 font-semibold tracking-wider uppercase mb-12 border-b border-gray-100 pb-8"
           >
-            Last Updated: July 2025
+            Last Updated: May 2026
           </motion.p>
         </motion.div>
       </section>
@@ -75,7 +75,7 @@ export default function PrivacyPolicyPage() {
 
             <h2 className="text-2xl font-montserrat font-bold text-slate-black mt-12 mb-6">4. Disclosure of information</h2>
             <p>
-              We do not sell your personal information to third parties. We will only disclose your information to authorized third parties when required to execute your project—such as sharing site parameters with your designated structural engineer or local Sydney Council—or when explicitly required by law.
+              We do not sell your personal information to third parties. We will only disclose your information to authorized third parties when required to execute your project (such as sharing site parameters with your designated structural engineer or local Sydney Council), or when explicitly required by law.
             </p>
 
             <h2 className="text-2xl font-montserrat font-bold text-slate-black mt-12 mb-6">5. Storage and security</h2>
@@ -88,9 +88,18 @@ export default function PrivacyPolicyPage() {
               You have the right to request access to the personal information we hold about you and to ask for it to be updated or corrected. If you wish to review your information, please contact us directly. We will respond promptly within a reasonable timeframe.
             </p>
 
-            <h2 className="text-2xl font-montserrat font-bold text-slate-black mt-12 mb-6">7. Cookies</h2>
+            <h2 className="text-2xl font-montserrat font-bold text-slate-black mt-12 mb-6">7. Cookies and third-party services</h2>
             <p>
-              Our website utilizes essential cookies to enhance your browsing experience and monitor anonymous site traffic analytics. These cookies do not collect personally identifiable information. You maintain the right to disable cookies via your browser settings, though this may affect the usability of certain site features.
+              Our website uses cookies to support core site functionality and to measure how visitors find and engage with us. Some cookies are set by third-party services we integrate.
+            </p>
+            <p>
+              <strong>Google Ads conversion tracking.</strong> When you arrive at the site from a paid search advertisement and then submit our contact form or use the on-screen contact buttons, Google sets a short-lived identifier to attribute that enquiry to the campaign that brought you here. The identifier does not, on its own, contain your name or contact details.
+            </p>
+            <p>
+              <strong>Google Maps.</strong> The Contact page includes an embedded map of our office, provided by Google Maps. Google may set its own cookies when the map loads.
+            </p>
+            <p>
+              Both Google services are governed by Google&apos;s privacy policy, available at <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-forest-green font-semibold hover:underline">policies.google.com/privacy</a>. You can disable cookies through your browser settings, though some features (such as the embedded map) may not function correctly if cookies are blocked. Disabling cookies will not prevent you from contacting us by phone, email, or the contact form.
             </p>
 
             <h2 className="text-2xl font-montserrat font-bold text-slate-black mt-12 mb-6">8. Changes to policy</h2>
