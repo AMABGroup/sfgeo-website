@@ -171,7 +171,7 @@ export default function DrillingClient() {
                 className="object-cover transition-transform duration-1000 ease-in-out group-hover:scale-105" 
               />
               <ImageOverlay hoverShow tracking="tracking-widest">
-                Site Classification & <Link href="/services" className="hover:underline">Geotechnical Investigation</Link> Drilling | Sydney Metro
+                <Link href="/site-classification" className="hover:underline">Site Classification</Link> & <Link href="/geotechnical-investigation" className="hover:underline">Geotechnical Investigation</Link> Drilling | Sydney Metro
               </ImageOverlay>
             </div>
             <div className="w-full md:w-1/2">

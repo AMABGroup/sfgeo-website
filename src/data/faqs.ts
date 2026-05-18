@@ -53,7 +53,7 @@ export const faqs = [
   },
   {
     question: "What does a geotechnical investigation actually involve?",
-    answer: "Our investigations are hands-on and site-specific. We extract soil and rock samples, log the geological profile, perform in-situ strength testing (like DCPs), and analyze this data. We then translate the raw site data into a comprehensive engineering report site-specific for your design team."
+    answer: "Our <a href=\"/geotechnical-investigation\">geotechnical investigations</a> are hands-on and site-specific. We extract soil and rock samples, log the geological profile, perform in-situ strength testing (like DCPs), and analyze this data. We then translate the raw site data into a comprehensive engineering report site-specific for your design team."
   },
   {
     question: "Is SFGEO an independent engineering consultancy?",
@@ -61,7 +61,7 @@ export const faqs = [
   },
   {
     question: "What Australian Standards do your reports comply with?",
-    answer: "All SFGEO testing, investigations, and reporting are carried out in accordance with the relevant Australian Standards and project requirements, where applicable. Commonly referenced standards include AS1726 (Geotechnical Site Investigations), <a href=\"/site-classification\">AS2870 (Residential Slabs and Footings)</a>, and AS3798 (Guidelines on Earthworks)."
+    answer: "All SFGEO testing, investigations, and reporting are carried out in accordance with the relevant Australian Standards and project requirements, where applicable. Commonly referenced standards include <a href=\"/geotechnical-investigation\">AS1726 (Geotechnical Site Investigations)</a>, <a href=\"/site-classification\">AS2870 (Residential Slabs and Footings)</a>, and AS3798 (Guidelines on Earthworks)."
   },
   {
     question: "How does SFGEO's report work with my structural engineer's design?",

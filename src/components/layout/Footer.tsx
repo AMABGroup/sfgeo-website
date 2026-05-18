@@ -28,6 +28,11 @@ export default function Footer() {
                     </Link>
                   </li>
                   <li>
+                    <Link href="/geotechnical-investigation" className="text-sm leading-6 text-gray-300 hover:text-white transition-colors tracking-wide">
+                      Geotechnical Investigation
+                    </Link>
+                  </li>
+                  <li>
                     <Link href="/services" className="text-sm leading-6 text-gray-300 hover:text-white transition-colors tracking-wide">
                       Geotechnical Services
                     </Link>
@@ -66,7 +71,7 @@ export default function Footer() {
                 <ul role="list" className="mt-6 space-y-4 text-sm leading-6 text-gray-300">
                   <li className="flex flex-col gap-1">
                     <span>Suite 3.01, Level 3, 107 Sydenham Road, Marrickville, NSW 2204</span>
-                    <span className="text-white font-medium">0423 483 555</span>
+                    <a href="tel:+61423483555" className="text-white font-medium hover:text-gray-300 transition-colors">0423 483 555</a>
                   </li>
                   <li className="mt-4 pt-4 border-t border-white/10 flex flex-col gap-2">
                     <span className="text-xs text-gray-400">Affiliated with:</span>

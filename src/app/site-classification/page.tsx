@@ -379,7 +379,7 @@ export default function SiteClassificationPage() {
                   Geotechnical reporting in Sydney has a transparency problem. Headline fees look sharp on first read, then return heavier once scope is actually scoped. Or the fee is genuinely cheap, and the report is thin, templated, and bounced by the certifier. Either way, you pay for it, often in concrete and steel that never had to be there.
                 </p>
                 <p>
-                  SFGEO pricing is fixed-fee, confirmed in writing before work begins. The figures below are starting points. What drives a real quote is the site itself, access, ground conditions, existing structures, slope, the depth of investigation your project actually needs. That is why every engagement starts with the Principal Engineer on your ground.
+                  SFGEO pricing is fixed-fee, confirmed in writing before work begins. The figures below are starting points. What drives a real quote is the site itself, access, ground conditions, existing structures, slope, the <Link href="/geotechnical-investigation" className="text-forest-green hover:underline font-medium">depth of investigation</Link> your project actually needs. That is why every engagement starts with the Principal Engineer on your ground.
                 </p>
               </div>
             </div>
@@ -436,7 +436,7 @@ export default function SiteClassificationPage() {
                     Custom <span className="text-lg text-gray-400 font-medium">Quote</span>
                   </h3>
                   <p className="text-base text-gray-500 font-light leading-relaxed mb-10 flex-grow">
-                    Basements. Multi-storey. Retaining walls. Sloping blocks. Restricted access. Strata. Prestige-suburb projects. Every complex site is different, and we price them that way.
+                    Basements. Multi-storey. Retaining walls. Sloping blocks. Restricted access. Strata. Prestige-suburb projects. Every complex site is different, and we price them that way. Most move into a full geotechnical investigation to AS 1726.
                   </p>
                   <div className="flex items-center justify-center px-5 py-2.5 bg-white text-forest-green rounded-full shadow-[inset_0_0_0_1px_rgba(45,90,58,0.25),0_4px_10px_-4px_rgba(0,0,0,0.05)] group-hover:bg-forest-green/5 transition-all text-xs font-semibold tracking-wide h-[46px] w-full">
                     Enquire Now
@@ -540,7 +540,7 @@ export default function SiteClassificationPage() {
           </div>
           
           <p className="text-lg text-gray-600 font-light leading-relaxed">
-            <strong className="font-medium text-slate-950">Class P</strong> sits outside the reactivity scale. Applied when conditions fall outside the standard AS 2870 framework, fill, steep slope, soft or collapsing soils, reactivity beyond Class E, or proximity to significant trees and water courses. Requires individual engineering assessment.
+            <strong className="font-medium text-slate-950">Class P</strong> sits outside the reactivity scale. Applied when conditions fall outside the standard AS 2870 framework, fill, steep slope, soft or collapsing soils, reactivity beyond Class E, or proximity to significant trees and water courses. Requires individual engineering assessment, often through a dedicated <Link href="/geotechnical-investigation" className="text-forest-green hover:underline font-medium">geotechnical investigation</Link> to AS 1726.
           </p>
         </FadeIn>
       </section>

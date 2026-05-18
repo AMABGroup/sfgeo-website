@@ -154,7 +154,7 @@ export default function Home() {
             </div>
             <h3 className="text-xl font-montserrat font-semibold mb-3 tracking-tight">Preliminary Site Works</h3>
             <p className="text-sm text-gray-600 font-light leading-relaxed flex-grow mb-6">
-              Essential soil testing for residential projects—from new homes and extensions to granny flats and in-ground pools. We deliver fast, accurate <Link href="/site-classification" className="text-forest-green hover:underline font-medium relative z-10">Site Classifications (AS2870)</Link> and Geotechnical Investigations (AS1726). We provide clear foundation advice and the geotechnical reporting necessary to support DA and CDC pathways, partnering directly with homeowners, architects, and builders to get projects out of the ground.
+              Essential soil testing for residential projects—from new homes and extensions to granny flats and in-ground pools. We deliver fast, accurate <Link href="/site-classification" className="text-forest-green hover:underline font-medium relative z-10">Site Classifications (AS2870)</Link> and <Link href="/geotechnical-investigation" className="text-forest-green hover:underline font-medium relative z-10">Geotechnical Investigations (AS1726)</Link>. We provide clear foundation advice and the geotechnical reporting necessary to support DA and CDC pathways, partnering directly with homeowners, architects, and builders to get projects out of the ground.
             </p>
             <Link 
               href="/services" 

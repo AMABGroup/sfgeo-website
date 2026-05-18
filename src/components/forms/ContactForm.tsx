@@ -35,6 +35,8 @@ export default function ContactForm() {
       setFormData(prev => ({ ...prev, projectType: "B2B subcontract drilling" }));
     } else if (subject === "site-inspection") {
       setFormData(prev => ({ ...prev, projectType: "Other", message: "I would like to request a site inspection." }));
+    } else if (subject === "Geotechnical Investigation Enquiry") {
+      setFormData(prev => ({ ...prev, message: "I'd like to discuss a geotechnical investigation for my project." }));
     }
   }, [searchParams]);
 

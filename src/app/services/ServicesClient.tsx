@@ -210,14 +210,19 @@ export default function ServicesClient() {
               <p className="text-lg text-gray-600 font-light leading-loose mb-8">
                 Built from real, ground-up experience spanning the trades, drilling, and senior engineering, we understand what is happening below your site surface. From our Sydney team, we carry out comprehensive geotechnical investigations for residential, commercial, and land development projects. We define subsurface conditions through boreholes and test pits, providing reliable parameters to support foundation design, excavation planning, and site remediation.
               </p>
-              <motion.div variants={fadeIn}>
-                <Link href="/contact" 
-                  className="inline-flex items-center justify-center px-8 py-2.5 bg-slate-black text-white text-sm font-semibold tracking-wide rounded-full shadow-md hover:shadow-lg transition-all hover:-translate-y-0.5 hover:bg-slate-800 mb-2 h-[46px]"
+              <motion.div variants={fadeIn} className="flex flex-col sm:flex-row items-center gap-4 mb-2">
+                <Link href="/geotechnical-investigation"
+                  className="inline-flex items-center justify-center px-8 py-2.5 bg-forest-green text-white text-sm font-semibold tracking-wide rounded-full shadow-md hover:shadow-lg transition-all hover:-translate-y-0.5 hover:bg-forest-green/90 h-[46px]"
+                >
+                  Explore Geotechnical Investigations →
+                </Link>
+                <Link href="/contact"
+                  className="inline-flex items-center justify-center px-8 py-2.5 bg-slate-black text-white text-sm font-semibold tracking-wide rounded-full shadow-md hover:shadow-lg transition-all hover:-translate-y-0.5 hover:bg-slate-800 h-[46px]"
                 >
                   Discuss Your Site With an Engineer
                 </Link>
               </motion.div>
-              <ExpandableDetails 
+              <ExpandableDetails
                 title="View Scope: Boreholes, Slope Stability & Soil Testing"
                 items={[
                   "Deep borehole drilling, test pits, rock coring, and sampling",
