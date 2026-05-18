@@ -1,7 +1,7 @@
 export const faqs = [
   {
     question: "How much does a geotechnical report or soil test cost in Sydney?",
-    answer: "Fixed fees start from $750 + GST for smaller, tightly scoped jobs such as a granny flat, in-ground pool, or addition to an existing home. A standard AS 2870 <a href=\"/site-classification\">site classification</a> for a single-storey dwelling on a flat block with easy access typically starts from $1,000 + GST. Larger sites, restricted access, sloping blocks, or council-specified testing requirements scale the fee accordingly.<br/><br/>Before quoting, we complete a desktop study, speak with you directly, and where useful, visit the site. You receive a fixed-fee proposal with no hidden drilling extras.<br/><br/>All fees are exclusive of GST. <a href=\"/contact\">Request a fixed-fee site assessment</a>."
+    answer: "Our site classifications are fixed-fee. The tier is set by the complexity of your block, not the size of your project.<br/><br/>From $800 + GST. Granny flats, small additions, and new single or double-storey homes on cleared blocks. Tightly scoped work with predictable soil and straightforward access.<br/><br/>From $1,000 + GST. The right tier for most Sydney custom builds. Single or double-storey homes on established streets, pool additions, duplexes, and dwellings with in-ground pools.<br/><br/>Custom Quote. Basements, multi-storey, retaining walls, sloping blocks, restricted access, strata, and prestige-suburb projects. Every complex site is different, and we price them that way. Send the address and a short brief, and you'll have a <a href=\"/contact\">fixed quote</a> within a few business days."
   },
   {
     question: "Do I need a soil test for a house extension, pool, granny flat, or knockdown rebuild?",
@@ -84,7 +84,7 @@ export const faqs = [
 export const homeFaqs = [
   {
     question: "How much does a geotechnical report or soil test cost in Sydney?",
-    answer: "Fixed fees start from $750 + GST for smaller, tightly scoped jobs such as a granny flat, in-ground pool, or addition to an existing home. A standard AS 2870 <a href=\"/site-classification\">site classification</a> for a single-storey dwelling on a flat block with easy access typically starts from $1,000 + GST. Larger sites, restricted access, sloping blocks, or council-specified testing requirements scale the fee accordingly.<br/><br/>Before quoting, we complete a desktop study, speak with you directly, and where useful, visit the site. You receive a fixed-fee proposal with no hidden drilling extras.<br/><br/>All fees are exclusive of GST. <a href=\"/contact\">Request a fixed-fee site assessment</a>."
+    answer: "Our site classifications are fixed-fee. The tier is set by the complexity of your block, not the size of your project.<br/><br/>From $800 + GST. Granny flats, small additions, and new single or double-storey homes on cleared blocks. Tightly scoped work with predictable soil and straightforward access.<br/><br/>From $1,000 + GST. The right tier for most Sydney custom builds. Single or double-storey homes on established streets, pool additions, duplexes, and dwellings with in-ground pools.<br/><br/>Custom Quote. Basements, multi-storey, retaining walls, sloping blocks, restricted access, strata, and prestige-suburb projects. Every complex site is different, and we price them that way. Send the address and a short brief, and you'll have a <a href=\"/contact\">fixed quote</a> within a few business days."
   },
   {
     question: "What makes SFGEO different from other geotechnical firms in Sydney?",

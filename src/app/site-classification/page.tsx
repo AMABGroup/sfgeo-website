@@ -65,19 +65,19 @@ export default function SiteClassificationPage() {
       {
         "@type": "Offer",
         "name": "Ancillary residential",
-        "description": "Granny flats, in-ground pools, small alterations and additions. Final fee tailored to your site.",
+        "description": "Granny flats. Small additions. New homes on cleared blocks. Tightly scoped projects with straightforward access, priced from $800. Every fee is set against your specific block.",
         "priceSpecification": {
           "@type": "PriceSpecification",
-          "price": "750",
+          "price": "800",
           "priceCurrency": "AUD",
           "valueAddedTaxIncluded": false,
-          "description": "from $750 + GST"
+          "description": "from $800 + GST"
         }
       },
       {
         "@type": "Offer",
         "name": "Standard residential",
-        "description": "Standard AS 2870 classifications for single and double-storey homes on straightforward blocks. Final fee tailored to your site.",
+        "description": "The right tier for most Sydney custom builds. Single or double-storey homes on established streets. Pool additions, duplexes, and dwellings with in-ground pools. From $1,000, priced against the work your site actually needs.",
         "priceSpecification": {
           "@type": "PriceSpecification",
           "price": "1000",
@@ -395,10 +395,10 @@ export default function SiteClassificationPage() {
                     <span className="text-[11px] font-bold tracking-[0.2em] text-forest-green uppercase">ANCILLARY RESIDENTIAL</span>
                   </div>
                   <h3 className="text-4xl font-montserrat font-light text-slate-950 tracking-tight mb-6 flex items-baseline gap-2">
-                    <span className="text-lg text-gray-400 font-medium lowercase">from</span> $750 <span className="text-lg text-gray-400 font-medium">+ GST</span>
+                    <span className="text-lg text-gray-400 font-medium lowercase">from</span> $800 <span className="text-lg text-gray-400 font-medium">+ GST</span>
                   </h3>
                   <p className="text-base text-gray-500 font-light leading-relaxed mb-10 flex-grow">
-                    Granny flats, in-ground pools, small alterations and additions. Final fee tailored to your site.
+                    Granny flats. Small additions. New homes on cleared blocks. Tightly scoped projects with straightforward access, priced from $800. Every fee is set against your specific block.
                   </p>
                   <div className="flex items-center justify-center px-5 py-2.5 bg-white text-forest-green rounded-full shadow-[inset_0_0_0_1px_rgba(45,90,58,0.25),0_4px_10px_-4px_rgba(0,0,0,0.05)] group-hover:bg-forest-green/5 transition-all text-xs font-semibold tracking-wide h-[46px] w-full">
                     Enquire Now
@@ -417,7 +417,7 @@ export default function SiteClassificationPage() {
                     <span className="text-lg text-gray-400 font-medium lowercase">from</span> $1,000 <span className="text-lg text-gray-400 font-medium">+ GST</span>
                   </h3>
                   <p className="text-base text-gray-500 font-light leading-relaxed mb-10 flex-grow">
-                    Standard AS 2870 classifications for single and double-storey homes on straightforward blocks. Final fee tailored to your site.
+                    The right tier for most Sydney custom builds. Single or double-storey homes on established streets. Pool additions, duplexes, and dwellings with in-ground pools. From $1,000, priced against the work your site actually needs.
                   </p>
                   <div className="flex items-center justify-center px-5 py-2.5 bg-white text-forest-green rounded-full shadow-[inset_0_0_0_1px_rgba(45,90,58,0.25),0_4px_10px_-4px_rgba(0,0,0,0.05)] group-hover:bg-forest-green/5 transition-all text-xs font-semibold tracking-wide h-[46px] w-full">
                     Enquire Now
@@ -436,7 +436,7 @@ export default function SiteClassificationPage() {
                     Custom <span className="text-lg text-gray-400 font-medium">Quote</span>
                   </h3>
                   <p className="text-base text-gray-500 font-light leading-relaxed mb-10 flex-grow">
-                    Basements, duplexes, multi-storey, strata, high-risk or restricted sites. Full geotechnical investigations. Final fee tailored to your site.
+                    Basements. Multi-storey. Retaining walls. Sloping blocks. Restricted access. Strata. Prestige-suburb projects. Every complex site is different, and we price them that way.
                   </p>
                   <div className="flex items-center justify-center px-5 py-2.5 bg-white text-forest-green rounded-full shadow-[inset_0_0_0_1px_rgba(45,90,58,0.25),0_4px_10px_-4px_rgba(0,0,0,0.05)] group-hover:bg-forest-green/5 transition-all text-xs font-semibold tracking-wide h-[46px] w-full">
                     Enquire Now
