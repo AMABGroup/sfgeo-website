@@ -124,22 +124,19 @@ export default function RootLayout({
 
   return (
     <html lang="en" className="scroll-smooth">
-      <head>
-        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18053070765"></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'AW-18053070765');
-            `,
-          }}
-        />
-      </head>
       <body
         className={`${inter.variable} ${montserrat.variable} antialiased min-h-screen flex flex-col`}
       >
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-18053070765"
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-18053070765');`}
+        </Script>
         <script
           id="schema-org"
           type="application/ld+json"
