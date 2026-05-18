@@ -214,8 +214,7 @@ export default function DrillingClient() {
                 src="/prelim-investigation.jpg" 
                 alt="Restricted access drilling and preliminary geotechnical investigation in Sydney" 
                 title="Tight-access geotechnical investigation and preliminary drilling in Sydney"
-                fill 
-                priority
+                fill
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover transition-transform duration-1000 ease-in-out group-hover:scale-105" 
               />
