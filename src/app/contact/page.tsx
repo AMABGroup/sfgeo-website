@@ -208,6 +208,29 @@ export default function ContactPage() {
         </div>
       </section>
 
+      {/* Office Map */}
+      <section className="px-6 lg:px-12 max-w-7xl mx-auto mb-24">
+        <div className="flex flex-col gap-6">
+          <h2 className="text-2xl sm:text-3xl font-montserrat font-light tracking-tight text-slate-950">
+            Find <span className="font-semibold">our office</span>
+          </h2>
+          <div className="w-[96px] h-[3px] bg-forest-green"></div>
+          <p className="text-base text-gray-500 font-light leading-relaxed max-w-2xl">
+            Suite 3.01, Level 3, 107 Sydenham Road, Marrickville NSW 2204. Visits by appointment.
+          </p>
+          <div className="w-full rounded-3xl overflow-hidden border border-gray-200 shadow-sm aspect-[16/9] sm:aspect-[21/9]">
+            <iframe
+              title="Map showing SFGEO office at Suite 3.01, 107 Sydenham Road, Marrickville NSW 2204"
+              src="https://maps.google.com/maps?q=Suite%203.01%2C%20107%20Sydenham%20Road%2C%20Marrickville%20NSW%202204&output=embed"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="w-full h-full border-0"
+              allowFullScreen
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Global Service Area Banner */}
       <ServiceAreaBlock pageType="contact" />
     </div>
