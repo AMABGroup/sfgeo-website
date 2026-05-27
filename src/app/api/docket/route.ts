@@ -45,12 +45,19 @@ function buildHtmlSummary(data: DocketData): string {
               ${row("Docket #", data.docketNumber)}
               ${row("Inspection date", data.inspectionDate)}
               ${row("Inspector", data.inspectorName)}
-              ${row("Job type", data.jobType)}
+              ${row("Job type", `${data.jobType}${data.jobTypeDetail ? ` — ${data.jobTypeDetail}` : ""}`)}
               ${row("Site address", data.siteAddress)}
-              ${row("Time on", data.timeOn)}
-              ${row("Time off", data.timeOff)}
+              ${row("Start / End", `${data.timeOn || "—"}  →  ${data.timeOff || "—"}`)}
+              ${data.travelHours ? row("Travel time", `${data.travelHours} hrs`) : ""}
+              ${row("Total hours", data.totalHours ? `${data.totalHours} hrs` : "—")}
               ${row("Client", `${data.clientName}${data.clientCompany ? ` (${data.clientCompany})` : ""}`)}
             </table>
+            ${(data.reportToFollow || data.siteNote || data.noReportRequired) ? `<div style="margin-top:18px;font-size:13px;color:#0a0a0a;">
+              <div style="font-size:12px;color:#666;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px;">Status</div>
+              ${data.reportToFollow ? "<div>✓ Report to follow</div>" : ""}
+              ${data.siteNote ? "<div>✓ Site Note</div>" : ""}
+              ${data.noReportRequired ? "<div>✓ No report required</div>" : ""}
+            </div>` : ""}
             ${data.notes ? `<div style="margin-top:20px;">
               <div style="font-size:12px;color:#666;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px;">Notes</div>
               <div style="font-size:14px;line-height:1.6;color:#0a0a0a;white-space:pre-wrap;">${escapeHtml(data.notes)}</div>
@@ -79,7 +86,12 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Not authenticated" }, { status: 401 });
   }
 
-  let body: Partial<DocketData> & { sendCopyToClient?: boolean };
+  let body: Partial<DocketData> & {
+    sendCopyToClient?: boolean;
+    reportToFollow?: boolean;
+    siteNote?: boolean;
+    noReportRequired?: boolean;
+  };
   try {
     body = await request.json();
   } catch {
@@ -107,6 +119,7 @@ export async function POST(request: Request) {
     inspectionDate: String(body.inspectionDate),
     inspectorName: String(body.inspectorName),
     jobType: String(body.jobType),
+    jobTypeDetail: body.jobTypeDetail ? String(body.jobTypeDetail) : undefined,
     clientName: String(body.clientName),
     clientCompany: body.clientCompany ? String(body.clientCompany) : undefined,
     clientEmail: String(body.clientEmail),
@@ -114,7 +127,12 @@ export async function POST(request: Request) {
     siteAddress: String(body.siteAddress),
     timeOn: body.timeOn ? String(body.timeOn) : "",
     timeOff: body.timeOff ? String(body.timeOff) : "",
+    travelHours: body.travelHours ? String(body.travelHours) : "",
+    totalHours: body.totalHours ? String(body.totalHours) : "",
     notes: body.notes ? String(body.notes) : "",
+    reportToFollow: !!body.reportToFollow,
+    siteNote: !!body.siteNote,
+    noReportRequired: !!body.noReportRequired,
     inspectorSignature: body.inspectorSignature ? String(body.inspectorSignature) : undefined,
     clientSignature: body.clientSignature ? String(body.clientSignature) : undefined,
   };

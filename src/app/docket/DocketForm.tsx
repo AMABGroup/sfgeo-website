@@ -1,13 +1,16 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import SignaturePad, { type SignaturePadHandle } from "./SignaturePad";
+
+type JobType = "Drilling" | "Site inspection" | "Other";
 
 type FormState = {
   inspectionDate: string;
   inspectorName: string;
-  jobType: string;
+  jobType: JobType;
+  jobTypeDetail: string;
   clientName: string;
   clientCompany: string;
   clientEmail: string;
@@ -15,13 +18,19 @@ type FormState = {
   siteAddress: string;
   timeOn: string;
   timeOff: string;
+  travelHours: string;
+  totalHours: string;
   notes: string;
+  reportToFollow: boolean;
+  siteNote: boolean;
+  noReportRequired: boolean;
   sendCopyToClient: boolean;
 };
 
-const JOB_TYPES = ["Drilling", "Geotechnical consulting"];
+const JOB_TYPES: JobType[] = ["Drilling", "Site inspection", "Other"];
+const MIN_TOTAL_HOURS = 4;
 
-const STORAGE_KEY = "sfgeo_docket_draft_v1";
+const STORAGE_KEY = "sfgeo_docket_draft_v2";
 const INSPECTOR_KEY = "sfgeo_docket_inspector_v1";
 
 function todayIsoDate(): string {
@@ -47,10 +56,31 @@ function generateDocketNumber(): string {
   return `${yy}${mm}${dd}-${hh}${mi}-${rand}`;
 }
 
+function hhmmToMinutes(s: string): number | null {
+  if (!/^\d{1,2}:\d{2}$/.test(s)) return null;
+  const [h, m] = s.split(":").map(Number);
+  if (Number.isNaN(h) || Number.isNaN(m)) return null;
+  return h * 60 + m;
+}
+
+function computeSuggestedTotal(timeOn: string, timeOff: string, travelHours: string): number {
+  const onMin = hhmmToMinutes(timeOn);
+  const offMin = hhmmToMinutes(timeOff);
+  let onSite = 0;
+  if (onMin !== null && offMin !== null) {
+    const delta = offMin - onMin;
+    onSite = delta > 0 ? delta / 60 : 0;
+  }
+  const travel = parseFloat(travelHours) || 0;
+  const raw = onSite + travel;
+  return Math.max(MIN_TOTAL_HOURS, Math.round(raw * 4) / 4); // quarter-hour precision
+}
+
 const emptyForm: FormState = {
   inspectionDate: todayIsoDate(),
   inspectorName: "",
-  jobType: JOB_TYPES[0],
+  jobType: "Site inspection",
+  jobTypeDetail: "",
   clientName: "",
   clientCompany: "",
   clientEmail: "",
@@ -58,7 +88,12 @@ const emptyForm: FormState = {
   siteAddress: "",
   timeOn: "",
   timeOff: "",
+  travelHours: "",
+  totalHours: String(MIN_TOTAL_HOURS),
   notes: "",
+  reportToFollow: false,
+  siteNote: false,
+  noReportRequired: false,
   sendCopyToClient: true,
 };
 
@@ -71,6 +106,7 @@ export default function DocketForm() {
   const [status, setStatus] = useState<Status>("idle");
   const [errorMessage, setErrorMessage] = useState<string>("");
   const [submittedNumber, setSubmittedNumber] = useState<string>("");
+  const [totalEdited, setTotalEdited] = useState(false);
   const inspectorSigRef = useRef<SignaturePadHandle | null>(null);
   const clientSigRef = useRef<SignaturePadHandle | null>(null);
 
@@ -97,6 +133,20 @@ export default function DocketForm() {
     } catch {}
   }, [form, status]);
 
+  // Auto-suggest total hours from times+travel until user edits total manually.
+  const suggestedTotal = useMemo(
+    () => computeSuggestedTotal(form.timeOn, form.timeOff, form.travelHours),
+    [form.timeOn, form.timeOff, form.travelHours]
+  );
+
+  useEffect(() => {
+    if (totalEdited) return;
+    queueMicrotask(() => {
+      const next = String(suggestedTotal);
+      setForm((f) => (f.totalHours === next ? f : { ...f, totalHours: next }));
+    });
+  }, [suggestedTotal, totalEdited]);
+
   const update = <K extends keyof FormState>(key: K, value: FormState[K]) => {
     setForm((f) => ({ ...f, [key]: value }));
   };
@@ -104,9 +154,20 @@ export default function DocketForm() {
   const setTimeOnNow = () => update("timeOn", nowHHMM());
   const setTimeOffNow = () => update("timeOff", nowHHMM());
 
+  const enforceTotalMin = (raw: string) => {
+    setTotalEdited(true);
+    const num = parseFloat(raw);
+    if (Number.isFinite(num) && num < MIN_TOTAL_HOURS) {
+      update("totalHours", String(MIN_TOTAL_HOURS));
+    } else {
+      update("totalHours", raw);
+    }
+  };
+
   const resetAll = () => {
     setForm({ ...emptyForm, inspectorName: form.inspectorName });
     setDocketNumber(generateDocketNumber());
+    setTotalEdited(false);
     inspectorSigRef.current?.clear();
     clientSigRef.current?.clear();
     setStatus("idle");
@@ -126,6 +187,12 @@ export default function DocketForm() {
     if (!form.clientPhone.trim()) return "Client phone is required.";
     if (!form.siteAddress.trim()) return "Site address is required.";
     if (!form.jobType) return "Select a job type.";
+    if (form.jobType === "Site inspection" && !form.jobTypeDetail.trim()) {
+      return "Please describe the type of inspection.";
+    }
+    if (form.jobType === "Other" && !form.jobTypeDetail.trim()) {
+      return "Please describe the job.";
+    }
     return null;
   };
 
@@ -140,11 +207,14 @@ export default function DocketForm() {
     setStatus("submitting");
     setErrorMessage("");
 
+    const finalTotal = Math.max(MIN_TOTAL_HOURS, parseFloat(form.totalHours) || MIN_TOTAL_HOURS);
+
     const payload = {
       docketNumber,
       inspectionDate: form.inspectionDate,
       inspectorName: form.inspectorName,
       jobType: form.jobType,
+      jobTypeDetail: form.jobTypeDetail,
       clientName: form.clientName,
       clientCompany: form.clientCompany,
       clientEmail: form.clientEmail,
@@ -152,7 +222,12 @@ export default function DocketForm() {
       siteAddress: form.siteAddress,
       timeOn: form.timeOn,
       timeOff: form.timeOff,
+      travelHours: form.travelHours,
+      totalHours: String(finalTotal),
       notes: form.notes,
+      reportToFollow: form.reportToFollow,
+      siteNote: form.siteNote,
+      noReportRequired: form.noReportRequired,
       inspectorSignature: inspectorSigRef.current?.getDataUrl() || undefined,
       clientSignature: clientSigRef.current?.getDataUrl() || undefined,
       sendCopyToClient: form.sendCopyToClient,
@@ -208,9 +283,13 @@ export default function DocketForm() {
     "w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-base text-slate-900 outline-none focus:border-forest-green focus:ring-2 focus:ring-forest-green/15 min-h-[48px]";
   const labelCls = "text-[11px] font-bold tracking-widest uppercase text-slate-500";
 
+  const needsJobDetail = form.jobType === "Site inspection" || form.jobType === "Other";
+  const jobDetailLabel =
+    form.jobType === "Site inspection" ? "Type of inspection" : "Describe the job";
+
   return (
     <div className="min-h-screen bg-slate-50">
-      <header className="sticky top-0 z-10 bg-forest-green text-white px-4 py-3 flex items-center justify-between safe-top">
+      <header className="sticky top-0 z-10 bg-forest-green text-white px-4 md:px-8 py-3 flex items-center justify-between safe-top">
         <div>
           <div className="text-xs opacity-75 leading-tight">SFGEO Docket Book</div>
           <div className="text-sm font-mono font-semibold">#{docketNumber || "…"}</div>
@@ -224,202 +303,270 @@ export default function DocketForm() {
         </button>
       </header>
 
-      <form onSubmit={submit} className="max-w-xl mx-auto px-4 py-6 flex flex-col gap-6 pb-32">
-        {/* Job details */}
-        <section className="bg-white rounded-2xl p-4 shadow-sm border border-slate-100 flex flex-col gap-4">
-          <h2 className="text-sm font-bold text-slate-900 uppercase tracking-wider">Job details</h2>
-          <label className="flex flex-col gap-1.5">
-            <span className={labelCls}>Inspection date</span>
-            <input
-              type="date"
-              value={form.inspectionDate}
-              onChange={(e) => update("inspectionDate", e.target.value)}
-              className={inputCls}
-            />
-          </label>
-          <label className="flex flex-col gap-1.5">
-            <span className={labelCls}>Inspector</span>
-            <input
-              type="text"
-              value={form.inspectorName}
-              onChange={(e) => update("inspectorName", e.target.value)}
-              autoComplete="name"
-              placeholder="Your name"
-              className={inputCls}
-            />
-          </label>
-          <fieldset className="flex flex-col gap-1.5">
-            <legend className={labelCls + " mb-1"}>Job type</legend>
-            <div className="grid grid-cols-2 gap-2">
-              {JOB_TYPES.map((jt) => {
-                const active = form.jobType === jt;
-                return (
+      <form
+        onSubmit={submit}
+        className="max-w-5xl mx-auto px-4 md:px-8 py-6 pb-32 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6"
+      >
+        {/* LEFT COLUMN */}
+        <div className="flex flex-col gap-4 md:gap-6">
+          {/* Job details */}
+          <section className="bg-white rounded-2xl p-4 md:p-5 shadow-sm border border-slate-100 flex flex-col gap-4">
+            <h2 className="text-sm font-bold text-slate-900 uppercase tracking-wider">Job details</h2>
+            <div className="grid grid-cols-2 gap-3">
+              <label className="flex flex-col gap-1.5">
+                <span className={labelCls}>Inspection date</span>
+                <input
+                  type="date"
+                  value={form.inspectionDate}
+                  onChange={(e) => update("inspectionDate", e.target.value)}
+                  className={inputCls}
+                />
+              </label>
+              <label className="flex flex-col gap-1.5">
+                <span className={labelCls}>Inspector</span>
+                <input
+                  type="text"
+                  value={form.inspectorName}
+                  onChange={(e) => update("inspectorName", e.target.value)}
+                  autoComplete="name"
+                  placeholder="Your name"
+                  className={inputCls}
+                />
+              </label>
+            </div>
+            <fieldset className="flex flex-col gap-2">
+              <legend className={labelCls + " mb-1"}>Job type</legend>
+              <div className="grid grid-cols-3 gap-2">
+                {JOB_TYPES.map((jt) => {
+                  const active = form.jobType === jt;
+                  return (
+                    <button
+                      type="button"
+                      key={jt}
+                      onClick={() => update("jobType", jt)}
+                      className={`rounded-xl py-3 px-2 text-sm font-medium border transition min-h-[48px] ${
+                        active
+                          ? "bg-forest-green text-white border-forest-green"
+                          : "bg-white text-slate-700 border-slate-200"
+                      }`}
+                    >
+                      {jt}
+                    </button>
+                  );
+                })}
+              </div>
+              {needsJobDetail && (
+                <input
+                  type="text"
+                  value={form.jobTypeDetail}
+                  onChange={(e) => update("jobTypeDetail", e.target.value)}
+                  placeholder={jobDetailLabel + "…"}
+                  className={inputCls + " mt-1"}
+                />
+              )}
+            </fieldset>
+
+            <div className="grid grid-cols-2 gap-3">
+              <label className="flex flex-col gap-1.5">
+                <span className={labelCls}>Start time</span>
+                <div className="flex gap-2">
+                  <input
+                    type="time"
+                    value={form.timeOn}
+                    onChange={(e) => update("timeOn", e.target.value)}
+                    className={inputCls + " flex-1"}
+                  />
                   <button
                     type="button"
-                    key={jt}
-                    onClick={() => update("jobType", jt)}
-                    className={`rounded-xl py-3 px-3 text-sm font-medium border transition min-h-[48px] ${
-                      active
-                        ? "bg-forest-green text-white border-forest-green"
-                        : "bg-white text-slate-700 border-slate-200"
-                    }`}
+                    onClick={setTimeOnNow}
+                    className="px-3 rounded-xl bg-slate-100 text-slate-600 text-xs font-semibold"
                   >
-                    {jt}
+                    Now
                   </button>
-                );
-              })}
+                </div>
+              </label>
+              <label className="flex flex-col gap-1.5">
+                <span className={labelCls}>End time</span>
+                <div className="flex gap-2">
+                  <input
+                    type="time"
+                    value={form.timeOff}
+                    onChange={(e) => update("timeOff", e.target.value)}
+                    className={inputCls + " flex-1"}
+                  />
+                  <button
+                    type="button"
+                    onClick={setTimeOffNow}
+                    className="px-3 rounded-xl bg-slate-100 text-slate-600 text-xs font-semibold"
+                  >
+                    Now
+                  </button>
+                </div>
+              </label>
+              <label className="flex flex-col gap-1.5">
+                <span className={labelCls}>Travel time (hrs)</span>
+                <input
+                  type="number"
+                  inputMode="decimal"
+                  step="0.25"
+                  min="0"
+                  value={form.travelHours}
+                  onChange={(e) => update("travelHours", e.target.value)}
+                  placeholder="e.g. 1.5"
+                  className={inputCls}
+                />
+              </label>
+              <label className="flex flex-col gap-1.5">
+                <span className={labelCls}>Total hours (min {MIN_TOTAL_HOURS})</span>
+                <input
+                  type="number"
+                  inputMode="decimal"
+                  step="0.25"
+                  min={MIN_TOTAL_HOURS}
+                  value={form.totalHours}
+                  onChange={(e) => enforceTotalMin(e.target.value)}
+                  onBlur={(e) => enforceTotalMin(e.target.value)}
+                  className={inputCls + " font-semibold"}
+                />
+              </label>
             </div>
-          </fieldset>
-          <div className="grid grid-cols-2 gap-3">
-            <label className="flex flex-col gap-1.5">
-              <span className={labelCls}>Time on</span>
-              <div className="flex gap-2">
+          </section>
+
+          {/* Client */}
+          <section className="bg-white rounded-2xl p-4 md:p-5 shadow-sm border border-slate-100 flex flex-col gap-3">
+            <h2 className="text-sm font-bold text-slate-900 uppercase tracking-wider">Client</h2>
+            <div className="grid grid-cols-2 gap-3">
+              <label className="flex flex-col gap-1.5">
+                <span className={labelCls}>Name</span>
                 <input
-                  type="time"
-                  value={form.timeOn}
-                  onChange={(e) => update("timeOn", e.target.value)}
-                  className={inputCls + " flex-1"}
+                  type="text"
+                  value={form.clientName}
+                  onChange={(e) => update("clientName", e.target.value)}
+                  className={inputCls}
                 />
-                <button
-                  type="button"
-                  onClick={setTimeOnNow}
-                  className="px-3 rounded-xl bg-slate-100 text-slate-600 text-xs font-semibold"
-                >
-                  Now
-                </button>
-              </div>
-            </label>
-            <label className="flex flex-col gap-1.5">
-              <span className={labelCls}>Time off</span>
-              <div className="flex gap-2">
+              </label>
+              <label className="flex flex-col gap-1.5">
+                <span className={labelCls}>Company (optional)</span>
                 <input
-                  type="time"
-                  value={form.timeOff}
-                  onChange={(e) => update("timeOff", e.target.value)}
-                  className={inputCls + " flex-1"}
+                  type="text"
+                  value={form.clientCompany}
+                  onChange={(e) => update("clientCompany", e.target.value)}
+                  autoComplete="organization"
+                  className={inputCls}
                 />
-                <button
-                  type="button"
-                  onClick={setTimeOffNow}
-                  className="px-3 rounded-xl bg-slate-100 text-slate-600 text-xs font-semibold"
-                >
-                  Now
-                </button>
-              </div>
+              </label>
+              <label className="flex flex-col gap-1.5">
+                <span className={labelCls}>Email</span>
+                <input
+                  type="email"
+                  inputMode="email"
+                  autoCapitalize="off"
+                  autoCorrect="off"
+                  value={form.clientEmail}
+                  onChange={(e) => update("clientEmail", e.target.value)}
+                  className={inputCls}
+                />
+              </label>
+              <label className="flex flex-col gap-1.5">
+                <span className={labelCls}>Phone</span>
+                <input
+                  type="tel"
+                  inputMode="tel"
+                  autoComplete="tel"
+                  value={form.clientPhone}
+                  onChange={(e) => update("clientPhone", e.target.value)}
+                  className={inputCls}
+                />
+              </label>
+            </div>
+          </section>
+
+          {/* Site */}
+          <section className="bg-white rounded-2xl p-4 md:p-5 shadow-sm border border-slate-100 flex flex-col gap-3">
+            <h2 className="text-sm font-bold text-slate-900 uppercase tracking-wider">Site</h2>
+            <label className="flex flex-col gap-1.5">
+              <span className={labelCls}>Address</span>
+              <input
+                type="text"
+                value={form.siteAddress}
+                onChange={(e) => update("siteAddress", e.target.value)}
+                placeholder="Street, suburb, NSW"
+                autoComplete="street-address"
+                className={inputCls}
+              />
             </label>
-          </div>
-        </section>
+          </section>
+        </div>
 
-        {/* Client */}
-        <section className="bg-white rounded-2xl p-4 shadow-sm border border-slate-100 flex flex-col gap-4">
-          <h2 className="text-sm font-bold text-slate-900 uppercase tracking-wider">Client</h2>
-          <label className="flex flex-col gap-1.5">
-            <span className={labelCls}>Name</span>
-            <input
-              type="text"
-              value={form.clientName}
-              onChange={(e) => update("clientName", e.target.value)}
-              autoComplete="off"
-              className={inputCls}
+        {/* RIGHT COLUMN */}
+        <div className="flex flex-col gap-4 md:gap-6">
+          {/* Notes */}
+          <section className="bg-white rounded-2xl p-4 md:p-5 shadow-sm border border-slate-100 flex flex-col gap-3">
+            <h2 className="text-sm font-bold text-slate-900 uppercase tracking-wider">Notes</h2>
+            <textarea
+              value={form.notes}
+              onChange={(e) => update("notes", e.target.value)}
+              rows={3}
+              placeholder="Brief observations / outcome…"
+              className={inputCls + " resize-y min-h-[88px] leading-relaxed"}
             />
-          </label>
-          <label className="flex flex-col gap-1.5">
-            <span className={labelCls}>Company (optional)</span>
-            <input
-              type="text"
-              value={form.clientCompany}
-              onChange={(e) => update("clientCompany", e.target.value)}
-              autoComplete="organization"
-              className={inputCls}
-            />
-          </label>
-          <label className="flex flex-col gap-1.5">
-            <span className={labelCls}>Email</span>
-            <input
-              type="email"
-              inputMode="email"
-              autoCapitalize="off"
-              autoCorrect="off"
-              value={form.clientEmail}
-              onChange={(e) => update("clientEmail", e.target.value)}
-              className={inputCls}
-            />
-          </label>
-          <label className="flex flex-col gap-1.5">
-            <span className={labelCls}>Phone</span>
-            <input
-              type="tel"
-              inputMode="tel"
-              autoComplete="tel"
-              value={form.clientPhone}
-              onChange={(e) => update("clientPhone", e.target.value)}
-              className={inputCls}
-            />
-          </label>
-        </section>
+          </section>
 
-        {/* Site */}
-        <section className="bg-white rounded-2xl p-4 shadow-sm border border-slate-100 flex flex-col gap-4">
-          <h2 className="text-sm font-bold text-slate-900 uppercase tracking-wider">Site</h2>
-          <label className="flex flex-col gap-1.5">
-            <span className={labelCls}>Address</span>
-            <input
-              type="text"
-              value={form.siteAddress}
-              onChange={(e) => update("siteAddress", e.target.value)}
-              placeholder="Street, suburb, NSW"
-              autoComplete="street-address"
-              className={inputCls}
+          {/* Report status */}
+          <section className="bg-white rounded-2xl p-4 md:p-5 shadow-sm border border-slate-100 flex flex-col gap-3">
+            <h2 className="text-sm font-bold text-slate-900 uppercase tracking-wider">Report status</h2>
+            <CheckboxRow
+              checked={form.reportToFollow}
+              onChange={(v) => update("reportToFollow", v)}
+              label="Report to follow"
             />
-          </label>
-        </section>
-
-        {/* Notes */}
-        <section className="bg-white rounded-2xl p-4 shadow-sm border border-slate-100 flex flex-col gap-4">
-          <h2 className="text-sm font-bold text-slate-900 uppercase tracking-wider">Notes</h2>
-          <textarea
-            value={form.notes}
-            onChange={(e) => update("notes", e.target.value)}
-            rows={6}
-            placeholder="Observations, work performed, recommendations…"
-            className={inputCls + " resize-y min-h-[140px] leading-relaxed"}
-          />
-        </section>
-
-        {/* Signatures */}
-        <section className="bg-white rounded-2xl p-4 shadow-sm border border-slate-100 flex flex-col gap-5">
-          <h2 className="text-sm font-bold text-slate-900 uppercase tracking-wider">Signatures</h2>
-          <SignaturePad ref={inspectorSigRef} label="Inspector signature" />
-          <SignaturePad ref={clientSigRef} label="Client signature" />
-        </section>
-
-        {/* Send options */}
-        <section className="bg-white rounded-2xl p-4 shadow-sm border border-slate-100">
-          <label className="flex items-start gap-3 cursor-pointer">
-            <input
-              type="checkbox"
-              checked={form.sendCopyToClient}
-              onChange={(e) => update("sendCopyToClient", e.target.checked)}
-              className="mt-1 w-5 h-5 accent-forest-green"
+            <CheckboxRow
+              checked={form.siteNote}
+              onChange={(v) => update("siteNote", v)}
+              label="Site Note"
             />
-            <span className="text-sm text-slate-700 leading-snug">
-              Email a copy to the client at <strong className="font-semibold">{form.clientEmail || "(client email)"}</strong>.
-              <br />
-              <span className="text-xs text-slate-500">
-                Admin copies are always sent to admin@sfgeo.com.au and helay@sfgeo.com.au.
+            <CheckboxRow
+              checked={form.noReportRequired}
+              onChange={(v) => update("noReportRequired", v)}
+              label="No report required"
+            />
+          </section>
+
+          {/* Signatures */}
+          <section className="bg-white rounded-2xl p-4 md:p-5 shadow-sm border border-slate-100 flex flex-col gap-5">
+            <h2 className="text-sm font-bold text-slate-900 uppercase tracking-wider">Signatures</h2>
+            <SignaturePad ref={inspectorSigRef} label="Inspector signature" />
+            <SignaturePad ref={clientSigRef} label="Client signature" />
+          </section>
+
+          {/* Send options */}
+          <section className="bg-white rounded-2xl p-4 md:p-5 shadow-sm border border-slate-100">
+            <label className="flex items-start gap-3 cursor-pointer">
+              <input
+                type="checkbox"
+                checked={form.sendCopyToClient}
+                onChange={(e) => update("sendCopyToClient", e.target.checked)}
+                className="mt-1 w-5 h-5 accent-forest-green"
+              />
+              <span className="text-sm text-slate-700 leading-snug">
+                Email a copy to the client at <strong className="font-semibold">{form.clientEmail || "(client email)"}</strong>.
+                <br />
+                <span className="text-xs text-slate-500">
+                  Admin copies are always sent to admin@sfgeo.com.au and helay@sfgeo.com.au.
+                </span>
               </span>
-            </span>
-          </label>
-        </section>
+            </label>
+          </section>
+        </div>
 
         {status === "error" && errorMessage && (
-          <div className="bg-red-50 border border-red-100 text-red-700 rounded-xl px-4 py-3 text-sm">
+          <div className="md:col-span-2 bg-red-50 border border-red-100 text-red-700 rounded-xl px-4 py-3 text-sm">
             {errorMessage}
           </div>
         )}
 
-        <div className="fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur border-t border-slate-200 px-4 py-3 safe-bottom z-10">
-          <div className="max-w-xl mx-auto flex gap-3">
+        <div className="fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur border-t border-slate-200 px-4 md:px-8 py-3 safe-bottom z-10">
+          <div className="max-w-5xl mx-auto flex gap-3">
             <button
               type="button"
               onClick={resetAll}
@@ -448,5 +595,27 @@ export default function DocketForm() {
         </div>
       </form>
     </div>
+  );
+}
+
+function CheckboxRow({
+  checked,
+  onChange,
+  label,
+}: {
+  checked: boolean;
+  onChange: (v: boolean) => void;
+  label: string;
+}) {
+  return (
+    <label className="flex items-center gap-3 cursor-pointer min-h-[44px]">
+      <input
+        type="checkbox"
+        checked={checked}
+        onChange={(e) => onChange(e.target.checked)}
+        className="w-5 h-5 accent-forest-green"
+      />
+      <span className="text-sm text-slate-700 font-medium">{label}</span>
+    </label>
   );
 }
