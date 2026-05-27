@@ -1,10 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Montserrat } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
-import ContactBubble from "@/components/ui/ContactBubble";
-import CallBubble from "@/components/ui/CallBubble";
+import SiteChrome from "@/components/layout/SiteChrome";
 import Script from "next/script";
 
 const inter = Inter({
@@ -142,13 +139,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(combinedSchema) }}
         />
-        <Navbar />
-        <main className="flex-grow">
-          {children}
-        </main>
-        <Footer />
-        <ContactBubble />
-        <CallBubble />
+        <SiteChrome>{children}</SiteChrome>
       </body>
     </html>
   );

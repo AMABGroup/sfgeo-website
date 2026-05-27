@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /docket
+Disallow: /api/docket
 
 Sitemap: https://sfgeo.com.au/sitemap.xml
