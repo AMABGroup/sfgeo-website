@@ -107,7 +107,7 @@ const SignaturePad = forwardRef<SignaturePadHandle, Props>(function SignaturePad
         <button
           type="button"
           onClick={clear}
-          className="text-xs text-forest-green font-medium underline-offset-2 hover:underline"
+          className="text-xs text-sfgeo-green font-medium underline-offset-2 hover:underline"
         >
           Clear
         </button>

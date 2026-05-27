@@ -1,4 +1,12 @@
 import type { Metadata, Viewport } from "next";
+import { Carlito } from "next/font/google";
+
+const carlito = Carlito({
+  weight: ["400", "700"],
+  subsets: ["latin"],
+  variable: "--font-carlito",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "SFGEO Docket Book",
@@ -21,9 +29,13 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 1,
   userScalable: false,
-  themeColor: "#2D5A3A",
+  themeColor: "#236734",
 };
 
 export default function DocketLayout({ children }: { children: React.ReactNode }) {
-  return children;
+  return (
+    <div className={carlito.variable} style={{ fontFamily: "var(--font-carlito), Calibri, sans-serif" }}>
+      {children}
+    </div>
+  );
 }

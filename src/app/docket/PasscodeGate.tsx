@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 export default function PasscodeGate() {
@@ -36,11 +37,16 @@ export default function PasscodeGate() {
     <div className="min-h-screen flex items-center justify-center bg-slate-50 px-6 py-12">
       <div className="w-full max-w-sm">
         <div className="text-center mb-10">
-          <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-forest-green mb-4">
-            <span className="text-white font-bold text-xl tracking-wider">SF</span>
-          </div>
-          <h1 className="text-2xl font-semibold text-slate-900">Docket Book</h1>
-          <p className="text-sm text-slate-500 mt-2">Enter passcode to continue</p>
+          <Image
+            src="/docket/sfgeo-logo.png"
+            alt="SFGEO"
+            width={72}
+            height={72}
+            priority
+            className="mx-auto mb-5"
+          />
+          <h1 className="text-2xl font-semibold text-sfgeo-ink">Docket Book</h1>
+          <p className="text-sm text-sfgeo-label mt-2">Enter passcode to continue</p>
         </div>
         <form onSubmit={submit} className="flex flex-col gap-4">
           <input
@@ -54,7 +60,7 @@ export default function PasscodeGate() {
               if (status === "error") setStatus("idle");
             }}
             placeholder="Passcode"
-            className="w-full text-center text-2xl tracking-widest font-mono bg-white border border-slate-200 rounded-xl py-4 px-4 outline-none focus:border-forest-green focus:ring-2 focus:ring-forest-green/20 min-h-[60px]"
+            className="w-full text-center text-2xl tracking-widest font-mono bg-white border border-slate-200 rounded-xl py-4 px-4 outline-none focus:border-sfgeo-green focus:ring-2 focus:ring-sfgeo-green/20 min-h-[60px]"
           />
           {error && (
             <p className="text-sm text-red-500 text-center">{error}</p>
@@ -62,7 +68,7 @@ export default function PasscodeGate() {
           <button
             type="submit"
             disabled={status === "submitting" || !passcode}
-            className="w-full bg-forest-green text-white rounded-xl py-4 font-semibold text-base shadow-sm hover:bg-forest-green/90 transition disabled:opacity-50 disabled:cursor-not-allowed min-h-[56px]"
+            className="w-full bg-sfgeo-green text-white rounded-xl py-4 font-semibold text-base shadow-sm hover:bg-sfgeo-green/90 transition disabled:opacity-50 disabled:cursor-not-allowed min-h-[56px]"
           >
             {status === "submitting" ? "Checking…" : "Unlock"}
           </button>

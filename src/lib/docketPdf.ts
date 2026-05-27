@@ -1,4 +1,7 @@
-import { PDFDocument, StandardFonts, rgb, PDFPage, PDFFont } from "pdf-lib";
+import { readFile } from "fs/promises";
+import path from "path";
+import { PDFDocument, rgb, PDFPage, PDFFont } from "pdf-lib";
+import fontkit from "@pdf-lib/fontkit";
 
 export type DocketData = {
   docketNumber: string;
@@ -23,22 +26,25 @@ export type DocketData = {
   clientSignature?: string;
 };
 
-// Palette tuned to the SFGEO tax-invoice template
-const forestGreen = rgb(45 / 255, 90 / 255, 58 / 255);
-const ink = rgb(0.06, 0.07, 0.09);
-const subtleInk = rgb(0.25, 0.28, 0.32);
-const meta = rgb(0.45, 0.48, 0.52);
-const rule = rgb(0.85, 0.86, 0.88);
-const zebra = rgb(0.96, 0.96, 0.94);
+// Exact palette pulled from the SFGEO Tax Invoice Receipt master template
+const BRAND_GREEN = rgb(0x23 / 255, 0x67 / 255, 0x34 / 255); // #236734
+const INK = rgb(0x11 / 255, 0x11 / 255, 0x11 / 255);          // #111111
+const LABEL = rgb(0x6b / 255, 0x6b / 255, 0x6b / 255);        // #6B6B6B
+const RULE = rgb(0.86, 0.86, 0.86);
+const WHITE = rgb(1, 1, 1);
+
+const ASSET_DIR = path.join(process.cwd(), "public", "docket");
+
+async function loadAsset(file: string): Promise<Uint8Array> {
+  const buf = await readFile(path.join(ASSET_DIR, file));
+  return new Uint8Array(buf.buffer, buf.byteOffset, buf.byteLength);
+}
 
 function wrapText(text: string, font: PDFFont, size: number, maxWidth: number): string[] {
   const paragraphs = text.split(/\r?\n/);
   const out: string[] = [];
   for (const para of paragraphs) {
-    if (!para.trim()) {
-      out.push("");
-      continue;
-    }
+    if (!para.trim()) { out.push(""); continue; }
     const words = para.split(/\s+/);
     let line = "";
     for (const word of words) {
@@ -46,9 +52,7 @@ function wrapText(text: string, font: PDFFont, size: number, maxWidth: number): 
       if (font.widthOfTextAtSize(test, size) > maxWidth) {
         if (line) out.push(line);
         line = word;
-      } else {
-        line = test;
-      }
+      } else line = test;
     }
     if (line) out.push(line);
   }
@@ -59,11 +63,7 @@ async function embedPngFromDataUrl(pdf: PDFDocument, dataUrl?: string) {
   if (!dataUrl || !dataUrl.startsWith("data:image/png;base64,")) return null;
   const base64 = dataUrl.split(",")[1];
   const bytes = Uint8Array.from(Buffer.from(base64, "base64"));
-  try {
-    return await pdf.embedPng(bytes);
-  } catch {
-    return null;
-  }
+  try { return await pdf.embedPng(bytes); } catch { return null; }
 }
 
 function formatDateLong(iso: string): string {
@@ -77,146 +77,165 @@ function formatHours(value?: string): string {
   if (!value) return "—";
   const num = parseFloat(value);
   if (!Number.isFinite(num)) return value;
-  return num.toFixed(num % 1 === 0 ? 0 : 2).replace(/\.00$/, "") + " hrs";
+  const fixed = num.toFixed(num % 1 === 0 ? 0 : 2).replace(/\.00$/, "").replace(/0$/, "");
+  return `${fixed} hrs`;
 }
 
 export async function buildDocketPdf(data: DocketData): Promise<Uint8Array> {
   const pdf = await PDFDocument.create();
-  const font = await pdf.embedFont(StandardFonts.Helvetica);
-  const bold = await pdf.embedFont(StandardFonts.HelveticaBold);
+  pdf.registerFontkit(fontkit);
+
+  const [regularBytes, boldBytes, logoBytes] = await Promise.all([
+    loadAsset("fonts/Carlito-Regular.ttf"),
+    loadAsset("fonts/Carlito-Bold.ttf"),
+    loadAsset("sfgeo-logo.png"),
+  ]);
+
+  const font = await pdf.embedFont(regularBytes);
+  const bold = await pdf.embedFont(boldBytes);
+  const logo = await pdf.embedPng(logoBytes);
 
   const page: PDFPage = pdf.addPage([595.28, 841.89]); // A4 portrait
   const { width, height } = page.getSize();
-  const left = 56;
-  const right = width - 56;
+
+  // Margins approximate the Word template (~25mm)
+  const left = 71;
+  const right = width - 71;
   const innerWidth = right - left;
-  let y = height - 64;
+  const topMargin = 64;
+  const bottomMargin = 56;
+  let y = height - topMargin;
 
-  // ---- Top reference line + monogram ----
-  page.drawText(`SFGEO-DOC-${data.docketNumber}`, {
-    x: left, y, size: 8.5, font, color: meta,
-  });
-  page.drawText("·", { x: left + font.widthOfTextAtSize(`SFGEO-DOC-${data.docketNumber}`, 8.5) + 6, y, size: 8.5, font, color: meta });
-  page.drawText("Inspection Docket", {
-    x: left + font.widthOfTextAtSize(`SFGEO-DOC-${data.docketNumber}`, 8.5) + 14, y,
-    size: 8.5, font, color: meta,
+  // ---------------- HEADER REFERENCE LINE + LOGO ----------------
+  const headerRef = `${data.docketNumber}.   Inspection Docket`;
+  page.drawText(headerRef, { x: left, y, size: 9, font, color: LABEL });
+
+  // Logo in top-right corner
+  const logoSize = 56;
+  const logoDims = logo.scale(1);
+  const logoRatio = Math.min(logoSize / logoDims.width, logoSize / logoDims.height);
+  const logoW = logoDims.width * logoRatio;
+  const logoH = logoDims.height * logoRatio;
+  page.drawImage(logo, {
+    x: right - logoW,
+    y: y - logoH + 12,
+    width: logoW, height: logoH,
   });
 
-  // SFG monogram (top right) — stylised stack
-  const monoX = right - 28;
-  const monoY = y - 4;
-  page.drawText("SF", { x: monoX, y: monoY + 6, size: 14, font: bold, color: forestGreen });
-  page.drawLine({
-    start: { x: monoX - 1, y: monoY + 4 },
-    end:   { x: monoX + 21, y: monoY + 4 },
-    thickness: 1.2,
-    color: forestGreen,
-  });
-  page.drawText("G", { x: monoX + 4, y: monoY - 8, size: 14, font: bold, color: forestGreen });
+  y -= 56;
 
+  // ---------------- LEAD-IN (project / job-type detail) ----------------
+  const leadText = data.jobTypeDetail?.trim() || data.jobType;
+  page.drawText(leadText, { x: left, y, size: 13, font, color: INK });
   y -= 36;
 
-  // ---- Subtitle (job type detail / job type) ----
-  const lead = data.jobTypeDetail?.trim() || data.jobType;
-  page.drawText(lead, { x: left, y, size: 12, font, color: subtleInk });
-  y -= 30;
-
-  // ---- Big title ----
-  page.drawText("Inspection Docket", { x: left, y, size: 34, font: bold, color: ink });
+  // ---------------- BIG TITLE ----------------
+  page.drawText("Inspection Docket", { x: left, y, size: 28, font: bold, color: INK });
   y -= 22;
 
-  // ---- Subtitle: job type · site address ----
-  const subtitle = `${data.jobType}${data.jobTypeDetail ? ` (${data.jobTypeDetail})` : ""}  ·  ${data.siteAddress}`;
+  // ---------------- SUBTITLE ----------------
+  const subtitle = data.jobTypeDetail
+    ? `${data.siteAddress}  ·  ${data.jobType}`
+    : data.siteAddress;
   const subtitleLines = wrapText(subtitle, font, 11, innerWidth);
   for (const line of subtitleLines) {
-    page.drawText(line, { x: left, y, size: 11, font, color: subtleInk });
+    page.drawText(line, { x: left, y, size: 11, font, color: INK });
     y -= 14;
   }
-  y -= 6;
-
-  // ---- Horizontal rule ----
-  page.drawLine({ start: { x: left, y }, end: { x: right, y }, thickness: 0.6, color: rule });
-  y -= 22;
-
-  // ---- Meta block (two columns, like Bill To / Site / Project) ----
-  const labelColW = 92;
-  const drawMetaRow = (label: string, lines: string[]) => {
-    page.drawText(label.toUpperCase(), { x: left, y, size: 8, font, color: meta });
-    let lineY = y;
-    for (let i = 0; i < lines.length; i++) {
-      page.drawText(lines[i], {
-        x: left + labelColW,
-        y: lineY,
-        size: 11,
-        font: i === 0 ? bold : font,
-        color: ink,
-      });
-      lineY -= 14;
-    }
-    y = lineY - 4;
-  };
-
-  const clientLines = [
-    data.clientName,
-    ...(data.clientCompany ? [data.clientCompany] : []),
-    `Email: ${data.clientEmail}`,
-    `Phone: ${data.clientPhone}`,
-  ];
-  drawMetaRow("Client", clientLines);
-  drawMetaRow("Site", [data.siteAddress]);
-  drawMetaRow(
-    "Job Type",
-    [data.jobType + (data.jobTypeDetail ? `  —  ${data.jobTypeDetail}` : "")]
-  );
-  drawMetaRow("Inspector", [data.inspectorName]);
-  drawMetaRow("Docket No", [data.docketNumber]);
-  drawMetaRow("Issued", [formatDateLong(data.inspectionDate)]);
-
   y -= 4;
 
-  // ---- Section 1 · Inspection notes ----
+  page.drawLine({ start: { x: left, y }, end: { x: right, y }, thickness: 0.6, color: RULE });
+  y -= 24;
+
+  // ---------------- META BLOCK (Issued To / Site / Project / ...) ----------------
+  const metaLabelCol = 130;
+  const drawMetaRow = (label: string, lines: string[]) => {
+    page.drawText(label.toUpperCase(), {
+      x: left, y, size: 9, font, color: LABEL,
+    });
+    let lineY = y;
+    for (let i = 0; i < lines.length; i++) {
+      const useBold = i === 0;
+      page.drawText(lines[i], {
+        x: left + metaLabelCol,
+        y: lineY,
+        size: 11,
+        font: useBold ? bold : font,
+        color: INK,
+      });
+      lineY -= 13;
+    }
+    y = lineY - 2;
+  };
+
+  const contactLine = `${data.clientEmail}   ·   ${data.clientPhone}`;
+  const issuedTo = [
+    data.clientName,
+    ...(data.clientCompany ? [data.clientCompany] : []),
+    contactLine,
+  ];
+  drawMetaRow("Issued To", issuedTo);
+  drawMetaRow("Site", [data.siteAddress]);
+  // "Project" is shown only when distinct from Job Type
+  const projectLine = data.jobTypeDetail?.trim();
+  if (projectLine && projectLine !== data.jobType) {
+    drawMetaRow("Project", [projectLine]);
+  }
+  drawMetaRow("Docket No", [data.docketNumber]);
+  drawMetaRow("Job Type", [data.jobType]);
+  drawMetaRow("Inspector", [data.inspectorName]);
+  drawMetaRow("Date", [formatDateLong(data.inspectionDate)]);
+  y -= 4;
+
+  // ---------------- NUMBERED SECTION HEADING ----------------
   const drawNumberedHeading = (num: number, title: string) => {
-    y -= 10;
-    page.drawText(String(num), { x: left, y, size: 11, font, color: forestGreen });
-    page.drawText(title, { x: left + 16, y, size: 11, font, color: forestGreen });
-    y -= 6;
-    page.drawLine({ start: { x: left, y }, end: { x: right, y }, thickness: 0.6, color: rule });
+    y -= 8;
+    page.drawText(String(num), { x: left, y, size: 13, font, color: BRAND_GREEN });
+    page.drawText(title, { x: left + 22, y, size: 13, font, color: BRAND_GREEN });
+    y -= 8;
+    page.drawLine({ start: { x: left, y }, end: { x: right, y }, thickness: 0.6, color: RULE });
     y -= 16;
   };
 
+  // Anchor positions for predictable bottom layout
+  const SECTION_3_TOP_Y = 220;         // top of "3 Status & signatures" heading
+  const SECTION_2_TOP_Y = 388;         // top of "2 Time summary" heading
+  // Notes (section 1) can flow down to SECTION_2_TOP_Y
+
+  // ---------------- SECTION 1 · INSPECTION NOTES ----------------
   drawNumberedHeading(1, "Inspection notes");
   const notesText = (data.notes && data.notes.trim()) || "No additional notes recorded on site.";
-  const noteLines = wrapText(notesText, font, 10.5, innerWidth);
+  const noteLines = wrapText(notesText, font, 11, innerWidth);
+  let truncated = false;
   for (const line of noteLines) {
-    if (y < 300) break;
-    page.drawText(line || " ", { x: left, y, size: 10.5, font, color: ink });
-    y -= 14;
+    if (y - 15 < SECTION_2_TOP_Y) { truncated = true; break; }
+    page.drawText(line || " ", { x: left, y, size: 11, font, color: INK });
+    y -= 15;
   }
-  y -= 4;
+  if (truncated) {
+    page.drawText("… (notes truncated for one-page docket)", {
+      x: left, y, size: 9, font, color: LABEL,
+    });
+  }
+  y = SECTION_2_TOP_Y + 8; // anchor for section 2
 
-  // ---- Section 2 · Time summary (invoice-style table) ----
+  // ---------------- SECTION 2 · TIME SUMMARY ----------------
   drawNumberedHeading(2, "Time summary");
-
   const rowH = 26;
-  const tableLeft = left;
-  const tableRight = right;
-  const valueX = tableRight - 8;
-  const drawRow = (label: string, value: string, opts?: { shaded?: boolean; emphasis?: boolean }) => {
+  const valueX = right - 8;
+  const drawRow = (label: string, value: string, opts?: { shaded?: boolean }) => {
     if (opts?.shaded) {
       page.drawRectangle({
-        x: tableLeft, y: y - rowH + 8,
-        width: tableRight - tableLeft, height: rowH,
-        color: zebra,
+        x: left, y: y - rowH + 8,
+        width: innerWidth, height: rowH,
+        color: rgb(0.965, 0.965, 0.945),
       });
     }
-    page.drawText(label, { x: tableLeft + 12, y: y - 8, size: 11, font: opts?.emphasis ? bold : font, color: ink });
-    const valStr = value || "—";
-    page.drawText(valStr, {
-      x: valueX - font.widthOfTextAtSize(valStr, 11),
-      y: y - 8,
-      size: 11,
-      font: opts?.emphasis ? bold : font,
-      color: ink,
+    page.drawText(label, { x: left + 12, y: y - 8, size: 11, font, color: INK });
+    const s = value || "—";
+    page.drawText(s, {
+      x: valueX - font.widthOfTextAtSize(s, 11),
+      y: y - 8, size: 11, font, color: INK,
     });
     y -= rowH;
   };
@@ -224,73 +243,62 @@ export async function buildDocketPdf(data: DocketData): Promise<Uint8Array> {
   drawRow("Start time", data.timeOn || "—");
   drawRow("End time", data.timeOff || "—", { shaded: true });
   drawRow("Travel time", formatHours(data.travelHours));
-  // Inverted total row (matches "TOTAL DUE")
+
+  // Inverted TOTAL HOURS row (mirrors PAID row on invoice)
   page.drawRectangle({
-    x: tableLeft, y: y - rowH + 8,
-    width: tableRight - tableLeft, height: rowH,
-    color: ink,
+    x: left, y: y - rowH + 8,
+    width: innerWidth, height: rowH,
+    color: INK,
   });
-  page.drawText("TOTAL HOURS", {
-    x: tableLeft + 12, y: y - 8,
-    size: 10, font: bold, color: rgb(1, 1, 1),
-  });
+  page.drawText("TOTAL HOURS", { x: left + 12, y: y - 8, size: 10, font: bold, color: WHITE });
   const totalStr = formatHours(data.totalHours);
   page.drawText(totalStr, {
     x: valueX - bold.widthOfTextAtSize(totalStr, 11),
-    y: y - 8, size: 11, font: bold, color: rgb(1, 1, 1),
+    y: y - 8, size: 11, font: bold, color: WHITE,
   });
-  y -= rowH + 4;
-  page.drawText("Minimum 4 hours applies per SFGEO booking policy.", {
-    x: tableLeft, y, size: 8.5, font, color: meta,
-  });
-  y -= 16;
+  y -= rowH + 6;
 
-  // ---- Section 3 · Status & Signatures ----
+  page.drawText("Minimum 4 hours applies per SFGEO booking policy.", {
+    x: left, y, size: 9, font, color: LABEL,
+  });
+  y -= 18;
+
+  // ---------------- SECTION 3 · STATUS & SIGNATURES ----------------
+  y = SECTION_3_TOP_Y + 8;
   drawNumberedHeading(3, "Status & signatures");
 
-  // Checkbox row
   const drawCheckbox = (x: number, cy: number, checked: boolean) => {
-    page.drawRectangle({
-      x, y: cy, width: 11, height: 11,
-      borderColor: ink, borderWidth: 0.8,
-    });
+    page.drawRectangle({ x, y: cy, width: 11, height: 11, borderColor: INK, borderWidth: 0.8 });
     if (checked) {
-      page.drawLine({ start: { x: x + 2, y: cy + 5 }, end: { x: x + 4.5, y: cy + 2 }, thickness: 1.4, color: ink });
-      page.drawLine({ start: { x: x + 4.5, y: cy + 2 }, end: { x: x + 9, y: cy + 9 }, thickness: 1.4, color: ink });
+      page.drawLine({ start: { x: x + 1.6, y: cy + 5 }, end: { x: x + 4.5, y: cy + 2 }, thickness: 1.5, color: INK });
+      page.drawLine({ start: { x: x + 4.5, y: cy + 2 }, end: { x: x + 9.5, y: cy + 9 }, thickness: 1.5, color: INK });
     }
   };
-  const checkboxes: Array<{ label: string; checked: boolean }> = [
+  const checks: Array<{ label: string; checked: boolean }> = [
     { label: "Report to follow", checked: !!data.reportToFollow },
     { label: "Site Note", checked: !!data.siteNote },
     { label: "No report required", checked: !!data.noReportRequired },
   ];
-  const colSpacing = innerWidth / 3;
-  for (let i = 0; i < checkboxes.length; i++) {
-    const cb = checkboxes[i];
-    const cx = left + i * colSpacing;
-    drawCheckbox(cx, y - 2, cb.checked);
-    page.drawText(cb.label, { x: cx + 18, y, size: 10.5, font, color: ink });
+  const colW = innerWidth / 3;
+  for (let i = 0; i < checks.length; i++) {
+    const cx = left + i * colW;
+    drawCheckbox(cx, y - 2, checks[i].checked);
+    page.drawText(checks[i].label, { x: cx + 18, y, size: 11, font, color: INK });
   }
-  y -= 28;
+  y -= 36;
 
   // Signature boxes
-  if (y < 180) y = 180;
   const sigBoxW = (innerWidth - 16) / 2;
-  const sigBoxH = 84;
+  const sigBoxH = 72;
   const sigTop = y;
   const sigBottom = sigTop - sigBoxH;
 
-  const drawSigBox = async (
-    label: string,
-    name: string,
-    sigDataUrl: string | undefined,
-    x: number
-  ) => {
-    page.drawText(label.toUpperCase(), { x, y: sigTop, size: 8, font, color: meta });
+  const drawSigBox = async (label: string, name: string, sigDataUrl: string | undefined, x: number) => {
+    page.drawText(label.toUpperCase(), { x, y: sigTop, size: 9, font, color: LABEL });
     page.drawRectangle({
       x, y: sigBottom,
       width: sigBoxW, height: sigBoxH - 16,
-      borderColor: rule, borderWidth: 0.6,
+      borderColor: RULE, borderWidth: 0.6,
     });
     const sig = await embedPngFromDataUrl(pdf, sigDataUrl);
     if (sig) {
@@ -306,31 +314,35 @@ export async function buildDocketPdf(data: DocketData): Promise<Uint8Array> {
         width: w, height: h,
       });
     }
-    page.drawText(name || "", {
-      x, y: sigBottom - 14, size: 9, font, color: ink,
-    });
+    page.drawText(name || "", { x, y: sigBottom - 14, size: 9.5, font, color: INK });
   };
 
   await drawSigBox("Inspector signature", data.inspectorName, data.inspectorSignature, left);
   await drawSigBox("Client signature", data.clientName, data.clientSignature, left + sigBoxW + 16);
 
-  // ---- Footer band ----
-  const footerY = 50;
+  // ---------------- FOOTER ----------------
+  const footerY = bottomMargin - 28;
   page.drawLine({
-    start: { x: left, y: footerY + 18 }, end: { x: right, y: footerY + 18 },
-    thickness: 0.5, color: rule,
+    start: { x: left, y: footerY + 24 }, end: { x: right, y: footerY + 24 },
+    thickness: 0.5, color: RULE,
   });
-  page.drawText("AMAB Group Pty Ltd t/a SFGEO", { x: left, y: footerY, size: 8.5, font, color: forestGreen });
+  page.drawText("AMAB Group Pty Ltd t/a SFGEO  ·  ABN 54 686 815 252", {
+    x: left, y: footerY + 8, size: 9, font, color: BRAND_GREEN,
+  });
   const pageLabel = "Page 1 of 1";
   page.drawText(pageLabel, {
-    x: left + innerWidth / 2 - font.widthOfTextAtSize(pageLabel, 8.5) / 2,
-    y: footerY, size: 8.5, font, color: meta,
+    x: left + innerWidth / 2 - font.widthOfTextAtSize(pageLabel, 9) / 2,
+    y: footerY + 8, size: 9, font, color: LABEL,
   });
   const site = "sfgeo.com.au";
   page.drawText(site, {
-    x: right - font.widthOfTextAtSize(site, 8.5),
-    y: footerY, size: 8.5, font, color: forestGreen,
+    x: right - font.widthOfTextAtSize(site, 9),
+    y: footerY + 8, size: 9, font, color: BRAND_GREEN,
   });
+  page.drawText(
+    "This document records an on-site inspection performed by SFGEO for the parties named above.",
+    { x: left, y: footerY - 4, size: 8, font, color: LABEL }
+  );
 
   return pdf.save();
 }

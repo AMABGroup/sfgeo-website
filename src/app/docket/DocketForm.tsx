@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 import SignaturePad, { type SignaturePadHandle } from "./SignaturePad";
 
 type JobType = "Drilling" | "Site inspection" | "Other";
@@ -258,8 +259,8 @@ export default function DocketForm() {
   if (status === "success") {
     return (
       <div className="min-h-screen bg-slate-50 px-6 py-12 flex flex-col items-center justify-center text-center">
-        <div className="w-16 h-16 rounded-full bg-forest-green/10 flex items-center justify-center mb-6">
-          <svg className="w-8 h-8 text-forest-green" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+        <div className="w-16 h-16 rounded-full bg-sfgeo-green/10 flex items-center justify-center mb-6">
+          <svg className="w-8 h-8 text-sfgeo-green" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
             <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </div>
@@ -271,7 +272,7 @@ export default function DocketForm() {
         <button
           type="button"
           onClick={resetAll}
-          className="bg-forest-green text-white rounded-xl py-4 px-8 font-semibold shadow-sm hover:bg-forest-green/90 transition min-h-[56px] w-full max-w-xs"
+          className="bg-sfgeo-green text-white rounded-xl py-4 px-8 font-semibold shadow-sm hover:bg-sfgeo-green/90 transition min-h-[56px] w-full max-w-xs"
         >
           New docket
         </button>
@@ -280,7 +281,7 @@ export default function DocketForm() {
   }
 
   const inputCls =
-    "w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-base text-slate-900 outline-none focus:border-forest-green focus:ring-2 focus:ring-forest-green/15 min-h-[48px]";
+    "w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-base text-slate-900 outline-none focus:border-sfgeo-green focus:ring-2 focus:ring-sfgeo-green/15 min-h-[48px]";
   const labelCls = "text-[11px] font-bold tracking-widest uppercase text-slate-500";
 
   const needsJobDetail = form.jobType === "Site inspection" || form.jobType === "Other";
@@ -289,15 +290,24 @@ export default function DocketForm() {
 
   return (
     <div className="min-h-screen bg-slate-50">
-      <header className="sticky top-0 z-10 bg-forest-green text-white px-4 md:px-8 py-3 flex items-center justify-between safe-top">
-        <div>
-          <div className="text-xs opacity-75 leading-tight">SFGEO Docket Book</div>
-          <div className="text-sm font-mono font-semibold">#{docketNumber || "…"}</div>
+      <header className="sticky top-0 z-10 bg-white border-b border-slate-200 px-4 md:px-8 py-3 flex items-center justify-between safe-top">
+        <div className="flex items-center gap-3">
+          <Image
+            src="/docket/sfgeo-logo.png"
+            alt="SFGEO"
+            width={36}
+            height={36}
+            priority
+          />
+          <div>
+            <div className="text-[10px] uppercase tracking-widest text-sfgeo-label leading-tight">Docket Book</div>
+            <div className="text-xs font-mono text-sfgeo-ink">{docketNumber || "…"}</div>
+          </div>
         </div>
         <button
           type="button"
           onClick={logout}
-          className="text-xs underline opacity-80 hover:opacity-100"
+          className="text-xs font-medium text-sfgeo-green underline-offset-2 hover:underline"
         >
           Lock
         </button>
@@ -346,7 +356,7 @@ export default function DocketForm() {
                       onClick={() => update("jobType", jt)}
                       className={`rounded-xl py-3 px-2 text-sm font-medium border transition min-h-[48px] ${
                         active
-                          ? "bg-forest-green text-white border-forest-green"
+                          ? "bg-sfgeo-green text-white border-sfgeo-green"
                           : "bg-white text-slate-700 border-slate-200"
                       }`}
                     >
@@ -546,7 +556,7 @@ export default function DocketForm() {
                 type="checkbox"
                 checked={form.sendCopyToClient}
                 onChange={(e) => update("sendCopyToClient", e.target.checked)}
-                className="mt-1 w-5 h-5 accent-forest-green"
+                className="mt-1 w-5 h-5 accent-sfgeo-green"
               />
               <span className="text-sm text-slate-700 leading-snug">
                 Email a copy to the client at <strong className="font-semibold">{form.clientEmail || "(client email)"}</strong>.
@@ -577,7 +587,7 @@ export default function DocketForm() {
             <button
               type="submit"
               disabled={status === "submitting"}
-              className="flex-1 bg-forest-green text-white rounded-xl py-3 font-semibold text-base shadow-sm hover:bg-forest-green/90 transition disabled:opacity-60 min-h-[52px] flex items-center justify-center gap-2"
+              className="flex-1 bg-sfgeo-green text-white rounded-xl py-3 font-semibold text-base shadow-sm hover:bg-sfgeo-green/90 transition disabled:opacity-60 min-h-[52px] flex items-center justify-center gap-2"
             >
               {status === "submitting" ? (
                 <>
@@ -613,7 +623,7 @@ function CheckboxRow({
         type="checkbox"
         checked={checked}
         onChange={(e) => onChange(e.target.checked)}
-        className="w-5 h-5 accent-forest-green"
+        className="w-5 h-5 accent-sfgeo-green"
       />
       <span className="text-sm text-slate-700 font-medium">{label}</span>
     </label>

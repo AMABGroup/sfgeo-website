@@ -2,12 +2,16 @@
 
 @theme {
   --color-forest-green: #2D5A3A;
+  --color-sfgeo-green: #236734;
+  --color-sfgeo-ink: #111111;
+  --color-sfgeo-label: #6B6B6B;
   --color-slate-black: #0A0A0A;
   --color-off-white: #FAFAFA;
   --color-accent-gold: #D4AF37;
-  
+
   --font-inter: var(--font-inter);
   --font-montserrat: var(--font-montserrat);
+  --font-carlito: var(--font-carlito);
 }
 
 :root {
