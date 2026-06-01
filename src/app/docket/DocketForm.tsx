@@ -23,6 +23,7 @@ type FormState = {
 
   siteContactName: string;
   siteContactPhone: string;
+  siteContactRole: string;
 
   siteAddress: string;
 
@@ -136,6 +137,7 @@ const emptyForm: FormState = {
 
   siteContactName: "",
   siteContactPhone: "",
+  siteContactRole: "",
 
   siteAddress: "",
 
@@ -324,6 +326,7 @@ export default function DocketForm() {
 
       siteContactName: form.siteContactName,
       siteContactPhone: form.siteContactPhone,
+      siteContactRole: form.siteContactRole,
 
       siteAddress: form.siteAddress,
 
@@ -512,7 +515,7 @@ export default function DocketForm() {
                 />
               </label>
               <label className="flex flex-col gap-1.5">
-                <span className={labelCls}>Inspector</span>
+                <span className={labelCls}>Engineer | Driller</span>
                 <input
                   type="text"
                   value={form.inspectorName}
@@ -590,9 +593,9 @@ export default function DocketForm() {
             </div>
           </section>
 
-          {/* SITE */}
+          {/* SITE ADDRESS */}
           <section className="bg-white rounded-2xl p-4 md:p-5 shadow-sm border border-slate-100 flex flex-col gap-3">
-            <h2 className="text-sm font-bold text-sfgeo-ink uppercase tracking-wider">Site</h2>
+            <h2 className="text-sm font-bold text-sfgeo-ink uppercase tracking-wider">Site address</h2>
             <label className="flex flex-col gap-1.5">
               <span className={labelCls}>Address</span>
               <input
@@ -612,7 +615,6 @@ export default function DocketForm() {
           {/* CLIENT */}
           <section className="bg-white rounded-2xl p-4 md:p-5 shadow-sm border border-slate-100 flex flex-col gap-3">
             <h2 className="text-sm font-bold text-sfgeo-ink uppercase tracking-wider">Client</h2>
-            <p className="text-[11px] text-sfgeo-label -mt-1">The party who engaged SFGEO.</p>
             <div className="grid grid-cols-2 gap-3">
               <label className="flex flex-col gap-1.5">
                 <span className={labelCls}>Name</span>
@@ -636,22 +638,31 @@ export default function DocketForm() {
           {/* SITE CONTACT */}
           <section className="bg-white rounded-2xl p-4 md:p-5 shadow-sm border border-slate-100 flex flex-col gap-3">
             <h2 className="text-sm font-bold text-sfgeo-ink uppercase tracking-wider">Site contact</h2>
-            <p className="text-[11px] text-sfgeo-label -mt-1">The person on site at the time of inspection — signs the docket below.</p>
             <div className="grid grid-cols-2 gap-3">
               <label className="flex flex-col gap-1.5">
                 <span className={labelCls}>Name</span>
                 <input type="text" value={form.siteContactName} onChange={(e) => update("siteContactName", e.target.value)} className={inputCls} />
               </label>
               <label className="flex flex-col gap-1.5">
+                <span className={labelCls}>Role / position</span>
+                <input
+                  type="text"
+                  value={form.siteContactRole}
+                  onChange={(e) => update("siteContactRole", e.target.value)}
+                  placeholder="e.g. Site Supervisor, Builder"
+                  className={inputCls}
+                />
+              </label>
+              <label className="flex flex-col gap-1.5 col-span-2">
                 <span className={labelCls}>Phone (optional)</span>
                 <input type="tel" inputMode="tel" value={form.siteContactPhone} onChange={(e) => update("siteContactPhone", e.target.value)} className={inputCls} />
               </label>
             </div>
           </section>
 
-          {/* OBSERVATIONS */}
+          {/* SITE NOTES */}
           <section className="bg-white rounded-2xl p-4 md:p-5 shadow-sm border border-slate-100 flex flex-col gap-3">
-            <h2 className="text-sm font-bold text-sfgeo-ink uppercase tracking-wider">Observations</h2>
+            <h2 className="text-sm font-bold text-sfgeo-ink uppercase tracking-wider">Site notes</h2>
             <textarea
               value={form.notes}
               onChange={(e) => update("notes", e.target.value)}

@@ -51,7 +51,7 @@ function buildHtmlSummary(data: DocketData): string {
               ${data.travelHours ? row("Travel", `${data.travelHours} hrs`) : ""}
               ${row("Total hours", data.totalHours ? `${data.totalHours} hrs` : "—")}
               ${row("Client", `${data.clientName}${data.clientCompany ? ` (${data.clientCompany})` : ""}`)}
-              ${data.siteContactName ? row("Site contact", `${data.siteContactName}${data.siteContactPhone ? ` · ${data.siteContactPhone}` : ""}`) : ""}
+              ${data.siteContactName ? row("Site contact", [data.siteContactName, data.siteContactRole, data.siteContactPhone].filter(Boolean).join(" · ")) : ""}
             </table>
             ${(data.reportToFollow || data.siteNote || data.noReportRequired) ? `<div style="margin-top:18px;font-size:13px;color:#111111;">
               <div style="font-size:12px;color:#6B6B6B;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px;">Status</div>
@@ -60,7 +60,7 @@ function buildHtmlSummary(data: DocketData): string {
               ${data.noReportRequired ? "<div>✓ No report required</div>" : ""}
             </div>` : ""}
             ${data.notes ? `<div style="margin-top:20px;">
-              <div style="font-size:12px;color:#6B6B6B;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px;">Observations</div>
+              <div style="font-size:12px;color:#6B6B6B;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px;">Site notes</div>
               <div style="font-size:14px;line-height:1.6;color:#111111;white-space:pre-wrap;">${escapeHtml(data.notes)}</div>
             </div>` : ""}
           </td>
@@ -131,6 +131,7 @@ export async function POST(request: Request) {
     clientPhone: body.clientPhone ? String(body.clientPhone) : "",
     siteContactName: body.siteContactName ? String(body.siteContactName) : "",
     siteContactPhone: body.siteContactPhone ? String(body.siteContactPhone) : "",
+    siteContactRole: body.siteContactRole ? String(body.siteContactRole) : "",
     siteAddress: String(body.siteAddress),
     timeOn: body.timeOn ? String(body.timeOn) : "",
     timeOff: body.timeOff ? String(body.timeOff) : "",

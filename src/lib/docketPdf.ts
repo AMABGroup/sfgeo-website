@@ -20,6 +20,7 @@ export type DocketData = {
 
   siteContactName: string;
   siteContactPhone: string;
+  siteContactRole: string;
 
   siteAddress: string;
 
@@ -187,7 +188,7 @@ export async function buildDocketPdf(data: DocketData): Promise<Uint8Array> {
     x: brandX, y: headerTop - 36,
     size: 16, font: bold, color: INK, tracking: 2.4,
   });
-  page.drawText("Consulting Geotechnical Engineers  ·  Sydney", {
+  page.drawText("Consulting Engineers and Drilling  ·  Sydney", {
     x: brandX, y: headerTop - 52,
     size: 9, font, color: LABEL,
   });
@@ -276,14 +277,14 @@ export async function buildDocketPdf(data: DocketData): Promise<Uint8Array> {
     cursorY = rowBottom;
   };
 
-  // ROW 1 — Date + Inspector (50/50)
+  // ROW 1 — Date + Engineer | Driller (50/50)
   // (Project name now lives in the title row, no longer a separate cell.)
   {
     const w = W / 2;
     drawCellRow(
       [
         { cell: { label: "Date of inspection", lines: [formatDateLong(data.inspectionDate)] }, width: w },
-        { cell: { label: "Inspector", lines: [data.inspectorName] }, width: w },
+        { cell: { label: "Engineer  |  Driller", lines: [data.inspectorName] }, width: w },
       ],
       44
     );
@@ -310,8 +311,8 @@ export async function buildDocketPdf(data: DocketData): Promise<Uint8Array> {
     const rowH = Math.max(28 + clientLines.length * 13, 28 + siteLines.length * 13, 86);
     drawCellRow(
       [
-        { cell: { label: "Client (engaging party)", lines: clientLines }, width: w },
-        { cell: { label: "Site", lines: siteLines, boldFirstLine: false }, width: w },
+        { cell: { label: "Client", lines: clientLines }, width: w },
+        { cell: { label: "Site address", lines: siteLines, boldFirstLine: false }, width: w },
       ],
       rowH
     );
@@ -321,12 +322,13 @@ export async function buildDocketPdf(data: DocketData): Promise<Uint8Array> {
   {
     const contactLines: string[] = [];
     if (data.siteContactName) {
-      contactLines.push(data.siteContactName + (data.siteContactPhone ? `   ·   ${data.siteContactPhone}` : ""));
+      const tail = [data.siteContactPhone, data.siteContactRole].filter(Boolean).join("   ·   ");
+      contactLines.push(data.siteContactName + (tail ? `   ·   ${tail}` : ""));
     } else {
       contactLines.push("—");
     }
     drawCellRow(
-      [{ cell: { label: "Site contact (on-site signatory)", lines: contactLines, boldFirstLine: !!data.siteContactName }, width: W }],
+      [{ cell: { label: "Site contact", lines: contactLines, boldFirstLine: !!data.siteContactName }, width: W }],
       40
     );
   }
@@ -337,9 +339,9 @@ export async function buildDocketPdf(data: DocketData): Promise<Uint8Array> {
     const rowTop = cursorY;
     const rowBottom = rowTop - rowH;
     drawCellBorder(left, rowBottom, W, rowH);
-    drawLabel("Observations", left + 10, rowTop - 14);
+    drawLabel("Site notes", left + 10, rowTop - 14);
 
-    const notesText = (data.notes && data.notes.trim()) || "No additional observations recorded on site.";
+    const notesText = (data.notes && data.notes.trim()) || "No additional site notes recorded.";
     const noteLines = wrapText(notesText, font, 10.5, W - 20);
     let ty = rowTop - 30;
     const maxNoteY = rowBottom + 14;
@@ -428,13 +430,14 @@ export async function buildDocketPdf(data: DocketData): Promise<Uint8Array> {
       drawCellBorder(x, rowBottom, w, rowH);
       drawLabel("Site contact signature", x + 10, rowTop - 14);
 
-      const sigAreaH = rowH - 50;
-      const sigAreaW = w - 20;
-      const sigAreaY = rowBottom + 24;
+      const sigAreaH = rowH - 60;
+      const sigAreaW = w - 24;
+      const sigAreaY = rowBottom + 34;
 
+      // Line above the printed name + role
       page.drawLine({
-        start: { x: x + 10, y: rowBottom + 24 },
-        end: { x: x + w - 10, y: rowBottom + 24 },
+        start: { x: x + 10, y: rowBottom + 32 },
+        end: { x: x + w - 10, y: rowBottom + 32 },
         thickness: 0.4, color: FAINT,
       });
 
@@ -450,7 +453,12 @@ export async function buildDocketPdf(data: DocketData): Promise<Uint8Array> {
           width: dw, height: dh,
         });
       }
-      page.drawText(data.siteContactName || "—", { x: x + 10, y: rowBottom + 8, size: 10, font, color: INK });
+      page.drawText(data.siteContactName || "—", {
+        x: x + 10, y: rowBottom + 18, size: 11, font: bold, color: INK,
+      });
+      page.drawText(data.siteContactRole || "Role / position", {
+        x: x + 10, y: rowBottom + 6, size: 9.5, font, color: LABEL,
+      });
     }
 
     // RIGHT: engineer sign-off (Alli, auto)
