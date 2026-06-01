@@ -1,6 +1,6 @@
 import { readFile } from "fs/promises";
 import path from "path";
-import { PDFDocument, rgb, PDFPage, PDFFont, PDFImage } from "pdf-lib";
+import { PDFDocument, rgb, PDFPage, PDFFont, PDFImage, setCharacterSpacing } from "pdf-lib";
 import fontkit from "@pdf-lib/fontkit";
 
 export type DocketData = {
@@ -130,18 +130,33 @@ export async function buildDocketPdf(data: DocketData): Promise<Uint8Array> {
   const right = width - M;
   const W = right - left;
 
-  // Cell helpers
+  // ----- Drawing helpers -----
   const drawCellBorder = (x: number, y: number, w: number, h: number) => {
     page.drawRectangle({ x, y, width: w, height: h, borderColor: RULE, borderWidth: 0.6 });
   };
-  const drawLabel = (text: string, x: number, y: number) => {
-    page.drawText(text.toUpperCase(), { x, y, size: 7.5, font: bold, color: LABEL });
+
+  // Tracked text helper — wraps drawText with the PDF "Tc" character-spacing operator
+  // so ALL-CAPS labels and the brand name get proper letter-spacing.
+  const drawTrackedText = (
+    text: string,
+    opts: { x: number; y: number; size: number; font: PDFFont; color: ReturnType<typeof rgb>; tracking: number },
+  ) => {
+    page.pushOperators(setCharacterSpacing(opts.tracking));
+    page.drawText(text, { x: opts.x, y: opts.y, size: opts.size, font: opts.font, color: opts.color });
+    page.pushOperators(setCharacterSpacing(0));
   };
+
+  const drawLabel = (text: string, x: number, y: number) => {
+    drawTrackedText(text.toUpperCase(), {
+      x, y, size: 7.5, font: bold, color: LABEL, tracking: 0.9,
+    });
+  };
+
   const drawValue = (
     text: string,
     x: number,
     y: number,
-    opts?: { bold?: boolean; size?: number; color?: typeof INK },
+    opts?: { bold?: boolean; size?: number; color?: ReturnType<typeof rgb> },
   ) => {
     page.drawText(text || "—", {
       x, y, size: opts?.size ?? 11,
@@ -151,52 +166,96 @@ export async function buildDocketPdf(data: DocketData): Promise<Uint8Array> {
   };
 
   // ============================================================
-  //                          HEADER
+  //                       LETTERHEAD HEADER
   // ============================================================
   const headerTop = height - M;
-  const headerH = 64;
-  const headerBottom = headerTop - headerH;
 
-  // Logo
-  const targetH = 52;
+  // Logo (left)
+  const targetH = 64;
   const logoDims = logo.scale(1);
   const logoRatio = targetH / logoDims.height;
   const logoW = logoDims.width * logoRatio;
-  page.drawImage(logo, { x: left, y: headerTop - targetH - 4, width: logoW, height: targetH });
+  page.drawImage(logo, { x: left, y: headerTop - targetH, width: logoW, height: targetH });
 
-  // Brand text
-  const brandX = left + logoW + 14;
-  page.drawText("Solid Foundation Geotechnical", { x: brandX, y: headerTop - 20, size: 14, font: bold, color: INK });
-  page.drawText("Site Inspection Docket", { x: brandX, y: headerTop - 36, size: 11, font, color: LABEL });
+  // Brand name in CAPS with letter-spacing — two lines
+  const brandX = left + logoW + 16;
+  drawTrackedText("SOLID FOUNDATION", {
+    x: brandX, y: headerTop - 18,
+    size: 16, font: bold, color: INK, tracking: 2.4,
+  });
+  drawTrackedText("GEOTECHNICAL", {
+    x: brandX, y: headerTop - 36,
+    size: 16, font: bold, color: INK, tracking: 2.4,
+  });
+  page.drawText("Consulting Geotechnical Engineers  ·  Sydney", {
+    x: brandX, y: headerTop - 52,
+    size: 9, font, color: LABEL,
+  });
 
-  // Project ref + visit box (top-right)
+  // Contact block (right) — address, phone, admin email, hours
+  const contactLines: Array<{ text: string; bold?: boolean }> = [
+    { text: "Suite 3.01, Level 3, 107 Sydenham Road" },
+    { text: "Marrickville NSW 2204" },
+    { text: "0423 483 555  ·  admin@sfgeo.com.au" },
+    { text: "Mon — Fri   8:00 — 18:00" },
+  ];
+  let contactY = headerTop - 10;
+  for (const line of contactLines) {
+    const f = line.bold ? bold : font;
+    const w = f.widthOfTextAtSize(line.text, 9);
+    page.drawText(line.text, { x: right - w, y: contactY, size: 9, font: f, color: INK });
+    contactY -= 13;
+  }
+
+  // Heavy green rule beneath the letterhead
+  const headerRuleY = headerTop - 76;
+  page.drawRectangle({ x: left, y: headerRuleY, width: W, height: 2, color: BRAND_GREEN });
+
+  // ============================================================
+  //                  TITLE ROW + PROJECT REF BOX
+  // ============================================================
+  const titleY = headerRuleY - 28;
+
+  drawTrackedText("SITE INSPECTION DOCKET", {
+    x: left, y: titleY,
+    size: 17, font: bold, color: INK, tracking: 2.0,
+  });
+  // Project name as subtitle under the title
+  const projectNameLines = wrapText(data.projectName, font, 11, W - 220);
+  let subY = titleY - 16;
+  for (const line of projectNameLines.slice(0, 2)) {
+    page.drawText(line, { x: left, y: subY, size: 11, font, color: LABEL });
+    subY -= 13;
+  }
+
+  // Project ref box (right of the title)
   const boxW = 200;
   const boxH = 56;
   const boxX = right - boxW;
-  const boxY = headerTop - boxH - 4;
+  const boxY = titleY - 38;
   page.drawRectangle({ x: boxX, y: boxY, width: boxW, height: boxH, borderColor: BRAND_GREEN, borderWidth: 1.2 });
-  // green strip
   page.drawRectangle({ x: boxX, y: boxY + boxH - 18, width: boxW, height: 18, color: BRAND_GREEN });
-  page.drawText("PROJECT REF", { x: boxX + 10, y: boxY + boxH - 13, size: 8.5, font: bold, color: rgb(1, 1, 1) });
-  page.drawText("Visit", { x: boxX + boxW - 70, y: boxY + boxH - 13, size: 8.5, font: bold, color: rgb(1, 1, 1) });
-  // project ref value
+  drawTrackedText("PROJECT REF", {
+    x: boxX + 10, y: boxY + boxH - 13,
+    size: 8.5, font: bold, color: rgb(1, 1, 1), tracking: 1.0,
+  });
+  drawTrackedText("VISIT", {
+    x: boxX + boxW - 60, y: boxY + boxH - 13,
+    size: 8.5, font: bold, color: rgb(1, 1, 1), tracking: 1.0,
+  });
   page.drawText(data.projectRef, { x: boxX + 10, y: boxY + 14, size: 14, font: bold, color: INK });
-  // visit number (right side, divider line)
   page.drawLine({
-    start: { x: boxX + boxW - 76, y: boxY + 6 },
-    end:   { x: boxX + boxW - 76, y: boxY + boxH - 22 },
+    start: { x: boxX + boxW - 66, y: boxY + 6 },
+    end:   { x: boxX + boxW - 66, y: boxY + boxH - 22 },
     thickness: 0.5, color: RULE,
   });
   page.drawText(data.visitNumber, { x: boxX + boxW - 50, y: boxY + 14, size: 14, font: bold, color: INK });
 
-  // Heavy green rule beneath header
-  const headerRuleY = headerBottom - 6;
-  page.drawRectangle({ x: left, y: headerRuleY, width: W, height: 2, color: BRAND_GREEN });
-
   // ============================================================
   //                       GRID LAYOUT
   // ============================================================
-  let cursorY = headerRuleY - 12;
+  // Start below the title/ref box
+  let cursorY = boxY - 16;
 
   type Cell = { label: string; lines: string[]; boldFirstLine?: boolean };
   const drawCellRow = (cells: { cell: Cell; width: number }[], rowH: number) => {
@@ -217,14 +276,8 @@ export async function buildDocketPdf(data: DocketData): Promise<Uint8Array> {
     cursorY = rowBottom;
   };
 
-  // ROW 1 — Project name (full width — sets context immediately)
-  {
-    const nameLines = wrapText(data.projectName, bold, 12, W - 20);
-    const rowH = 28 + nameLines.length * 14 + 4;
-    drawCellRow([{ cell: { label: "Project name", lines: nameLines.slice(0, 2) }, width: W }], rowH);
-  }
-
-  // ROW 2 — Date + Inspector (50/50)
+  // ROW 1 — Date + Inspector (50/50)
+  // (Project name now lives in the title row, no longer a separate cell.)
   {
     const w = W / 2;
     drawCellRow(
