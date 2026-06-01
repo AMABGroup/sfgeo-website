@@ -386,7 +386,7 @@ export default function DocketForm() {
         </div>
         <h1 className="text-2xl font-semibold text-sfgeo-ink mb-2">Docket sent</h1>
         <p className="text-sfgeo-label mb-1 text-sm">
-          Sent to admin@sfgeo.com.au and helay@sfgeo.com.au
+          Sent to {form.clientEmail} (admin@sfgeo.com.au and helay@sfgeo.com.au BCC&apos;d)
         </p>
         <p className="text-sfgeo-label/70 text-xs mb-8 font-mono">{submittedDocketId}</p>
         <button

@@ -193,12 +193,12 @@ export async function buildDocketPdf(data: DocketData): Promise<Uint8Array> {
     size: 9, font, color: LABEL,
   });
 
-  // Contact block (right) — address, phone, admin email, hours
+  // Contact block (right) — address, phone, admin email
   const contactLines: Array<{ text: string; bold?: boolean }> = [
-    { text: "Suite 3.01, Level 3, 107 Sydenham Road" },
+    { text: "Suite 3.01, Level 3" },
+    { text: "107 Sydenham Road" },
     { text: "Marrickville NSW 2204" },
     { text: "0423 483 555  ·  admin@sfgeo.com.au" },
-    { text: "Mon — Fri   8:00 — 18:00" },
   ];
   let contactY = headerTop - 10;
   for (const line of contactLines) {

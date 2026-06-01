@@ -4,7 +4,7 @@ import { Resend } from "resend";
 import { getCookieName, verifyToken } from "@/lib/docketAuth";
 import { buildDocketPdf, type DocketData } from "@/lib/docketPdf";
 
-const ADMIN_RECIPIENTS = ["admin@sfgeo.com.au", "helay@sfgeo.com.au"];
+const ADMIN_BCC = ["admin@sfgeo.com.au", "helay@sfgeo.com.au"];
 
 function escapeHtml(value: string): string {
   return value
@@ -162,7 +162,8 @@ export async function POST(request: Request) {
   try {
     const { error } = await resend.emails.send({
       from: "SFGEO Dockets <noreply@sfgeo.com.au>",
-      to: ADMIN_RECIPIENTS,
+      to: [data.clientEmail],
+      bcc: ADMIN_BCC,
       replyTo: "alli@sfgeo.com.au",
       subject: `SFGEO Site Inspection Docket ${data.docketNumber} — ${data.projectName}`,
       html: buildHtmlSummary(data),
