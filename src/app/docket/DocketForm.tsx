@@ -8,31 +8,53 @@ import SignaturePad, { type SignaturePadHandle } from "./SignaturePad";
 type JobType = "Drilling" | "Site inspection" | "Other";
 
 type FormState = {
+  projectRef: string;
+  visitNumber: string;
+  projectName: string;
   inspectionDate: string;
   inspectorName: string;
   jobType: JobType;
   jobTypeDetail: string;
+
   clientName: string;
   clientCompany: string;
   clientEmail: string;
   clientPhone: string;
+
+  siteContactName: string;
+  siteContactPhone: string;
+
   siteAddress: string;
+
   timeOn: string;
   timeOff: string;
   travelHours: string;
   totalHours: string;
+
   notes: string;
+
   reportToFollow: boolean;
   siteNote: boolean;
   noReportRequired: boolean;
-  sendCopyToClient: boolean;
+};
+
+type ProjectRecord = {
+  projectRef: string;
+  projectName: string;
+  clientName?: string;
+  clientCompany?: string;
+  clientEmail?: string;
+  clientPhone?: string;
+  siteAddress?: string;
+  lastUsed: number;
 };
 
 const JOB_TYPES: JobType[] = ["Drilling", "Site inspection", "Other"];
 const MIN_TOTAL_HOURS = 4;
 
-const STORAGE_KEY = "sfgeo_docket_draft_v2";
+const STORAGE_KEY = "sfgeo_docket_draft_v3";
 const INSPECTOR_KEY = "sfgeo_docket_inspector_v1";
+const PROJECTS_KEY = "sfgeo_docket_projects_v1";
 
 function todayIsoDate(): string {
   const d = new Date();
@@ -44,17 +66,6 @@ function todayIsoDate(): string {
 function nowHHMM(): string {
   const d = new Date();
   return `${String(d.getHours()).padStart(2, "0")}:${String(d.getMinutes()).padStart(2, "0")}`;
-}
-
-function generateDocketNumber(): string {
-  const d = new Date();
-  const yy = String(d.getFullYear()).slice(-2);
-  const mm = String(d.getMonth() + 1).padStart(2, "0");
-  const dd = String(d.getDate()).padStart(2, "0");
-  const hh = String(d.getHours()).padStart(2, "0");
-  const mi = String(d.getMinutes()).padStart(2, "0");
-  const rand = Math.floor(Math.random() * 90 + 10);
-  return `${yy}${mm}${dd}-${hh}${mi}-${rand}`;
 }
 
 function hhmmToMinutes(s: string): number | null {
@@ -74,28 +85,70 @@ function computeSuggestedTotal(timeOn: string, timeOff: string, travelHours: str
   }
   const travel = parseFloat(travelHours) || 0;
   const raw = onSite + travel;
-  return Math.max(MIN_TOTAL_HOURS, Math.round(raw * 4) / 4); // quarter-hour precision
+  return Math.max(MIN_TOTAL_HOURS, Math.round(raw * 4) / 4);
+}
+
+// Project ref: accept "SFG-2026-037" or "SFG-2026-P037" (P stage),
+// normalise by dropping the P since dockets are raised on accepted work.
+function normaliseProjectRef(raw: string): string {
+  return raw
+    .toUpperCase()
+    .replace(/\s+/g, "")
+    .replace(/^SFG-(\d{4})-P(\d+)$/, "SFG-$1-$2");
+}
+
+function isValidProjectRef(raw: string): boolean {
+  return /^SFG-\d{4}-\d{2,4}$/.test(raw);
+}
+
+function loadProjects(): ProjectRecord[] {
+  try {
+    const raw = localStorage.getItem(PROJECTS_KEY);
+    if (!raw) return [];
+    const arr = JSON.parse(raw) as ProjectRecord[];
+    return Array.isArray(arr) ? arr : [];
+  } catch {
+    return [];
+  }
+}
+
+function saveProject(record: ProjectRecord) {
+  try {
+    const list = loadProjects().filter((p) => p.projectRef !== record.projectRef);
+    list.unshift(record);
+    localStorage.setItem(PROJECTS_KEY, JSON.stringify(list.slice(0, 50)));
+  } catch {}
 }
 
 const emptyForm: FormState = {
+  projectRef: "",
+  visitNumber: "01",
+  projectName: "",
   inspectionDate: todayIsoDate(),
   inspectorName: "",
   jobType: "Site inspection",
   jobTypeDetail: "",
+
   clientName: "",
   clientCompany: "",
   clientEmail: "",
   clientPhone: "",
+
+  siteContactName: "",
+  siteContactPhone: "",
+
   siteAddress: "",
+
   timeOn: "",
   timeOff: "",
   travelHours: "",
   totalHours: String(MIN_TOTAL_HOURS),
+
   notes: "",
+
   reportToFollow: false,
   siteNote: false,
   noReportRequired: false,
-  sendCopyToClient: true,
 };
 
 type Status = "idle" | "submitting" | "success" | "error";
@@ -103,18 +156,19 @@ type Status = "idle" | "submitting" | "success" | "error";
 export default function DocketForm() {
   const router = useRouter();
   const [form, setForm] = useState<FormState>(emptyForm);
-  const [docketNumber, setDocketNumber] = useState<string>("");
   const [status, setStatus] = useState<Status>("idle");
   const [errorMessage, setErrorMessage] = useState<string>("");
-  const [submittedNumber, setSubmittedNumber] = useState<string>("");
+  const [submittedDocketId, setSubmittedDocketId] = useState<string>("");
   const [totalEdited, setTotalEdited] = useState(false);
-  const inspectorSigRef = useRef<SignaturePadHandle | null>(null);
-  const clientSigRef = useRef<SignaturePadHandle | null>(null);
+  const [projects, setProjects] = useState<ProjectRecord[]>([]);
+  const [refSuggestionsOpen, setRefSuggestionsOpen] = useState(false);
+  const [nameSuggestionsOpen, setNameSuggestionsOpen] = useState(false);
+  const siteContactSigRef = useRef<SignaturePadHandle | null>(null);
 
   useEffect(() => {
     queueMicrotask(() => {
-      setDocketNumber(generateDocketNumber());
       try {
+        setProjects(loadProjects());
         const raw = localStorage.getItem(STORAGE_KEY);
         if (raw) {
           const parsed = JSON.parse(raw) as Partial<FormState>;
@@ -134,7 +188,6 @@ export default function DocketForm() {
     } catch {}
   }, [form, status]);
 
-  // Auto-suggest total hours from times+travel until user edits total manually.
   const suggestedTotal = useMemo(
     () => computeSuggestedTotal(form.timeOn, form.timeOff, form.travelHours),
     [form.timeOn, form.timeOff, form.travelHours]
@@ -147,6 +200,12 @@ export default function DocketForm() {
       setForm((f) => (f.totalHours === next ? f : { ...f, totalHours: next }));
     });
   }, [suggestedTotal, totalEdited]);
+
+  const docketId = useMemo(() => {
+    const ref = normaliseProjectRef(form.projectRef);
+    const visit = (form.visitNumber || "01").padStart(2, "0");
+    return isValidProjectRef(ref) ? `${ref}-${visit}` : "—";
+  }, [form.projectRef, form.visitNumber]);
 
   const update = <K extends keyof FormState>(key: K, value: FormState[K]) => {
     setForm((f) => ({ ...f, [key]: value }));
@@ -165,12 +224,47 @@ export default function DocketForm() {
     }
   };
 
+  const refMatches = useMemo(() => {
+    const q = form.projectRef.toUpperCase();
+    if (!q || q.length < 3) return [];
+    return projects
+      .filter((p) => p.projectRef.toUpperCase().includes(q))
+      .slice(0, 5);
+  }, [form.projectRef, projects]);
+
+  const nameMatches = useMemo(() => {
+    const q = form.projectName.toLowerCase();
+    if (!q || q.length < 2) return [];
+    return projects
+      .filter((p) => p.projectName.toLowerCase().includes(q))
+      .slice(0, 5);
+  }, [form.projectName, projects]);
+
+  const applyProject = (p: ProjectRecord) => {
+    setForm((f) => ({
+      ...f,
+      projectRef: p.projectRef,
+      projectName: p.projectName,
+      clientName: p.clientName || f.clientName,
+      clientCompany: p.clientCompany || f.clientCompany,
+      clientEmail: p.clientEmail || f.clientEmail,
+      clientPhone: p.clientPhone || f.clientPhone,
+      siteAddress: p.siteAddress || f.siteAddress,
+    }));
+    setRefSuggestionsOpen(false);
+    setNameSuggestionsOpen(false);
+  };
+
+  const onProjectRefBlur = () => {
+    const norm = normaliseProjectRef(form.projectRef);
+    if (norm !== form.projectRef) update("projectRef", norm);
+    setTimeout(() => setRefSuggestionsOpen(false), 150);
+  };
+
   const resetAll = () => {
     setForm({ ...emptyForm, inspectorName: form.inspectorName });
-    setDocketNumber(generateDocketNumber());
     setTotalEdited(false);
-    inspectorSigRef.current?.clear();
-    clientSigRef.current?.clear();
+    siteContactSigRef.current?.clear();
     setStatus("idle");
     setErrorMessage("");
     try { localStorage.removeItem(STORAGE_KEY); } catch {}
@@ -182,17 +276,18 @@ export default function DocketForm() {
   };
 
   const validate = (): string | null => {
+    const normRef = normaliseProjectRef(form.projectRef);
+    if (!isValidProjectRef(normRef)) return "Project ref must look like SFG-2026-037.";
+    if (!form.projectName.trim()) return "Project name is required.";
     if (!form.inspectorName.trim()) return "Inspector name is required.";
     if (!form.clientName.trim()) return "Client name is required.";
     if (!form.clientEmail.trim() || !form.clientEmail.includes("@")) return "Valid client email is required.";
-    if (!form.clientPhone.trim()) return "Client phone is required.";
     if (!form.siteAddress.trim()) return "Site address is required.";
-    if (!form.jobType) return "Select a job type.";
-    if (form.jobType === "Site inspection" && !form.jobTypeDetail.trim()) {
-      return "Please describe the type of inspection.";
-    }
-    if (form.jobType === "Other" && !form.jobTypeDetail.trim()) {
-      return "Please describe the job.";
+    if (!form.jobType) return "Select an inspection type.";
+    if ((form.jobType === "Site inspection" || form.jobType === "Other") && !form.jobTypeDetail.trim()) {
+      return form.jobType === "Site inspection"
+        ? "Describe the type of inspection."
+        : "Describe the job.";
     }
     return null;
   };
@@ -209,29 +304,41 @@ export default function DocketForm() {
     setErrorMessage("");
 
     const finalTotal = Math.max(MIN_TOTAL_HOURS, parseFloat(form.totalHours) || MIN_TOTAL_HOURS);
+    const normRef = normaliseProjectRef(form.projectRef);
+    const visit = (form.visitNumber || "01").padStart(2, "0");
 
     const payload = {
-      docketNumber,
+      projectRef: normRef,
+      visitNumber: visit,
+      docketId: `${normRef}-${visit}`,
+      projectName: form.projectName,
       inspectionDate: form.inspectionDate,
       inspectorName: form.inspectorName,
       jobType: form.jobType,
       jobTypeDetail: form.jobTypeDetail,
+
       clientName: form.clientName,
       clientCompany: form.clientCompany,
       clientEmail: form.clientEmail,
       clientPhone: form.clientPhone,
+
+      siteContactName: form.siteContactName,
+      siteContactPhone: form.siteContactPhone,
+
       siteAddress: form.siteAddress,
+
       timeOn: form.timeOn,
       timeOff: form.timeOff,
       travelHours: form.travelHours,
       totalHours: String(finalTotal),
+
       notes: form.notes,
+
       reportToFollow: form.reportToFollow,
       siteNote: form.siteNote,
       noReportRequired: form.noReportRequired,
-      inspectorSignature: inspectorSigRef.current?.getDataUrl() || undefined,
-      clientSignature: clientSigRef.current?.getDataUrl() || undefined,
-      sendCopyToClient: form.sendCopyToClient,
+
+      siteContactSignature: siteContactSigRef.current?.getDataUrl() || undefined,
     };
 
     try {
@@ -244,14 +351,24 @@ export default function DocketForm() {
       if (res.ok) {
         try { localStorage.setItem(INSPECTOR_KEY, form.inspectorName); } catch {}
         try { localStorage.removeItem(STORAGE_KEY); } catch {}
-        setSubmittedNumber(data.docketNumber || docketNumber);
+        saveProject({
+          projectRef: normRef,
+          projectName: form.projectName,
+          clientName: form.clientName,
+          clientCompany: form.clientCompany,
+          clientEmail: form.clientEmail,
+          clientPhone: form.clientPhone,
+          siteAddress: form.siteAddress,
+          lastUsed: Date.now(),
+        });
+        setSubmittedDocketId(data.docketId || `${normRef}-${visit}`);
         setStatus("success");
       } else {
         setErrorMessage(data.error || "Something went wrong sending the docket.");
         setStatus("error");
       }
     } catch {
-      setErrorMessage("Network error. Please try again — your draft is saved on this device.");
+      setErrorMessage("Network error. Your draft is saved on this device — try again.");
       setStatus("error");
     }
   };
@@ -264,11 +381,11 @@ export default function DocketForm() {
             <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </div>
-        <h1 className="text-2xl font-semibold text-slate-900 mb-2">Docket sent</h1>
-        <p className="text-slate-600 mb-1 text-sm">
-          {form.sendCopyToClient ? `Emailed to ${form.clientEmail}` : "Saved to admin"}
+        <h1 className="text-2xl font-semibold text-sfgeo-ink mb-2">Docket sent</h1>
+        <p className="text-sfgeo-label mb-1 text-sm">
+          Sent to admin@sfgeo.com.au and helay@sfgeo.com.au
         </p>
-        <p className="text-slate-400 text-xs mb-8">Docket #{submittedNumber}</p>
+        <p className="text-sfgeo-label/70 text-xs mb-8 font-mono">{submittedDocketId}</p>
         <button
           type="button"
           onClick={resetAll}
@@ -281,47 +398,109 @@ export default function DocketForm() {
   }
 
   const inputCls =
-    "w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-base text-slate-900 outline-none focus:border-sfgeo-green focus:ring-2 focus:ring-sfgeo-green/15 min-h-[48px]";
-  const labelCls = "text-[11px] font-bold tracking-widest uppercase text-slate-500";
+    "w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-base text-sfgeo-ink outline-none focus:border-sfgeo-green focus:ring-2 focus:ring-sfgeo-green/15 min-h-[48px]";
+  const labelCls = "text-[11px] font-bold tracking-widest uppercase text-sfgeo-label";
 
   const needsJobDetail = form.jobType === "Site inspection" || form.jobType === "Other";
-  const jobDetailLabel =
-    form.jobType === "Site inspection" ? "Type of inspection" : "Describe the job";
+  const jobDetailLabel = form.jobType === "Site inspection" ? "Type of inspection" : "Describe the job";
 
   return (
     <div className="min-h-screen bg-slate-50">
       <header className="sticky top-0 z-10 bg-white border-b border-slate-200 px-4 md:px-8 py-3 flex items-center justify-between safe-top">
         <div className="flex items-center gap-3">
-          <Image
-            src="/docket/sfgeo-logo.png"
-            alt="SFGEO"
-            width={36}
-            height={36}
-            priority
-          />
+          <Image src="/docket/sfgeo-logo.png" alt="SFGEO" width={36} height={36} priority />
           <div>
             <div className="text-[10px] uppercase tracking-widest text-sfgeo-label leading-tight">Docket Book</div>
-            <div className="text-xs font-mono text-sfgeo-ink">{docketNumber || "…"}</div>
+            <div className="text-xs font-mono text-sfgeo-ink">{docketId}</div>
           </div>
         </div>
-        <button
-          type="button"
-          onClick={logout}
-          className="text-xs font-medium text-sfgeo-green underline-offset-2 hover:underline"
-        >
+        <button type="button" onClick={logout} className="text-xs font-medium text-sfgeo-green hover:underline">
           Lock
         </button>
       </header>
 
-      <form
-        onSubmit={submit}
-        className="max-w-5xl mx-auto px-4 md:px-8 py-6 pb-32 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6"
-      >
+      <form onSubmit={submit} className="max-w-5xl mx-auto px-4 md:px-8 py-6 pb-32 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+
         {/* LEFT COLUMN */}
         <div className="flex flex-col gap-4 md:gap-6">
-          {/* Job details */}
+
+          {/* PROJECT */}
           <section className="bg-white rounded-2xl p-4 md:p-5 shadow-sm border border-slate-100 flex flex-col gap-4">
-            <h2 className="text-sm font-bold text-slate-900 uppercase tracking-wider">Job details</h2>
+            <h2 className="text-sm font-bold text-sfgeo-ink uppercase tracking-wider">Project</h2>
+            <div className="grid grid-cols-3 gap-3">
+              <label className="flex flex-col gap-1.5 col-span-2 relative">
+                <span className={labelCls}>Project ref</span>
+                <input
+                  type="text"
+                  value={form.projectRef}
+                  onChange={(e) => { update("projectRef", e.target.value); setRefSuggestionsOpen(true); }}
+                  onFocus={() => setRefSuggestionsOpen(true)}
+                  onBlur={onProjectRefBlur}
+                  placeholder="SFG-2026-037"
+                  autoCapitalize="characters"
+                  autoCorrect="off"
+                  className={inputCls + " font-mono"}
+                />
+                {refSuggestionsOpen && refMatches.length > 0 && (
+                  <ul className="absolute z-20 top-full left-0 right-0 mt-1 bg-white border border-slate-200 rounded-xl shadow-lg max-h-60 overflow-y-auto">
+                    {refMatches.map((p) => (
+                      <li key={p.projectRef}>
+                        <button
+                          type="button"
+                          onMouseDown={(e) => { e.preventDefault(); applyProject(p); }}
+                          className="w-full text-left px-3 py-2.5 hover:bg-slate-50 border-b border-slate-100 last:border-b-0"
+                        >
+                          <div className="text-sm font-mono text-sfgeo-ink">{p.projectRef}</div>
+                          <div className="text-xs text-sfgeo-label truncate">{p.projectName}</div>
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </label>
+              <label className="flex flex-col gap-1.5">
+                <span className={labelCls}>Visit no.</span>
+                <input
+                  type="text"
+                  inputMode="numeric"
+                  value={form.visitNumber}
+                  onChange={(e) => update("visitNumber", e.target.value.replace(/\D/g, "").slice(0, 2))}
+                  onBlur={(e) => update("visitNumber", e.target.value.padStart(2, "0") || "01")}
+                  className={inputCls + " font-mono text-center"}
+                />
+              </label>
+            </div>
+            <label className="flex flex-col gap-1.5 relative">
+              <span className={labelCls}>Project name</span>
+              <input
+                type="text"
+                value={form.projectName}
+                onChange={(e) => { update("projectName", e.target.value); setNameSuggestionsOpen(true); }}
+                onFocus={() => setNameSuggestionsOpen(true)}
+                onBlur={() => setTimeout(() => setNameSuggestionsOpen(false), 150)}
+                placeholder="e.g. Proposed Secondary Dwelling — Chipping Norton"
+                className={inputCls}
+              />
+              {nameSuggestionsOpen && nameMatches.length > 0 && (
+                <ul className="absolute z-20 top-full left-0 right-0 mt-1 bg-white border border-slate-200 rounded-xl shadow-lg max-h-60 overflow-y-auto">
+                  {nameMatches.map((p) => (
+                    <li key={p.projectRef}>
+                      <button
+                        type="button"
+                        onMouseDown={(e) => { e.preventDefault(); applyProject(p); }}
+                        className="w-full text-left px-3 py-2.5 hover:bg-slate-50 border-b border-slate-100 last:border-b-0"
+                      >
+                        <div className="text-sm text-sfgeo-ink truncate">{p.projectName}</div>
+                        <div className="text-xs text-sfgeo-label font-mono">{p.projectRef}</div>
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              )}
+              <span className="text-[10px] text-sfgeo-label">
+                Docket ID: <span className="font-mono">{docketId}</span>
+              </span>
+            </label>
             <div className="grid grid-cols-2 gap-3">
               <label className="flex flex-col gap-1.5">
                 <span className={labelCls}>Inspection date</span>
@@ -345,7 +524,7 @@ export default function DocketForm() {
               </label>
             </div>
             <fieldset className="flex flex-col gap-2">
-              <legend className={labelCls + " mb-1"}>Job type</legend>
+              <legend className={labelCls + " mb-1"}>Inspection type</legend>
               <div className="grid grid-cols-3 gap-2">
                 {JOB_TYPES.map((jt) => {
                   const active = form.jobType === jt;
@@ -355,9 +534,7 @@ export default function DocketForm() {
                       key={jt}
                       onClick={() => update("jobType", jt)}
                       className={`rounded-xl py-3 px-2 text-sm font-medium border transition min-h-[48px] ${
-                        active
-                          ? "bg-sfgeo-green text-white border-sfgeo-green"
-                          : "bg-white text-slate-700 border-slate-200"
+                        active ? "bg-sfgeo-green text-white border-sfgeo-green" : "bg-white text-slate-700 border-slate-200"
                       }`}
                     >
                       {jt}
@@ -375,51 +552,25 @@ export default function DocketForm() {
                 />
               )}
             </fieldset>
-
             <div className="grid grid-cols-2 gap-3">
               <label className="flex flex-col gap-1.5">
-                <span className={labelCls}>Start time</span>
+                <span className={labelCls}>Start</span>
                 <div className="flex gap-2">
-                  <input
-                    type="time"
-                    value={form.timeOn}
-                    onChange={(e) => update("timeOn", e.target.value)}
-                    className={inputCls + " flex-1"}
-                  />
-                  <button
-                    type="button"
-                    onClick={setTimeOnNow}
-                    className="px-3 rounded-xl bg-slate-100 text-slate-600 text-xs font-semibold"
-                  >
-                    Now
-                  </button>
+                  <input type="time" value={form.timeOn} onChange={(e) => update("timeOn", e.target.value)} className={inputCls + " flex-1"} />
+                  <button type="button" onClick={setTimeOnNow} className="px-3 rounded-xl bg-slate-100 text-slate-600 text-xs font-semibold">Now</button>
                 </div>
               </label>
               <label className="flex flex-col gap-1.5">
-                <span className={labelCls}>End time</span>
+                <span className={labelCls}>End</span>
                 <div className="flex gap-2">
-                  <input
-                    type="time"
-                    value={form.timeOff}
-                    onChange={(e) => update("timeOff", e.target.value)}
-                    className={inputCls + " flex-1"}
-                  />
-                  <button
-                    type="button"
-                    onClick={setTimeOffNow}
-                    className="px-3 rounded-xl bg-slate-100 text-slate-600 text-xs font-semibold"
-                  >
-                    Now
-                  </button>
+                  <input type="time" value={form.timeOff} onChange={(e) => update("timeOff", e.target.value)} className={inputCls + " flex-1"} />
+                  <button type="button" onClick={setTimeOffNow} className="px-3 rounded-xl bg-slate-100 text-slate-600 text-xs font-semibold">Now</button>
                 </div>
               </label>
               <label className="flex flex-col gap-1.5">
-                <span className={labelCls}>Travel time (hrs)</span>
+                <span className={labelCls}>Travel (hrs)</span>
                 <input
-                  type="number"
-                  inputMode="decimal"
-                  step="0.25"
-                  min="0"
+                  type="number" inputMode="decimal" step="0.25" min="0"
                   value={form.travelHours}
                   onChange={(e) => update("travelHours", e.target.value)}
                   placeholder="e.g. 1.5"
@@ -427,12 +578,9 @@ export default function DocketForm() {
                 />
               </label>
               <label className="flex flex-col gap-1.5">
-                <span className={labelCls}>Total hours (min {MIN_TOTAL_HOURS})</span>
+                <span className={labelCls}>Total hrs (min {MIN_TOTAL_HOURS})</span>
                 <input
-                  type="number"
-                  inputMode="decimal"
-                  step="0.25"
-                  min={MIN_TOTAL_HOURS}
+                  type="number" inputMode="decimal" step="0.25" min={MIN_TOTAL_HOURS}
                   value={form.totalHours}
                   onChange={(e) => enforceTotalMin(e.target.value)}
                   onBlur={(e) => enforceTotalMin(e.target.value)}
@@ -442,63 +590,13 @@ export default function DocketForm() {
             </div>
           </section>
 
-          {/* Client */}
+          {/* SITE */}
           <section className="bg-white rounded-2xl p-4 md:p-5 shadow-sm border border-slate-100 flex flex-col gap-3">
-            <h2 className="text-sm font-bold text-slate-900 uppercase tracking-wider">Client</h2>
-            <div className="grid grid-cols-2 gap-3">
-              <label className="flex flex-col gap-1.5">
-                <span className={labelCls}>Name</span>
-                <input
-                  type="text"
-                  value={form.clientName}
-                  onChange={(e) => update("clientName", e.target.value)}
-                  className={inputCls}
-                />
-              </label>
-              <label className="flex flex-col gap-1.5">
-                <span className={labelCls}>Company (optional)</span>
-                <input
-                  type="text"
-                  value={form.clientCompany}
-                  onChange={(e) => update("clientCompany", e.target.value)}
-                  autoComplete="organization"
-                  className={inputCls}
-                />
-              </label>
-              <label className="flex flex-col gap-1.5">
-                <span className={labelCls}>Email</span>
-                <input
-                  type="email"
-                  inputMode="email"
-                  autoCapitalize="off"
-                  autoCorrect="off"
-                  value={form.clientEmail}
-                  onChange={(e) => update("clientEmail", e.target.value)}
-                  className={inputCls}
-                />
-              </label>
-              <label className="flex flex-col gap-1.5">
-                <span className={labelCls}>Phone</span>
-                <input
-                  type="tel"
-                  inputMode="tel"
-                  autoComplete="tel"
-                  value={form.clientPhone}
-                  onChange={(e) => update("clientPhone", e.target.value)}
-                  className={inputCls}
-                />
-              </label>
-            </div>
-          </section>
-
-          {/* Site */}
-          <section className="bg-white rounded-2xl p-4 md:p-5 shadow-sm border border-slate-100 flex flex-col gap-3">
-            <h2 className="text-sm font-bold text-slate-900 uppercase tracking-wider">Site</h2>
+            <h2 className="text-sm font-bold text-sfgeo-ink uppercase tracking-wider">Site</h2>
             <label className="flex flex-col gap-1.5">
               <span className={labelCls}>Address</span>
               <input
-                type="text"
-                value={form.siteAddress}
+                type="text" value={form.siteAddress}
                 onChange={(e) => update("siteAddress", e.target.value)}
                 placeholder="Street, suburb, NSW"
                 autoComplete="street-address"
@@ -510,62 +608,74 @@ export default function DocketForm() {
 
         {/* RIGHT COLUMN */}
         <div className="flex flex-col gap-4 md:gap-6">
-          {/* Notes */}
+
+          {/* CLIENT */}
           <section className="bg-white rounded-2xl p-4 md:p-5 shadow-sm border border-slate-100 flex flex-col gap-3">
-            <h2 className="text-sm font-bold text-slate-900 uppercase tracking-wider">Notes</h2>
+            <h2 className="text-sm font-bold text-sfgeo-ink uppercase tracking-wider">Client</h2>
+            <p className="text-[11px] text-sfgeo-label -mt-1">The party who engaged SFGEO.</p>
+            <div className="grid grid-cols-2 gap-3">
+              <label className="flex flex-col gap-1.5">
+                <span className={labelCls}>Name</span>
+                <input type="text" value={form.clientName} onChange={(e) => update("clientName", e.target.value)} className={inputCls} />
+              </label>
+              <label className="flex flex-col gap-1.5">
+                <span className={labelCls}>Company (optional)</span>
+                <input type="text" value={form.clientCompany} onChange={(e) => update("clientCompany", e.target.value)} autoComplete="organization" className={inputCls} />
+              </label>
+              <label className="flex flex-col gap-1.5">
+                <span className={labelCls}>Email</span>
+                <input type="email" inputMode="email" autoCapitalize="off" autoCorrect="off" value={form.clientEmail} onChange={(e) => update("clientEmail", e.target.value)} className={inputCls} />
+              </label>
+              <label className="flex flex-col gap-1.5">
+                <span className={labelCls}>Phone</span>
+                <input type="tel" inputMode="tel" autoComplete="tel" value={form.clientPhone} onChange={(e) => update("clientPhone", e.target.value)} className={inputCls} />
+              </label>
+            </div>
+          </section>
+
+          {/* SITE CONTACT */}
+          <section className="bg-white rounded-2xl p-4 md:p-5 shadow-sm border border-slate-100 flex flex-col gap-3">
+            <h2 className="text-sm font-bold text-sfgeo-ink uppercase tracking-wider">Site contact</h2>
+            <p className="text-[11px] text-sfgeo-label -mt-1">The person on site at the time of inspection — signs the docket below.</p>
+            <div className="grid grid-cols-2 gap-3">
+              <label className="flex flex-col gap-1.5">
+                <span className={labelCls}>Name</span>
+                <input type="text" value={form.siteContactName} onChange={(e) => update("siteContactName", e.target.value)} className={inputCls} />
+              </label>
+              <label className="flex flex-col gap-1.5">
+                <span className={labelCls}>Phone (optional)</span>
+                <input type="tel" inputMode="tel" value={form.siteContactPhone} onChange={(e) => update("siteContactPhone", e.target.value)} className={inputCls} />
+              </label>
+            </div>
+          </section>
+
+          {/* OBSERVATIONS */}
+          <section className="bg-white rounded-2xl p-4 md:p-5 shadow-sm border border-slate-100 flex flex-col gap-3">
+            <h2 className="text-sm font-bold text-sfgeo-ink uppercase tracking-wider">Observations</h2>
             <textarea
               value={form.notes}
               onChange={(e) => update("notes", e.target.value)}
-              rows={3}
-              placeholder="Brief observations / outcome…"
-              className={inputCls + " resize-y min-h-[88px] leading-relaxed"}
+              rows={5}
+              placeholder="Findings, work performed, recommendations…"
+              className={inputCls + " resize-y min-h-[112px] max-h-[160px] leading-relaxed"}
             />
           </section>
 
-          {/* Report status */}
+          {/* STATUS */}
+          <section className="bg-white rounded-2xl p-4 md:p-5 shadow-sm border border-slate-100 flex flex-col gap-2">
+            <h2 className="text-sm font-bold text-sfgeo-ink uppercase tracking-wider">Report status</h2>
+            <CheckboxRow checked={form.reportToFollow} onChange={(v) => update("reportToFollow", v)} label="Report to follow" />
+            <CheckboxRow checked={form.siteNote} onChange={(v) => update("siteNote", v)} label="Site Note" />
+            <CheckboxRow checked={form.noReportRequired} onChange={(v) => update("noReportRequired", v)} label="No report required" />
+          </section>
+
+          {/* SIGNATURE — site contact only */}
           <section className="bg-white rounded-2xl p-4 md:p-5 shadow-sm border border-slate-100 flex flex-col gap-3">
-            <h2 className="text-sm font-bold text-slate-900 uppercase tracking-wider">Report status</h2>
-            <CheckboxRow
-              checked={form.reportToFollow}
-              onChange={(v) => update("reportToFollow", v)}
-              label="Report to follow"
-            />
-            <CheckboxRow
-              checked={form.siteNote}
-              onChange={(v) => update("siteNote", v)}
-              label="Site Note"
-            />
-            <CheckboxRow
-              checked={form.noReportRequired}
-              onChange={(v) => update("noReportRequired", v)}
-              label="No report required"
-            />
-          </section>
-
-          {/* Signatures */}
-          <section className="bg-white rounded-2xl p-4 md:p-5 shadow-sm border border-slate-100 flex flex-col gap-5">
-            <h2 className="text-sm font-bold text-slate-900 uppercase tracking-wider">Signatures</h2>
-            <SignaturePad ref={inspectorSigRef} label="Inspector signature" />
-            <SignaturePad ref={clientSigRef} label="Client signature" />
-          </section>
-
-          {/* Send options */}
-          <section className="bg-white rounded-2xl p-4 md:p-5 shadow-sm border border-slate-100">
-            <label className="flex items-start gap-3 cursor-pointer">
-              <input
-                type="checkbox"
-                checked={form.sendCopyToClient}
-                onChange={(e) => update("sendCopyToClient", e.target.checked)}
-                className="mt-1 w-5 h-5 accent-sfgeo-green"
-              />
-              <span className="text-sm text-slate-700 leading-snug">
-                Email a copy to the client at <strong className="font-semibold">{form.clientEmail || "(client email)"}</strong>.
-                <br />
-                <span className="text-xs text-slate-500">
-                  Admin copies are always sent to admin@sfgeo.com.au and helay@sfgeo.com.au.
-                </span>
-              </span>
-            </label>
+            <h2 className="text-sm font-bold text-sfgeo-ink uppercase tracking-wider">Site contact signature</h2>
+            <SignaturePad ref={siteContactSigRef} label={form.siteContactName || "On-site signatory"} />
+            <p className="text-[11px] text-sfgeo-label">
+              Engineer sign-off (Alli Atmar · Director | Principal Engineer) is auto-applied to every docket.
+            </p>
           </section>
         </div>
 
@@ -577,16 +687,11 @@ export default function DocketForm() {
 
         <div className="fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur border-t border-slate-200 px-4 md:px-8 py-3 safe-bottom z-10">
           <div className="max-w-5xl mx-auto flex gap-3">
-            <button
-              type="button"
-              onClick={resetAll}
-              className="px-4 py-3 rounded-xl bg-slate-100 text-slate-700 font-medium text-sm min-h-[52px]"
-            >
+            <button type="button" onClick={resetAll} className="px-4 py-3 rounded-xl bg-slate-100 text-slate-700 font-medium text-sm min-h-[52px]">
               Reset
             </button>
             <button
-              type="submit"
-              disabled={status === "submitting"}
+              type="submit" disabled={status === "submitting"}
               className="flex-1 bg-sfgeo-green text-white rounded-xl py-3 font-semibold text-base shadow-sm hover:bg-sfgeo-green/90 transition disabled:opacity-60 min-h-[52px] flex items-center justify-center gap-2"
             >
               {status === "submitting" ? (
@@ -597,9 +702,7 @@ export default function DocketForm() {
                   </svg>
                   Sending…
                 </>
-              ) : (
-                "Send docket"
-              )}
+              ) : ("Send docket")}
             </button>
           </div>
         </div>
@@ -608,24 +711,15 @@ export default function DocketForm() {
   );
 }
 
-function CheckboxRow({
-  checked,
-  onChange,
-  label,
-}: {
-  checked: boolean;
-  onChange: (v: boolean) => void;
-  label: string;
-}) {
+function CheckboxRow({ checked, onChange, label }: { checked: boolean; onChange: (v: boolean) => void; label: string; }) {
   return (
     <label className="flex items-center gap-3 cursor-pointer min-h-[44px]">
       <input
-        type="checkbox"
-        checked={checked}
+        type="checkbox" checked={checked}
         onChange={(e) => onChange(e.target.checked)}
         className="w-5 h-5 accent-sfgeo-green"
       />
-      <span className="text-sm text-slate-700 font-medium">{label}</span>
+      <span className="text-sm text-sfgeo-ink font-medium">{label}</span>
     </label>
   );
 }
