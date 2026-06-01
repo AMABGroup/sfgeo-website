@@ -161,7 +161,7 @@ export async function POST(request: Request) {
 
   try {
     const { error } = await resend.emails.send({
-      from: "SFGEO Dockets <noreply@sfgeo.com.au>",
+      from: process.env.DOCKET_FROM_EMAIL || "SFGEO Dockets <admin@sfgeo.com.au>",
       to: [data.clientEmail],
       bcc: ADMIN_BCC,
       replyTo: "alli@sfgeo.com.au",
