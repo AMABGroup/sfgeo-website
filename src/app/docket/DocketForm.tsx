@@ -286,6 +286,7 @@ export default function DocketForm() {
     if (!isValidProjectRef(normRef)) return "Project ref must look like SFG-2026-037.";
     if (!form.projectName.trim()) return "Project name is required.";
     if (!form.inspectorName.trim()) return "Inspector name is required.";
+    if (!form.clientCompany.trim()) return "Client company is required.";
     if (!form.clientName.trim()) return "Client name is required.";
     if (!form.clientEmail.trim() || !form.clientEmail.includes("@")) return "Valid client email is required.";
     if (!form.siteAddress.trim()) return "Site address is required.";
@@ -630,12 +631,12 @@ export default function DocketForm() {
             <h2 className="text-sm font-bold text-sfgeo-ink uppercase tracking-wider">Client</h2>
             <div className="grid grid-cols-2 gap-3">
               <label className="flex flex-col gap-1.5">
-                <span className={labelCls}>Name</span>
-                <input type="text" value={form.clientName} onChange={(e) => update("clientName", e.target.value)} className={inputCls} />
+                <span className={labelCls}>Company</span>
+                <input type="text" value={form.clientCompany} onChange={(e) => update("clientCompany", e.target.value)} autoComplete="organization" className={inputCls} />
               </label>
               <label className="flex flex-col gap-1.5">
-                <span className={labelCls}>Company (optional)</span>
-                <input type="text" value={form.clientCompany} onChange={(e) => update("clientCompany", e.target.value)} autoComplete="organization" className={inputCls} />
+                <span className={labelCls}>Name</span>
+                <input type="text" value={form.clientName} onChange={(e) => update("clientName", e.target.value)} className={inputCls} />
               </label>
               <label className="flex flex-col gap-1.5">
                 <span className={labelCls}>Email</span>

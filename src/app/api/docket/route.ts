@@ -50,7 +50,7 @@ function buildHtmlSummary(data: DocketData): string {
               ${row("Start / End", `${data.timeOn || "—"}  →  ${data.timeOff || "—"}`)}
               ${data.travelHours ? row("Travel", `${data.travelHours} hrs`) : ""}
               ${row("Total hours", data.totalHours ? `${data.totalHours} hrs` : "—")}
-              ${row("Client", `${data.clientName}${data.clientCompany ? ` (${data.clientCompany})` : ""}`)}
+              ${row("Client", `${data.clientCompany} — ${data.clientName}`)}
               ${data.siteContactName ? row("Site contact", [data.siteContactName, data.siteContactRole, data.siteContactPhone].filter(Boolean).join(" · ")) : ""}
             </table>
             ${(data.reportToFollow || data.siteNote || data.noReportRequired) ? `<div style="margin-top:18px;font-size:13px;color:#111111;">
@@ -103,6 +103,7 @@ export async function POST(request: Request) {
     "inspectionDate",
     "inspectorName",
     "jobType",
+    "clientCompany",
     "clientName",
     "clientEmail",
     "siteAddress",
@@ -126,8 +127,8 @@ export async function POST(request: Request) {
     inspectorName: String(body.inspectorName),
     jobType: String(body.jobType),
     jobTypeDetail: body.jobTypeDetail ? String(body.jobTypeDetail) : undefined,
+    clientCompany: String(body.clientCompany),
     clientName: String(body.clientName),
-    clientCompany: body.clientCompany ? String(body.clientCompany) : undefined,
     clientEmail: String(body.clientEmail),
     clientPhone: body.clientPhone ? String(body.clientPhone) : "",
     siteContactName: body.siteContactName ? String(body.siteContactName) : "",

@@ -13,8 +13,8 @@ export type DocketData = {
   jobType: string;
   jobTypeDetail?: string;
 
+  clientCompany: string;
   clientName: string;
-  clientCompany?: string;
   clientEmail: string;
   clientPhone: string;
 
@@ -327,8 +327,8 @@ export async function buildDocketPdf(data: DocketData): Promise<Uint8Array> {
   {
     const w = W / 2;
     const clientLines = [
+      data.clientCompany,
       data.clientName,
-      ...(data.clientCompany ? [data.clientCompany] : []),
       data.clientEmail,
       data.clientPhone || "",
     ].filter(Boolean);
