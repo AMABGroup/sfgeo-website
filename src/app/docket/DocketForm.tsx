@@ -491,28 +491,26 @@ export default function DocketForm({ draftId: incomingDraftId }: DocketFormProps
             <p className="text-[10px] text-sfgeo-label -mt-2">
               Docket ID: <span className="font-mono">{docketId}</span>
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <label className="flex flex-col gap-1.5">
-                <span className={labelCls}>Inspection date</span>
-                <input
-                  type="date"
-                  value={form.inspectionDate}
-                  onChange={(e) => update("inspectionDate", e.target.value)}
-                  className={inputCls}
-                />
-              </label>
-              <label className="flex flex-col gap-1.5">
-                <span className={labelCls}>Engineer&nbsp;|&nbsp;Driller</span>
-                <input
-                  type="text"
-                  value={form.inspectorName}
-                  onChange={(e) => update("inspectorName", e.target.value)}
-                  autoComplete="name"
-                  placeholder="Your name"
-                  className={inputCls}
-                />
-              </label>
-            </div>
+            <label className="flex flex-col gap-1.5">
+              <span className={labelCls}>Inspection date</span>
+              <input
+                type="date"
+                value={form.inspectionDate}
+                onChange={(e) => update("inspectionDate", e.target.value)}
+                className={inputCls}
+              />
+            </label>
+            <label className="flex flex-col gap-1.5">
+              <span className={labelCls}>Engineer&nbsp;|&nbsp;Driller</span>
+              <input
+                type="text"
+                value={form.inspectorName}
+                onChange={(e) => update("inspectorName", e.target.value)}
+                autoComplete="name"
+                placeholder="Your name"
+                className={inputCls}
+              />
+            </label>
             <fieldset className="flex flex-col gap-2">
               <legend className={labelCls + " mb-1"}>Inspection type</legend>
               <div className="grid grid-cols-3 gap-2">
