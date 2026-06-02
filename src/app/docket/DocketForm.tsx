@@ -5,40 +5,20 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import SignaturePad, { type SignaturePadHandle } from "./SignaturePad";
+import {
+  type StoredDocketData,
+  deleteDocket,
+  emptyData,
+  getDocket,
+  loadDockets,
+  markSent,
+  newDraftId,
+  upsertDraft,
+} from "./storage";
 
 type JobType = "Drilling" | "Site inspection" | "Other";
 
-type FormState = {
-  projectRef: string;
-  visitNumber: string;
-  projectName: string;
-  inspectionDate: string;
-  inspectorName: string;
-  jobType: JobType;
-  jobTypeDetail: string;
-
-  clientName: string;
-  clientCompany: string;
-  clientEmail: string;
-  clientPhone: string;
-
-  siteContactName: string;
-  siteContactPhone: string;
-  siteContactRole: string;
-
-  siteAddress: string;
-
-  timeOn: string;
-  timeOff: string;
-  travelHours: string;
-  totalHours: string;
-
-  notes: string;
-
-  reportToFollow: boolean;
-  siteNote: boolean;
-  noReportRequired: boolean;
-};
+type FormState = StoredDocketData;
 
 type ProjectRecord = {
   projectRef: string;
@@ -54,7 +34,6 @@ type ProjectRecord = {
 const JOB_TYPES: JobType[] = ["Drilling", "Site inspection", "Other"];
 const MIN_TOTAL_HOURS = 4;
 
-const STORAGE_KEY = "sfgeo_docket_draft_v3";
 const INSPECTOR_KEY = "sfgeo_docket_inspector_v1";
 const PROJECTS_KEY = "sfgeo_docket_projects_v1";
 const ENGINEER_SIG_KEY = "sfgeo_engineer_signature_v1";
@@ -123,43 +102,19 @@ function saveProject(record: ProjectRecord) {
   } catch {}
 }
 
-const emptyForm: FormState = {
-  projectRef: "",
-  visitNumber: "01",
-  projectName: "",
-  inspectionDate: todayIsoDate(),
-  inspectorName: "",
-  jobType: "Site inspection",
-  jobTypeDetail: "",
-
-  clientName: "",
-  clientCompany: "",
-  clientEmail: "",
-  clientPhone: "",
-
-  siteContactName: "",
-  siteContactPhone: "",
-  siteContactRole: "",
-
-  siteAddress: "",
-
-  timeOn: "",
-  timeOff: "",
-  travelHours: "",
-  totalHours: String(MIN_TOTAL_HOURS),
-
-  notes: "",
-
-  reportToFollow: false,
-  siteNote: false,
-  noReportRequired: false,
-};
+function freshForm(): FormState {
+  return { ...emptyData(), inspectionDate: todayIsoDate(), totalHours: String(MIN_TOTAL_HOURS) };
+}
 
 type Status = "idle" | "submitting" | "success" | "error";
 
-export default function DocketForm() {
+type DocketFormProps = { draftId?: string };
+
+export default function DocketForm({ draftId: incomingDraftId }: DocketFormProps = {}) {
   const router = useRouter();
-  const [form, setForm] = useState<FormState>(emptyForm);
+  // The id we autosave to. For "new" we generate one on first mount.
+  const [draftId, setDraftId] = useState<string>(() => incomingDraftId ?? "");
+  const [form, setForm] = useState<FormState>(() => freshForm());
   const [status, setStatus] = useState<Status>("idle");
   const [errorMessage, setErrorMessage] = useState<string>("");
   const [submittedDocketId, setSubmittedDocketId] = useState<string>("");
@@ -173,26 +128,34 @@ export default function DocketForm() {
   useEffect(() => {
     queueMicrotask(() => {
       try {
+        // Run legacy migration + populate project autocomplete list
+        loadDockets();
         setProjects(loadProjects());
         setEngineerSig(localStorage.getItem(ENGINEER_SIG_KEY));
-        const raw = localStorage.getItem(STORAGE_KEY);
-        if (raw) {
-          const parsed = JSON.parse(raw) as Partial<FormState>;
-          setForm((f) => ({ ...f, ...parsed }));
-        } else {
-          const savedInspector = localStorage.getItem(INSPECTOR_KEY) || "";
-          if (savedInspector) setForm((f) => ({ ...f, inspectorName: savedInspector }));
+
+        if (incomingDraftId) {
+          // Resume an existing draft
+          const rec = getDocket(incomingDraftId);
+          if (rec && rec.status === "draft") {
+            setDraftId(incomingDraftId);
+            setForm(rec.data);
+            return;
+          }
+          // If the id is unknown or already sent, fall through to "new draft"
         }
+        // Brand-new draft — generate id and pre-fill inspector name if known
+        const id = newDraftId();
+        setDraftId(id);
+        const savedInspector = localStorage.getItem(INSPECTOR_KEY) || "";
+        if (savedInspector) setForm((f) => ({ ...f, inspectorName: savedInspector }));
       } catch {}
     });
-  }, []);
+  }, [incomingDraftId]);
 
   useEffect(() => {
-    if (status === "success") return;
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(form));
-    } catch {}
-  }, [form, status]);
+    if (status === "success" || !draftId) return;
+    upsertDraft(draftId, form);
+  }, [form, status, draftId]);
 
   const suggestedTotal = useMemo(
     () => computeSuggestedTotal(form.timeOn, form.timeOff, form.travelHours),
@@ -267,13 +230,10 @@ export default function DocketForm() {
     setTimeout(() => setRefSuggestionsOpen(false), 150);
   };
 
-  const resetAll = () => {
-    setForm({ ...emptyForm, inspectorName: form.inspectorName });
-    setTotalEdited(false);
-    siteContactSigRef.current?.clear();
-    setStatus("idle");
-    setErrorMessage("");
-    try { localStorage.removeItem(STORAGE_KEY); } catch {}
+  const discardDraft = () => {
+    if (!confirm("Discard this draft? It will be removed from this device.")) return;
+    if (draftId) deleteDocket(draftId);
+    router.push("/docket");
   };
 
   const logout = async () => {
@@ -359,7 +319,6 @@ export default function DocketForm() {
       const data = await res.json().catch(() => ({}));
       if (res.ok) {
         try { localStorage.setItem(INSPECTOR_KEY, form.inspectorName); } catch {}
-        try { localStorage.removeItem(STORAGE_KEY); } catch {}
         saveProject({
           projectRef: normRef,
           projectName: form.projectName,
@@ -370,7 +329,9 @@ export default function DocketForm() {
           siteAddress: form.siteAddress,
           lastUsed: Date.now(),
         });
-        setSubmittedDocketId(data.docketId || `${normRef}-${visit}`);
+        const sentId = data.docketId || `${normRef}-${visit}`;
+        if (draftId) markSent(draftId, sentId, form);
+        setSubmittedDocketId(sentId);
         setStatus("success");
       } else {
         setErrorMessage(data.error || "Something went wrong sending the docket.");
@@ -395,13 +356,22 @@ export default function DocketForm() {
           Sent to {form.clientEmail} (admin@sfgeo.com.au BCC&apos;d)
         </p>
         <p className="text-sfgeo-label/70 text-xs mb-8 font-mono">{submittedDocketId}</p>
-        <button
-          type="button"
-          onClick={resetAll}
-          className="bg-sfgeo-green text-white rounded-xl py-4 px-8 font-semibold shadow-sm hover:bg-sfgeo-green/90 transition min-h-[56px] w-full max-w-xs"
-        >
-          New docket
-        </button>
+        <div className="flex flex-col gap-3 w-full max-w-xs">
+          <button
+            type="button"
+            onClick={() => router.push("/docket")}
+            className="bg-sfgeo-green text-white rounded-xl py-4 px-8 font-semibold shadow-sm hover:bg-sfgeo-green/90 transition min-h-[56px]"
+          >
+            Back to register
+          </button>
+          <button
+            type="button"
+            onClick={() => router.push("/docket/new")}
+            className="bg-white border border-slate-200 text-sfgeo-ink rounded-xl py-4 px-8 font-semibold hover:border-slate-300 transition min-h-[56px]"
+          >
+            New docket
+          </button>
+        </div>
       </div>
     );
   }
@@ -417,6 +387,9 @@ export default function DocketForm() {
     <div className="min-h-screen bg-slate-50">
       <header className="sticky top-0 z-10 bg-white border-b border-slate-200 px-4 md:px-8 py-3 flex items-center justify-between safe-top">
         <div className="flex items-center gap-3">
+          <Link href="/docket" className="text-xs font-medium text-sfgeo-green hover:underline whitespace-nowrap mr-2">
+            ← Register
+          </Link>
           <Image src="/docket/sfgeo-logo.png" alt="SFGEO" width={36} height={36} priority />
           <div>
             <div className="text-[10px] uppercase tracking-wider text-sfgeo-label leading-tight">Docket Book</div>
@@ -711,9 +684,20 @@ export default function DocketForm() {
         )}
 
         <div className="fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur border-t border-slate-200 px-4 md:px-8 py-3 safe-bottom z-10">
-          <div className="max-w-5xl mx-auto flex gap-3">
-            <button type="button" onClick={resetAll} className="px-4 py-3 rounded-xl bg-slate-100 text-slate-700 font-medium text-sm min-h-[52px]">
-              Reset
+          <div className="max-w-5xl mx-auto flex gap-2 md:gap-3 items-center">
+            <button
+              type="button"
+              onClick={discardDraft}
+              className="px-3 py-3 rounded-xl text-red-600 text-xs font-medium hover:bg-red-50 transition min-h-[52px]"
+            >
+              Discard
+            </button>
+            <button
+              type="button"
+              onClick={() => router.push("/docket")}
+              className="px-4 py-3 rounded-xl bg-slate-100 text-slate-700 font-medium text-sm min-h-[52px]"
+            >
+              Save draft
             </button>
             <button
               type="submit" disabled={status === "submitting"}
