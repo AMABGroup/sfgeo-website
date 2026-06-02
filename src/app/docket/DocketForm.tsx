@@ -386,7 +386,7 @@ export default function DocketForm() {
         </div>
         <h1 className="text-2xl font-semibold text-sfgeo-ink mb-2">Docket sent</h1>
         <p className="text-sfgeo-label mb-1 text-sm">
-          Sent to {form.clientEmail} (admin@sfgeo.com.au and helay@sfgeo.com.au BCC&apos;d)
+          Sent to {form.clientEmail} (admin@sfgeo.com.au BCC&apos;d)
         </p>
         <p className="text-sfgeo-label/70 text-xs mb-8 font-mono">{submittedDocketId}</p>
         <button
@@ -402,7 +402,7 @@ export default function DocketForm() {
 
   const inputCls =
     "w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-base text-sfgeo-ink outline-none focus:border-sfgeo-green focus:ring-2 focus:ring-sfgeo-green/15 min-h-[48px]";
-  const labelCls = "text-[11px] font-bold tracking-widest uppercase text-sfgeo-label";
+  const labelCls = "text-[11px] font-bold tracking-wider uppercase text-sfgeo-label whitespace-nowrap";
 
   const needsJobDetail = form.jobType === "Site inspection" || form.jobType === "Other";
   const jobDetailLabel = form.jobType === "Site inspection" ? "Type of inspection" : "Describe the job";
@@ -445,7 +445,7 @@ export default function DocketForm() {
                   className={inputCls + " font-mono"}
                 />
                 {refSuggestionsOpen && refMatches.length > 0 && (
-                  <ul className="absolute z-20 top-full left-0 right-0 mt-1 bg-white border border-slate-200 rounded-xl shadow-lg max-h-60 overflow-y-auto">
+                  <ul className="absolute z-30 top-full mt-1 left-0 right-0 bg-white border border-slate-200 rounded-xl shadow-lg max-h-60 overflow-y-auto">
                     {refMatches.map((p) => (
                       <li key={p.projectRef}>
                         <button
@@ -485,7 +485,7 @@ export default function DocketForm() {
                 className={inputCls}
               />
               {nameSuggestionsOpen && nameMatches.length > 0 && (
-                <ul className="absolute z-20 top-full left-0 right-0 mt-1 bg-white border border-slate-200 rounded-xl shadow-lg max-h-60 overflow-y-auto">
+                <ul className="absolute z-30 top-full mt-1 left-0 right-0 bg-white border border-slate-200 rounded-xl shadow-lg max-h-60 overflow-y-auto">
                   {nameMatches.map((p) => (
                     <li key={p.projectRef}>
                       <button
@@ -500,11 +500,11 @@ export default function DocketForm() {
                   ))}
                 </ul>
               )}
-              <span className="text-[10px] text-sfgeo-label">
-                Docket ID: <span className="font-mono">{docketId}</span>
-              </span>
             </label>
-            <div className="grid grid-cols-2 gap-3">
+            <p className="text-[10px] text-sfgeo-label -mt-2">
+              Docket ID: <span className="font-mono">{docketId}</span>
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <label className="flex flex-col gap-1.5">
                 <span className={labelCls}>Inspection date</span>
                 <input
@@ -515,7 +515,7 @@ export default function DocketForm() {
                 />
               </label>
               <label className="flex flex-col gap-1.5">
-                <span className={labelCls}>Engineer | Driller</span>
+                <span className={labelCls}>Engineer&nbsp;|&nbsp;Driller</span>
                 <input
                   type="text"
                   value={form.inspectorName}

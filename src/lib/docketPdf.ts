@@ -53,13 +53,27 @@ async function loadAsset(file: string): Promise<Uint8Array> {
   return new Uint8Array(buf.buffer, buf.byteOffset, buf.byteLength);
 }
 
-async function loadPrivateAssetOpt(file: string): Promise<Uint8Array | null> {
-  try {
-    const buf = await readFile(path.join(PRIVATE_ASSET_DIR, file));
-    return new Uint8Array(buf.buffer, buf.byteOffset, buf.byteLength);
-  } catch {
-    return null;
+// Try multiple locations so the signature loads whether the user dropped it in
+// the private dir (src/lib/assets, bundled via outputFileTracingIncludes) or
+// the public docket dir as a fallback.
+async function loadInspectorSignatureOpt(): Promise<Uint8Array | null> {
+  const candidates = [
+    path.join(PRIVATE_ASSET_DIR, "inspector-signature.png"),
+    path.join(ASSET_DIR, "inspector-signature.png"),
+  ];
+  for (const p of candidates) {
+    try {
+      const buf = await readFile(p);
+      return new Uint8Array(buf.buffer, buf.byteOffset, buf.byteLength);
+    } catch (err) {
+      const code = (err as NodeJS.ErrnoException)?.code;
+      if (code !== "ENOENT") {
+        console.warn("[docketPdf] signature read failed", p, err);
+      }
+    }
   }
+  console.warn("[docketPdf] inspector-signature.png not found in", candidates);
+  return null;
 }
 
 function wrapText(text: string, font: PDFFont, size: number, maxWidth: number): string[] {
@@ -112,8 +126,9 @@ export async function buildDocketPdf(data: DocketData): Promise<Uint8Array> {
     loadAsset("fonts/Carlito-Bold.ttf"),
     loadAsset("sfgeo-logo.png"),
   ]);
-  // Inspector signature (Alli) — optional, embedded once dropped in private dir
-  const inspectorSigBytes = await loadPrivateAssetOpt("inspector-signature.png");
+  // Inspector signature (Alli) — optional, embedded once dropped in either
+  // src/lib/assets/inspector-signature.png or public/docket/inspector-signature.png
+  const inspectorSigBytes = await loadInspectorSignatureOpt();
 
   const font = await pdf.embedFont(regularBytes);
   const bold = await pdf.embedFont(boldBytes);

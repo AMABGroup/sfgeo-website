@@ -4,7 +4,7 @@ import { Resend } from "resend";
 import { getCookieName, verifyToken } from "@/lib/docketAuth";
 import { buildDocketPdf, type DocketData } from "@/lib/docketPdf";
 
-const ADMIN_BCC = ["admin@sfgeo.com.au", "helay@sfgeo.com.au"];
+const ADMIN_BCC = ["admin@sfgeo.com.au"];
 
 function escapeHtml(value: string): string {
   return value
