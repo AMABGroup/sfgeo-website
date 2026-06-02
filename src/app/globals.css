@@ -39,7 +39,10 @@ html {
 }
 
 .safe-top {
-  padding-top: max(env(safe-area-inset-top), 0.75rem);
+  /* env(safe-area-inset-top) covers the status bar but iPadOS Stage Manager
+     floats a window-control pill at the top-left of every windowed app that
+     env() doesn't account for. 2rem keeps app chrome below it. */
+  padding-top: max(env(safe-area-inset-top), 2rem);
 }
 
 .safe-bottom {
