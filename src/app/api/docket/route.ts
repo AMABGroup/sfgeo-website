@@ -89,6 +89,7 @@ export async function POST(request: Request) {
     siteNote?: boolean;
     noReportRequired?: boolean;
     siteContactSignature?: string;
+    engineerSignature?: string;
   };
   try {
     body = await request.json();
@@ -142,6 +143,7 @@ export async function POST(request: Request) {
     siteNote: !!body.siteNote,
     noReportRequired: !!body.noReportRequired,
     siteContactSignature: body.siteContactSignature ? String(body.siteContactSignature) : undefined,
+    engineerSignature: body.engineerSignature ? String(body.engineerSignature) : undefined,
   };
 
   if (!process.env.RESEND_API_KEY) {

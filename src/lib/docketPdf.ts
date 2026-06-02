@@ -36,6 +36,7 @@ export type DocketData = {
   noReportRequired?: boolean;
 
   siteContactSignature?: string; // data URL from on-site sig pad
+  engineerSignature?: string;    // data URL from /docket/signature setup
 };
 
 // Palette from the SFGEO Tax Invoice Receipt master template
@@ -126,15 +127,24 @@ export async function buildDocketPdf(data: DocketData): Promise<Uint8Array> {
     loadAsset("fonts/Carlito-Bold.ttf"),
     loadAsset("sfgeo-logo.png"),
   ]);
-  // Inspector signature (Alli) — optional, embedded once dropped in either
-  // src/lib/assets/inspector-signature.png or public/docket/inspector-signature.png
-  const inspectorSigBytes = await loadInspectorSignatureOpt();
+  // Engineer signature priority:
+  //   1) data URL from the form (set up via /docket/signature on the iPad)
+  //   2) src/lib/assets/inspector-signature.png (committed to repo)
+  //   3) public/docket/inspector-signature.png (fallback)
+  //   4) "(signature on file)" placeholder
+  const inspectorSigBytes = data.engineerSignature
+    ? null
+    : await loadInspectorSignatureOpt();
 
   const font = await pdf.embedFont(regularBytes);
   const bold = await pdf.embedFont(boldBytes);
   const logo = await pdf.embedPng(logoBytes);
   let inspectorSig: PDFImage | null = null;
-  if (inspectorSigBytes) {
+  // Prefer the iPad-set signature data URL
+  if (data.engineerSignature) {
+    inspectorSig = await embedPngFromDataUrl(pdf, data.engineerSignature);
+  }
+  if (!inspectorSig && inspectorSigBytes) {
     try { inspectorSig = await pdf.embedPng(inspectorSigBytes); } catch {}
   }
 

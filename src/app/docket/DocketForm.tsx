@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import Link from "next/link";
 import SignaturePad, { type SignaturePadHandle } from "./SignaturePad";
 
 type JobType = "Drilling" | "Site inspection" | "Other";
@@ -56,6 +57,7 @@ const MIN_TOTAL_HOURS = 4;
 const STORAGE_KEY = "sfgeo_docket_draft_v3";
 const INSPECTOR_KEY = "sfgeo_docket_inspector_v1";
 const PROJECTS_KEY = "sfgeo_docket_projects_v1";
+const ENGINEER_SIG_KEY = "sfgeo_engineer_signature_v1";
 
 function todayIsoDate(): string {
   const d = new Date();
@@ -165,12 +167,14 @@ export default function DocketForm() {
   const [projects, setProjects] = useState<ProjectRecord[]>([]);
   const [refSuggestionsOpen, setRefSuggestionsOpen] = useState(false);
   const [nameSuggestionsOpen, setNameSuggestionsOpen] = useState(false);
+  const [engineerSig, setEngineerSig] = useState<string | null>(null);
   const siteContactSigRef = useRef<SignaturePadHandle | null>(null);
 
   useEffect(() => {
     queueMicrotask(() => {
       try {
         setProjects(loadProjects());
+        setEngineerSig(localStorage.getItem(ENGINEER_SIG_KEY));
         const raw = localStorage.getItem(STORAGE_KEY);
         if (raw) {
           const parsed = JSON.parse(raw) as Partial<FormState>;
@@ -342,6 +346,7 @@ export default function DocketForm() {
       noReportRequired: form.noReportRequired,
 
       siteContactSignature: siteContactSigRef.current?.getDataUrl() || undefined,
+      engineerSignature: engineerSig || undefined,
     };
 
     try {
@@ -413,13 +418,21 @@ export default function DocketForm() {
         <div className="flex items-center gap-3">
           <Image src="/docket/sfgeo-logo.png" alt="SFGEO" width={36} height={36} priority />
           <div>
-            <div className="text-[10px] uppercase tracking-widest text-sfgeo-label leading-tight">Docket Book</div>
+            <div className="text-[10px] uppercase tracking-wider text-sfgeo-label leading-tight">Docket Book</div>
             <div className="text-xs font-mono text-sfgeo-ink">{docketId}</div>
           </div>
         </div>
-        <button type="button" onClick={logout} className="text-xs font-medium text-sfgeo-green hover:underline">
-          Lock
-        </button>
+        <div className="flex items-center gap-4">
+          <Link
+            href="/docket/signature"
+            className="text-xs font-medium text-sfgeo-green hover:underline whitespace-nowrap"
+          >
+            {engineerSig ? "Signature ✓" : "Set signature"}
+          </Link>
+          <button type="button" onClick={logout} className="text-xs font-medium text-sfgeo-green hover:underline">
+            Lock
+          </button>
+        </div>
       </header>
 
       <form onSubmit={submit} className="max-w-5xl mx-auto px-4 md:px-8 py-6 pb-32 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
