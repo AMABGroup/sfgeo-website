@@ -70,17 +70,15 @@ function computeSuggestedTotal(timeOn: string, timeOff: string, travelHours: str
   return Math.max(MIN_TOTAL_HOURS, Math.round(raw * 4) / 4);
 }
 
-// Project ref: accept "SFG-2026-037" or "SFG-2026-P037" (P stage),
-// normalise by dropping the P since dockets are raised on accepted work.
+// Project ref: light auto-cleanup only. Uppercase, strip whitespace, and
+// drop the "P" prefix used at proposal stage (SFG-2026-P037 -> SFG-2026-037)
+// since dockets are raised on accepted work. No format gating — accept
+// whatever the user types as long as it's non-empty.
 function normaliseProjectRef(raw: string): string {
   return raw
     .toUpperCase()
     .replace(/\s+/g, "")
     .replace(/^SFG-(\d{4})-P(\d+)$/, "SFG-$1-$2");
-}
-
-function isValidProjectRef(raw: string): boolean {
-  return /^SFG-\d{4}-\d{2,4}$/.test(raw);
 }
 
 function loadProjects(): ProjectRecord[] {
@@ -123,6 +121,10 @@ export default function DocketForm({ draftId: incomingDraftId }: DocketFormProps
   const [refSuggestionsOpen, setRefSuggestionsOpen] = useState(false);
   const [nameSuggestionsOpen, setNameSuggestionsOpen] = useState(false);
   const [engineerSig, setEngineerSig] = useState<string | null>(null);
+  // Gate auto-save until the initial load (and any existing draft hydration)
+  // has completed — otherwise the auto-save effect fires on mount with the
+  // empty fresh-form state and overwrites the saved draft.
+  const [hydrated, setHydrated] = useState(false);
   const siteContactSigRef = useRef<SignaturePadHandle | null>(null);
 
   useEffect(() => {
@@ -139,6 +141,7 @@ export default function DocketForm({ draftId: incomingDraftId }: DocketFormProps
           if (rec && rec.status === "draft") {
             setDraftId(incomingDraftId);
             setForm(rec.data);
+            setHydrated(true);
             return;
           }
           // If the id is unknown or already sent, fall through to "new draft"
@@ -148,14 +151,17 @@ export default function DocketForm({ draftId: incomingDraftId }: DocketFormProps
         setDraftId(id);
         const savedInspector = localStorage.getItem(INSPECTOR_KEY) || "";
         if (savedInspector) setForm((f) => ({ ...f, inspectorName: savedInspector }));
-      } catch {}
+        setHydrated(true);
+      } catch {
+        setHydrated(true);
+      }
     });
   }, [incomingDraftId]);
 
   useEffect(() => {
-    if (status === "success" || !draftId) return;
+    if (!hydrated || status === "success" || !draftId) return;
     upsertDraft(draftId, form);
-  }, [form, status, draftId]);
+  }, [form, status, draftId, hydrated]);
 
   const suggestedTotal = useMemo(
     () => computeSuggestedTotal(form.timeOn, form.timeOff, form.travelHours),
@@ -171,9 +177,9 @@ export default function DocketForm({ draftId: incomingDraftId }: DocketFormProps
   }, [suggestedTotal, totalEdited]);
 
   const docketId = useMemo(() => {
-    const ref = normaliseProjectRef(form.projectRef);
+    const ref = normaliseProjectRef(form.projectRef).trim();
     const visit = (form.visitNumber || "01").padStart(2, "0");
-    return isValidProjectRef(ref) ? `${ref}-${visit}` : "—";
+    return ref ? `${ref}-${visit}` : "—";
   }, [form.projectRef, form.visitNumber]);
 
   const update = <K extends keyof FormState>(key: K, value: FormState[K]) => {
@@ -242,8 +248,8 @@ export default function DocketForm({ draftId: incomingDraftId }: DocketFormProps
   };
 
   const validate = (): string | null => {
-    const normRef = normaliseProjectRef(form.projectRef);
-    if (!isValidProjectRef(normRef)) return "Project ref must look like SFG-2026-037.";
+    const normRef = normaliseProjectRef(form.projectRef).trim();
+    if (!normRef) return "Project ref is required.";
     if (!form.projectName.trim()) return "Project name is required.";
     if (!form.inspectorName.trim()) return "Inspector name is required.";
     if (!form.clientCompany.trim()) return "Client company is required.";
