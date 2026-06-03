@@ -97,49 +97,40 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Invalid JSON" }, { status: 400 });
   }
 
-  const required: (keyof DocketData)[] = [
-    "projectRef",
-    "projectName",
-    "inspectionDate",
-    "inspectorName",
-    "jobType",
-    "clientCompany",
-    "clientName",
-    "clientEmail",
-    "siteAddress",
-  ];
-  for (const field of required) {
-    if (!body[field] || String(body[field]).trim() === "") {
-      return NextResponse.json({ error: `Missing field: ${field}` }, { status: 400 });
-    }
+  // Only enforce what we actually need on the server side. The form lists any
+  // other empty fields in its confirmation modal as a warning; the inspector
+  // chooses whether to send anyway.
+  if (!body.clientEmail || !String(body.clientEmail).trim() || !String(body.clientEmail).includes("@")) {
+    return NextResponse.json({ error: "Valid client email required" }, { status: 400 });
   }
 
-  const projectRef = String(body.projectRef);
-  const visitNumber = (body.visitNumber ? String(body.visitNumber) : "01").padStart(2, "0");
-  const docketNumber = body.docketId ? String(body.docketId) : `${projectRef}-${visitNumber}`;
+  const s = (v: unknown): string => (v == null ? "" : String(v));
+  const projectRef = s(body.projectRef) || "DOCKET";
+  const visitNumber = (s(body.visitNumber) || "01").padStart(2, "0");
+  const docketNumber = s(body.docketId) || `${projectRef}-${visitNumber}`;
 
   const data: DocketData = {
     docketNumber,
     projectRef,
     visitNumber,
-    projectName: String(body.projectName),
-    inspectionDate: String(body.inspectionDate),
-    inspectorName: String(body.inspectorName),
-    jobType: String(body.jobType),
-    jobTypeDetail: body.jobTypeDetail ? String(body.jobTypeDetail) : undefined,
-    clientCompany: String(body.clientCompany),
-    clientName: String(body.clientName),
-    clientEmail: String(body.clientEmail),
-    clientPhone: body.clientPhone ? String(body.clientPhone) : "",
-    siteContactName: body.siteContactName ? String(body.siteContactName) : "",
-    siteContactPhone: body.siteContactPhone ? String(body.siteContactPhone) : "",
-    siteContactRole: body.siteContactRole ? String(body.siteContactRole) : "",
-    siteAddress: String(body.siteAddress),
-    timeOn: body.timeOn ? String(body.timeOn) : "",
-    timeOff: body.timeOff ? String(body.timeOff) : "",
-    travelHours: body.travelHours ? String(body.travelHours) : "",
-    totalHours: body.totalHours ? String(body.totalHours) : "",
-    notes: body.notes ? String(body.notes) : "",
+    projectName: s(body.projectName),
+    inspectionDate: s(body.inspectionDate),
+    inspectorName: s(body.inspectorName),
+    jobType: s(body.jobType) || "Site inspection",
+    jobTypeDetail: body.jobTypeDetail ? s(body.jobTypeDetail) : undefined,
+    clientCompany: s(body.clientCompany),
+    clientName: s(body.clientName),
+    clientEmail: s(body.clientEmail),
+    clientPhone: s(body.clientPhone),
+    siteContactName: s(body.siteContactName),
+    siteContactPhone: s(body.siteContactPhone),
+    siteContactRole: s(body.siteContactRole),
+    siteAddress: s(body.siteAddress),
+    timeOn: s(body.timeOn),
+    timeOff: s(body.timeOff),
+    travelHours: s(body.travelHours),
+    totalHours: s(body.totalHours),
+    notes: s(body.notes),
     reportToFollow: !!body.reportToFollow,
     siteNote: !!body.siteNote,
     noReportRequired: !!body.noReportRequired,

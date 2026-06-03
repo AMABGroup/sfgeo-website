@@ -7,6 +7,8 @@ import Link from "next/link";
 import SignaturePad, { type SignaturePadHandle } from "./SignaturePad";
 import {
   type StoredDocketData,
+  buildSiteAddress,
+  defaultProjectRefPrefix,
   deleteDocket,
   emptyData,
   getDocket,
@@ -15,6 +17,12 @@ import {
   newDraftId,
   upsertDraft,
 } from "./storage";
+
+const STREET_TYPES = [
+  "Street", "Road", "Avenue", "Drive", "Lane", "Court",
+  "Place", "Crescent", "Boulevard", "Parade", "Way", "Close",
+  "Terrace", "Highway",
+];
 
 type JobType = "Drilling" | "Site inspection" | "Other";
 
@@ -101,7 +109,12 @@ function saveProject(record: ProjectRecord) {
 }
 
 function freshForm(): FormState {
-  return { ...emptyData(), inspectionDate: todayIsoDate(), totalHours: String(MIN_TOTAL_HOURS) };
+  return {
+    ...emptyData(),
+    projectRef: defaultProjectRefPrefix(),
+    inspectionDate: todayIsoDate(),
+    totalHours: String(MIN_TOTAL_HOURS),
+  };
 }
 
 type Status = "idle" | "submitting" | "success" | "error";
@@ -125,7 +138,16 @@ export default function DocketForm({ draftId: incomingDraftId }: DocketFormProps
   // has completed — otherwise the auto-save effect fires on mount with the
   // empty fresh-form state and overwrites the saved draft.
   const [hydrated, setHydrated] = useState(false);
+  const [confirmOpen, setConfirmOpen] = useState(false);
   const siteContactSigRef = useRef<SignaturePadHandle | null>(null);
+
+  const copyClientToSiteContact = () => {
+    setForm((f) => ({
+      ...f,
+      siteContactName: f.clientName || f.siteContactName,
+      siteContactPhone: f.clientPhone || f.siteContactPhone,
+    }));
+  };
 
   useEffect(() => {
     queueMicrotask(() => {
@@ -247,29 +269,42 @@ export default function DocketForm({ draftId: incomingDraftId }: DocketFormProps
     router.refresh();
   };
 
-  const validate = (): string | null => {
-    const normRef = normaliseProjectRef(form.projectRef).trim();
-    if (!normRef) return "Project ref is required.";
-    if (!form.projectName.trim()) return "Project name is required.";
-    if (!form.inspectorName.trim()) return "Inspector name is required.";
-    if (!form.clientCompany.trim()) return "Client company is required.";
-    if (!form.clientName.trim()) return "Client name is required.";
-    if (!form.clientEmail.trim() || !form.clientEmail.includes("@")) return "Valid client email is required.";
-    if (!form.siteAddress.trim()) return "Site address is required.";
-    if (!form.jobType) return "Select an inspection type.";
+  // Soft validation — returns the labels of any empty recommended fields.
+  // Used to display a warning inside the send-confirmation modal. Does NOT
+  // block submission unless `hardBlock` also fails.
+  const missingFields = (): string[] => {
+    const out: string[] = [];
+    if (!normaliseProjectRef(form.projectRef).trim()) out.push("Project ref");
+    if (!form.projectName.trim()) out.push("Project name");
+    if (!form.inspectorName.trim()) out.push("Engineer / Driller");
+    if (!form.clientCompany.trim()) out.push("Client company");
+    if (!form.clientName.trim()) out.push("Client name");
+    if (!buildSiteAddress(form)) out.push("Site address");
     if ((form.jobType === "Site inspection" || form.jobType === "Other") && !form.jobTypeDetail.trim()) {
-      return form.jobType === "Site inspection"
-        ? "Describe the type of inspection."
-        : "Describe the job.";
+      out.push(form.jobType === "Site inspection" ? "Type of inspection" : "Job description");
+    }
+    return out;
+  };
+
+  // Hard block — only the things truly required for the docket to be useful.
+  const hardBlock = (): string | null => {
+    if (!form.clientEmail.trim() || !form.clientEmail.includes("@")) {
+      return "Client email is needed so we can send the docket.";
     }
     return null;
   };
 
-  const submit = async (e: React.FormEvent) => {
+  const openConfirm = (e: React.FormEvent) => {
     e.preventDefault();
-    const err = validate();
-    if (err) {
-      setErrorMessage(err);
+    setErrorMessage("");
+    setConfirmOpen(true);
+  };
+
+  const reallySend = async () => {
+    setConfirmOpen(false);
+    const block = hardBlock();
+    if (block) {
+      setErrorMessage(block);
       setStatus("error");
       return;
     }
@@ -277,8 +312,9 @@ export default function DocketForm({ draftId: incomingDraftId }: DocketFormProps
     setErrorMessage("");
 
     const finalTotal = Math.max(MIN_TOTAL_HOURS, parseFloat(form.totalHours) || MIN_TOTAL_HOURS);
-    const normRef = normaliseProjectRef(form.projectRef);
+    const normRef = normaliseProjectRef(form.projectRef).trim() || "DOCKET";
     const visit = (form.visitNumber || "01").padStart(2, "0");
+    const combinedSiteAddress = buildSiteAddress(form);
 
     const payload = {
       projectRef: normRef,
@@ -299,7 +335,7 @@ export default function DocketForm({ draftId: incomingDraftId }: DocketFormProps
       siteContactPhone: form.siteContactPhone,
       siteContactRole: form.siteContactRole,
 
-      siteAddress: form.siteAddress,
+      siteAddress: combinedSiteAddress,
 
       timeOn: form.timeOn,
       timeOff: form.timeOff,
@@ -332,11 +368,11 @@ export default function DocketForm({ draftId: incomingDraftId }: DocketFormProps
           clientCompany: form.clientCompany,
           clientEmail: form.clientEmail,
           clientPhone: form.clientPhone,
-          siteAddress: form.siteAddress,
+          siteAddress: combinedSiteAddress,
           lastUsed: Date.now(),
         });
         const sentId = data.docketId || `${normRef}-${visit}`;
-        if (draftId) markSent(draftId, sentId, form);
+        if (draftId) markSent(draftId, sentId, { ...form, siteAddress: combinedSiteAddress });
         setSubmittedDocketId(sentId);
         setStatus("success");
       } else {
@@ -415,7 +451,7 @@ export default function DocketForm({ draftId: incomingDraftId }: DocketFormProps
         </div>
       </header>
 
-      <form onSubmit={submit} className="max-w-5xl mx-auto px-4 md:px-8 py-6 pb-32 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+      <form onSubmit={openConfirm} className="max-w-5xl mx-auto px-4 md:px-8 py-6 pb-32 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
 
         {/* LEFT COLUMN */}
         <div className="flex flex-col gap-4 md:gap-6">
@@ -470,6 +506,7 @@ export default function DocketForm({ draftId: incomingDraftId }: DocketFormProps
               <span className={labelCls}>Project name</span>
               <input
                 type="text"
+                autoCapitalize="words"
                 value={form.projectName}
                 onChange={(e) => { update("projectName", e.target.value); setNameSuggestionsOpen(true); }}
                 onFocus={() => setNameSuggestionsOpen(true)}
@@ -510,6 +547,7 @@ export default function DocketForm({ draftId: incomingDraftId }: DocketFormProps
               <span className={labelCls}>Engineer&nbsp;|&nbsp;Driller</span>
               <input
                 type="text"
+                autoCapitalize="words"
                 value={form.inspectorName}
                 onChange={(e) => update("inspectorName", e.target.value)}
                 autoComplete="name"
@@ -587,16 +625,59 @@ export default function DocketForm({ draftId: incomingDraftId }: DocketFormProps
           {/* SITE ADDRESS */}
           <section className="bg-white rounded-2xl p-4 md:p-5 shadow-sm border border-slate-100 flex flex-col gap-3">
             <h2 className="text-sm font-bold text-sfgeo-ink uppercase tracking-wider">Site address</h2>
-            <label className="flex flex-col gap-1.5">
-              <span className={labelCls}>Address</span>
-              <input
-                type="text" value={form.siteAddress}
-                onChange={(e) => update("siteAddress", e.target.value)}
-                placeholder="Street, suburb, NSW"
-                autoComplete="street-address"
-                className={inputCls}
-              />
-            </label>
+            <div className="grid grid-cols-4 gap-3">
+              <label className="flex flex-col gap-1.5 col-span-1">
+                <span className={labelCls}>Number</span>
+                <input
+                  type="text"
+                  inputMode="text"
+                  value={form.siteStreetNumber}
+                  onChange={(e) => update("siteStreetNumber", e.target.value)}
+                  placeholder="47"
+                  autoCapitalize="characters"
+                  className={inputCls}
+                />
+              </label>
+              <label className="flex flex-col gap-1.5 col-span-3">
+                <span className={labelCls}>Street name</span>
+                <input
+                  type="text"
+                  value={form.siteStreetName}
+                  onChange={(e) => update("siteStreetName", e.target.value)}
+                  placeholder="Marrickville"
+                  autoCapitalize="words"
+                  className={inputCls}
+                />
+              </label>
+              <label className="flex flex-col gap-1.5 col-span-2">
+                <span className={labelCls}>Street type</span>
+                <select
+                  value={form.siteStreetType}
+                  onChange={(e) => update("siteStreetType", e.target.value)}
+                  className={inputCls + " appearance-none bg-no-repeat bg-right pr-10"}
+                  style={{ backgroundImage: 'url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'16\' height=\'16\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%236B6B6B\' stroke-width=\'2\'><polyline points=\'6 9 12 15 18 9\'/></svg>")', backgroundPositionX: "calc(100% - 12px)" }}
+                >
+                  <option value="">Select…</option>
+                  {STREET_TYPES.map((t) => (
+                    <option key={t} value={t}>{t}</option>
+                  ))}
+                </select>
+              </label>
+              <label className="flex flex-col gap-1.5 col-span-2">
+                <span className={labelCls}>Suburb</span>
+                <input
+                  type="text"
+                  value={form.siteSuburb}
+                  onChange={(e) => update("siteSuburb", e.target.value)}
+                  placeholder="Marrickville NSW 2204"
+                  autoCapitalize="words"
+                  className={inputCls}
+                />
+              </label>
+            </div>
+            <p className="text-[11px] text-sfgeo-label">
+              Full address: <span className="font-medium text-sfgeo-ink">{buildSiteAddress(form) || "—"}</span>
+            </p>
           </section>
         </div>
 
@@ -609,11 +690,11 @@ export default function DocketForm({ draftId: incomingDraftId }: DocketFormProps
             <div className="grid grid-cols-2 gap-3">
               <label className="flex flex-col gap-1.5">
                 <span className={labelCls}>Company</span>
-                <input type="text" value={form.clientCompany} onChange={(e) => update("clientCompany", e.target.value)} autoComplete="organization" className={inputCls} />
+                <input type="text" autoCapitalize="words" value={form.clientCompany} onChange={(e) => update("clientCompany", e.target.value)} autoComplete="organization" className={inputCls} />
               </label>
               <label className="flex flex-col gap-1.5">
                 <span className={labelCls}>Name</span>
-                <input type="text" value={form.clientName} onChange={(e) => update("clientName", e.target.value)} className={inputCls} />
+                <input type="text" autoCapitalize="words" value={form.clientName} onChange={(e) => update("clientName", e.target.value)} className={inputCls} />
               </label>
               <label className="flex flex-col gap-1.5">
                 <span className={labelCls}>Email</span>
@@ -628,16 +709,33 @@ export default function DocketForm({ draftId: incomingDraftId }: DocketFormProps
 
           {/* SITE CONTACT */}
           <section className="bg-white rounded-2xl p-4 md:p-5 shadow-sm border border-slate-100 flex flex-col gap-3">
-            <h2 className="text-sm font-bold text-sfgeo-ink uppercase tracking-wider">Site contact</h2>
+            <div className="flex items-center justify-between">
+              <h2 className="text-sm font-bold text-sfgeo-ink uppercase tracking-wider">Site contact</h2>
+              <button
+                type="button"
+                onClick={copyClientToSiteContact}
+                disabled={!form.clientName && !form.clientPhone}
+                className="text-xs font-medium text-sfgeo-green hover:underline disabled:text-sfgeo-label/60 disabled:no-underline disabled:cursor-not-allowed"
+              >
+                Same as client →
+              </button>
+            </div>
             <div className="grid grid-cols-2 gap-3">
               <label className="flex flex-col gap-1.5">
                 <span className={labelCls}>Name</span>
-                <input type="text" value={form.siteContactName} onChange={(e) => update("siteContactName", e.target.value)} className={inputCls} />
+                <input
+                  type="text"
+                  autoCapitalize="words"
+                  value={form.siteContactName}
+                  onChange={(e) => update("siteContactName", e.target.value)}
+                  className={inputCls}
+                />
               </label>
               <label className="flex flex-col gap-1.5">
                 <span className={labelCls}>Role / position</span>
                 <input
                   type="text"
+                  autoCapitalize="words"
                   value={form.siteContactRole}
                   onChange={(e) => update("siteContactRole", e.target.value)}
                   placeholder="e.g. Site Supervisor, Builder"
@@ -655,6 +753,7 @@ export default function DocketForm({ draftId: incomingDraftId }: DocketFormProps
           <section className="bg-white rounded-2xl p-4 md:p-5 shadow-sm border border-slate-100 flex flex-col gap-3">
             <h2 className="text-sm font-bold text-sfgeo-ink uppercase tracking-wider">Site notes</h2>
             <textarea
+              autoCapitalize="sentences"
               value={form.notes}
               onChange={(e) => update("notes", e.target.value)}
               rows={5}
@@ -720,6 +819,17 @@ export default function DocketForm({ draftId: incomingDraftId }: DocketFormProps
           </div>
         </div>
       </form>
+
+      {confirmOpen && (
+        <ConfirmSendModal
+          form={form}
+          combinedAddress={buildSiteAddress(form)}
+          missing={missingFields()}
+          hardBlock={hardBlock()}
+          onCancel={() => setConfirmOpen(false)}
+          onConfirm={reallySend}
+        />
+      )}
     </div>
   );
 }
@@ -734,5 +844,104 @@ function CheckboxRow({ checked, onChange, label }: { checked: boolean; onChange:
       />
       <span className="text-sm text-sfgeo-ink font-medium">{label}</span>
     </label>
+  );
+}
+
+function ConfirmSendModal({
+  form,
+  combinedAddress,
+  missing,
+  hardBlock,
+  onCancel,
+  onConfirm,
+}: {
+  form: FormState;
+  combinedAddress: string;
+  missing: string[];
+  hardBlock: string | null;
+  onCancel: () => void;
+  onConfirm: () => void;
+}) {
+  return (
+    <div
+      className="fixed inset-0 z-50 flex items-end md:items-center justify-center p-4 md:p-8"
+      role="dialog"
+      aria-modal="true"
+    >
+      {/* semi-transparent backdrop so the docket stays visible */}
+      <button
+        type="button"
+        aria-label="Cancel"
+        onClick={onCancel}
+        className="absolute inset-0 bg-black/30 backdrop-blur-[1px]"
+      />
+      <div className="relative bg-white rounded-2xl shadow-2xl border border-slate-200 w-full max-w-md max-h-[85vh] flex flex-col">
+        <div className="px-5 py-4 border-b border-slate-100">
+          <h2 className="text-base font-bold text-sfgeo-ink">Send this docket?</h2>
+          <p className="text-xs text-sfgeo-label mt-1">Have one last look — you can cancel and tweak anything.</p>
+        </div>
+
+        <div className="px-5 py-4 overflow-y-auto flex flex-col gap-3 text-sm">
+          <Row label="To">{form.clientEmail || <em className="text-red-600">No client email</em>}</Row>
+          <Row label="BCC">admin@sfgeo.com.au</Row>
+          <Row label="Project">
+            <span className="font-mono">{form.projectRef || "—"}</span>
+            {form.visitNumber && <span> · visit {form.visitNumber}</span>}
+            <div>{form.projectName || <em className="text-sfgeo-label">No project name</em>}</div>
+          </Row>
+          <Row label="Site">{combinedAddress || <em className="text-sfgeo-label">No site address</em>}</Row>
+          <Row label="Client">
+            {form.clientCompany && <div>{form.clientCompany}</div>}
+            {form.clientName && <div className="text-sfgeo-label">{form.clientName}</div>}
+            {!form.clientCompany && !form.clientName && <em className="text-sfgeo-label">No client details</em>}
+          </Row>
+          <Row label="Inspection">
+            {form.jobType}{form.jobTypeDetail ? ` — ${form.jobTypeDetail}` : ""}
+            {form.totalHours && <div className="text-sfgeo-label">{form.totalHours} hrs total</div>}
+          </Row>
+
+          {hardBlock && (
+            <div className="bg-red-50 border border-red-200 text-red-700 rounded-lg px-3 py-2 text-xs">
+              {hardBlock}
+            </div>
+          )}
+          {!hardBlock && missing.length > 0 && (
+            <div className="bg-amber-50 border border-amber-200 text-amber-800 rounded-lg px-3 py-2 text-xs">
+              <div className="font-semibold mb-1">Missing — send anyway?</div>
+              <ul className="list-disc pl-4">
+                {missing.map((m) => <li key={m}>{m}</li>)}
+              </ul>
+            </div>
+          )}
+        </div>
+
+        <div className="px-5 py-4 border-t border-slate-100 flex gap-3">
+          <button
+            type="button"
+            onClick={onCancel}
+            className="flex-1 px-4 py-3 rounded-xl bg-slate-100 text-slate-700 font-semibold min-h-[48px]"
+          >
+            Cancel
+          </button>
+          <button
+            type="button"
+            onClick={onConfirm}
+            disabled={!!hardBlock}
+            className="flex-1 bg-sfgeo-green text-white rounded-xl py-3 font-semibold disabled:opacity-50 disabled:cursor-not-allowed min-h-[48px]"
+          >
+            Send
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function Row({ label, children }: { label: string; children: React.ReactNode }) {
+  return (
+    <div className="flex gap-3">
+      <span className="text-[10px] font-bold uppercase tracking-wider text-sfgeo-label w-16 shrink-0 pt-1">{label}</span>
+      <div className="flex-1 text-sfgeo-ink">{children}</div>
+    </div>
   );
 }
