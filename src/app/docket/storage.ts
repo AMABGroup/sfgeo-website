@@ -21,6 +21,13 @@ export type StoredDocketData = {
   siteContactPhone: string;
   siteContactRole: string;
 
+  // Site address — split into parts. siteAddress is the combined string
+  // used by PDF/email; rebuilt from parts on submit but kept as a field
+  // so legacy drafts still resolve.
+  siteStreetNumber: string;
+  siteStreetName: string;
+  siteStreetType: string;
+  siteSuburb: string;
   siteAddress: string;
 
   timeOn: string;
@@ -116,6 +123,10 @@ export function emptyData(): StoredDocketData {
     siteContactName: "",
     siteContactPhone: "",
     siteContactRole: "",
+    siteStreetNumber: "",
+    siteStreetName: "",
+    siteStreetType: "",
+    siteSuburb: "",
     siteAddress: "",
     timeOn: "",
     timeOff: "",
@@ -134,6 +145,24 @@ export function mergeData(base: StoredDocketData, patch: Partial<StoredDocketDat
 
 export function newDraftId(): string {
   return `draft-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 6)}`;
+}
+
+/** Build a single-line site address from the split parts.
+ *  Falls back to the legacy combined siteAddress field if the parts are empty. */
+export function buildSiteAddress(d: Partial<StoredDocketData>): string {
+  const street = [d.siteStreetNumber, d.siteStreetName, d.siteStreetType]
+    .map((s) => (s || "").trim())
+    .filter(Boolean)
+    .join(" ");
+  const suburb = (d.siteSuburb || "").trim();
+  const combined = [street, suburb].filter(Boolean).join(", ");
+  if (combined) return combined;
+  return (d.siteAddress || "").trim();
+}
+
+/** Default project ref prefix — current year. */
+export function defaultProjectRefPrefix(): string {
+  return `SFG-${new Date().getFullYear()}-`;
 }
 
 export function isDraftId(id: string): boolean {
