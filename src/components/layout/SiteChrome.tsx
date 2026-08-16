@@ -5,6 +5,7 @@ import Navbar from "./Navbar";
 import Footer from "./Footer";
 import ContactBubble from "@/components/ui/ContactBubble";
 import CallBubble from "@/components/ui/CallBubble";
+import ContactClickTracker from "@/components/analytics/ContactClickTracker";
 
 type Props = {
   children: React.ReactNode;
@@ -25,6 +26,7 @@ export default function SiteChrome({ children }: Props) {
       <Footer />
       <ContactBubble />
       <CallBubble />
+      <ContactClickTracker />
     </>
   );
 }
