@@ -13,9 +13,16 @@ interface Review {
 
 interface PlaceDetails {
   reviews?: Review[];
-  rating?: number;
-  user_ratings_total?: number;
+  rating?: number | null;
+  user_ratings_total?: number | null;
+  maps_url?: string;
 }
+
+const PLACE_ID = "ChIJkbo3DVqq1IMRQYQUbuD9XDc";
+// Google retired /local/reviews?placeid= — it now answers 404. The Maps place
+// deep link is the supported way to send visitors to the review list.
+const READ_REVIEWS_URL = `https://www.google.com/maps/place/?q=place_id:${PLACE_ID}`;
+const WRITE_REVIEW_URL = `https://search.google.com/local/writereview?placeid=${PLACE_ID}`;
 
 export default function GoogleReviews() {
   const [data, setData] = useState<PlaceDetails | null>(null);
@@ -56,14 +63,19 @@ export default function GoogleReviews() {
 
   // Filter for high quality reviews that ACTUALLY have text, limit to max 3
   const topReviews = data?.reviews?.filter(r => r.rating >= 4 && r.text && r.text.trim().length > 0).slice(0, 3) || [];
-  
-  const overallRating = data?.rating || 5.0;
+
+  // Only ever render a rating we actually received. Defaulting to 5.0 here
+  // meant a failed fetch still displayed five gold stars and "5.0 Google
+  // Reviews" — a rating the site had not been given.
+  const overallRating = typeof data?.rating === "number" ? data.rating : null;
+  const ratingTotal = typeof data?.user_ratings_total === "number" ? data.user_ratings_total : null;
+  const readReviewsUrl = data?.maps_url ?? READ_REVIEWS_URL;
 
   return (
     <>
-      <motion.div 
-        initial="hidden" 
-        whileInView="visible" 
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
         variants={staggerContainer}
         className="text-center mb-16"
@@ -72,44 +84,47 @@ export default function GoogleReviews() {
           Client Feedback
         </motion.h2>
         <motion.div variants={fadeIn} className="mt-6 h-px bg-forest-green w-12 mx-auto" />
-        <motion.div variants={fadeIn} className="mt-4 flex items-center justify-center gap-2">
-          <div className="flex text-accent-gold gap-0.5">
-            {[...Array(5)].map((_, i) => (
-              <StarIcon key={i} className={`w-5 h-5 ${i < Math.round(overallRating) ? 'text-yellow-500' : 'text-gray-300'}`} />
-            ))}
-          </div>
-          <span className="text-sm font-semibold text-slate-black tracking-wide ml-1">
-            {overallRating.toFixed(1)} Google Reviews
-          </span>
-        </motion.div>
-      </motion.div>
-
-      <div className={`flex flex-wrap justify-center gap-8 ${topReviews.length === 3 ? 'md:grid md:grid-cols-3 md:flex-none' : ''}`}>
-        {topReviews.length > 0 ? topReviews.map((review, index) => (
-          <motion.div 
-            key={index}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: index * 0.15 }}
-            className={`flex flex-col relative px-8 py-10 rounded-2xl backdrop-blur-xl bg-white/60 border border-white shadow-[0_8px_32px_0_rgba(31,38,135,0.05)] hover:-translate-y-1 transition-transform duration-300 ${topReviews.length < 3 ? 'w-full md:w-[calc(50%-1rem)] max-w-md' : 'w-full'}`}
-          >
-             <div className="flex gap-1 text-accent-gold mb-6">
+        {overallRating !== null && (
+          <motion.div variants={fadeIn} className="mt-4 flex items-center justify-center gap-2">
+            <div className="flex text-accent-gold gap-0.5">
               {[...Array(5)].map((_, i) => (
-                <StarIcon key={i} className={`w-5 h-5 ${i < review.rating ? 'text-yellow-500 drop-shadow-sm' : 'text-gray-300'}`} />
+                <StarIcon key={i} className={`w-5 h-5 ${i < Math.round(overallRating) ? 'text-yellow-500' : 'text-gray-300'}`} />
               ))}
             </div>
-            <blockquote className="text-gray-800 text-base leading-relaxed font-light mb-8 relative z-10 flex-grow">
-              "{review.text}"
-            </blockquote>
-            <div className="pt-6 border-t border-gray-300 flex flex-col gap-1">
-              <span className="text-slate-black font-semibold tracking-wide text-sm">{review.author_name}</span>
-            </div>
+            <span className="text-sm font-semibold text-slate-black tracking-wide ml-1">
+              {overallRating.toFixed(1)} on Google
+              {ratingTotal !== null && ` · ${ratingTotal} review${ratingTotal === 1 ? '' : 's'}`}
+            </span>
           </motion.div>
-        )) : (
-          <div className="w-full text-center text-gray-500 font-light">Loading latest reviews...</div>
         )}
-      </div>
+      </motion.div>
+
+      {topReviews.length > 0 && (
+        <div className={`flex flex-wrap justify-center gap-8 ${topReviews.length === 3 ? 'md:grid md:grid-cols-3 md:flex-none' : ''}`}>
+          {topReviews.map((review, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.15 }}
+              className={`flex flex-col relative px-8 py-10 rounded-2xl backdrop-blur-xl bg-white/60 border border-white shadow-[0_8px_32px_0_rgba(31,38,135,0.05)] hover:-translate-y-1 transition-transform duration-300 ${topReviews.length < 3 ? 'w-full md:w-[calc(50%-1rem)] max-w-md' : 'w-full'}`}
+            >
+               <div className="flex gap-1 text-accent-gold mb-6">
+                {[...Array(5)].map((_, i) => (
+                  <StarIcon key={i} className={`w-5 h-5 ${i < review.rating ? 'text-yellow-500 drop-shadow-sm' : 'text-gray-300'}`} />
+                ))}
+              </div>
+              <blockquote className="text-gray-800 text-base leading-relaxed font-light mb-8 relative z-10 flex-grow">
+                &ldquo;{review.text}&rdquo;
+              </blockquote>
+              <div className="pt-6 border-t border-gray-300 flex flex-col gap-1">
+                <span className="text-slate-black font-semibold tracking-wide text-sm">{review.author_name}</span>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      )}
 
       <motion.div
         initial="hidden"
@@ -118,18 +133,18 @@ export default function GoogleReviews() {
         variants={staggerContainer}
         className="mt-16 flex flex-col sm:flex-row items-center justify-center gap-6"
       >
-        <motion.a 
+        <motion.a
           variants={fadeIn}
-          href="https://search.google.com/local/reviews?placeid=ChIJkbo3DVqq1IMRQYQUbuD9XDc"
+          href={readReviewsUrl}
           target="_blank"
           rel="noopener noreferrer"
           className="px-8 py-3.5 bg-white text-slate-black text-sm font-semibold tracking-wide rounded-full shadow-md hover:shadow-lg transition-all hover:-translate-y-0.5 border border-gray-200"
         >
           Read Our Reviews
         </motion.a>
-        <motion.a 
+        <motion.a
           variants={fadeIn}
-          href="https://search.google.com/local/writereview?placeid=ChIJkbo3DVqq1IMRQYQUbuD9XDc"
+          href={WRITE_REVIEW_URL}
           target="_blank"
           rel="noopener noreferrer"
           className="px-8 py-3.5 bg-forest-green text-white text-sm font-semibold tracking-wide rounded-full shadow-md hover:shadow-lg transition-all hover:-translate-y-0.5 hover:bg-forest-green/90"
