@@ -93,14 +93,11 @@ export default function Home() {
             </div>
 
             {/* Desktop enquiry card */}
-            <motion.div variants={fadeIn} className="hidden lg:flex flex-col items-center gap-4 shrink-0">
-              <QuickQuoteCard source="homepage hero" />
-              <Link
-                href="/contact?subject=b2b-enquiry"
-                className="text-xs font-semibold tracking-wide text-forest-green hover:underline"
-              >
-                B2B and subcontract enquiries &rarr;
-              </Link>
+            <motion.div variants={fadeIn} className="hidden lg:flex flex-col items-center shrink-0">
+              <QuickQuoteCard
+                source="homepage hero"
+                secondaryLink={{ href: "/contact?subject=b2b-enquiry", label: "B2B and subcontract enquiries" }}
+              />
             </motion.div>
 
           </motion.div>

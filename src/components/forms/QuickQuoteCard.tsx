@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 
 declare global {
@@ -40,7 +41,7 @@ const START_DATES = [
  * label, so tracking stays unified. `source` is appended to the message so
  * Alli can see which placement produced the lead.
  */
-export default function QuickQuoteCard({ source, heading = "Request a fixed-fee quote", subheading = "Scoped against your block and plans. Response within one business day — reports as soon as 2–3 business days." }: { source: string; heading?: string; subheading?: string }) {
+export default function QuickQuoteCard({ source, heading = "Request a fixed-fee quote", subheading = "Scoped against your block and plans. Response within one business day — reports as soon as 2–3 business days.", secondaryLink }: { source: string; heading?: string; subheading?: string; secondaryLink?: { href: string; label: string } }) {
   const [status, setStatus] = useState<FormStatus>("idle");
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [formData, setFormData] = useState({
@@ -220,6 +221,16 @@ export default function QuickQuoteCard({ source, heading = "Request a fixed-fee 
               <p className="mt-5 text-[11px] text-white/35 font-light text-center tracking-wide">
                 Principal Engineer on every job &middot; Fixed fee, scoped to your block
               </p>
+              {secondaryLink && (
+                <div className="mt-5 pt-4 border-t border-white/10 text-center">
+                  <Link
+                    href={secondaryLink.href}
+                    className="text-[11px] font-light tracking-wide text-white/45 hover:text-white/80 transition-colors"
+                  >
+                    {secondaryLink.label} &rarr;
+                  </Link>
+                </div>
+              )}
             </motion.form>
           )}
         </AnimatePresence>
