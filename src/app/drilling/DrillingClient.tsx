@@ -6,6 +6,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { PlusIcon, MinusIcon } from "@heroicons/react/24/outline";
 import ServiceAreaBlock from "@/components/sections/ServiceAreaBlock";
+import QuickQuoteCard from "@/components/forms/QuickQuoteCard";
 import ImageOverlay from "@/components/ui/ImageOverlay";
 import { OverlayGroup } from "@/components/ui/OverlayGroup";
 
@@ -336,6 +337,17 @@ export default function DrillingClient() {
                   Enquire About Subcontract Drilling
                 </Link>
               </div>
+            </div>
+          </section>
+
+          {/* Quote panel */}
+          <section className="py-16 border-t border-gray-100">
+            <div className="max-w-md mx-auto">
+              <QuickQuoteCard
+                source="drilling page"
+                heading="Request a drilling quote"
+                subheading="Scoped against your site, access and program. Response within one business day."
+              />
             </div>
           </section>
 

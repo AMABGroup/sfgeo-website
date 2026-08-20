@@ -6,6 +6,7 @@ import VideoEmbed from "./VideoEmbed";
 import ImageOverlay from "@/components/ui/ImageOverlay";
 import { OverlayGroup } from "@/components/ui/OverlayGroup";
 import QuickQuoteCard from "@/components/forms/QuickQuoteCard";
+import GoogleReviews from "@/components/ui/GoogleReviews";
 
 export const metadata: Metadata = {
   title: "Site Classification Sydney | AS2870 Soil Reports | SFGEO",
@@ -583,6 +584,11 @@ export default function SiteClassificationPage() {
             </p>
           </div>
         </FadeIn>
+      </section>
+
+      {/* Reviews */}
+      <section className="py-24 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">
+        <GoogleReviews />
       </section>
 
       {/* Section 9: Close CTA block */}

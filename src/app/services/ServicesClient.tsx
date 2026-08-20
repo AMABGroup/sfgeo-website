@@ -216,6 +216,11 @@ export default function ServicesClient() {
                 >
                   Discuss Your Site With an Engineer
                 </Link>
+                <p className="mt-3">
+                  <Link href="/geotechnical-investigations" className="text-sm font-medium text-forest-green hover:underline">
+                    Explore geotechnical investigations in detail &rarr;
+                  </Link>
+                </p>
               </motion.div>
               <ExpandableDetails 
                 title="View Scope: Boreholes, Slope Stability & Soil Testing"

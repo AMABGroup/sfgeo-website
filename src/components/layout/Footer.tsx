@@ -28,6 +28,11 @@ export default function Footer() {
                     </Link>
                   </li>
                   <li>
+                    <Link href="/geotechnical-investigations" className="text-sm leading-6 text-gray-300 hover:text-white transition-colors tracking-wide">
+                      Geotechnical Investigations
+                    </Link>
+                  </li>
+                  <li>
                     <Link href="/services" className="text-sm leading-6 text-gray-300 hover:text-white transition-colors tracking-wide">
                       Geotechnical Services
                     </Link>

@@ -27,7 +27,7 @@ export default function Navbar() {
       href: "/services",
       sublinks: [
         { name: "Site Classification", href: "/site-classification" },
-        { name: "Geotechnical Investigation", href: "/services#investigation" },
+        { name: "Geotechnical Investigations", href: "/geotechnical-investigations" },
         { name: "Construction Phase Support", href: "/services#inspections" },
         { name: "Geotechnical Design", href: "/services#design" },
         { name: "Partner Network", href: "/services#partners" }
