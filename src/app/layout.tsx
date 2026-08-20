@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: '/og/sfgeo-og.png',
+        url: '/og/sfgeo-og-card.jpg',
         width: 1200,
         height: 630,
         alt: 'SFGEO Geotechnical Engineering Sydney',
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Solid Foundation Geotechnical | Sydney Engineers & Drilling",
     description: "Sydney's boutique geotechnical consultancy. Principal-led site classifications, investigations, and 4WD drilling with fixed-fee quotes and local expertise.",
-    images: ['/og/sfgeo-og.png'],
+    images: ['/og/sfgeo-og-card.jpg'],
   },
   icons: {
     icon: "/favicon.png",
@@ -80,9 +80,9 @@ export default function RootLayout({
     "url": "https://sfgeo.com.au",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://sfgeo.com.au/og/sfgeo-og.png"
+      "url": "https://sfgeo.com.au/og/sfgeo-logo-square.png"
     },
-    "image": "https://sfgeo.com.au/og/sfgeo-og.png",
+    "image": "https://sfgeo.com.au/og/sfgeo-og-card.jpg",
     "telephone": "+61423483555",
     "priceRange": "$$",
     "address": "Suite 3.01, Level 3, 107 Sydenham Road, Marrickville, NSW 2204",

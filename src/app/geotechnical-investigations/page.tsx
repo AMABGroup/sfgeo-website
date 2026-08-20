@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { FadeIn, StaggerContainer, FadeInChild } from "../site-classification/MotionWrapper";
 import QuickQuoteCard from "@/components/forms/QuickQuoteCard";
@@ -6,18 +7,21 @@ import GoogleReviews from "@/components/ui/GoogleReviews";
 
 export const metadata: Metadata = {
   title: "Geotechnical Investigations Sydney | DA & Footing Reports | SFGEO",
-  description: "Principal-led geotechnical investigations and reports for Sydney DAs, CDCs, footing design, basements and retaining structures. Borehole drilling, DCP testing and NATA lab-backed reporting at fixed fees.",
+  description: "Principal-led geotechnical investigations for Sydney DAs, footings, basements and retaining structures. Fixed-fee quotes, reports certifiers accept.",
   alternates: {
     canonical: '/geotechnical-investigations',
   },
   openGraph: {
+    images: ['/og/sfgeo-og-card.jpg'],
     title: "Geotechnical Investigations Sydney | DA & Footing Reports | SFGEO",
-    description: "Principal-led geotechnical investigations and reports for Sydney DAs, CDCs, footing design, basements and retaining structures. Fixed-fee quotes.",
+    description: "Principal-led geotechnical investigations for Sydney DAs, footings, basements and retaining structures. Fixed-fee quotes, reports certifiers accept.",
     url: '/geotechnical-investigations',
   },
   twitter: {
+    card: "summary_large_image",
+    images: ['/og/sfgeo-og-card.jpg'],
     title: "Geotechnical Investigations Sydney | DA & Footing Reports | SFGEO",
-    description: "Principal-led geotechnical investigations and reports for Sydney DAs, CDCs, footing design, basements and retaining structures. Fixed-fee quotes.",
+    description: "Principal-led geotechnical investigations for Sydney DAs, footings, basements and retaining structures. Fixed-fee quotes, reports certifiers accept.",
   },
 };
 
@@ -93,7 +97,7 @@ export default function GeotechnicalInvestigationsPage() {
             </h1>
             <div className="w-[96px] h-[3px] bg-forest-green mb-8" />
             <p className="text-lg sm:text-xl text-gray-600 font-light leading-relaxed mb-8">
-              Investigations and reports for DAs, complying development, footing and basement design, and retaining structures across Sydney. The Principal Engineer is on your ground for every job — from the desktop study to the signature on the report. Fixed-fee quotes, NATA lab-backed, reports certifiers accept.
+              Boreholes, penetrometers and NATA-backed laboratory data, turned into reports your certifier, council and structural engineer can act on — for DAs, complying development, footings, basements and retaining structures across Sydney. The engineer who drills your ground is the engineer who signs your report.
             </p>
             <div className="flex flex-col sm:flex-row items-start gap-4">
               <Link
@@ -132,6 +136,43 @@ export default function GeotechnicalInvestigationsPage() {
             </FadeInChild>
           ))}
         </StaggerContainer>
+      </section>
+
+      {/* Fieldwork imagery band */}
+      <section className="py-16 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-10 lg:gap-16 items-center">
+          <FadeIn>
+            <h2 className="text-3xl font-light tracking-tight font-montserrat text-slate-950 mb-6">
+              Fieldwork, done by <br className="hidden lg:inline" />the engineer
+            </h2>
+            <div className="h-px bg-forest-green w-12 mb-8" />
+            <p className="text-lg text-gray-600 font-light leading-relaxed">
+              No subcontracted drill crews, no drive-by inspections. The Principal Engineer operates the rig, logs the profile as it comes out of the ground, and cross-checks it with in-situ testing on the spot — so by the time the report is written, the ground has already been read twice.
+            </p>
+          </FadeIn>
+          <FadeIn delay={0.15}>
+            <div className="grid grid-cols-2 gap-4 sm:gap-6">
+              <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-[0_20px_50px_-20px_rgba(5,10,7,0.35)]">
+                <Image
+                  src="/sfgeo-drilling-heritage-home-inner-west-sydney.jpg"
+                  alt="SFGEO drilling at a heritage home in Sydney's Inner West"
+                  fill
+                  sizes="(max-width: 1024px) 50vw, 30vw"
+                  className="object-cover"
+                />
+              </div>
+              <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-[0_20px_50px_-20px_rgba(5,10,7,0.35)] lg:mt-10">
+                <Image
+                  src="/sfgeo-hand-auger-borehole-restricted-access-sydney-backyard.jpg"
+                  alt="Motorised hand-auger borehole in a restricted-access Sydney backyard"
+                  fill
+                  sizes="(max-width: 1024px) 50vw, 30vw"
+                  className="object-cover"
+                />
+              </div>
+            </div>
+          </FadeIn>
+        </div>
       </section>
 
       {/* Why it matters — loss framing, premium voice */}

@@ -32,22 +32,23 @@ export default function Home() {
 
   return (
     <div className="bg-white text-slate-950 font-inter selection:bg-forest-green selection:text-white">
-      {/* ArchDaily Minimal Hero Section */}
-      <section className="relative px-6 lg:px-12 py-32 min-h-[90vh] flex flex-col justify-center overflow-hidden">
-        {/* Full Bleed Background Image with Subtle Gradient */}
+      {/* Cinematic hero — real SFGEO fieldwork */}
+      <section className="relative px-6 lg:px-12 py-32 min-h-[92vh] flex flex-col justify-center overflow-hidden bg-[#050A07]">
+        {/* Full-bleed fieldwork photograph under a dark scrim */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/img_0078_v3.png"
-            alt="Sydney geotechnical engineer site assessment — SFGEO"
-            title="Sydney geotechnical engineer conducting site assessment - SFGEO"
+            src="/sfgeo-drill-rig-mast-up-rural-sydney.jpg"
+            alt="SFGEO 4WD-mounted drill rig with mast raised on a rural Sydney block"
+            title="SFGEO drill rig on site — Sydney geotechnical investigation"
             fill
             sizes="100vw"
-            className="object-cover"
+            className="object-cover object-center"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-white/90 via-white/60 to-white/95" />
-          {/* Structural Plan line-art overlay */}
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(45,90,58,0.2)_1px,transparent_1px),linear-gradient(90deg,rgba(45,90,58,0.2)_1px,transparent_1px)] bg-[size:40px_40px] opacity-20 pointer-events-none mix-blend-multiply" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#050A07]/95 via-[#050A07]/65 to-[#050A07]/30" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#050A07] via-transparent to-[#050A07]/45" />
+          {/* Structural plan line-art overlay */}
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(143,191,159,0.25)_1px,transparent_1px),linear-gradient(90deg,rgba(143,191,159,0.25)_1px,transparent_1px)] bg-[size:40px_40px] opacity-10 pointer-events-none" />
         </div>
         
         <div className="mx-auto max-w-7xl relative z-10 w-full">
@@ -59,12 +60,12 @@ export default function Home() {
           >
             {/* H1 and Subhead Block */}
             <div className="flex flex-col items-center lg:items-start text-center lg:text-left flex-1 max-w-3xl">
-              <motion.p variants={fadeIn} className="text-sm uppercase tracking-[0.2em] text-forest-green mb-6 font-semibold">
-                Sydney, Australia
+              <motion.p variants={fadeIn} className="text-sm uppercase tracking-[0.2em] text-[#8FBF9F] mb-6 font-semibold">
+                Independent Geotechnical Consultancy &middot; Sydney
               </motion.p>
               <motion.h1 
                 variants={fadeIn}
-                className="text-5xl tracking-tight sm:text-7xl font-montserrat font-light text-slate-950 leading-[1.1] mb-8"
+                className="text-5xl tracking-tight sm:text-7xl font-montserrat font-light text-white leading-[1.1] mb-8"
               >
                 Geotechnical. <br />
                 <span className="font-semibold">Done Properly.</span>
@@ -81,14 +82,14 @@ export default function Home() {
                 </Link>
                 <Link
                   href="/contact?subject=b2b-enquiry"
-                  className="flex items-center justify-center px-5 py-2.5 bg-white text-forest-green rounded-full shadow-[inset_0_0_0_1px_rgba(45,90,58,0.25),0_4px_10px_-4px_rgba(0,0,0,0.05)] hover:bg-forest-green/5 hover:shadow-[inset_0_0_0_1px_rgba(45,90,58,0.4),0_6px_14px_-4px_rgba(0,0,0,0.1)] transition-all hover:-translate-y-0.5 w-[70%] sm:w-[240px] h-[46px]"
+                  className="flex items-center justify-center px-5 py-2.5 bg-white/5 text-white rounded-full shadow-[inset_0_0_0_1px_rgba(255,255,255,0.25)] hover:bg-white/10 hover:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.45)] transition-all hover:-translate-y-0.5 w-[70%] sm:w-[240px] h-[46px] backdrop-blur-sm"
                 >
                   <span className="text-xs font-semibold tracking-wide">B2B Enquiries</span>
                 </Link>
               </motion.div>
 
-              <motion.p variants={fadeIn} className="text-lg sm:text-xl text-gray-600 font-light leading-relaxed mb-6 max-w-3xl w-full">
-                Solid Foundation Geotechnical is a locally-owned, independent Sydney consultancy. Built on local expertise, we are your trusted consulting engineers. There from discussing ideas with your architect to the day your slab is poured, making sure it's built right.
+              <motion.p variants={fadeIn} className="text-lg sm:text-xl text-gray-300 font-light leading-relaxed mb-6 max-w-3xl w-full">
+                Solid Foundation Geotechnical is an independent Sydney consultancy led in the field by its Principal Engineer — the engineer who walks your block, drills your ground, and signs your report. From the first conversation with your architect to the day the slab is poured.
               </motion.p>
             </div>
 
@@ -116,12 +117,12 @@ export default function Home() {
         >
           <div>
             <motion.h2 variants={fadeIn} className="text-3xl font-light tracking-tight sm:text-4xl font-montserrat">
-              Geotechnical Services | <span className="font-semibold">Drilling Services</span>
+              Geotechnical &amp; <span className="font-semibold">Drilling Services</span>
             </motion.h2>
             <motion.div variants={fadeIn} className="mt-4 h-px bg-forest-green w-12" />
           </div>
           <motion.p variants={fadeIn} className="text-sm text-gray-500 max-w-md font-light">
-            Expert engineering guidance for Sydney’s residential and commercial projects, from initial soil testing to final construction sign-offs.
+            One consultancy across the whole arc of a build — from the first borehole to the final inspection, scoped and delivered by the engineer who does the work.
           </motion.p>
         </motion.div>
 
@@ -274,10 +275,102 @@ export default function Home() {
       </section>
 
 
+{/* Recent work strip */}
+      <section className="py-24 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={staggerContainer}
+          className="mb-16 flex flex-col md:flex-row md:items-end md:justify-between gap-8"
+        >
+          <div>
+            <motion.p variants={fadeIn} className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">
+              Recent work
+            </motion.p>
+            <motion.h2 variants={fadeIn} className="text-3xl font-light tracking-tight sm:text-4xl font-montserrat">
+              Proven on <span className="font-semibold">Sydney ground</span>
+            </motion.h2>
+            <motion.div variants={fadeIn} className="mt-4 h-px bg-forest-green w-12" />
+          </div>
+          <motion.p variants={fadeIn} className="text-sm text-gray-500 max-w-md font-light">
+            Real projects from our issued reports — what the client needed, what the ground turned out to be, and what the engineering did about it.
+          </motion.p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {[
+            {
+              href: "/projects#kenthurst",
+              image: "/projects/project-kenthurst.jpg",
+              alt: "SFGEO drill rig investigating a rural-residential estate lot in Kenthurst",
+              tag: "Geotechnical Investigation",
+              location: "Kenthurst",
+              title: "A rural estate, read hole by hole",
+              line: "Eight boreholes across a 2-hectare lot — reactive clay over shallow sandstone, mapped before a single footing was sized.",
+            },
+            {
+              href: "/projects#bexley-north",
+              image: "/projects/project-bexley-north.jpg",
+              alt: "Restricted-access hand-auger investigation in a Bexley North rear yard",
+              tag: "Limited-Scope Investigation",
+              location: "Bexley North",
+              title: "The pod that needed different foundations",
+              line: "Buried demolition fill ruled out the planned screw piles. The report redesigned the founding system — in seven days.",
+            },
+            {
+              href: "/projects#newport",
+              image: "/projects/project-newport.jpg",
+              alt: "Geotechnical fieldwork alongside an occupied strata building in Newport",
+              tag: "Geotechnical Investigation",
+              location: "Newport",
+              title: "Remedial works in a live building",
+              line: "Balcony reconstruction on an occupied strata building — assumptions tested, bearing upgraded, certifier requirements closed out.",
+            },
+          ].map((cs) => (
+            <motion.div
+              key={cs.href}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              <Link
+                href={cs.href}
+                className="group flex flex-col h-full rounded-2xl overflow-hidden bg-white border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-1"
+              >
+                <div className="relative h-56 overflow-hidden">
+                  <Image
+                    src={cs.image}
+                    alt={cs.alt}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover transition-transform duration-700 ease-in-out group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/70 via-transparent to-transparent" />
+                  <div className="absolute bottom-0 left-0 p-5">
+                    <p className="text-[10px] uppercase tracking-[0.25em] text-white/70 font-semibold mb-1">{cs.tag}</p>
+                    <p className="text-white font-montserrat text-lg font-light">{cs.location}</p>
+                  </div>
+                </div>
+                <div className="flex flex-col flex-grow p-7">
+                  <h3 className="text-lg font-montserrat font-semibold tracking-tight mb-3 group-hover:text-forest-green transition-colors">{cs.title}</h3>
+                  <p className="text-sm text-gray-600 font-light leading-relaxed flex-grow">{cs.line}</p>
+                  <span className="mt-5 text-sm font-medium tracking-wide text-slate-950 group-hover:text-forest-green transition-colors">
+                    Read the project &rarr;
+                  </span>
+                </div>
+              </Link>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+
 {/* Client Success / Testimonials via Glassmorphism */}
       <section className="py-32 relative overflow-hidden bg-slate-200 border-y border-gray-200">
         <div className="absolute inset-0 z-0">
-          <Image src="/img_0078_v3.png" alt="Sydney geotechnical engineer site assessment — SFGEO" title="Sydney geotechnical engineering site investigation - SFGEO" fill className="object-cover opacity-60 blur-xl scale-110" />
+          <Image src="/sfgeo-drilling-heritage-home-inner-west-sydney.jpg" alt="SFGEO geotechnical drilling at a heritage Inner West Sydney home" title="SFGEO fieldwork — Inner West Sydney" fill className="object-cover opacity-60 blur-xl scale-110" />
           <div className="absolute inset-0 bg-slate-100/40 mix-blend-overlay" />
         </div>
         

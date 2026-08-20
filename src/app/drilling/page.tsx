@@ -3,18 +3,21 @@ import DrillingClient from './DrillingClient';
 
 export const metadata: Metadata = {
   title: "Geotechnical Drilling Sydney | 4WD Mobilised | SFGEO",
-  description: "Boutique geotechnical and environmental drilling in Sydney. 4WD-mobilised rigs, tight access expertise, and PSI/DSI sampling for residential and commercial sites.",
+  description: "Geotechnical and environmental drilling in Sydney. 4WD-mounted rig, tight-access capability and PSI/DSI sampling for residential and commercial sites.",
   alternates: {
     canonical: '/drilling',
   },
   openGraph: {
+    images: ['/og/sfgeo-og-card.jpg'],
     title: "Geotechnical Drilling Sydney | 4WD Mobilised | SFGEO",
-    description: "Boutique geotechnical and environmental drilling in Sydney. 4WD-mobilised rigs, tight access expertise, and PSI/DSI sampling for residential and commercial sites.",
+    description: "Geotechnical and environmental drilling in Sydney. 4WD-mounted rig, tight-access capability and PSI/DSI sampling for residential and commercial sites.",
     url: '/drilling',
   },
   twitter: {
+    card: "summary_large_image",
+    images: ['/og/sfgeo-og-card.jpg'],
     title: "Geotechnical Drilling Sydney | 4WD Mobilised | SFGEO",
-    description: "Boutique geotechnical and environmental drilling in Sydney. 4WD-mobilised rigs, tight access expertise, and PSI/DSI sampling for residential and commercial sites.",
+    description: "Geotechnical and environmental drilling in Sydney. 4WD-mounted rig, tight-access capability and PSI/DSI sampling for residential and commercial sites.",
   },
 };
 
