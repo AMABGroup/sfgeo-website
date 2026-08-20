@@ -5,6 +5,7 @@ import { FadeIn, StaggerContainer, FadeInChild } from "./MotionWrapper";
 import VideoEmbed from "./VideoEmbed";
 import ImageOverlay from "@/components/ui/ImageOverlay";
 import { OverlayGroup } from "@/components/ui/OverlayGroup";
+import QuickQuoteCard from "@/components/forms/QuickQuoteCard";
 
 export const metadata: Metadata = {
   title: "Site Classification Sydney | AS2870 Soil Reports | SFGEO",
@@ -446,6 +447,18 @@ export default function SiteClassificationPage() {
             </div>
           </StaggerContainer>
         </div>
+      </section>
+
+      {/* Quote card — placed at the pricing decision point */}
+      <section className="py-16 px-6 lg:px-12">
+        <FadeIn>
+          <div className="max-w-md mx-auto">
+            <QuickQuoteCard
+              source="site-classification page"
+              heading="Get your fixed-fee quote"
+            />
+          </div>
+        </FadeIn>
       </section>
 
       {/* Section 5: Turnaround */}

@@ -9,6 +9,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { PlusIcon, MinusIcon } from "@heroicons/react/24/outline";
 import { StarIcon } from "@heroicons/react/24/solid";
 import GoogleReviews from "@/components/ui/GoogleReviews";
+import QuickQuoteCard from "@/components/forms/QuickQuoteCard";
 import ServiceAreaBlock from "@/components/sections/ServiceAreaBlock";
 
 export default function Home() {
@@ -87,23 +88,18 @@ export default function Home() {
               </motion.div>
 
               <motion.p variants={fadeIn} className="text-lg sm:text-xl text-gray-600 font-light leading-relaxed mb-6 max-w-3xl w-full">
-                Solid Foundation Geotechnical is a locally-owned, independent Sydney consultancy. Built on local expertise, we are your trusted consulting engineers. There from discussing ideas with your architect to the day your slab is poured, making sure it's built right. NATA lab-backed. Fixed-fee quotes. No corporate overhead.
+                Solid Foundation Geotechnical is a locally-owned, independent Sydney consultancy. Built on local expertise, we are your trusted consulting engineers. There from discussing ideas with your architect to the day your slab is poured, making sure it's built right. NATA lab-backed. Fixed-fee quotes from $800 + GST. No corporate overhead.
               </motion.p>
             </div>
 
-            {/* Desktop CTAs */}
-            <motion.div variants={fadeIn} className="hidden lg:flex flex-row items-center gap-4 shrink-0">
-              <Link
-                href="/contact?subject=site-inspection"
-                className="flex items-center justify-center px-5 py-2.5 bg-gradient-to-b from-[#346b43] to-forest-green text-white rounded-full shadow-[0_8px_20px_-6px_rgba(45,90,58,0.4)] hover:shadow-[0_12px_24px_-8px_rgba(45,90,58,0.6)] hover:brightness-105 transition-all hover:-translate-y-0.5 w-[240px] h-[46px]"
-              >
-                <span className="text-xs font-semibold tracking-wide">Request an Inspection</span>
-              </Link>
+            {/* Desktop enquiry card */}
+            <motion.div variants={fadeIn} className="hidden lg:flex flex-col items-center gap-4 shrink-0">
+              <QuickQuoteCard source="homepage hero" />
               <Link
                 href="/contact?subject=b2b-enquiry"
-                className="flex items-center justify-center px-5 py-2.5 bg-white text-forest-green rounded-full shadow-[inset_0_0_0_1px_rgba(45,90,58,0.25),0_4px_10px_-4px_rgba(0,0,0,0.05)] hover:bg-forest-green/5 hover:shadow-[inset_0_0_0_1px_rgba(45,90,58,0.4),0_6px_14px_-4px_rgba(0,0,0,0.1)] transition-all hover:-translate-y-0.5 w-[240px] h-[46px]"
+                className="text-xs font-semibold tracking-wide text-forest-green hover:underline"
               >
-                <span className="text-xs font-semibold tracking-wide">B2B Enquiries</span>
+                B2B and subcontract enquiries &rarr;
               </Link>
             </motion.div>
 
