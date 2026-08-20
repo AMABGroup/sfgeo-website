@@ -3,18 +3,21 @@ import AboutClient from "./AboutClient";
 
 export const metadata: Metadata = {
   title: "Geotechnical Engineers Sydney | About SFGEO",
-  description: "Sydney's boutique geotechnical consultancy. Meet the principal-led team delivering site classifications, investigations, and 4WD drilling across Greater Sydney.",
+  description: "Sydney's boutique geotechnical consultancy. Meet the Principal Engineer behind every classification, investigation and drilling job across Sydney.",
   alternates: {
     canonical: '/about',
   },
   openGraph: {
+    images: ['/og/sfgeo-og-card.jpg'],
     title: "Geotechnical Engineers Sydney | About SFGEO",
-    description: "Sydney's boutique geotechnical consultancy. Meet the principal-led team delivering site classifications, investigations, and 4WD drilling across Greater Sydney.",
+    description: "Sydney's boutique geotechnical consultancy. Meet the Principal Engineer behind every classification, investigation and drilling job across Sydney.",
     url: '/about',
   },
   twitter: {
+    card: "summary_large_image",
+    images: ['/og/sfgeo-og-card.jpg'],
     title: "Geotechnical Engineers Sydney | About SFGEO",
-    description: "Sydney's boutique geotechnical consultancy. Meet the principal-led team delivering site classifications, investigations, and 4WD drilling across Greater Sydney.",
+    description: "Sydney's boutique geotechnical consultancy. Meet the Principal Engineer behind every classification, investigation and drilling job across Sydney.",
   },
 };
 

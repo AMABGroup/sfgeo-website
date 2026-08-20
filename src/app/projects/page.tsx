@@ -5,18 +5,21 @@ import { FadeIn } from "../site-classification/MotionWrapper";
 
 export const metadata: Metadata = {
   title: "Projects | Geotechnical Case Studies Sydney | SFGEO",
-  description: "Real SFGEO projects across Sydney — rural estate investigations, problem-site foundations, remedial works in live buildings and council compliance, drawn from issued reports.",
+  description: "Real SFGEO projects across Sydney — estate investigations, problem-site foundations, remedial works and council compliance, drawn from issued reports.",
   alternates: {
     canonical: '/projects',
   },
   openGraph: {
+    images: ['/og/sfgeo-og-card.jpg'],
     title: "Projects | Geotechnical Case Studies Sydney | SFGEO",
-    description: "Real SFGEO projects across Sydney — rural estate investigations, problem-site foundations, remedial works in live buildings and council compliance.",
+    description: "Real SFGEO projects across Sydney — estate investigations, problem-site foundations, remedial works and council compliance, drawn from issued reports.",
     url: '/projects',
   },
   twitter: {
+    card: "summary_large_image",
+    images: ['/og/sfgeo-og-card.jpg'],
     title: "Projects | Geotechnical Case Studies Sydney | SFGEO",
-    description: "Real SFGEO projects across Sydney — rural estate investigations, problem-site foundations, remedial works in live buildings and council compliance.",
+    description: "Real SFGEO projects across Sydney — estate investigations, problem-site foundations, remedial works and council compliance, drawn from issued reports.",
   },
 };
 

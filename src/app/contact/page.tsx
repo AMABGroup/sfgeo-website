@@ -11,11 +11,14 @@ export const metadata: Metadata = {
     canonical: '/contact',
   },
   openGraph: {
+    images: ['/og/sfgeo-og-card.jpg'],
     title: "Contact Our Sydney Geotechnical Engineers | SFGEO",
     description: "Speak directly with a Sydney geotechnical consultant. Fixed-fee quotes for site classifications, investigations, and drilling services across Greater Sydney.",
     url: '/contact',
   },
   twitter: {
+    card: "summary_large_image",
+    images: ['/og/sfgeo-og-card.jpg'],
     title: "Contact Our Sydney Geotechnical Engineers | SFGEO",
     description: "Speak directly with a Sydney geotechnical consultant. Fixed-fee quotes for site classifications, investigations, and drilling services across Greater Sydney.",
   },

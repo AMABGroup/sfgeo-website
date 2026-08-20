@@ -9,11 +9,14 @@ export const metadata: Metadata = {
     canonical: '/faq',
   },
   openGraph: {
+    images: ['/og/sfgeo-og-card.jpg'],
     title: "Geotechnical Engineering FAQ Sydney | SFGEO",
     description: "Common questions about geotechnical investigations, site classifications, and soil testing in Sydney. Clear, technical advice for homeowners and builders.",
     url: '/faq',
   },
   twitter: {
+    card: "summary_large_image",
+    images: ['/og/sfgeo-og-card.jpg'],
     title: "Geotechnical Engineering FAQ Sydney | SFGEO",
     description: "Common questions about geotechnical investigations, site classifications, and soil testing in Sydney. Clear, technical advice for homeowners and builders.",
   },

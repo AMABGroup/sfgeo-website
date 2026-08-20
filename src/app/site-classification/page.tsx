@@ -10,18 +10,21 @@ import GoogleReviews from "@/components/ui/GoogleReviews";
 
 export const metadata: Metadata = {
   title: "Site Classification Sydney | AS2870 Soil Reports | SFGEO",
-  description: "AS2870 site classifications for Sydney homes and extensions. Principal-led investigations, NATA lab-backed reporting, and fixed-fee quotes for builds across Sydney.",
+  description: "AS2870 site classifications for Sydney homes and extensions. Principal-led, NATA lab-backed, fixed-fee — reports as soon as 2–3 business days.",
   alternates: {
     canonical: '/site-classification',
   },
   openGraph: {
+    images: ['/og/sfgeo-og-card.jpg'],
     title: "Site Classification Sydney | AS2870 Soil Reports | SFGEO",
-    description: "AS2870 site classifications for Sydney homes and extensions. Principal-led investigations, NATA lab-backed reporting, and fixed-fee quotes for builds across Sydney.",
+    description: "AS2870 site classifications for Sydney homes and extensions. Principal-led, NATA lab-backed, fixed-fee — reports as soon as 2–3 business days.",
     url: '/site-classification',
   },
   twitter: {
+    card: "summary_large_image",
+    images: ['/og/sfgeo-og-card.jpg'],
     title: "Site Classification Sydney | AS2870 Soil Reports | SFGEO",
-    description: "AS2870 site classifications for Sydney homes and extensions. Principal-led investigations, NATA lab-backed reporting, and fixed-fee quotes for builds across Sydney.",
+    description: "AS2870 site classifications for Sydney homes and extensions. Principal-led, NATA lab-backed, fixed-fee — reports as soon as 2–3 business days.",
   },
 };
 

@@ -7,18 +7,21 @@ import GoogleReviews from "@/components/ui/GoogleReviews";
 
 export const metadata: Metadata = {
   title: "Geotechnical Investigations Sydney | DA & Footing Reports | SFGEO",
-  description: "Principal-led geotechnical investigations and reports for Sydney DAs, CDCs, footing design, basements and retaining structures. Borehole drilling, DCP testing and NATA lab-backed reporting at fixed fees.",
+  description: "Principal-led geotechnical investigations for Sydney DAs, footings, basements and retaining structures. Fixed-fee quotes, reports certifiers accept.",
   alternates: {
     canonical: '/geotechnical-investigations',
   },
   openGraph: {
+    images: ['/og/sfgeo-og-card.jpg'],
     title: "Geotechnical Investigations Sydney | DA & Footing Reports | SFGEO",
-    description: "Principal-led geotechnical investigations and reports for Sydney DAs, CDCs, footing design, basements and retaining structures. Fixed-fee quotes.",
+    description: "Principal-led geotechnical investigations for Sydney DAs, footings, basements and retaining structures. Fixed-fee quotes, reports certifiers accept.",
     url: '/geotechnical-investigations',
   },
   twitter: {
+    card: "summary_large_image",
+    images: ['/og/sfgeo-og-card.jpg'],
     title: "Geotechnical Investigations Sydney | DA & Footing Reports | SFGEO",
-    description: "Principal-led geotechnical investigations and reports for Sydney DAs, CDCs, footing design, basements and retaining structures. Fixed-fee quotes.",
+    description: "Principal-led geotechnical investigations for Sydney DAs, footings, basements and retaining structures. Fixed-fee quotes, reports certifiers accept.",
   },
 };
 

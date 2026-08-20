@@ -3,18 +3,21 @@ import ServicesClient from './ServicesClient';
 
 export const metadata: Metadata = {
   title: "Geotechnical Services Sydney | SFGEO",
-  description: "Specialist geotechnical services across Sydney. Principal-led site classifications, investigations, and construction support for residential and commercial builds.",
+  description: "Specialist geotechnical services across Sydney. Principal-led classifications, investigations and construction support for homes and commercial builds.",
   alternates: {
     canonical: '/services',
   },
   openGraph: {
+    images: ['/og/sfgeo-og-card.jpg'],
     title: "Geotechnical Services Sydney | SFGEO",
-    description: "Specialist geotechnical services across Sydney. Principal-led site classifications, investigations, and construction support for residential and commercial builds.",
+    description: "Specialist geotechnical services across Sydney. Principal-led classifications, investigations and construction support for homes and commercial builds.",
     url: '/services',
   },
   twitter: {
+    card: "summary_large_image",
+    images: ['/og/sfgeo-og-card.jpg'],
     title: "Geotechnical Services Sydney | SFGEO",
-    description: "Specialist geotechnical services across Sydney. Principal-led site classifications, investigations, and construction support for residential and commercial builds.",
+    description: "Specialist geotechnical services across Sydney. Principal-led classifications, investigations and construction support for homes and commercial builds.",
   },
 };
 
