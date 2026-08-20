@@ -53,6 +53,11 @@ export default function Footer() {
                 <h3 className="text-sm font-semibold leading-6 text-white font-montserrat">Company</h3>
                 <ul role="list" className="mt-6 space-y-4">
                   <li>
+                    <Link href="/projects" className="text-sm leading-6 text-gray-300 hover:text-white transition-colors tracking-wide">
+                      Projects
+                    </Link>
+                  </li>
+                  <li>
                     <Link href="/about" className="text-sm leading-6 text-gray-300 hover:text-white transition-colors tracking-wide">
                       About Us
                     </Link>

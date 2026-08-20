@@ -43,6 +43,7 @@ export default function Navbar() {
         { name: "B2B Drilling", href: "/drilling#b2b-drilling" }
       ]
     },
+    { name: "Projects", href: "/projects" },
     { name: "FAQ", href: "/faq" },
     { name: "Contact", href: "/contact" },
   ];
