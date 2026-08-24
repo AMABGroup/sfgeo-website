@@ -189,19 +189,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ============ Editorial statement ============ */}
-      <section className="px-6 lg:px-12 py-36 lg:py-44">
-        <div className="max-w-7xl mx-auto">
-          <Reveal>
-            <p className="text-[clamp(2.1rem,5vw,4.3rem)] font-montserrat font-light tracking-[-0.015em] leading-[1.12] max-w-5xl text-slate-950 text-balance">
-              We read the ground <span className="font-semibold">before you build on it</span> — so the surprises happen in the report, not the excavation.
-            </p>
-          </Reveal>
-        </div>
-      </section>
-
       {/* ============ Recent work ============ */}
-      <section className="pb-32 lg:pb-36 px-6 lg:px-12 max-w-7xl mx-auto">
+      <section className="py-32 lg:py-36 px-6 lg:px-12 max-w-7xl mx-auto">
         <Reveal className="mb-16 flex flex-col md:flex-row md:items-end md:justify-between gap-8">
           <div>
             <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">03 &middot; Recent work</p>
@@ -252,6 +241,27 @@ export default function Home() {
               </Link>
             </Reveal>
           ))}
+        </div>
+      </section>
+
+      {/* ============ Photographic interlude — statement over fieldwork ============ */}
+      <section className="relative h-[72vh] min-h-[500px] overflow-hidden grain">
+        <Image
+          src="/sfgeo-dcp-kenthurst-paddock.jpg"
+          alt="A dynamic cone penetrometer standing in a Kenthurst paddock — SFGEO fieldwork"
+          fill
+          sizes="100vw"
+          quality={70}
+          className="object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-[#050A07]/45" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/55 via-transparent to-[#050A07]/35" />
+        <div className="absolute inset-0 flex items-center justify-center px-6 lg:px-12">
+          <Reveal>
+            <p className="text-[clamp(1.9rem,4.2vw,3.6rem)] font-montserrat font-light tracking-[-0.015em] leading-[1.2] text-white text-center max-w-4xl text-balance">
+              We read the ground <span className="font-semibold">before you build on it</span> — so the surprises happen in the report, not the excavation.
+            </p>
+          </Reveal>
         </div>
       </section>
 
