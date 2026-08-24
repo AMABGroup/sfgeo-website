@@ -44,8 +44,9 @@ export default function Navbar() {
         { name: "Site Classification", href: "/site-classification" },
         { name: "Geotechnical Investigations", href: "/geotechnical-investigations" },
         { name: "Construction Phase Support", href: "/services#inspections" },
-        { name: "Geotechnical Design", href: "/services#design" },
-        { name: "Partner Network", href: "/services#partners" }
+        { name: "Tight Access Drilling", href: "/tight-access-drilling" },
+        { name: "Concrete Coring", href: "/concrete-coring" },
+        { name: "Other Services", href: "/other-services" }
       ]
     },
     { 

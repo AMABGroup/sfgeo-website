@@ -14,7 +14,7 @@ export default function Footer() {
               <Image src="/SFGEO_logo_black.png" alt="SFGEO Logo" title="SFGEO - Solid Foundation Geotechnical Logo" fill className="object-contain object-left invert brightness-0" />
             </div>
             <p className="text-sm leading-6 text-gray-300">
-              Premium independent engineering consultancy providing expert Residential and Construction phase support in Sydney.
+              Family-owned Sydney geotechnical consultancy — site classifications, investigations, construction support, drilling and coring, led by the Principal on every job.
             </p>
           </div>
           <div className="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
@@ -40,6 +40,21 @@ export default function Footer() {
                   <li>
                     <Link href="/drilling" className="text-sm leading-6 text-gray-300 hover:text-white transition-colors tracking-wide">
                       Drilling Services
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/tight-access-drilling" className="text-sm leading-6 text-gray-300 hover:text-white transition-colors tracking-wide">
+                      Tight Access Drilling
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/concrete-coring" className="text-sm leading-6 text-gray-300 hover:text-white transition-colors tracking-wide">
+                      Concrete Coring
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/other-services" className="text-sm leading-6 text-gray-300 hover:text-white transition-colors tracking-wide">
+                      Other Services
                     </Link>
                   </li>
                   <li>
