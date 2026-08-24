@@ -114,7 +114,7 @@ export default function QuickQuoteCard({ source, heading = "Request a fixed-fee 
     `${fieldClasses(field)} appearance-none cursor-pointer ${hasValue ? "text-white" : "text-white/40"}`;
 
   return (
-    <div className="w-full max-w-md rounded-3xl bg-[#050A07] relative overflow-hidden p-9 shadow-[0_24px_60px_-24px_rgba(5,10,7,0.55)]">
+    <div className="w-full max-w-md rounded-3xl bg-[#050A07] relative overflow-hidden p-9 shadow-[0_24px_60px_-24px_rgba(5,10,7,0.55)] ring-1 ring-white/10">
       <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_-20%,rgba(45,90,58,0.35),transparent_70%)] pointer-events-none" />
       <div className="relative z-10">
         <AnimatePresence mode="wait">
