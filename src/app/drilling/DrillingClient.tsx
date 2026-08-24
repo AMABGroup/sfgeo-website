@@ -179,7 +179,7 @@ export default function DrillingClient() {
               <h2 className="text-3xl font-light tracking-tight font-montserrat text-slate-950 mb-8">Borehole Drilling & Rock Coring</h2>
               <div className="text-lg text-gray-600 font-light leading-relaxed space-y-6 mb-10">
                 <p>
-                  We operate a versatile drilling fleet anchored by agile 4WD ute-mounted rigs, capable of delivering precise borehole drilling and rock coring across a wide range of Sydney ground conditions. Please note that due to the specialised nature of the equipment, all rock coring services require advance notice for booking and prepayment.
+                  We operate an agile 4WD ute-mounted rig delivering borehole drilling and rock coring across a wide range of Sydney ground conditions. Please note that due to the specialised nature of the equipment, all rock coring services require advance notice for booking and prepayment.
                 </p>
                 <p>
                   Whether we are coring through <span className="font-medium text-slate-950">Hawkesbury sandstone</span> on the North Shore or investigating Cumberland Plain soils and shale in Western Sydney, we extract the intact rock cores and geotechnical profiles that inform structural engineering decisions. We provide reliable in-situ testing for our own investigations, as well as specialist subcontract drilling and sampling support for other consulting firms requiring reliable field capacity.
@@ -322,7 +322,7 @@ export default function DrillingClient() {
               <h2 className="text-3xl font-light tracking-tight font-montserrat text-slate-950 mb-8">Rig Capacity for Your Next Project</h2>
               <div className="text-lg text-gray-600 font-light leading-relaxed space-y-6 mb-10">
                 <p>
-                  Our 4WD-mounted drill rig is available on a subcontract basis to engineering consultancies, civil contractors, and developers who need reliable rig capacity without the overhead of an in-house crew. Rapid mobilisation across the Sydney Metro, experienced drill supervision, and direct engineer oversight on every deployment.
+                  Our 4WD-mounted drill rig and crew are available on a subcontract basis to engineering consultancies, civil contractors, builders and major project teams who need reliable rig capacity without the overhead of an in-house crew. Rapid mobilisation across the Sydney metro and regional NSW, on your program and your supervision or ours — engineer operated, always.
                 </p>
                 <p>
                   Whether you are scoping boreholes for due diligence, a pavement investigation, or standing piles for a civil contract, we bring the rig, the logs, and the NATA-backed sampling — delivered under your scope or ours.
