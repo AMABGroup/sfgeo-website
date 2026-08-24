@@ -49,6 +49,9 @@ export default function ContactForm() {
     "Retaining wall",
     "Commercial or multi-residential",
     "B2B subcontract drilling",
+  "Design parameters for engineers",
+  "Environmental sampling",
+  "Concrete coring",
     "Other",
   ];
 

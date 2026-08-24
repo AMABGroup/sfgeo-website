@@ -67,8 +67,8 @@ export default function AboutClient() {
         {/* Full Bleed Background Image with Subtle Gradient */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/canada-bay.webp"
-            alt="Boutique Geotechnical Consultancy Sydney - SFGEO Canada Bay Workspace"
+            src="/sfgeo-team-drilling-logging-sydney.jpg"
+            alt="SFGEO crew drilling and logging on a Sydney site"
             title="SFGEO Canada Bay workspace - boutique geotechnical consultancy in Sydney"
             fill
             priority
@@ -169,7 +169,7 @@ export default function AboutClient() {
             SFGEO is a locally-owned, independent geotechnical consultancy based in Marrickville, built on 15 years of hands-on Sydney experience across residential <Link href="/site-classification" className="text-forest-green hover:underline">site classifications</Link>, bespoke architectural homes, and landmark infrastructure.
           </p>
           <p className="text-lg text-gray-600 font-light leading-loose mb-6">
-            We were founded on a simple belief: that clients deserve direct access to a professional that cares about their project, not a corporate firm that passes your project down the chain. When you work with SFGEO, you work with the same team, start to finish.
+            We were founded on a simple belief: clients deserve direct access to the professional doing the work, not a corporate chain. SFGEO is family owned and Sydney grown — a principal-led team, hired locally, backed by a trusted partner network. When you work with SFGEO, you work with the same team, start to finish.
           </p>
           <p className="text-lg text-gray-600 font-light leading-loose">
             Our Principal Engineer has contributed to Sydney Gateway, the M12 Motorway, Western Sydney Airport, and the Canterbury Aquatic Centre. That depth of experience now serves your project with the responsiveness, transparency, and personal care that only an independent practice can offer.
@@ -185,8 +185,8 @@ export default function AboutClient() {
           className="lg:col-span-4 relative aspect-[3/4] rounded-none bg-gray-50 flex items-center justify-center overflow-hidden shadow-none group w-full"
         >
           <Image
-            src="/geotechnical-engineer-led-field-operations-sydney.jpg"
-            alt="SFGEO geotechnical engineer supervising field drilling operations."
+            src="/sfgeo-crew-drill-rig-western-sydney.jpg"
+            alt="SFGEO crew at the drill rig, Western Sydney"
             title="Principal Geotechnical Engineer supervising drilling operations on a Sydney site"
             fill
             sizes="(max-width: 1024px) 100vw, 33vw"
@@ -215,7 +215,7 @@ export default function AboutClient() {
               Direct Access. Always.
             </h3>
             <p className="text-gray-600 font-light leading-relaxed">
-              Call us, email us, turn up. You reach your consultant directly — no admin queues, no message chains.
+              Call, email, turn up. You reach the team doing the work directly — no admin queues, no message chains.
             </p>
           </motion.div>
 
