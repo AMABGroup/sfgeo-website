@@ -6,6 +6,7 @@ import ServiceAreaBlock from "@/components/sections/ServiceAreaBlock";
 import ServiceIndex from "@/components/sections/ServiceIndex";
 import HomeFaq from "@/components/sections/HomeFaq";
 import Reveal from "@/components/ui/Reveal";
+import HeroParallax from "@/components/ui/HeroParallax";
 
 const caseStudies = [
   {
@@ -42,9 +43,10 @@ export default function Home() {
     <div className="bg-white text-slate-950 font-inter selection:bg-forest-green selection:text-white">
 
       {/* ============ Cinematic hero — server-rendered, CSS choreography ============ */}
-      <section className="relative px-6 lg:px-12 pt-40 pb-28 min-h-[100svh] flex flex-col justify-center overflow-hidden bg-[#050A07]">
+      <section className="relative px-6 lg:px-12 pt-40 pb-28 min-h-[100svh] flex flex-col justify-center overflow-hidden bg-[#050A07] grain">
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 hero-kenburns">
+          <HeroParallax>
+          <div className="absolute inset-[-12%_0_0_0] hero-kenburns">
             <Image
               src="/sfgeo-drill-rig-mast-up-rural-sydney.jpg"
               alt="SFGEO 4WD-mounted drill rig with mast raised on a rural Sydney block"
@@ -56,6 +58,7 @@ export default function Home() {
               priority
             />
           </div>
+          </HeroParallax>
           <div className="absolute inset-0 bg-gradient-to-r from-[#050A07]/95 via-[#050A07]/65 to-[#050A07]/30" />
           <div className="absolute inset-0 bg-gradient-to-t from-[#050A07] via-transparent to-[#050A07]/45" />
           <div className="absolute inset-0 bg-[linear-gradient(rgba(143,191,159,0.25)_1px,transparent_1px),linear-gradient(90deg,rgba(143,191,159,0.25)_1px,transparent_1px)] bg-[size:40px_40px] opacity-10 pointer-events-none" />
@@ -67,9 +70,9 @@ export default function Home() {
               <p className="hero-line text-sm uppercase tracking-[0.2em] text-[#8FBF9F] mb-6 font-semibold">
                 Independent Geotechnical Consultancy &middot; Sydney
               </p>
-              <h1 className="hero-line hero-d1 text-5xl tracking-tight sm:text-7xl font-montserrat font-light text-white leading-[1.1] mb-8">
-                Geotechnical. <br />
-                <span className="font-semibold">Done Properly.</span>
+              <h1 className="text-[clamp(3.2rem,7vw,6.6rem)] tracking-[-0.02em] font-montserrat font-light text-white leading-[1.04] mb-8">
+                <span className="mask-line mask-d1"><span>Geotechnical.</span></span>
+                <span className="mask-line mask-d2"><span className="font-semibold">Done Properly.</span></span>
               </h1>
               <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mt-5 mb-5 mx-auto lg:mx-0"></div>
 
@@ -127,11 +130,11 @@ export default function Home() {
       </section>
 
       {/* ============ Service index ============ */}
-      <section className="py-28 px-6 lg:px-12 max-w-7xl mx-auto">
+      <section className="py-32 lg:py-36 px-6 lg:px-12 max-w-7xl mx-auto">
         <Reveal className="mb-16 flex flex-col md:flex-row md:items-end md:justify-between gap-8">
           <div>
-            <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">What we do</p>
-            <h2 className="text-3xl font-light tracking-tight sm:text-4xl font-montserrat">
+            <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">01 &middot; What we do</p>
+            <h2 className="text-4xl font-light tracking-tight sm:text-5xl font-montserrat">
               Four services. <span className="font-semibold">One engineer.</span>
             </h2>
             <div className="mt-4 h-px bg-forest-green w-12" />
@@ -146,11 +149,11 @@ export default function Home() {
       </section>
 
       {/* ============ The engineer — dark anchor band ============ */}
-      <section className="relative overflow-hidden bg-[#050A07] text-white">
+      <section className="relative overflow-hidden bg-[#050A07] text-white grain">
         <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_-10%,rgba(45,90,58,0.28),transparent_60%)] pointer-events-none" />
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-28 grid grid-cols-1 lg:grid-cols-[1.15fr_1fr] gap-14 lg:gap-20 items-center relative z-10">
           <Reveal>
-            <p className="text-sm uppercase tracking-[0.2em] text-[#8FBF9F] mb-6 font-semibold">The Principal Engineer</p>
+            <p className="text-sm uppercase tracking-[0.2em] text-[#8FBF9F] mb-6 font-semibold">02 &middot; The Principal Engineer</p>
             <h2 className="text-3xl sm:text-5xl font-montserrat font-light tracking-tight leading-[1.15] mb-8">
               The engineer who answers the phone <span className="font-semibold">is the one on the rig.</span>
             </h2>
@@ -160,14 +163,15 @@ export default function Home() {
             </p>
             <Link
               href="/about"
-              className="inline-flex items-center gap-2 text-sm font-semibold tracking-wide text-white hover:text-[#8FBF9F] transition-colors group"
+              className="inline-flex items-center gap-2 text-sm font-semibold tracking-wide text-white group"
             >
-              Meet the engineer
+              <span className="draw-link">Meet the engineer</span>
               <span className="transition-transform group-hover:translate-x-1">&rarr;</span>
             </Link>
           </Reveal>
           <Reveal delay={120}>
             <div className="relative aspect-[4/5] max-w-md mx-auto lg:mx-0 lg:ml-auto rounded-2xl overflow-hidden shadow-[0_32px_80px_-32px_rgba(0,0,0,0.8)]">
+              <div className="unveil absolute inset-0">
               <Image
                 src="/sfgeo-sandstone-cuttings-hand.jpg"
                 alt="Fresh sandstone cuttings held in hand at the auger — SFGEO fieldwork"
@@ -175,6 +179,7 @@ export default function Home() {
                 sizes="(max-width: 1024px) 100vw, 40vw"
                 className="object-cover"
               />
+              </div>
               <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/50 via-transparent to-transparent" />
               <div className="absolute bottom-0 left-0 p-6">
                 <p className="text-[11px] uppercase tracking-[0.25em] text-white/70 font-semibold">Hawkesbury sandstone &middot; Kenthurst</p>
@@ -184,12 +189,23 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ============ Editorial statement ============ */}
+      <section className="px-6 lg:px-12 py-36 lg:py-44">
+        <div className="max-w-7xl mx-auto">
+          <Reveal>
+            <p className="text-[clamp(2.1rem,5vw,4.3rem)] font-montserrat font-light tracking-[-0.015em] leading-[1.12] max-w-5xl text-slate-950 text-balance">
+              We read the ground <span className="font-semibold">before you build on it</span> — so the surprises happen in the report, not the excavation.
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
       {/* ============ Recent work ============ */}
-      <section className="py-28 px-6 lg:px-12 max-w-7xl mx-auto">
+      <section className="pb-32 lg:pb-36 px-6 lg:px-12 max-w-7xl mx-auto">
         <Reveal className="mb-16 flex flex-col md:flex-row md:items-end md:justify-between gap-8">
           <div>
-            <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">Recent work</p>
-            <h2 className="text-3xl font-light tracking-tight sm:text-4xl font-montserrat">
+            <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">03 &middot; Recent work</p>
+            <h2 className="text-4xl font-light tracking-tight sm:text-5xl font-montserrat">
               Proven on <span className="font-semibold">Sydney ground</span>
             </h2>
             <div className="mt-4 h-px bg-forest-green w-12" />
@@ -198,8 +214,9 @@ export default function Home() {
             <p className="text-sm text-gray-500 max-w-md font-light md:text-right">
               Real projects from our issued reports — what the client needed, what the ground turned out to be, and what the engineering did about it.
             </p>
-            <Link href="/projects" className="text-sm font-semibold tracking-wide text-forest-green hover:text-slate-950 transition-colors">
-              All projects &rarr;
+            <Link href="/projects" className="text-sm font-semibold tracking-wide text-forest-green group inline-flex items-center gap-2">
+              <span className="draw-link">All projects</span>
+              <span className="transition-transform group-hover:translate-x-1">&rarr;</span>
             </Link>
           </div>
         </Reveal>
@@ -248,7 +265,7 @@ export default function Home() {
       {/* ============ FAQ ============ */}
       <section className="py-28 px-6 lg:px-12 max-w-4xl mx-auto">
         <Reveal className="text-center mb-16">
-          <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">Before you call</p>
+          <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">04 &middot; Before you call</p>
           <h2 className="text-3xl font-light tracking-tight font-montserrat text-slate-950">
             Common <span className="font-semibold">questions</span>
           </h2>
