@@ -179,7 +179,7 @@ export default function DrillingClient() {
               <h2 className="text-3xl font-light tracking-tight font-montserrat text-slate-950 mb-8">Borehole Drilling & Rock Coring</h2>
               <div className="text-lg text-gray-600 font-light leading-relaxed space-y-6 mb-10">
                 <p>
-                  We operate a versatile drilling fleet anchored by agile 4WD ute-mounted rigs, capable of delivering precise borehole drilling and rock coring across a wide range of Sydney ground conditions. Please note that due to the specialised nature of the equipment, all rock coring services require advanced notice for booking and prepayment.
+                  We operate a versatile drilling fleet anchored by agile 4WD ute-mounted rigs, capable of delivering precise borehole drilling and rock coring across a wide range of Sydney ground conditions. Please note that due to the specialised nature of the equipment, all rock coring services require advance notice for booking and prepayment.
                 </p>
                 <p>
                   Whether we are coring through <span className="font-medium text-slate-950">Hawkesbury sandstone</span> on the North Shore or investigating Cumberland Plain soils and shale in Western Sydney, we extract the intact rock cores and geotechnical profiles that inform structural engineering decisions. We provide reliable in-situ testing for our own investigations, as well as specialist subcontract drilling and sampling support for other consulting firms requiring reliable field capacity.
@@ -230,7 +230,7 @@ export default function DrillingClient() {
                   We specialise in narrow, restricted-access urban sites. From the heritage terraces of the Inner West to the steep, tight boundaries of the Eastern Suburbs, access shouldn't compromise your engineering data.
                 </p>
                 <p>
-                  Alongside our standard fleet, we utilize specialised equipment including motorised hand augers, and can deploy track-mounted rigs for highly restricted sites. As with our standard coring operations, tight-access rock coring and track-mounted rigs require advanced notice and prepayment to secure your booking. We extract quality soil and rock samples from difficult-to-reach locations—including basements and zero-clearance environments—while helping minimise disruption to existing structures and finished surfaces.
+                  Alongside our standard fleet, we use specialised equipment including motorised hand augers, and can deploy track-mounted rigs for highly restricted sites. As with our standard coring operations, tight-access rock coring and track-mounted rigs require advance notice and prepayment to secure your booking. We extract quality soil and rock samples from difficult-to-reach locations—including basements and zero-clearance environments—while helping minimise disruption to existing structures and finished surfaces.
                 </p>
               </div>
 

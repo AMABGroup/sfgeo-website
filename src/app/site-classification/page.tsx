@@ -381,7 +381,7 @@ export default function SiteClassificationPage() {
               </h2>
               <div className="text-lg text-gray-600 font-light leading-relaxed space-y-6">
                 <p>
-                  Geotechnical reporting in Sydney has a transparency problem. Headline fees look sharp on first read, then return heavier once scope is actually scoped. Or the fee is genuinely cheap, and the report is thin, templated, and bounced by the certifier. Either way, you pay for it, often in concrete and steel that never had to be there.
+                  Geotechnical reporting in Sydney has a transparency problem. Headline fees look sharp on first read, then return heavier once scope is actually scoped. Or the fee is cheap, and the report is thin, templated, and bounced by the certifier. Either way, you pay for it, often in concrete and steel that never had to be there.
                 </p>
                 <p>
                   SFGEO pricing is fixed-fee, confirmed in writing before work begins. The figures below are starting points. What drives a real quote is the site itself, access, ground conditions, existing structures, slope, the depth of investigation your project actually needs. That is why every engagement starts with the Principal Engineer on your ground.
@@ -472,7 +472,7 @@ export default function SiteClassificationPage() {
             Turnaround
           </h2>
           <p className="text-lg text-gray-600 font-light leading-relaxed space-y-6">
-            <span className="block">Turnaround times from initial contact to final report can be as soon as 2–3 business days. Complex sites, Class P investigations, and projects requiring laboratory testing take longer and are scoped at the site meeting.</span>
+            <span className="block">Reports can be delivered as soon as 2–3 business days from fieldwork. Complex sites, Class P investigations, and projects requiring laboratory testing take longer and are scoped at the site meeting.</span>
             <span className="block mt-6">Urgent turnaround is available where a DA, CC or settlement timeline requires it. Call the Principal directly to arrange priority scheduling.</span>
           </p>
         </FadeIn>

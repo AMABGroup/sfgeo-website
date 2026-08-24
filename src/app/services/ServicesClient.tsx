@@ -330,7 +330,7 @@ export default function ServicesClient() {
             <div className="w-full md:w-1/2">
               <h2 className="text-3xl font-light tracking-tight font-montserrat text-slate-950 mb-6">Our Trusted Partner Network</h2>
               <p className="text-lg text-gray-600 font-light leading-loose mb-8">
-                As a proudly Sydney-bred independent practice, we believe in supporting the local ecosystem. Over the years, we have built a trusted network of highly reputable professionals who understand how to utilize precise, practical geotechnical data. If your project needs a collaborative team, we are happy to make a site-specific introduction.
+                As a proudly Sydney-bred independent practice, we believe in supporting the local ecosystem. Over the years, we have built a trusted network of highly reputable professionals who understand how to use precise, practical geotechnical data. If your project needs a collaborative team, we are happy to make a site-specific introduction.
               </p>
               <motion.div variants={fadeIn}>
                 <Link href="/contact" 

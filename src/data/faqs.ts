@@ -1,7 +1,7 @@
 export const faqs = [
   {
     question: "How much does a geotechnical report or soil test cost in Sydney?",
-    answer: "Our site classifications are fixed-fee. The tier is set by the complexity of your block, not the size of your project.<br/><br/>From $800 + GST. Granny flats, small additions, and new single or double-storey homes on cleared blocks. Tightly scoped work with predictable soil and straightforward access.<br/><br/>From $1,000 + GST. The right tier for most Sydney custom builds. Single or double-storey homes on established streets, pool additions, duplexes, and dwellings with in-ground pools.<br/><br/>Custom Quote. Basements, multi-storey, retaining walls, sloping blocks, restricted access, strata, and prestige-suburb projects. Every complex site is different, and we price them that way. Send the address and a short brief, and you'll have a <a href=\"/contact\">fixed quote</a> within a few business days."
+    answer: "Our site classifications are fixed-fee. The tier is set by the complexity of your block, not the size of your project.<br/><br/>From $800 + GST. Granny flats, small additions, and new single or double-storey homes on cleared blocks. Tightly scoped work with predictable soil and straightforward access.<br/><br/>From $1,000 + GST. The right tier for most Sydney custom builds. Single or double-storey homes on established streets, pool additions, duplexes, and dwellings with in-ground pools.<br/><br/>Custom Quote. Basements, multi-storey, retaining walls, sloping blocks, restricted access, strata, and prestige-suburb projects. Every complex site is different, and we price them that way. Send the address and a short brief, and you'll have a <a href=\"/contact\">fixed quote</a> within one business day."
   },
   {
     question: "Do I need a soil test for a house extension, pool, granny flat, or knockdown rebuild?",
@@ -21,7 +21,7 @@ export const faqs = [
   },
   {
     question: "Can you perform tight-access soil testing on restricted Sydney sites?",
-    answer: "Yes. We use specialized, highly mobile tight access drilling rigs for narrow Sydney properties like Inner West terraces, ensuring minimal disruption while obtaining vital data."
+    answer: "Yes. We use specialised, highly mobile tight access drilling rigs for narrow Sydney properties like Inner West terraces, ensuring minimal disruption while obtaining vital data."
   },
   {
     question: "Can you test soil on sloping blocks?",
@@ -29,7 +29,7 @@ export const faqs = [
   },
   {
     question: "How long does a soil test and geotechnical report take?",
-    answer: "For a straightforward <a href=\"/site-classification\">site classification</a>, expect two to three business days from proposal acceptance to final report. A standard geotechnical investigation that includes NATA-accredited laboratory testing typically lands within five to seven business days, with the lab schedule being the main variable.<br/><br/>Urgent turnarounds are possible, and we handle them regularly for time-critical DAs, CDCs, and construction programs. We will tell you honestly whether your timeline is workable before you commit.<br/><br/>The only factors that realistically extend a project are the client's own site readiness and specific lab testing requirements written into the scope. Everything within our control, we move on quickly."
+    answer: "For a clear <a href=\"/site-classification\">site classification</a>, expect your report as soon as two to three business days from fieldwork. A standard geotechnical investigation that includes NATA-accredited laboratory testing typically lands within five to seven business days, with the lab schedule being the main variable.<br/><br/>Urgent turnarounds are possible, and we handle them regularly for time-critical DAs, CDCs, and construction programs. We will tell you plainly whether your timeline is workable before you commit.<br/><br/>The only factors that realistically extend a project are the client's own site readiness and specific lab testing requirements written into the scope. Everything within our control, we move on quickly."
   },
   {
     question: "What is 'Bearing Capacity' and why does my engineer need it?",
@@ -53,7 +53,7 @@ export const faqs = [
   },
   {
     question: "What does a geotechnical investigation actually involve?",
-    answer: "Our investigations are hands-on and site-specific. We extract soil and rock samples, log the geological profile, perform in-situ strength testing (like DCPs), and analyze this data. We then translate the raw site data into a comprehensive engineering report site-specific for your design team."
+    answer: "Our investigations are hands-on and site-specific. We extract soil and rock samples, log the geological profile, perform in-situ strength testing (like DCPs), and analyse this data. We then translate the raw site data into a comprehensive engineering report site-specific for your design team."
   },
   {
     question: "Is SFGEO an independent engineering consultancy?",
@@ -84,7 +84,7 @@ export const faqs = [
 export const homeFaqs = [
   {
     question: "How much does a geotechnical report or soil test cost in Sydney?",
-    answer: "Our site classifications are fixed-fee. The tier is set by the complexity of your block, not the size of your project.<br/><br/>From $800 + GST. Granny flats, small additions, and new single or double-storey homes on cleared blocks. Tightly scoped work with predictable soil and straightforward access.<br/><br/>From $1,000 + GST. The right tier for most Sydney custom builds. Single or double-storey homes on established streets, pool additions, duplexes, and dwellings with in-ground pools.<br/><br/>Custom Quote. Basements, multi-storey, retaining walls, sloping blocks, restricted access, strata, and prestige-suburb projects. Every complex site is different, and we price them that way. Send the address and a short brief, and you'll have a <a href=\"/contact\">fixed quote</a> within a few business days."
+    answer: "Our site classifications are fixed-fee. The tier is set by the complexity of your block, not the size of your project.<br/><br/>From $800 + GST. Granny flats, small additions, and new single or double-storey homes on cleared blocks. Tightly scoped work with predictable soil and straightforward access.<br/><br/>From $1,000 + GST. The right tier for most Sydney custom builds. Single or double-storey homes on established streets, pool additions, duplexes, and dwellings with in-ground pools.<br/><br/>Custom Quote. Basements, multi-storey, retaining walls, sloping blocks, restricted access, strata, and prestige-suburb projects. Every complex site is different, and we price them that way. Send the address and a short brief, and you'll have a <a href=\"/contact\">fixed quote</a> within one business day."
   },
   {
     question: "What makes SFGEO different from other geotechnical firms in Sydney?",
@@ -96,7 +96,7 @@ export const homeFaqs = [
   },
   {
     question: "How long does a soil test and geotechnical report take?",
-    answer: "For a straightforward AS 2870 site classification, expect two to three business days from proposal acceptance to final report. A standard geotechnical investigation that includes NATA-accredited laboratory testing typically lands within five to seven business days, with the lab schedule being the main variable.<br/><br/>Urgent turnarounds are possible, and we handle them regularly for time-critical DAs, CDCs, and construction programs. We will tell you honestly whether your timeline is workable before you commit.<br/><br/>The only factors that realistically extend a project are the client's own site readiness and specific lab testing requirements written into the scope. Everything within our control, we move on quickly."
+    answer: "For a clear AS 2870 site classification, expect your report as soon as two to three business days from fieldwork. A standard geotechnical investigation that includes NATA-accredited laboratory testing typically lands within five to seven business days, with the lab schedule being the main variable.<br/><br/>Urgent turnarounds are possible, and we handle them regularly for time-critical DAs, CDCs, and construction programs. We will tell you plainly whether your timeline is workable before you commit.<br/><br/>The only factors that realistically extend a project are the client's own site readiness and specific lab testing requirements written into the scope. Everything within our control, we move on quickly."
   },
   {
     question: "Can you work on tight-access, sloping, or restricted sites?",

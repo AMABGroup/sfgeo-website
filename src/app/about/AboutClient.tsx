@@ -169,7 +169,7 @@ export default function AboutClient() {
             SFGEO is a locally-owned, independent geotechnical consultancy based in Marrickville, built on 15 years of hands-on Sydney experience across residential <Link href="/site-classification" className="text-forest-green hover:underline">site classifications</Link>, bespoke architectural homes, and landmark infrastructure.
           </p>
           <p className="text-lg text-gray-600 font-light leading-loose mb-6">
-            We were founded on a straightforward belief: that clients deserve direct access to a professional that cares about their project, not a corporate firm that passes your project down the chain. When you work with SFGEO, you work with our consultants, start to finish.
+            We were founded on a simple belief: that clients deserve direct access to a professional that cares about their project, not a corporate firm that passes your project down the chain. When you work with SFGEO, you work with the same team, start to finish.
           </p>
           <p className="text-lg text-gray-600 font-light leading-loose">
             Our Principal Engineer has contributed to Sydney Gateway, the M12 Motorway, Western Sydney Airport, and the Canterbury Aquatic Centre. That depth of experience now serves your project with the responsiveness, transparency, and personal care that only an independent practice can offer.
