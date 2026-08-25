@@ -10,8 +10,8 @@ const SERVICES = [
     title: "Site Classification",
     desc: "AS 2870 classifications for homes, extensions, granny flats and pools — the report your structural engineer designs from.",
     href: "/site-classification",
-    image: "/sfgeo-hand-auger-borehole-restricted-access-sydney-backyard.jpg",
-    alt: "Motorised hand-auger borehole in a restricted-access Sydney backyard",
+    image: "/sfgeo-hand-auger-sidepath-naremburn.jpg",
+    alt: "Engineer at a hand-auger borehole in a sunlit Naremburn side path",
   },
   {
     n: "02",

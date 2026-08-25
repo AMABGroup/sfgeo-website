@@ -154,8 +154,8 @@ export default function GeotechnicalInvestigationsPage() {
             <div className="grid grid-cols-2 gap-4 sm:gap-6">
               <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-[0_20px_50px_-20px_rgba(5,10,7,0.35)]">
                 <Image
-                  src="/sfgeo-drilling-heritage-home-inner-west-sydney.jpg"
-                  alt="SFGEO drilling at a heritage home in Sydney's Inner West"
+                  src="/sfgeo-gi-rig-golden-coogee.jpg"
+                  alt="Drill rig in golden morning light above a steep Coogee allotment"
                   fill
                   sizes="(max-width: 1024px) 50vw, 30vw"
                   className="object-cover"
@@ -163,8 +163,8 @@ export default function GeotechnicalInvestigationsPage() {
               </div>
               <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-[0_20px_50px_-20px_rgba(5,10,7,0.35)] lg:mt-10">
                 <Image
-                  src="/sfgeo-hand-auger-borehole-restricted-access-sydney-backyard.jpg"
-                  alt="Motorised hand-auger borehole in a restricted-access Sydney backyard"
+                  src="/sfgeo-gi-core-measure-auburn.jpg"
+                  alt="Concrete core stack being measured during an Auburn investigation"
                   fill
                   sizes="(max-width: 1024px) 50vw, 30vw"
                   className="object-cover"

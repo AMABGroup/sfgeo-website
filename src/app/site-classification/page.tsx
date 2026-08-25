@@ -456,8 +456,8 @@ export default function SiteClassificationPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="relative w-full aspect-[4/3] rounded-sm overflow-hidden shadow-sm group">
                 <Image 
-                  src="/sfgeo-4wd-drill-rig-open-residential-block-sydney.jpg" 
-                  alt="SFGEO 4WD-mounted geotechnical drill rig set up on an open residential block in Sydney" 
+                  src="/sfgeo-sc-hand-auger-panania.jpg" 
+                  alt="Hand auger mid-borehole in a tidy suburban backyard, Panania" 
                   title="Standard residential access — drill rig deployed"
                   fill 
                   sizes="(max-width: 768px) 100vw, 50vw"

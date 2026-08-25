@@ -285,7 +285,7 @@ export default function ServicesClient() {
           <section id="partners" className="scroll-mt-[100px] py-24 lg:py-32 border-t border-gray-100 flex flex-col md:flex-row items-center gap-16 lg:gap-24">
             <div className="w-full md:w-1/2 relative aspect-[4/3] rounded-sm overflow-hidden bg-gray-100 shadow-sm group">
               <Image 
-                src="/service-partner-detail-new.png" 
+                src="/commercial-geotechnical-eastern-creek-light-horse.jpeg" 
                 alt="SFGEO's trusted partner network of Sydney structural engineers, civil engineers, and environmental consultants." 
                 title="SFGEO partner network: structural engineers and environmental consultants in Sydney"
                 fill 
