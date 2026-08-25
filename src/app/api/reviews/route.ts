@@ -30,7 +30,20 @@ interface NormalisedPlace {
   maps_url: string;
 }
 
+async function liveFallback() {
+  try {
+    const r = await fetch("https://sfgeo.com.au/api/reviews", { next: { revalidate: 86400 } });
+    if (r.ok) return Response.json(await r.json());
+  } catch {}
+  return null;
+}
+
 export async function GET() {
+  if (!process.env.GOOGLE_PLACES_API_KEY && !process.env.GOOGLE_MAPS_API_KEY) {
+    const live = await liveFallback();
+    if (live) return live;
+  }
+
   const apiKey = process.env.GOOGLE_PLACES_API_KEY;
 
   if (!apiKey) {

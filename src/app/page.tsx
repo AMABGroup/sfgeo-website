@@ -50,9 +50,9 @@ export default function Home() {
           <HeroParallax>
           <div className="absolute inset-[-12%_0_0_0] hero-kenburns">
             <Image
-              src="/sfgeo-drill-rig-mast-up-rural-sydney.jpg"
-              alt="SFGEO 4WD-mounted drill rig with mast raised on a rural Sydney block"
-              title="SFGEO drill rig on site — Sydney geotechnical investigation"
+              src="/sfgeo-crew-waterside-drilling.jpg"
+              alt="The SFGEO team drilling on the Georges River, Sydney"
+              title="SFGEO team drilling — Georges River, Sydney"
               fill
               sizes="100vw"
               quality={60}
@@ -137,7 +137,7 @@ export default function Home() {
           <div>
             <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">01 &middot; What We Do</p>
             <h2 className="text-4xl font-light tracking-tight sm:text-5xl font-montserrat">
-              Five Segments. <span className="font-semibold">One Team.</span>
+              Full Suite. <span className="font-semibold">One Team.</span>
             </h2>
             <div className="mt-4 h-px bg-forest-green w-12" />
           </div>
@@ -247,26 +247,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ============ Photographic interlude — statement over fieldwork ============ */}
-      <section className="relative h-[72vh] min-h-[500px] overflow-hidden grain">
-        <Image
-          src="/sfgeo-dcp-kenthurst-paddock.jpg"
-          alt="A dynamic cone penetrometer standing in a Kenthurst paddock — SFGEO fieldwork"
-          fill
-          sizes="100vw"
-          quality={70}
-          className="object-cover object-center"
-        />
-        <div className="absolute inset-0 bg-[#050A07]/45" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/55 via-transparent to-[#050A07]/35" />
-        <div className="absolute inset-0 flex items-center justify-center px-6 lg:px-12">
-          <Reveal>
-            <p className="text-[clamp(1.9rem,4.2vw,3.6rem)] font-montserrat font-light tracking-[-0.015em] leading-[1.2] text-white text-center max-w-4xl text-balance">
-              We Read The Ground <span className="font-semibold">Before You Build On It</span> — so the surprises happen in the report, not the excavation.
-            </p>
-          </Reveal>
-        </div>
-      </section>
+      
 
       {/* ============ Reviews — gallery-neutral band ============ */}
       <section className="py-24 bg-[#f4f6f4] border-y border-gray-200/70">
@@ -321,21 +302,16 @@ export default function Home() {
           </Reveal>
           <Reveal delay={120}>
             <div className="relative aspect-[16/11] rounded-2xl overflow-hidden shadow-[0_40px_90px_-34px_rgba(0,0,0,0.85)]">
-              <Image
-                src="/sfgeo-map-inner-west.jpg"
-                alt="Map of Sydney's inner west centred on SFGEO's Marrickville office"
-                fill
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover"
+              <iframe
+                src="https://www.google.com/maps?q=SFGEO%20Suite%203.01%20Level%203%20107%20Sydenham%20Road%20Marrickville%20NSW%202204&output=embed"
+                title="SFGEO office — Marrickville"
+                className="absolute inset-0 w-full h-full"
+                style={{ border: 0 }}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
               />
-              <div className="absolute left-[33%] top-[38%] z-10">
-                <span className="absolute w-3 h-3 rounded-full bg-[#8FBF9F] shadow-[0_0_0_3px_rgba(5,10,7,0.5)] -translate-x-1/2 -translate-y-1/2" />
-                <span className="absolute w-3 h-3 rounded-full bg-[#8FBF9F]/60 -translate-x-1/2 -translate-y-1/2 animate-ping" />
-              </div>
-              <div className="absolute left-[33%] top-[38%] -translate-x-1/2 -translate-y-[210%] z-10 bg-[#050A07]/85 backdrop-blur-sm text-white font-montserrat font-light text-xs tracking-[0.12em] px-4 py-2 rounded-full border border-[#8FBF9F]/35 whitespace-nowrap">
-                SF<span className="font-semibold">GEO</span> &middot; Marrickville
-              </div>
-              <p className="absolute right-2.5 bottom-2 z-10 text-[8.5px] text-white/45">Map data &copy; OpenStreetMap contributors</p>
+              
             </div>
           </Reveal>
         </div>

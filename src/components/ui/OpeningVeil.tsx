@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 /**
  * V3 grand opening: counter climbs, the green seam draws across, the
@@ -41,10 +42,13 @@ export default function OpeningVeil() {
       <div className={`absolute left-0 right-0 top-0 h-[50.2%] bg-[#050A07] grain transition-transform duration-[1150ms] ease-[cubic-bezier(0.77,0,0.18,1)] ${phase === "split" ? "-translate-y-[101%]" : ""}`} />
       <div className={`absolute left-0 right-0 bottom-0 h-[50.2%] bg-[#050A07] grain transition-transform duration-[1150ms] ease-[cubic-bezier(0.77,0,0.18,1)] ${phase === "split" ? "translate-y-[101%]" : ""}`} />
       <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[2px] bg-forest-green shadow-[0_0_24px_rgba(45,90,58,0.9)] transition-all duration-700 ease-[cubic-bezier(0.77,0,0.18,1)] ${phase === "count" ? "w-[120px]" : phase === "armed" || phase === "split" ? "w-screen" : "w-0"} ${phase === "split" ? "opacity-0" : ""}`} />
-      <div className={`absolute inset-0 flex items-center justify-center transition-all duration-500 ${phase === "split" ? "opacity-0 scale-[1.04]" : ""}`}>
-        <span className="font-montserrat font-light text-white tracking-[0.14em] text-[clamp(3rem,9vw,7rem)]">
-          SF<span className="font-semibold">GEO</span>
-        </span>
+      <div className={`absolute inset-0 flex flex-col items-center justify-center gap-7 transition-all duration-500 ${phase === "split" ? "opacity-0 scale-[1.04]" : ""}`}>
+        <div className="relative w-[clamp(220px,38vw,460px)] h-[clamp(60px,10vw,120px)]">
+          <Image src="/SFGEO_logo.png" alt="SFGEO — Solid Foundation Geotechnical" fill sizes="460px" className="object-contain" priority />
+        </div>
+        <p className="text-[11px] sm:text-xs uppercase tracking-[0.34em] text-white/70 font-semibold text-center px-6">
+          Start Your Project Right &middot; Start With Solid Foundation Geotechnical
+        </p>
       </div>
       <span className={`absolute left-6 lg:left-12 bottom-7 font-montserrat font-light text-white/55 text-sm tracking-[0.18em] tabular-nums transition-opacity ${phase === "split" ? "opacity-0" : ""}`}>
         {String(n).padStart(2, "0")}
