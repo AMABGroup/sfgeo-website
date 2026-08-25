@@ -12,11 +12,11 @@ interface ServiceAreaBlockProps {
 export default function ServiceAreaBlock({ pageType }: ServiceAreaBlockProps) {
   const intros = {
     services: "Headquartered in Marrickville with rapid mobilisation across Parramatta and the wider metropolitan region, we provide responsive geotechnical support across:",
-    drilling: "Headquartered in Marrickville and regularly servicing Parramatta, North Shore, Eastern Suburbs and Western Sydney, our drilling and sampling teams mobilise rapidly across:",
+    drilling: "Headquartered in Marrickville and regularly servicing Parramatta, North Shore, Eastern Suburbs and Western Sydney, our drilling crew mobilises rapidly across:",
     faq: "With our headquarters in Marrickville and regular servicing across Parramatta, North Shore and Eastern Suburbs, we support residential, commercial, and consultant clients across:",
     contact: "Headquartered in Marrickville with rapid response times across the Parramatta corridor and the wider metropolitan region, we are ready to deploy to your site across:",
     home: "Headquartered in Marrickville and regularly servicing the Parramatta corridor, our family-owned team provides expert geotechnical and drilling support across the wider Sydney metropolitan region, including:",
-    about: "From our Marrickville roots to regular deployments across Parramatta and the Greater Sydney region, our geotechnical engineers and drilling teams are positioned to support projects right across:",
+    about: "From our Marrickville roots to regular deployments across Parramatta and the Greater Sydney region, our engineers and drilling crew are positioned to support projects right across:",
   };
 
   const fadeIn = {

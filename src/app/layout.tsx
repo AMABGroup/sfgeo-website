@@ -83,6 +83,12 @@ export default function RootLayout({
       "url": "https://sfgeo.com.au/og/sfgeo-logo-square.png"
     },
     "image": "https://sfgeo.com.au/og/sfgeo-og-card.jpg",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "reviewCount": "20",
+      "bestRating": "5"
+    },
     "telephone": "+61423483555",
     "priceRange": "$$",
     "address": "Suite 3.01, Level 3, 107 Sydenham Road, Marrickville, NSW 2204",

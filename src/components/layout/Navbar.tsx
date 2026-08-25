@@ -38,24 +38,17 @@ export default function Navbar() {
       ]
     },
     { 
-      name: "Geotechnical Services", 
+      name: "Services", 
       href: "/services",
       sublinks: [
         { name: "Site Classification", href: "/site-classification" },
         { name: "Geotechnical Investigations", href: "/geotechnical-investigations" },
         { name: "Construction Phase Support", href: "/services#inspections" },
-        { name: "Geotechnical Design", href: "/services#design" },
-        { name: "Partner Network", href: "/services#partners" }
-      ]
-    },
-    { 
-      name: "Drilling Services", 
-      href: "/drilling",
-      sublinks: [
-        { name: "Borehole Drilling", href: "/drilling#drilling" },
-        { name: "Environmental Sampling", href: "/drilling#environmental" },
-        { name: "Tight Access Sites", href: "/drilling#tight-access" },
-        { name: "B2B Drilling", href: "/drilling#b2b-drilling" }
+        { name: "Drilling Services", href: "/drilling" },
+        { name: "Tight Access Drilling", href: "/tight-access-drilling" },
+        { name: "Concrete Coring", href: "/concrete-coring" },
+        { name: "Environmental & Partner Services", href: "/other-services" },
+        { name: "All Services", href: "/services" }
       ]
     },
     { name: "Projects", href: "/projects" },
@@ -249,7 +242,7 @@ export default function Navbar() {
                                   onClick={() => setIsOpen(false)}
                                   className="block text-sm font-medium text-forest-green"
                                 >
-                                  Visit {item.name} hub
+                                  Visit {item.name}
                                 </Link>
                                 {item.sublinks.map((sublink) => (
                                   <Link

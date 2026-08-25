@@ -15,26 +15,26 @@ const caseStudies = [
     alt: "SFGEO drill rig investigating a rural-residential estate lot in Kenthurst",
     tag: "Geotechnical Investigation",
     location: "Kenthurst",
-    title: "A rural estate, read hole by hole",
+    title: "A Rural Estate, Read Hole By Hole",
     line: "Eight boreholes across a 2-hectare lot — reactive clay over shallow sandstone, mapped before a single footing was sized.",
   },
   {
-    href: "/projects#bexley-north",
-    image: "/projects/project-bexley-north.jpg",
-    alt: "Restricted-access hand-auger investigation in a Bexley North rear yard",
+    href: "/projects#bondi-beach",
+    image: "/projects/project-bondi.jpg",
+    alt: "Hand-auger investigation in a Bondi Beach strata courtyard",
     tag: "Limited-Scope Investigation",
-    location: "Bexley North",
-    title: "The pod that needed different foundations",
-    line: "Buried demolition fill ruled out the planned screw piles. The report redesigned the founding system — in seven days.",
+    location: "Bondi Beach",
+    title: "A Plunge Pool Cut Into Rock",
+    line: "Class A on shallow sandstone — with vibration limits protecting a four-storey block and a heritage-era sewer. Next-day report.",
   },
   {
-    href: "/projects#newport",
-    image: "/projects/project-newport.jpg",
-    alt: "Geotechnical fieldwork alongside an occupied strata building in Newport",
-    tag: "Geotechnical Investigation",
-    location: "Newport",
-    title: "Remedial works in a live building",
-    line: "Balcony reconstruction on an occupied strata building — assumptions tested, bearing upgraded, certifier requirements closed out.",
+    href: "/projects#northmead",
+    image: "/projects/project-northmead.jpg",
+    alt: "Footing-level inspection of a commercial detention tank excavation",
+    tag: "Construction Phase Support",
+    location: "Northmead",
+    title: "Verified Before The Pour",
+    line: "A commercial tank base checked against the drawings and approved the same visit — the record issued two days later.",
   },
 ];
 
@@ -93,7 +93,7 @@ export default function Home() {
               </div>
 
               <p className="hero-line hero-d3 text-lg sm:text-xl text-gray-300 font-light leading-relaxed mb-6 max-w-xl w-full">
-                Solid Foundation Geotechnical is an independent Sydney consultancy led in the field by its Principal Engineer — the engineer who walks your block, drills your ground, and signs your report. From the first conversation with your architect to the day the slab is poured.
+                Family owned. Sydney grown. A principal-led team with you from the first conversation to the final certificate.
               </p>
             </div>
 
@@ -133,9 +133,9 @@ export default function Home() {
       <section className="py-32 lg:py-36 px-6 lg:px-12 max-w-7xl mx-auto">
         <Reveal className="mb-16 flex flex-col md:flex-row md:items-end md:justify-between gap-8">
           <div>
-            <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">01 &middot; What we do</p>
+            <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">01 &middot; What We Do</p>
             <h2 className="text-4xl font-light tracking-tight sm:text-5xl font-montserrat">
-              Four services. <span className="font-semibold">One engineer.</span>
+              Four Services. <span className="font-semibold">One Team.</span>
             </h2>
             <div className="mt-4 h-px bg-forest-green w-12" />
           </div>
@@ -146,6 +146,17 @@ export default function Home() {
         <Reveal delay={80}>
           <ServiceIndex />
         </Reveal>
+        <Reveal delay={120}>
+          <div className="flex flex-wrap items-center justify-between gap-4 border-b border-gray-200 py-6 mt-0">
+            <span className="text-[11px] uppercase tracking-[0.22em] font-semibold text-gray-400">
+              Also — Environmental Sampling &middot; Concrete Coring &middot; Geotechnical Design &middot; Partner Network
+            </span>
+            <Link href="/other-services" className="text-sm font-semibold tracking-wide text-forest-green group inline-flex items-center gap-2">
+              <span className="draw-link">Other Services</span>
+              <span className="transition-transform group-hover:translate-x-1">&rarr;</span>
+            </Link>
+          </div>
+        </Reveal>
       </section>
 
       {/* ============ The engineer — dark anchor band ============ */}
@@ -153,28 +164,28 @@ export default function Home() {
         <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_-10%,rgba(45,90,58,0.28),transparent_60%)] pointer-events-none" />
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-28 grid grid-cols-1 lg:grid-cols-[1.15fr_1fr] gap-14 lg:gap-20 items-center relative z-10">
           <Reveal>
-            <p className="text-sm uppercase tracking-[0.2em] text-[#8FBF9F] mb-6 font-semibold">02 &middot; The Principal Engineer</p>
+            <p className="text-sm uppercase tracking-[0.2em] text-[#8FBF9F] mb-6 font-semibold">02 &middot; Family Owned</p>
             <h2 className="text-3xl sm:text-5xl font-montserrat font-light tracking-tight leading-[1.15] mb-8">
-              The engineer who answers the phone <span className="font-semibold">is the one on the rig.</span>
+              Family Owned. <span className="font-semibold">Sydney Grown.</span>
             </h2>
             <div className="w-[96px] h-[3px] bg-forest-green mb-8" />
             <p className="text-lg text-gray-300 font-light leading-relaxed mb-6 max-w-xl">
-              SFGEO is deliberately small. One Principal Engineer walks your site, drills your ground, logs the profile as it comes out of the hole, and signs the report — carrying fifteen years of Sydney ground, from Sydney Gateway, the M12 and Western Sydney Airport to terraces, granny flats and pools across the metro.
+              A principal-led team, hired locally and backed by a trusted partner network — carrying fifteen years of Sydney ground, from Sydney Gateway, the M12 and Western Sydney Airport to terraces, granny flats and pools across the metro. With you all the way, from the first walk of the site to the final certificate.
             </p>
             <Link
               href="/about"
               className="inline-flex items-center gap-2 text-sm font-semibold tracking-wide text-white group"
             >
-              <span className="draw-link">Meet the engineer</span>
+              <span className="draw-link">Meet The Team</span>
               <span className="transition-transform group-hover:translate-x-1">&rarr;</span>
             </Link>
           </Reveal>
           <Reveal delay={120}>
-            <div className="relative aspect-[4/5] max-w-md mx-auto lg:mx-0 lg:ml-auto rounded-2xl overflow-hidden shadow-[0_32px_80px_-32px_rgba(0,0,0,0.8)]">
+            <div className="relative aspect-[4/3.4] max-w-lg mx-auto lg:mx-0 lg:ml-auto rounded-2xl overflow-hidden shadow-[0_32px_80px_-32px_rgba(0,0,0,0.8)]">
               <div className="unveil absolute inset-0">
               <Image
-                src="/sfgeo-sandstone-cuttings-hand.jpg"
-                alt="Fresh sandstone cuttings held in hand at the auger — SFGEO fieldwork"
+                src="/sfgeo-crew-drill-rig-western-sydney.jpg"
+                alt="Two SFGEO crew at the drill rig under a stormy Western Sydney sky"
                 fill
                 sizes="(max-width: 1024px) 100vw, 40vw"
                 className="object-cover"
@@ -182,7 +193,7 @@ export default function Home() {
               </div>
               <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/50 via-transparent to-transparent" />
               <div className="absolute bottom-0 left-0 p-6">
-                <p className="text-[11px] uppercase tracking-[0.25em] text-white/70 font-semibold">Hawkesbury sandstone &middot; Kenthurst</p>
+                <p className="text-[11px] uppercase tracking-[0.25em] text-white/70 font-semibold">The Crew &middot; Western Sydney</p>
               </div>
             </div>
           </Reveal>
@@ -193,9 +204,9 @@ export default function Home() {
       <section className="py-32 lg:py-36 px-6 lg:px-12 max-w-7xl mx-auto">
         <Reveal className="mb-16 flex flex-col md:flex-row md:items-end md:justify-between gap-8">
           <div>
-            <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">03 &middot; Recent work</p>
+            <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">03 &middot; Recent Work</p>
             <h2 className="text-4xl font-light tracking-tight sm:text-5xl font-montserrat">
-              Proven on <span className="font-semibold">Sydney ground</span>
+              Proven On <span className="font-semibold">Sydney Ground</span>
             </h2>
             <div className="mt-4 h-px bg-forest-green w-12" />
           </div>
@@ -275,9 +286,9 @@ export default function Home() {
       {/* ============ FAQ ============ */}
       <section className="py-28 px-6 lg:px-12 max-w-4xl mx-auto">
         <Reveal className="text-center mb-16">
-          <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">04 &middot; Before you call</p>
+          <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">04 &middot; Before You Call</p>
           <h2 className="text-3xl font-light tracking-tight font-montserrat text-slate-950">
-            Common <span className="font-semibold">questions</span>
+            Common <span className="font-semibold">Questions</span>
           </h2>
           <div className="mt-6 h-px bg-forest-green w-12 mx-auto" />
         </Reveal>
@@ -285,6 +296,58 @@ export default function Home() {
       </section>
 
       <ServiceAreaBlock pageType="home" />
+
+      {/* ============ Close — start with the ground + the office ============ */}
+      <section className="relative overflow-hidden bg-[#050A07] text-white grain">
+        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_-20%,rgba(45,90,58,0.4),transparent_65%)] pointer-events-none" />
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 py-28 grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center relative z-10">
+          <Reveal>
+            <p className="text-sm uppercase tracking-[0.2em] text-[#8FBF9F] mb-6 font-semibold">05 &middot; Marrickville, Sydney</p>
+            <h2 className="text-3xl sm:text-5xl font-montserrat font-light tracking-tight leading-[1.1] mb-6">
+              Start With <span className="font-semibold">The Ground.</span>
+            </h2>
+            <p className="text-gray-400 font-light leading-relaxed mb-10 max-w-md">
+              Fixed-fee quotes, scoped to your block. Response within one business day.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Link
+                href="tel:+61423483555"
+                className="flex items-center justify-center px-8 py-2.5 bg-gradient-to-b from-[#346b43] to-forest-green text-white rounded-full shadow-[0_8px_20px_-6px_rgba(45,90,58,0.4)] hover:shadow-[0_12px_24px_-8px_rgba(45,90,58,0.6)] hover:brightness-105 transition-all hover:-translate-y-0.5 h-[46px] text-xs font-semibold tracking-wide"
+              >
+                Call 0423 483 555
+              </Link>
+              <Link
+                href="/contact"
+                className="flex items-center justify-center px-8 py-2.5 bg-white/5 text-white rounded-full shadow-[inset_0_0_0_1px_rgba(255,255,255,0.25)] hover:bg-white/10 hover:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.45)] transition-all hover:-translate-y-0.5 h-[46px] text-xs font-semibold tracking-wide backdrop-blur-sm"
+              >
+                Request A Quote
+              </Link>
+            </div>
+            <p className="text-[12px] text-white/40 font-light tracking-wide mt-9">
+              Suite 3.01, Level 3, 107 Sydenham Road, Marrickville &middot; Mon&ndash;Fri 6am&ndash;6pm &middot; Sat 8am&ndash;2pm
+            </p>
+          </Reveal>
+          <Reveal delay={120}>
+            <div className="relative aspect-[16/11] rounded-2xl overflow-hidden shadow-[0_40px_90px_-34px_rgba(0,0,0,0.85)]">
+              <Image
+                src="/sfgeo-map-inner-west.jpg"
+                alt="Map of Sydney's inner west centred on SFGEO's Marrickville office"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
+              />
+              <div className="absolute left-[33%] top-[38%] z-10">
+                <span className="absolute w-3 h-3 rounded-full bg-[#8FBF9F] shadow-[0_0_0_3px_rgba(5,10,7,0.5)] -translate-x-1/2 -translate-y-1/2" />
+                <span className="absolute w-3 h-3 rounded-full bg-[#8FBF9F]/60 -translate-x-1/2 -translate-y-1/2 animate-ping" />
+              </div>
+              <div className="absolute left-[33%] top-[38%] -translate-x-1/2 -translate-y-[210%] z-10 bg-[#050A07]/85 backdrop-blur-sm text-white font-montserrat font-light text-xs tracking-[0.12em] px-4 py-2 rounded-full border border-[#8FBF9F]/35 whitespace-nowrap">
+                SF<span className="font-semibold">GEO</span> &middot; Marrickville
+              </div>
+              <p className="absolute right-2.5 bottom-2 z-10 text-[8.5px] text-white/45">Map data &copy; OpenStreetMap contributors</p>
+            </div>
+          </Reveal>
+        </div>
+      </section>
     </div>
   );
 }

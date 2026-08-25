@@ -7,15 +7,15 @@ import Link from "next/link";
 const SERVICES = [
   {
     n: "01",
-    title: "Site classification",
+    title: "Site Classification",
     desc: "AS 2870 classifications for homes, extensions, granny flats and pools — the report your structural engineer designs from.",
     href: "/site-classification",
-    image: "/sfgeo-hand-auger-borehole-restricted-access-sydney-backyard.jpg",
-    alt: "Motorised hand-auger borehole in a restricted-access Sydney backyard",
+    image: "/sfgeo-hand-auger-sidepath-naremburn.jpg",
+    alt: "Engineer at a hand-auger borehole in a sunlit Naremburn side path",
   },
   {
     n: "02",
-    title: "Geotechnical investigations",
+    title: "Geotechnical Investigations",
     desc: "Boreholes, penetrometers and NATA-backed laboratory data for DAs, footings, basements and retaining structures.",
     href: "/geotechnical-investigations",
     image: "/sfgeo-drill-rig-mast-up-rural-sydney.jpg",
@@ -23,19 +23,19 @@ const SERVICES = [
   },
   {
     n: "03",
-    title: "Construction phase support",
+    title: "Construction Phase Support",
     desc: "Footing, pier and engineered-fill inspections that keep an open excavation moving — verified bearing, in writing, fast.",
     href: "/services#inspections",
-    image: "/footing-pile-inspection-north-willoughby-geotechnical.jpg",
-    alt: "Footing and pier inspection on a Sydney construction site",
+    image: "/sfgeo-strip-footing-inspection.jpg",
+    alt: "Strip footing trench inspection along a Sydney garden path",
   },
   {
     n: "04",
-    title: "Drilling for consultancies",
-    desc: "Subcontract capability for engineers and environmental consultants — 4WD-mounted rig and tight-access augers, engineer operated.",
+    title: "Drilling services",
+    desc: "4WD rig and crew — for builders, consultancies and major contractors. Tight-access augers, engineer operated.",
     href: "/drilling",
-    image: "/4wd-geotechnical-drilling-rig-residential-sydney-mobilisation.jpg",
-    alt: "4WD-mounted geotechnical drilling rig mobilising to a Sydney site",
+    image: "/sfgeo-rig-major-earthworks-sydney.jpg",
+    alt: "SFGEO drill rig working beside major earthworks in Sydney",
   },
 ];
 

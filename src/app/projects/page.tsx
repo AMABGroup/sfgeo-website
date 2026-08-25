@@ -97,6 +97,96 @@ const caseStudies: CaseStudy[] = [
       "An engineered reinstatement scope — clean fill only, compacted in controlled layers, stable batters — followed by inspection of the completed works. The inspection record found the reinstatement consistent with the scope and the landform stable, giving council and the certifier the documents the orders required.",
     facts: ["Stop Work Order lifted path", "700 kPa founding verified", "Reinstatement inspected", "Records issued against council orders"],
   },
+  {
+    id: "bondi-beach",
+    tag: "Limited-Scope Investigation",
+    title: "A Plunge Pool Cut Into Rock",
+    location: "Bondi Beach — strata courtyard, metres from a four-storey block",
+    image: "/projects/project-bondi.jpg",
+    imageAlt: "Hand-auger investigation in a Bondi Beach strata courtyard",
+    brief:
+      "An apartment owner wanted a plunge pool dug 1.8 metres into an exclusive-use courtyard — with the building on one side and a Sydney Water sewer main crossing the yard. The certifier needed a classification and an excavation methodology.",
+    ground:
+      "A hand-auger borehole and two penetrometer tests told a consistent story fast: barely 250 millimetres of soil before refusal on Hawkesbury Sandstone. The whole excavation would be in rock, and dry.",
+    outcome:
+      "Class A — the best classification the standard offers — with 700 kPa bearing for the shell on sandstone. Because the neighbours were a four-storey building and a brittle heritage-era sewer, the report set vibration limits, exclusion zones and rock-saw methodology near the assets. Report issued the next day.",
+    facts: ["Class A on rock", "Vibration limits set", "Sewer main protected", "Next-day report"],
+  },
+  {
+    id: "coogee",
+    tag: "Geotechnical Investigation",
+    title: "A Pile Wall Designed From The Street",
+    location: "Coogee — five metres of fall, street to rear",
+    image: "/projects/project-coogee.jpg",
+    imageAlt: "Drilling from the road verge above a steep Coogee allotment",
+    brief:
+      "A steeply falling block needed a contiguous bored pile wall along its street boundary. The structural engineer needed the full parameter set — soil profile, bearing, groundwater, earth pressures — and the only place to drill was the council verge above the wall.",
+    ground:
+      "With council approval and service scanning arranged, one borehole to 5.6 metres found 1.5 metres of debris-laced fill, very loose coastal sands, then sandstone — exactly the collapse-prone profile that decides how piles get built.",
+    outcome:
+      "A complete AS 4678 design table: unit weights, strength values, pressure coefficients per stratum, and 1,000 kPa end bearing in sandstone — plus construction guidance for casing through the running sands. Issued 48 hours after fieldwork.",
+    facts: ["Drilled from council verge", "1,000 kPa end bearing", "Full AS 4678 parameter set", "48-hour turnaround"],
+  },
+  {
+    id: "auburn",
+    tag: "Geotechnical Investigation",
+    title: "Sixty Tonnes In A Working Factory",
+    location: "Auburn — operating dairy plant, production running",
+    image: "/projects/project-auburn.jpg",
+    imageAlt: "Borehole through the concrete yard of an operating Auburn factory",
+    brief:
+      "A food manufacturer needed a 54,000-litre milk tank — about sixty tonnes at working load — founded in the paved yard of an operating factory, beside an in-service tank and a neighbour&rsquo;s basement behind a boundary wall.",
+    ground:
+      "One borehole through the reinforced concrete pavement to 4.7 metres: reactive Bringelly Shale clay over weathered shale. The clay was ruled out as a founding stratum — localised wetting is a fact of life in a dairy yard.",
+    outcome:
+      "The tank went onto bored piers socketed into weathered shale — 400 to 700 kPa end bearing with shaft adhesion values — with dilapidation surveys recommended for the boundary wall. Issued in two days and independently reviewed by a Registered Professional Geotechnical engineer.",
+    facts: ["60-tonne tank load", "Piers socketed in shale", "Live factory yard", "Peer-reviewed"],
+  },
+  {
+    id: "hunters-hill",
+    tag: "Investigation For A Consultancy",
+    title: "A Boardwalk Read Between Tides",
+    location: "Hunters Hill — tidal mangroves, Buffalo Creek Reserve",
+    image: "/projects/project-hunters-hill.jpg",
+    imageAlt: "Boardwalk through the tidal mangroves at Buffalo Creek Reserve",
+    brief:
+      "A civil consultancy replacing a public boardwalk on the Great North Walk had two footing systems on the table — on-grade sleepers or elevated posts — and needed to know which belonged where along 300 metres of tidal wetland.",
+    ground:
+      "No vehicle access and a sensitive ecology meant everything was done by hand, between tides: test pit, hand augers and nine penetrometer tests across four segments. The ground swung from very soft saturated mud beyond two metres deep to sandstone within 40 millimetres of the surface.",
+    outcome:
+      "A segment-by-segment founding map the designer applied directly — on-grade on rock at one end, cased bored piers through the soft alluvium elsewhere — with acid sulfate management and tidal work sequencing built in. The variation in the ground became the design&rsquo;s organising principle.",
+    facts: ["All-manual investigation", "Worked between tides", "4 segments mapped", "Direct input to another consultancy&rsquo;s design"],
+  },
+  {
+    id: "northmead",
+    tag: "Construction Phase Support",
+    title: "Verified Before The Pour",
+    location: "Northmead — commercial construction, detention tank base",
+    image: "/projects/project-northmead.jpg",
+    imageAlt: "Footing-level inspection of a detention tank excavation",
+    brief:
+      "A commercial civil contractor needed the base of a ten-metre detention tank verified at footing level before concrete — checked against the drawings&rsquo; 500 kPa bearing requirement and the project&rsquo;s original geotechnical investigation.",
+    ground:
+      "The exposed stratum was logged by visual and tactile assessment on a wet morning: weathered shale, banded, matching the bedrock profile the design relied on. Clean base, correct geometry.",
+    outcome:
+      "Founding confirmed suitable for the specified 500 kPa, and the contractor approved to proceed the same visit — with clear validity conditions covering rain and base softening. The formal record issued two days later, part of a standing engagement with a repeat commercial client.",
+    facts: ["500 kPa verified", "Same-visit approval", "Standing commercial engagement"],
+  },
+  {
+    id: "willoughby",
+    tag: "Site Classification",
+    title: "Dual Occupancy On Reactive Clay",
+    location: "Willoughby — demolition, pool removal, two new dwellings",
+    image: "/projects/project-willoughby.jpg",
+    imageAlt: "Site classification fieldwork at a Willoughby block",
+    brief:
+      "A two-storey dual occupancy was planned: existing house demolished, in-ground pool removed and backfilled. The design team needed a classification and founding parameters before drawings could progress.",
+    ground:
+      "Two boreholes — rig at the front, hand auger at the rear — and three penetrometer tests found classic Ashfield Shale country: high-plasticity residual clay stiffening with depth. No groundwater to three metres.",
+    outcome:
+      "Class H1 with 60-millimetre characteristic movement, shallow and pier bearing values, and answers to the two complications that mattered: founding through the old pool excavation, and rear-boundary trees inside the footing zone of influence. Fieldwork to report in three days.",
+    facts: ["Class H1 (ys 60 mm)", "Pool backfill handled", "Tree influence zones mapped", "3-day turnaround"],
+  },
 ];
 
 export default function ProjectsPage() {
