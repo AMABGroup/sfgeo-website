@@ -119,10 +119,11 @@ export default function Home() {
       <section className="border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-7 flex flex-wrap items-center justify-center lg:justify-between gap-x-10 gap-y-3">
           {[
-            "Members Of Engineers Australia & AGS",
+            "EA + AGS",
             "Family Owned",
             "Inner West Based",
             "PI & PL Insured",
+            "NATA Lab",
           ].map((c) => (
             <span key={c} className="text-[11px] uppercase tracking-[0.22em] font-semibold text-gray-400">
               {c}
