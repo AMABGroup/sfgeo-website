@@ -7,6 +7,7 @@ import ServiceIndex from "@/components/sections/ServiceIndex";
 import HomeFaq from "@/components/sections/HomeFaq";
 import Reveal from "@/components/ui/Reveal";
 import HeroParallax from "@/components/ui/HeroParallax";
+import OpeningVeil from "@/components/ui/OpeningVeil";
 
 const caseStudies = [
   {
@@ -41,6 +42,7 @@ const caseStudies = [
 export default function Home() {
   return (
     <div className="bg-white text-slate-950 font-inter selection:bg-forest-green selection:text-white">
+      <OpeningVeil />
 
       {/* ============ Cinematic hero — server-rendered, CSS choreography ============ */}
       <section className="relative px-6 lg:px-12 pt-40 pb-28 min-h-[100svh] flex flex-col justify-center overflow-hidden bg-[#050A07] grain">
@@ -135,7 +137,7 @@ export default function Home() {
           <div>
             <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">01 &middot; What We Do</p>
             <h2 className="text-4xl font-light tracking-tight sm:text-5xl font-montserrat">
-              Four Services. <span className="font-semibold">One Team.</span>
+              Five Segments. <span className="font-semibold">One Team.</span>
             </h2>
             <div className="mt-4 h-px bg-forest-green w-12" />
           </div>
@@ -146,17 +148,7 @@ export default function Home() {
         <Reveal delay={80}>
           <ServiceIndex />
         </Reveal>
-        <Reveal delay={120}>
-          <div className="flex flex-wrap items-center justify-between gap-4 border-b border-gray-200 py-6 mt-0">
-            <span className="text-[11px] uppercase tracking-[0.22em] font-semibold text-gray-400">
-              Also — Environmental Sampling &middot; Concrete Coring &middot; Geotechnical Design &middot; Partner Network
-            </span>
-            <Link href="/other-services" className="text-sm font-semibold tracking-wide text-forest-green group inline-flex items-center gap-2">
-              <span className="draw-link">Other Services</span>
-              <span className="transition-transform group-hover:translate-x-1">&rarr;</span>
-            </Link>
-          </div>
-        </Reveal>
+        
       </section>
 
       {/* ============ The engineer — dark anchor band ============ */}
