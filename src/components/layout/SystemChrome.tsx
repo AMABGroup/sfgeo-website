@@ -248,7 +248,7 @@ export function SystemHeader() {
               );
             })}
             <div className="py-5">
-              <p className="font-montserrat text-lg font-light tracking-[0.1em] text-white mb-3">SF<span className="font-semibold text-[#8FBF9F]">GEO</span></p>
+              <p className="text-[12px] uppercase tracking-[0.28em] font-semibold text-[#8FBF9F] mb-4">SFGEO</p>
               <ul className="space-y-3">
                 {COMPANY.map((l) => (
                   <li key={l.href}>
