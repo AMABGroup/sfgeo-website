@@ -287,7 +287,7 @@ export default function DrillingClient() {
               <h2 className="text-3xl font-light tracking-tight font-montserrat text-slate-950 mb-8">Rig Capacity for Your Next Project</h2>
               <div className="text-lg text-gray-600 font-light leading-relaxed space-y-6 mb-10">
                 <p>
-                  Our 4WD-mounted drill rig and crew are available on a subcontract basis to engineering consultancies, civil contractors, builders and major project teams who need reliable rig capacity without the overhead of an in-house crew. Rapid mobilisation across the Sydney metro and regional NSW, on your program and your supervision or ours — engineer operated, always.
+                  Our 4WD-mounted drill rig and crew are available on a subcontract basis to engineering consultancies — from boutique practices to some of the bigger firms in Sydney ground — plus civil contractors, builders and major project teams who need reliable rig capacity without the overhead of an in-house crew. Rapid mobilisation across the Sydney metro and regional NSW, on your program and your supervision or ours — engineer operated, always.
                 </p>
                 <p>
                   Whether you are scoping boreholes for due diligence, a pavement investigation, or standing piles for a civil contract, we bring the rig, the logs, and the NATA-backed sampling — delivered under your scope or ours.

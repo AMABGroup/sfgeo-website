@@ -35,6 +35,7 @@ export default function OtherServicesPage() {
     { t: "Concrete Coring", d: "Engineer-supervised coring of slabs and pavements — logged, verified, and strength-tested through NATA-accredited laboratories when the question needs a number.", href: "/concrete-coring", cta: "Explore Concrete Coring" },
     { t: "Geotechnical Design", d: "Foundation, retaining and pavement parameters for structural and civil teams. We supply the site-specific inputs; your designers engineer from them.", href: "/services#design", cta: "Request Design Parameters" },
     { t: "Working Platform Assessments", d: "Platform verification to support safe temporary works planning for cranes, rigs and heavy plant.", href: "/contact", cta: "Discuss A Platform" },
+    { t: "Groundwater Monitoring Wells", d: "Monitoring well installation and water bore works, delivered end to end — one engagement from drilling to a commissioned well.", href: "/contact", cta: "Discuss A Well" },
   ];
 
   const PARTNER = [

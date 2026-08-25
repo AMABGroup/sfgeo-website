@@ -148,8 +148,8 @@ export default function AboutClient() {
           className="lg:col-span-4 relative aspect-[3/4] rounded-none bg-gray-50 flex items-center justify-center overflow-hidden shadow-none group w-full"
         >
           <Image
-            src="/sfgeo-crew-drill-rig-western-sydney.jpg"
-            alt="SFGEO crew at the drill rig, Western Sydney"
+            src="/geotechnical-engineer-led-field-operations-sydney.jpg"
+            alt="The Principal Engineer working on the drill rig"
             title="Principal Geotechnical Engineer supervising drilling operations on a Sydney site"
             fill
             sizes="(max-width: 1024px) 100vw, 33vw"

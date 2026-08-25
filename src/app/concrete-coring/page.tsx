@@ -66,7 +66,7 @@ export default function ConcreteCoringPage() {
           </h1>
           <div className="w-[96px] h-[3px] bg-forest-green mb-8" />
           <p className="text-lg sm:text-xl text-gray-600 font-light leading-relaxed mb-8">
-            Any cutting contractor can put a hole in a slab. SFGEO cores it under engineering supervision — the core is logged, the thickness verified, and when strength matters the sample goes to a NATA-accredited laboratory. One engagement, from the hole to the answer.
+            Any cutting contractor can put a hole in a slab. SFGEO cores it under engineering supervision — the core is logged, the thickness verified, and when strength matters the sample goes to a NATA-accredited laboratory. One engagement, from the hole to the answer. Coring from $120 + GST per hole, three-hole minimum.
           </p>
           <div className="flex flex-col sm:flex-row items-start gap-4">
             <Link
@@ -113,6 +113,18 @@ export default function ConcreteCoringPage() {
           </h2>
           <p className="text-lg text-gray-600 font-light leading-relaxed">
             A core is evidence. Where it was taken, what the layers show, whether the surprise in the barrel changes the design question — those calls are engineering, not cutting. SFGEO positions each core deliberately, records what comes out, and puts the result in context, so the hole you pay for answers the question you actually have. Fixed fees, quoted in writing before the barrel touches concrete.
+          </p>
+        </FadeIn>
+      </section>
+
+      {/* Pricing */}
+      <section className="py-16 px-6 lg:px-12 max-w-4xl mx-auto border-t border-gray-100">
+        <FadeIn>
+          <h2 className="text-3xl font-light tracking-tight font-montserrat text-slate-950 mb-6">
+            <span className="font-semibold">Pricing</span>
+          </h2>
+          <p className="text-lg text-gray-600 font-light leading-relaxed">
+            Coring starts at <strong className="font-medium text-slate-950">$120 + GST per hole</strong>, with a three-hole minimum per visit. The final fee depends on core size, location, access and time on site — quoted fixed, in writing, before the barrel touches concrete.
           </p>
         </FadeIn>
       </section>
