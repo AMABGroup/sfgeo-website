@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import QuickQuoteCard from "@/components/forms/QuickQuoteCard";
 
 /**
  * System-rebuild chrome: minimal header (wordmark + MENU), fullscreen
@@ -37,11 +38,10 @@ const GROUPS: { name: string; hub: string; links: { name: string; href: string }
     name: "Environmental & Soil Testing",
     hub: "/environmental",
     links: [
-      { name: "Preliminary Site Investigations", href: "/environmental#psi" },
-      { name: "Detailed Site Investigations", href: "/environmental#dsi" },
+      { name: "Contaminated Land (PSI & DSI)", href: "/environmental#psi-dsi" },
       { name: "Acid Sulfate Soils", href: "/environmental#ass" },
       { name: "Waste Classification", href: "/environmental#waste" },
-      { name: "Lab Services", href: "/environmental#lab" },
+      { name: "Soil & Lab Testing", href: "/environmental#lab" },
     ],
   },
   {
@@ -73,6 +73,7 @@ const COMPANY = [
 export function SystemHeader() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [quote, setQuote] = useState(false);
   const pathname = usePathname();
   const overDark = pathname === "/" && !scrolled;
 
@@ -119,11 +120,22 @@ export function SystemHeader() {
         </nav>
       </header>
 
+      {/* Quote modal */}
+      {quote && (
+        <div className="fixed inset-0 z-[90] flex items-center justify-center p-4" role="dialog" aria-modal="true">
+          <div className="absolute inset-0 bg-[#050A07]/80 backdrop-blur-sm" onClick={() => setQuote(false)} />
+          <div className="relative max-h-[92vh] overflow-y-auto rounded-3xl">
+            <button onClick={() => setQuote(false)} className="absolute top-4 right-4 z-10 text-white/70 hover:text-white text-xs font-semibold tracking-[0.2em] uppercase">Close ✕</button>
+            <QuickQuoteCard source="menu quote modal" />
+          </div>
+        </div>
+      )}
+
       {/* Fullscreen menu */}
       <div
-        className={`fixed inset-0 z-[60] bg-[#050A07] text-white transition-all duration-500 grain ${open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
+        className={`fixed inset-0 z-[60] bg-[#0A130D] text-white transition-all duration-500 grain ${open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
       >
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_-10%,rgba(45,90,58,0.35),transparent_60%)] pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_-10%,rgba(64,120,80,0.45),transparent_65%)] pointer-events-none" />
         <div className="h-full overflow-y-auto pt-28 pb-14 px-6 lg:px-12">
           <div className="max-w-[90rem] mx-auto grid grid-cols-1 lg:grid-cols-[2fr_1fr_1.1fr] gap-14">
             {/* Segments */}
@@ -131,10 +143,10 @@ export function SystemHeader() {
               {GROUPS.map((g) => (
                 <div key={g.name}>
                   <Link href={g.hub} className="block text-[12px] uppercase tracking-[0.3em] text-[#8FBF9F] hover:text-white font-semibold mb-4 transition-colors">{g.name} &rarr;</Link>
-                  <ul className="space-y-2.5">
+                  <ul className="space-y-2">
                     {g.links.map((l) => (
                       <li key={l.name + l.href}>
-                        <Link href={l.href} className="font-disp text-lg lg:text-xl font-light text-white/85 hover:text-white transition-colors">
+                        <Link href={l.href} className="font-disp text-lg lg:text-xl font-light leading-[1.5] text-white/85 hover:text-white transition-colors">
                           {l.name}
                         </Link>
                       </li>
@@ -146,27 +158,33 @@ export function SystemHeader() {
             {/* Company */}
             <div>
               <p className="text-[11px] uppercase tracking-[0.3em] text-[#8FBF9F] font-semibold mb-4">SFGEO</p>
-              <ul className="space-y-2.5">
+              <ul className="space-y-2">
                 {COMPANY.map((l) => (
                   <li key={l.href}>
-                    <Link href={l.href} className="font-disp text-lg lg:text-xl font-light text-white/85 hover:text-white transition-colors">{l.name}</Link>
+                    <Link href={l.href} className="font-disp text-lg lg:text-xl font-light leading-[1.5] text-white/85 hover:text-white transition-colors">{l.name}</Link>
                   </li>
                 ))}
               </ul>
               <div className="mt-10 space-y-2 text-sm font-light text-white/60">
                 <p><a href="tel:+61423483555" className="text-white font-medium hover:text-[#8FBF9F] transition-colors">0423 483 555</a></p>
                 <p><a href="mailto:info@sfgeo.com.au" className="hover:text-white transition-colors">info@sfgeo.com.au</a></p>
-                <Link href="/contact" className="inline-flex mt-4 items-center justify-center px-7 h-[44px] bg-gradient-to-b from-[#346b43] to-forest-green text-white rounded-full text-xs font-semibold tracking-wide shadow-[0_8px_20px_-6px_rgba(45,90,58,0.5)] hover:brightness-105 transition-all">
+                <p className="pt-2 text-[13px] leading-relaxed">Suite 3.01, Level 3, 107 Sydenham Road<br/>Marrickville NSW 2204</p>
+                <p className="text-[13px]">Mon&ndash;Fri 6am&ndash;6pm &middot; Sat 8am&ndash;2pm</p>
+                <p className="text-[13px] text-[#8FBF9F]">Fixed-fee quotes &middot; response within one business day</p>
+                <button onClick={() => setQuote(true)} className="inline-flex mt-4 items-center justify-center px-7 h-[44px] bg-gradient-to-b from-[#346b43] to-forest-green text-white rounded-full text-xs font-semibold tracking-wide shadow-[0_8px_20px_-6px_rgba(45,90,58,0.5)] hover:brightness-105 transition-all">
                   Request A Quote
-                </Link>
+                </button>
               </div>
             </div>
-            {/* Featured image */}
-            <div className="hidden lg:block relative rounded-2xl overflow-hidden min-h-[420px]">
-              <Image src="/sfgeo-drill-rig-mast-up-rural-sydney.jpg" alt="SFGEO drill rig, mast raised" fill sizes="30vw" className="object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/70 via-transparent to-transparent" />
-              <p className="absolute bottom-5 left-5 text-[11px] uppercase tracking-[0.25em] text-white/75 font-semibold">Proven On Sydney Ground</p>
-            </div>
+            {/* Office map */}
+            <Link href="/contact" className="hidden lg:block relative rounded-2xl overflow-hidden min-h-[420px] group">
+              <Image src="/sfgeo-map-inner-west.jpg" alt="Map of Sydney&rsquo;s inner west centred on SFGEO&rsquo;s Marrickville office" fill sizes="30vw" className="object-cover transition-transform duration-700 group-hover:scale-[1.03]" />
+              <span className="absolute left-[33%] top-[38%] w-3 h-3 rounded-full bg-[#8FBF9F] shadow-[0_0_0_3px_rgba(5,10,7,0.5)] -translate-x-1/2 -translate-y-1/2" />
+              <span className="absolute left-[33%] top-[38%] w-3 h-3 rounded-full bg-[#8FBF9F]/60 -translate-x-1/2 -translate-y-1/2 animate-ping" />
+              <span className="absolute left-[33%] top-[38%] -translate-x-1/2 -translate-y-[210%] bg-[#050A07]/85 backdrop-blur-sm text-white font-montserrat font-light text-xs tracking-[0.12em] px-4 py-2 rounded-full border border-[#8FBF9F]/35 whitespace-nowrap">SF<span className="font-semibold">GEO</span> &middot; Marrickville</span>
+              <p className="absolute bottom-4 left-5 text-[11px] uppercase tracking-[0.25em] text-white/75 font-semibold">Visit Us &middot; Marrickville</p>
+              <p className="absolute right-2.5 bottom-1.5 text-[8px] text-white/40">&copy; OpenStreetMap contributors</p>
+            </Link>
           </div>
         </div>
       </div>
