@@ -93,7 +93,7 @@ export function SystemHeader() {
   return (
     <>
       <header
-        className={`${pathname === "/" ? "fixed" : "sticky"} top-0 z-50 w-full transition-all duration-500 ${overDark && !open ? "bg-transparent" : open ? "bg-transparent" : "bg-white/95 backdrop-blur border-b border-gray-100"}`}
+        className={`${pathname === "/" ? "fixed" : "sticky"} top-0 z-[70] w-full transition-all duration-500 ${overDark && !open ? "bg-transparent" : open ? "bg-transparent" : "bg-white/95 backdrop-blur border-b border-gray-100"}`}
       >
         <nav className="mx-auto flex max-w-[90rem] items-center justify-between px-6 lg:px-12 h-[72px]">
           <Link href="/" className="relative h-9 w-28 z-[70]" aria-label="SFGEO home">
