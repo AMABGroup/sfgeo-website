@@ -30,8 +30,8 @@ export default function AboutClient() {
         {/* Full Bleed Background Image with Subtle Gradient */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/sfgeo-team-drilling-logging-sydney.jpg"
-            alt="SFGEO crew drilling and logging on a Sydney site"
+            src="/sfgeo-crew-waterside-drilling.jpg"
+            alt="The whole SFGEO crew drilling at a waterside site"
             title="SFGEO Canada Bay workspace - boutique geotechnical consultancy in Sydney"
             fill
             priority
