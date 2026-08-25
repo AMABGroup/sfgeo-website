@@ -105,6 +105,22 @@ export default function ConcreteCoringPage() {
         </div>
       </section>
 
+      {/* The work, photographed */}
+      <section className="py-16 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">
+        <div className="grid grid-cols-2 gap-4 sm:gap-6 max-w-4xl mx-auto">
+          <FadeIn>
+            <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-[0_20px_50px_-20px_rgba(5,10,7,0.35)]">
+              <Image src="/sfgeo-slab-coring-work.jpg" alt="Coring work on a concrete slab" fill sizes="(max-width: 1024px) 50vw, 30vw" className="object-cover" />
+            </div>
+          </FadeIn>
+          <FadeIn delay={0.12}>
+            <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-[0_20px_50px_-20px_rgba(5,10,7,0.35)] lg:mt-10">
+              <Image src="/sfgeo-core-caliper-measure.jpg" alt="Extracted core measured with calipers" fill sizes="(max-width: 1024px) 50vw, 30vw" className="object-cover" />
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
       {/* Why engineer-supervised */}
       <section className="py-16 px-6 lg:px-12 max-w-4xl mx-auto border-t border-gray-100">
         <FadeIn>

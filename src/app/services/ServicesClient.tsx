@@ -44,8 +44,8 @@ const SEGMENTS = [
     title: "The Rig And The Crew",
     intro:
       "Drilling as a service — for our own investigations, and on subcontract for engineering firms, environmental consultants and major contractors, on their programs and their supervision.",
-    image: "/sfgeo-drilling-verge-telopea.jpg",
-    imageAlt: "SFGEO rig with mast raised on a Telopea verge",
+    image: "/sfgeo-night-works-crew.jpg",
+    imageAlt: "SFGEO crew working under lights on night works",
     links: [
       { name: "Drilling Services", href: "/drilling", line: "Borehole drilling, rock coring, SPT and sampling — 4WD-mounted rig, engineer operated." },
       { name: "Tight Access Drilling", href: "/tight-access-drilling", line: "Terraces, battleaxe blocks, backyards and basements — no site out of reach." },

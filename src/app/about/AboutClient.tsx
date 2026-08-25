@@ -161,6 +161,21 @@ export default function AboutClient() {
       </section>
  
  
+      {/* Community — the why */}
+      <section className="relative overflow-hidden bg-[#050A07] text-white grain mb-32">
+        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_70%_-20%,rgba(45,90,58,0.35),transparent_60%)] pointer-events-none" />
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 py-24 relative z-10">
+          <p className="text-sm uppercase tracking-[0.2em] text-[#8FBF9F] mb-6 font-semibold">Our Community</p>
+          <h2 className="text-3xl sm:text-5xl font-montserrat font-light tracking-tight leading-[1.12] mb-8 max-w-3xl">
+            From The Inner West, <span className="font-semibold">For The Inner West.</span>
+          </h2>
+          <div className="w-[96px] h-[3px] bg-forest-green mb-8" />
+          <p className="text-lg text-gray-300 font-light leading-relaxed max-w-2xl">
+            SFGEO grew up in Sydney&rsquo;s inner west and west — and the goal was never just helping homeowners build. It&rsquo;s helping the community we come from: hiring locally, training young engineers and drillers, and giving people from our neighbourhoods the opportunities we were given. Every job we take on here keeps that going.
+          </p>
+        </div>
+      </section>
+
       {/* 5. Three Cards (Why Choose) */}
       <section className="px-6 lg:px-12 max-w-7xl mx-auto mb-32 border-t border-gray-100 pt-32">
         <motion.div
