@@ -119,10 +119,10 @@ export default function Home() {
       <section className="border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-7 flex flex-wrap items-center justify-center lg:justify-between gap-x-10 gap-y-3">
           {[
-            "Engineers Australia",
-            "Australian Geomechanics Society",
-            "PI & PL insured",
-            "Family owned — Marrickville, Sydney",
+            "Members Of Engineers Australia & AGS",
+            "Family Owned",
+            "Inner West Based",
+            "PI & PL Insured",
           ].map((c) => (
             <span key={c} className="text-[11px] uppercase tracking-[0.22em] font-semibold text-gray-400">
               {c}
@@ -132,7 +132,7 @@ export default function Home() {
       </section>
 
       {/* ============ Service index ============ */}
-      <section className="py-32 lg:py-36 px-6 lg:px-12 max-w-7xl mx-auto">
+      <section className="py-36 lg:py-44 px-6 lg:px-12 max-w-7xl mx-auto">
         <Reveal className="mb-16 flex flex-col md:flex-row md:items-end md:justify-between gap-8">
           <div>
             <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">01 &middot; What We Do</p>
@@ -154,7 +154,7 @@ export default function Home() {
       {/* ============ The engineer — dark anchor band ============ */}
       <section className="relative overflow-hidden bg-[#050A07] text-white grain">
         <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_-10%,rgba(45,90,58,0.28),transparent_60%)] pointer-events-none" />
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 py-28 grid grid-cols-1 lg:grid-cols-[1.15fr_1fr] gap-14 lg:gap-20 items-center relative z-10">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 py-32 lg:py-40 grid grid-cols-1 lg:grid-cols-[1.15fr_1fr] gap-14 lg:gap-20 items-center relative z-10">
           <Reveal>
             <p className="text-sm uppercase tracking-[0.2em] text-[#8FBF9F] mb-6 font-semibold">02 &middot; Family Owned</p>
             <h2 className="text-3xl sm:text-5xl font-montserrat font-light tracking-tight leading-[1.15] mb-8">
@@ -193,7 +193,7 @@ export default function Home() {
       </section>
 
       {/* ============ Recent work ============ */}
-      <section className="py-32 lg:py-36 px-6 lg:px-12 max-w-7xl mx-auto">
+      <section className="py-36 lg:py-44 px-6 lg:px-12 max-w-7xl mx-auto">
         <Reveal className="mb-16 flex flex-col md:flex-row md:items-end md:justify-between gap-8">
           <div>
             <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">03 &middot; Recent Work</p>
@@ -250,14 +250,14 @@ export default function Home() {
       
 
       {/* ============ Reviews — gallery-neutral band ============ */}
-      <section className="py-24 bg-white border-y border-gray-100">
+      <section className="py-32 lg:py-36 bg-white border-y border-gray-100">
         <div className="mx-auto max-w-7xl px-6 lg:px-12">
           <HomeReviews />
         </div>
       </section>
 
       {/* ============ FAQ ============ */}
-      <section className="py-28 px-6 lg:px-12 max-w-4xl mx-auto">
+      <section className="py-36 lg:py-44 px-6 lg:px-12 max-w-4xl mx-auto">
         <Reveal className="text-center mb-16">
           <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">04 &middot; Before You Call</p>
           <h2 className="text-3xl font-light tracking-tight font-montserrat text-slate-950">
@@ -271,7 +271,7 @@ export default function Home() {
       {/* ============ Close — start with the ground + the office ============ */}
       <section className="relative overflow-hidden bg-[#050A07] text-white grain">
         <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_-20%,rgba(45,90,58,0.4),transparent_65%)] pointer-events-none" />
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 py-28 grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center relative z-10">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 py-32 lg:py-40 grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center relative z-10">
           <Reveal>
             <p className="text-sm uppercase tracking-[0.2em] text-[#8FBF9F] mb-6 font-semibold">05 &middot; Marrickville, Sydney</p>
             <h2 className="text-3xl sm:text-5xl font-montserrat font-light tracking-tight leading-[1.1] mb-6">
