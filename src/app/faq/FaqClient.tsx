@@ -85,7 +85,11 @@ export default function FaqClient() {
           </div>
         </div>
         <div className="max-w-4xl mx-auto divide-y divide-gray-100 border-t border-gray-100">
-          {faqs.map((faq, index) => {
+          {["Cost & Process", "For Homeowners", "For Builders & Engineers", "Access & Coverage", "About SFGEO"].map((groupName) => (
+            <div key={groupName} className="pt-10 first:pt-0">
+              <h2 className="text-sm uppercase tracking-[0.22em] text-forest-green font-semibold mb-2">{groupName}</h2>
+              {faqs.filter((f) => (f as { group?: string }).group === groupName).map((faq) => {
+                const index = faqs.indexOf(faq);
             const isOpen = openIndex === index;
             return (
               <div key={index} className="py-6">
@@ -120,6 +124,8 @@ export default function FaqClient() {
               </div>
             );
           })}
+            </div>
+          ))}
         </div>
       </section>
 

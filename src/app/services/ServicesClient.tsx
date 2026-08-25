@@ -2,327 +2,184 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { PlusIcon, MinusIcon } from "@heroicons/react/24/outline";
-import ServiceAreaBlock from "@/components/sections/ServiceAreaBlock";
-import ImageOverlay from "@/components/ui/ImageOverlay";
-import { OverlayGroup } from "@/components/ui/OverlayGroup";
+import { FadeIn, StaggerContainer, FadeInChild } from "../site-classification/MotionWrapper";
 
-function ExpandableDetails({ title, items }: { title: string, items: string[] }) {
-  const [isOpen, setIsOpen] = useState(false);
+/**
+ * Services hub — the index of everything SFGEO does, segmented the way the
+ * business actually runs: Investigate / Support / Drill, with partner-
+ * delivered services alongside. Anchors #inspections, #design and #partners
+ * are preserved for existing nav and inbound links.
+ */
 
-  return (
-    <div className="mt-10 border-t border-gray-100 pt-6">
-      <button 
-        onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-3 text-[13px] font-bold tracking-widest text-forest-green hover:text-slate-950 transition-colors uppercase group w-full text-left"
-        aria-expanded={isOpen}
-      >
-        <span className="p-1.5 rounded-full bg-forest-green/10 group-hover:bg-slate-100 transition-colors">
-          {isOpen ? <MinusIcon className="w-4 h-4" /> : <PlusIcon className="w-4 h-4" />}
-        </span>
-        {title}
-      </button>
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="overflow-hidden"
-          >
-            <ul className="pt-6 pb-2 space-y-4 font-medium text-[15px] text-slate-950 pl-2">
-              {items.map((item, index) => (
-                <li key={index} className="flex items-start gap-4">
-                  <span className="w-1.5 h-1.5 rounded-full bg-forest-green mt-2 shrink-0 opacity-80" />
-                  <span className="leading-relaxed font-light">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
-  );
-}
+const SEGMENTS = [
+  {
+    id: "investigate",
+    kicker: "01 · Investigate",
+    title: "Read The Ground",
+    intro:
+      "Before anything is designed or built — classifications and investigations that turn unknown ground into design parameters. For homeowners, architects, builders, certifiers and developers.",
+    image: "/sfgeo-gi-rig-golden-coogee.jpg",
+    imageAlt: "Drill rig in golden morning light above a Coogee allotment",
+    links: [
+      { name: "Site Classification (AS 2870)", href: "/site-classification", line: "The report your structural engineer designs from — homes, extensions, granny flats, pools." },
+      { name: "Geotechnical Investigations (AS 1726)", href: "/geotechnical-investigations", line: "Boreholes, penetrometers and lab data for DAs, footings, basements and retaining structures." },
+    ],
+  },
+  {
+    id: "support",
+    kicker: "02 · Support",
+    title: "Keep The Build Moving",
+    intro:
+      "Once construction starts — verification at the moments that can't wait. For builders on open excavations and commercial contractors on programmed works.",
+    image: "/footing-pile-inspection-north-willoughby-geotechnical.jpg",
+    imageAlt: "Footing and pier inspection on a Sydney construction site",
+    links: [
+      { name: "Construction Phase Support", href: "#inspections", line: "Footing, pier and pile inspections, proof rolls and engineered fill to AS 3798 — verified bearing, in writing, fast." },
+      { name: "Geotechnical Design Parameters", href: "#design", line: "Foundation, retaining and pavement inputs for structural and civil teams." },
+    ],
+  },
+  {
+    id: "drill",
+    kicker: "03 · Drill",
+    title: "The Rig And The Crew",
+    intro:
+      "Drilling as a service — for our own investigations, and on subcontract for engineering firms, environmental consultants and major contractors, on their programs and their supervision.",
+    image: "/sfgeo-drilling-verge-telopea.jpg",
+    imageAlt: "SFGEO rig with mast raised on a Telopea verge",
+    links: [
+      { name: "Drilling Services", href: "/drilling", line: "Borehole drilling, rock coring, SPT and sampling — 4WD-mounted rig, engineer operated." },
+      { name: "Tight Access Drilling", href: "/tight-access-drilling", line: "Terraces, battleaxe blocks, backyards and basements — no site out of reach." },
+      { name: "Concrete Coring", href: "/concrete-coring", line: "Slabs and pavements, cored with the engineering attached." },
+      { name: "Environmental Sampling", href: "/other-services", line: "PSI and DSI fieldwork support for environmental consultants." },
+    ],
+  },
+];
 
 export default function ServicesClient() {
-  const fadeIn = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
-  };
-
-  const stagger = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { staggerChildren: 0.15 } }
-  };
-
   return (
-    <div className="bg-white text-slate-950 font-inter min-h-screen">
-      
-                  <section className="pt-32 pb-16 px-6 lg:px-12 max-w-7xl mx-auto">
-        <div className="flex flex-col gap-10">
-          
-          {/* Row 1: Social Links */}
-          
+    <div className="bg-white text-slate-950 font-inter selection:bg-forest-green selection:text-white">
+      {/* Hero */}
+      <section className="pt-32 pb-16 px-6 lg:px-12 max-w-7xl mx-auto">
+        <FadeIn className="max-w-3xl">
+          <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-6 font-semibold">
+            All Services &middot; Principal-Led &middot; Sydney
+          </p>
+          <h1 className="text-4xl sm:text-6xl font-montserrat font-light tracking-tight leading-[1.1] mb-8">
+            Investigate. Support. <span className="font-semibold">Drill.</span>
+          </h1>
+          <div className="w-[96px] h-[3px] bg-forest-green mb-8" />
+          <p className="text-lg sm:text-xl text-gray-600 font-light leading-relaxed">
+            Everything SFGEO does sits in one of three segments — reading the ground before you design, verifying it while you build, and putting holes in it for whoever needs them. One team across all three, backed by a partner network for the rest.
+          </p>
+        </FadeIn>
+      </section>
 
-          {/* Row 2: H1 + CTAs */}
-          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-10">
-            {/* H1 */}
-            <div className="flex flex-col items-center lg:items-start text-center lg:text-left flex-1">
-              <h1 className="text-4xl sm:text-5xl font-montserrat font-light tracking-tight text-slate-950 max-w-4xl mb-0 leading-tight w-full">
-                All Services.<br />
-                <span className="font-semibold">One Team.</span>
-              </h1>
-              
-              <div className="w-[96px] h-[3px] bg-forest-green mt-5 mb-5 mx-auto lg:mx-0"></div>
-              
-              {/* Mobile CTAs sit here above subhead */}
-              <div className="lg:hidden flex flex-col items-center gap-4 w-full mb-8">
-                <Link 
-                  href="/contact" 
-                  className="flex items-center justify-center px-5 py-2.5 bg-gradient-to-b from-[#346b43] to-forest-green text-white rounded-full shadow-[0_8px_20px_-6px_rgba(45,90,58,0.4)] hover:shadow-[0_12px_24px_-8px_rgba(45,90,58,0.6)] hover:brightness-105 transition-all hover:-translate-y-0.5 w-[70%] sm:w-[240px] h-[46px]"
-                >
-                  <span className="text-xs font-semibold tracking-wide">Discuss your project</span>
-                </Link>
-                <Link 
-                  href="tel:+61423483555" 
-                  className="flex items-center justify-center px-5 py-2.5 bg-white text-forest-green rounded-full shadow-[inset_0_0_0_1px_rgba(45,90,58,0.25),0_4px_10px_-4px_rgba(0,0,0,0.05)] hover:bg-forest-green/5 hover:shadow-[inset_0_0_0_1px_rgba(45,90,58,0.4),0_6px_14px_-4px_rgba(0,0,0,0.1)] transition-all hover:-translate-y-0.5 w-[70%] sm:w-[240px] h-[46px]"
-                >
-                  <span className="text-xs font-semibold tracking-wide">Request a quote</span>
-                </Link>
+      {/* Segments */}
+      {SEGMENTS.map((seg, idx) => (
+        <section key={seg.id} id={seg.id} className="py-16 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100 scroll-mt-[100px]">
+          <div className={`grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center`}>
+            <FadeIn className={idx % 2 === 1 ? "lg:order-2" : ""}>
+              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-[0_26px_60px_-26px_rgba(5,10,7,0.4)]">
+                <Image src={seg.image} alt={seg.imageAlt} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/45 via-transparent to-transparent" />
+                <div className="absolute bottom-0 left-0 p-6">
+                  <p className="text-[11px] uppercase tracking-[0.25em] text-white/75 font-semibold">{seg.kicker}</p>
+                </div>
               </div>
-
-              <p className="text-xl text-gray-500 font-light leading-relaxed max-w-2xl mb-8 lg:mb-0 w-full">
-
-
-              Based in Marrickville and mobilising 4WD across the Sydney Metro, we bring infrastructure-grade geotechnical expertise to residential and commercial projects. Delivered with the personal attention that only an independent, locally-owned practice can offer.<br/><br/>Every service is scoped and delivered by our Principal. No subcontracted fieldwork, no templated reports. Site-specific data, signed by the Engineer who was on your ground.
-            
-              
-              </p>
-            </div>
-
-            {/* Desktop CTAs */}
-            <div className="hidden lg:flex flex-row items-center gap-4 shrink-0">
-              <Link 
-                href="/contact" 
-                className="flex items-center justify-center px-5 py-2.5 bg-gradient-to-b from-[#346b43] to-forest-green text-white rounded-full shadow-[0_8px_20px_-6px_rgba(45,90,58,0.4)] hover:shadow-[0_12px_24px_-8px_rgba(45,90,58,0.6)] hover:brightness-105 transition-all hover:-translate-y-0.5 w-[240px] h-[46px]"
-              >
-                <span className="text-xs font-semibold tracking-wide">Discuss your project</span>
-              </Link>
-              <Link 
-                href="tel:+61423483555" 
-                className="flex items-center justify-center px-5 py-2.5 bg-white text-forest-green rounded-full shadow-[inset_0_0_0_1px_rgba(45,90,58,0.25),0_4px_10px_-4px_rgba(0,0,0,0.05)] hover:bg-forest-green/5 hover:shadow-[inset_0_0_0_1px_rgba(45,90,58,0.4),0_6px_14px_-4px_rgba(0,0,0,0.1)] transition-all hover:-translate-y-0.5 w-[240px] h-[46px]"
-              >
-                <span className="text-xs font-semibold tracking-wide">Request a quote</span>
-              </Link>
-            </div>
+            </FadeIn>
+            <FadeIn delay={0.12}>
+              <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">{seg.kicker}</p>
+              <h2 className="text-3xl sm:text-4xl font-montserrat font-light tracking-tight text-slate-950 mb-5">
+                {seg.title.split(" ").slice(0, -1).join(" ")} <span className="font-semibold">{seg.title.split(" ").slice(-1)}</span>
+              </h2>
+              <div className="h-px bg-forest-green w-12 mb-7" />
+              <p className="text-gray-600 font-light leading-relaxed mb-8">{seg.intro}</p>
+              <div className="flex flex-col divide-y divide-gray-100 border-y border-gray-100">
+                {seg.links.map((l) => (
+                  <Link key={l.name} href={l.href} className="group py-5 flex items-start justify-between gap-6">
+                    <div>
+                      <span className="font-montserrat font-semibold text-slate-950 group-hover:text-forest-green transition-colors">{l.name}</span>
+                      <p className="text-sm text-gray-500 font-light mt-1.5 max-w-md">{l.line}</p>
+                    </div>
+                    <span className="text-forest-green opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all mt-1">&rarr;</span>
+                  </Link>
+                ))}
+              </div>
+            </FadeIn>
           </div>
+        </section>
+      ))}
+
+      {/* CPS detail — anchor preserved */}
+      <section id="inspections" className="py-16 px-6 lg:px-12 max-w-4xl mx-auto border-t border-gray-100 scroll-mt-[100px]">
+        <FadeIn>
+          <h2 className="text-3xl font-light tracking-tight font-montserrat text-slate-950 mb-6">
+            Construction Phase <span className="font-semibold">Support</span>
+          </h2>
+          <p className="text-lg text-gray-600 font-light leading-relaxed mb-6">
+            Open trenches and idle machinery cost money. SFGEO provides rapid, practical verification across Greater Sydney — footings, piers and piles at bearing level, proof rolls, and engineered fill to AS 3798 — with the record in writing before the next pour. Single visits for local builders; standing schedule-of-rates engagements for commercial contractors.
+          </p>
+          <Link href="/contact" className="text-sm font-semibold tracking-wide text-forest-green group inline-flex items-center gap-2">
+            <span className="draw-link">Book An Inspection</span>
+            <span className="transition-transform group-hover:translate-x-1">&rarr;</span>
+          </Link>
+        </FadeIn>
+      </section>
+
+      {/* Design detail — anchor preserved */}
+      <section id="design" className="py-16 px-6 lg:px-12 max-w-4xl mx-auto border-t border-gray-100 scroll-mt-[100px]">
+        <FadeIn>
+          <h2 className="text-3xl font-light tracking-tight font-montserrat text-slate-950 mb-6">
+            Geotechnical <span className="font-semibold">Design Parameters</span>
+          </h2>
+          <p className="text-lg text-gray-600 font-light leading-relaxed mb-6">
+            We partner with structural and civil engineers, supplying the site-specific inputs their designs rely on — bearing capacities, pile design inputs, retaining wall parameters to AS 4678, and working platform assessments. We don&rsquo;t carry the structural design; we make sure the numbers under it are real.
+          </p>
+          <Link href="/contact" className="text-sm font-semibold tracking-wide text-forest-green group inline-flex items-center gap-2">
+            <span className="draw-link">Request Design Parameters</span>
+            <span className="transition-transform group-hover:translate-x-1">&rarr;</span>
+          </Link>
+        </FadeIn>
+      </section>
+
+      {/* Partners — anchor preserved */}
+      <section id="partners" className="py-16 px-6 lg:px-12 max-w-4xl mx-auto border-t border-gray-100 scroll-mt-[100px]">
+        <FadeIn>
+          <h2 className="text-3xl font-light tracking-tight font-montserrat text-slate-950 mb-6">
+            Delivered With <span className="font-semibold">Partners</span>
+          </h2>
+          <p className="text-lg text-gray-600 font-light leading-relaxed mb-6">
+            Dilapidation reports, land and detail surveys, NATA laboratory testing and specialist engineering — arranged through a network built over fifteen years, with SFGEO as your single point of contact.
+          </p>
+          <Link href="/other-services" className="text-sm font-semibold tracking-wide text-forest-green group inline-flex items-center gap-2">
+            <span className="draw-link">Environmental &amp; Partner Services</span>
+            <span className="transition-transform group-hover:translate-x-1">&rarr;</span>
+          </Link>
+        </FadeIn>
+      </section>
+
+      {/* Close */}
+      <section className="mt-16 py-24 px-6 lg:px-12 bg-[#050A07] text-white rounded-t-[3rem] relative overflow-hidden grain">
+        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_-20%,rgba(45,90,58,0.15),transparent)] pointer-events-none" />
+        <div className="max-w-4xl mx-auto text-center relative z-10">
+          <FadeIn>
+            <h2 className="text-4xl sm:text-6xl font-montserrat font-light tracking-tight mb-8">
+              Not Sure Which <span className="font-semibold">You Need?</span>
+            </h2>
+            <p className="text-lg sm:text-xl text-gray-400 font-light leading-relaxed max-w-2xl mx-auto mb-12">
+              Describe the project in a sentence. The Principal will tell you what it needs — and what it doesn&rsquo;t.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+              <Link href="tel:+61423483555" className="flex items-center justify-center px-8 py-2.5 bg-gradient-to-b from-[#346b43] to-forest-green text-white rounded-full shadow-[0_8px_20px_-6px_rgba(45,90,58,0.4)] hover:shadow-[0_12px_24px_-8px_rgba(45,90,58,0.6)] hover:brightness-105 transition-all hover:-translate-y-0.5 w-full sm:w-[280px] h-[46px] text-xs font-semibold tracking-wide">
+                Call 0423 483 555
+              </Link>
+              <Link href="/contact" className="flex items-center justify-center px-8 py-2.5 bg-white text-forest-green rounded-full shadow-[inset_0_0_0_1px_rgba(45,90,58,0.25),0_4px_10px_-4px_rgba(0,0,0,0.05)] hover:bg-forest-green/5 transition-all hover:-translate-y-0.5 w-full sm:w-[280px] h-[46px] text-xs font-semibold tracking-wide">
+                Request A Quote
+              </Link>
+            </div>
+          </FadeIn>
         </div>
       </section>
-      {/* Content Blocks */}
-      <OverlayGroup>
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 pb-32">
-          
-          <section id="site-class" className="scroll-mt-[100px] py-24 lg:py-32 border-t border-gray-100 flex flex-col md:flex-row items-center gap-16 lg:gap-24">
-            <div className="w-full md:w-1/2 relative aspect-[4/3] rounded-sm overflow-hidden bg-gray-100 shadow-sm group">
-              <Image 
-                src="/residential-soil-testing-sydney.webp" 
-                alt="Residential site classification and soil testing in Sydney by SFGEO." 
-                title="Residential soil testing and site classification in Sydney - SFGEO"
-                fill 
-                className="object-cover transition-transform duration-1000 ease-in-out group-hover:scale-105" 
-              />
-              <ImageOverlay hoverShow tracking="tracking-widest">
-                Residential Site Classification | Sydney
-              </ImageOverlay>
-            </div>
-            <div className="w-full md:w-1/2">
-              <h2 className="text-3xl font-light tracking-tight font-montserrat text-slate-950 mb-6">Site Classification & Soil Reports for Homeowners, Builders & Designers</h2>
-              <p className="text-lg text-gray-600 font-light leading-loose mb-8">
-                Most people call it a "soil report." In engineering terms, it's a Site Classification — the AS2870 assessment that tells your structural engineer what footing system your ground will support. Whether it's an extension, a granny flat, a duplex, or an architect-designed home, we deliver site-specific classifications that move your DA or CDC pathway forward with less guesswork.
-              </p>
-              <div className="flex flex-col sm:flex-row items-center gap-4">
-                <Link href="/site-classification" 
-                  className="inline-flex items-center justify-center px-8 py-2.5 bg-forest-green text-white text-sm font-semibold tracking-wide rounded-full shadow-md hover:shadow-lg transition-all hover:-translate-y-0.5 hover:bg-forest-green/90 h-[46px]"
-                >
-                  Explore Site Classifications →
-                </Link>
-                <Link href="/contact" 
-                  className="inline-flex items-center justify-center px-8 py-2.5 bg-white text-forest-green text-sm font-semibold tracking-wide rounded-full shadow-[inset_0_0_0_1px_rgba(45,90,58,0.25)] hover:shadow-md transition-all hover:-translate-y-0.5 h-[46px]"
-                >
-                  Get a Fixed-Fee Quote
-                </Link>
-              </div>
-            </div>
-          </section>
-
-          {/* Block 2: Geotechnical Investigation */}
-          <section id="investigation" className="scroll-mt-[100px] py-24 lg:py-32 border-t border-gray-100 flex flex-col md:flex-row-reverse items-center gap-16 lg:gap-24">
-            <div className="w-full md:w-1/2 relative aspect-[4/3] rounded-sm overflow-hidden bg-gray-100 shadow-sm group">
-              <Image 
-                src="/service-investigation-detail.png" 
-                alt="Comprehensive geotechnical subsurface investigations for commercial and residential projects." 
-                title="Geotechnical subsurface investigation for Sydney commercial and residential sites"
-                fill 
-                className="object-cover transition-transform duration-1000 ease-in-out group-hover:scale-105" 
-              />
-              <ImageOverlay hoverShow tracking="tracking-widest">
-                Geotechnical Investigations | Commercial & Residential
-              </ImageOverlay>
-            </div>
-            <div className="w-full md:w-1/2">
-              <h2 className="text-3xl font-light tracking-tight font-montserrat text-slate-950 mb-6">Comprehensive Geotechnical & Pavement Investigations</h2>
-              <p className="text-lg text-gray-600 font-light leading-loose mb-8">
-                Built from real, ground-up experience spanning the trades, drilling, and senior engineering, we understand what is happening below your site surface. From our Sydney team, we carry out comprehensive geotechnical investigations for residential, commercial, and land development projects. We define subsurface conditions through boreholes and test pits, providing reliable parameters to support foundation design, excavation planning, and site remediation.
-              </p>
-              <motion.div variants={fadeIn}>
-                <Link href="/contact" 
-                  className="inline-flex items-center justify-center px-8 py-2.5 bg-slate-black text-white text-sm font-semibold tracking-wide rounded-full shadow-md hover:shadow-lg transition-all hover:-translate-y-0.5 hover:bg-slate-800 mb-2 h-[46px]"
-                >
-                  Discuss Your Site With an Engineer
-                </Link>
-                <p className="mt-3">
-                  <Link href="/geotechnical-investigations" className="text-sm font-medium text-forest-green hover:underline">
-                    Explore geotechnical investigations in detail &rarr;
-                  </Link>
-                </p>
-              </motion.div>
-              <ExpandableDetails 
-                title="View Scope: Boreholes, Slope Stability & Soil Testing"
-                items={[
-                  "Deep borehole drilling, test pits, rock coring, and sampling",
-                  "Slope stability, landslip assessments, and rock face analysis",
-                  "Dynamic Cone Penetrometer (DCP) tests and California Bearing Ratio (CBR) testing",
-                  "Hydraulic conductivity, pavement investigations, and remediation guidance",
-                  "Groundwater observations (at the time of investigation)"
-                ]}
-              />
-            </div>
-          </section>
-
-          {/* Block 3: Construction Phase Support */}
-          <section id="inspections" className="scroll-mt-[100px] py-24 lg:py-32 border-t border-gray-100 flex flex-col md:flex-row items-center gap-16 lg:gap-24">
-            <div className="w-full md:w-1/2 relative aspect-[4/3] rounded-sm overflow-hidden bg-gray-100 shadow-sm group">
-              <Image 
-                src="/service-construction-detail.jpg" 
-                alt="Rapid response construction phase support and footing inspections in Greater Sydney." 
-                title="Geotechnical construction phase support and footing inspection in Sydney"
-                fill 
-                className="object-cover transition-transform duration-1000 ease-in-out group-hover:scale-105" 
-              />
-              <ImageOverlay hoverShow tracking="tracking-widest">
-                Construction Phase Inspections | Rapid Response
-              </ImageOverlay>
-            </div>
-            <div className="w-full md:w-1/2">
-              <h2 className="text-3xl font-light tracking-tight font-montserrat text-slate-950 mb-6">Construction Phase Support, Site Inspections & Testing</h2>
-              <p className="text-lg text-gray-600 font-light leading-loose mb-8">
-                We know that open trenches and idle machinery cost our local builders money. We provide highly responsive, practical site support across Greater Sydney. By delivering timely geotechnical site assessment findings and verification during the build, we help reduce avoidable delays and keep works progressing safely on site.
-              </p>
-              <motion.div variants={fadeIn}>
-                <Link href="/contact" 
-                  className="inline-flex items-center justify-center px-8 py-2.5 bg-forest-green text-white text-sm font-semibold tracking-wide rounded-full shadow-md hover:shadow-lg transition-all hover:-translate-y-0.5 hover:bg-forest-green/90 mb-2 h-[46px]"
-                >
-                  Book a Site Inspection
-                </Link>
-              </motion.div>
-              <ExpandableDetails 
-                title="View Scope: Footings, Pier, Pile & Crane Inspections"
-                items={[
-                  "Footing, pier, pile, and trench inspections",
-                  "Retaining wall foundation inspections",
-                  "Proof rolling, compaction testing, and engineered fill verification (AS3798)",
-                  "Initial and final subgrade assessment, base course inspections",
-                  "Subgrade and working platform verification for Mobile Roof Cranes (MRC), concrete boom pumps, and scaffolding setup",
-                  "Piling platform and temporary working platform verification"
-                ]}
-              />
-            </div>
-          </section>
-
-          {/* Block 4: Geotechnical Inputs for Complex Design */}
-          <section id="design" className="scroll-mt-[100px] py-24 lg:py-32 border-t border-gray-100 flex flex-col md:flex-row-reverse items-center gap-16 lg:gap-24">
-            <div className="w-full md:w-1/2 relative aspect-[4/3] rounded-sm overflow-hidden bg-gray-100 shadow-sm group">
-              <Image 
-                src="/partner-network.jpg" 
-                alt="Reliable geotechnical design parameters and inputs for complex structural engineering." 
-                title="Geotechnical design parameters for complex structural and civil engineering"
-                fill 
-                className="object-cover transition-transform duration-1000 ease-in-out group-hover:scale-105" 
-              />
-              <ImageOverlay hoverShow tracking="tracking-widest">
-                Geotechnical Design | Design Parameters
-              </ImageOverlay>
-            </div>
-            <div className="w-full md:w-1/2">
-              <h2 className="text-3xl font-light tracking-tight font-montserrat text-slate-950 mb-6">Geotechnical Design & Parameters</h2>
-              <p className="text-lg text-gray-600 font-light leading-loose mb-8">
-                We partner with top structural and civil engineers, supplying the critical foundational data they rely on. We do not provide the structural design ourselves; instead, we deliver the site-specific geotechnical inputs and parameters your design team may use to engineer safe, efficient, and commercially sensible solutions for complex builds.
-              </p>
-              <motion.div variants={fadeIn}>
-                <Link href="/contact" 
-                  className="inline-flex items-center justify-center px-8 py-2.5 bg-slate-black text-white text-sm font-semibold tracking-wide rounded-full shadow-md hover:shadow-lg transition-all hover:-translate-y-0.5 hover:bg-slate-800 mb-2 h-[46px]"
-                >
-                  Request Design Parameters
-                </Link>
-              </motion.div>
-              <ExpandableDetails 
-                title="View Scope: Pavement, Piling & Retaining Wall Inputs"
-                items={[
-                  "Geotechnical parameters for pavement design and remediation",
-                  "Soil parameters and bearing capacities for retaining wall design",
-                  "Subgrade inputs for piling platforms and temporary working platforms",
-                  "Geotechnical verification parameters to support third-party footing, pile, and pier designs"
-                ]}
-              />
-            </div>
-          </section>
-
-          {/* Block 5: Our Trusted Partner Network */}
-          <section id="partners" className="scroll-mt-[100px] py-24 lg:py-32 border-t border-gray-100 flex flex-col md:flex-row items-center gap-16 lg:gap-24">
-            <div className="w-full md:w-1/2 relative aspect-[4/3] rounded-sm overflow-hidden bg-gray-100 shadow-sm group">
-              <Image 
-                src="/commercial-geotechnical-eastern-creek-light-horse.jpeg" 
-                alt="SFGEO's trusted partner network of Sydney structural engineers, civil engineers, and environmental consultants." 
-                title="SFGEO partner network: structural engineers and environmental consultants in Sydney"
-                fill 
-                className="object-cover transition-transform duration-1000 ease-in-out group-hover:scale-105" 
-              />
-              <ImageOverlay hoverShow tracking="tracking-widest">
-                Get in contact with our trusted partner network
-              </ImageOverlay>
-            </div>
-            <div className="w-full md:w-1/2">
-              <h2 className="text-3xl font-light tracking-tight font-montserrat text-slate-950 mb-6">Our Trusted Partner Network</h2>
-              <p className="text-lg text-gray-600 font-light leading-loose mb-8">
-                As a proudly Sydney-bred independent practice, we believe in supporting the local ecosystem. Over the years, we have built a trusted network of highly reputable professionals who understand how to use precise, practical geotechnical data. If your project needs a collaborative team, we are happy to make a site-specific introduction.
-              </p>
-              <motion.div variants={fadeIn}>
-                <Link href="/contact" 
-                  className="inline-flex items-center px-8 py-3.5 bg-forest-green text-white text-sm font-semibold tracking-wide rounded-full shadow-md hover:shadow-lg transition-all hover:-translate-y-0.5 hover:bg-forest-green/90 mb-2"
-                >
-                  Explore Our Network
-                </Link>
-              </motion.div>
-              <ExpandableDetails 
-                title="View Our Network Expertise"
-                items={[
-                  "Structural Engineers & Architects",
-                  "Civil & Hydrological Engineers",
-                  "Land Surveyors & Environmental Consultants",
-                  "Select heavy-duty trades"
-                ]}
-              />
-            </div>
-          </section>
-
-        <ServiceAreaBlock pageType="services" />
-
-        </div>
-      </OverlayGroup>
     </div>
   );
 }
