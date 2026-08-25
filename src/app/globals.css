@@ -131,3 +131,9 @@ html {
   .reveal .unveil { transform: scale(1.1); transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1); }
   .reveal.is-in .unveil { transform: scale(1); }
 }
+
+/* ============ System rebuild: serif display voice ============ */
+@theme {
+  --font-fraunces: var(--font-fraunces);
+}
+.font-serifd { font-family: var(--font-fraunces), Georgia, serif; font-variation-settings: "opsz" 90, "SOFT" 40; }

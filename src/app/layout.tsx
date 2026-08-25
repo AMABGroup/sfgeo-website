@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Montserrat } from "next/font/google";
+import { Inter, Montserrat, Fraunces } from "next/font/google";
 import "./globals.css";
 import SiteChrome from "@/components/layout/SiteChrome";
 import Script from "next/script";
@@ -12,6 +12,13 @@ const inter = Inter({
 const montserrat = Montserrat({
   variable: "--font-montserrat",
   subsets: ["latin"],
+});
+
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  weight: "variable",
+  variable: "--font-fraunces",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -128,7 +135,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${inter.variable} ${montserrat.variable} antialiased min-h-screen flex flex-col`}
+        className={`${inter.variable} ${montserrat.variable} ${fraunces.variable} antialiased min-h-screen flex flex-col`}
       >
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=AW-18053070765"

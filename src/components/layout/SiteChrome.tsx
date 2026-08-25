@@ -1,8 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import Navbar from "./Navbar";
-import Footer from "./Footer";
+import { SystemHeader, SystemFooter } from "./SystemChrome";
 import ContactBubble from "@/components/ui/ContactBubble";
 import CallBubble from "@/components/ui/CallBubble";
 import ContactClickTracker from "@/components/analytics/ContactClickTracker";
@@ -21,9 +20,9 @@ export default function SiteChrome({ children }: Props) {
 
   return (
     <>
-      <Navbar />
+      <SystemHeader />
       <main className="flex-grow">{children}</main>
-      <Footer />
+      <SystemFooter />
       <ContactBubble />
       <CallBubble />
       <ContactClickTracker />
