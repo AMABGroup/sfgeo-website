@@ -172,10 +172,10 @@ export function SystemHeader() {
         className={`fixed inset-0 z-[60] bg-[#0A130D] text-white transition-all duration-500 grain ${open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
       >
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_-10%,rgba(64,120,80,0.45),transparent_65%)] pointer-events-none" />
-        <div className="h-full overflow-y-auto pt-24 lg:pt-28 pb-10 px-6 lg:px-12">
+        <div className="h-full overflow-y-auto px-6 lg:px-12 lg:flex lg:items-center pt-24 lg:pt-20 pb-10">
 
           {/* ============ Desktop: four tight columns ============ */}
-          <div className="hidden lg:grid max-w-[90rem] mx-auto grid-cols-[1fr_1fr_1fr_1.15fr] gap-12">
+          <div className="hidden lg:grid w-full max-w-[90rem] mx-auto grid-cols-[1fr_1fr_1fr_1.15fr] gap-12">
             <div className="space-y-10">
               <div><GroupHeading name="Geotechnical" hub="/geotechnical" /><GroupLinks links={GROUPS[0].links} /></div>
               <div><GroupHeading name="Environmental & Soil Testing" hub="/environmental" /><GroupLinks links={GROUPS[2].links} /></div>
