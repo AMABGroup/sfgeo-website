@@ -187,17 +187,15 @@ export function SystemHeader() {
             <div className="space-y-10">
               <div><GroupHeading name="Concrete Coring" hub="/concrete-coring" /><GroupLinks links={GROUPS[4].links} /></div>
               <div>
-                <Link href="/about" className="block font-montserrat text-2xl font-light tracking-[0.1em] text-white mb-4">
-                  SF<span className="font-semibold text-[#8FBF9F]">GEO</span>
-                </Link>
+                <p className="text-[12px] uppercase tracking-[0.3em] text-[#8FBF9F] font-semibold mb-4">SFGEO</p>
                 <GroupLinks links={COMPANY} />
               </div>
-              <div className="space-y-1.5 text-[13px] font-light text-white/60 border-t border-white/10 pt-6">
+              <div className="space-y-1.5 text-[13px] font-light text-white/60 border-t border-white/10 pt-6 text-center lg:text-left">
                 <p><a href="tel:+61423483555" className="text-white text-base font-medium hover:text-[#8FBF9F] transition-colors">0423 483 555</a></p>
-                <p><a href="mailto:info@sfgeo.com.au" className="hover:text-white transition-colors">info@sfgeo.com.au</a></p>
+                <p><a href="mailto:info@sfgeo.com.au" className="text-white text-base font-medium hover:text-[#8FBF9F] transition-colors">info@sfgeo.com.au</a></p>
                 <p className="pt-1.5">Suite 3.01, Level 3, 107 Sydenham Road, Marrickville</p>
                 <p>Mon&ndash;Fri 6am&ndash;6pm &middot; Sat 8am&ndash;2pm</p>
-                <button onClick={() => setQuote(true)} className="mt-4 inline-flex items-center justify-center px-7 h-[44px] bg-gradient-to-b from-[#346b43] to-forest-green text-white rounded-full text-xs font-semibold tracking-wide shadow-[0_8px_20px_-6px_rgba(45,90,58,0.5)] hover:brightness-105 transition-all">
+                <button onClick={() => setQuote(true)} className="mt-4 mx-auto flex items-center justify-center px-7 h-[44px] bg-gradient-to-b from-[#346b43] to-forest-green text-white rounded-full text-xs font-semibold tracking-wide shadow-[0_8px_20px_-6px_rgba(45,90,58,0.5)] hover:brightness-105 transition-all">
                   Request A Quote
                 </button>
               </div>
