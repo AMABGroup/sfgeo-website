@@ -31,8 +31,8 @@ const SEGMENTS = [
     title: "Keep The Build Moving",
     intro:
       "Once construction starts — verification at the moments that can't wait. For builders on open excavations and commercial contractors on programmed works.",
-    image: "/footing-pile-inspection-north-willoughby-geotechnical.jpg",
-    imageAlt: "Footing and pier inspection on a Sydney construction site",
+    image: "/sfgeo-rock-verification-marking.jpg",
+    imageAlt: "Excavation level verification marked on exposed rock",
     links: [
       { name: "Construction Phase Support", href: "#inspections", line: "Footing, pier and pile inspections, proof rolls and engineered fill to AS 3798 — verified bearing, in writing, fast." },
       { name: "Geotechnical Design Parameters", href: "#design", line: "Foundation, retaining and pavement inputs for structural and civil teams." },

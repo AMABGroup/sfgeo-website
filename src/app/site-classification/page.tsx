@@ -469,8 +469,8 @@ export default function SiteClassificationPage() {
               </div>
               <div className="relative w-full aspect-[4/3] rounded-sm overflow-hidden shadow-sm group">
                 <Image 
-                  src="/sfgeo-hand-auger-borehole-restricted-access-sydney-backyard.jpg" 
-                  alt="Hand auger borehole and field logging in a restricted-access Sydney backyard for AS 2870 site classification" 
+                  src="/sfgeo-auger-flight-in-hand.jpg" 
+                  alt="Auger flight loaded with sandy clay, read in hand" 
                   title="Restricted access — hand auger investigation"
                   fill 
                   sizes="(max-width: 768px) 100vw, 50vw"

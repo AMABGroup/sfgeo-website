@@ -128,7 +128,7 @@ export default function DrillingClient() {
           <section id="drilling" className="scroll-mt-[100px] py-24 lg:py-32 border-t border-gray-100 flex flex-col md:flex-row items-start gap-16 lg:gap-24">
             <div className="w-full md:w-1/2 relative aspect-[4/3] rounded-sm overflow-hidden bg-gray-100 shadow-sm group">
               <Image 
-                src="/residential-soil-testing-drilling-rig.jpeg" 
+                src="/sfgeo-crew-mast-reserve.jpg" 
                 alt="Toyota Land Cruiser Drillman rig geotechnical drilling Sydney Metro" 
                 title="Geotechnical drilling rig (Toyota Land Cruiser) on a Sydney Metro site"
                 fill 

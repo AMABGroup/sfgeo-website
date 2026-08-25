@@ -26,8 +26,8 @@ const SERVICES = [
     title: "Construction Phase Support",
     desc: "Footing, pier and engineered-fill inspections that keep an open excavation moving — verified bearing, in writing, fast.",
     href: "/services#inspections",
-    image: "/footing-pile-inspection-north-willoughby-geotechnical.jpg",
-    alt: "Footing and pier inspection on a Sydney construction site",
+    image: "/sfgeo-strip-footing-inspection.jpg",
+    alt: "Strip footing trench inspection along a Sydney garden path",
   },
   {
     n: "04",
