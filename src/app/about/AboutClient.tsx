@@ -236,7 +236,7 @@ export default function AboutClient() {
           >
             <div>
               <motion.h2 variants={fadeIn} className="text-3xl font-light tracking-tight font-montserrat text-slate-950">
-                Project Experience | <span className="font-semibold">Current &amp; Previous</span>
+                Project Experience — <span className="font-semibold">Current &amp; Previous</span>
               </motion.h2>
               <motion.div variants={fadeIn} className="mt-4 h-px bg-forest-green w-12" />
             </div>
@@ -381,7 +381,7 @@ export default function AboutClient() {
         >
           <div>
             <motion.h2 variants={fadeIn} className="text-3xl font-light tracking-tight font-montserrat text-slate-950">
-              Professional Accreditation | <span className="font-semibold">Assurances</span>
+              Professional Accreditation — <span className="font-semibold">Assurances</span>
             </motion.h2>
             <motion.div variants={fadeIn} className="mt-4 h-px bg-forest-green w-12" />
           </div>
