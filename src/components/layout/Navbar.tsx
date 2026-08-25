@@ -250,7 +250,7 @@ export default function Navbar() {
                                   onClick={() => setIsOpen(false)}
                                   className="block text-sm font-medium text-forest-green"
                                 >
-                                  Visit {item.name} hub
+                                  Visit {item.name}
                                 </Link>
                                 {item.sublinks.map((sublink) => (
                                   <Link
