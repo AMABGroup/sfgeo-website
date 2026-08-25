@@ -37,29 +37,28 @@ const GROUPS: { name: string; hub: string; links: { name: string; href: string }
     name: "Environmental & Soil Testing",
     hub: "/environmental",
     links: [
-      { name: "PSI — Preliminary Site Investigations", href: "/environmental#psi" },
-      { name: "DSI — Detailed Site Investigations", href: "/environmental#dsi" },
+      { name: "Preliminary Site Investigations", href: "/environmental#psi" },
+      { name: "Detailed Site Investigations", href: "/environmental#dsi" },
       { name: "Acid Sulfate Soils", href: "/environmental#ass" },
       { name: "Waste Classification", href: "/environmental#waste" },
       { name: "Lab Services", href: "/environmental#lab" },
     ],
   },
   {
-    name: "Concrete Coring",
-    hub: "/concrete-coring",
-    links: [
-      { name: "Pavements & Slabs", href: "/concrete-coring" },
-      { name: "Walls & Structures", href: "/concrete-coring" },
-    ],
-  },
-  {
     name: "Other Professional Services",
     hub: "/other-services",
     links: [
+      { name: "Utility Location & GPR Scanning", href: "/other-services" },
       { name: "Dilapidation Reports", href: "/other-services" },
       { name: "Surveying", href: "/other-services" },
-      { name: "Structural & Civil", href: "/other-services" },
-      { name: "Architectural & Hydro", href: "/other-services" },
+      { name: "Structural, Civil & Hydro", href: "/other-services" },
+    ],
+  },
+  {
+    name: "Concrete Coring",
+    hub: "/concrete-coring",
+    links: [
+      { name: "Slabs, Pavements & Walls", href: "/concrete-coring" },
     ],
   },
 ];

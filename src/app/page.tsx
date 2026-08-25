@@ -70,7 +70,7 @@ export default function Home() {
               <p className="hero-line text-sm uppercase tracking-[0.2em] text-[#8FBF9F] mb-6 font-semibold">
                 Independent Geotechnical Consultancy &middot; Sydney
               </p>
-              <h1 className="text-[clamp(3.2rem,7vw,6.6rem)] tracking-[-0.02em] font-disp font-medium text-white leading-[1.02] uppercase mb-8">
+              <h1 className="text-[clamp(3.2rem,7vw,6.6rem)] tracking-[-0.02em] font-montserrat font-light text-white leading-[1.04] mb-8">
                 <span className="mask-line mask-d1"><span>Geotechnical.</span></span>
                 <span className="mask-line mask-d2"><span className="font-semibold">Done Properly.</span></span>
               </h1>
