@@ -20,9 +20,9 @@ const GROUPS: { name: string; hub: string; links: { name: string; href: string }
     links: [
       { name: "Site Classification", href: "/site-classification" },
       { name: "Geotechnical Investigations", href: "/geotechnical-investigations" },
-      { name: "Geotechnical Assessments", href: "/geotechnical#assessments" },
-      { name: "Construction Phase Support", href: "/geotechnical#cps" },
-      { name: "Geotechnical Design", href: "/geotechnical#design" },
+      { name: "Geotechnical Assessments", href: "/geotechnical-assessments" },
+      { name: "Construction Phase Support", href: "/construction-phase-support" },
+      { name: "Geotechnical Design", href: "/geotechnical-design" },
     ],
   },
   {
