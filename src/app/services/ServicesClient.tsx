@@ -73,8 +73,8 @@ export default function ServicesClient() {
             {/* H1 */}
             <div className="flex flex-col items-center lg:items-start text-center lg:text-left flex-1">
               <h1 className="text-4xl sm:text-5xl font-montserrat font-light tracking-tight text-slate-950 max-w-4xl mb-0 leading-tight w-full">
-                Geotechnical Services<br />
-                Across <span className="font-semibold">Sydney Metro</span>
+                All Services.<br />
+                <span className="font-semibold">One Team.</span>
               </h1>
               
               <div className="w-[96px] h-[3px] bg-forest-green mt-5 mb-5 mx-auto lg:mx-0"></div>

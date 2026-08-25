@@ -144,7 +144,7 @@ export default function DrillingClient() {
               <h2 className="text-3xl font-light tracking-tight font-montserrat text-slate-950 mb-8">Borehole Drilling & Rock Coring</h2>
               <div className="text-lg text-gray-600 font-light leading-relaxed space-y-6 mb-10">
                 <p>
-                  We operate an agile 4WD ute-mounted rig delivering borehole drilling and rock coring across a wide range of Sydney ground conditions. Please note that due to the specialised nature of the equipment, all rock coring services require advance notice for booking and prepayment.
+                  We operate an agile 4WD ute-mounted rig delivering borehole drilling and rock coring (for concrete slabs and pavements, see <a href="/concrete-coring" className="text-forest-green hover:underline font-medium">concrete coring</a>; for restricted sites, <a href="/tight-access-drilling" className="text-forest-green hover:underline font-medium">tight access drilling</a>) across a wide range of Sydney ground conditions. Please note that due to the specialised nature of the equipment, all rock coring services require advance notice for booking and prepayment.
                 </p>
                 <p>
                   Whether we are coring through <span className="font-medium text-slate-950">Hawkesbury sandstone</span> on the North Shore or investigating Cumberland Plain soils and shale in Western Sydney, we extract the intact rock cores and geotechnical profiles that inform structural engineering decisions. We provide reliable in-situ testing for our own investigations, as well as specialist subcontract drilling and sampling support for other consulting firms requiring reliable field capacity.

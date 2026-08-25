@@ -79,7 +79,7 @@ export default function ContactPage() {
               <p className="text-xl text-gray-500 font-light leading-relaxed max-w-2xl mb-8 lg:mb-0 w-full">
 
 
-            Whether you are a Homeowner planning a premium extension, an Architect detailing a new build, or a Developer scaling a commercial project—we provide the geotechnical expertise to get your foundations right.
+            Send the address and a sentence about the project. You&rsquo;ll have a fixed-fee quote in writing — response within one business day.
           
               
               </p>
@@ -183,7 +183,7 @@ export default function ContactPage() {
                 </h3>
                 
                 <p className="text-gray-600 font-light text-lg mb-10 leading-relaxed">
-                   We let our work speak for itself. We take pride in delivering fast, accurate, and proactive geotechnical reporting to keep your site compliant and your project moving. 
+                   The Principal reads every enquiry. Fieldwork is scheduled at first contact, and reports land as soon as 2–3 business days after it. 
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">

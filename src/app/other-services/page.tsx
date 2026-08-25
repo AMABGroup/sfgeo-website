@@ -4,12 +4,12 @@ import Link from "next/link";
 import { FadeIn } from "../site-classification/MotionWrapper";
 
 export const metadata: Metadata = {
-  title: "Other Services | Environmental, Coring & Design | SFGEO Sydney",
+  title: "Environmental & Partner Services | Coring, Dilap, Surveys | SFGEO",
   description: "Beyond the core four — environmental sampling for PSI/DSI programs, engineer-supervised concrete coring, geotechnical design parameters, working platform assessments and a trusted partner network.",
   alternates: { canonical: '/other-services' },
   openGraph: {
     images: ['/og/sfgeo-og-card.jpg'],
-    title: "Other Services | Environmental, Coring & Design | SFGEO Sydney",
+    title: "Environmental & Partner Services | Coring, Dilap, Surveys | SFGEO",
     description: "Environmental sampling, concrete coring, geotechnical design parameters, working platforms and the partner network.",
     url: '/other-services',
   },
@@ -35,7 +35,13 @@ export default function OtherServicesPage() {
     { t: "Concrete Coring", d: "Engineer-supervised coring of slabs and pavements — logged, verified, and strength-tested through NATA-accredited laboratories when the question needs a number.", href: "/concrete-coring", cta: "Explore Concrete Coring" },
     { t: "Geotechnical Design", d: "Foundation, retaining and pavement parameters for structural and civil teams. We supply the site-specific inputs; your designers engineer from them.", href: "/services#design", cta: "Request Design Parameters" },
     { t: "Working Platform Assessments", d: "Platform verification to support safe temporary works planning for cranes, rigs and heavy plant.", href: "/contact", cta: "Discuss A Platform" },
-    { t: "Partner Network", d: "Surveyors, NATA laboratories and specialist engineers — a trusted network, one introduction away when your project needs a collaborative team.", href: "/contact", cta: "Ask For An Introduction" },
+  ];
+
+  const PARTNER = [
+    { t: "Dilapidation Reports", d: "Pre- and post-construction condition surveys of neighbouring structures — the record that protects everyone before excavation or demolition starts nearby." },
+    { t: "Land & Detail Surveys", d: "Boundary, level and detail surveys through our trusted surveying partners — coordinated with the geotechnical work so the design team gets one aligned package." },
+    { t: "Laboratory Testing", d: "Soil, rock and concrete testing through NATA-accredited partner laboratories — commissioned only when the design question warrants it." },
+    { t: "Specialist Engineering", d: "Structural, civil and hydraulic specialists for the questions beyond geotechnics — introduced when the project calls for a collaborative team." },
   ];
 
   return (
@@ -46,7 +52,7 @@ export default function OtherServicesPage() {
       <section className="pt-32 pb-16 px-6 lg:px-12 max-w-7xl mx-auto">
         <FadeIn className="max-w-3xl">
           <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-6 font-semibold">
-            Beyond The Core Four
+            Beyond The Core Four &middot; With Partners
           </p>
           <h1 className="text-4xl sm:text-6xl font-montserrat font-light tracking-tight leading-[1.1] mb-8">
             Other <span className="font-semibold">Services.</span>
@@ -94,6 +100,30 @@ export default function OtherServicesPage() {
                   <span className="draw-link">{c.cta}</span>
                   <span className="transition-transform group-hover:translate-x-1">&rarr;</span>
                 </Link>
+              </div>
+            </FadeIn>
+          ))}
+        </div>
+      </section>
+
+      {/* Partner services */}
+      <section className="py-16 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">
+        <FadeIn className="mb-12">
+          <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">Delivered With Partners</p>
+          <h2 className="text-3xl font-light tracking-tight font-montserrat text-slate-950">
+            One Engagement, <span className="font-semibold">The Whole Package</span>
+          </h2>
+          <div className="mt-6 h-px bg-forest-green w-12" />
+          <p className="text-lg text-gray-600 font-light leading-relaxed mt-8 max-w-3xl">
+            Some of what a project needs sits beyond geotechnics. Rather than leaving you to find and manage three more consultants, SFGEO arranges it through a partner network built over fifteen years — one point of contact, one coordinated deliverable.
+          </p>
+        </FadeIn>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {PARTNER.map((c) => (
+            <FadeIn key={c.t}>
+              <div className="p-9 bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-md transition-shadow h-full">
+                <h3 className="text-xl font-montserrat font-semibold text-slate-950 mb-4">{c.t}</h3>
+                <p className="text-gray-600 font-light leading-relaxed">{c.d}</p>
               </div>
             </FadeIn>
           ))}
