@@ -2,9 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import GoogleReviews from "@/components/ui/GoogleReviews";
 import QuickQuoteCard from "@/components/forms/QuickQuoteCard";
-import ServiceAreaBlock from "@/components/sections/ServiceAreaBlock";
 import ServiceIndex from "@/components/sections/ServiceIndex";
 import HomeFaq from "@/components/sections/HomeFaq";
+import HomeReviews from "@/components/sections/HomeReviews";
 import Reveal from "@/components/ui/Reveal";
 import HeroParallax from "@/components/ui/HeroParallax";
 import OpeningVeil from "@/components/ui/OpeningVeil";
@@ -20,22 +20,22 @@ const caseStudies = [
     line: "Eight boreholes across a 2-hectare lot — reactive clay over shallow sandstone, mapped before a single footing was sized.",
   },
   {
-    href: "/projects#bondi-beach",
-    image: "/projects/project-bondi.jpg",
-    alt: "Hand-auger investigation in a Bondi Beach strata courtyard",
-    tag: "Limited-Scope Investigation",
-    location: "Bondi Beach",
-    title: "A Plunge Pool Cut Into Rock",
-    line: "Class A on shallow sandstone — with vibration limits protecting a four-storey block and a heritage-era sewer. Next-day report.",
+    href: "/projects#coogee",
+    image: "/projects/project-coogee.jpg",
+    alt: "Drilling from the road verge above a steep Coogee allotment",
+    tag: "Geotechnical Investigation",
+    location: "Coogee",
+    title: "A Pile Wall Designed From The Street",
+    line: "Five metres of fall, one borehole from the council verge — the full retaining parameter set, issued in 48 hours.",
   },
   {
-    href: "/projects#northmead",
-    image: "/projects/project-northmead.jpg",
-    alt: "Footing-level inspection of a commercial detention tank excavation",
-    tag: "Construction Phase Support",
-    location: "Northmead",
-    title: "Verified Before The Pour",
-    line: "A commercial tank base checked against the drawings and approved the same visit — the record issued two days later.",
+    href: "/projects#hunters-hill",
+    image: "/projects/project-hunters-hill.jpg",
+    alt: "Boardwalk through the tidal mangroves at Buffalo Creek Reserve",
+    tag: "Investigation For A Consultancy",
+    location: "Hunters Hill",
+    title: "A Boardwalk Read Between Tides",
+    line: "All-manual fieldwork through a tidal wetland — a founding map another consultancy designed from directly.",
   },
 ];
 
@@ -250,9 +250,9 @@ export default function Home() {
       
 
       {/* ============ Reviews — gallery-neutral band ============ */}
-      <section className="py-24 bg-[#f4f6f4] border-y border-gray-200/70">
+      <section className="py-24 bg-white border-y border-gray-100">
         <div className="mx-auto max-w-7xl px-6 lg:px-12">
-          <GoogleReviews />
+          <HomeReviews />
         </div>
       </section>
 
@@ -267,8 +267,6 @@ export default function Home() {
         </Reveal>
         <HomeFaq />
       </section>
-
-      <ServiceAreaBlock pageType="home" />
 
       {/* ============ Close — start with the ground + the office ============ */}
       <section className="relative overflow-hidden bg-[#050A07] text-white grain">

@@ -274,7 +274,7 @@ export function SystemFooter() {
     <footer className="bg-[#050A07] text-white/55 px-6 lg:px-12 py-12">
       <div className="max-w-[90rem] mx-auto flex flex-col gap-8">
         <div className="flex flex-wrap items-center justify-between gap-6">
-          <span className="font-montserrat text-2xl font-light tracking-[0.12em] text-white">SF<span className="font-semibold">GEO</span></span>
+          <span className="relative block h-8 w-28"><Image src="/SFGEO_logo.png" alt="SFGEO — Solid Foundation Geotechnical" fill sizes="140px" className="object-contain object-left" /></span>
           <nav className="flex flex-wrap gap-x-7 gap-y-2 text-[13px] font-medium">
             <Link href="/services" className="hover:text-white transition-colors">Services</Link>
             <Link href="/projects" className="hover:text-white transition-colors">Projects</Link>

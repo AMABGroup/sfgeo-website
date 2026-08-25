@@ -10,16 +10,16 @@ const SERVICES = [
     title: "Geotechnical",
     desc: "Site classifications, investigations, assessments, construction phase support and design — the ground read before anything is built on it.",
     href: "/geotechnical",
-    image: "/projects/project-kenthurst.jpg",
-    alt: "Drill rig investigating a rural estate in Kenthurst",
+    image: "/sfgeo-sandstone-cuttings-hand.jpg",
+    alt: "Sandstone cuttings read in hand at the auger",
   },
   {
     n: "02",
     title: "Drilling",
     desc: "Borehole drilling, tight access and rock coring — 4WD rig and crew, for our investigations and yours.",
     href: "/drilling",
-    image: "/sfgeo-rig-major-earthworks-sydney.jpg",
-    alt: "SFGEO rig drilling beside major earthworks",
+    image: "/sfgeo-drilling-verge-telopea.jpg",
+    alt: "SFGEO rig with mast raised on a Telopea verge",
   },
   {
     n: "03",
@@ -42,8 +42,8 @@ const SERVICES = [
     title: "Concrete Coring",
     desc: "Slabs, pavements and walls — cored with the engineering attached.",
     href: "/concrete-coring",
-    image: "/sfgeo-slab-coring-work.jpg",
-    alt: "Coring work on a concrete slab",
+    image: "/sfgeo-core-caliper-measure.jpg",
+    alt: "Extracted concrete core measured with calipers",
   },
 ];
 
