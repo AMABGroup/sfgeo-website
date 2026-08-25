@@ -250,12 +250,7 @@ export default function Home() {
 
       
 
-      {/* ============ Reviews — gallery-neutral band ============ */}
-      <section className="py-32 lg:py-36 bg-white border-y border-gray-100">
-        <div className="mx-auto max-w-7xl px-6 lg:px-12">
-          <HomeReviews />
-        </div>
-      </section>
+
 
       {/* ============ FAQ ============ */}
       <section className="py-36 lg:py-44 px-6 lg:px-12 max-w-4xl mx-auto">
@@ -313,6 +308,13 @@ export default function Home() {
               
             </div>
           </Reveal>
+        </div>
+      </section>
+
+      {/* ============ Reviews — gallery-neutral band ============ */}
+      <section className="py-32 lg:py-36 bg-white border-y border-gray-100">
+        <div className="mx-auto max-w-7xl px-6 lg:px-12">
+          <HomeReviews />
         </div>
       </section>
     </div>
