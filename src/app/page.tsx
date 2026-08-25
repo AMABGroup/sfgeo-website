@@ -70,7 +70,7 @@ export default function Home() {
               <p className="hero-line text-sm uppercase tracking-[0.2em] text-[#8FBF9F] mb-6 font-semibold">
                 Independent Geotechnical Consultancy &middot; Sydney
               </p>
-              <h1 className="text-[clamp(3.2rem,7vw,6.6rem)] tracking-[-0.02em] font-montserrat font-light text-white leading-[1.04] mb-8">
+              <h1 className="text-[clamp(3.2rem,7vw,6.6rem)] tracking-[-0.02em] font-disp font-medium text-white leading-[1.02] uppercase mb-8">
                 <span className="mask-line mask-d1"><span>Geotechnical.</span></span>
                 <span className="mask-line mask-d2"><span className="font-semibold">Done Properly.</span></span>
               </h1>
@@ -270,7 +270,7 @@ export default function Home() {
         <div className="absolute inset-0 flex items-center justify-center px-6 lg:px-12">
           <Reveal>
             <p className="text-[clamp(1.9rem,4.2vw,3.6rem)] font-montserrat font-light tracking-[-0.015em] leading-[1.2] text-white text-center max-w-4xl text-balance">
-              We read the ground <span className="font-semibold">before you build on it</span> — so the surprises happen in the report, not the excavation.
+              We Read The Ground <span className="font-semibold">Before You Build On It</span> — so the surprises happen in the report, not the excavation.
             </p>
           </Reveal>
         </div>

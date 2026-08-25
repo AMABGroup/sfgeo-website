@@ -11,34 +11,56 @@ import { usePathname } from "next/navigation";
  * segments; links point at live pages (hub URLs join as they are built).
  */
 
-const GROUPS: { name: string; links: { name: string; href: string }[] }[] = [
+const GROUPS: { name: string; hub: string; links: { name: string; href: string }[] }[] = [
   {
     name: "Geotechnical",
+    hub: "/geotechnical",
     links: [
       { name: "Site Classification", href: "/site-classification" },
       { name: "Geotechnical Investigations", href: "/geotechnical-investigations" },
-      { name: "Construction Phase Support", href: "/services#inspections" },
-      { name: "Geotechnical Design", href: "/services#design" },
+      { name: "Geotechnical Assessments", href: "/geotechnical#assessments" },
+      { name: "Construction Phase Support", href: "/geotechnical#cps" },
+      { name: "Geotechnical Design", href: "/geotechnical#design" },
     ],
   },
   {
     name: "Drilling",
+    hub: "/drilling",
     links: [
-      { name: "Drilling Services", href: "/drilling" },
-      { name: "Tight Access Drilling", href: "/tight-access-drilling" },
+      { name: "Borehole Drilling", href: "/drilling#drilling" },
+      { name: "Tight Access", href: "/tight-access-drilling" },
+      { name: "Rock Coring", href: "/drilling#rock-coring" },
+      { name: "Subcontract Drilling", href: "/drilling#b2b-drilling" },
     ],
   },
   {
     name: "Environmental & Soil Testing",
-    links: [{ name: "Environmental Sampling", href: "/other-services" }],
+    hub: "/environmental",
+    links: [
+      { name: "PSI — Preliminary Site Investigations", href: "/environmental#psi" },
+      { name: "DSI — Detailed Site Investigations", href: "/environmental#dsi" },
+      { name: "Acid Sulfate Soils", href: "/environmental#ass" },
+      { name: "Waste Classification", href: "/environmental#waste" },
+      { name: "Lab Services", href: "/environmental#lab" },
+    ],
   },
   {
     name: "Concrete Coring",
-    links: [{ name: "Concrete Coring", href: "/concrete-coring" }],
+    hub: "/concrete-coring",
+    links: [
+      { name: "Pavements & Slabs", href: "/concrete-coring" },
+      { name: "Walls & Structures", href: "/concrete-coring" },
+    ],
   },
   {
     name: "Other Professional Services",
-    links: [{ name: "Partner & Professional Services", href: "/other-services" }],
+    hub: "/other-services",
+    links: [
+      { name: "Dilapidation Reports", href: "/other-services" },
+      { name: "Surveying", href: "/other-services" },
+      { name: "Structural & Civil", href: "/other-services" },
+      { name: "Architectural & Hydro", href: "/other-services" },
+    ],
   },
 ];
 
@@ -109,11 +131,11 @@ export function SystemHeader() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-10">
               {GROUPS.map((g) => (
                 <div key={g.name}>
-                  <p className="text-[11px] uppercase tracking-[0.3em] text-[#8FBF9F] font-semibold mb-4">{g.name}</p>
+                  <Link href={g.hub} className="block text-[12px] uppercase tracking-[0.3em] text-[#8FBF9F] hover:text-white font-semibold mb-4 transition-colors">{g.name} &rarr;</Link>
                   <ul className="space-y-2.5">
                     {g.links.map((l) => (
                       <li key={l.name + l.href}>
-                        <Link href={l.href} className="font-serifd text-xl lg:text-2xl text-white/85 hover:text-white transition-colors">
+                        <Link href={l.href} className="font-disp text-lg lg:text-xl font-light text-white/85 hover:text-white transition-colors">
                           {l.name}
                         </Link>
                       </li>
@@ -128,7 +150,7 @@ export function SystemHeader() {
               <ul className="space-y-2.5">
                 {COMPANY.map((l) => (
                   <li key={l.href}>
-                    <Link href={l.href} className="font-serifd text-xl lg:text-2xl text-white/85 hover:text-white transition-colors">{l.name}</Link>
+                    <Link href={l.href} className="font-disp text-lg lg:text-xl font-light text-white/85 hover:text-white transition-colors">{l.name}</Link>
                   </li>
                 ))}
               </ul>
