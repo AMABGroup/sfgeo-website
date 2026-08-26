@@ -40,7 +40,7 @@ const caseStudies: CaseStudy[] = [
   {
     id: "kenthurst",
     tag: "Geotechnical Investigation",
-    title: "A rural estate, read hole by hole",
+    title: "A Rural Estate, Read Hole By Hole",
     location: "Kenthurst — 2-hectare rural-residential lot",
     image: "/projects/project-kenthurst.jpg",
     imageAlt: "SFGEO 4WD drill rig investigating a rural-residential estate lot in Kenthurst",
@@ -55,7 +55,7 @@ const caseStudies: CaseStudy[] = [
   {
     id: "bexley-north",
     tag: "Limited-Scope Investigation",
-    title: "The pod that needed different foundations",
+    title: "The Pod That Needed Different Foundations",
     location: "Bexley North — rear-yard prefabricated dwelling",
     image: "/projects/project-bexley-north.jpg",
     imageAlt: "Hand-auger borehole investigation in a restricted-access Bexley North rear yard",
@@ -70,7 +70,7 @@ const caseStudies: CaseStudy[] = [
   {
     id: "newport",
     tag: "Geotechnical Investigation",
-    title: "Remedial works in a live building",
+    title: "Remedial Works In A Live Building",
     location: "Newport — three-storey strata building near the beach",
     image: "/projects/project-newport.jpg",
     imageAlt: "Geotechnical fieldwork alongside an occupied strata building in Newport",
@@ -85,7 +85,7 @@ const caseStudies: CaseStudy[] = [
   {
     id: "oatley",
     tag: "Construction Phase Support",
-    title: "Council orders, resolved",
+    title: "Council Orders, Resolved",
     location: "Oatley — new dwelling under council enforcement",
     image: "/projects/project-oatley.jpg",
     imageAlt: "Footing excavation inspection at a Sydney residential construction site",
@@ -221,7 +221,7 @@ export default function ProjectsPage() {
             Selected projects &middot; Drawn from issued reports
           </p>
           <h1 className="text-4xl sm:text-6xl font-montserrat font-light tracking-tight leading-[1.1] mb-8">
-            Proven on <span className="font-semibold">Sydney ground.</span>
+            Proven On <span className="font-semibold">Sydney Ground.</span>
           </h1>
           <div className="w-[96px] h-[3px] bg-forest-green mb-8" />
           <p className="text-lg sm:text-xl text-gray-600 font-light leading-relaxed">
@@ -297,12 +297,12 @@ export default function ProjectsPage() {
       </section>
 
       {/* Close CTA */}
-      <section className="mt-24 py-24 px-6 lg:px-12 bg-[#050A07] text-white rounded-t-[3rem] relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_-20%,rgba(45,90,58,0.15),transparent)] pointer-events-none" />
-        <div className="max-w-4xl mx-auto text-center relative z-10">
+      <section className="relative overflow-hidden bg-[#050A07] text-white grain">
+        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_-20%,rgba(45,90,58,0.3),transparent_60%)] pointer-events-none" />
+        <div className="max-w-4xl mx-auto text-center px-6 py-28 lg:py-32 relative z-10">
           <FadeIn>
             <h2 className="text-4xl sm:text-6xl font-montserrat font-light tracking-tight mb-8">
-              Your ground has a <span className="font-semibold">story too.</span>
+              Your Ground Has A <span className="font-semibold">Story Too.</span>
             </h2>
             <p className="text-lg sm:text-xl text-gray-400 font-light leading-relaxed max-w-2xl mx-auto mb-12">
               Every one of these projects started the same way — a conversation with the Principal Engineer about a block of land and what it needs to carry.
@@ -312,13 +312,13 @@ export default function ProjectsPage() {
                 href="/contact"
                 className="flex items-center justify-center px-8 py-2.5 bg-gradient-to-b from-[#346b43] to-forest-green text-white rounded-full shadow-[0_8px_20px_-6px_rgba(45,90,58,0.4)] hover:shadow-[0_12px_24px_-8px_rgba(45,90,58,0.6)] hover:brightness-105 transition-all hover:-translate-y-0.5 w-full sm:w-[280px] h-[46px] text-xs font-semibold tracking-wide"
               >
-                Start your project
+                Start Your Project
               </Link>
               <Link
                 href="tel:+61423483555"
-                className="flex items-center justify-center px-8 py-2.5 bg-white text-forest-green rounded-full shadow-[inset_0_0_0_1px_rgba(45,90,58,0.25),0_4px_10px_-4px_rgba(0,0,0,0.05)] hover:bg-forest-green/5 hover:shadow-[inset_0_0_0_1px_rgba(45,90,58,0.4),0_6px_14px_-4px_rgba(0,0,0,0.1)] transition-all hover:-translate-y-0.5 w-full sm:w-[280px] h-[46px] text-xs font-semibold tracking-wide"
+                className="flex items-center justify-center px-8 py-2.5 bg-white/5 text-white rounded-full shadow-[inset_0_0_0_1px_rgba(255,255,255,0.25)] hover:bg-white/10 hover:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.45)] transition-all hover:-translate-y-0.5 w-full sm:w-[280px] h-[46px] text-xs font-semibold tracking-wide backdrop-blur-sm"
               >
-                Call the Principal Engineer
+                Call The Principal Engineer
               </Link>
             </div>
           </FadeIn>

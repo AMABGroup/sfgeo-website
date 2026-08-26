@@ -4,7 +4,6 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { PlusIcon, MinusIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
-import ServiceAreaBlock from "@/components/sections/ServiceAreaBlock";
 import { faqs } from "@/data/faqs";
 
 export default function FaqClient() {
@@ -26,63 +25,18 @@ export default function FaqClient() {
 
   return (
     <div className="bg-white text-slate-950 font-inter min-h-screen">
-                  <section className="pt-32 pb-16 px-6 lg:px-12 max-w-7xl mx-auto">
-        <div className="flex flex-col gap-10">
-          
-          {/* Row 1: Social Links */}
-          
-
-          {/* Row 2: H1 + CTAs */}
-          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-10">
-            {/* H1 */}
-            <div className="flex flex-col items-center lg:items-start text-center lg:text-left flex-1">
-              <h1 className="text-4xl sm:text-5xl font-montserrat font-light tracking-tight text-slate-950 max-w-4xl mb-0 leading-tight w-full">
-                Frequently Asked <span className="font-semibold">Questions</span>
-              </h1>
-              
-              <div className="w-[96px] h-[3px] bg-forest-green mt-5 mb-5 mx-auto lg:mx-0"></div>
-              
-              {/* Mobile CTAs sit here above subhead */}
-              <div className="lg:hidden flex flex-col items-center gap-4 w-full mb-8">
-                <Link 
-                  href="/contact" 
-                  className="flex items-center justify-center px-5 py-2.5 bg-gradient-to-b from-[#346b43] to-forest-green text-white rounded-full shadow-[0_8px_20px_-6px_rgba(45,90,58,0.4)] hover:shadow-[0_12px_24px_-8px_rgba(45,90,58,0.6)] hover:brightness-105 transition-all hover:-translate-y-0.5 w-[70%] sm:w-[240px] h-[46px]"
-                >
-                  <span className="text-xs font-semibold tracking-wide">Talk to an engineer</span>
-                </Link>
-                <Link 
-                  href="/services" 
-                  className="flex items-center justify-center px-5 py-2.5 bg-white text-forest-green rounded-full shadow-[inset_0_0_0_1px_rgba(45,90,58,0.25),0_4px_10px_-4px_rgba(0,0,0,0.05)] hover:bg-forest-green/5 hover:shadow-[inset_0_0_0_1px_rgba(45,90,58,0.4),0_6px_14px_-4px_rgba(0,0,0,0.1)] transition-all hover:-translate-y-0.5 w-[70%] sm:w-[240px] h-[46px]"
-                >
-                  <span className="text-xs font-semibold tracking-wide">View our services</span>
-                </Link>
-              </div>
-
-              <p className="text-xl text-gray-500 font-light leading-relaxed max-w-2xl mb-8 lg:mb-0 w-full">
-
-
-              Clear answers on soil testing, reports, access and process — from the team that does the work. Everything you need to know about navigating your geotechnical investigation.
-            
-              
-              </p>
-            </div>
-
-            {/* Desktop CTAs */}
-            <div className="hidden lg:flex flex-row items-center gap-4 shrink-0">
-              <Link 
-                href="/contact" 
-                className="flex items-center justify-center px-5 py-2.5 bg-gradient-to-b from-[#346b43] to-forest-green text-white rounded-full shadow-[0_8px_20px_-6px_rgba(45,90,58,0.4)] hover:shadow-[0_12px_24px_-8px_rgba(45,90,58,0.6)] hover:brightness-105 transition-all hover:-translate-y-0.5 w-[240px] h-[46px]"
-              >
-                <span className="text-xs font-semibold tracking-wide">Talk to an engineer</span>
-              </Link>
-              <Link 
-                href="/services" 
-                className="flex items-center justify-center px-5 py-2.5 bg-white text-forest-green rounded-full shadow-[inset_0_0_0_1px_rgba(45,90,58,0.25),0_4px_10px_-4px_rgba(0,0,0,0.05)] hover:bg-forest-green/5 hover:shadow-[inset_0_0_0_1px_rgba(45,90,58,0.4),0_6px_14px_-4px_rgba(0,0,0,0.1)] transition-all hover:-translate-y-0.5 w-[240px] h-[46px]"
-              >
-                <span className="text-xs font-semibold tracking-wide">View our services</span>
-              </Link>
-            </div>
-          </div>
+      <section className="pt-36 pb-16 px-6 lg:px-12 max-w-7xl mx-auto">
+        <div className="max-w-3xl mb-16">
+          <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-6 font-semibold">
+            FAQ &middot; Straight Answers &middot; Sydney
+          </p>
+          <h1 className="text-4xl sm:text-6xl font-montserrat font-light tracking-tight leading-[1.08] mb-8">
+            Frequently Asked <span className="font-semibold">Questions.</span>
+          </h1>
+          <div className="w-[96px] h-[3px] bg-forest-green mb-8" />
+          <p className="text-lg sm:text-xl text-gray-600 font-light leading-relaxed">
+            Clear answers on soil testing, reports, access and process — from the team that does the work.
+          </p>
         </div>
         <div className="max-w-4xl mx-auto divide-y divide-gray-100 border-t border-gray-100">
           {["Cost & Process", "For Homeowners", "For Builders & Engineers", "Access & Coverage", "About SFGEO"].map((groupName) => (
@@ -129,7 +83,26 @@ export default function FaqClient() {
         </div>
       </section>
 
-      <ServiceAreaBlock pageType="faq" />
+      {/* Close */}
+      <section className="relative overflow-hidden bg-[#050A07] text-white grain mt-24">
+        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_-20%,rgba(45,90,58,0.3),transparent_60%)] pointer-events-none" />
+        <div className="max-w-4xl mx-auto text-center px-6 py-28 lg:py-32 relative z-10">
+          <h2 className="text-4xl sm:text-6xl font-montserrat font-light tracking-tight mb-8">
+            Still Have <span className="font-semibold">A Question?</span>
+          </h2>
+          <p className="text-lg sm:text-xl text-gray-400 font-light leading-relaxed max-w-2xl mx-auto mb-12">
+            Ask the engineer, not a form robot. Call, or send the question with your site address — answered within one business day.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+            <Link href="tel:+61423483555" className="flex items-center justify-center px-8 py-2.5 bg-gradient-to-b from-[#346b43] to-forest-green text-white rounded-full shadow-[0_8px_20px_-6px_rgba(45,90,58,0.4)] hover:shadow-[0_12px_24px_-8px_rgba(45,90,58,0.6)] hover:brightness-105 transition-all hover:-translate-y-0.5 w-full sm:w-[280px] h-[46px] text-xs font-semibold tracking-wide">
+              Call 0423 483 555
+            </Link>
+            <Link href="/contact" className="flex items-center justify-center px-8 py-2.5 bg-white/5 text-white rounded-full shadow-[inset_0_0_0_1px_rgba(255,255,255,0.25)] hover:bg-white/10 hover:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.45)] transition-all hover:-translate-y-0.5 w-full sm:w-[280px] h-[46px] text-xs font-semibold tracking-wide backdrop-blur-sm">
+              Ask A Question
+            </Link>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
