@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import GoogleReviews from "@/components/ui/GoogleReviews";
 import QuoteCta from "@/components/forms/QuoteCta";
+import QuickQuoteCard from "@/components/forms/QuickQuoteCard";
 import ServiceIndex from "@/components/sections/ServiceIndex";
 import HomeFaq from "@/components/sections/HomeFaq";
 import HomeReviews from "@/components/sections/HomeReviews";
@@ -82,9 +83,10 @@ export default function Home() {
                 Family owned. Sydney grown. A principal-led team with you from the first conversation to the final certificate.
               </p>
 
-              <div className="hero-line hero-d3 flex flex-col sm:flex-row items-center lg:items-start gap-4 w-full">
+              {/* Mobile CTAs — the form itself lives in the desktop column */}
+              <div className="hero-line hero-d3 lg:hidden flex flex-col sm:flex-row items-center gap-4 w-full">
                 <QuoteCta
-                  source="homepage hero"
+                  source="homepage hero mobile"
                   className="flex items-center justify-center px-5 py-2.5 bg-gradient-to-b from-[#346b43] to-forest-green text-white rounded-full shadow-[0_8px_20px_-6px_rgba(45,90,58,0.4)] hover:shadow-[0_12px_24px_-8px_rgba(45,90,58,0.6)] hover:brightness-105 transition-all hover:-translate-y-0.5 w-[70%] sm:w-[240px] h-[46px] text-xs font-semibold tracking-wide"
                 />
                 <Link
@@ -94,6 +96,14 @@ export default function Home() {
                   <span className="text-xs font-semibold tracking-wide">B2B Enquiries</span>
                 </Link>
               </div>
+            </div>
+
+            {/* The permanent home of the quote form */}
+            <div className="hidden lg:flex flex-col items-center shrink-0">
+              <QuickQuoteCard
+                source="homepage hero"
+                secondaryLink={{ href: "/contact?subject=b2b-enquiry", label: "B2B and subcontract enquiries" }}
+              />
             </div>
           </div>
         </div>

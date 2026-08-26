@@ -199,6 +199,36 @@ export default function DrillingPage() {
         </section>
       ))}
 
+      {/* Regional — the whoop whoop band */}
+      <section className="py-20 lg:py-24 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+          <FadeIn>
+            <div className="relative mx-auto w-full max-w-[340px] aspect-[720/1264] rounded-2xl overflow-hidden shadow-[0_26px_60px_-26px_rgba(5,10,7,0.5)]">
+              <video
+                src="/sfgeo-regional-sunrise-drilling.mp4"
+                poster="/sfgeo-regional-sunrise-poster.jpg"
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+              <p className="absolute bottom-5 left-6 text-[11px] uppercase tracking-[0.25em] text-white/80 font-semibold pointer-events-none">Sunrise &middot; Western NSW</p>
+            </div>
+          </FadeIn>
+          <FadeIn delay={0.12}>
+            <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">Regional NSW</p>
+            <h2 className="text-3xl sm:text-4xl font-montserrat font-light tracking-tight text-slate-950 mb-5">
+              Whoop Whoop? <span className="font-semibold">We&rsquo;ve Been.</span>
+            </h2>
+            <div className="h-px bg-forest-green w-12 mb-7" />
+            <p className="text-gray-600 font-light leading-relaxed">
+              Sunrise on a farm track, frost still on the paddock, mast already up — that&rsquo;s what a regional program looks like when the rig travels self-sufficient. The 4WD rig runs the same engineer-operated standard hours from the nearest bitumen as it does in the Inner West, so consultancies and builders with work beyond the metro don&rsquo;t have to lower the bar to get holes in the ground.
+            </p>
+          </FadeIn>
+        </div>
+      </section>
+
       {/* Who we work with */}
       <section className="py-24 lg:py-28 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">
         <FadeIn className="mb-14">

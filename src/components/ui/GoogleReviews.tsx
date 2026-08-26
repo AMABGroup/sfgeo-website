@@ -26,6 +26,7 @@ const WRITE_REVIEW_URL = `https://search.google.com/local/writereview?placeid=${
 
 export default function GoogleReviews() {
   const [data, setData] = useState<PlaceDetails | null>(null);
+  const [expanded, setExpanded] = useState<number | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -115,9 +116,18 @@ export default function GoogleReviews() {
                   <StarIcon key={i} className={`w-5 h-5 ${i < review.rating ? 'text-yellow-500 drop-shadow-sm' : 'text-gray-300'}`} />
                 ))}
               </div>
-              <blockquote className="text-gray-800 text-base leading-relaxed font-light mb-8 relative z-10 flex-grow">
-                &ldquo;{review.text}&rdquo;
+              <blockquote className="text-gray-800 text-base leading-relaxed font-light mb-3 relative z-10 flex-grow">
+                <span className={expanded === index ? "" : "line-clamp-4"}>&ldquo;{review.text}&rdquo;</span>
               </blockquote>
+              {review.text.length > 220 && (
+                <button
+                  type="button"
+                  onClick={() => setExpanded(expanded === index ? null : index)}
+                  className="relative z-10 self-start text-xs font-semibold tracking-wide text-forest-green hover:text-slate-950 transition-colors mb-6"
+                >
+                  {expanded === index ? "Show Less" : "Read More"}
+                </button>
+              )}
               <div className="pt-6 border-t border-gray-300 flex flex-col gap-1">
                 <span className="text-slate-black font-semibold tracking-wide text-sm">{review.author_name}</span>
               </div>

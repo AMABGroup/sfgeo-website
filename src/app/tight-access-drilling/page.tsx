@@ -114,14 +114,19 @@ export default function TightAccessDrillingPage() {
             <div className="grid grid-cols-2 gap-4 sm:gap-6">
               <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-[0_20px_50px_-20px_rgba(5,10,7,0.35)]">
                 <Image src="/sfgeo-hand-auger-borehole-restricted-access-sydney-backyard.jpg" alt="Motorised hand-auger borehole in a restricted-access Sydney backyard" fill sizes="(max-width: 1024px) 50vw, 30vw" className="object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/40 via-transparent to-transparent" />
+                <p className="absolute bottom-4 left-4 text-[10px] uppercase tracking-[0.2em] text-white/80 font-semibold">Backyard Borehole</p>
               </div>
               <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-[0_20px_50px_-20px_rgba(5,10,7,0.35)] lg:mt-10">
                 <Image src="/sfgeo-drilling-heritage-home-inner-west-sydney.jpg" alt="Drilling beside a heritage home in Sydney's Inner West" fill sizes="(max-width: 1024px) 50vw, 30vw" className="object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/40 via-transparent to-transparent" />
+                <p className="absolute bottom-4 left-4 text-[10px] uppercase tracking-[0.2em] text-white/80 font-semibold">Heritage &middot; Inner West</p>
               </div>
             </div>
           </FadeIn>
           <FadeIn delay={0.15}>
-            <h2 className="text-3xl font-light tracking-tight font-montserrat text-slate-950 mb-6">
+            <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">01 &middot; The Method</p>
+            <h2 className="text-3xl sm:text-4xl font-light tracking-tight font-montserrat text-slate-950 mb-5">
               Same Data. <span className="font-semibold">Harder Sites.</span>
             </h2>
             <div className="h-px bg-forest-green w-12 mb-8" />
@@ -135,8 +140,9 @@ export default function TightAccessDrillingPage() {
       {/* Site types */}
       <section className="py-16 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">
         <FadeIn className="mb-12">
-          <h2 className="text-3xl font-light tracking-tight font-montserrat text-slate-950">
-            The Sites We&rsquo;re <span className="font-semibold">Built For</span>
+          <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">02 &middot; Site Types</p>
+          <h2 className="text-3xl sm:text-4xl font-light tracking-tight font-montserrat text-slate-950">
+            The Sites We&rsquo;re <span className="font-semibold">Built For.</span>
           </h2>
           <div className="mt-6 h-px bg-forest-green w-12" />
         </FadeIn>
@@ -155,8 +161,9 @@ export default function TightAccessDrillingPage() {
       {/* Where we work */}
       <section className="py-16 px-6 lg:px-12 max-w-4xl mx-auto border-t border-gray-100">
         <FadeIn>
-          <h2 className="text-3xl font-light tracking-tight font-montserrat text-slate-950 mb-6">
-            Where The Hard Sites <span className="font-semibold">Are</span>
+          <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">03 &middot; Where We Work</p>
+          <h2 className="text-3xl sm:text-4xl font-light tracking-tight font-montserrat text-slate-950 mb-5">
+            Where The Hard Sites <span className="font-semibold">Are.</span>
           </h2>
           <p className="text-lg text-gray-600 font-light leading-relaxed">
             Marrickville, Newtown, Enmore and the Inner West terraces we call home. Paddington and Surry Hills rows. Eastern Suburbs battleaxe blocks, North Shore slopes, and the granny-flat boom across Canterbury-Bankstown and the Hills. If the rig cannot reach it, the augers can — and the engineer comes with them.
@@ -165,9 +172,9 @@ export default function TightAccessDrillingPage() {
       </section>
 
       {/* Close CTA */}
-      <section className="mt-16 py-24 px-6 lg:px-12 bg-[#050A07] text-white rounded-t-[3rem] relative overflow-hidden grain">
-        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_-20%,rgba(45,90,58,0.15),transparent)] pointer-events-none" />
-        <div className="max-w-4xl mx-auto text-center relative z-10">
+      <section className="mt-16 relative overflow-hidden bg-[#050A07] text-white grain">
+        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_-20%,rgba(45,90,58,0.3),transparent_60%)] pointer-events-none" />
+        <div className="max-w-4xl mx-auto text-center px-6 py-28 lg:py-32 relative z-10">
           <FadeIn>
             <h2 className="text-4xl sm:text-6xl font-montserrat font-light tracking-tight mb-8">
               Hard To Reach? <span className="font-semibold">Perfect.</span>
@@ -176,9 +183,7 @@ export default function TightAccessDrillingPage() {
               Send the address and a photo of the access. You&rsquo;ll have a fixed fee in writing — usually within one business day.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-              <Link href="/contact" className="flex items-center justify-center px-8 py-2.5 bg-gradient-to-b from-[#346b43] to-forest-green text-white rounded-full shadow-[0_8px_20px_-6px_rgba(45,90,58,0.4)] hover:shadow-[0_12px_24px_-8px_rgba(45,90,58,0.6)] hover:brightness-105 transition-all hover:-translate-y-0.5 w-full sm:w-[280px] h-[46px] text-xs font-semibold tracking-wide">
-                Request A Fixed-Fee Quote
-              </Link>
+              <QuoteCta source="tight-access-drilling close" label="Request A Fixed-Fee Quote" className="flex items-center justify-center px-8 py-2.5 bg-gradient-to-b from-[#346b43] to-forest-green text-white rounded-full shadow-[0_8px_20px_-6px_rgba(45,90,58,0.4)] hover:shadow-[0_12px_24px_-8px_rgba(45,90,58,0.6)] hover:brightness-105 transition-all hover:-translate-y-0.5 w-full sm:w-[280px] h-[46px] text-xs font-semibold tracking-wide" />
               <Link href="tel:+61423483555" className="flex items-center justify-center px-8 py-2.5 bg-white text-forest-green rounded-full shadow-[inset_0_0_0_1px_rgba(45,90,58,0.25),0_4px_10px_-4px_rgba(0,0,0,0.05)] hover:bg-forest-green/5 transition-all hover:-translate-y-0.5 w-full sm:w-[280px] h-[46px] text-xs font-semibold tracking-wide">
                 Call 0423 483 555
               </Link>
