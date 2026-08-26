@@ -148,28 +148,10 @@ html {
   animation-play-state: paused !important;
 }
 
-.veil-logo-rise {
-  transform: translateY(112%);
-  animation: veil-rise 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.25s forwards;
-}
-@keyframes veil-rise {
-  to { transform: translateY(0); }
-}
-
-.veil-tagline {
+.veil-ack {
   opacity: 0;
-  letter-spacing: 0.6em;
-  animation: veil-track 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.7s forwards;
+  animation: veil-ack-in 1.4s ease-out 0.5s forwards;
 }
-@keyframes veil-track {
-  to { opacity: 1; letter-spacing: 0.34em; }
-}
-
-.veil-seam-flare {
-  animation: veil-flare 0.7s ease-in-out;
-}
-@keyframes veil-flare {
-  0% { filter: brightness(1); }
-  60% { filter: brightness(1.8); }
-  100% { filter: brightness(1.35); }
+@keyframes veil-ack-in {
+  to { opacity: 1; }
 }
