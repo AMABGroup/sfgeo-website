@@ -159,7 +159,7 @@ html {
 .veil-scale {
   transform: scaleY(0);
   transform-origin: top;
-  animation: veil-scale-draw 1.5s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
+  animation: veil-scale-draw 1.9s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
 }
 @keyframes veil-scale-draw {
   to { transform: scaleY(1); }
@@ -167,7 +167,7 @@ html {
 
 .veil-logo {
   transform: translateY(112%);
-  animation: veil-rise 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.35s forwards;
+  animation: veil-rise 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.55s forwards;
 }
 @keyframes veil-rise {
   to { transform: translateY(0); }
