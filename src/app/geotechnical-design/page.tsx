@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import QuoteCta from "@/components/forms/QuoteCta";
 import { FadeIn } from "../site-classification/MotionWrapper";
 
 export const metadata: Metadata = {
@@ -61,7 +62,7 @@ export default function Page() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           <FadeIn>
             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-[0_26px_60px_-26px_rgba(5,10,7,0.4)]">
-              <Image src="/sfgeo-spt-logging-telopea.jpg" alt="SPT samples and field log recording blow counts on site" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
+              <Image src="/sfgeo-precision-measurement-caliper.jpg" alt="Calipers measuring against exposed brickwork — precision on site" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
             </div>
           </FadeIn>
           <FadeIn delay={0.12}>
@@ -89,6 +90,29 @@ export default function Page() {
         </div>
       </section>
 
+      {/* How we plug in */}
+      <section className="py-16 lg:py-20 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">
+        <FadeIn className="mb-12">
+          <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">Working With Design Teams</p>
+          <h2 className="text-3xl sm:text-4xl font-montserrat font-light tracking-tight">Built To Slot Into <span className="font-semibold">Your Workflow.</span></h2>
+          <div className="mt-5 h-px bg-forest-green w-12" />
+        </FadeIn>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {[
+            { t: "Parameters, Not Prose", d: "Design values delivered as memos and tables your software takes directly — with the derivation available when reviewers ask." },
+            { t: "Alternatives Reviewed", d: "When the contractor proposes a different footing system mid-build, we review it against the ground data fast — so the program holds." },
+            { t: "On Call Through Construction", d: "The engineer who derived the numbers stays reachable when the excavation opens and the ground asks its own questions." },
+          ].map((c) => (
+            <FadeIn key={c.t}>
+              <div className="p-8 bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-md transition-shadow h-full">
+                <h3 className="text-lg font-montserrat font-semibold text-slate-950 mb-3">{c.t}</h3>
+                <p className="text-gray-600 font-light leading-relaxed text-[15px]">{c.d}</p>
+              </div>
+            </FadeIn>
+          ))}
+        </div>
+      </section>
+
       <section className="mt-8 relative overflow-hidden bg-[#050A07] text-white grain">
         <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_-20%,rgba(45,90,58,0.3),transparent_60%)] pointer-events-none" />
         <div className="max-w-4xl mx-auto text-center px-6 py-24 relative z-10">
@@ -96,7 +120,7 @@ export default function Page() {
             <h2 className="text-4xl sm:text-5xl font-montserrat font-light tracking-tight mb-8">Designing On Sydney Ground? <span className="font-semibold">Get Real Numbers.</span></h2>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
               <Link href="tel:+61423483555" className="flex items-center justify-center px-8 py-2.5 bg-gradient-to-b from-[#346b43] to-forest-green text-white rounded-full shadow-[0_8px_20px_-6px_rgba(45,90,58,0.4)] hover:brightness-105 transition-all hover:-translate-y-0.5 w-full sm:w-[280px] h-[46px] text-xs font-semibold tracking-wide">Call 0423 483 555</Link>
-              <Link href="/contact" className="flex items-center justify-center px-8 py-2.5 bg-white/5 text-white rounded-full shadow-[inset_0_0_0_1px_rgba(255,255,255,0.25)] hover:bg-white/10 transition-all hover:-translate-y-0.5 w-full sm:w-[280px] h-[46px] text-xs font-semibold tracking-wide backdrop-blur-sm">Request A Quote</Link>
+              <QuoteCta source="geotechnical-design close" className="flex items-center justify-center px-8 py-2.5 bg-white/5 text-white rounded-full shadow-[inset_0_0_0_1px_rgba(255,255,255,0.25)] hover:bg-white/10 transition-all hover:-translate-y-0.5 w-full sm:w-[280px] h-[46px] text-xs font-semibold tracking-wide backdrop-blur-sm" />
             </div>
           </FadeIn>
         </div>
