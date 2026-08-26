@@ -1,11 +1,11 @@
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import QuoteCta from "@/components/forms/QuoteCta";
 import { FadeIn, StaggerContainer, FadeInChild } from "./MotionWrapper";
 import VideoEmbed from "./VideoEmbed";
 import ImageOverlay from "@/components/ui/ImageOverlay";
 import { OverlayGroup } from "@/components/ui/OverlayGroup";
-import QuickQuoteCard from "@/components/forms/QuickQuoteCard";
 import GoogleReviews from "@/components/ui/GoogleReviews";
 
 export const metadata: Metadata = {
@@ -418,14 +418,13 @@ export default function SiteClassificationPage() {
         </div>
       </section>
 
-      {/* Quote card — placed at the pricing decision point */}
+      {/* Quote CTA — at the pricing decision point */}
       <section className="py-16 px-6 lg:px-12">
         <FadeIn>
-          <div className="max-w-md mx-auto">
-            <QuickQuoteCard
-              source="site-classification page"
-              heading="Get your fixed-fee quote"
-            />
+          <div className="max-w-xl mx-auto text-center">
+            <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">Fixed-Fee Quote</p>
+            <p className="text-gray-600 font-light leading-relaxed mb-7">Send the address and what you&rsquo;re building — a fixed fee in writing within one business day.</p>
+            <QuoteCta source="site-classification pricing" label="Get Your Fixed-Fee Quote" className="flex items-center justify-center px-8 py-2.5 bg-gradient-to-b from-[#346b43] to-forest-green text-white rounded-full shadow-[0_8px_20px_-6px_rgba(45,90,58,0.4)] hover:shadow-[0_12px_24px_-8px_rgba(45,90,58,0.6)] hover:brightness-105 transition-all hover:-translate-y-0.5 w-full sm:w-auto h-[46px] text-xs font-semibold tracking-wide mx-auto" />
           </div>
         </FadeIn>
       </section>

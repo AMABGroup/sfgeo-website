@@ -135,7 +135,7 @@ const caseStudies: CaseStudy[] = [
     image: "/projects/project-auburn.jpg",
     imageAlt: "Borehole through the concrete yard of an operating Auburn factory",
     brief:
-      "A food manufacturer needed a 54,000-litre milk tank — about sixty tonnes at working load — founded in the paved yard of an operating factory, beside an in-service tank and a neighbour&rsquo;s basement behind a boundary wall.",
+      "A food manufacturer needed a 54,000-litre milk tank — about sixty tonnes at working load — founded in the paved yard of an operating factory, beside an in-service tank and a neighbour’s basement behind a boundary wall.",
     ground:
       "One borehole through the reinforced concrete pavement to 4.7 metres: reactive Bringelly Shale clay over weathered shale. The clay was ruled out as a founding stratum — localised wetting is a fact of life in a dairy yard.",
     outcome:
@@ -154,23 +154,23 @@ const caseStudies: CaseStudy[] = [
     ground:
       "No vehicle access and a sensitive ecology meant everything was done by hand, between tides: test pit, hand augers and nine penetrometer tests across four segments. The ground swung from very soft saturated mud beyond two metres deep to sandstone within 40 millimetres of the surface.",
     outcome:
-      "A segment-by-segment founding map the designer applied directly — on-grade on rock at one end, cased bored piers through the soft alluvium elsewhere — with acid sulfate management and tidal work sequencing built in. The variation in the ground became the design&rsquo;s organising principle.",
-    facts: ["All-manual investigation", "Worked between tides", "4 segments mapped", "Direct input to another consultancy&rsquo;s design"],
+      "A segment-by-segment founding map the designer applied directly — on-grade on rock at one end, cased bored piers through the soft alluvium elsewhere — with acid sulfate management and tidal work sequencing built in. The variation in the ground became the design’s organising principle.",
+    facts: ["All-manual investigation", "Worked between tides", "4 segments mapped", "Direct input to another consultancy’s design"],
   },
   {
     id: "northmead",
     tag: "Construction Phase Support",
-    title: "Verified Before The Pour",
-    location: "Northmead — commercial construction, detention tank base",
+    title: "A New Home For A Congregation",
+    location: "Northmead — church expansion, new ministry building",
     image: "/projects/project-northmead.jpg",
-    imageAlt: "Footing-level inspection of a detention tank excavation",
+    imageAlt: "Footing-level inspection during the church expansion works",
     brief:
-      "A commercial civil contractor needed the base of a ten-metre detention tank verified at footing level before concrete — checked against the drawings&rsquo; 500 kPa bearing requirement and the project&rsquo;s original geotechnical investigation.",
+      "A church in Sydney’s north-west outgrew its walls. The expansion — a new ministry building for the congregation — needed its earthworks verified layer by layer, and the base of a ten-metre detention tank confirmed at footing level before concrete.",
     ground:
-      "The exposed stratum was logged by visual and tactile assessment on a wet morning: weathered shale, banded, matching the bedrock profile the design relied on. Clean base, correct geometry.",
+      "Compaction of the engineered fill was verified against the 98% Standard specification as the platform rose, and the tank base was logged by visual and tactile assessment on a wet morning: weathered shale, banded, matching the bedrock profile the design relied on.",
     outcome:
-      "Founding confirmed suitable for the specified 500 kPa, and the contractor approved to proceed the same visit — with clear validity conditions covering rain and base softening. The formal record issued two days later, part of a standing engagement with a repeat commercial client.",
-    facts: ["500 kPa verified", "Same-visit approval", "Standing commercial engagement"],
+      "Founding confirmed suitable for the specified 500 kPa and the contractor approved to proceed the same visit, with clear validity conditions covering rain and base softening. A standing engagement that follows the build — so a building the whole community will use stands on ground that was checked at every stage.",
+    facts: ["500 kPa verified", "98% Standard compaction", "Same-visit approval", "Community building"],
   },
   {
     id: "willoughby",
@@ -186,6 +186,36 @@ const caseStudies: CaseStudy[] = [
     outcome:
       "Class H1 with 60-millimetre characteristic movement, shallow and pier bearing values, and answers to the two complications that mattered: founding through the old pool excavation, and rear-boundary trees inside the footing zone of influence. Fieldwork to report in three days.",
     facts: ["Class H1 (ys 60 mm)", "Pool backfill handled", "Tree influence zones mapped", "3-day turnaround"],
+  },
+  {
+    id: "blakehurst",
+    tag: "Night Works · Construction Phase Support",
+    title: "The Footing That Said No",
+    location: "Blakehurst — traffic signal upgrade, King Georges Road",
+    image: "/projects/project-blakehurst-night.jpg",
+    imageAlt: "Signal pole footing excavation behind barriers at a closed intersection at night",
+    brief:
+      "A new mast arm — the pole that carries the signals and camera over six lanes of State road — needed its footing verified at depth. The excavation could only be opened at night, under closure, with the road due back to traffic by morning.",
+    ground:
+      "At footing depth, the ground was read against the standard’s acceptance criteria — 150 kPa vertical bearing and lateral strength over the full footing depth, in undisturbed soil. It didn’t meet them. Not marginal, not arguable: the standard footing detail could not be used.",
+    outcome:
+      "The not-suitable call was made on site that night, the excavation backfilled and the road reopened for the morning peak. The record set out the engineering path forward — a specific footing design in place of the standard detail — because a pole holding signals over six lanes should stand on verified ground, not hope. On the same programme, sister intersections passed and proceeded.",
+    facts: ["Night closure works", "150 kPa criteria checked at depth", "Not-suitable call made on site", "Road open by morning"],
+  },
+  {
+    id: "telopea",
+    tag: "Subcontract Drilling",
+    title: "Five Holes Down A Living Street",
+    location: "Telopea — public-domain investigation, Benaud Place",
+    image: "/projects/project-telopea.jpg",
+    imageAlt: "SFGEO rig drilling from a grass verge on a residential street in Telopea",
+    brief:
+      "One of the bigger testing firms in Sydney ground needed five boreholes along a residential street in a renewing suburb — drilled, sampled and handed over clean, without shutting the street down around the people who live on it.",
+    ground:
+      "The 4WD rig worked hole to hole along the verge — five boreholes with penetrometer tests at termination, services located before the first flight turned, footpaths kept open, every location reinstated before the rig moved on.",
+    outcome:
+      "Logs, samples and surveyed coordinates delivered the same week, feeding the investigation that sits under the street’s renewal. The residents saw cones for a day; the engineering under their street lasts decades.",
+    facts: ["5 boreholes + 5 DCPs", "One-day mobilisation", "Live street, footpaths open", "Subcontract capacity"],
   },
 ];
 
@@ -225,7 +255,7 @@ export default function ProjectsPage() {
           </h1>
           <div className="w-[96px] h-[3px] bg-forest-green mb-8" />
           <p className="text-lg sm:text-xl text-gray-600 font-light leading-relaxed">
-            Every project below is real work from our issued reports: what the client needed, what the ground turned out to be, and what the engineering did about it. Client details are kept private.
+            Every project below is real work from our issued reports: what the client needed, what the ground turned out to be, and what the engineering did about it. Some of it is for owners and builders; some of it is simply for the community — the signals over the road, the street being renewed, the church hall going up. Client details are kept private.
           </p>
         </FadeIn>
       </section>

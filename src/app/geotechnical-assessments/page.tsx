@@ -15,7 +15,7 @@ const ITEMS = [
   { t: "Slope Stability & Retaining", d: "Batters, cuttings and retaining walls assessed — stability, surcharge and remediation options in plain terms." },
   { t: "Settlement & Cracking", d: "Why the wall cracked, whether it is moving, and what to do about it — investigation before speculation." },
   { t: "Council Orders & Compliance", d: "Engineering records written against development control orders and certifier directions." },
-  { t: "Second Opinions", d: "An independent read of someone else&rsquo;s report before you build, buy or litigate on it." },
+  { t: "Second Opinions", d: "An independent read of someone else’s report before you build, buy or litigate on it." },
   { t: "Purchase Due Diligence", d: "The ground read before you sign — fill, slopes, trees and drainage flagged while you can still walk away." },
   { t: "Pool & Excavation Feasibility", d: "What the dig will hit, what it will cost to hold up, and whether the machine can even get in." },
 ];

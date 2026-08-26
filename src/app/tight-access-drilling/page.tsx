@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import QuoteCta from "@/components/forms/QuoteCta";
 import { FadeIn } from "../site-classification/MotionWrapper";
-import QuickQuoteCard from "@/components/forms/QuickQuoteCard";
 
 export const metadata: Metadata = {
   title: "Tight Access Drilling Sydney | Restricted Site Specialists | SFGEO",
@@ -101,16 +101,8 @@ export default function TightAccessDrillingPage() {
               >
                 Discuss Your Site Access
               </Link>
-              <Link
-                href="/drilling"
-                className="flex items-center justify-center px-8 py-2.5 bg-white text-forest-green rounded-full shadow-[inset_0_0_0_1px_rgba(45,90,58,0.25),0_4px_10px_-4px_rgba(0,0,0,0.05)] hover:bg-forest-green/5 hover:shadow-[inset_0_0_0_1px_rgba(45,90,58,0.4),0_6px_14px_-4px_rgba(0,0,0,0.1)] transition-all hover:-translate-y-0.5 w-full sm:w-auto h-[46px] text-xs font-semibold tracking-wide"
-              >
-                All Drilling Services
-              </Link>
+              <QuoteCta source="tight-access-drilling hero" label="Quote A Tight-Access Site" className="flex items-center justify-center px-8 py-2.5 bg-white text-forest-green rounded-full shadow-[inset_0_0_0_1px_rgba(45,90,58,0.25),0_4px_10px_-4px_rgba(0,0,0,0.05)] hover:bg-forest-green/5 hover:shadow-[inset_0_0_0_1px_rgba(45,90,58,0.4),0_6px_14px_-4px_rgba(0,0,0,0.1)] transition-all hover:-translate-y-0.5 w-full sm:w-auto h-[46px] text-xs font-semibold tracking-wide" />
             </div>
-          </FadeIn>
-          <FadeIn delay={0.2} className="w-full lg:w-auto shrink-0 flex justify-center">
-            <QuickQuoteCard source="tight-access-drilling page" heading="Quote a tight-access site" />
           </FadeIn>
         </div>
       </section>

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import GoogleReviews from "@/components/ui/GoogleReviews";
-import QuickQuoteCard from "@/components/forms/QuickQuoteCard";
+import QuoteCta from "@/components/forms/QuoteCta";
 import ServiceIndex from "@/components/sections/ServiceIndex";
 import HomeFaq from "@/components/sections/HomeFaq";
 import HomeReviews from "@/components/sections/HomeReviews";
@@ -78,14 +78,15 @@ export default function Home() {
               </h1>
               <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mt-5 mb-5 mx-auto lg:mx-0"></div>
 
-              {/* Mobile CTAs */}
-              <div className="hero-line hero-d3 lg:hidden flex flex-col items-center gap-4 w-full mb-8">
-                <Link
-                  href="/contact?subject=site-inspection"
-                  className="flex items-center justify-center px-5 py-2.5 bg-gradient-to-b from-[#346b43] to-forest-green text-white rounded-full shadow-[0_8px_20px_-6px_rgba(45,90,58,0.4)] hover:shadow-[0_12px_24px_-8px_rgba(45,90,58,0.6)] hover:brightness-105 transition-all hover:-translate-y-0.5 w-[70%] sm:w-[240px] h-[46px]"
-                >
-                  <span className="text-xs font-semibold tracking-wide">Request an Inspection</span>
-                </Link>
+              <p className="hero-line hero-d3 text-lg sm:text-xl text-gray-300 font-light leading-relaxed mb-8 max-w-xl w-full">
+                Family owned. Sydney grown. A principal-led team with you from the first conversation to the final certificate.
+              </p>
+
+              <div className="hero-line hero-d3 flex flex-col sm:flex-row items-center lg:items-start gap-4 w-full">
+                <QuoteCta
+                  source="homepage hero"
+                  className="flex items-center justify-center px-5 py-2.5 bg-gradient-to-b from-[#346b43] to-forest-green text-white rounded-full shadow-[0_8px_20px_-6px_rgba(45,90,58,0.4)] hover:shadow-[0_12px_24px_-8px_rgba(45,90,58,0.6)] hover:brightness-105 transition-all hover:-translate-y-0.5 w-[70%] sm:w-[240px] h-[46px] text-xs font-semibold tracking-wide"
+                />
                 <Link
                   href="/contact?subject=b2b-enquiry"
                   className="flex items-center justify-center px-5 py-2.5 bg-white/5 text-white rounded-full shadow-[inset_0_0_0_1px_rgba(255,255,255,0.25)] hover:bg-white/10 hover:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.45)] transition-all hover:-translate-y-0.5 w-[70%] sm:w-[240px] h-[46px] backdrop-blur-sm"
@@ -93,17 +94,6 @@ export default function Home() {
                   <span className="text-xs font-semibold tracking-wide">B2B Enquiries</span>
                 </Link>
               </div>
-
-              <p className="hero-line hero-d3 text-lg sm:text-xl text-gray-300 font-light leading-relaxed mb-6 max-w-xl w-full">
-                Family owned. Sydney grown. A principal-led team with you from the first conversation to the final certificate.
-              </p>
-            </div>
-
-            <div className="hidden lg:flex flex-col items-center shrink-0">
-              <QuickQuoteCard
-                source="homepage hero"
-                secondaryLink={{ href: "/contact?subject=b2b-enquiry", label: "B2B and subcontract enquiries" }}
-              />
             </div>
           </div>
         </div>

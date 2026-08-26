@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import QuoteCta from "@/components/forms/QuoteCta";
 import { FadeIn, StaggerContainer, FadeInChild } from "../site-classification/MotionWrapper";
-import QuickQuoteCard from "@/components/forms/QuickQuoteCard";
 import GoogleReviews from "@/components/ui/GoogleReviews";
 
 export const metadata: Metadata = {
@@ -106,16 +106,8 @@ export default function GeotechnicalInvestigationsPage() {
               >
                 Call the Principal Engineer
               </Link>
-              <Link
-                href="/faq"
-                className="flex items-center justify-center px-8 py-2.5 bg-white text-forest-green rounded-full shadow-[inset_0_0_0_1px_rgba(45,90,58,0.25),0_4px_10px_-4px_rgba(0,0,0,0.05)] hover:bg-forest-green/5 hover:shadow-[inset_0_0_0_1px_rgba(45,90,58,0.4),0_6px_14px_-4px_rgba(0,0,0,0.1)] transition-all hover:-translate-y-0.5 w-full sm:w-auto h-[46px] text-xs font-semibold tracking-wide"
-              >
-                Read our FAQ
-              </Link>
+              <QuoteCta source="geotechnical-investigations hero" label="Request A Quote" className="flex items-center justify-center px-8 py-2.5 bg-white text-forest-green rounded-full shadow-[inset_0_0_0_1px_rgba(45,90,58,0.25),0_4px_10px_-4px_rgba(0,0,0,0.05)] hover:bg-forest-green/5 hover:shadow-[inset_0_0_0_1px_rgba(45,90,58,0.4),0_6px_14px_-4px_rgba(0,0,0,0.1)] transition-all hover:-translate-y-0.5 w-full sm:w-auto h-[46px] text-xs font-semibold tracking-wide" />
             </div>
-          </FadeIn>
-          <FadeIn delay={0.2} className="w-full lg:w-auto shrink-0 flex justify-center">
-            <QuickQuoteCard source="geotechnical-investigations page" />
           </FadeIn>
         </div>
       </section>

@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 };
 
 const ITEMS = [
-  { t: "Footings & Piers", d: "Founding material verified against the structural drawings&rsquo; bearing requirement at excavation level." },
+  { t: "Footings & Piers", d: "Founding material verified against the structural drawings’ bearing requirement at excavation level." },
   { t: "Piles & Anchors", d: "Founding and socket verification for bored piers and piles, with the geotechnical record certifiers ask for." },
   { t: "Engineered Fill (AS 3798)", d: "Layer-by-layer placement supervision and testing frequency to the standard your certifier expects." },
   { t: "Proof Rolls", d: "Subgrade proof rolling observed and documented before the pavement goes down." },
