@@ -86,7 +86,7 @@ export default function Home() {
               </p>
               <h1 className="text-[clamp(3.2rem,7vw,6.6rem)] tracking-[-0.02em] font-montserrat font-light text-white leading-[1.04] mb-8">
                 <span className="mask-line mask-d1"><span>Geotechnical.</span></span>{" "}
-                <span className="mask-line mask-d2"><span className="font-semibold">Done Properly.</span></span>
+                <span className="mask-line mask-d2"><span className="font-semibold h-bold">Done Properly.</span></span>
               </h1>
               <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mt-5 mb-5 mx-auto lg:mx-0"></div>
 
@@ -149,7 +149,7 @@ export default function Home() {
           <div>
             <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">01 &middot; What We Do</p>
             <h2 className="text-4xl font-light tracking-tight sm:text-5xl font-montserrat">
-              Full Suite. <span className="font-semibold">One Team.</span>
+              Full Suite. <span className="font-semibold h-bold">One Team.</span>
             </h2>
             <div className="mt-4 h-px bg-forest-green w-12" />
           </div>
@@ -170,7 +170,7 @@ export default function Home() {
           <Reveal>
             <p className="text-sm uppercase tracking-[0.2em] text-[#8FBF9F] mb-6 font-semibold">02 &middot; Family Owned</p>
             <h2 className="text-3xl sm:text-5xl font-montserrat font-light tracking-tight leading-[1.15] mb-8">
-              Family Owned. <span className="font-semibold">Sydney Grown.</span>
+              Family Owned. <span className="font-semibold h-bold">Sydney Grown.</span>
             </h2>
             <div className="w-[96px] h-[3px] bg-forest-green mb-8" />
             <p className="text-lg text-gray-300 font-light leading-relaxed mb-6 max-w-xl">
@@ -210,7 +210,7 @@ export default function Home() {
           <div>
             <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">03 &middot; Recent Work</p>
             <h2 className="text-4xl font-light tracking-tight sm:text-5xl font-montserrat">
-              Proven On <span className="font-semibold">Sydney Ground</span>
+              Proven On <span className="font-semibold h-bold">Sydney Ground</span>
             </h2>
             <div className="mt-4 h-px bg-forest-green w-12" />
           </div>
@@ -268,7 +268,7 @@ export default function Home() {
         <Reveal className="text-center mb-16">
           <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">04 &middot; Before You Call</p>
           <h2 className="text-3xl font-light tracking-tight font-montserrat text-slate-950">
-            Common <span className="font-semibold">Questions</span>
+            Common <span className="font-semibold h-bold">Questions</span>
           </h2>
           <div className="mt-6 h-px bg-forest-green w-12 mx-auto" />
         </Reveal>
@@ -282,7 +282,7 @@ export default function Home() {
           <Reveal>
             <p className="text-sm uppercase tracking-[0.2em] text-[#8FBF9F] mb-6 font-semibold">05 &middot; Marrickville, Sydney</p>
             <h2 className="text-3xl sm:text-5xl font-montserrat font-light tracking-tight leading-[1.1] mb-6">
-              Start With <span className="font-semibold">The Ground.</span>
+              Start With <span className="font-semibold h-bold">The Ground.</span>
             </h2>
             <p className="text-gray-500 font-light leading-relaxed mb-10 max-w-md">
               Fixed-fee quotes, scoped to your block. Response within one business day.

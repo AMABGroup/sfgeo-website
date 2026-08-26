@@ -101,7 +101,7 @@ export default function ServicesIndexPage() {
             All Services &middot; Principal-Led &middot; Sydney
           </p>
           <h1 className="text-4xl sm:text-6xl font-montserrat font-light tracking-tight leading-[1.08] mb-8">
-            Full Suite. <span className="font-semibold">One Team.</span>
+            Full Suite. <span className="font-semibold h-bold">One Team.</span>
           </h1>
           <div className="w-[96px] h-[3px] bg-forest-green mb-8" />
           <p className="text-lg sm:text-xl text-gray-600 font-light leading-relaxed">
@@ -149,7 +149,7 @@ export default function ServicesIndexPage() {
         <div className="max-w-4xl mx-auto text-center px-6 py-28 lg:py-32 relative z-10">
           <FadeIn>
             <h2 className="text-4xl sm:text-6xl font-montserrat font-light tracking-tight mb-8">
-              Not Sure Where <span className="font-semibold">To Start?</span>
+              Not Sure Where <span className="font-semibold h-bold">To Start?</span>
             </h2>
             <p className="text-lg sm:text-xl text-gray-400 font-light leading-relaxed max-w-2xl mx-auto mb-12">
               Describe the project in a sentence. The Principal will tell you what it needs — and what it doesn&rsquo;t.

@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import QuoteCta from "@/components/forms/QuoteCta";
+import PhotoPlaceholder from "@/components/ui/PhotoPlaceholder";
 import { FadeIn } from "../site-classification/MotionWrapper";
 
 export const metadata: Metadata = {
@@ -69,7 +70,7 @@ export default function SubcontractDrillingPage() {
             Subcontract Drilling &middot; B2B &middot; Metro + Regional NSW
           </p>
           <h1 className="text-4xl sm:text-6xl font-montserrat font-light tracking-tight leading-[1.08] mb-8">
-            Subcontract Drilling. <span className="font-semibold">Your Scope. Our Rig.</span>
+            Subcontract Drilling. <span className="font-semibold h-bold">Your Scope. Our Rig.</span>
           </h1>
           <div className="w-[96px] h-[3px] bg-forest-green mb-8" />
           <p className="text-lg sm:text-xl text-gray-600 font-light leading-relaxed mb-10">
@@ -97,11 +98,11 @@ export default function SubcontractDrillingPage() {
         <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-10 lg:gap-16 items-center">
           <FadeIn>
             <div className="grid grid-cols-2 gap-4 sm:gap-6">
-              <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-[0_20px_50px_-20px_rgba(5,10,7,0.35)]">
-                <Image src="/sfgeo-subcontract-rig-arrival-riverbank.jpg" alt="SFGEO rig and truck arriving at a riverbank investigation site" fill sizes="(max-width: 1024px) 50vw, 30vw" className="object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/40 via-transparent to-transparent" />
-                <p className="absolute bottom-4 left-4 text-[10px] uppercase tracking-[0.2em] text-white/80 font-semibold">Mobilised</p>
-              </div>
+              <PhotoPlaceholder
+                subject="Working under someone else's banner — rig on a commercial or civil site alongside the head contractor's works."
+                caption="Mobilised"
+                className="aspect-[3/4] rounded-2xl shadow-[0_20px_50px_-20px_rgba(5,10,7,0.35)]"
+              />
               <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-[0_20px_50px_-20px_rgba(5,10,7,0.35)] lg:mt-10">
                 <Image src="/sfgeo-subcontract-rig-working-rear.jpg" alt="Rig with mast raised working a borehole above the river" fill sizes="(max-width: 1024px) 50vw, 30vw" className="object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/40 via-transparent to-transparent" />
@@ -112,7 +113,7 @@ export default function SubcontractDrillingPage() {
           <FadeIn delay={0.15}>
             <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">01 &middot; Why It Works</p>
             <h2 className="text-3xl sm:text-4xl font-light tracking-tight font-montserrat text-slate-950 mb-5">
-              A Crew That Reads The Ground, <span className="font-semibold">Not Just Drills It.</span>
+              A Crew That Reads The Ground, <span className="font-semibold h-bold">Not Just Drills It.</span>
             </h2>
             <div className="h-px bg-forest-green w-12 mb-7" />
             <p className="text-gray-600 font-light leading-relaxed">
@@ -127,7 +128,7 @@ export default function SubcontractDrillingPage() {
         <FadeIn className="mb-12">
           <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">02 &middot; Who We Drill For</p>
           <h2 className="text-3xl sm:text-4xl font-light tracking-tight font-montserrat text-slate-950">
-            Under Your Banner. <span className="font-semibold">At Our Standard.</span>
+            Under Your Banner. <span className="font-semibold h-bold">At Our Standard.</span>
           </h2>
           <div className="mt-5 h-px bg-forest-green w-12" />
         </FadeIn>
@@ -148,7 +149,7 @@ export default function SubcontractDrillingPage() {
         <FadeIn className="mb-12">
           <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">03 &middot; The Arrangement</p>
           <h2 className="text-3xl sm:text-4xl font-light tracking-tight font-montserrat text-slate-950">
-            Simple To Engage. <span className="font-semibold">Simple To Repeat.</span>
+            Simple To Engage. <span className="font-semibold h-bold">Simple To Repeat.</span>
           </h2>
           <div className="mt-5 h-px bg-forest-green w-12" />
         </FadeIn>
@@ -171,7 +172,7 @@ export default function SubcontractDrillingPage() {
         <div className="max-w-4xl mx-auto text-center px-6 py-28 lg:py-32 relative z-10">
           <FadeIn>
             <h2 className="text-4xl sm:text-6xl font-montserrat font-light tracking-tight mb-8">
-              Fleet Booked Out? <span className="font-semibold">Ours Isn&rsquo;t.</span>
+              Fleet Booked Out? <span className="font-semibold h-bold">Ours Isn&rsquo;t.</span>
             </h2>
             <p className="text-lg sm:text-xl text-gray-400 font-light leading-relaxed max-w-2xl mx-auto mb-12">
               Send the borehole schedule and the window. You&rsquo;ll have rates in writing within one business day — and a rig that turns up when it said it would.

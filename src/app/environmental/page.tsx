@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import QuoteCta from "@/components/forms/QuoteCta";
+import PhotoPlaceholder from "@/components/ui/PhotoPlaceholder";
 import { FadeIn } from "../site-classification/MotionWrapper";
 
 export const metadata: Metadata = {
@@ -30,8 +31,8 @@ const SECTIONS = [
     titleLight: "Contaminated",
     titleBold: "Land.",
     caption: "01 · Contaminated Land",
-    image: "/sfgeo-contaminated-land-sampling-sydney.jpg",
-    alt: "Labelled soil sample bag, field tablet and borehole spoil during contaminated land sampling",
+    image: null,
+    shot: "Contaminated land fieldwork — monitoring well or sampling rig on a former industrial site, or gloved hands bagging a suspect soil sample.",
     body: "When a site's history raises questions — old fill, past industry, a council condition on the DA — a Preliminary Site Investigation traces what happened on the ground, and a Detailed Site Investigation drills, samples and tests to answer it. Every sample is logged by an engineer, tracked under chain of custody and analysed at NATA-accredited laboratories. And because the crew taking the samples is the crew that drills Sydney ground every week, one mobilisation can carry your geotechnical and environmental scope together.",
     link: { href: "/contact", label: "Scope A Site Investigation" },
   },
@@ -54,8 +55,8 @@ const SECTIONS = [
     titleLight: "Waste",
     titleBold: "Classification.",
     caption: "03 · Waste Classification",
-    image: "/sfgeo-waste-classification-stockpile-liner.jpg",
-    alt: "Stockpiled material on a geotextile liner at a coastal Sydney site",
+    image: null,
+    shot: "Waste classification sampling — spoil stockpile being sampled, or labelled sample jars ready for the laboratory.",
     body: "Spoil can't leave site on a guess — receiving facilities need a classification, and the wrong one is paid for twice. We sample stockpiles and in-situ ground, test at NATA-accredited laboratories and classify to the NSW EPA guidelines, from virgin excavated natural material through to general solid waste — with the paperwork your facility and your certifier both need.",
     link: { href: "/contact", label: "Classify Your Spoil" },
   },
@@ -66,8 +67,8 @@ const SECTIONS = [
     titleLight: "Soil & Lab",
     titleBold: "Testing.",
     caption: "04 · Soil & Lab Testing",
-    image: "/sfgeo-soil-sample-field-identification.jpg",
-    alt: "Engineer's hand holding a soil sample above a freshly excavated test pit",
+    image: "/sfgeo-contaminated-land-sampling-sydney.jpg",
+    alt: "Labelled soil sample bag and field tablet during sampling for laboratory testing",
     body: "Behind every report is a laboratory program scoped to the question — CBR and compaction for pavements, Atterberg limits and shrink–swell for footings, pH, sulfate and chloride where concrete meets aggressive ground, and contamination suites where history demands them. Samples are logged in the field by the engineer who took them, and results come back interpreted — numbers with a recommendation, not a spreadsheet to decode.",
     link: { href: "/contact", label: "Build A Testing Program" },
   },
@@ -112,7 +113,7 @@ export default function EnvironmentalHubPage() {
             Environmental &amp; Soil Testing &middot; Engineer-Led &middot; Sydney
           </p>
           <h1 className="text-4xl sm:text-6xl font-montserrat font-light tracking-tight leading-[1.08] mb-8">
-            Environmental. <span className="font-semibold">What&rsquo;s In The Ground.</span>
+            Environmental. <span className="font-semibold h-bold">What&rsquo;s In The Ground.</span>
           </h1>
           <div className="w-[96px] h-[3px] bg-forest-green mb-8" />
           <p className="text-lg sm:text-xl text-gray-600 font-light leading-relaxed">
@@ -126,16 +127,24 @@ export default function EnvironmentalHubPage() {
         <section key={sec.id} id={sec.id} className="py-20 lg:py-24 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100 scroll-mt-[90px]">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <FadeIn className={idx % 2 === 1 ? "lg:order-2" : ""}>
-              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-[0_26px_60px_-26px_rgba(5,10,7,0.4)]">
-                <Image src={sec.image} alt={sec.alt} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/40 via-transparent to-transparent" />
-                <p className="absolute bottom-5 left-6 text-[11px] uppercase tracking-[0.25em] text-white/80 font-semibold">{sec.caption}</p>
-              </div>
+              {sec.image ? (
+                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-[0_26px_60px_-26px_rgba(5,10,7,0.4)]">
+                  <Image src={sec.image} alt={sec.alt} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/40 via-transparent to-transparent" />
+                  <p className="absolute bottom-5 left-6 text-[11px] uppercase tracking-[0.25em] text-white/80 font-semibold">{sec.caption}</p>
+                </div>
+              ) : (
+                <PhotoPlaceholder
+                  subject={sec.shot ?? ""}
+                  caption={sec.caption}
+                  className="aspect-[4/3] rounded-2xl shadow-[0_26px_60px_-26px_rgba(5,10,7,0.4)]"
+                />
+              )}
             </FadeIn>
             <FadeIn delay={0.12}>
               <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">{sec.kicker}</p>
               <h2 className="text-3xl sm:text-4xl font-montserrat font-light tracking-tight text-slate-950 mb-5">
-                {sec.titleLight} <span className="font-semibold">{sec.titleBold}</span>
+                {sec.titleLight} <span className="font-semibold h-bold">{sec.titleBold}</span>
               </h2>
               <div className="h-px bg-forest-green w-12 mb-7" />
               <p className="text-gray-600 font-light leading-relaxed mb-8">{sec.body}</p>
@@ -153,7 +162,7 @@ export default function EnvironmentalHubPage() {
         <FadeIn className="mb-14">
           <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">Who We Work With</p>
           <h2 className="text-3xl sm:text-4xl font-montserrat font-light tracking-tight">
-            Same Ground. <span className="font-semibold">Different Stakes.</span>
+            Same Ground. <span className="font-semibold h-bold">Different Stakes.</span>
           </h2>
           <div className="mt-5 h-px bg-forest-green w-12" />
         </FadeIn>
@@ -175,7 +184,7 @@ export default function EnvironmentalHubPage() {
         <div className="max-w-4xl mx-auto text-center px-6 py-28 lg:py-32 relative z-10">
           <FadeIn>
             <h2 className="text-4xl sm:text-6xl font-montserrat font-light tracking-tight mb-8">
-              The Ground Has A History. <span className="font-semibold">Know It.</span>
+              The Ground Has A History. <span className="font-semibold h-bold">Know It.</span>
             </h2>
             <p className="text-lg sm:text-xl text-gray-400 font-light leading-relaxed max-w-2xl mx-auto mb-12">
               Tell us the site and the question — a purchase, a DA condition, a stockpile, or something the excavator just turned up. You&rsquo;ll have a straight answer on scope and cost within one business day.

@@ -201,12 +201,13 @@ export function SystemHeader() {
 
           {/* ============ Desktop: four tight columns ============ */}
           <div className="hidden lg:grid w-full max-w-[90rem] mx-auto grid-cols-[1fr_1fr_1fr_1.15fr] gap-12">
-            <div className="space-y-10">
+            {/* Two columns as one grid so the second row shares a baseline —
+                Geotechnical has five links and Drilling four, which otherwise
+                pushed Environmental a step below Other Professional Services. */}
+            <div className="col-span-2 grid grid-cols-2 grid-rows-[auto_auto] gap-x-12 gap-y-10">
               <div><GroupHeading name="Geotechnical" hub="/geotechnical" onNavigate={() => setOpen(false)} /><GroupLinks links={GROUPS[0].links} onNavigate={() => setOpen(false)} /></div>
-              <div><GroupHeading name="Environmental & Soil Testing" hub="/environmental" onNavigate={() => setOpen(false)} /><GroupLinks links={GROUPS[2].links} onNavigate={() => setOpen(false)} /></div>
-            </div>
-            <div className="space-y-10">
               <div><GroupHeading name="Drilling" hub="/drilling" onNavigate={() => setOpen(false)} /><GroupLinks links={GROUPS[1].links} onNavigate={() => setOpen(false)} /></div>
+              <div><GroupHeading name="Environmental & Soil Testing" hub="/environmental" onNavigate={() => setOpen(false)} /><GroupLinks links={GROUPS[2].links} onNavigate={() => setOpen(false)} /></div>
               <div><GroupHeading name="Other Professional Services" hub="/other-services" onNavigate={() => setOpen(false)} /><GroupLinks links={GROUPS[3].links} onNavigate={() => setOpen(false)} /></div>
             </div>
             <div className="space-y-10">

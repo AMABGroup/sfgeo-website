@@ -51,7 +51,7 @@ export default function Page() {
         <FadeIn className="max-w-3xl">
           <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-6 font-semibold">Geotechnical Assessments &middot; Principal-Led</p>
           <h1 className="text-4xl sm:text-6xl font-montserrat font-light tracking-tight leading-[1.08] mb-8">
-            The Specific Question, <span className="font-semibold">Answered.</span>
+            The Specific Question, <span className="font-semibold h-bold">Answered.</span>
           </h1>
           <div className="w-[96px] h-[3px] bg-forest-green mb-8" />
           <p className="text-lg sm:text-xl text-gray-600 font-light leading-relaxed">Not every job is a full investigation. Sometimes there is one question — is this slope stable, why is this wall cracking, will council accept this — and it needs an engineering answer in writing. That is an assessment.</p>
@@ -66,7 +66,7 @@ export default function Page() {
             </div>
           </FadeIn>
           <FadeIn delay={0.12}>
-            <h2 className="text-3xl font-montserrat font-light tracking-tight text-slate-950 mb-5">Scoped To The Question, <span className="font-semibold">Not The Template</span></h2>
+            <h2 className="text-3xl font-montserrat font-light tracking-tight text-slate-950 mb-5">Scoped To The Question, <span className="font-semibold h-bold">Not The Template</span></h2>
             <div className="h-px bg-forest-green w-12 mb-7" />
             <p className="text-gray-600 font-light leading-relaxed">The Principal reads the site, the structure and the history, does exactly the fieldwork the question requires — sometimes none, sometimes a day — and answers it in a signed engineering document your certifier, council, insurer or buyer can act on.</p>
           </FadeIn>
@@ -75,7 +75,7 @@ export default function Page() {
 
       <section className="py-16 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">
         <FadeIn className="mb-12">
-          <h2 className="text-3xl font-montserrat font-light tracking-tight text-slate-950">Questions We <span className="font-semibold">Answer</span></h2>
+          <h2 className="text-3xl font-montserrat font-light tracking-tight text-slate-950">Questions We <span className="font-semibold h-bold">Answer</span></h2>
           <div className="mt-6 h-px bg-forest-green w-12" />
         </FadeIn>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -95,7 +95,7 @@ export default function Page() {
         <FadeIn>
           <div className="max-w-3xl">
             <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">What You Get</p>
-            <h2 className="text-3xl sm:text-4xl font-montserrat font-light tracking-tight text-slate-950 mb-5">An Answer You Can <span className="font-semibold">Act On.</span></h2>
+            <h2 className="text-3xl sm:text-4xl font-montserrat font-light tracking-tight text-slate-950 mb-5">An Answer You Can <span className="font-semibold h-bold">Act On.</span></h2>
             <div className="h-px bg-forest-green w-12 mb-7" />
             <p className="text-gray-600 font-light leading-relaxed">
               Every assessment ends in a signed engineering document scoped to its purpose — a letter for a certifier or council order, a report for a settlement investigation, an opinion you can put in front of a lawyer or insurer. It states what was observed, what it means, and what to do next — and where the question turns out to need intrusive investigation, we say so before the fee does.
@@ -108,7 +108,7 @@ export default function Page() {
         <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_-20%,rgba(45,90,58,0.3),transparent_60%)] pointer-events-none" />
         <div className="max-w-4xl mx-auto text-center px-6 py-24 relative z-10">
           <FadeIn>
-            <h2 className="text-4xl sm:text-5xl font-montserrat font-light tracking-tight mb-8">One Question? <span className="font-semibold">Ask It.</span></h2>
+            <h2 className="text-4xl sm:text-5xl font-montserrat font-light tracking-tight mb-8">One Question? <span className="font-semibold h-bold">Ask It.</span></h2>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
               <Link href="tel:+61423483555" className="flex items-center justify-center px-8 py-2.5 bg-gradient-to-b from-[#346b43] to-forest-green text-white rounded-full shadow-[0_8px_20px_-6px_rgba(45,90,58,0.4)] hover:brightness-105 transition-all hover:-translate-y-0.5 w-full sm:w-[280px] h-[46px] text-xs font-semibold tracking-wide">Call 0423 483 555</Link>
               <QuoteCta source="geotechnical-assessments close" className="flex items-center justify-center px-8 py-2.5 bg-white/5 text-white rounded-full shadow-[inset_0_0_0_1px_rgba(255,255,255,0.25)] hover:bg-white/10 transition-all hover:-translate-y-0.5 w-full sm:w-[280px] h-[46px] text-xs font-semibold tracking-wide backdrop-blur-sm" />

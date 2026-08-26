@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import QuoteCta from "@/components/forms/QuoteCta";
+import PhotoPlaceholder from "@/components/ui/PhotoPlaceholder";
 import { FadeIn } from "../site-classification/MotionWrapper";
 
 export const metadata: Metadata = {
@@ -88,7 +89,7 @@ export default function TightAccessDrillingPage() {
             </p>
             <h1 className="text-4xl sm:text-6xl font-montserrat font-light tracking-tight leading-[1.1] mb-8">
               Tight Access Drilling. <br />
-              <span className="font-semibold">No Site Out Of Reach.</span>
+              <span className="font-semibold h-bold">No Site Out Of Reach.</span>
             </h1>
             <div className="w-[96px] h-[3px] bg-forest-green mb-8" />
             <p className="text-lg sm:text-xl text-gray-600 font-light leading-relaxed mb-8">
@@ -117,17 +118,17 @@ export default function TightAccessDrillingPage() {
                 <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/40 via-transparent to-transparent" />
                 <p className="absolute bottom-4 left-4 text-[10px] uppercase tracking-[0.2em] text-white/80 font-semibold">Backyard Borehole</p>
               </div>
-              <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-[0_20px_50px_-20px_rgba(5,10,7,0.35)] lg:mt-10">
-                <Image src="/sfgeo-drilling-heritage-home-inner-west-sydney.jpg" alt="Drilling beside a heritage home in Sydney's Inner West" fill sizes="(max-width: 1024px) 50vw, 30vw" className="object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/40 via-transparent to-transparent" />
-                <p className="absolute bottom-4 left-4 text-[10px] uppercase tracking-[0.2em] text-white/80 font-semibold">Heritage &middot; Inner West</p>
-              </div>
+              <PhotoPlaceholder
+                subject="A genuinely tight site — terrace hallway, basement or zero-clearance courtyard, with the gear in the gap so the constraint is obvious."
+                caption="Heritage &middot; Inner West"
+                className="aspect-[3/4] rounded-2xl shadow-[0_20px_50px_-20px_rgba(5,10,7,0.35)] lg:mt-10"
+              />
             </div>
           </FadeIn>
           <FadeIn delay={0.15}>
             <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">01 &middot; The Method</p>
             <h2 className="text-3xl sm:text-4xl font-light tracking-tight font-montserrat text-slate-950 mb-5">
-              Same Data. <span className="font-semibold">Harder Sites.</span>
+              Same Data. <span className="font-semibold h-bold">Harder Sites.</span>
             </h2>
             <div className="h-px bg-forest-green w-12 mb-8" />
             <p className="text-lg text-gray-600 font-light leading-relaxed">
@@ -142,7 +143,7 @@ export default function TightAccessDrillingPage() {
         <FadeIn className="mb-12">
           <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">02 &middot; Site Types</p>
           <h2 className="text-3xl sm:text-4xl font-light tracking-tight font-montserrat text-slate-950">
-            The Sites We&rsquo;re <span className="font-semibold">Built For.</span>
+            The Sites We&rsquo;re <span className="font-semibold h-bold">Built For.</span>
           </h2>
           <div className="mt-6 h-px bg-forest-green w-12" />
         </FadeIn>
@@ -163,7 +164,7 @@ export default function TightAccessDrillingPage() {
         <FadeIn>
           <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">03 &middot; Where We Work</p>
           <h2 className="text-3xl sm:text-4xl font-light tracking-tight font-montserrat text-slate-950 mb-5">
-            Where The Hard Sites <span className="font-semibold">Are.</span>
+            Where The Hard Sites <span className="font-semibold h-bold">Are.</span>
           </h2>
           <p className="text-lg text-gray-600 font-light leading-relaxed">
             Marrickville, Newtown, Enmore and the Inner West terraces we call home. Paddington and Surry Hills rows. Eastern Suburbs battleaxe blocks, North Shore slopes, and the granny-flat boom across Canterbury-Bankstown and the Hills. If the rig cannot reach it, the augers can — and the engineer comes with them.
@@ -177,7 +178,7 @@ export default function TightAccessDrillingPage() {
         <div className="max-w-4xl mx-auto text-center px-6 py-28 lg:py-32 relative z-10">
           <FadeIn>
             <h2 className="text-4xl sm:text-6xl font-montserrat font-light tracking-tight mb-8">
-              Hard To Reach? <span className="font-semibold">Perfect.</span>
+              Hard To Reach? <span className="font-semibold h-bold">Perfect.</span>
             </h2>
             <p className="text-lg sm:text-xl text-gray-400 font-light leading-relaxed max-w-2xl mx-auto mb-12">
               Send the address and a photo of the access. You&rsquo;ll have a fixed fee in writing — usually within one business day.

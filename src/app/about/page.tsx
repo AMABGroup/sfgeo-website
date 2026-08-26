@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import QuoteCta from "@/components/forms/QuoteCta";
+import PhotoPlaceholder from "@/components/ui/PhotoPlaceholder";
 import { FadeIn } from "../site-classification/MotionWrapper";
 
 export const metadata: Metadata = {
@@ -58,7 +59,7 @@ export default function About() {
             About SFGEO &middot; Family Owned &middot; Inner West Based
           </p>
           <h1 className="text-4xl sm:text-6xl font-montserrat font-light tracking-tight leading-[1.08] mb-8">
-            Boutique Geotechnical <span className="font-semibold">Engineers. Sydney.</span>
+            Boutique Geotechnical <span className="font-semibold h-bold">Engineers. Sydney.</span>
           </h1>
           <div className="w-[96px] h-[3px] bg-forest-green mb-8" />
           <p className="text-lg sm:text-xl text-gray-600 font-light leading-relaxed">
@@ -70,11 +71,11 @@ export default function About() {
       {/* Full-width team photo */}
       <section className="px-6 lg:px-12 max-w-7xl mx-auto pb-20">
         <FadeIn>
-          <div className="relative aspect-[21/9] rounded-2xl overflow-hidden shadow-[0_26px_60px_-26px_rgba(5,10,7,0.4)]">
-            <Image src="/sfgeo-team-drilling-logging-sydney.jpg" alt="The SFGEO crew drilling and logging together on a Sydney site" fill priority sizes="(max-width: 1280px) 100vw, 1216px" className="object-cover" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/40 via-transparent to-transparent" />
-            <p className="absolute bottom-5 left-6 text-[11px] uppercase tracking-[0.25em] text-white/80 font-semibold">The Crew &middot; On Sydney Ground</p>
-          </div>
+          <PhotoPlaceholder
+            subject="The About banner — a considered wide shot of the team, or Sydney ground that speaks for the firm. Not the current rig-and-two-crew frame."
+            caption="The Crew &middot; On Sydney Ground"
+            className="aspect-[21/9] rounded-2xl shadow-[0_26px_60px_-26px_rgba(5,10,7,0.4)]"
+          />
         </FadeIn>
       </section>
 
@@ -83,7 +84,7 @@ export default function About() {
         <FadeIn className="lg:col-span-8">
           <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">Our Foundation</p>
           <h2 className="text-3xl sm:text-4xl font-montserrat font-light tracking-tight text-slate-950 mb-5">
-            Built On <span className="font-semibold">Direct Access.</span>
+            Built On <span className="font-semibold h-bold">Direct Access.</span>
           </h2>
           <div className="h-px bg-forest-green w-12 mb-7" />
           <p className="text-lg text-gray-600 font-light leading-loose mb-6">
@@ -118,7 +119,7 @@ export default function About() {
           <FadeIn>
             <p className="text-sm uppercase tracking-[0.2em] text-[#8FBF9F] mb-6 font-semibold">Our Community</p>
             <h2 className="text-3xl sm:text-5xl font-montserrat font-light tracking-tight leading-[1.12] mb-8 max-w-3xl">
-              From The Inner West, <span className="font-semibold">For The Inner West.</span>
+              From The Inner West, <span className="font-semibold h-bold">For The Inner West.</span>
             </h2>
             <div className="w-[96px] h-[3px] bg-forest-green mb-8" />
             <p className="text-lg text-gray-300 font-light leading-relaxed max-w-2xl">
@@ -133,7 +134,7 @@ export default function About() {
         <FadeIn className="mb-14">
           <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">How We Work</p>
           <h2 className="text-3xl sm:text-4xl font-montserrat font-light tracking-tight">
-            Small Team. <span className="font-semibold">Serious Standards.</span>
+            Small Team. <span className="font-semibold h-bold">Serious Standards.</span>
           </h2>
           <div className="mt-5 h-px bg-forest-green w-12" />
         </FadeIn>
@@ -155,7 +156,7 @@ export default function About() {
           <div>
             <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">Previous Project Experience</p>
             <h2 className="text-3xl sm:text-4xl font-montserrat font-light tracking-tight">
-              Where We <span className="font-semibold">Cut Our Teeth.</span>
+              Where We <span className="font-semibold h-bold">Cut Our Teeth.</span>
             </h2>
             <div className="mt-5 h-px bg-forest-green w-12" />
           </div>
@@ -185,7 +186,7 @@ export default function About() {
           <div>
             <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">Accreditation &amp; Assurance</p>
             <h2 className="text-3xl sm:text-4xl font-montserrat font-light tracking-tight">
-              Credentials <span className="font-semibold">That Hold.</span>
+              Credentials <span className="font-semibold h-bold">That Hold.</span>
             </h2>
             <div className="mt-5 h-px bg-forest-green w-12" />
           </div>
@@ -227,7 +228,7 @@ export default function About() {
         <div className="max-w-4xl mx-auto text-center px-6 py-28 lg:py-32 relative z-10">
           <FadeIn>
             <h2 className="text-4xl sm:text-6xl font-montserrat font-light tracking-tight mb-8">
-              Work With <span className="font-semibold">The Same Team.</span>
+              Work With <span className="font-semibold h-bold">The Same Team.</span>
             </h2>
             <p className="text-lg sm:text-xl text-gray-400 font-light leading-relaxed max-w-2xl mx-auto mb-12">
               From the first phone call to the final report — one team, one standard, and the Principal across every job.

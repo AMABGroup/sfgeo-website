@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import QuoteCta from "@/components/forms/QuoteCta";
+import PhotoPlaceholder from "@/components/ui/PhotoPlaceholder";
 import { FadeIn } from "../site-classification/MotionWrapper";
 
 export const metadata: Metadata = {
@@ -30,8 +31,8 @@ const SECTIONS = [
     titleLight: "Slab",
     titleBold: "Verification.",
     caption: "01 · Slab Verification",
-    image: "/sfgeo-concrete-core-thickness-tape.jpg",
-    alt: "Extracted concrete core measured against a tape on site",
+    image: null,
+    shot: "Slab verification — the extracted core measured with calipers, or reinforcement visible in the core face against the slab.",
     body: "Thickness, reinforcement cover and condition — cored, logged and photographed, with strength testing through a NATA-accredited laboratory when the question needs a number. The core comes out as evidence, not just a hole in the floor.",
     link: { href: "/contact", label: "Verify A Slab" },
   },
@@ -42,8 +43,8 @@ const SECTIONS = [
     titleLight: "Pavement",
     titleBold: "Investigation.",
     caption: "02 · Pavement Investigation",
-    image: "/sfgeo-concrete-core-hole-depth-check.jpg",
-    alt: "Tape measure checking depth down a cored hole through a concrete pavement",
+    image: "/sfgeo-concrete-core-thickness-tape.jpg",
+    alt: "Extracted concrete core measured against a tape on site",
     body: "Core through the pavement and keep going — the same visit logs the concrete, the layers beneath it and the subgrade below, so you get one report instead of two contractors. Where the pavement question is really a ground question, the geotechnical crew is already standing on it.",
     link: { href: "/contact", label: "Scope A Pavement Program" },
   },
@@ -66,8 +67,8 @@ const SECTIONS = [
     titleLight: "Investigation",
     titleBold: "Access.",
     caption: "04 · Investigation Access",
-    image: "/sfgeo-concrete-core-hole-inspection.jpg",
-    alt: "Inspection torch checking conditions down a cored hole through a slab",
+    image: "/sfgeo-concrete-core-hole-depth-check.jpg",
+    alt: "Tape measure checking depth down a cored hole through a slab",
     body: "Coring through existing slabs so a geotechnical investigation can reach the ground beneath a building that was never meant to be drilled — warehouses, factory floors, basements. One crew cores the concrete and drills the ground under it in the same mobilisation.",
     link: { href: "/contact", label: "Open Up An Investigation" },
   },
@@ -111,7 +112,7 @@ export default function ConcreteCoringPage() {
             Concrete Coring &middot; Engineer-Supervised &middot; Sydney
           </p>
           <h1 className="text-4xl sm:text-6xl font-montserrat font-light tracking-tight leading-[1.08] mb-8">
-            Concrete Coring. <span className="font-semibold">With The Engineering Attached.</span>
+            Concrete Coring. <span className="font-semibold h-bold">With The Engineering Attached.</span>
           </h1>
           <div className="w-[96px] h-[3px] bg-forest-green mb-8" />
           <p className="text-lg sm:text-xl text-gray-600 font-light leading-relaxed mb-10">
@@ -139,16 +140,24 @@ export default function ConcreteCoringPage() {
         <section key={sec.id} id={sec.id} className="py-20 lg:py-24 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100 scroll-mt-[90px]">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <FadeIn className={idx % 2 === 1 ? "lg:order-2" : ""}>
-              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-[0_26px_60px_-26px_rgba(5,10,7,0.4)]">
-                <Image src={sec.image} alt={sec.alt} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/40 via-transparent to-transparent" />
-                <p className="absolute bottom-5 left-6 text-[11px] uppercase tracking-[0.25em] text-white/80 font-semibold">{sec.caption}</p>
-              </div>
+              {sec.image ? (
+                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-[0_26px_60px_-26px_rgba(5,10,7,0.4)]">
+                  <Image src={sec.image} alt={sec.alt} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/40 via-transparent to-transparent" />
+                  <p className="absolute bottom-5 left-6 text-[11px] uppercase tracking-[0.25em] text-white/80 font-semibold">{sec.caption}</p>
+                </div>
+              ) : (
+                <PhotoPlaceholder
+                  subject={sec.shot ?? ""}
+                  caption={sec.caption}
+                  className="aspect-[4/3] rounded-2xl shadow-[0_26px_60px_-26px_rgba(5,10,7,0.4)]"
+                />
+              )}
             </FadeIn>
             <FadeIn delay={0.12}>
               <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">{sec.kicker}</p>
               <h2 className="text-3xl sm:text-4xl font-montserrat font-light tracking-tight text-slate-950 mb-5">
-                {sec.titleLight} <span className="font-semibold">{sec.titleBold}</span>
+                {sec.titleLight} <span className="font-semibold h-bold">{sec.titleBold}</span>
               </h2>
               <div className="h-px bg-forest-green w-12 mb-7" />
               <p className="text-gray-600 font-light leading-relaxed mb-8">{sec.body}</p>
@@ -167,7 +176,7 @@ export default function ConcreteCoringPage() {
           <FadeIn>
             <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">Why The Engineer Matters</p>
             <h2 className="text-3xl sm:text-4xl font-montserrat font-light tracking-tight text-slate-950 mb-5">
-              A Core Is <span className="font-semibold">Evidence.</span>
+              A Core Is <span className="font-semibold h-bold">Evidence.</span>
             </h2>
             <div className="h-px bg-forest-green w-12 mb-7" />
             <p className="text-gray-600 font-light leading-relaxed">
@@ -183,7 +192,7 @@ export default function ConcreteCoringPage() {
           <FadeIn>
             <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">Pricing</p>
             <h2 className="text-3xl sm:text-4xl font-montserrat font-light tracking-tight text-slate-950 mb-5">
-              From $120 + GST <span className="font-semibold">Per Hole.</span>
+              From $120 + GST <span className="font-semibold h-bold">Per Hole.</span>
             </h2>
             <div className="h-px bg-forest-green w-12 mb-7" />
             <p className="text-gray-600 font-light leading-relaxed">
@@ -199,7 +208,7 @@ export default function ConcreteCoringPage() {
         <div className="max-w-4xl mx-auto text-center px-6 py-28 lg:py-32 relative z-10">
           <FadeIn>
             <h2 className="text-4xl sm:text-6xl font-montserrat font-light tracking-tight mb-8">
-              One Hole. <span className="font-semibold">The Whole Answer.</span>
+              One Hole. <span className="font-semibold h-bold">The Whole Answer.</span>
             </h2>
             <p className="text-lg sm:text-xl text-gray-400 font-light leading-relaxed max-w-2xl mx-auto mb-12">
               Tell us what the slab is hiding — or what you need to put through it. Fixed fee in writing within one business day.

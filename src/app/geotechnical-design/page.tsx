@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import QuoteCta from "@/components/forms/QuoteCta";
+import PhotoPlaceholder from "@/components/ui/PhotoPlaceholder";
 import { FadeIn } from "../site-classification/MotionWrapper";
 
 export const metadata: Metadata = {
@@ -51,7 +52,7 @@ export default function Page() {
         <FadeIn className="max-w-3xl">
           <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-6 font-semibold">Geotechnical Design &middot; For Structural & Civil Teams</p>
           <h1 className="text-4xl sm:text-6xl font-montserrat font-light tracking-tight leading-[1.08] mb-8">
-            The Numbers Under <span className="font-semibold">The Design.</span>
+            The Numbers Under <span className="font-semibold h-bold">The Design.</span>
           </h1>
           <div className="w-[96px] h-[3px] bg-forest-green mb-8" />
           <p className="text-lg sm:text-xl text-gray-600 font-light leading-relaxed">Your structure is only as good as the parameters beneath it. SFGEO supplies the site-specific inputs structural and civil engineers design from — investigated, derived and signed by the engineer who read the ground.</p>
@@ -61,12 +62,14 @@ export default function Page() {
       <section className="py-16 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           <FadeIn>
-            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-[0_26px_60px_-26px_rgba(5,10,7,0.4)]">
-              <Image src="/sfgeo-precision-measurement-caliper.jpg" alt="Calipers measuring against exposed brickwork — precision on site" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
-            </div>
+            <PhotoPlaceholder
+              subject="Where the numbers come from — SPT or in-situ testing underway, or field data being written up into design parameters."
+              caption="Derived From The Ground"
+              className="aspect-[4/3] rounded-2xl shadow-[0_26px_60px_-26px_rgba(5,10,7,0.4)]"
+            />
           </FadeIn>
           <FadeIn delay={0.12}>
-            <h2 className="text-3xl font-montserrat font-light tracking-tight text-slate-950 mb-5">Derived From The Ground, <span className="font-semibold">Not The Textbook</span></h2>
+            <h2 className="text-3xl font-montserrat font-light tracking-tight text-slate-950 mb-5">Derived From The Ground, <span className="font-semibold h-bold">Not The Textbook</span></h2>
             <div className="h-px bg-forest-green w-12 mb-7" />
             <p className="text-gray-600 font-light leading-relaxed">Every parameter traces to fieldwork on your site — boreholes, penetrometers, laboratory results — not presumptive values copied between reports. We do not carry the structural design; we make sure the numbers under it are real, and we stand behind them.</p>
           </FadeIn>
@@ -75,7 +78,7 @@ export default function Page() {
 
       <section className="py-16 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">
         <FadeIn className="mb-12">
-          <h2 className="text-3xl font-montserrat font-light tracking-tight text-slate-950">Parameters We <span className="font-semibold">Deliver</span></h2>
+          <h2 className="text-3xl font-montserrat font-light tracking-tight text-slate-950">Parameters We <span className="font-semibold h-bold">Deliver</span></h2>
           <div className="mt-6 h-px bg-forest-green w-12" />
         </FadeIn>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -94,7 +97,7 @@ export default function Page() {
       <section className="py-16 lg:py-20 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">
         <FadeIn className="mb-12">
           <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">Working With Design Teams</p>
-          <h2 className="text-3xl sm:text-4xl font-montserrat font-light tracking-tight">Built To Slot Into <span className="font-semibold">Your Workflow.</span></h2>
+          <h2 className="text-3xl sm:text-4xl font-montserrat font-light tracking-tight">Built To Slot Into <span className="font-semibold h-bold">Your Workflow.</span></h2>
           <div className="mt-5 h-px bg-forest-green w-12" />
         </FadeIn>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -117,7 +120,7 @@ export default function Page() {
         <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_-20%,rgba(45,90,58,0.3),transparent_60%)] pointer-events-none" />
         <div className="max-w-4xl mx-auto text-center px-6 py-24 relative z-10">
           <FadeIn>
-            <h2 className="text-4xl sm:text-5xl font-montserrat font-light tracking-tight mb-8">Designing On Sydney Ground? <span className="font-semibold">Get Real Numbers.</span></h2>
+            <h2 className="text-4xl sm:text-5xl font-montserrat font-light tracking-tight mb-8">Designing On Sydney Ground? <span className="font-semibold h-bold">Get Real Numbers.</span></h2>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
               <Link href="tel:+61423483555" className="flex items-center justify-center px-8 py-2.5 bg-gradient-to-b from-[#346b43] to-forest-green text-white rounded-full shadow-[0_8px_20px_-6px_rgba(45,90,58,0.4)] hover:brightness-105 transition-all hover:-translate-y-0.5 w-full sm:w-[280px] h-[46px] text-xs font-semibold tracking-wide">Call 0423 483 555</Link>
               <QuoteCta source="geotechnical-design close" className="flex items-center justify-center px-8 py-2.5 bg-white/5 text-white rounded-full shadow-[inset_0_0_0_1px_rgba(255,255,255,0.25)] hover:bg-white/10 transition-all hover:-translate-y-0.5 w-full sm:w-[280px] h-[46px] text-xs font-semibold tracking-wide backdrop-blur-sm" />

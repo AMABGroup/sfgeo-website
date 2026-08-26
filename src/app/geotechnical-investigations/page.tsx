@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import QuoteCta from "@/components/forms/QuoteCta";
+import PhotoPlaceholder from "@/components/ui/PhotoPlaceholder";
 import { FadeIn, StaggerContainer, FadeInChild } from "../site-classification/MotionWrapper";
 import GoogleReviews from "@/components/ui/GoogleReviews";
 
@@ -86,7 +87,7 @@ export default function GeotechnicalInvestigationsPage() {
             Geotechnical Investigations &middot; Principal-Led &middot; Sydney
           </p>
           <h1 className="text-4xl sm:text-6xl font-montserrat font-light tracking-tight leading-[1.08] mb-8">
-            Geotechnical Investigations <span className="font-semibold">Engineered Properly.</span>
+            Geotechnical Investigations <span className="font-semibold h-bold">Engineered Properly.</span>
           </h1>
           <div className="w-[96px] h-[3px] bg-forest-green mb-8" />
           <p className="text-lg sm:text-xl text-gray-600 font-light leading-relaxed mb-10">
@@ -113,7 +114,7 @@ export default function GeotechnicalInvestigationsPage() {
         <FadeIn className="mb-14">
           <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">01 &middot; Scope</p>
           <h2 className="text-3xl sm:text-4xl font-montserrat font-light tracking-tight">
-            What The Investigation <span className="font-semibold">Covers.</span>
+            What The Investigation <span className="font-semibold h-bold">Covers.</span>
           </h2>
           <div className="mt-5 h-px bg-forest-green w-12" />
         </FadeIn>
@@ -133,7 +134,7 @@ export default function GeotechnicalInvestigationsPage() {
           <FadeIn>
             <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">02 &middot; Fieldwork</p>
             <h2 className="text-3xl sm:text-4xl font-montserrat font-light tracking-tight text-slate-950 mb-5">
-              Done By <span className="font-semibold">The Engineer.</span>
+              Done By <span className="font-semibold h-bold">The Engineer.</span>
             </h2>
             <div className="h-px bg-forest-green w-12 mb-7" />
             <p className="text-gray-600 font-light leading-relaxed">
@@ -142,24 +143,16 @@ export default function GeotechnicalInvestigationsPage() {
           </FadeIn>
           <FadeIn delay={0.15}>
             <div className="grid grid-cols-2 gap-4 sm:gap-6">
-              <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-[0_20px_50px_-20px_rgba(5,10,7,0.35)]">
-                <Image
-                  src="/sfgeo-gi-rig-golden-coogee.jpg"
-                  alt="Drill rig in golden morning light above a steep Coogee allotment"
-                  fill
-                  sizes="(max-width: 1024px) 50vw, 30vw"
-                  className="object-cover"
-                />
-              </div>
-              <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-[0_20px_50px_-20px_rgba(5,10,7,0.35)] lg:mt-10">
-                <Image
-                  src="/sfgeo-gi-core-measure-auburn.jpg"
-                  alt="Core stack being measured during an Auburn investigation"
-                  fill
-                  sizes="(max-width: 1024px) 50vw, 30vw"
-                  className="object-cover"
-                />
-              </div>
+              <PhotoPlaceholder
+                subject="The rig mid-investigation — mast up on a real Sydney block, engineer at the hole rather than the machine alone."
+                caption="Fieldwork"
+                className="aspect-[3/4] rounded-2xl shadow-[0_20px_50px_-20px_rgba(5,10,7,0.35)]"
+              />
+              <PhotoPlaceholder
+                subject="The ground being read — samples laid out and logged, or the engineer writing the profile on the log at the hole."
+                caption="Logged On Site"
+                className="aspect-[3/4] rounded-2xl shadow-[0_20px_50px_-20px_rgba(5,10,7,0.35)] lg:mt-10"
+              />
             </div>
           </FadeIn>
         </div>
@@ -170,7 +163,7 @@ export default function GeotechnicalInvestigationsPage() {
         <FadeIn className="mb-14 max-w-3xl">
           <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">03 &middot; Sydney Ground</p>
           <h2 className="text-3xl sm:text-4xl font-montserrat font-light tracking-tight text-slate-950 mb-5">
-            The Ground Changes <span className="font-semibold">By Suburb.</span>
+            The Ground Changes <span className="font-semibold h-bold">By Suburb.</span>
           </h2>
           <div className="h-px bg-forest-green w-12 mb-7" />
           <p className="text-gray-600 font-light leading-relaxed">
@@ -208,7 +201,7 @@ export default function GeotechnicalInvestigationsPage() {
           <FadeIn>
             <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">04 &middot; Why Early</p>
             <h2 className="text-3xl sm:text-4xl font-montserrat font-light tracking-tight text-slate-950 mb-5">
-              Ground Found Late <span className="font-semibold">Costs The Most.</span>
+              Ground Found Late <span className="font-semibold h-bold">Costs The Most.</span>
             </h2>
             <div className="h-px bg-forest-green w-12 mb-7" />
             <p className="text-gray-600 font-light leading-relaxed mb-6">
@@ -232,7 +225,7 @@ export default function GeotechnicalInvestigationsPage() {
         <div className="max-w-4xl mx-auto text-center px-6 py-28 lg:py-32 relative z-10">
           <FadeIn>
             <h2 className="text-4xl sm:text-6xl font-montserrat font-light tracking-tight mb-8">
-              Start With <span className="font-semibold">The Ground.</span>
+              Start With <span className="font-semibold h-bold">The Ground.</span>
             </h2>
             <p className="text-lg sm:text-xl text-gray-400 font-light leading-relaxed max-w-2xl mx-auto mb-12">
               Every SFGEO engagement begins with the Principal Engineer on your ground, reading your plans and your soil. Detailed answers to common questions are on <Link href="/faq" className="text-white underline hover:text-white/80 transition-colors">the full FAQ</Link>.

@@ -34,7 +34,7 @@ export default function ContactPage() {
             Contact &middot; Family Owned &middot; Response Within One Business Day
           </p>
           <h1 className="text-4xl sm:text-6xl font-montserrat font-light tracking-tight leading-[1.08] mb-8">
-            Contact <span className="font-semibold">SFGEO.</span>
+            Contact <span className="font-semibold h-bold">SFGEO.</span>
           </h1>
           <div className="w-[96px] h-[3px] bg-forest-green mb-8" />
           <p className="text-lg sm:text-xl text-gray-600 font-light leading-relaxed">
@@ -124,7 +124,7 @@ export default function ContactPage() {
         <FadeIn className="mb-10">
           <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">Marrickville</p>
           <h2 className="text-3xl sm:text-4xl font-montserrat font-light tracking-tight">
-            Find <span className="font-semibold">The Office.</span>
+            Find <span className="font-semibold h-bold">The Office.</span>
           </h2>
           <div className="mt-5 h-px bg-forest-green w-12" />
         </FadeIn>

@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import QuoteCta from "@/components/forms/QuoteCta";
+import PhotoPlaceholder from "@/components/ui/PhotoPlaceholder";
 import { FadeIn } from "../site-classification/MotionWrapper";
 
 export const metadata: Metadata = {
@@ -50,8 +51,8 @@ const SECTIONS = [
     titleLight: "Rock",
     titleBold: "Coring.",
     caption: "02 · Rock Coring",
-    image: "/sfgeo-rock-coring-rig-mast-up.jpg",
-    alt: "Drill rig with mast raised against open sky on a rural Sydney site",
+    image: null,
+    shot: "NMLC rock core in the tray — sandstone or shale runs laid out, defect-logged, with the core barrel or a scale alongside.",
     body: "When the design needs more than refusal depth — intact cores from Hawkesbury sandstone and Ashfield shale, recovered, photographed and defect-logged so structural decisions rest on what the rock actually is. Coring runs are specialised work: they're booked with advance notice and prepaid.",
     specs: [
       "NMLC rock coring with recovery and defect logging",
@@ -149,7 +150,7 @@ export default function DrillingPage() {
             Drilling &middot; Engineer Operated &middot; 4WD Mobilised
           </p>
           <h1 className="text-4xl sm:text-6xl font-montserrat font-light tracking-tight leading-[1.08] mb-8">
-            Geotechnical &amp; Environmental <span className="font-semibold">Drilling Sydney.</span>
+            Geotechnical &amp; Environmental <span className="font-semibold h-bold">Drilling Sydney.</span>
           </h1>
           <div className="w-[96px] h-[3px] bg-forest-green mb-8" />
           <p className="text-lg sm:text-xl text-gray-600 font-light leading-relaxed">
@@ -164,16 +165,24 @@ export default function DrillingPage() {
           {sec.id === "b2b-drilling" && <span id="environmental" className="block relative -top-24" aria-hidden="true" />}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <FadeIn className={idx % 2 === 1 ? "lg:order-2" : ""}>
-              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-[0_26px_60px_-26px_rgba(5,10,7,0.4)]">
-                <Image src={sec.image} alt={sec.alt} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/40 via-transparent to-transparent" />
-                <p className="absolute bottom-5 left-6 text-[11px] uppercase tracking-[0.25em] text-white/80 font-semibold">{sec.caption}</p>
-              </div>
+              {sec.image ? (
+                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-[0_26px_60px_-26px_rgba(5,10,7,0.4)]">
+                  <Image src={sec.image} alt={sec.alt} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/40 via-transparent to-transparent" />
+                  <p className="absolute bottom-5 left-6 text-[11px] uppercase tracking-[0.25em] text-white/80 font-semibold">{sec.caption}</p>
+                </div>
+              ) : (
+                <PhotoPlaceholder
+                  subject={sec.shot ?? ""}
+                  caption={sec.caption}
+                  className="aspect-[4/3] rounded-2xl shadow-[0_26px_60px_-26px_rgba(5,10,7,0.4)]"
+                />
+              )}
             </FadeIn>
             <FadeIn delay={0.12}>
               <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">{sec.kicker}</p>
               <h2 className="text-3xl sm:text-4xl font-montserrat font-light tracking-tight text-slate-950 mb-5">
-                {sec.titleLight} <span className="font-semibold">{sec.titleBold}</span>
+                {sec.titleLight} <span className="font-semibold h-bold">{sec.titleBold}</span>
               </h2>
               <div className="h-px bg-forest-green w-12 mb-7" />
               <p className="text-gray-600 font-light leading-relaxed mb-7">{sec.body}</p>
@@ -222,7 +231,7 @@ export default function DrillingPage() {
           <FadeIn delay={0.12}>
             <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">Regional NSW</p>
             <h2 className="text-3xl sm:text-4xl font-montserrat font-light tracking-tight text-slate-950 mb-5">
-              Whoop Whoop? <span className="font-semibold">We&rsquo;ve Been.</span>
+              Whoop Whoop? <span className="font-semibold h-bold">We&rsquo;ve Been.</span>
             </h2>
             <div className="h-px bg-forest-green w-12 mb-7" />
             <p className="text-gray-600 font-light leading-relaxed">
@@ -237,7 +246,7 @@ export default function DrillingPage() {
         <FadeIn className="mb-14">
           <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">Who We Drill For</p>
           <h2 className="text-3xl sm:text-4xl font-montserrat font-light tracking-tight">
-            Your Scope <span className="font-semibold">Or Ours.</span>
+            Your Scope <span className="font-semibold h-bold">Or Ours.</span>
           </h2>
           <div className="mt-5 h-px bg-forest-green w-12" />
         </FadeIn>
@@ -259,7 +268,7 @@ export default function DrillingPage() {
         <div className="max-w-4xl mx-auto text-center px-6 py-28 lg:py-32 relative z-10">
           <FadeIn>
             <h2 className="text-4xl sm:text-6xl font-montserrat font-light tracking-tight mb-8">
-              One Call. <span className="font-semibold">Rig On Site.</span>
+              One Call. <span className="font-semibold h-bold">Rig On Site.</span>
             </h2>
             <p className="text-lg sm:text-xl text-gray-500 font-light leading-relaxed max-w-2xl mx-auto mb-12">
               Tell us the site, the access and the program. You&rsquo;ll have a quote within one business day — and a rig that turns up when it said it would.

@@ -172,3 +172,12 @@ html {
 @keyframes veil-rise {
   to { transform: translateY(0); }
 }
+
+/* ===== Heading split rule (Alli, 27 Aug) =====
+   Headings read "light phrase → bold phrase". Keeping the bold half as an
+   atomic inline-block means it can never be split across two lines: if the
+   whole heading fits on one line it stays there, and if it doesn't, the
+   entire bold portion drops to the second line together. */
+.h-bold {
+  display: inline-block;
+}

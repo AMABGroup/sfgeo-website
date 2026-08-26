@@ -62,7 +62,7 @@ export default function BoreholeDrillingPage() {
             Borehole Drilling &middot; Engineer Operated &middot; Sydney
           </p>
           <h1 className="text-4xl sm:text-6xl font-montserrat font-light tracking-tight leading-[1.08] mb-8">
-            Borehole Drilling. <span className="font-semibold">Logged As It Comes Up.</span>
+            Borehole Drilling. <span className="font-semibold h-bold">Logged As It Comes Up.</span>
           </h1>
           <div className="w-[96px] h-[3px] bg-forest-green mb-8" />
           <p className="text-lg sm:text-xl text-gray-600 font-light leading-relaxed mb-10">
@@ -104,7 +104,7 @@ export default function BoreholeDrillingPage() {
           <FadeIn delay={0.15}>
             <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">01 &middot; The Method</p>
             <h2 className="text-3xl sm:text-4xl font-light tracking-tight font-montserrat text-slate-950 mb-5">
-              From The Flight <span className="font-semibold">To The Log.</span>
+              From The Flight <span className="font-semibold h-bold">To The Log.</span>
             </h2>
             <div className="h-px bg-forest-green w-12 mb-7" />
             <p className="text-gray-600 font-light leading-relaxed">
@@ -119,7 +119,7 @@ export default function BoreholeDrillingPage() {
         <FadeIn className="mb-12">
           <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">02 &middot; The Deliverables</p>
           <h2 className="text-3xl sm:text-4xl font-light tracking-tight font-montserrat text-slate-950">
-            What A Borehole <span className="font-semibold">Buys You.</span>
+            What A Borehole <span className="font-semibold h-bold">Buys You.</span>
           </h2>
           <div className="mt-5 h-px bg-forest-green w-12" />
         </FadeIn>
@@ -141,7 +141,7 @@ export default function BoreholeDrillingPage() {
           <div className="max-w-3xl">
             <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">03 &middot; Scoped To The Job</p>
             <h2 className="text-3xl sm:text-4xl font-light tracking-tight font-montserrat text-slate-950 mb-5">
-              As Deep As The Question. <span className="font-semibold">No Deeper.</span>
+              As Deep As The Question. <span className="font-semibold h-bold">No Deeper.</span>
             </h2>
             <div className="h-px bg-forest-green w-12 mb-7" />
             <p className="text-gray-600 font-light leading-relaxed mb-8">
@@ -161,7 +161,7 @@ export default function BoreholeDrillingPage() {
         <div className="max-w-4xl mx-auto text-center px-6 py-28 lg:py-32 relative z-10">
           <FadeIn>
             <h2 className="text-4xl sm:text-6xl font-montserrat font-light tracking-tight mb-8">
-              Holes This Week? <span className="font-semibold">Ask.</span>
+              Holes This Week? <span className="font-semibold h-bold">Ask.</span>
             </h2>
             <p className="text-lg sm:text-xl text-gray-400 font-light leading-relaxed max-w-2xl mx-auto mb-12">
               Send the address, the number of holes and the depths if you know them — a fixed fee in writing within one business day.

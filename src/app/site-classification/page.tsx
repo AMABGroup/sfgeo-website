@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import QuoteCta from "@/components/forms/QuoteCta";
+import PhotoPlaceholder from "@/components/ui/PhotoPlaceholder";
 import { FadeIn, StaggerContainer, FadeInChild } from "./MotionWrapper";
 import VideoEmbed from "./VideoEmbed";
 import GoogleReviews from "@/components/ui/GoogleReviews";
@@ -110,7 +111,7 @@ export default function SiteClassificationPage() {
             Site Classification &middot; AS 2870 &middot; Fixed Fee
           </p>
           <h1 className="text-4xl sm:text-6xl font-montserrat font-light tracking-tight leading-[1.08] mb-8">
-            Site Classifications Sydney. <span className="font-semibold">Engineered Properly.</span>
+            Site Classifications Sydney. <span className="font-semibold h-bold">Engineered Properly.</span>
           </h1>
           <div className="w-[96px] h-[3px] bg-forest-green mb-8" />
           <p className="text-lg sm:text-xl text-gray-600 font-light leading-relaxed mb-10">
@@ -151,7 +152,7 @@ export default function SiteClassificationPage() {
           <FadeIn delay={0.12}>
             <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">01 &middot; What It Does</p>
             <h2 className="text-3xl sm:text-4xl font-montserrat font-light tracking-tight text-slate-950 mb-5">
-              More Than <span className="font-semibold">Paperwork.</span>
+              More Than <span className="font-semibold h-bold">Paperwork.</span>
             </h2>
             <div className="h-px bg-forest-green w-12 mb-7" />
             <p className="text-gray-600 font-light leading-relaxed mb-7">
@@ -187,7 +188,7 @@ export default function SiteClassificationPage() {
           <FadeIn delay={0.12}>
             <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">02 &middot; The SFGEO Way</p>
             <h2 className="text-3xl sm:text-4xl font-montserrat font-light tracking-tight text-slate-950 mb-5">
-              Built On The <span className="font-semibold">Opposite Model.</span>
+              Built On The <span className="font-semibold h-bold">Opposite Model.</span>
             </h2>
             <div className="h-px bg-forest-green w-12 mb-7" />
             <p className="text-gray-600 font-light leading-relaxed">
@@ -224,7 +225,7 @@ export default function SiteClassificationPage() {
         <FadeIn className="mb-14 max-w-3xl">
           <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">03 &middot; Scope &amp; Pricing</p>
           <h2 className="text-3xl sm:text-4xl font-montserrat font-light tracking-tight text-slate-950 mb-5">
-            Fixed Fees. <span className="font-semibold">In Writing. First.</span>
+            Fixed Fees. <span className="font-semibold h-bold">In Writing. First.</span>
           </h2>
           <div className="h-px bg-forest-green w-12 mb-7" />
           <p className="text-gray-600 font-light leading-relaxed">
@@ -267,22 +268,22 @@ export default function SiteClassificationPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           <FadeIn>
             <div className="grid grid-cols-2 gap-4">
-              <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-[0_20px_50px_-20px_rgba(5,10,7,0.35)]">
-                <Image src="/sfgeo-sc-hand-auger-panania.jpg" alt="Hand auger mid-borehole in a tidy suburban backyard, Panania" fill sizes="(max-width: 1024px) 50vw, 25vw" className="object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/40 via-transparent to-transparent" />
-                <p className="absolute bottom-4 left-4 text-[10px] uppercase tracking-[0.2em] text-white/80 font-semibold">Backyards</p>
-              </div>
-              <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-[0_20px_50px_-20px_rgba(5,10,7,0.35)] lg:mt-8">
-                <Image src="/sfgeo-auger-flight-in-hand.jpg" alt="Auger flight loaded with clay, read in hand" fill sizes="(max-width: 1024px) 50vw, 25vw" className="object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/40 via-transparent to-transparent" />
-                <p className="absolute bottom-4 left-4 text-[10px] uppercase tracking-[0.2em] text-white/80 font-semibold">Tight Access</p>
-              </div>
+              <PhotoPlaceholder
+                subject="Standard residential access — the 4WD rig set up on an open suburban block, working room around it."
+                caption="Backyards"
+                className="aspect-[3/4] rounded-2xl shadow-[0_20px_50px_-20px_rgba(5,10,7,0.35)]"
+              />
+              <PhotoPlaceholder
+                subject="Restricted access — the motorised hand auger down a narrow side path or through a terrace, showing how tight the gap is."
+                caption="Tight Access"
+                className="aspect-[3/4] rounded-2xl shadow-[0_20px_50px_-20px_rgba(5,10,7,0.35)] lg:mt-8"
+              />
             </div>
           </FadeIn>
           <FadeIn delay={0.12}>
             <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">04 &middot; Access</p>
             <h2 className="text-3xl sm:text-4xl font-montserrat font-light tracking-tight text-slate-950 mb-5">
-              Where Standard Rigs <span className="font-semibold">Stop At The Kerb.</span>
+              Where Standard Rigs <span className="font-semibold h-bold">Stop At The Kerb.</span>
             </h2>
             <div className="h-px bg-forest-green w-12 mb-7" />
             <p className="text-gray-600 font-light leading-relaxed mb-8">
@@ -301,7 +302,7 @@ export default function SiteClassificationPage() {
         <FadeIn className="mb-14 max-w-3xl">
           <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">05 &middot; The Classes</p>
           <h2 className="text-3xl sm:text-4xl font-montserrat font-light tracking-tight text-slate-950 mb-5">
-            Six Classes. <span className="font-semibold">One Letter That Matters.</span>
+            Six Classes. <span className="font-semibold h-bold">One Letter That Matters.</span>
           </h2>
           <div className="h-px bg-forest-green w-12 mb-7" />
           <p className="text-gray-600 font-light leading-relaxed">
@@ -348,7 +349,7 @@ export default function SiteClassificationPage() {
         <div className="max-w-4xl mx-auto text-center px-6 py-28 lg:py-32 relative z-10">
           <FadeIn>
             <h2 className="text-4xl sm:text-6xl font-montserrat font-light tracking-tight mb-8">
-              Start With A <span className="font-semibold">Site Meeting.</span>
+              Start With A <span className="font-semibold h-bold">Site Meeting.</span>
             </h2>
             <p className="text-lg sm:text-xl text-gray-500 font-light leading-relaxed max-w-2xl mx-auto mb-6">
               Every SFGEO engagement begins with the Principal Engineer on your ground, reading your plans and your soil.

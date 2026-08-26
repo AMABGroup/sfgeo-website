@@ -31,7 +31,7 @@ export default function FaqClient() {
             FAQ &middot; Straight Answers &middot; Sydney
           </p>
           <h1 className="text-4xl sm:text-6xl font-montserrat font-light tracking-tight leading-[1.08] mb-8">
-            Frequently Asked <span className="font-semibold">Questions.</span>
+            Frequently Asked <span className="font-semibold h-bold">Questions.</span>
           </h1>
           <div className="w-[96px] h-[3px] bg-forest-green mb-8" />
           <p className="text-lg sm:text-xl text-gray-600 font-light leading-relaxed">
@@ -88,7 +88,7 @@ export default function FaqClient() {
         <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_-20%,rgba(45,90,58,0.3),transparent_60%)] pointer-events-none" />
         <div className="max-w-4xl mx-auto text-center px-6 py-28 lg:py-32 relative z-10">
           <h2 className="text-4xl sm:text-6xl font-montserrat font-light tracking-tight mb-8">
-            Still Have <span className="font-semibold">A Question?</span>
+            Still Have <span className="font-semibold h-bold">A Question?</span>
           </h2>
           <p className="text-lg sm:text-xl text-gray-400 font-light leading-relaxed max-w-2xl mx-auto mb-12">
             Ask the engineer, not a form robot. Call, or send the question with your site address — answered within one business day.

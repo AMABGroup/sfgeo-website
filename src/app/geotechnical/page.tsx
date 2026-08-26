@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import QuoteCta from "@/components/forms/QuoteCta";
+import PhotoPlaceholder from "@/components/ui/PhotoPlaceholder";
 import { FadeIn } from "../site-classification/MotionWrapper";
 
 export const metadata: Metadata = {
@@ -63,8 +64,8 @@ const SECTIONS = [
     n: "05",
     id: "design",
     title: "Geotechnical Design",
-    image: "/sfgeo-spt-logging-telopea.jpg",
-    alt: "SPT samples and field log recording blow counts on site",
+    image: null,
+    shot: "Design parameters being derived — the engineer at the plans desk, or a marked-up structural drawing beside the borehole log.",
     body: "Site-specific inputs for structural and civil teams — bearing capacities, pile design values, retaining wall parameters to AS 4678, pavement and working platform assessments. We don't carry the structural design; we make sure the numbers under it are real.",
     link: { href: "/geotechnical-design", label: "Explore Geotechnical Design" },
   },
@@ -109,7 +110,7 @@ export default function GeotechnicalHubPage() {
             Geotechnical &middot; Principal-Led &middot; Sydney
           </p>
           <h1 className="text-4xl sm:text-6xl font-montserrat font-light tracking-tight leading-[1.08] mb-8">
-            Geotechnical. <span className="font-semibold">The Full Suite.</span>
+            Geotechnical. <span className="font-semibold h-bold">The Full Suite.</span>
           </h1>
           <div className="w-[96px] h-[3px] bg-forest-green mb-8" />
           <p className="text-lg sm:text-xl text-gray-600 font-light leading-relaxed">
@@ -123,16 +124,24 @@ export default function GeotechnicalHubPage() {
         <section key={sec.id} id={sec.id} className="py-20 lg:py-24 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100 scroll-mt-[90px]">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <FadeIn className={idx % 2 === 1 ? "lg:order-2" : ""}>
-              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-[0_26px_60px_-26px_rgba(5,10,7,0.4)]">
-                <Image src={sec.image} alt={sec.alt} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/40 via-transparent to-transparent" />
-                <p className="absolute bottom-5 left-6 text-[11px] uppercase tracking-[0.25em] text-white/80 font-semibold">{sec.n} &middot; {sec.title}</p>
-              </div>
+              {sec.image ? (
+                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-[0_26px_60px_-26px_rgba(5,10,7,0.4)]">
+                  <Image src={sec.image} alt={sec.alt} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/40 via-transparent to-transparent" />
+                  <p className="absolute bottom-5 left-6 text-[11px] uppercase tracking-[0.25em] text-white/80 font-semibold">{sec.n} &middot; {sec.title}</p>
+                </div>
+              ) : (
+                <PhotoPlaceholder
+                  subject={sec.shot ?? ""}
+                  caption={`${sec.n} · ${sec.title}`}
+                  className="aspect-[4/3] rounded-2xl shadow-[0_26px_60px_-26px_rgba(5,10,7,0.4)]"
+                />
+              )}
             </FadeIn>
             <FadeIn delay={0.12}>
               <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">{sec.n}</p>
               <h2 className="text-3xl sm:text-4xl font-montserrat font-light tracking-tight text-slate-950 mb-5">
-                {sec.title.split(" ").slice(0, -1).join(" ")} <span className="font-semibold">{sec.title.split(" ").slice(-1)}</span>
+                {sec.title.split(" ").slice(0, -1).join(" ")} <span className="font-semibold h-bold">{sec.title.split(" ").slice(-1)}</span>
               </h2>
               <div className="h-px bg-forest-green w-12 mb-7" />
               <p className="text-gray-600 font-light leading-relaxed mb-8">{sec.body}</p>
@@ -150,7 +159,7 @@ export default function GeotechnicalHubPage() {
         <FadeIn className="mb-14">
           <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">Who We Work With</p>
           <h2 className="text-3xl sm:text-4xl font-montserrat font-light tracking-tight">
-            Same Ground. <span className="font-semibold">Different Questions.</span>
+            Same Ground. <span className="font-semibold h-bold">Different Questions.</span>
           </h2>
           <div className="mt-5 h-px bg-forest-green w-12" />
         </FadeIn>
@@ -172,7 +181,7 @@ export default function GeotechnicalHubPage() {
         <div className="max-w-4xl mx-auto text-center px-6 py-28 lg:py-32 relative z-10">
           <FadeIn>
             <h2 className="text-4xl sm:text-6xl font-montserrat font-light tracking-tight mb-8">
-              Not Sure Which <span className="font-semibold">You Need?</span>
+              Not Sure Which <span className="font-semibold h-bold">You Need?</span>
             </h2>
             <p className="text-lg sm:text-xl text-gray-400 font-light leading-relaxed max-w-2xl mx-auto mb-12">
               Describe the project in a sentence. The Principal will tell you what it needs — and what it doesn&rsquo;t.

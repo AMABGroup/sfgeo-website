@@ -6,7 +6,7 @@ export default function NotFound() {
       <div className="max-w-2xl mx-auto px-6 py-32 text-center">
         <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-6 font-semibold">404 &middot; Page Not Found</p>
         <h1 className="text-4xl sm:text-5xl font-montserrat font-light tracking-tight leading-[1.1] mb-6">
-          This One&rsquo;s <span className="font-semibold">Off The Map.</span>
+          This One&rsquo;s <span className="font-semibold h-bold">Off The Map.</span>
         </h1>
         <p className="text-lg text-gray-600 font-light leading-relaxed mb-10">
           The page you&rsquo;re after doesn&rsquo;t exist or has moved. The ground you&rsquo;re looking for is probably one of these:
