@@ -44,7 +44,7 @@ const START_DATES = [
  * label, so tracking stays unified. `source` is appended to the message so
  * Alli can see which placement produced the lead.
  */
-export default function QuickQuoteCard({ source, heading = "Request a fixed-fee quote", subheading = "Scoped against your block and plans. Response within one business day — reports as soon as 2–3 business days.", secondaryLink }: { source: string; heading?: string; subheading?: string; secondaryLink?: { href: string; label: string } }) {
+export default function QuickQuoteCard({ source, heading = "Request A Fixed-Fee Quote", subheading = "Scoped against your block and plans. Response within one business day — reports as soon as 2–3 business days.", secondaryLink }: { source: string; heading?: string; subheading?: string; secondaryLink?: { href: string; label: string } }) {
   const [status, setStatus] = useState<FormStatus>("idle");
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [formData, setFormData] = useState({
@@ -111,10 +111,10 @@ export default function QuickQuoteCard({ source, heading = "Request a fixed-fee 
   };
 
   const fieldClasses = (field: string) =>
-    `w-full bg-transparent border-0 border-b py-2.5 px-0 text-sm font-light text-white placeholder:text-white/40 focus:outline-none focus:ring-0 transition-colors ${errors[field] ? "border-red-400/70 focus:border-red-400" : "border-white/20 focus:border-forest-green"}`;
+    `w-full bg-transparent border-0 border-b py-3 px-0 text-base sm:text-sm font-light text-white placeholder:text-white/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#8FBF9F] focus-visible:ring-offset-2 focus-visible:ring-offset-[#050A07] rounded-sm transition-colors ${errors[field] ? "border-red-400/70 focus:border-red-400" : "border-white/20 focus:border-forest-green"}`;
 
   const selectClasses = (field: string, hasValue: boolean) =>
-    `${fieldClasses(field)} appearance-none cursor-pointer ${hasValue ? "text-white" : "text-white/40"}`;
+    `${fieldClasses(field)} appearance-none cursor-pointer ${hasValue ? "text-white" : "text-white/60"}`;
 
   return (
     <div className="w-full max-w-md rounded-3xl bg-[#050A07] relative overflow-hidden p-9 shadow-[0_24px_60px_-24px_rgba(5,10,7,0.55)] ring-1 ring-white/10">
@@ -166,21 +166,21 @@ export default function QuickQuoteCard({ source, heading = "Request a fixed-fee 
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4 mb-4">
                 <div>
-                  <input type="text" name="name" placeholder="Name" value={formData.name} onChange={handleChange} className={fieldClasses("name")} aria-label="Name" />
-                  {errors.name && <p className="mt-1.5 text-xs text-red-400/90">{errors.name}</p>}
+                  <input type="text" name="name" placeholder="Name" value={formData.name} onChange={handleChange} className={fieldClasses("name")} aria-label="Name" aria-invalid={!!errors.name} aria-describedby={errors.name ? "qq-name-err" : undefined} />
+                  {errors.name && <p id="qq-name-err" role="alert" className="mt-1.5 text-xs text-red-300">{errors.name}</p>}
                 </div>
                 <div>
-                  <input type="tel" name="phone" placeholder="Phone" value={formData.phone} onChange={handleChange} className={fieldClasses("phone")} aria-label="Phone" />
-                  {errors.phone && <p className="mt-1.5 text-xs text-red-400/90">{errors.phone}</p>}
+                  <input type="tel" name="phone" placeholder="Phone" value={formData.phone} onChange={handleChange} className={fieldClasses("phone")} aria-label="Phone" aria-invalid={!!errors.phone} aria-describedby={errors.phone ? "qq-phone-err" : undefined} />
+                  {errors.phone && <p id="qq-phone-err" role="alert" className="mt-1.5 text-xs text-red-300">{errors.phone}</p>}
                 </div>
               </div>
               <div className="mb-4">
-                <input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleChange} className={fieldClasses("email")} aria-label="Email" />
-                {errors.email && <p className="mt-1.5 text-xs text-red-400/90">{errors.email}</p>}
+                <input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleChange} className={fieldClasses("email")} aria-label="Email" aria-invalid={!!errors.email} aria-describedby={errors.email ? "qq-email-err" : undefined} />
+                {errors.email && <p id="qq-email-err" role="alert" className="mt-1.5 text-xs text-red-300">{errors.email}</p>}
               </div>
               <div className="mb-4">
-                <input type="text" name="siteAddress" placeholder="Site suburb or address" value={formData.siteAddress} onChange={handleChange} className={fieldClasses("siteAddress")} aria-label="Site suburb or address" />
-                {errors.siteAddress && <p className="mt-1.5 text-xs text-red-400/90">{errors.siteAddress}</p>}
+                <input type="text" name="siteAddress" placeholder="Site suburb or address" value={formData.siteAddress} onChange={handleChange} className={fieldClasses("siteAddress")} aria-label="Site suburb or address" aria-invalid={!!errors.siteAddress} aria-describedby={errors.siteAddress ? "qq-siteAddress-err" : undefined} />
+                {errors.siteAddress && <p id="qq-siteAddress-err" role="alert" className="mt-1.5 text-xs text-red-300">{errors.siteAddress}</p>}
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4 mb-9">
                 <div className="relative">
@@ -193,7 +193,7 @@ export default function QuickQuoteCard({ source, heading = "Request a fixed-fee 
                   <svg className="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-white/40" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                   </svg>
-                  {errors.projectType && <p className="mt-1.5 text-xs text-red-400/90">{errors.projectType}</p>}
+                  {errors.projectType && <p id="qq-projectType-err" role="alert" className="mt-1.5 text-xs text-red-300">{errors.projectType}</p>}
                 </div>
                 <div className="relative">
                   <select name="startDate" value={formData.startDate} onChange={handleChange} className={selectClasses("startDate", !!formData.startDate)} aria-label="When are you looking to start">
@@ -205,7 +205,7 @@ export default function QuickQuoteCard({ source, heading = "Request a fixed-fee 
                   <svg className="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-white/40" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                   </svg>
-                  {errors.startDate && <p className="mt-1.5 text-xs text-red-400/90">{errors.startDate}</p>}
+                  {errors.startDate && <p id="qq-startDate-err" role="alert" className="mt-1.5 text-xs text-red-300">{errors.startDate}</p>}
                 </div>
               </div>
 

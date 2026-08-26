@@ -8,21 +8,21 @@ import GoogleReviews from "@/components/ui/GoogleReviews";
 
 export const metadata: Metadata = {
   title: "Site Classification Sydney | AS2870 Soil Reports | SFGEO",
-  description: "AS2870 site classifications for Sydney homes and extensions. Principal-led, NATA lab-backed, fixed-fee — reports as soon as 2–3 business days.",
+  description: "AS2870 site classifications for Sydney homes and extensions. Principal-led, NATA lab-backed, fixed-fee — reports as soon as 2–3 business days from fieldwork.",
   alternates: {
     canonical: '/site-classification',
   },
   openGraph: {
     images: ['/og/sfgeo-og-card.jpg'],
     title: "Site Classification Sydney | AS2870 Soil Reports | SFGEO",
-    description: "AS2870 site classifications for Sydney homes and extensions. Principal-led, NATA lab-backed, fixed-fee — reports as soon as 2–3 business days.",
+    description: "AS2870 site classifications for Sydney homes and extensions. Principal-led, NATA lab-backed, fixed-fee — reports as soon as 2–3 business days from fieldwork.",
     url: '/site-classification',
   },
   twitter: {
     card: "summary_large_image",
     images: ['/og/sfgeo-og-card.jpg'],
     title: "Site Classification Sydney | AS2870 Soil Reports | SFGEO",
-    description: "AS2870 site classifications for Sydney homes and extensions. Principal-led, NATA lab-backed, fixed-fee — reports as soon as 2–3 business days.",
+    description: "AS2870 site classifications for Sydney homes and extensions. Principal-led, NATA lab-backed, fixed-fee — reports as soon as 2–3 business days from fieldwork.",
   },
 };
 
@@ -143,7 +143,7 @@ export default function SiteClassificationPage() {
                   title="Site Classification to AS 2870 — SFGEO geotechnical investigation in Cherrybrook, NSW"
                 />
               </div>
-              <figcaption className="mt-3 text-[11px] uppercase tracking-[0.25em] text-gray-400 font-semibold text-center">
+              <figcaption className="mt-3 text-[11px] uppercase tracking-[0.25em] text-gray-500 font-semibold text-center">
                 SFGEO Fieldwork &middot; The Work Behind Every Report
               </figcaption>
             </figure>
@@ -198,14 +198,14 @@ export default function SiteClassificationPage() {
         <FadeIn>
           <div className="bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm">
             <div className="hidden md:grid grid-cols-2 border-b border-gray-100">
-              <div className="px-8 py-5 font-semibold text-gray-400 uppercase tracking-[0.2em] text-[11px]">The Volume Model</div>
+              <div className="px-8 py-5 font-semibold text-gray-500 uppercase tracking-[0.2em] text-[11px]">The Volume Model</div>
               <div className="px-8 py-5 font-semibold text-forest-green border-l border-gray-100 uppercase tracking-[0.2em] text-[11px]">The SFGEO Way</div>
             </div>
             <div className="divide-y divide-gray-100">
               {COMPARE.map((row, idx) => (
                 <div key={idx} className="flex flex-col md:grid md:grid-cols-2 p-8 md:p-0">
                   <div className="md:px-8 md:py-6 text-gray-500 font-light md:border-r border-gray-100 pb-3 md:pb-6 leading-relaxed">
-                    <span className="block md:hidden text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1.5">The Volume Model</span>
+                    <span className="block md:hidden text-[10px] font-bold uppercase tracking-widest text-gray-500 mb-1.5">The Volume Model</span>
                     {row.volume}
                   </div>
                   <div className="md:px-8 md:py-6 text-slate-950 font-medium leading-relaxed">
@@ -242,7 +242,7 @@ export default function SiteClassificationPage() {
                 <div className="flex flex-col h-full bg-white border border-gray-100 p-10 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
                   <span className="text-[11px] font-semibold tracking-[0.2em] text-forest-green uppercase mb-6">{c.k}</span>
                   <h3 className="text-4xl font-montserrat font-light text-slate-950 tracking-tight mb-6 flex items-baseline gap-2">
-                    {c.from && <span className="text-lg text-gray-400 font-medium lowercase">from</span>} {c.price} {c.from && <span className="text-lg text-gray-400 font-medium">+ GST</span>}
+                    {c.from && <span className="text-lg text-gray-600 font-medium lowercase">from</span>} {c.price} {c.from && <span className="text-lg text-gray-600 font-medium">+ GST</span>}
                   </h3>
                   <p className="text-[15px] text-gray-600 font-light leading-relaxed flex-grow">{c.d}</p>
                 </div>
@@ -350,7 +350,7 @@ export default function SiteClassificationPage() {
             <h2 className="text-4xl sm:text-6xl font-montserrat font-light tracking-tight mb-8">
               Start With A <span className="font-semibold">Site Meeting.</span>
             </h2>
-            <p className="text-lg sm:text-xl text-gray-400 font-light leading-relaxed max-w-2xl mx-auto mb-6">
+            <p className="text-lg sm:text-xl text-gray-500 font-light leading-relaxed max-w-2xl mx-auto mb-6">
               Every SFGEO engagement begins with the Principal Engineer on your ground, reading your plans and your soil.
             </p>
             <div className="max-w-2xl mx-auto mb-12 text-left">
@@ -360,7 +360,7 @@ export default function SiteClassificationPage() {
                     <span className="font-montserrat font-light text-[#8FBF9F] text-xl leading-none mt-0.5">{String(i + 1).padStart(2, "0")}</span>
                     <div>
                       <p className="text-sm font-semibold text-white mb-1">{p.t}</p>
-                      <p className="text-[13px] text-gray-400 font-light leading-relaxed">{p.d}</p>
+                      <p className="text-[13px] text-gray-500 font-light leading-relaxed">{p.d}</p>
                     </div>
                   </div>
                 ))}

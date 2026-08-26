@@ -65,7 +65,7 @@ export default function ServiceAreaBlock({ pageType }: ServiceAreaBlockProps) {
           </div>
           
           <div className="mt-16 pt-10 border-t border-gray-200/60 flex flex-col sm:flex-row items-center justify-between gap-6">
-            <div className="text-[11px] font-bold tracking-[0.2em] text-gray-400 uppercase">
+            <div className="text-[11px] font-bold tracking-[0.2em] text-gray-500 uppercase">
               Family Owned • Sydney Born & Bred
             </div>
             <Link 

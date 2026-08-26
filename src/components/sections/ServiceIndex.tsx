@@ -67,7 +67,7 @@ export default function ServiceIndex() {
             className="group block border-t border-gray-200 py-8 lg:py-9 transition-colors"
           >
             <div className="flex items-baseline gap-6">
-              <span className={`text-xs font-semibold tracking-[0.2em] tabular-nums transition-colors ${active === i ? "text-forest-green" : "text-gray-400"}`}>
+              <span className={`text-xs font-semibold tracking-[0.2em] tabular-nums transition-colors ${active === i ? "text-forest-green" : "text-gray-500"}`}>
                 {s.n}
               </span>
               <div className="flex-1">
@@ -87,7 +87,7 @@ export default function ServiceIndex() {
             </div>
             {/* Mobile image per row */}
             <div className="lg:hidden relative aspect-[16/10] rounded-2xl overflow-hidden mt-6">
-              <Image src={s.image} alt={s.alt} fill sizes="100vw" className="object-cover" />
+              <Image src={s.image} alt="" fill sizes="100vw" className="object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/45 via-transparent to-transparent" />
             </div>
           </Link>
@@ -102,7 +102,7 @@ export default function ServiceIndex() {
             <Image
               key={s.n}
               src={s.image}
-              alt={s.alt}
+              alt=""
               fill
               sizes="45vw"
               className={`object-cover transition-opacity duration-500 ease-out ${active === i ? "opacity-100" : "opacity-0"}`}

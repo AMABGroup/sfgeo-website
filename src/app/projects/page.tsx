@@ -296,11 +296,11 @@ export default function ProjectsPage() {
 
                   <div className="space-y-8">
                     <div>
-                      <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400 mb-3">The brief</h3>
+                      <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-gray-500 mb-3">The brief</h3>
                       <p className="text-gray-600 font-light leading-relaxed">{cs.brief}</p>
                     </div>
                     <div>
-                      <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400 mb-3">On the ground</h3>
+                      <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-gray-500 mb-3">On the ground</h3>
                       <p className="text-gray-600 font-light leading-relaxed">{cs.ground}</p>
                     </div>
                     <div>
@@ -334,7 +334,7 @@ export default function ProjectsPage() {
             <h2 className="text-4xl sm:text-6xl font-montserrat font-light tracking-tight mb-8">
               Your Ground Has A <span className="font-semibold">Story Too.</span>
             </h2>
-            <p className="text-lg sm:text-xl text-gray-400 font-light leading-relaxed max-w-2xl mx-auto mb-12">
+            <p className="text-lg sm:text-xl text-gray-500 font-light leading-relaxed max-w-2xl mx-auto mb-12">
               Every one of these projects started the same way — a conversation with the Principal Engineer about a block of land and what it needs to carry.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">

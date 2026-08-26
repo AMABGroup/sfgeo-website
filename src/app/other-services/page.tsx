@@ -74,7 +74,7 @@ const SECTIONS = [
 ];
 
 const ALSO = [
-  { t: "Groundwater Monitoring Wells & Water Bores", d: "Monitoring well installation and water bore works, delivered end to end — one engagement from drilling to a commissioned well." },
+  { t: "Groundwater Monitoring Wells & Water Bores", d: "Scoped and managed by SFGEO and installed by a licensed drilling contractor — one engagement, with the engineer who logs the ground writing the report." },
   { t: "Working Platform Assessments", d: "Platform verification to support safe temporary works planning for cranes, rigs and heavy plant." },
 ];
 
@@ -149,9 +149,9 @@ export default function OtherServicesPage() {
       {/* Also delivered by SFGEO */}
       <section className="py-24 lg:py-28 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">
         <FadeIn className="mb-14">
-          <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">Also Under One Engagement</p>
+          <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">Also Available</p>
           <h2 className="text-3xl sm:text-4xl font-montserrat font-light tracking-tight">
-            Delivered By <span className="font-semibold">SFGEO.</span>
+            Under One <span className="font-semibold">Engagement.</span>
           </h2>
           <div className="mt-5 h-px bg-forest-green w-12" />
         </FadeIn>

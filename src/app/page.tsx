@@ -50,14 +50,25 @@ export default function Home() {
         <div className="absolute inset-0 z-0">
           <HeroParallax>
           <div className="absolute inset-[-12%_0_0_0] hero-kenburns">
+            {/* Art-directed: a landscape frame crops to roughly a third of its
+                width in a portrait viewport, so phones get their own crop
+                rather than a 3x upscale of the wide one. */}
+            <Image
+              src="/sfgeo-crew-waterside-drilling-portrait.jpg"
+              alt="The SFGEO team drilling on the Georges River, Sydney"
+              title="SFGEO team drilling — Georges River, Sydney"
+              fill
+              sizes="100vw"
+              className="object-cover object-center lg:hidden"
+              priority
+            />
             <Image
               src="/sfgeo-crew-waterside-drilling.jpg"
               alt="The SFGEO team drilling on the Georges River, Sydney"
               title="SFGEO team drilling — Georges River, Sydney"
               fill
               sizes="100vw"
-              quality={82}
-              className="object-cover object-center"
+              className="object-cover object-center hidden lg:block"
               priority
             />
           </div>
@@ -74,7 +85,7 @@ export default function Home() {
                 Independent Geotechnical Consultancy &middot; Sydney
               </p>
               <h1 className="text-[clamp(3.2rem,7vw,6.6rem)] tracking-[-0.02em] font-montserrat font-light text-white leading-[1.04] mb-8">
-                <span className="mask-line mask-d1"><span>Geotechnical.</span></span>
+                <span className="mask-line mask-d1"><span>Geotechnical.</span></span>{" "}
                 <span className="mask-line mask-d2"><span className="font-semibold">Done Properly.</span></span>
               </h1>
               <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mt-5 mb-5 mx-auto lg:mx-0"></div>
@@ -125,7 +136,7 @@ export default function Home() {
             "PI & PL Insured",
             "NATA Lab",
           ].map((c) => (
-            <span key={c} className="text-[11px] uppercase tracking-[0.22em] font-semibold text-gray-400">
+            <span key={c} className="text-[11px] uppercase tracking-[0.22em] font-semibold text-gray-500">
               {c}
             </span>
           ))}
@@ -273,7 +284,7 @@ export default function Home() {
             <h2 className="text-3xl sm:text-5xl font-montserrat font-light tracking-tight leading-[1.1] mb-6">
               Start With <span className="font-semibold">The Ground.</span>
             </h2>
-            <p className="text-gray-400 font-light leading-relaxed mb-10 max-w-md">
+            <p className="text-gray-500 font-light leading-relaxed mb-10 max-w-md">
               Fixed-fee quotes, scoped to your block. Response within one business day.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">

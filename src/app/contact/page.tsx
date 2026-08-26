@@ -54,24 +54,24 @@ export default function ContactPage() {
 
           <FadeIn delay={0.12} className="flex flex-col gap-6">
             <a href="tel:0423483555" className="group flex flex-col p-8 rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-md hover:border-forest-green/30 transition-all">
-              <span className="text-[11px] font-semibold text-gray-400 uppercase tracking-[0.2em] mb-2">Speak To An Engineer</span>
+              <span className="text-[11px] font-semibold text-gray-500 uppercase tracking-[0.2em] mb-2">Speak To An Engineer</span>
               <span className="text-3xl font-montserrat font-semibold text-slate-950 group-hover:text-forest-green transition-colors">0423 483 555</span>
             </a>
             <a href="mailto:info@sfgeo.com.au" className="group flex flex-col p-8 rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-md hover:border-forest-green/30 transition-all">
-              <span className="text-[11px] font-semibold text-gray-400 uppercase tracking-[0.2em] mb-2">Email The Team</span>
+              <span className="text-[11px] font-semibold text-gray-500 uppercase tracking-[0.2em] mb-2">Email The Team</span>
               <span className="text-xl sm:text-2xl font-montserrat font-semibold text-slate-950 group-hover:text-forest-green transition-colors">info@sfgeo.com.au</span>
             </a>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div className="p-8 rounded-2xl bg-white border border-gray-100 shadow-sm">
-                <span className="block text-[11px] font-semibold text-gray-400 uppercase tracking-[0.2em] mb-3">Office</span>
+                <span className="block text-[11px] font-semibold text-gray-500 uppercase tracking-[0.2em] mb-3">Office</span>
                 <p className="text-base text-slate-950 font-medium leading-relaxed">
                   Suite 3.01, Level 3, 107 Sydenham Road, Marrickville NSW 2204
                 </p>
                 <p className="text-sm text-gray-500 font-light mt-2">Visits by appointment.</p>
               </div>
               <div className="p-8 rounded-2xl bg-white border border-gray-100 shadow-sm">
-                <span className="block text-[11px] font-semibold text-gray-400 uppercase tracking-[0.2em] mb-3">Hours</span>
+                <span className="block text-[11px] font-semibold text-gray-500 uppercase tracking-[0.2em] mb-3">Hours</span>
                 <div className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-1.5 text-[15px]">
                   <span className="font-medium">Mon–Fri</span><span className="font-light text-gray-500">6:00 AM – 6:00 PM</span>
                   <span className="font-medium">Saturday</span><span className="font-light text-gray-500">8:00 AM – 2:00 PM</span>
@@ -141,7 +141,7 @@ export default function ContactPage() {
           </div>
         </FadeIn>
         <FadeIn>
-          <p className="mt-10 text-[11px] uppercase tracking-[0.25em] text-gray-400 font-semibold mb-4">Follow The Fieldwork</p>
+          <p className="mt-10 text-[11px] uppercase tracking-[0.25em] text-gray-500 font-semibold mb-4">Follow The Fieldwork</p>
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
             <a
               href="https://au.linkedin.com/company/sfgeo"

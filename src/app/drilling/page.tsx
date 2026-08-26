@@ -119,9 +119,12 @@ export default function DrillingPage() {
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
+    "name": "Geotechnical Drilling",
     "serviceType": "Geotechnical Drilling & Environmental Sampling",
+    "description": "Borehole drilling, NMLC rock coring, tight-access drilling and subcontract rig capacity across Sydney and regional NSW — engineer operated, with every profile logged on site.",
+    "url": "https://sfgeo.com.au/drilling",
     "provider": { "@id": "https://sfgeo.com.au/#organization" },
-    "areaServed": { "@type": "City", "name": "Sydney" },
+    "areaServed": { "@type": "City", "name": "Sydney, New South Wales, Australia" },
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
       "name": "Drilling Services",
@@ -187,7 +190,7 @@ export default function DrillingPage() {
                 <span className="transition-transform group-hover:translate-x-1">&rarr;</span>
               </Link>
               {"also" in sec && sec.also && (
-                <p className="mt-4 text-[13px] text-gray-400 font-light">
+                <p className="mt-4 text-[13px] text-gray-500 font-light">
                   {sec.also.prefix}{" "}
                   <Link href={sec.also.href} className="text-gray-500 underline underline-offset-4 decoration-gray-300 hover:text-forest-green hover:decoration-forest-green transition-colors">
                     {sec.also.label}
@@ -258,7 +261,7 @@ export default function DrillingPage() {
             <h2 className="text-4xl sm:text-6xl font-montserrat font-light tracking-tight mb-8">
               One Call. <span className="font-semibold">Rig On Site.</span>
             </h2>
-            <p className="text-lg sm:text-xl text-gray-400 font-light leading-relaxed max-w-2xl mx-auto mb-12">
+            <p className="text-lg sm:text-xl text-gray-500 font-light leading-relaxed max-w-2xl mx-auto mb-12">
               Tell us the site, the access and the program. You&rsquo;ll have a quote within one business day — and a rig that turns up when it said it would.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">

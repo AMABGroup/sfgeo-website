@@ -218,7 +218,7 @@ export default function ContactForm() {
               name="name"
               value={formData.name}
               onChange={handleChange}
-              className={`bg-transparent border-b ${errors.name ? 'border-red-400' : 'border-gray-200 focus:border-forest-green'} py-3 text-lg font-light text-slate-950 outline-none transition-colors placeholder:text-gray-300 min-h-[44px]`}
+              className={`bg-transparent border-b ${errors.name ? 'border-red-400' : 'border-gray-200 focus:border-forest-green'} py-3 text-lg font-light text-slate-950 outline-none transition-colors placeholder:text-gray-500 min-h-[44px]`}
             />
             <AnimatePresence>
               {errors.name && (
@@ -226,7 +226,7 @@ export default function ContactForm() {
                   initial={{ opacity: 0, height: 0 }}
                   animate={{ opacity: 1, height: "auto" }}
                   exit={{ opacity: 0, height: 0 }}
-                  className="text-red-500 text-xs mt-1"
+                  className="text-red-600 text-xs mt-1"
                 >
                   {errors.name}
                 </motion.span>
@@ -245,7 +245,7 @@ export default function ContactForm() {
               name="email"
               value={formData.email}
               onChange={handleChange}
-              className={`bg-transparent border-b ${errors.email ? 'border-red-400' : 'border-gray-200 focus:border-forest-green'} py-3 text-lg font-light text-slate-950 outline-none transition-colors placeholder:text-gray-300 min-h-[44px]`}
+              className={`bg-transparent border-b ${errors.email ? 'border-red-400' : 'border-gray-200 focus:border-forest-green'} py-3 text-lg font-light text-slate-950 outline-none transition-colors placeholder:text-gray-500 min-h-[44px]`}
             />
             <AnimatePresence>
               {errors.email && (
@@ -253,7 +253,7 @@ export default function ContactForm() {
                   initial={{ opacity: 0, height: 0 }}
                   animate={{ opacity: 1, height: "auto" }}
                   exit={{ opacity: 0, height: 0 }}
-                  className="text-red-500 text-xs mt-1"
+                  className="text-red-600 text-xs mt-1"
                 >
                   {errors.email}
                 </motion.span>
@@ -272,7 +272,7 @@ export default function ContactForm() {
               name="phone"
               value={formData.phone}
               onChange={handleChange}
-              className={`bg-transparent border-b ${errors.phone ? 'border-red-400' : 'border-gray-200 focus:border-forest-green'} py-3 text-lg font-light text-slate-950 outline-none transition-colors placeholder:text-gray-300 min-h-[44px]`}
+              className={`bg-transparent border-b ${errors.phone ? 'border-red-400' : 'border-gray-200 focus:border-forest-green'} py-3 text-lg font-light text-slate-950 outline-none transition-colors placeholder:text-gray-500 min-h-[44px]`}
             />
             <AnimatePresence>
               {errors.phone && (
@@ -280,7 +280,7 @@ export default function ContactForm() {
                   initial={{ opacity: 0, height: 0 }}
                   animate={{ opacity: 1, height: "auto" }}
                   exit={{ opacity: 0, height: 0 }}
-                  className="text-red-500 text-xs mt-1"
+                  className="text-red-600 text-xs mt-1"
                 >
                   {errors.phone}
                 </motion.span>
@@ -300,7 +300,7 @@ export default function ContactForm() {
               placeholder="Street address, suburb, NSW"
               value={formData.siteAddress}
               onChange={handleChange}
-              className={`bg-transparent border-b ${errors.siteAddress ? 'border-red-400' : 'border-gray-200 focus:border-forest-green'} py-3 text-lg font-light text-slate-950 outline-none transition-colors placeholder:text-gray-300 min-h-[44px]`}
+              className={`bg-transparent border-b ${errors.siteAddress ? 'border-red-400' : 'border-gray-200 focus:border-forest-green'} py-3 text-lg font-light text-slate-950 outline-none transition-colors placeholder:text-gray-500 min-h-[44px]`}
             />
             <AnimatePresence>
               {errors.siteAddress && (
@@ -308,7 +308,7 @@ export default function ContactForm() {
                   initial={{ opacity: 0, height: 0 }}
                   animate={{ opacity: 1, height: "auto" }}
                   exit={{ opacity: 0, height: 0 }}
-                  className="text-red-500 text-xs mt-1"
+                  className="text-red-600 text-xs mt-1"
                 >
                   {errors.siteAddress}
                 </motion.span>
@@ -339,7 +339,7 @@ export default function ContactForm() {
                   initial={{ opacity: 0, height: 0 }}
                   animate={{ opacity: 1, height: "auto" }}
                   exit={{ opacity: 0, height: 0 }}
-                  className="text-red-500 text-xs mt-1"
+                  className="text-red-600 text-xs mt-1"
                 >
                   {errors.projectType}
                 </motion.span>
@@ -370,7 +370,7 @@ export default function ContactForm() {
                   initial={{ opacity: 0, height: 0 }}
                   animate={{ opacity: 1, height: "auto" }}
                   exit={{ opacity: 0, height: 0 }}
-                  className="text-red-500 text-xs mt-1"
+                  className="text-red-600 text-xs mt-1"
                 >
                   {errors.startDate}
                 </motion.span>
@@ -391,7 +391,7 @@ export default function ContactForm() {
             placeholder="Site details, engineer requirements, or context that helps us quote accurately."
             value={formData.message}
             onChange={handleChange}
-            className="bg-transparent border-b border-gray-200 py-3 text-lg font-light text-slate-950 outline-none transition-colors focus:border-forest-green placeholder:text-gray-300 resize-none min-h-[100px]"
+            className="bg-transparent border-b border-gray-200 py-3 text-lg font-light text-slate-950 outline-none transition-colors focus:border-forest-green placeholder:text-gray-500 resize-none min-h-[100px]"
           />
         </div>
 
@@ -424,7 +424,7 @@ export default function ContactForm() {
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: "auto" }}
                 exit={{ opacity: 0, height: 0 }}
-                className="text-red-500 text-xs mt-1 ml-8"
+                className="text-red-600 text-xs mt-1 ml-8"
               >
                 {errors.consent}
               </motion.span>

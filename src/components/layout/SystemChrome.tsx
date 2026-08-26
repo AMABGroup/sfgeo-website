@@ -122,6 +122,17 @@ export function SystemHeader() {
   }, [open, quote]);
 
   useEffect(() => {
+    if (!open && !quote) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== "Escape") return;
+      if (quote) setQuote(false);
+      else setOpen(false);
+    };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [open, quote]);
+
+  useEffect(() => {
     setOpen(false);
     setQuote(false);
   }, [pathname]);
@@ -152,7 +163,7 @@ export function SystemHeader() {
           </span>
           <button
             onClick={() => setOpen(!open)}
-            className="flex items-center gap-3 text-xs font-semibold tracking-[0.28em] uppercase"
+            className="flex items-center gap-3 py-3 -my-3 px-2 -mr-2 text-xs font-semibold tracking-[0.28em] uppercase"
             aria-expanded={open}
           >
             {open ? "Close" : "Menu"}
@@ -181,6 +192,8 @@ export function SystemHeader() {
 
       {/* Fullscreen menu */}
       <div
+        inert={!open}
+        aria-hidden={!open}
         className={`fixed inset-0 z-[60] bg-[#0A130D] text-white transition-all duration-500 grain ${open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
       >
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_-10%,rgba(64,120,80,0.45),transparent_65%)] pointer-events-none" />
@@ -242,7 +255,7 @@ export function SystemHeader() {
                     <span className={`text-[12px] uppercase tracking-[0.28em] font-semibold transition-colors ${on ? "text-white" : "text-[#8FBF9F]"}`}>{g.name}</span>
                     <span className={`text-[#8FBF9F] transition-transform duration-300 ${on ? "rotate-45" : ""}`} aria-hidden="true">+</span>
                   </button>
-                  <div className={`overflow-hidden transition-all duration-400 ${on ? "max-h-96 pb-5" : "max-h-0"}`}>
+                  <div inert={!on} className={`overflow-hidden transition-all duration-400 ${on ? "max-h-96 pb-5" : "max-h-0"}`}>
                     <ul className="space-y-3">
                       <li>
                         <Link href={g.hub} onClick={() => setOpen(false)} className="font-disp text-lg font-light text-white hover:text-[#8FBF9F] transition-colors">
@@ -283,7 +296,7 @@ export function SystemHeader() {
 
 export function SystemFooter() {
   return (
-    <footer className="bg-[#050A07] text-white/55 px-6 lg:px-12 py-12">
+    <footer className="bg-[#050A07] text-white/55 px-6 lg:px-12 pt-12 pb-28 lg:pb-12">
       <div className="max-w-[90rem] mx-auto flex flex-col gap-8">
         <div className="flex flex-wrap items-center justify-between gap-6">
           <span className="relative block h-8 w-28"><Image src="/SFGEO_logo.png" alt="SFGEO — Solid Foundation Geotechnical" fill sizes="140px" className="object-contain object-left" /></span>
@@ -299,7 +312,7 @@ export function SystemFooter() {
         </div>
         <div className="flex flex-wrap items-center justify-between gap-4 text-[12px] font-light border-t border-white/10 pt-6">
           <p className="max-w-xl">We acknowledge the Traditional Custodians of the lands on which we live and work, and pay our respects to Elders past and present.</p>
-          <p className="whitespace-nowrap">&copy; SFGEO 2025&ndash;2026 &middot; Marrickville, Sydney &middot; ABN 54 686 815 252</p>
+          <p>&copy; SFGEO 2025&ndash;2026 &middot; Marrickville, Sydney &middot; ABN 54 686 815 252</p>
         </div>
       </div>
     </footer>

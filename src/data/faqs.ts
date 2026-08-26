@@ -97,7 +97,7 @@ export const faqs = [
   {
     question: "How do I get a quote for my project?",
     group: "Cost & Process",
-    answer: "Send us an inquiry with your site address and any architectural or structural plans you have. We will arrange a complimentary desktop review of your site and provide a site-specific, fixed-fee proposal, typically within one business day."
+    answer: "Send us an enquiry with your site address and any architectural or structural plans you have. We will arrange a complimentary desktop review of your site and provide a site-specific, fixed-fee proposal, typically within one business day."
   }
 ];
 
