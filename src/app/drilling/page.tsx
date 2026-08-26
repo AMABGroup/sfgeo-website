@@ -41,7 +41,7 @@ const SECTIONS = [
       "Engineer-logged profiles, scoped to Sydney ground conditions",
       "Rapid mobilisation across the Sydney metro and regional NSW",
     ],
-    link: { href: "/contact", label: "Request Drilling Services" },
+    link: { href: "/borehole-drilling", label: "Explore Borehole Drilling" },
   },
   {
     n: "02",
@@ -96,7 +96,7 @@ const SECTIONS = [
       "Environmental sampling and monitoring wells for consultant programs",
       "Standing arrangements for repeat capacity",
     ],
-    link: { href: "/contact?subject=Subcontract%20Drilling%20Enquiry", label: "Enquire About Subcontract Drilling" },
+    link: { href: "/subcontract-drilling", label: "Explore Subcontract Drilling" },
   },
 ];
 

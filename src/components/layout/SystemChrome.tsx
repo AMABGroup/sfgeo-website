@@ -29,10 +29,10 @@ const GROUPS: { name: string; hub: string; links: { name: string; href: string }
     name: "Drilling",
     hub: "/drilling",
     links: [
-      { name: "Borehole Drilling", href: "/drilling#drilling" },
+      { name: "Borehole Drilling", href: "/borehole-drilling" },
       { name: "Tight Access", href: "/tight-access-drilling" },
       { name: "Rock Coring", href: "/drilling#rock-coring" },
-      { name: "Subcontract Drilling", href: "/drilling#b2b-drilling" },
+      { name: "Subcontract Drilling", href: "/subcontract-drilling" },
     ],
   },
   {
@@ -49,10 +49,10 @@ const GROUPS: { name: string; hub: string; links: { name: string; href: string }
     name: "Other Professional Services",
     hub: "/other-services",
     links: [
-      { name: "Utility Location & GPR Scanning", href: "/other-services" },
-      { name: "Dilapidation Reports", href: "/other-services" },
-      { name: "Surveying", href: "/other-services" },
-      { name: "Structural, Civil & Hydro", href: "/other-services" },
+      { name: "Utility Location & GPR Scanning", href: "/other-services#utility-gpr" },
+      { name: "Dilapidation Reports", href: "/other-services#dilapidation" },
+      { name: "Surveying", href: "/other-services#surveying" },
+      { name: "Structural, Civil & Hydro", href: "/other-services#specialist" },
     ],
   },
   {
@@ -72,10 +72,11 @@ const COMPANY = [
 const MAP_SRC =
   "https://www.google.com/maps?q=SFGEO%20Suite%203.01%20Level%203%20107%20Sydenham%20Road%20Marrickville%20NSW%202204&output=embed";
 
-function GroupHeading({ name, hub }: { name: string; hub: string }) {
+function GroupHeading({ name, hub, onNavigate }: { name: string; hub: string; onNavigate?: () => void }) {
   return (
     <Link
       href={hub}
+      onClick={onNavigate}
       className="block text-[12px] uppercase tracking-[0.3em] text-[#8FBF9F] hover:text-white font-semibold mb-4 transition-colors"
     >
       {name} &rarr;
@@ -83,13 +84,14 @@ function GroupHeading({ name, hub }: { name: string; hub: string }) {
   );
 }
 
-function GroupLinks({ links }: { links: { name: string; href: string }[] }) {
+function GroupLinks({ links, onNavigate }: { links: { name: string; href: string }[]; onNavigate?: () => void }) {
   return (
     <ul className="space-y-2">
       {links.map((l) => (
         <li key={l.name + l.href}>
           <Link
             href={l.href}
+            onClick={onNavigate}
             className="font-disp text-lg lg:text-xl font-light leading-[1.5] text-white/85 hover:text-white transition-colors"
           >
             {l.name}
@@ -139,9 +141,18 @@ export function SystemHeader() {
               className={`object-contain object-left transition-all duration-500 ${overDark || open ? "invert brightness-0" : ""}`}
             />
           </Link>
+          <div className={`z-[70] flex items-center gap-6 transition-colors ${overDark || open ? "text-white" : "text-slate-950"}`}>
+          <span className="hidden sm:flex items-center gap-4 opacity-50">
+            <a href="https://au.linkedin.com/company/sfgeo" target="_blank" rel="noopener noreferrer" aria-label="SFGEO on LinkedIn" className="hover:opacity-100 opacity-80 transition-opacity">
+              <svg className="w-[15px] h-[15px]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.475-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <a href="https://instagram.com/sfgeo.syd" target="_blank" rel="noopener noreferrer" aria-label="SFGEO on Instagram" className="hover:opacity-100 opacity-80 transition-opacity">
+              <svg className="w-[15px] h-[15px]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fillRule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clipRule="evenodd"/></svg>
+            </a>
+          </span>
           <button
             onClick={() => setOpen(!open)}
-            className={`z-[70] flex items-center gap-3 text-xs font-semibold tracking-[0.28em] uppercase transition-colors ${overDark || open ? "text-white" : "text-slate-950"}`}
+            className="flex items-center gap-3 text-xs font-semibold tracking-[0.28em] uppercase"
             aria-expanded={open}
           >
             {open ? "Close" : "Menu"}
@@ -151,6 +162,7 @@ export function SystemHeader() {
               <span className={`absolute left-0 w-6 h-[1.5px] bg-current transition-all duration-300 ${open ? "top-1/2 -rotate-45" : "top-full"}`} />
             </span>
           </button>
+          </div>
         </nav>
       </header>
 
@@ -177,18 +189,18 @@ export function SystemHeader() {
           {/* ============ Desktop: four tight columns ============ */}
           <div className="hidden lg:grid w-full max-w-[90rem] mx-auto grid-cols-[1fr_1fr_1fr_1.15fr] gap-12">
             <div className="space-y-10">
-              <div><GroupHeading name="Geotechnical" hub="/geotechnical" /><GroupLinks links={GROUPS[0].links} /></div>
-              <div><GroupHeading name="Environmental & Soil Testing" hub="/environmental" /><GroupLinks links={GROUPS[2].links} /></div>
+              <div><GroupHeading name="Geotechnical" hub="/geotechnical" onNavigate={() => setOpen(false)} /><GroupLinks links={GROUPS[0].links} onNavigate={() => setOpen(false)} /></div>
+              <div><GroupHeading name="Environmental & Soil Testing" hub="/environmental" onNavigate={() => setOpen(false)} /><GroupLinks links={GROUPS[2].links} onNavigate={() => setOpen(false)} /></div>
             </div>
             <div className="space-y-10">
-              <div><GroupHeading name="Drilling" hub="/drilling" /><GroupLinks links={GROUPS[1].links} /></div>
-              <div><GroupHeading name="Other Professional Services" hub="/other-services" /><GroupLinks links={GROUPS[3].links} /></div>
+              <div><GroupHeading name="Drilling" hub="/drilling" onNavigate={() => setOpen(false)} /><GroupLinks links={GROUPS[1].links} onNavigate={() => setOpen(false)} /></div>
+              <div><GroupHeading name="Other Professional Services" hub="/other-services" onNavigate={() => setOpen(false)} /><GroupLinks links={GROUPS[3].links} onNavigate={() => setOpen(false)} /></div>
             </div>
             <div className="space-y-10">
-              <div><GroupHeading name="Concrete Coring" hub="/concrete-coring" /><GroupLinks links={GROUPS[4].links} /></div>
+              <div><GroupHeading name="Concrete Coring" hub="/concrete-coring" onNavigate={() => setOpen(false)} /><GroupLinks links={GROUPS[4].links} onNavigate={() => setOpen(false)} /></div>
               <div>
                 <p className="text-[12px] uppercase tracking-[0.3em] text-[#8FBF9F] font-semibold mb-4">SFGEO</p>
-                <GroupLinks links={COMPANY} />
+                <GroupLinks links={COMPANY} onNavigate={() => setOpen(false)} />
               </div>
               <div className="space-y-1.5 text-[13px] font-light text-white/60 border-t border-white/10 pt-6 text-center lg:text-left">
                 <p><a href="tel:+61423483555" className="text-white text-base font-medium hover:text-[#8FBF9F] transition-colors">0423 483 555</a></p>
@@ -233,13 +245,13 @@ export function SystemHeader() {
                   <div className={`overflow-hidden transition-all duration-400 ${on ? "max-h-96 pb-5" : "max-h-0"}`}>
                     <ul className="space-y-3">
                       <li>
-                        <Link href={g.hub} className="font-disp text-lg font-light text-white hover:text-[#8FBF9F] transition-colors">
+                        <Link href={g.hub} onClick={() => setOpen(false)} className="font-disp text-lg font-light text-white hover:text-[#8FBF9F] transition-colors">
                           All {g.name} &rarr;
                         </Link>
                       </li>
                       {g.links.map((l) => (
                         <li key={l.name}>
-                          <Link href={l.href} className="font-disp text-lg font-light leading-[1.5] text-white/80 hover:text-white transition-colors">{l.name}</Link>
+                          <Link href={l.href} onClick={() => setOpen(false)} className="font-disp text-lg font-light leading-[1.5] text-white/80 hover:text-white transition-colors">{l.name}</Link>
                         </li>
                       ))}
                     </ul>
@@ -252,7 +264,7 @@ export function SystemHeader() {
               <ul className="space-y-3">
                 {COMPANY.map((l) => (
                   <li key={l.href}>
-                    <Link href={l.href} className="font-disp text-lg font-light text-white/80 hover:text-white transition-colors">{l.name}</Link>
+                    <Link href={l.href} onClick={() => setOpen(false)} className="font-disp text-lg font-light text-white/80 hover:text-white transition-colors">{l.name}</Link>
                   </li>
                 ))}
               </ul>
@@ -283,14 +295,6 @@ export function SystemFooter() {
             <Link href="/contact" className="hover:text-white transition-colors">Contact</Link>
             <Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy</Link>
             <Link href="/terms-and-conditions" className="hover:text-white transition-colors">Terms</Link>
-            <span className="flex items-center gap-4 ml-1">
-              <a href="https://au.linkedin.com/company/sfgeo" target="_blank" rel="noopener noreferrer" aria-label="SFGEO on LinkedIn" className="hover:text-white transition-colors">
-                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.475-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-              </a>
-              <a href="https://instagram.com/sfgeo.syd" target="_blank" rel="noopener noreferrer" aria-label="SFGEO on Instagram" className="hover:text-white transition-colors">
-                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fillRule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clipRule="evenodd"/></svg>
-              </a>
-            </span>
           </nav>
         </div>
         <div className="flex flex-wrap items-center justify-between gap-4 text-[12px] font-light border-t border-white/10 pt-6">

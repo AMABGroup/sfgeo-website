@@ -41,10 +41,10 @@ const SEGMENTS = [
     href: "/drilling",
     d: "One 4WD-mounted rig, engineer operated — borehole drilling, NMLC rock coring and subcontract capacity for builders, consultancies and bigger firms, metro and regional.",
     children: [
-      { name: "Borehole Drilling", href: "/drilling#drilling" },
+      { name: "Borehole Drilling", href: "/borehole-drilling" },
       { name: "Rock Coring", href: "/drilling#rock-coring" },
       { name: "Tight Access", href: "/tight-access-drilling" },
-      { name: "Subcontract Drilling", href: "/drilling#b2b-drilling" },
+      { name: "Subcontract Drilling", href: "/subcontract-drilling" },
     ],
   },
   {
