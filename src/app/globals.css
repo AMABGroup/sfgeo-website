@@ -148,10 +148,27 @@ html {
   animation-play-state: paused !important;
 }
 
-.veil-ack {
+.veil-reg {
   opacity: 0;
-  animation: veil-ack-in 1.4s ease-out 0.5s forwards;
+  animation: veil-reg-in 0.9s ease-out forwards;
 }
-@keyframes veil-ack-in {
+@keyframes veil-reg-in {
   to { opacity: 1; }
+}
+
+.veil-scale {
+  transform: scaleY(0);
+  transform-origin: top;
+  animation: veil-scale-draw 1.5s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
+}
+@keyframes veil-scale-draw {
+  to { transform: scaleY(1); }
+}
+
+.veil-logo {
+  transform: translateY(112%);
+  animation: veil-rise 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.35s forwards;
+}
+@keyframes veil-rise {
+  to { transform: translateY(0); }
 }

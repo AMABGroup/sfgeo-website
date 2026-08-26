@@ -56,7 +56,7 @@ export default function Home() {
               title="SFGEO team drilling — Georges River, Sydney"
               fill
               sizes="100vw"
-              quality={60}
+              quality={82}
               className="object-cover object-center"
               priority
             />
