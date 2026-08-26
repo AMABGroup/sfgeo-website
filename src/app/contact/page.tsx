@@ -141,7 +141,8 @@ export default function ContactPage() {
           </div>
         </FadeIn>
         <FadeIn>
-          <div className="mt-10 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
+          <p className="mt-10 text-[11px] uppercase tracking-[0.25em] text-gray-400 font-semibold mb-4">Follow The Fieldwork</p>
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
             <a
               href="https://au.linkedin.com/company/sfgeo"
               target="_blank"
