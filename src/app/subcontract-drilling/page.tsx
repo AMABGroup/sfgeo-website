@@ -2,7 +2,6 @@ import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import QuoteCta from "@/components/forms/QuoteCta";
-import PhotoPlaceholder from "@/components/ui/PhotoPlaceholder";
 import { FadeIn } from "../site-classification/MotionWrapper";
 
 export const metadata: Metadata = {
@@ -98,11 +97,11 @@ export default function SubcontractDrillingPage() {
         <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-10 lg:gap-16 items-center">
           <FadeIn>
             <div className="grid grid-cols-2 gap-4 sm:gap-6">
-              <PhotoPlaceholder
-                subject="Working under someone else's banner — rig on a commercial or civil site alongside the head contractor's works."
-                caption="Mobilised"
-                className="aspect-[3/4] rounded-2xl shadow-[0_20px_50px_-20px_rgba(5,10,7,0.35)]"
-              />
+              <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-[0_20px_50px_-20px_rgba(5,10,7,0.35)]">
+                <Image src="/sfgeo-night-works-rig-mast-lakemba.jpg" alt="Drill rig with mast raised in a closed traffic lane during night works on a Sydney high street" fill sizes="(max-width: 1024px) 50vw, 30vw" className="object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/40 via-transparent to-transparent" />
+                <p className="absolute bottom-4 left-4 text-[10px] uppercase tracking-[0.2em] text-white/80 font-semibold">Mobilised</p>
+              </div>
               <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-[0_20px_50px_-20px_rgba(5,10,7,0.35)] lg:mt-10">
                 <Image src="/sfgeo-subcontract-rig-working-rear.jpg" alt="Rig with mast raised working a borehole above the river" fill sizes="(max-width: 1024px) 50vw, 30vw" className="object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/40 via-transparent to-transparent" />

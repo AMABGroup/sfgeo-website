@@ -2,7 +2,6 @@ import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import QuoteCta from "@/components/forms/QuoteCta";
-import PhotoPlaceholder from "@/components/ui/PhotoPlaceholder";
 import { FadeIn } from "../site-classification/MotionWrapper";
 
 export const metadata: Metadata = {
@@ -71,11 +70,19 @@ export default function About() {
       {/* Full-width team photo */}
       <section className="px-6 lg:px-12 max-w-7xl mx-auto pb-20">
         <FadeIn>
-          <PhotoPlaceholder
-            subject="The About banner — a considered wide shot of the team, or Sydney ground that speaks for the firm. Not the current rig-and-two-crew frame."
-            caption="The Crew &middot; On Sydney Ground"
-            className="aspect-[21/9] rounded-2xl shadow-[0_26px_60px_-26px_rgba(5,10,7,0.4)]"
-          />
+          <div className="relative aspect-[21/9] rounded-2xl overflow-hidden shadow-[0_26px_60px_-26px_rgba(5,10,7,0.4)]">
+            <Image
+              src="/sfgeo-night-works-high-street-sydney.jpg"
+              alt="A Sydney high street closed under traffic control for overnight geotechnical works, shopfronts shut and the lane coned off"
+              fill
+              sizes="(max-width: 1024px) 100vw, 1200px"
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/55 via-[#050A07]/10 to-transparent" />
+            <p className="absolute bottom-5 left-6 text-[11px] uppercase tracking-[0.25em] text-white/75 font-semibold">
+              Night Works &middot; Sydney
+            </p>
+          </div>
         </FadeIn>
       </section>
 
