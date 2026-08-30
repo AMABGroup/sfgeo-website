@@ -2,7 +2,6 @@ import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import QuoteCta from "@/components/forms/QuoteCta";
-import PhotoPlaceholder from "@/components/ui/PhotoPlaceholder";
 import { FadeIn, StaggerContainer, FadeInChild } from "../site-classification/MotionWrapper";
 import GoogleReviews from "@/components/ui/GoogleReviews";
 
@@ -143,16 +142,16 @@ export default function GeotechnicalInvestigationsPage() {
           </FadeIn>
           <FadeIn delay={0.15}>
             <div className="grid grid-cols-2 gap-4 sm:gap-6">
-              <PhotoPlaceholder
-                subject="The rig mid-investigation — mast up on a real Sydney block, engineer at the hole rather than the machine alone."
-                caption="Fieldwork"
-                className="aspect-[3/4] rounded-2xl shadow-[0_20px_50px_-20px_rgba(5,10,7,0.35)]"
-              />
-              <PhotoPlaceholder
-                subject="The ground being read — samples laid out and logged, or the engineer writing the profile on the log at the hole."
-                caption="Logged On Site"
-                className="aspect-[3/4] rounded-2xl shadow-[0_20px_50px_-20px_rgba(5,10,7,0.35)] lg:mt-10"
-              />
+              <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-[0_20px_50px_-20px_rgba(5,10,7,0.35)]">
+                <Image src="/sfgeo-night-works-crew-at-rig.jpg" alt="SFGEO engineers working the rig at a borehole during night works on a Sydney street" fill sizes="(max-width: 1024px) 50vw, 30vw" className="object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/40 via-transparent to-transparent" />
+                <p className="absolute bottom-4 left-4 text-[10px] uppercase tracking-[0.2em] text-white/80 font-semibold">Fieldwork</p>
+              </div>
+              <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-[0_20px_50px_-20px_rgba(5,10,7,0.35)] lg:mt-10">
+                <Image src="/sfgeo-spt-sample-logged-on-site.jpg" alt="Split-spoon sample opened beside the field board recording BH01, 0.50-0.95 m and an SPT N value of 10" fill sizes="(max-width: 1024px) 50vw, 30vw" className="object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/40 via-transparent to-transparent" />
+                <p className="absolute bottom-4 left-4 text-[10px] uppercase tracking-[0.2em] text-white/80 font-semibold">Logged On Site</p>
+              </div>
             </div>
           </FadeIn>
         </div>

@@ -192,6 +192,21 @@ const caseStudies: CaseStudy[] = [
     facts: ["Live strata building", "CC requirements closed out", "Bearing upgraded from assumption", "Peer reviewed"],
   },
   {
+    id: "lakemba",
+    tag: "Subcontract Drilling",
+    title: "A High Street, Read Between Midnight And Trade",
+    location: "Lakemba — public-domain investigation, Haldon Street",
+    image: "/projects/project-lakemba-night.jpg",
+    imageAlt: "Haldon Street, Lakemba, under night traffic control — a lane coned off for borehole drilling with the shopfronts closed behind",
+    brief:
+      "Haldon Street is one of Sydney's busiest retail strips — shopfronts trading seven days, kerb to kerb parked out by mid-morning. The holes had to go into the carriageway itself, which meant they could only go in at night, and the lane had to be back in service before the first roller shutter went up.",
+    ground:
+      "Full traffic control from the first cone to the last. Locations set out and service-marked before a flight turned, then boreholes advanced through the road pavement, sampled and logged at the hole, backfilled and reinstated one at a time — so no more of the street was open than the work actually needed.",
+    outcome:
+      "Every hole drilled, logged and made good inside a single night shift, working alongside one of the bigger testing firms for part of the program. The lane was handed back before dawn and the street traded the next morning as though nothing had happened — which, for the businesses on it, is the entire point.",
+    facts: ["Single night shift", "Drilled through the carriageway", "Full traffic control", "Reopened before trade"],
+  },
+  {
     id: "northmead",
     tag: "Construction Phase Support",
     title: "A New Home For A Congregation",
@@ -212,18 +227,16 @@ const caseStudies: CaseStudy[] = [
     id: "telopea",
     tag: "Subcontract Drilling",
     title: "Five Holes Down A Living Street",
-    location: "Telopea — public-domain investigation, Benaud Place",
-    image: null,
-    shot:
-      "The rig working a residential street verge — cones out, footpath open, neighbours going about their day.",
-    imageAlt: "SFGEO rig drilling from a grass verge on a residential street in Telopea",
+    location: "Telopea — street lighting investigation, Benaud Place",
+    image: "/projects/project-telopea-verge.jpg",
+    imageAlt: "SFGEO 4WD rig drilling from the grass verge of a residential street in Telopea, footpath and traffic lane still open",
     brief:
-      "One of the bigger testing firms in Sydney ground needed five boreholes along a residential street in a renewing suburb — drilled, sampled and handed over clean, without shutting the street down around the people who live on it.",
+      "One of the bigger testing firms in Sydney ground needed five boreholes along a residential street — the ground data to found new safety lighting going into a renewing suburb. Drilled, sampled and handed over clean, without shutting the street down around the people who live on it.",
     ground:
       "The 4WD rig worked hole to hole along the verge — five boreholes with penetrometer tests at termination, services located before the first flight turned, footpaths kept open, every location reinstated before the rig moved on.",
     outcome:
-      "Logs, samples and surveyed coordinates delivered the same week, feeding the investigation that sits under the street’s renewal. The residents saw cones for a day; the engineering under their street lasts decades.",
-    facts: ["5 boreholes + 5 DCPs", "One-day mobilisation", "Live street, footpaths open", "Subcontract capacity"],
+      "Logs, samples and surveyed coordinates delivered the same week, feeding the footing design for the new poles. The residents saw cones for a day; the lighting that went in after them makes the street safer to walk every night since.",
+    facts: ["5 boreholes + 5 DCPs", "Street lighting footings", "Live street, footpaths open", "Subcontract capacity"],
   },
   {
     id: "coogee",
@@ -278,7 +291,7 @@ export default function ProjectsPage() {
           </h1>
           <div className="w-[96px] h-[3px] bg-forest-green mb-8" />
           <p className="text-lg sm:text-xl text-gray-600 font-light leading-relaxed">
-            Every project below is real work from our issued reports: what the client needed, what the ground turned out to be, and what the engineering did about it. Some of it is for owners and builders; some of it is simply for the community — the signals over the road, the street being renewed, the church hall going up. Client details are kept private.
+            Every project below is real work from our issued reports: what the client needed, what the ground turned out to be, and what the engineering did about it. Some of it is for owners and builders. A good deal of it is for the community, from the community — the signals over the road, the lighting a suburb walks home under, the church hall going up, the high street that has to be trading again by morning. Client details are kept private.
           </p>
         </FadeIn>
       </section>
