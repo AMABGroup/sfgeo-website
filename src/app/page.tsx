@@ -40,27 +40,6 @@ const caseStudies = [
   },
 ];
 
-const COMMUNITY = [
-  {
-    place: "Telopea",
-    title: "Streets Lit",
-    line: "Five boreholes down a residential verge so new safety lighting had ground it could stand on — footpaths open the whole time.",
-    href: "/projects#telopea",
-  },
-  {
-    place: "Northmead",
-    title: "A Hall Raised",
-    line: "Founding material checked at every stage of a church expansion the congregation raised the money for themselves.",
-    href: "/projects#northmead",
-  },
-  {
-    place: "Lakemba",
-    title: "A High Street Handed Back",
-    line: "A night shift under full traffic control on Haldon Street, drilled through the carriageway and reopened before the shops were.",
-    href: "/projects#lakemba",
-  },
-];
-
 export default function Home() {
   return (
     <div className="bg-white text-slate-950 font-inter selection:bg-forest-green selection:text-white">
@@ -284,46 +263,10 @@ export default function Home() {
 
 
 
-      {/* ============ For the community — where the work ends up ============ */}
-      <section className="relative overflow-hidden bg-[#050A07] text-white grain">
-        <Image
-          src="/sfgeo-street-handed-back-dawn.jpg"
-          alt=""
-          fill
-          sizes="100vw"
-          className="object-cover opacity-[0.30]"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#050A07] via-[#050A07]/55 to-[#050A07]" />
-        <div className="relative max-w-7xl mx-auto px-6 lg:px-12 py-36 lg:py-44">
-          <Reveal className="max-w-3xl">
-            <p className="text-sm uppercase tracking-[0.2em] text-[#8FBF9F] mb-6 font-semibold">04 &middot; Where The Work Ends Up</p>
-            <h2 className="text-4xl sm:text-5xl font-montserrat font-light tracking-tight leading-[1.15] mb-8">
-              For The Community, <span className="font-semibold h-bold">From The Community.</span>
-            </h2>
-            <div className="w-[96px] h-[3px] bg-[#8FBF9F] mb-8" />
-            <p className="text-lg text-white/70 font-light leading-relaxed">
-              We are a Marrickville firm, hired locally, working the same streets our own people walk. A fair share of what we do never carries a client&rsquo;s name on it at all &mdash; it is public ground. The lighting a suburb gets to walk home under. The signals over an intersection. The hall a congregation raised the money for. The high street that has to be trading again by morning.
-            </p>
-          </Reveal>
-
-          <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-14">
-            {COMMUNITY.map((c, i) => (
-              <Reveal key={c.href} delay={i * 90}>
-                <Link href={c.href} className="group block border-t border-white/15 pt-6 hover:border-[#8FBF9F]/50 transition-colors">
-                  <p className="text-[10px] uppercase tracking-[0.28em] text-[#8FBF9F]/80 font-semibold mb-3">{c.place}</p>
-                  <h3 className="text-xl font-montserrat font-light tracking-tight mb-3 group-hover:text-[#8FBF9F] transition-colors">{c.title}</h3>
-                  <p className="text-sm text-white/60 font-light leading-relaxed">{c.line}</p>
-                </Link>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ============ FAQ ============ */}
       <section className="py-36 lg:py-44 px-6 lg:px-12 max-w-4xl mx-auto">
         <Reveal className="text-center mb-16">
-          <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">05 &middot; Before You Call</p>
+          <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">04 &middot; Before You Call</p>
           <h2 className="text-3xl font-light tracking-tight font-montserrat text-slate-950">
             Common <span className="font-semibold h-bold">Questions</span>
           </h2>
@@ -337,7 +280,7 @@ export default function Home() {
         <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_-20%,rgba(45,90,58,0.4),transparent_65%)] pointer-events-none" />
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-32 lg:py-40 grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center relative z-10">
           <Reveal>
-            <p className="text-sm uppercase tracking-[0.2em] text-[#8FBF9F] mb-6 font-semibold">06 &middot; Marrickville, Sydney</p>
+            <p className="text-sm uppercase tracking-[0.2em] text-[#8FBF9F] mb-6 font-semibold">05 &middot; Marrickville, Sydney</p>
             <h2 className="text-3xl sm:text-5xl font-montserrat font-light tracking-tight leading-[1.1] mb-6">
               Start With <span className="font-semibold h-bold">The Ground.</span>
             </h2>

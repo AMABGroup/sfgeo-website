@@ -2,7 +2,6 @@ import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import QuoteCta from "@/components/forms/QuoteCta";
-import PhotoPlaceholder from "@/components/ui/PhotoPlaceholder";
 import { FadeIn } from "../site-classification/MotionWrapper";
 
 export const metadata: Metadata = {
@@ -32,7 +31,9 @@ const SECTIONS = [
     titleBold: "Verification.",
     caption: "01 · Slab Verification",
     image: null,
-    shot: "Slab verification — the extracted core measured with calipers, or reinforcement visible in the core face against the slab.",
+    video: "/sfgeo-concrete-core-extracted.mp4",
+    poster: "/sfgeo-concrete-core-extracted.jpg",
+    alt: "The extracted concrete core lying beside the cored hole, aggregate showing in the core face",
     body: "Thickness, reinforcement cover and condition — cored, logged and photographed, with strength testing through a NATA-accredited laboratory when the question needs a number. The core comes out as evidence, not just a hole in the floor.",
     link: { href: "/contact", label: "Verify A Slab" },
   },
@@ -140,18 +141,40 @@ export default function ConcreteCoringPage() {
         <section key={sec.id} id={sec.id} className="py-20 lg:py-24 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100 scroll-mt-[90px]">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <FadeIn className={idx % 2 === 1 ? "lg:order-2" : ""}>
-              {sec.image ? (
+              {sec.video ? (
+                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-[0_26px_60px_-26px_rgba(5,10,7,0.4)] bg-[#050A07] flex items-center justify-center">
+                  {/* the same frame, scaled up and blurred, so the portrait clip
+                      sits on its own ground instead of two black bars */}
+                  <video
+                    src={sec.video}
+                    poster={sec.poster}
+                    aria-hidden="true"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="absolute inset-0 w-full h-full object-cover blur-2xl scale-110 opacity-60"
+                  />
+                  <div className="absolute inset-0 bg-[#050A07]/35" />
+                  <video
+                    src={sec.video}
+                    poster={sec.poster}
+                    aria-label={sec.alt}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="relative h-full w-auto max-w-full object-contain"
+                  />
+                  <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#050A07]/70 to-transparent pointer-events-none" />
+                  <p className="absolute bottom-5 left-6 text-[11px] uppercase tracking-[0.25em] text-white/80 font-semibold pointer-events-none">{sec.caption}</p>
+                </div>
+              ) : (
                 <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-[0_26px_60px_-26px_rgba(5,10,7,0.4)]">
-                  <Image src={sec.image} alt={sec.alt} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
+                  <Image src={sec.image!} alt={sec.alt} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/40 via-transparent to-transparent" />
                   <p className="absolute bottom-5 left-6 text-[11px] uppercase tracking-[0.25em] text-white/80 font-semibold">{sec.caption}</p>
                 </div>
-              ) : (
-                <PhotoPlaceholder
-                  subject={sec.shot ?? ""}
-                  caption={sec.caption}
-                  className="aspect-[4/3] rounded-2xl shadow-[0_26px_60px_-26px_rgba(5,10,7,0.4)]"
-                />
               )}
             </FadeIn>
             <FadeIn delay={0.12}>
@@ -169,6 +192,40 @@ export default function ConcreteCoringPage() {
           </div>
         </section>
       ))}
+
+      {/* Commercial hardstands — the second clip */}
+      <section className="py-20 lg:py-24 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+          <FadeIn>
+            <div className="relative mx-auto w-full max-w-[340px] aspect-[448/804] rounded-2xl overflow-hidden shadow-[0_26px_60px_-26px_rgba(5,10,7,0.5)]">
+              <video
+                src="/sfgeo-concrete-coring-rig-hardstand.mp4"
+                poster="/sfgeo-concrete-coring-rig-hardstand.jpg"
+                aria-label="Wet coring rig cutting a core through a container terminal hardstand"
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+              <p className="absolute bottom-5 left-6 text-[11px] uppercase tracking-[0.25em] text-white/80 font-semibold pointer-events-none">Hardstand &middot; Container Terminal</p>
+            </div>
+          </FadeIn>
+          <FadeIn delay={0.12}>
+            <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">Commercial &amp; Industrial</p>
+            <h2 className="text-3xl sm:text-4xl font-montserrat font-light tracking-tight text-slate-950 mb-5">
+              Not Just <span className="font-semibold h-bold">Domestic Slabs.</span>
+            </h2>
+            <div className="h-px bg-forest-green w-12 mb-7" />
+            <p className="text-gray-600 font-light leading-relaxed mb-6">
+              Hardstands, port and terminal pavements, warehouse floors and industrial yards &mdash; heavily loaded surfaces where the question is what the pavement is actually made of and whether it will keep taking the load. Wet coring, services marked before the barrel turns, holes reinstated, and the core logged rather than left on the ground.
+            </p>
+            <p className="text-gray-600 font-light leading-relaxed">
+              Same rate as everything else: <span className="text-slate-950 font-medium">$120 + GST per hole</span>, minimum three holes.
+            </p>
+          </FadeIn>
+        </div>
+      </section>
 
       {/* Why engineer-supervised */}
       <section className="py-24 lg:py-28 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">

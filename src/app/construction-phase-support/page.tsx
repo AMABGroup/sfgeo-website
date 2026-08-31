@@ -2,7 +2,6 @@ import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import QuoteCta from "@/components/forms/QuoteCta";
-import PhotoPlaceholder from "@/components/ui/PhotoPlaceholder";
 import { FadeIn } from "../site-classification/MotionWrapper";
 
 export const metadata: Metadata = {
@@ -62,11 +61,11 @@ export default function Page() {
       <section className="py-16 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           <FadeIn>
-            <PhotoPlaceholder
-              subject="An inspection at bearing level — the engineer in an open footing or pier excavation, checking founding material before the pour."
-              caption="At Bearing Level"
-              className="aspect-[4/3] rounded-2xl shadow-[0_26px_60px_-26px_rgba(5,10,7,0.4)]"
-            />
+            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-[0_26px_60px_-26px_rgba(5,10,7,0.4)]">
+              <Image src="/sfgeo-dcp-open-excavation-newtown.jpg" alt="SFGEO engineer running a dynamic cone penetrometer in an open excavation beside a Newtown terrace before the pour" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/45 via-transparent to-transparent" />
+              <p className="absolute bottom-5 left-6 text-[11px] uppercase tracking-[0.25em] text-white/80 font-semibold">At Bearing Level</p>
+            </div>
           </FadeIn>
           <FadeIn delay={0.12}>
             <h2 className="text-3xl font-montserrat font-light tracking-tight text-slate-950 mb-5">The Answer, <span className="font-semibold h-bold">On Site</span></h2>

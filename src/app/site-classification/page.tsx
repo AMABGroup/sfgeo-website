@@ -2,7 +2,6 @@ import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import QuoteCta from "@/components/forms/QuoteCta";
-import PhotoPlaceholder from "@/components/ui/PhotoPlaceholder";
 import { FadeIn, StaggerContainer, FadeInChild } from "./MotionWrapper";
 import VideoEmbed from "./VideoEmbed";
 import GoogleReviews from "@/components/ui/GoogleReviews";
@@ -268,16 +267,16 @@ export default function SiteClassificationPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           <FadeIn>
             <div className="grid grid-cols-2 gap-4">
-              <PhotoPlaceholder
-                subject="Standard residential access — the 4WD rig set up on an open suburban block, working room around it."
-                caption="Backyards"
-                className="aspect-[3/4] rounded-2xl shadow-[0_20px_50px_-20px_rgba(5,10,7,0.35)]"
-              />
-              <PhotoPlaceholder
-                subject="Restricted access — the motorised hand auger down a narrow side path or through a terrace, showing how tight the gap is."
-                caption="Tight Access"
-                className="aspect-[3/4] rounded-2xl shadow-[0_20px_50px_-20px_rgba(5,10,7,0.35)] lg:mt-8"
-              />
+              <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-[0_20px_50px_-20px_rgba(5,10,7,0.35)]">
+                <Image src="/sfgeo-4wd-rig-suburban-block-willoughby.jpg" alt="SFGEO 4WD drill rig set up on the front lawn of a suburban Sydney home with the engineer at the hole" fill sizes="(max-width: 1024px) 50vw, 30vw" className="object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/40 via-transparent to-transparent" />
+                <p className="absolute bottom-4 left-4 text-[10px] uppercase tracking-[0.2em] text-white/80 font-semibold">Backyards</p>
+              </div>
+              <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-[0_20px_50px_-20px_rgba(5,10,7,0.35)] lg:mt-8">
+                <Image src="/sfgeo-hand-auger-paved-courtyard.jpg" alt="Hand auger boring through lifted pavers in a courtyard where a rig cannot reach, spoil and field log alongside" fill sizes="(max-width: 1024px) 50vw, 30vw" className="object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/40 via-transparent to-transparent" />
+                <p className="absolute bottom-4 left-4 text-[10px] uppercase tracking-[0.2em] text-white/80 font-semibold">By Hand</p>
+              </div>
             </div>
           </FadeIn>
           <FadeIn delay={0.12}>

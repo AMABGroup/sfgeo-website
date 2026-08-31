@@ -37,6 +37,27 @@ const PEDIGREE = [
   { image: "/tier-1-infrastructure-drilling-sydney-metro-hurlstone.jpg", alt: "Drilling for Sydney Metro rail infrastructure at Hurlstone Park", t: "Sydney Metro", loc: "Hurlstone Park" },
 ];
 
+const COMMUNITY = [
+  {
+    place: "Telopea",
+    title: "Safety Lighting",
+    line: "Five boreholes down a residential verge so new street lighting had ground it could stand on — footpaths open the whole time.",
+    href: "/projects#telopea",
+  },
+  {
+    place: "Lakemba",
+    title: "Safety Lighting",
+    line: "A night shift under full traffic control on Haldon Street, drilled through the carriageway and reopened before the shops were.",
+    href: "/projects#lakemba",
+  },
+  {
+    place: "Blakehurst",
+    title: "Traffic Signals",
+    line: "A signal mast footing checked at depth under night closure — and failed, because a pole over six lanes should stand on verified ground.",
+    href: "/projects#blakehurst",
+  },
+];
+
 export default function About() {
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -121,18 +142,42 @@ export default function About() {
 
       {/* Community — the why */}
       <section className="relative overflow-hidden bg-[#050A07] text-white grain">
-        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_70%_-20%,rgba(45,90,58,0.35),transparent_60%)] pointer-events-none" />
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 py-24 lg:py-28 relative z-10">
+        <Image
+          src="/sfgeo-street-handed-back-dawn.jpg"
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover opacity-[0.28]"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#050A07] via-[#050A07]/60 to-[#050A07]" />
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 py-24 lg:py-32 relative z-10">
           <FadeIn>
             <p className="text-sm uppercase tracking-[0.2em] text-[#8FBF9F] mb-6 font-semibold">Our Community</p>
             <h2 className="text-3xl sm:text-5xl font-montserrat font-light tracking-tight leading-[1.12] mb-8 max-w-3xl">
-              From The Inner West, <span className="font-semibold h-bold">For The Inner West.</span>
+              For The Community, <span className="font-semibold h-bold">From The Community.</span>
             </h2>
-            <div className="w-[96px] h-[3px] bg-forest-green mb-8" />
-            <p className="text-lg text-gray-300 font-light leading-relaxed max-w-2xl">
-              SFGEO grew up in Sydney&rsquo;s inner west and west — and the goal was never just helping homeowners build. It&rsquo;s helping the community we come from: hiring locally, training young engineers and drillers, and giving people from our neighbourhoods the opportunities we were given. Every job we take on here keeps that going.
-            </p>
+            <div className="w-[96px] h-[3px] bg-[#8FBF9F] mb-8" />
+            <div className="max-w-2xl space-y-5">
+              <p className="text-lg text-gray-300 font-light leading-relaxed">
+                The people who do this work grew up in Sydney&rsquo;s inner west and west, and it is the same suburbs the work goes back into. We hire locally and we train young engineers and drillers from our own neighbourhoods, because the opportunities we were given should keep going to people from here.
+              </p>
+              <p className="text-lg text-gray-300 font-light leading-relaxed">
+                It matters most on the jobs nobody puts a name to. Street lighting, traffic signals &mdash; public safety infrastructure that a suburb only notices when it isn&rsquo;t there. On those, the engineer reading the ground is someone who lives here too.
+              </p>
+            </div>
           </FadeIn>
+
+          <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-14">
+            {COMMUNITY.map((c) => (
+              <FadeIn key={c.href} delay={0.1}>
+                <Link href={c.href} className="group block border-t border-white/15 pt-6 hover:border-[#8FBF9F]/50 transition-colors">
+                  <p className="text-[10px] uppercase tracking-[0.28em] text-[#8FBF9F]/80 font-semibold mb-3">{c.place}</p>
+                  <h3 className="text-xl font-montserrat font-light tracking-tight mb-3 group-hover:text-[#8FBF9F] transition-colors">{c.title}</h3>
+                  <p className="text-sm text-white/60 font-light leading-relaxed">{c.line}</p>
+                </Link>
+              </FadeIn>
+            ))}
+          </div>
         </div>
       </section>
 

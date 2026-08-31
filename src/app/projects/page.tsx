@@ -195,16 +195,16 @@ const caseStudies: CaseStudy[] = [
     id: "lakemba",
     tag: "Subcontract Drilling",
     title: "A High Street, Read Between Midnight And Trade",
-    location: "Lakemba — public-domain investigation, Haldon Street",
+    location: "Lakemba — street lighting investigation, Haldon Street",
     image: "/projects/project-lakemba-night.jpg",
     imageAlt: "Haldon Street, Lakemba, under night traffic control — a lane coned off for borehole drilling with the shopfronts closed behind",
     brief:
-      "Haldon Street is one of Sydney's busiest retail strips — shopfronts trading seven days, kerb to kerb parked out by mid-morning. The holes had to go into the carriageway itself, which meant they could only go in at night, and the lane had to be back in service before the first roller shutter went up.",
+      "New street lighting for one of Sydney's busiest retail strips — shopfronts trading seven days, kerb to kerb parked out by mid-morning. The pole footings needed ground data, and the holes had to go into the carriageway itself. Which meant they could only go in at night, with the lane back in service before the first roller shutter went up.",
     ground:
       "Full traffic control from the first cone to the last. Locations set out and service-marked before a flight turned, then boreholes advanced through the road pavement, sampled and logged at the hole, backfilled and reinstated one at a time — so no more of the street was open than the work actually needed.",
     outcome:
-      "Every hole drilled, logged and made good inside a single night shift, working alongside one of the bigger testing firms for part of the program. The lane was handed back before dawn and the street traded the next morning as though nothing had happened — which, for the businesses on it, is the entire point.",
-    facts: ["Single night shift", "Drilled through the carriageway", "Full traffic control", "Reopened before trade"],
+      "Every hole drilled, logged and made good inside a single night shift, working alongside one of the bigger testing firms for part of the program. The lane was handed back before dawn and the street traded the next morning as though nothing had happened. The lighting those footings carry is what the street walks home under now — which, for the people on it, is the entire point.",
+    facts: ["Street lighting footings", "Single night shift", "Drilled through the carriageway", "Reopened before trade"],
   },
   {
     id: "northmead",
