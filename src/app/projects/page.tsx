@@ -211,10 +211,8 @@ const caseStudies: CaseStudy[] = [
     tag: "Construction Phase Support",
     title: "A New Home For A Congregation",
     location: "Northmead — church expansion, new ministry building",
-    image: null,
-    shot:
-      "The church expansion — earthworks or the tank base under inspection, with the building going up behind it.",
-    imageAlt: "Footing-level inspection during the church expansion works",
+    image: "/projects/project-northmead-osd.jpg",
+    imageAlt: "The detention tank excavation at the church expansion, laser level set up over the exposed weathered shale base",
     brief:
       "A church in Sydney’s north-west outgrew its walls. The expansion — a new ministry building for the congregation — needed its earthworks verified layer by layer, and the base of a ten-metre detention tank confirmed at footing level before concrete.",
     ground:
