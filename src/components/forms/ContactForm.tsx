@@ -1,8 +1,9 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { useSearchParams } from "next/navigation";
+import { useState, useEffect, useRef } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
+import { PROJECT_TYPES, START_DATES } from "@/data/projectTypes";
 
 declare global {
   interface Window {
@@ -11,6 +12,9 @@ declare global {
 }
 
 type FormStatus = "idle" | "submitting" | "success" | "error";
+
+const FOCUS_RING =
+  "focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-forest-green";
 
 export default function ContactForm() {
   const [status, setStatus] = useState<FormStatus>("idle");
@@ -22,46 +26,32 @@ export default function ContactForm() {
     projectType: "",
     startDate: "",
     message: "",
-    consent: false,
     website: "", // Honeypot
   });
 
-  const searchParams = useSearchParams();
+  const successHeadingRef = useRef<HTMLHeadingElement>(null);
 
+  // Read the query once on the client. useSearchParams would force this static
+  // route to bail out to client rendering, shipping no form in the HTML at all.
   useEffect(() => {
-    if (!searchParams) return;
-    const subject = searchParams.get("subject");
-    if (subject === "b2b-enquiry" || subject === "Subcontract Drilling Enquiry") {
+    const subject = new URLSearchParams(window.location.search).get("subject");
+    if (subject === "b2b-enquiry") {
+      // Engineers and consultancies land here too — let them pick the type.
+      setFormData(prev => ({ ...prev, message: "B2B enquiry — " }));
+    } else if (subject === "Subcontract Drilling Enquiry") {
       setFormData(prev => ({ ...prev, projectType: "B2B subcontract drilling" }));
     } else if (subject === "site-inspection") {
       setFormData(prev => ({ ...prev, projectType: "Other", message: "I would like to request a site inspection." }));
     }
-  }, [searchParams]);
+  }, []);
+
+  useEffect(() => {
+    if (status === "success") {
+      successHeadingRef.current?.focus();
+    }
+  }, [status]);
 
   const [errors, setErrors] = useState<Record<string, string>>({});
-
-  const projectTypes = [
-    "New home",
-    "Knockdown rebuild",
-    "Extension or addition",
-    "Granny flat",
-    "In-ground pool",
-    "Retaining wall",
-    "Commercial or multi-residential",
-    "B2B subcontract drilling",
-  "Design parameters for engineers",
-  "Environmental sampling",
-  "Concrete coring",
-    "Other",
-  ];
-
-  const startDates = [
-    "Within 2 weeks",
-    "2–4 weeks",
-    "1–3 months",
-    "More than 3 months",
-    "Not sure yet",
-  ];
 
   const validate = () => {
     const newErrors: Record<string, string> = {};
@@ -92,23 +82,18 @@ export default function ContactForm() {
       newErrors.startDate = "Please let us know when you're looking to start.";
     }
 
-    if (!formData.consent) {
-      newErrors.consent = "Please confirm you're happy to be contacted.";
-    }
-
     setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
+    return newErrors;
   };
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
-    const { name, value, type } = e.target;
-    const checked = (e.target as HTMLInputElement).checked;
+    const { name, value } = e.target;
 
     setFormData((prev) => ({
       ...prev,
-      [name]: type === "checkbox" ? checked : value,
+      [name]: value,
     }));
 
     // Clear error when user starts typing
@@ -123,7 +108,14 @@ export default function ContactForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!validate()) return;
+    const newErrors = validate();
+    const firstInvalid = Object.keys(newErrors)[0];
+    if (firstInvalid) {
+      const el = document.getElementById(firstInvalid);
+      el?.scrollIntoView({ block: "center" });
+      el?.focus({ preventScroll: true });
+      return;
+    }
 
     setStatus("submitting");
 
@@ -151,11 +143,25 @@ export default function ContactForm() {
     }
   };
 
+  const fieldClasses = (name: string) =>
+    `bg-transparent border-b ${errors[name] ? 'border-red-400' : 'border-gray-200 focus:border-forest-green'} py-3 text-lg font-light text-slate-950 ${FOCUS_RING} transition-colors placeholder:text-gray-500 min-h-[44px]`;
+
+  const selectClasses = (name: string) =>
+    `bg-transparent border-b ${errors[name] ? 'border-red-400' : 'border-gray-200 focus:border-forest-green'} py-3 text-lg font-light text-slate-950 ${FOCUS_RING} transition-colors appearance-none cursor-pointer min-h-[44px]`;
+
+  const ariaFor = (name: string) => ({
+    "aria-invalid": !!errors[name],
+    "aria-describedby": errors[name] ? `${name}-error` : undefined,
+    "aria-required": true as const,
+  });
+
   if (status === "success") {
     return (
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
+        role="status"
+        aria-live="polite"
         className="flex flex-col items-center justify-center py-16 text-center"
       >
         <div className="w-16 h-16 bg-forest-green/10 rounded-full flex items-center justify-center mb-6">
@@ -168,12 +174,16 @@ export default function ContactForm() {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
           </svg>
         </div>
-        <h2 className="text-3xl font-montserrat font-semibold text-slate-950 mb-4">
+        <h2
+          ref={successHeadingRef}
+          tabIndex={-1}
+          className="text-3xl font-montserrat font-semibold text-slate-950 mb-4 outline-none"
+        >
           Thanks, {formData.name.split(" ")[0]}.
         </h2>
         <p className="text-lg text-gray-600 font-light max-w-md leading-relaxed">
           We've received your enquiry and will be in touch within one business day. If your project is time-critical, please call us on{" "}
-          <a href="tel:0423483555" className="text-forest-green font-semibold hover:underline">
+          <a href="tel:+61423483555" className="text-forest-green font-semibold hover:underline whitespace-nowrap">
             0423 483 555
           </a>.
         </p>
@@ -182,8 +192,8 @@ export default function ContactForm() {
   }
 
   return (
-    <div className="w-full max-w-2xl mx-auto py-12">
-      <form onSubmit={handleSubmit} className="flex flex-col gap-8">
+    <div className="w-full max-w-2xl">
+      <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-8">
         {/* Honeypot */}
         <div 
           className="absolute opacity-0 pointer-events-none" 
@@ -201,8 +211,9 @@ export default function ContactForm() {
         </div>
 
         {status === "error" && (
-          <div className="bg-red-50 border border-red-100 text-red-600 px-6 py-4 rounded-xl text-sm font-medium">
-            Something went wrong on our end. Please try again, or call us directly on 0423 483 555.
+          <div role="alert" className="bg-red-50 border border-red-100 text-red-600 px-6 py-4 rounded-xl text-sm font-medium">
+            Something went wrong on our end. Please try again, or call us directly on{" "}
+            <a href="tel:+61423483555" className="font-semibold underline whitespace-nowrap">0423 483 555</a>.
           </div>
         )}
 
@@ -216,13 +227,17 @@ export default function ContactForm() {
               id="name"
               type="text"
               name="name"
+              autoComplete="name"
               value={formData.name}
               onChange={handleChange}
-              className={`bg-transparent border-b ${errors.name ? 'border-red-400' : 'border-gray-200 focus:border-forest-green'} py-3 text-lg font-light text-slate-950 outline-none transition-colors placeholder:text-gray-500 min-h-[44px]`}
+              className={fieldClasses("name")}
+              {...ariaFor("name")}
             />
             <AnimatePresence>
               {errors.name && (
                 <motion.span
+                  id="name-error"
+                  role="alert"
                   initial={{ opacity: 0, height: 0 }}
                   animate={{ opacity: 1, height: "auto" }}
                   exit={{ opacity: 0, height: 0 }}
@@ -243,13 +258,18 @@ export default function ContactForm() {
               id="email"
               type="email"
               name="email"
+              autoComplete="email"
+              inputMode="email"
               value={formData.email}
               onChange={handleChange}
-              className={`bg-transparent border-b ${errors.email ? 'border-red-400' : 'border-gray-200 focus:border-forest-green'} py-3 text-lg font-light text-slate-950 outline-none transition-colors placeholder:text-gray-500 min-h-[44px]`}
+              className={fieldClasses("email")}
+              {...ariaFor("email")}
             />
             <AnimatePresence>
               {errors.email && (
                 <motion.span
+                  id="email-error"
+                  role="alert"
                   initial={{ opacity: 0, height: 0 }}
                   animate={{ opacity: 1, height: "auto" }}
                   exit={{ opacity: 0, height: 0 }}
@@ -270,13 +290,18 @@ export default function ContactForm() {
               id="phone"
               type="tel"
               name="phone"
+              autoComplete="tel"
+              inputMode="tel"
               value={formData.phone}
               onChange={handleChange}
-              className={`bg-transparent border-b ${errors.phone ? 'border-red-400' : 'border-gray-200 focus:border-forest-green'} py-3 text-lg font-light text-slate-950 outline-none transition-colors placeholder:text-gray-500 min-h-[44px]`}
+              className={fieldClasses("phone")}
+              {...ariaFor("phone")}
             />
             <AnimatePresence>
               {errors.phone && (
                 <motion.span
+                  id="phone-error"
+                  role="alert"
                   initial={{ opacity: 0, height: 0 }}
                   animate={{ opacity: 1, height: "auto" }}
                   exit={{ opacity: 0, height: 0 }}
@@ -297,14 +322,18 @@ export default function ContactForm() {
               id="siteAddress"
               type="text"
               name="siteAddress"
+              autoComplete="off"
               placeholder="Street address, suburb, NSW"
               value={formData.siteAddress}
               onChange={handleChange}
-              className={`bg-transparent border-b ${errors.siteAddress ? 'border-red-400' : 'border-gray-200 focus:border-forest-green'} py-3 text-lg font-light text-slate-950 outline-none transition-colors placeholder:text-gray-500 min-h-[44px]`}
+              className={fieldClasses("siteAddress")}
+              {...ariaFor("siteAddress")}
             />
             <AnimatePresence>
               {errors.siteAddress && (
                 <motion.span
+                  id="siteAddress-error"
+                  role="alert"
                   initial={{ opacity: 0, height: 0 }}
                   animate={{ opacity: 1, height: "auto" }}
                   exit={{ opacity: 0, height: 0 }}
@@ -326,16 +355,19 @@ export default function ContactForm() {
               name="projectType"
               value={formData.projectType}
               onChange={handleChange}
-              className={`bg-transparent border-b ${errors.projectType ? 'border-red-400' : 'border-gray-200 focus:border-forest-green'} py-3 text-lg font-light text-slate-950 outline-none transition-colors appearance-none cursor-pointer min-h-[44px]`}
+              className={selectClasses("projectType")}
+              {...ariaFor("projectType")}
             >
               <option value="" disabled>Select a project type</option>
-              {projectTypes.map((type) => (
+              {PROJECT_TYPES.map((type) => (
                 <option key={type} value={type}>{type}</option>
               ))}
             </select>
             <AnimatePresence>
               {errors.projectType && (
                 <motion.span
+                  id="projectType-error"
+                  role="alert"
                   initial={{ opacity: 0, height: 0 }}
                   animate={{ opacity: 1, height: "auto" }}
                   exit={{ opacity: 0, height: 0 }}
@@ -357,16 +389,19 @@ export default function ContactForm() {
               name="startDate"
               value={formData.startDate}
               onChange={handleChange}
-              className={`bg-transparent border-b ${errors.startDate ? 'border-red-400' : 'border-gray-200 focus:border-forest-green'} py-3 text-lg font-light text-slate-950 outline-none transition-colors appearance-none cursor-pointer min-h-[44px]`}
+              className={selectClasses("startDate")}
+              {...ariaFor("startDate")}
             >
               <option value="" disabled>Select a timeframe</option>
-              {startDates.map((date) => (
+              {START_DATES.map((date) => (
                 <option key={date} value={date}>{date}</option>
               ))}
             </select>
             <AnimatePresence>
               {errors.startDate && (
                 <motion.span
+                  id="startDate-error"
+                  role="alert"
                   initial={{ opacity: 0, height: 0 }}
                   animate={{ opacity: 1, height: "auto" }}
                   exit={{ opacity: 0, height: 0 }}
@@ -391,53 +426,16 @@ export default function ContactForm() {
             placeholder="Site details, engineer requirements, or context that helps us quote accurately."
             value={formData.message}
             onChange={handleChange}
-            className="bg-transparent border-b border-gray-200 py-3 text-lg font-light text-slate-950 outline-none transition-colors focus:border-forest-green placeholder:text-gray-500 resize-none min-h-[100px]"
+            className={`bg-transparent border-b border-gray-200 py-3 text-lg font-light text-slate-950 ${FOCUS_RING} transition-colors focus:border-forest-green placeholder:text-gray-500 resize-none min-h-[100px]`}
           />
         </div>
 
-        {/* Privacy Consent */}
-        <div className="flex flex-col gap-2">
-          <label className="flex items-start gap-3 cursor-pointer group">
-            <div className="mt-1 flex items-center justify-center">
-              <input
-                type="checkbox"
-                name="consent"
-                checked={formData.consent}
-                onChange={handleChange}
-                className="sr-only"
-              />
-              <div className={`w-5 h-5 border rounded flex items-center justify-center transition-all ${formData.consent ? 'bg-forest-green border-forest-green' : 'border-gray-300 group-hover:border-forest-green'} ${errors.consent ? 'border-red-400 bg-red-50' : ''}`}>
-                {formData.consent && (
-                  <svg className="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                  </svg>
-                )}
-              </div>
-            </div>
-            <span className="text-sm font-light text-gray-600 leading-normal select-none">
-              I agree to be contacted by SFGEO about this enquiry. See our <a href="/privacy-policy" className="text-forest-green hover:underline">Privacy Policy</a>.
-            </span>
-          </label>
-          <AnimatePresence>
-            {errors.consent && (
-              <motion.span
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: "auto" }}
-                exit={{ opacity: 0, height: 0 }}
-                className="text-red-600 text-xs mt-1 ml-8"
-              >
-                {errors.consent}
-              </motion.span>
-            )}
-          </AnimatePresence>
-        </div>
-
         {/* Submit Button */}
-        <div className="pt-6">
+        <div className="pt-6 flex flex-col gap-4">
           <button
             type="submit"
             disabled={status === "submitting"}
-            className="w-full md:w-auto md:min-w-[260px] bg-forest-green text-white px-10 py-2.5 rounded-full text-sm font-semibold shadow-lg shadow-forest-green/20 hover:bg-forest-green/90 transition-all hover:-translate-y-0.5 disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-3 h-[46px]"
+            className="w-full md:w-auto md:min-w-[260px] bg-gradient-to-b from-[#346b43] to-forest-green text-white px-10 rounded-full text-xs font-semibold tracking-wide shadow-[0_8px_20px_-6px_rgba(45,90,58,0.4)] hover:shadow-[0_12px_24px_-8px_rgba(45,90,58,0.6)] hover:brightness-105 transition-all hover:-translate-y-0.5 disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-3 h-[46px]"
           >
             {status === "submitting" ? (
               <>
@@ -451,6 +449,10 @@ export default function ContactForm() {
               "Request a Fixed-Fee Quote"
             )}
           </button>
+          <p className="text-xs text-gray-500 font-light leading-relaxed">
+            By sending this you agree to be contacted about your enquiry. See our{" "}
+            <Link href="/privacy-policy" className="text-forest-green hover:underline">Privacy Policy</Link>.
+          </p>
         </div>
       </form>
     </div>

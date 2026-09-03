@@ -3,31 +3,18 @@ import Image from "next/image";
 import Link from "next/link";
 import QuoteCta from "@/components/forms/QuoteCta";
 import { FadeIn } from "../site-classification/MotionWrapper";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Geotechnical Engineers Sydney | About SFGEO",
-  description: "Sydney's boutique geotechnical consultancy — family owned, principal-led, Inner West based. The team behind every classification, investigation and drilling job.",
-  alternates: {
-    canonical: '/about',
-  },
-  openGraph: {
-    images: ['/og/sfgeo-og-card.jpg'],
-    title: "Geotechnical Engineers Sydney | About SFGEO",
-    description: "Sydney's boutique geotechnical consultancy — family owned, principal-led, Inner West based.",
-    url: '/about',
-  },
-  twitter: {
-    card: "summary_large_image",
-    images: ['/og/sfgeo-og-card.jpg'],
-    title: "Geotechnical Engineers Sydney | About SFGEO",
-    description: "Family owned, principal-led, Inner West based — the team behind the reports.",
-  },
-};
+export const metadata: Metadata = pageMeta(
+  "Geotechnical Engineers Marrickville & Inner West | SFGEO",
+  "Family owned, principal-led geotechnical engineers based in Marrickville — the Inner West team behind every classification, investigation and drilling job.",
+  "/about",
+);
 
 const VALUES = [
   { t: "Direct Access. Always.", d: "Call, email, turn up. You reach the team doing the work directly — no admin queues, no message chains." },
-  { t: "Sydney Is Our Backyard.", d: "Locally owned, locally based. We know Sydney's ground conditions, its councils, and its sites — because we've worked them for 15 years." },
-  { t: "On Site. On Time. On Call.", d: "We mobilise fast, deliver reports quickly, and pick up the phone when you need an answer. Quality work, without the wait." },
+  { t: "Sydney Is Our Backyard.", d: "Locally owned, locally based. We know Sydney's ground, its councils and its sites — the Principal has worked them for 15 years, from Sydney Gateway to backyard footings." },
+  { t: "On Site. On Time. On Call.", d: "A fixed fee within one business day, classification reports as soon as 2–3 business days from fieldwork, and the Principal's mobile answered — not a switchboard." },
 ];
 
 const PEDIGREE = [
@@ -40,13 +27,13 @@ const PEDIGREE = [
 const COMMUNITY = [
   {
     place: "Telopea",
-    title: "Safety Lighting",
+    title: "Safety Lighting, Footpaths Open",
     line: "Five boreholes down a residential verge so new street lighting had ground it could stand on — footpaths open the whole time.",
     href: "/projects#telopea",
   },
   {
     place: "Lakemba",
-    title: "Safety Lighting",
+    title: "Safety Lighting, Night Shift",
     line: "A night shift under full traffic control on Haldon Street, drilled through the carriageway and reopened before the shops were.",
     href: "/projects#lakemba",
   },
@@ -74,18 +61,18 @@ export default function About() {
 
       {/* Hero */}
       <section className="pt-36 pb-16 px-6 lg:px-12 max-w-7xl mx-auto">
-        <FadeIn className="max-w-3xl">
-          <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-6 font-semibold">
+        <div className="max-w-3xl">
+          <p className="hero-line text-sm uppercase tracking-[0.2em] text-forest-green mb-6 font-semibold">
             About SFGEO &middot; Family Owned &middot; Inner West Based
           </p>
-          <h1 className="text-4xl sm:text-6xl font-montserrat font-light tracking-tight leading-[1.08] mb-8">
+          <h1 className="hero-line hero-d1 text-[min(2.25rem,8.2vw)] sm:text-6xl font-montserrat font-light tracking-tight leading-[1.08] mb-8">
             Boutique Geotechnical <span className="font-semibold h-bold">Engineers. Sydney.</span>
           </h1>
-          <div className="w-[96px] h-[3px] bg-forest-green mb-8" />
-          <p className="text-lg sm:text-xl text-gray-600 font-light leading-relaxed">
+          <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />
+          <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed">
             A principal-led team, hired locally, backed by a trusted partner network — carrying fifteen years of Sydney ground from landmark infrastructure to backyard footings. When you work with SFGEO, you work with the same team, start to finish.
           </p>
-        </FadeIn>
+        </div>
       </section>
 
       {/* Full-width team photo */}
@@ -96,11 +83,12 @@ export default function About() {
               src="/sfgeo-night-works-high-street-sydney.jpg"
               alt="A Sydney high street closed under traffic control for overnight geotechnical works, shopfronts shut and the lane coned off"
               fill
-              sizes="(max-width: 1024px) 100vw, 1200px"
+              sizes="(max-width: 1024px) 100vw, 1216px"
+              priority
               className="object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/55 via-[#050A07]/10 to-transparent" />
-            <p className="absolute bottom-5 left-6 text-[11px] uppercase tracking-[0.25em] text-white/75 font-semibold">
+            <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/80 via-[#050A07]/25 to-transparent" />
+            <p className="absolute bottom-5 left-6 text-[11px] uppercase tracking-[0.25em] text-white font-semibold">
               Night Works &middot; Sydney
             </p>
           </div>
@@ -119,7 +107,7 @@ export default function About() {
             SFGEO is a locally-owned, independent geotechnical consultancy based in Marrickville, built on 15 years of hands-on Sydney experience across residential <Link href="/site-classification" className="text-forest-green hover:underline">site classifications</Link>, bespoke architectural homes, and landmark infrastructure.
           </p>
           <p className="text-lg text-gray-600 font-light leading-loose mb-6">
-            We were founded on a simple belief: clients deserve direct access to the professional doing the work, not a corporate chain. SFGEO is family owned and Sydney grown — a principal-led team, hired locally, backed by a trusted partner network.
+            We were founded on a simple belief: clients deserve direct access to the professional doing the work, not a corporate chain. SFGEO is family owned and Sydney grown — the engineer who quotes your job is the one who drills it and signs the report.
           </p>
           <p className="text-lg text-gray-600 font-light leading-loose">
             Our Principal Engineer has contributed to Sydney Gateway, the M12 Motorway, Western Sydney Airport, and the Canterbury Aquatic Centre. That depth of experience now serves your project with the responsiveness, transparency, and personal care that only an independent practice can offer.
@@ -134,8 +122,8 @@ export default function About() {
               sizes="(max-width: 1024px) 100vw, 33vw"
               className="object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/40 via-transparent to-transparent" />
-            <p className="absolute bottom-5 left-6 text-[11px] uppercase tracking-[0.25em] text-white/80 font-semibold">Principal-Led &middot; On The Rig</p>
+            <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/80 via-[#050A07]/25 to-transparent" />
+            <p className="absolute bottom-5 left-6 text-[11px] uppercase tracking-[0.25em] text-white font-semibold">Principal-Led &middot; On The Rig</p>
           </div>
         </FadeIn>
       </section>
@@ -147,13 +135,13 @@ export default function About() {
           alt=""
           fill
           sizes="100vw"
-          className="object-cover opacity-[0.28]"
+          className="object-cover opacity-[0.28] hidden lg:block"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-[#050A07] via-[#050A07]/60 to-[#050A07]" />
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-24 lg:py-32 relative z-10">
           <FadeIn>
             <p className="text-sm uppercase tracking-[0.2em] text-[#8FBF9F] mb-6 font-semibold">Our Community</p>
-            <h2 className="text-3xl sm:text-5xl font-montserrat font-light tracking-tight leading-[1.12] mb-8 max-w-3xl">
+            <h2 className="text-[min(1.875rem,7.5vw)] sm:text-5xl font-montserrat font-light tracking-tight leading-[1.12] mb-8 max-w-3xl">
               For The Community, <span className="font-semibold h-bold">From The Community.</span>
             </h2>
             <div className="w-[96px] h-[3px] bg-[#8FBF9F] mb-8" />
@@ -171,7 +159,7 @@ export default function About() {
             {COMMUNITY.map((c) => (
               <FadeIn key={c.href} delay={0.1}>
                 <Link href={c.href} className="group block border-t border-white/15 pt-6 hover:border-[#8FBF9F]/50 transition-colors">
-                  <p className="text-[10px] uppercase tracking-[0.28em] text-[#8FBF9F]/80 font-semibold mb-3">{c.place}</p>
+                  <p className="text-[11px] uppercase tracking-[0.28em] text-[#8FBF9F]/80 font-semibold mb-3">{c.place}</p>
                   <h3 className="text-xl font-montserrat font-light tracking-tight mb-3 group-hover:text-[#8FBF9F] transition-colors">{c.title}</h3>
                   <p className="text-sm text-white/60 font-light leading-relaxed">{c.line}</p>
                 </Link>
@@ -213,7 +201,7 @@ export default function About() {
             <div className="mt-5 h-px bg-forest-green w-12" />
           </div>
           <p className="text-sm text-gray-500 max-w-md font-light leading-relaxed">
-            Before SFGEO carried its own name, our engineers carried these — landmark Sydney infrastructure, now serving every backyard we classify. For current work, see <Link href="/projects" className="text-forest-green hover:underline">our projects</Link>.
+            Before SFGEO carried its own name, its Principal carried these — landmark Sydney infrastructure, now serving every backyard we classify. For current work, see <Link href="/projects" className="text-forest-green hover:underline">our projects</Link>.
           </p>
         </FadeIn>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -221,10 +209,10 @@ export default function About() {
             <FadeIn key={p.t}>
               <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-[0_20px_50px_-20px_rgba(5,10,7,0.35)]">
                 <Image src={p.image} alt={p.alt} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" className="object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/60 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/80 via-[#050A07]/25 to-transparent" />
                 <div className="absolute bottom-4 left-5 right-5">
                   <p className="text-[13px] font-semibold text-white leading-tight">{p.t}</p>
-                  <p className="text-[11px] uppercase tracking-[0.2em] text-white/70 font-semibold mt-1">{p.loc}</p>
+                  <p className="text-[11px] uppercase tracking-[0.2em] text-white font-semibold mt-1">{p.loc}</p>
                 </div>
               </div>
             </FadeIn>
@@ -243,7 +231,7 @@ export default function About() {
             <div className="mt-5 h-px bg-forest-green w-12" />
           </div>
           <p className="text-sm text-gray-500 max-w-md font-light leading-relaxed">
-            SFGEO strictly complies with AS 1726, AS 2870 and AS 3798, with fieldwork and reporting fully site-specific to meet Sydney Water, local council and CDC requirements.
+            Fieldwork and reporting follow AS 1726, AS 2870 and AS 3798, written to what your certifier, council or Sydney Water actually asks for.
           </p>
         </FadeIn>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
@@ -267,7 +255,7 @@ export default function About() {
             <div className="p-8 bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-md transition-shadow flex flex-col items-center justify-center text-center h-full">
               <span className="block text-slate-950 font-montserrat font-semibold text-lg mb-3">Fully Insured &amp; Compliant</span>
               <p className="text-sm font-light leading-relaxed text-gray-600">
-                Comprehensive Professional Indemnity (PI) and Public Liability (PL) insurance for major site sign-offs.
+                Professional Indemnity (PI) and Public Liability (PL) insurance covering geotechnical engineering and drilling — certificates of currency on request.
               </p>
             </div>
           </FadeIn>

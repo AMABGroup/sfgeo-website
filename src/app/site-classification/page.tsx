@@ -5,26 +5,23 @@ import QuoteCta from "@/components/forms/QuoteCta";
 import { FadeIn, StaggerContainer, FadeInChild } from "./MotionWrapper";
 import VideoEmbed from "./VideoEmbed";
 import GoogleReviews from "@/components/ui/GoogleReviews";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Site Classification Sydney | AS2870 Soil Reports | SFGEO",
-  description: "AS2870 site classifications for Sydney homes and extensions. Principal-led, NATA lab-backed, fixed-fee — reports as soon as 2–3 business days from fieldwork.",
-  alternates: {
-    canonical: '/site-classification',
-  },
-  openGraph: {
-    images: ['/og/sfgeo-og-card.jpg'],
-    title: "Site Classification Sydney | AS2870 Soil Reports | SFGEO",
-    description: "AS2870 site classifications for Sydney homes and extensions. Principal-led, NATA lab-backed, fixed-fee — reports as soon as 2–3 business days from fieldwork.",
-    url: '/site-classification',
-  },
-  twitter: {
-    card: "summary_large_image",
-    images: ['/og/sfgeo-og-card.jpg'],
-    title: "Site Classification Sydney | AS2870 Soil Reports | SFGEO",
-    description: "AS2870 site classifications for Sydney homes and extensions. Principal-led, NATA lab-backed, fixed-fee — reports as soon as 2–3 business days from fieldwork.",
-  },
-};
+export const metadata: Metadata = pageMeta(
+  "Site Classification & Soil Test Sydney | AS 2870 | SFGEO",
+  "AS 2870 site classifications for Sydney homes and granny flats — fixed fees from $800 + GST, the engineer on site, reports as soon as 2–3 business days.",
+  "/site-classification",
+);
+
+const REPORT_CONTENTS = [
+  "Site classification to AS 2870, with the characteristic surface movement behind it",
+  "Allowable bearing pressures for the footing types on your plans",
+  "The subsurface profile, layer by layer, with groundwater observations",
+  "Engineer-logged borehole records and a plan of where each hole went",
+  "Laboratory results, where tested, and what they mean for the footing",
+  "Founding recommendations — depth, and the fill, trees, slope or drainage your engineer has to design around",
+  "Written to your certifier's requirements and signed by the Principal Engineer",
+];
 
 const CLASSES = [
   { cls: "A", desc: "Stable. Minimal movement. Sand or rock." },
@@ -39,13 +36,13 @@ const COMPARE = [
   { volume: "Fieldwork done without the signing engineer present", sfgeo: "Principal Engineer on every site" },
   { volume: "Templated reports, one size fits all", sfgeo: "Tailored to your certifier, structural engineer and council" },
   { volume: "Lab testing applied by default, billed regardless", sfgeo: "Lab testing when the site warrants it, not as padding" },
-  { volume: "Engineer meets the site via the borehole log", sfgeo: "Principal meets you on site before quoting" },
+  { volume: "Engineer meets the site via the borehole log", sfgeo: "Principal reviews your block and plans before quoting" },
   { volume: "Separate quotes for drilling, engineering and construction advice", sfgeo: "One professional, one scope" },
 ];
 
 const PROCESS = [
   { t: "Send The Address", d: "A short project description and any plans you have. Answered within one business day." },
-  { t: "Site Meeting & Fixed Fee", d: "The Principal Engineer walks the site with you, then the fee is confirmed in writing before work begins." },
+  { t: "Desktop Review & Fixed Fee", d: "The Principal reviews the block, the geology and your plans, and the fee is confirmed in writing within one business day. A site walkover is arranged where the site warrants it." },
   { t: "Fieldwork", d: "The Principal attends and logs the profile on site — with lab testing through a NATA-accredited laboratory only when the site warrants it." },
   { t: "Report, Signed", d: "Written against your certifier's and structural engineer's requirements. As soon as 2–3 business days from fieldwork; urgent turnaround by arrangement." },
 ];
@@ -105,18 +102,18 @@ export default function SiteClassificationPage() {
 
       {/* Hero */}
       <section className="pt-36 pb-20 px-6 lg:px-12 max-w-7xl mx-auto">
-        <FadeIn className="max-w-3xl">
-          <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-6 font-semibold">
+        <div className="max-w-3xl">
+          <p className="hero-line text-sm uppercase tracking-[0.2em] text-forest-green mb-6 font-semibold">
             Site Classification &middot; AS 2870 &middot; Fixed Fee
           </p>
-          <h1 className="text-4xl sm:text-6xl font-montserrat font-light tracking-tight leading-[1.08] mb-8">
+          <h1 className="hero-line hero-d1 text-[min(2.25rem,8.2vw)] sm:text-6xl font-montserrat font-light tracking-tight leading-[1.08] mb-8">
             Site Classifications Sydney. <span className="font-semibold h-bold">Engineered Properly.</span>
           </h1>
-          <div className="w-[96px] h-[3px] bg-forest-green mb-8" />
-          <p className="text-lg sm:text-xl text-gray-600 font-light leading-relaxed mb-10">
+          <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />
+          <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed mb-10">
             The AS 2870 report your whole build stands on — led by the Principal Engineer, tailored to your site, your design and your certifier. No templates. No surprises.
           </p>
-          <div className="flex flex-col sm:flex-row items-start gap-4">
+          <div className="hero-line hero-d3 flex flex-col sm:flex-row items-start gap-4">
             <QuoteCta
               source="site-classification hero"
               label="Get Your Fixed-Fee Quote"
@@ -129,7 +126,8 @@ export default function SiteClassificationPage() {
               Call 0423 483 555
             </Link>
           </div>
-        </FadeIn>
+          <p className="hero-line hero-d3 mt-5 text-sm text-gray-500 font-light tracking-wide">From $800 + GST &middot; Reports as soon as 2–3 business days from fieldwork &middot; Response within one business day</p>
+        </div>
       </section>
 
       {/* 01 — What it does, with the fieldwork film */}
@@ -160,7 +158,7 @@ export default function SiteClassificationPage() {
             <ul className="space-y-3 mb-2">
               {[
                 "Lets your architect design with the ground, not around it — before redesign fees exist",
-                "Gives your structural engineer real data: a well-read Class M against a defaulted H1 is tens of thousands in concrete and steel",
+                "Gives your structural engineer real data: a properly read Class M instead of an assumed worst-case H1 is tens of thousands in concrete and steel",
                 "Moves cleanly through DA and CDC — written to your certifier's requirements, not a template",
                 "Protects the finished home from the cracks that show up quietly, years later",
               ].map((s) => (
@@ -179,9 +177,9 @@ export default function SiteClassificationPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center mb-14">
           <FadeIn className="lg:order-2">
             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-[0_26px_60px_-26px_rgba(5,10,7,0.4)]">
-              <Image src="/sfgeo-principal-engineer-reviewing-architectural-plans-as2870.jpg" alt="SFGEO Principal Engineer reviewing architectural plans against AS 2870" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/40 via-transparent to-transparent" />
-              <p className="absolute bottom-5 left-6 text-[11px] uppercase tracking-[0.25em] text-white/80 font-semibold">02 &middot; The SFGEO Way</p>
+              <Image src="/sfgeo-principal-engineer-reviewing-architectural-plans-as2870.jpg" alt="SFGEO Principal Engineer reviewing architectural plans against AS 2870" fill sizes="(max-width: 1024px) 100vw, (max-width: 1280px) 50vw, 600px" className="object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/80 via-[#050A07]/25 to-transparent" />
+              <p className="absolute bottom-5 left-6 text-[11px] uppercase tracking-[0.25em] text-white font-semibold">02 &middot; The SFGEO Way</p>
             </div>
           </FadeIn>
           <FadeIn delay={0.12}>
@@ -205,11 +203,11 @@ export default function SiteClassificationPage() {
               {COMPARE.map((row, idx) => (
                 <div key={idx} className="flex flex-col md:grid md:grid-cols-2 p-8 md:p-0">
                   <div className="md:px-8 md:py-6 text-gray-500 font-light md:border-r border-gray-100 pb-3 md:pb-6 leading-relaxed">
-                    <span className="block md:hidden text-[10px] font-bold uppercase tracking-widest text-gray-500 mb-1.5">The Volume Model</span>
+                    <span className="block md:hidden text-[11px] font-bold uppercase tracking-widest text-gray-500 mb-1.5">The Volume Model</span>
                     {row.volume}
                   </div>
                   <div className="md:px-8 md:py-6 text-slate-950 font-medium leading-relaxed">
-                    <span className="block md:hidden text-[10px] font-bold uppercase tracking-widest text-forest-green mb-1.5 mt-2">The SFGEO Way</span>
+                    <span className="block md:hidden text-[11px] font-bold uppercase tracking-widest text-forest-green mb-1.5 mt-2">The SFGEO Way</span>
                     {row.sfgeo}
                   </div>
                 </div>
@@ -230,6 +228,9 @@ export default function SiteClassificationPage() {
           <p className="text-gray-600 font-light leading-relaxed">
             The figures below are starting points — what drives a real quote is the site itself: access, ground conditions, existing structures, slope, and the depth of investigation your project actually needs. Every fee is confirmed in writing before work begins.
           </p>
+          <p className="mt-4 text-gray-600 font-light leading-relaxed">
+            Full price bands and what moves a quote: <Link href="/geotechnical-report-cost-sydney" className="text-forest-green hover:underline font-medium">geotechnical report cost guide</Link>.
+          </p>
         </FadeIn>
         <StaggerContainer>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -240,10 +241,10 @@ export default function SiteClassificationPage() {
             ].map((c) => (
               <FadeInChild key={c.k}>
                 <div className="flex flex-col h-full bg-white border border-gray-100 p-10 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
-                  <span className="text-[11px] font-semibold tracking-[0.2em] text-forest-green uppercase mb-6">{c.k}</span>
-                  <h3 className="text-4xl font-montserrat font-light text-slate-950 tracking-tight mb-6 flex items-baseline gap-2">
+                  <h3 className="text-[11px] font-semibold tracking-[0.2em] text-forest-green uppercase mb-6">{c.k}</h3>
+                  <p className="text-4xl font-montserrat font-light text-slate-950 tracking-tight mb-6 flex items-baseline gap-2">
                     {c.from && <span className="text-lg text-gray-600 font-medium lowercase">from</span>} {c.price} {c.from && <span className="text-lg text-gray-600 font-medium">+ GST</span>}
-                  </h3>
+                  </p>
                   <p className="text-[15px] text-gray-600 font-light leading-relaxed flex-grow">{c.d}</p>
                 </div>
               </FadeInChild>
@@ -269,13 +270,13 @@ export default function SiteClassificationPage() {
             <div className="grid grid-cols-2 gap-4">
               <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-[0_20px_50px_-20px_rgba(5,10,7,0.35)]">
                 <Image src="/sfgeo-4wd-rig-suburban-block-willoughby.jpg" alt="SFGEO 4WD drill rig set up on the front lawn of a suburban Sydney home with the engineer at the hole" fill sizes="(max-width: 1024px) 50vw, 30vw" className="object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/40 via-transparent to-transparent" />
-                <p className="absolute bottom-4 left-4 text-[10px] uppercase tracking-[0.2em] text-white/80 font-semibold">Backyards</p>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/80 via-[#050A07]/25 to-transparent" />
+                <p className="absolute bottom-4 left-4 text-[11px] uppercase tracking-[0.2em] text-white font-semibold">Backyards</p>
               </div>
               <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-[0_20px_50px_-20px_rgba(5,10,7,0.35)] lg:mt-8">
                 <Image src="/sfgeo-hand-auger-paved-courtyard.jpg" alt="Hand auger boring through lifted pavers in a courtyard where a rig cannot reach, spoil and field log alongside" fill sizes="(max-width: 1024px) 50vw, 30vw" className="object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/40 via-transparent to-transparent" />
-                <p className="absolute bottom-4 left-4 text-[10px] uppercase tracking-[0.2em] text-white/80 font-semibold">By Hand</p>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/80 via-[#050A07]/25 to-transparent" />
+                <p className="absolute bottom-4 left-4 text-[11px] uppercase tracking-[0.2em] text-white font-semibold">By Hand</p>
               </div>
             </div>
           </FadeIn>
@@ -300,7 +301,7 @@ export default function SiteClassificationPage() {
       <section id="classes" className="py-20 lg:py-24 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100 scroll-mt-[90px]">
         <FadeIn className="mb-14 max-w-3xl">
           <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">05 &middot; The Classes</p>
-          <h2 className="text-3xl sm:text-4xl font-montserrat font-light tracking-tight text-slate-950 mb-5">
+          <h2 className="text-[min(1.875rem,6.9vw)] sm:text-4xl font-montserrat font-light tracking-tight text-slate-950 mb-5">
             Six Classes. <span className="font-semibold h-bold">One Letter That Matters.</span>
           </h2>
           <div className="h-px bg-forest-green w-12 mb-7" />
@@ -322,6 +323,30 @@ export default function SiteClassificationPage() {
           <p className="text-gray-600 font-light leading-relaxed max-w-3xl">
             <strong className="font-medium text-slate-950">Class P</strong> sits outside the reactivity scale — applied when conditions fall outside the standard framework: fill, steep slope, soft or collapsing soils, reactivity beyond Class E, or proximity to significant trees and watercourses. It requires individual engineering assessment, and often a full <Link href="/geotechnical-investigations" className="text-forest-green hover:underline">geotechnical investigation</Link>.
           </p>
+        </FadeIn>
+      </section>
+
+      {/* 06 — What you receive */}
+      <section id="report" className="py-20 lg:py-24 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100 scroll-mt-[90px]">
+        <FadeIn className="mb-14 max-w-3xl">
+          <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">06 &middot; What You Receive</p>
+          <h2 className="text-3xl sm:text-4xl font-montserrat font-light tracking-tight text-slate-950 mb-5">
+            One Report. <span className="font-semibold h-bold">Everything Your Engineer Needs.</span>
+          </h2>
+          <div className="h-px bg-forest-green w-12 mb-7" />
+          <p className="text-gray-600 font-light leading-relaxed">
+            A signed PDF written to your certifier&rsquo;s and structural engineer&rsquo;s requirements — the document the footing design is drawn from.
+          </p>
+        </FadeIn>
+        <FadeIn>
+          <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4 max-w-4xl">
+            {REPORT_CONTENTS.map((s) => (
+              <li key={s} className="flex items-start gap-3 text-[15px] text-gray-600 font-light leading-relaxed">
+                <span className="w-1.5 h-1.5 rounded-full bg-forest-green mt-[9px] shrink-0" />
+                {s}
+              </li>
+            ))}
+          </ul>
         </FadeIn>
       </section>
 
@@ -348,10 +373,10 @@ export default function SiteClassificationPage() {
         <div className="max-w-4xl mx-auto text-center px-6 py-28 lg:py-32 relative z-10">
           <FadeIn>
             <h2 className="text-4xl sm:text-6xl font-montserrat font-light tracking-tight mb-8">
-              Start With A <span className="font-semibold h-bold">Site Meeting.</span>
+              Start With <span className="font-semibold h-bold">The Address.</span>
             </h2>
-            <p className="text-lg sm:text-xl text-gray-500 font-light leading-relaxed max-w-2xl mx-auto mb-6">
-              Every SFGEO engagement begins with the Principal Engineer on your ground, reading your plans and your soil.
+            <p className="text-lg sm:text-xl text-gray-400 font-light leading-relaxed max-w-2xl mx-auto mb-6">
+              Every SFGEO engagement begins with the Principal Engineer reading your block and your plans — and standing on your ground on the day.
             </p>
             <div className="max-w-2xl mx-auto mb-12 text-left">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-5">
@@ -360,7 +385,7 @@ export default function SiteClassificationPage() {
                     <span className="font-montserrat font-light text-[#8FBF9F] text-xl leading-none mt-0.5">{String(i + 1).padStart(2, "0")}</span>
                     <div>
                       <p className="text-sm font-semibold text-white mb-1">{p.t}</p>
-                      <p className="text-[13px] text-gray-500 font-light leading-relaxed">{p.d}</p>
+                      <p className="text-[13px] text-gray-400 font-light leading-relaxed">{p.d}</p>
                     </div>
                   </div>
                 ))}

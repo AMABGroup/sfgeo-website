@@ -2,25 +2,14 @@ import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import QuoteCta from "@/components/forms/QuoteCta";
+import { pageMeta } from "@/lib/seo";
 import { FadeIn } from "../site-classification/MotionWrapper";
 
-export const metadata: Metadata = {
-  title: "Borehole Drilling Sydney | Engineer-Logged Boreholes | SFGEO",
-  description: "Borehole drilling across Sydney with a 4WD-mounted rig — solid flight and hollow stem augers, SPT and DCP testing, and every profile logged by the engineer on site.",
-  alternates: { canonical: '/borehole-drilling' },
-  openGraph: {
-    images: ['/og/sfgeo-og-card.jpg'],
-    title: "Borehole Drilling Sydney | Engineer-Logged Boreholes | SFGEO",
-    description: "Borehole drilling across Sydney — 4WD-mounted rig, SPT and DCP testing, engineer-logged profiles.",
-    url: '/borehole-drilling',
-  },
-  twitter: {
-    card: "summary_large_image",
-    images: ['/og/sfgeo-og-card.jpg'],
-    title: "Borehole Drilling Sydney | SFGEO",
-    description: "Engineer-logged boreholes — 4WD rig, SPT and DCP, Sydney metro and regional NSW.",
-  },
-};
+export const metadata: Metadata = pageMeta(
+  "Borehole Drilling Sydney | Engineer-Logged Boreholes | SFGEO",
+  "Borehole drilling in Sydney with a 4WD-mounted rig — solid flight and hollow stem augers, SPT and DCP testing, every profile logged by the engineer on site.",
+  "/borehole-drilling",
+);
 
 const DELIVERS = [
   { t: "The Soil Profile", d: "Every layer logged as it comes off the flights — material, moisture, consistency — by the engineer standing at the hole, not reconstructed later." },
@@ -47,7 +36,10 @@ export default function BoreholeDrillingPage() {
     "description": "Borehole drilling across Sydney with a 4WD-mounted rig — solid flight and hollow stem augers, SPT and DCP in-situ testing, engineer-logged profiles and sampling for laboratory testing.",
     "url": "https://sfgeo.com.au/borehole-drilling",
     "provider": { "@id": "https://sfgeo.com.au/#organization" },
-    "areaServed": { "@type": "City", "name": "Sydney, New South Wales, Australia" }
+    "areaServed": [
+      { "@type": "City", "name": "Sydney, New South Wales, Australia" },
+      { "@type": "State", "name": "New South Wales, Australia" }
+    ]
   };
 
   return (
@@ -56,22 +48,25 @@ export default function BoreholeDrillingPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
 
       {/* Hero */}
-      <section className="pt-36 pb-16 px-6 lg:px-12 max-w-7xl mx-auto">
-        <FadeIn className="max-w-3xl">
-          <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-6 font-semibold">
+      <section className="pt-36 pb-20 px-6 lg:px-12 max-w-7xl mx-auto">
+        <div className="max-w-3xl">
+          <p className="hero-line text-sm uppercase tracking-[0.2em] text-forest-green mb-6 font-semibold">
             Borehole Drilling &middot; Engineer Operated &middot; Sydney
           </p>
-          <h1 className="text-4xl sm:text-6xl font-montserrat font-light tracking-tight leading-[1.08] mb-8">
+          <h1 className="hero-line hero-d1 text-[min(2.25rem,7.4vw)] sm:text-6xl font-montserrat font-light tracking-tight leading-[1.08] mb-8">
             Borehole Drilling. <span className="font-semibold h-bold">Logged As It Comes Up.</span>
           </h1>
-          <div className="w-[96px] h-[3px] bg-forest-green mb-8" />
-          <p className="text-lg sm:text-xl text-gray-600 font-light leading-relaxed mb-10">
+          <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />
+          <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed mb-10">
             A borehole is only as good as the person reading it. SFGEO&rsquo;s 4WD-mounted rig drills Sydney&rsquo;s clays, sands, shales and residual profiles with the engineer at the hole — logging every layer as it surfaces, testing as it goes, and sampling what the design will need. Metro and regional NSW.
           </p>
-          <div className="flex flex-col sm:flex-row items-start gap-4">
+          <div className="hero-line hero-d3 flex flex-col sm:flex-row items-start gap-4">
             <QuoteCta
               source="borehole-drilling hero"
               label="Request Drilling"
+              eyebrow="Borehole drilling"
+              heading="Request Drilling"
+              subheading="Send the site, the hole count and the depth. A rate in writing within one business day."
               className="flex items-center justify-center px-8 py-2.5 bg-gradient-to-b from-[#346b43] to-forest-green text-white rounded-full shadow-[0_8px_20px_-6px_rgba(45,90,58,0.4)] hover:shadow-[0_12px_24px_-8px_rgba(45,90,58,0.6)] hover:brightness-105 transition-all hover:-translate-y-0.5 w-full sm:w-auto h-[46px] text-xs font-semibold tracking-wide"
             />
             <Link
@@ -81,23 +76,23 @@ export default function BoreholeDrillingPage() {
               Call 0423 483 555
             </Link>
           </div>
-        </FadeIn>
+        </div>
       </section>
 
       {/* 01 — The method */}
-      <section className="py-16 lg:py-20 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">
+      <section className="py-20 lg:py-24 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">
         <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-10 lg:gap-16 items-center">
           <FadeIn>
             <div className="grid grid-cols-2 gap-4 sm:gap-6">
               <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-[0_20px_50px_-20px_rgba(5,10,7,0.35)]">
                 <Image src="/sfgeo-borehole-auger-advancing.jpg" alt="Clay-loaded auger flight advancing a borehole" fill sizes="(max-width: 1024px) 50vw, 30vw" className="object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/40 via-transparent to-transparent" />
-                <p className="absolute bottom-4 left-4 text-[10px] uppercase tracking-[0.2em] text-white/80 font-semibold">The Flight</p>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/80 via-[#050A07]/25 to-transparent" />
+                <p className="absolute bottom-4 left-4 text-[11px] uppercase tracking-[0.2em] text-white font-semibold">The Flight</p>
               </div>
               <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-[0_20px_50px_-20px_rgba(5,10,7,0.35)] lg:mt-10">
                 <Image src="/sfgeo-borehole-sample-in-hand.jpg" alt="Sand sample read in the engineer's hand at the borehole" fill sizes="(max-width: 1024px) 50vw, 30vw" className="object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/40 via-transparent to-transparent" />
-                <p className="absolute bottom-4 left-4 text-[10px] uppercase tracking-[0.2em] text-white/80 font-semibold">The Sample</p>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/80 via-[#050A07]/25 to-transparent" />
+                <p className="absolute bottom-4 left-4 text-[11px] uppercase tracking-[0.2em] text-white font-semibold">The Sample</p>
               </div>
             </div>
           </FadeIn>
@@ -115,7 +110,7 @@ export default function BoreholeDrillingPage() {
       </section>
 
       {/* 02 — What a borehole buys you */}
-      <section className="py-16 lg:py-20 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">
+      <section className="py-20 lg:py-24 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">
         <FadeIn className="mb-12">
           <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">02 &middot; The Deliverables</p>
           <h2 className="text-3xl sm:text-4xl font-light tracking-tight font-montserrat text-slate-950">
@@ -136,7 +131,7 @@ export default function BoreholeDrillingPage() {
       </section>
 
       {/* 03 — Where the holes go */}
-      <section className="py-16 lg:py-20 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">
+      <section className="py-20 lg:py-24 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">
         <FadeIn>
           <div className="max-w-3xl">
             <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">03 &middot; Scoped To The Job</p>
@@ -156,7 +151,7 @@ export default function BoreholeDrillingPage() {
       </section>
 
       {/* Close */}
-      <section className="mt-8 relative overflow-hidden bg-[#050A07] text-white grain">
+      <section className="relative overflow-hidden bg-[#050A07] text-white grain">
         <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_-20%,rgba(45,90,58,0.3),transparent_60%)] pointer-events-none" />
         <div className="max-w-4xl mx-auto text-center px-6 py-28 lg:py-32 relative z-10">
           <FadeIn>

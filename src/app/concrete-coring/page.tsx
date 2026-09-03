@@ -2,25 +2,15 @@ import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import QuoteCta from "@/components/forms/QuoteCta";
+import LazyVideo from "@/components/ui/LazyVideo";
+import { pageMeta } from "@/lib/seo";
 import { FadeIn } from "../site-classification/MotionWrapper";
 
-export const metadata: Metadata = {
-  title: "Concrete Coring Sydney | Engineer-Supervised | SFGEO",
-  description: "Engineer-supervised concrete coring across Sydney — slabs, pavements and penetrations, with core logging and strength context a cutting contractor can't give you. From $120 + GST per hole.",
-  alternates: { canonical: '/concrete-coring' },
-  openGraph: {
-    images: ['/og/sfgeo-og-card.jpg'],
-    title: "Concrete Coring Sydney | Engineer-Supervised | SFGEO",
-    description: "Slabs, pavements and penetrations — cored under engineering supervision, with logging and strength context. From $120 + GST per hole.",
-    url: '/concrete-coring',
-  },
-  twitter: {
-    card: "summary_large_image",
-    images: ['/og/sfgeo-og-card.jpg'],
-    title: "Concrete Coring Sydney | SFGEO",
-    description: "Engineer-supervised concrete coring — slabs, pavements, penetrations. From $120 + GST per hole.",
-  },
-};
+export const metadata: Metadata = pageMeta(
+  "Concrete Coring Sydney | Engineer-Supervised | SFGEO",
+  "Engineer-supervised concrete coring across Sydney — slabs, pavements and penetrations, with core logging and strength context. From $120 + GST per hole, min. 3.",
+  "/concrete-coring",
+);
 
 const SECTIONS = [
   {
@@ -35,7 +25,7 @@ const SECTIONS = [
     poster: "/sfgeo-concrete-core-extracted.jpg",
     alt: "The extracted concrete core lying beside the cored hole, aggregate showing in the core face",
     body: "Thickness, reinforcement cover and condition — cored, logged and photographed, with strength testing through a NATA-accredited laboratory when the question needs a number. The core comes out as evidence, not just a hole in the floor.",
-    link: { href: "/contact", label: "Verify A Slab" },
+    cta: "Verify A Slab",
   },
   {
     n: "02",
@@ -47,7 +37,7 @@ const SECTIONS = [
     image: "/sfgeo-concrete-core-thickness-tape.jpg",
     alt: "Extracted concrete core measured against a tape on site",
     body: "Core through the pavement and keep going — the same visit logs the concrete, the layers beneath it and the subgrade below, so you get one report instead of two contractors. Where the pavement question is really a ground question, the geotechnical crew is already standing on it.",
-    link: { href: "/contact", label: "Scope A Pavement Program" },
+    cta: "Scope A Pavement Program",
   },
   {
     n: "03",
@@ -59,7 +49,7 @@ const SECTIONS = [
     image: "/sfgeo-concrete-coring-rig-wet-slab.jpg",
     alt: "Coring rig cutting a clean penetration through a concrete slab",
     body: "Clean, located penetrations through slabs and walls for services — positioned with the structure in mind, not just the drawing. Reinforcement is considered before the barrel spins, so the hole lands where it should and nothing load-bearing pays for it.",
-    link: { href: "/contact", label: "Book Penetrations" },
+    cta: "Book Penetrations",
   },
   {
     n: "04",
@@ -71,7 +61,7 @@ const SECTIONS = [
     image: "/sfgeo-concrete-core-hole-depth-check.jpg",
     alt: "Tape measure checking depth down a cored hole through a slab",
     body: "Coring through existing slabs so a geotechnical investigation can reach the ground beneath a building that was never meant to be drilled — warehouses, factory floors, basements. One crew cores the concrete and drills the ground under it in the same mobilisation.",
-    link: { href: "/contact", label: "Open Up An Investigation" },
+    cta: "Open Up An Investigation",
   },
 ];
 
@@ -108,24 +98,23 @@ export default function ConcreteCoringPage() {
 
       {/* Hero */}
       <section className="pt-36 pb-20 px-6 lg:px-12 max-w-7xl mx-auto">
-        <FadeIn className="max-w-3xl">
-          <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-6 font-semibold">
-            Concrete Coring &middot; Engineer-Supervised &middot; Sydney
+        <div className="max-w-3xl">
+          <p className="hero-line text-sm uppercase tracking-[0.2em] text-forest-green mb-6 font-semibold">
+            Concrete Coring &middot; Engineer&#8209;Supervised &middot; Sydney
           </p>
-          <h1 className="text-4xl sm:text-6xl font-montserrat font-light tracking-tight leading-[1.08] mb-8">
-            Concrete Coring. <span className="font-semibold h-bold">With The Engineering Attached.</span>
+          <h1 className="hero-line hero-d1 text-[min(2.25rem,7.4vw)] sm:text-6xl font-montserrat font-light tracking-tight leading-[1.08] mb-8">
+            Concrete Coring. <span className="font-semibold h-bold">Engineering Attached.</span>
           </h1>
-          <div className="w-[96px] h-[3px] bg-forest-green mb-8" />
-          <p className="text-lg sm:text-xl text-gray-600 font-light leading-relaxed mb-10">
+          <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />
+          <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed mb-10">
             Any cutting contractor can put a hole in a slab. SFGEO cores it under engineering supervision — the core is logged, the thickness verified, and when strength matters the sample goes to a NATA-accredited laboratory. One engagement, from the hole to the answer. Coring from $120 + GST per hole, three-hole minimum.
           </p>
-          <div className="flex flex-col sm:flex-row items-start gap-4">
-            <Link
-              href="/contact"
+          <div className="hero-line hero-d3 flex flex-col sm:flex-row items-start gap-4">
+            <QuoteCta
+              source="concrete-coring hero"
+              label="Request A Fixed-Fee Quote"
               className="flex items-center justify-center px-8 py-2.5 bg-gradient-to-b from-[#346b43] to-forest-green text-white rounded-full shadow-[0_8px_20px_-6px_rgba(45,90,58,0.4)] hover:shadow-[0_12px_24px_-8px_rgba(45,90,58,0.6)] hover:brightness-105 transition-all hover:-translate-y-0.5 w-full sm:w-auto h-[46px] text-xs font-semibold tracking-wide"
-            >
-              Request A Fixed-Fee Quote
-            </Link>
+            />
             <Link
               href="tel:+61423483555"
               className="flex items-center justify-center px-8 py-2.5 bg-white text-forest-green rounded-full shadow-[inset_0_0_0_1px_rgba(45,90,58,0.25),0_4px_10px_-4px_rgba(0,0,0,0.05)] hover:bg-forest-green/5 hover:shadow-[inset_0_0_0_1px_rgba(45,90,58,0.4),0_6px_14px_-4px_rgba(0,0,0,0.1)] transition-all hover:-translate-y-0.5 w-full sm:w-auto h-[46px] text-xs font-semibold tracking-wide"
@@ -133,7 +122,7 @@ export default function ConcreteCoringPage() {
               Call 0423 483 555
             </Link>
           </div>
-        </FadeIn>
+        </div>
       </section>
 
       {/* What we core — numbered editorial rows */}
@@ -143,27 +132,14 @@ export default function ConcreteCoringPage() {
             <FadeIn className={idx % 2 === 1 ? "lg:order-2" : ""}>
               {sec.video ? (
                 <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-[0_26px_60px_-26px_rgba(5,10,7,0.4)] bg-[#050A07] flex items-center justify-center">
-                  {/* the same frame, scaled up and blurred, so the portrait clip
+                  {/* the poster frame, scaled up and blurred, so the portrait clip
                       sits on its own ground instead of two black bars */}
-                  <video
-                    src={sec.video}
-                    poster={sec.poster}
-                    aria-hidden="true"
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    className="absolute inset-0 w-full h-full object-cover blur-2xl scale-110 opacity-60"
-                  />
+                  <Image src={sec.poster!} alt="" fill sizes="(max-width:1024px) 100vw, 50vw" priority className="object-cover blur-2xl scale-110 opacity-60" />
                   <div className="absolute inset-0 bg-[#050A07]/35" />
-                  <video
+                  <LazyVideo
                     src={sec.video}
-                    poster={sec.poster}
-                    aria-label={sec.alt}
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
+                    poster={sec.poster!}
+                    label={sec.alt}
                     className="relative h-full w-auto max-w-full object-contain"
                   />
                   <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#050A07]/70 to-transparent pointer-events-none" />
@@ -171,9 +147,9 @@ export default function ConcreteCoringPage() {
                 </div>
               ) : (
                 <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-[0_26px_60px_-26px_rgba(5,10,7,0.4)]">
-                  <Image src={sec.image!} alt={sec.alt} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/40 via-transparent to-transparent" />
-                  <p className="absolute bottom-5 left-6 text-[11px] uppercase tracking-[0.25em] text-white/80 font-semibold">{sec.caption}</p>
+                  <Image src={sec.image!} alt={sec.alt} fill sizes="(max-width: 1024px) 100vw, (max-width: 1280px) 50vw, 600px" className="object-cover" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/80 via-[#050A07]/25 to-transparent" />
+                  <p className="absolute bottom-5 left-6 text-[11px] uppercase tracking-[0.25em] text-white font-semibold">{sec.caption}</p>
                 </div>
               )}
             </FadeIn>
@@ -184,10 +160,7 @@ export default function ConcreteCoringPage() {
               </h2>
               <div className="h-px bg-forest-green w-12 mb-7" />
               <p className="text-gray-600 font-light leading-relaxed mb-8">{sec.body}</p>
-              <Link href={sec.link.href} className="text-sm font-semibold tracking-wide text-forest-green group inline-flex items-center gap-2">
-                <span className="draw-link">{sec.link.label}</span>
-                <span className="transition-transform group-hover:translate-x-1">&rarr;</span>
-              </Link>
+              <QuoteCta source={`concrete-coring ${sec.id}`} label={sec.cta} className="text-sm font-semibold tracking-wide text-forest-green group inline-flex items-center gap-2 draw-link" />
             </FadeIn>
           </div>
         </section>
@@ -198,14 +171,10 @@ export default function ConcreteCoringPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           <FadeIn>
             <div className="relative mx-auto w-full max-w-[340px] aspect-[448/804] rounded-2xl overflow-hidden shadow-[0_26px_60px_-26px_rgba(5,10,7,0.5)]">
-              <video
+              <LazyVideo
                 src="/sfgeo-concrete-coring-rig-hardstand.mp4"
                 poster="/sfgeo-concrete-coring-rig-hardstand.jpg"
-                aria-label="Wet coring rig cutting a core through a container terminal hardstand"
-                autoPlay
-                muted
-                loop
-                playsInline
+                label="Wet coring rig cutting a core through a container terminal hardstand"
                 className="absolute inset-0 w-full h-full object-cover"
               />
               <p className="absolute bottom-5 left-6 text-[11px] uppercase tracking-[0.25em] text-white/80 font-semibold pointer-events-none">Hardstand &middot; Container Terminal</p>
@@ -217,18 +186,15 @@ export default function ConcreteCoringPage() {
               Not Just <span className="font-semibold h-bold">Domestic Slabs.</span>
             </h2>
             <div className="h-px bg-forest-green w-12 mb-7" />
-            <p className="text-gray-600 font-light leading-relaxed mb-6">
-              Hardstands, port and terminal pavements, warehouse floors and industrial yards &mdash; heavily loaded surfaces where the question is what the pavement is actually made of and whether it will keep taking the load. Wet coring, services marked before the barrel turns, holes reinstated, and the core logged rather than left on the ground.
-            </p>
             <p className="text-gray-600 font-light leading-relaxed">
-              Same rate as everything else: <span className="text-slate-950 font-medium">$120 + GST per hole</span>, minimum three holes.
+              Hardstands, port and terminal pavements, warehouse floors and industrial yards &mdash; heavily loaded surfaces where the question is what the pavement is actually made of and whether it will keep taking the load. Wet coring, services marked before the barrel turns, holes reinstated, and the core logged rather than left on the ground.
             </p>
           </FadeIn>
         </div>
       </section>
 
       {/* Why engineer-supervised */}
-      <section className="py-24 lg:py-28 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">
+      <section className="py-20 lg:py-24 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">
         <div className="max-w-3xl">
           <FadeIn>
             <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">Why The Engineer Matters</p>
@@ -244,7 +210,7 @@ export default function ConcreteCoringPage() {
       </section>
 
       {/* Pricing */}
-      <section className="py-24 lg:py-28 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">
+      <section className="py-20 lg:py-24 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">
         <div className="max-w-3xl">
           <FadeIn>
             <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">Pricing</p>
@@ -264,7 +230,7 @@ export default function ConcreteCoringPage() {
         <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_-20%,rgba(45,90,58,0.3),transparent_60%)] pointer-events-none" />
         <div className="max-w-4xl mx-auto text-center px-6 py-28 lg:py-32 relative z-10">
           <FadeIn>
-            <h2 className="text-4xl sm:text-6xl font-montserrat font-light tracking-tight mb-8">
+            <h2 className="text-[min(2.25rem,8.7vw)] sm:text-6xl font-montserrat font-light tracking-tight mb-8">
               One Hole. <span className="font-semibold h-bold">The Whole Answer.</span>
             </h2>
             <p className="text-lg sm:text-xl text-gray-400 font-light leading-relaxed max-w-2xl mx-auto mb-12">

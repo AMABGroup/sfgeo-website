@@ -1,26 +1,13 @@
 import { Metadata } from 'next';
 import FaqClient from './FaqClient';
 import { faqs } from '@/data/faqs';
+import { pageMeta } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: "Geotechnical Engineering FAQ Sydney | SFGEO",
-  description: "Common questions about geotechnical investigations, site classifications, and soil testing in Sydney. Clear, technical advice for homeowners and builders.",
-  alternates: {
-    canonical: '/faq',
-  },
-  openGraph: {
-    images: ['/og/sfgeo-og-card.jpg'],
-    title: "Geotechnical Engineering FAQ Sydney | SFGEO",
-    description: "Common questions about geotechnical investigations, site classifications, and soil testing in Sydney. Clear, technical advice for homeowners and builders.",
-    url: '/faq',
-  },
-  twitter: {
-    card: "summary_large_image",
-    images: ['/og/sfgeo-og-card.jpg'],
-    title: "Geotechnical Engineering FAQ Sydney | SFGEO",
-    description: "Common questions about geotechnical investigations, site classifications, and soil testing in Sydney. Clear, technical advice for homeowners and builders.",
-  },
-};
+export const metadata: Metadata = pageMeta(
+  "Geotechnical Report Cost & FAQ Sydney | SFGEO",
+  "Geotechnical report and soil test costs in Sydney (from $800 + GST), turnaround, and what DA, CDC and certifiers need — from the engineers who do the work.",
+  "/faq"
+);
 
 export default function FaqPage() {
   const breadcrumbSchema = {
@@ -54,7 +41,7 @@ export default function FaqPage() {
       "name": faq.question,
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": faq.answer.replace(/<br\/>/g, ' ')
+        "text": faq.answer.replace(/<br\/>/g, ' ').replace(/href="\//g, 'href="https://sfgeo.com.au/')
       }
     }))
   };

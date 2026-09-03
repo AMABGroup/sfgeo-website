@@ -4,26 +4,13 @@ import Link from "next/link";
 import QuoteCta from "@/components/forms/QuoteCta";
 import { FadeIn, StaggerContainer, FadeInChild } from "../site-classification/MotionWrapper";
 import GoogleReviews from "@/components/ui/GoogleReviews";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Geotechnical Investigations Sydney | DA & Footing Reports | SFGEO",
-  description: "Principal-led geotechnical investigations for Sydney DAs, footings, basements and retaining structures. Fixed-fee quotes, reports certifiers accept.",
-  alternates: {
-    canonical: '/geotechnical-investigations',
-  },
-  openGraph: {
-    images: ['/og/sfgeo-og-card.jpg'],
-    title: "Geotechnical Investigations Sydney | DA & Footing Reports | SFGEO",
-    description: "Principal-led geotechnical investigations for Sydney DAs, footings, basements and retaining structures. Fixed-fee quotes, reports certifiers accept.",
-    url: '/geotechnical-investigations',
-  },
-  twitter: {
-    card: "summary_large_image",
-    images: ['/og/sfgeo-og-card.jpg'],
-    title: "Geotechnical Investigations Sydney | DA & Footing Reports | SFGEO",
-    description: "Principal-led geotechnical investigations for Sydney DAs, footings, basements and retaining structures. Fixed-fee quotes, reports certifiers accept.",
-  },
-};
+export const metadata: Metadata = pageMeta(
+  "Geotechnical Investigations & Reports Sydney | SFGEO",
+  "Principal-led geotechnical investigations for Sydney DAs, footings, basements and retaining structures. Fixed-fee quotes, reports certifiers accept.",
+  "/geotechnical-investigations",
+);
 
 const SCOPES = [
   {
@@ -81,18 +68,18 @@ export default function GeotechnicalInvestigationsPage() {
 
       {/* Hero */}
       <section className="pt-36 pb-20 px-6 lg:px-12 max-w-7xl mx-auto">
-        <FadeIn className="max-w-3xl">
-          <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-6 font-semibold">
+        <div className="max-w-[52rem]">
+          <p className="hero-line text-sm uppercase tracking-[0.2em] text-forest-green mb-6 font-semibold">
             Geotechnical Investigations &middot; Principal-Led &middot; Sydney
           </p>
-          <h1 className="text-4xl sm:text-6xl font-montserrat font-light tracking-tight leading-[1.08] mb-8">
-            Geotechnical Investigations <span className="font-semibold h-bold">Engineered Properly.</span>
+          <h1 className="hero-line hero-d1 text-[min(2.25rem,8.2vw)] sm:text-6xl font-montserrat font-light tracking-tight leading-[1.08] mb-8">
+            Geotechnical Investigations. <span className="font-semibold h-bold">Engineered Properly.</span>
           </h1>
-          <div className="w-[96px] h-[3px] bg-forest-green mb-8" />
-          <p className="text-lg sm:text-xl text-gray-600 font-light leading-relaxed mb-10">
+          <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />
+          <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed mb-10">
             Boreholes, penetrometers and NATA-backed laboratory data, turned into reports your certifier, council and structural engineer can act on — for DAs, complying development, footings, basements and retaining structures across Sydney. The engineer who drills your ground is the engineer who signs your report.
           </p>
-          <div className="flex flex-col sm:flex-row items-start gap-4">
+          <div className="hero-line hero-d3 flex flex-col sm:flex-row items-start gap-4">
             <Link
               href="tel:+61423483555"
               className="flex items-center justify-center px-8 py-2.5 bg-gradient-to-b from-[#346b43] to-forest-green text-white rounded-full shadow-[0_8px_20px_-6px_rgba(45,90,58,0.4)] hover:shadow-[0_12px_24px_-8px_rgba(45,90,58,0.6)] hover:brightness-105 transition-all hover:-translate-y-0.5 w-full sm:w-auto h-[46px] text-xs font-semibold tracking-wide"
@@ -105,7 +92,7 @@ export default function GeotechnicalInvestigationsPage() {
               className="flex items-center justify-center px-8 py-2.5 bg-white text-forest-green rounded-full shadow-[inset_0_0_0_1px_rgba(45,90,58,0.25),0_4px_10px_-4px_rgba(0,0,0,0.05)] hover:bg-forest-green/5 hover:shadow-[inset_0_0_0_1px_rgba(45,90,58,0.4),0_6px_14px_-4px_rgba(0,0,0,0.1)] transition-all hover:-translate-y-0.5 w-full sm:w-auto h-[46px] text-xs font-semibold tracking-wide"
             />
           </div>
-        </FadeIn>
+        </div>
       </section>
 
       {/* 01 — What the investigation covers */}
@@ -144,13 +131,13 @@ export default function GeotechnicalInvestigationsPage() {
             <div className="grid grid-cols-2 gap-4 sm:gap-6">
               <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-[0_20px_50px_-20px_rgba(5,10,7,0.35)]">
                 <Image src="/sfgeo-night-works-crew-at-rig.jpg" alt="SFGEO engineers working the rig at a borehole during night works on a Sydney street" fill sizes="(max-width: 1024px) 50vw, 30vw" className="object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/40 via-transparent to-transparent" />
-                <p className="absolute bottom-4 left-4 text-[10px] uppercase tracking-[0.2em] text-white/80 font-semibold">Fieldwork</p>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/80 via-[#050A07]/25 to-transparent" />
+                <p className="absolute bottom-4 left-4 text-[11px] uppercase tracking-[0.2em] text-white font-semibold">Fieldwork</p>
               </div>
               <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-[0_20px_50px_-20px_rgba(5,10,7,0.35)] lg:mt-10">
                 <Image src="/sfgeo-spt-sample-logged-on-site.jpg" alt="Split-spoon sample opened beside the field board recording BH01, 0.50-0.95 m and an SPT N value of 10" fill sizes="(max-width: 1024px) 50vw, 30vw" className="object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/40 via-transparent to-transparent" />
-                <p className="absolute bottom-4 left-4 text-[10px] uppercase tracking-[0.2em] text-white/80 font-semibold">Logged On Site</p>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/80 via-[#050A07]/25 to-transparent" />
+                <p className="absolute bottom-4 left-4 text-[11px] uppercase tracking-[0.2em] text-white font-semibold">Logged On Site</p>
               </div>
             </div>
           </FadeIn>
@@ -206,8 +193,11 @@ export default function GeotechnicalInvestigationsPage() {
             <p className="text-gray-600 font-light leading-relaxed mb-6">
               Unexpected rock, fill, or reactive clay discovered after contracts are signed becomes a variation — priced by whoever holds the leverage at that moment. An investigation done properly, and done early, converts those unknowns into design parameters while every option is still open and competitively priced.
             </p>
-            <p className="text-gray-600 font-light leading-relaxed">
+            <p className="text-gray-600 font-light leading-relaxed mb-6">
               Turnaround is scoped at first contact, and urgent DA, CC and settlement timelines can be accommodated — call the Principal directly to arrange priority scheduling. And where standard rigs stop at the kerb, our 4WD rig and motorised hand augers keep going: <Link href="/tight-access-drilling" className="text-forest-green hover:underline font-medium">full access capability</Link>.
+            </p>
+            <p className="text-gray-600 font-light leading-relaxed">
+              Investigations are quoted fixed-fee against the number and depth of boreholes, access and the laboratory program — most fall under our Complex Projects tier (basements, multi-storey, retaining walls, sloping or restricted-access blocks), and the fee is confirmed in writing within one business day. What moves the figure is set out in the <Link href="/geotechnical-report-cost-sydney" className="text-forest-green hover:underline font-medium">geotechnical report cost guide</Link>.
             </p>
           </FadeIn>
         </div>
@@ -227,7 +217,7 @@ export default function GeotechnicalInvestigationsPage() {
               Start With <span className="font-semibold h-bold">The Ground.</span>
             </h2>
             <p className="text-lg sm:text-xl text-gray-400 font-light leading-relaxed max-w-2xl mx-auto mb-12">
-              Every SFGEO engagement begins with the Principal Engineer on your ground, reading your plans and your soil. Detailed answers to common questions are on <Link href="/faq" className="text-white underline hover:text-white/80 transition-colors">the full FAQ</Link>.
+              Every SFGEO engagement begins with the Principal Engineer reading your block and your plans — and standing on your ground on the day. Detailed answers to common questions are on <Link href="/faq" className="text-white underline hover:text-white/80 transition-colors">the full FAQ</Link>.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
               <Link href="tel:+61423483555" className="flex items-center justify-center px-8 py-2.5 bg-gradient-to-b from-[#346b43] to-forest-green text-white rounded-full shadow-[0_8px_20px_-6px_rgba(45,90,58,0.4)] hover:shadow-[0_12px_24px_-8px_rgba(45,90,58,0.6)] hover:brightness-105 transition-all hover:-translate-y-0.5 w-full sm:w-[280px] h-[46px] text-xs font-semibold tracking-wide">

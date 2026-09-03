@@ -5,7 +5,7 @@ import { PhoneIcon } from "@heroicons/react/24/solid";
 export default function CallBubble() {
   return (
     <a
-      href="tel:0423483555"
+      href="tel:+61423483555"
       className="fixed bottom-6 left-6 z-50 bg-forest-green text-white p-4 rounded-full shadow-lg hover:bg-forest-green/90 hover:scale-105 hover:shadow-xl transition-all duration-300 flex items-center justify-center group lg:hidden"
       aria-label="Call Us"
     >

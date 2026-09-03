@@ -30,24 +30,14 @@ interface NormalisedPlace {
   maps_url: string;
 }
 
-async function liveFallback() {
-  try {
-    const r = await fetch("https://sfgeo.com.au/api/reviews", { next: { revalidate: 86400 } });
-    if (r.ok) return Response.json(await r.json());
-  } catch {}
-  return null;
-}
-
 export async function GET() {
-  if (!process.env.GOOGLE_PLACES_API_KEY && !process.env.GOOGLE_MAPS_API_KEY) {
-    const live = await liveFallback();
-    if (live) return live;
-  }
+  const apiKey = process.env.GOOGLE_PLACES_API_KEY || process.env.GOOGLE_MAPS_API_KEY;
 
-  const apiKey = process.env.GOOGLE_PLACES_API_KEY;
-
+  // No key: answer with an empty payload so the client components render
+  // nothing rather than spin. (The previous fallback fetched the production
+  // URL, which on the production host is this route calling itself.)
   if (!apiKey) {
-    return NextResponse.json({ error: 'API key not configured' }, { status: 500 });
+    return NextResponse.json({ rating: null, user_ratings_total: 0, reviews: [] });
   }
 
   // Places API (New). The legacy `maps/api/place/details/json` endpoint this

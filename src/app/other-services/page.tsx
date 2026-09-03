@@ -4,24 +4,13 @@ import Link from "next/link";
 import QuoteCta from "@/components/forms/QuoteCta";
 import PhotoPlaceholder from "@/components/ui/PhotoPlaceholder";
 import { FadeIn } from "../site-classification/MotionWrapper";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Other Professional Services Sydney | Utility Location, Dilap, Surveys | SFGEO",
-  description: "The disciplines a project needs around the ground — utility location and GPR scanning, dilapidation reports, land and detail surveys, and structural, civil and hydraulic specialists. One point of contact.",
-  alternates: { canonical: '/other-services' },
-  openGraph: {
-    images: ['/og/sfgeo-og-card.jpg'],
-    title: "Other Professional Services Sydney | Utility Location, Dilap, Surveys | SFGEO",
-    description: "Utility location and GPR, dilapidation reports, surveys and specialist engineering — arranged through one point of contact.",
-    url: '/other-services',
-  },
-  twitter: {
-    card: "summary_large_image",
-    images: ['/og/sfgeo-og-card.jpg'],
-    title: "Other Professional Services | SFGEO Sydney",
-    description: "Utility location & GPR, dilapidation reports, surveys, specialist engineering — one point of contact.",
-  },
-};
+export const metadata: Metadata = pageMeta(
+  "Dilapidation Reports, Utility Location & Surveys Sydney | SFGEO",
+  "Dilapidation reports, utility location and GPR scanning, land surveys and structural, civil and hydraulic specialists — SFGEO coordinates, one engagement.",
+  "/other-services",
+);
 
 const SECTIONS = [
   {
@@ -33,7 +22,11 @@ const SECTIONS = [
     caption: "01 · Utility Location & GPR",
     image: "/sfgeo-exposed-services-excavation.jpg",
     alt: "Exposed services in an open excavation with a tape measure",
-    body: "Before anything drills, digs or cores — services located and marked, concrete scanned, and the expensive unknowns taken off the table. Arranged through our specialist partner network and coordinated with the fieldwork it protects, so one engagement covers the scan and the work that follows it.",
+    body: (
+      <>
+        Before anything drills, digs or cores — services located and marked, concrete scanned, and the expensive unknowns taken off the table. Arranged through our specialist partner network and coordinated with the <Link href="/borehole-drilling" className="text-forest-green hover:underline">borehole drilling</Link> or <Link href="/concrete-coring" className="text-forest-green hover:underline">concrete coring</Link> it protects, so one engagement covers the scan and the work that follows it.
+      </>
+    ),
     link: { href: "/contact", label: "Book A Services Scan" },
   },
   {
@@ -57,7 +50,11 @@ const SECTIONS = [
     caption: "03 · Land & Detail Surveys",
     image: "/sfgeo-level-check-graded-pad.jpg",
     alt: "Level staff standing on a freshly graded pad during earthworks",
-    body: "Boundary, level and detail surveys through trusted surveying partners — commissioned alongside the geotechnical scope, so the design team receives one aligned package instead of fragments from three separate vendors. SFGEO coordinates; the surveyors survey.",
+    body: (
+      <>
+        Boundary, level and detail surveys through trusted surveying partners — commissioned alongside the <Link href="/geotechnical-investigations" className="text-forest-green hover:underline">geotechnical investigation</Link>, so the design team receives one aligned package instead of fragments from three separate vendors. SFGEO coordinates; the surveyors survey.
+      </>
+    ),
     link: { href: "/contact", label: "Coordinate A Survey" },
   },
   {
@@ -69,14 +66,27 @@ const SECTIONS = [
     caption: "04 · Structural, Civil & Hydraulic",
     image: "/sfgeo-piling-rig-civil-works.jpg",
     alt: "Piling rig working beside a brick building on a Sydney site",
-    body: "Some ground questions end in a structural answer — underpinning, retaining, stormwater, remediation. When a project needs disciplines beyond geotechnics, we introduce specialist structural, civil and hydraulic engineers we already work with, and stay in the room: one team around the project, not a referral and a goodbye.",
+    body: (
+      <>
+        Some ground questions end in a structural answer — underpinning, <Link href="/geotechnical-design" className="text-forest-green hover:underline">retaining walls</Link>, stormwater, remediation. When a project needs disciplines beyond geotechnics, we introduce specialist structural, civil and hydraulic engineers we already work with, and stay in the room: one team around the project, not a referral and a goodbye.
+      </>
+    ),
     link: { href: "/contact", label: "Assemble The Team" },
   },
 ];
 
+const FIRST_IMAGE_ID = SECTIONS.find((s) => s.image)?.id;
+
 const ALSO = [
   { t: "Groundwater Monitoring Wells & Water Bores", d: "Scoped and managed by SFGEO and installed by a licensed drilling contractor — one engagement, with the engineer who logs the ground writing the report." },
-  { t: "Working Platform Assessments", d: "Platform verification to support safe temporary works planning for cranes, rigs and heavy plant." },
+  {
+    t: "Working Platform Assessments",
+    d: (
+      <>
+        <Link href="/construction-phase-support" className="text-forest-green hover:underline">Platform verification</Link> to support safe temporary works planning for cranes, rigs and heavy plant.
+      </>
+    ),
+  },
 ];
 
 export default function OtherServicesPage() {
@@ -106,18 +116,18 @@ export default function OtherServicesPage() {
 
       {/* Hero */}
       <section className="pt-36 pb-20 px-6 lg:px-12 max-w-7xl mx-auto">
-        <FadeIn className="max-w-3xl">
-          <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-6 font-semibold">
+        <div className="max-w-3xl">
+          <p className="hero-line text-sm uppercase tracking-[0.2em] text-forest-green mb-6 font-semibold">
             Other Professional Services &middot; One Point Of Contact &middot; Sydney
           </p>
-          <h1 className="text-4xl sm:text-6xl font-montserrat font-light tracking-tight leading-[1.08] mb-8">
+          <h1 className="hero-line hero-d1 text-[min(2.25rem,8.2vw)] sm:text-6xl font-montserrat font-light tracking-tight leading-[1.08] mb-8">
             The Disciplines <span className="font-semibold h-bold">Around The Ground.</span>
           </h1>
-          <div className="w-[96px] h-[3px] bg-forest-green mb-8" />
-          <p className="text-lg sm:text-xl text-gray-600 font-light leading-relaxed">
+          <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />
+          <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed">
             Utility location, dilapidation records, surveys, specialist engineering — the services a project needs beside the geotechnics. Delivered through a trusted partner network, coordinated by SFGEO, under one engagement and one point of contact.
           </p>
-        </FadeIn>
+        </div>
       </section>
 
       {/* The services — numbered editorial rows */}
@@ -127,9 +137,9 @@ export default function OtherServicesPage() {
             <FadeIn className={idx % 2 === 1 ? "lg:order-2" : ""}>
               {sec.image ? (
                 <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-[0_26px_60px_-26px_rgba(5,10,7,0.4)]">
-                  <Image src={sec.image} alt={sec.alt} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/40 via-transparent to-transparent" />
-                  <p className="absolute bottom-5 left-6 text-[11px] uppercase tracking-[0.25em] text-white/80 font-semibold">{sec.caption}</p>
+                  <Image src={sec.image} alt={sec.alt} fill sizes="(max-width: 1024px) 100vw, (max-width: 1280px) 50vw, 600px" priority={sec.id === FIRST_IMAGE_ID} className="object-cover" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/80 via-[#050A07]/25 to-transparent" />
+                  <p className="absolute bottom-5 left-6 text-[11px] uppercase tracking-[0.25em] text-white font-semibold">{sec.caption}</p>
                 </div>
               ) : (
                 <PhotoPlaceholder

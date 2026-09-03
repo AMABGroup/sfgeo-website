@@ -2,29 +2,18 @@ import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import QuoteCta from "@/components/forms/QuoteCta";
+import { pageMeta } from "@/lib/seo";
 import { FadeIn } from "../site-classification/MotionWrapper";
 
-export const metadata: Metadata = {
-  title: "Subcontract Drilling Sydney | Rig Hire With Engineer | SFGEO",
-  description: "Subcontract drilling for consultancies, environmental consultants, builders and civil contractors — an engineer-operated 4WD rig on your program and your paperwork, Sydney metro and regional NSW.",
-  alternates: { canonical: '/subcontract-drilling' },
-  openGraph: {
-    images: ['/og/sfgeo-og-card.jpg'],
-    title: "Subcontract Drilling Sydney | Rig Hire With Engineer | SFGEO",
-    description: "Engineer-operated rig capacity under your scope — consultancies, environmental programs, builders and majors.",
-    url: '/subcontract-drilling',
-  },
-  twitter: {
-    card: "summary_large_image",
-    images: ['/og/sfgeo-og-card.jpg'],
-    title: "Subcontract Drilling Sydney | SFGEO",
-    description: "Your scope, our rig — engineer operated, metro and regional NSW.",
-  },
-};
+export const metadata: Metadata = pageMeta(
+  "Subcontract Drilling Sydney | Rig Hire With Engineer | SFGEO",
+  "Subcontract drilling for consultancies, environmental consultants, builders and civil contractors — an engineer-operated 4WD rig on your program, metro and NSW.",
+  "/subcontract-drilling",
+);
 
 const CLIENTS = [
   { t: "Engineering Consultancies", d: "Boutique practices to some of the bigger firms in Sydney ground — field data with engineer-grade logging you can put your letterhead on without re-checking it." },
-  { t: "Environmental Consultants", d: "Drilling, sampling and monitoring well installation for PSI and DSI programs — clean execution, chain of custody kept, your sampling plan followed to the letter." },
+  { t: "Environmental Consultants", d: "Drilling and sampling for PSI and DSI programs — clean execution, chain of custody kept, your sampling plan followed to the letter. Monitoring wells through a licensed bore driller under our scope." },
   { t: "Builders & Civil Contractors", d: "Holes without the overhead of an in-house crew — footing probes, pavement investigations, service trenching support, booked around your program." },
   { t: "Bigger Firms & Majors", d: "Reliable capacity when the fleet is booked out — night works, staged access and standing arrangements, delivered at the same standard every visit." },
 ];
@@ -54,7 +43,10 @@ export default function SubcontractDrillingPage() {
     "description": "Engineer-operated subcontract drilling for engineering consultancies, environmental consultants, builders and civil contractors across Sydney and regional NSW.",
     "url": "https://sfgeo.com.au/subcontract-drilling",
     "provider": { "@id": "https://sfgeo.com.au/#organization" },
-    "areaServed": { "@type": "City", "name": "Sydney, New South Wales, Australia" }
+    "areaServed": [
+      { "@type": "City", "name": "Sydney, New South Wales, Australia" },
+      { "@type": "State", "name": "New South Wales, Australia" }
+    ]
   };
 
   return (
@@ -63,19 +55,19 @@ export default function SubcontractDrillingPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
 
       {/* Hero */}
-      <section className="pt-36 pb-16 px-6 lg:px-12 max-w-7xl mx-auto">
-        <FadeIn className="max-w-3xl">
-          <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-6 font-semibold">
+      <section className="pt-36 pb-20 px-6 lg:px-12 max-w-7xl mx-auto">
+        <div className="max-w-3xl">
+          <p className="hero-line text-sm uppercase tracking-[0.2em] text-forest-green mb-6 font-semibold">
             Subcontract Drilling &middot; B2B &middot; Metro + Regional NSW
           </p>
-          <h1 className="text-4xl sm:text-6xl font-montserrat font-light tracking-tight leading-[1.08] mb-8">
+          <h1 className="hero-line hero-d1 text-[min(2.25rem,8.2vw)] sm:text-6xl font-montserrat font-light tracking-tight leading-[1.08] mb-8">
             Subcontract Drilling. <span className="font-semibold h-bold">Your Scope. Our Rig.</span>
           </h1>
-          <div className="w-[96px] h-[3px] bg-forest-green mb-8" />
-          <p className="text-lg sm:text-xl text-gray-600 font-light leading-relaxed mb-10">
+          <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />
+          <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed mb-10">
             An engineer-operated 4WD rig available under your paperwork — for the consultancies, environmental programs, builders and bigger firms that need holes in the ground without owning the machine that makes them. Rapid mobilisation, engineer logging as standard, and the same crew every time.
           </p>
-          <div className="flex flex-col sm:flex-row items-start gap-4">
+          <div className="hero-line hero-d3 flex flex-col sm:flex-row items-start gap-4">
             <Link
               href="/contact?subject=Subcontract%20Drilling%20Enquiry"
               className="flex items-center justify-center px-8 py-2.5 bg-gradient-to-b from-[#346b43] to-forest-green text-white rounded-full shadow-[0_8px_20px_-6px_rgba(45,90,58,0.4)] hover:shadow-[0_12px_24px_-8px_rgba(45,90,58,0.6)] hover:brightness-105 transition-all hover:-translate-y-0.5 w-full sm:w-auto h-[46px] text-xs font-semibold tracking-wide"
@@ -89,23 +81,23 @@ export default function SubcontractDrillingPage() {
               Call 0423 483 555
             </Link>
           </div>
-        </FadeIn>
+        </div>
       </section>
 
       {/* 01 — The arrangement */}
-      <section className="py-16 lg:py-20 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">
+      <section className="py-20 lg:py-24 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">
         <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-10 lg:gap-16 items-center">
           <FadeIn>
             <div className="grid grid-cols-2 gap-4 sm:gap-6">
               <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-[0_20px_50px_-20px_rgba(5,10,7,0.35)]">
                 <Image src="/sfgeo-night-works-rig-mast-lakemba.jpg" alt="Drill rig with mast raised in a closed traffic lane during night works on a Sydney high street" fill sizes="(max-width: 1024px) 50vw, 30vw" className="object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/40 via-transparent to-transparent" />
-                <p className="absolute bottom-4 left-4 text-[10px] uppercase tracking-[0.2em] text-white/80 font-semibold">Mobilised</p>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/80 via-[#050A07]/25 to-transparent" />
+                <p className="absolute bottom-4 left-4 text-[11px] uppercase tracking-[0.2em] text-white font-semibold">Mobilised</p>
               </div>
               <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-[0_20px_50px_-20px_rgba(5,10,7,0.35)] lg:mt-10">
                 <Image src="/sfgeo-subcontract-rig-working-rear.jpg" alt="Rig with mast raised working a borehole above the river" fill sizes="(max-width: 1024px) 50vw, 30vw" className="object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/40 via-transparent to-transparent" />
-                <p className="absolute bottom-4 left-4 text-[10px] uppercase tracking-[0.2em] text-white/80 font-semibold">On The Hole</p>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/80 via-[#050A07]/25 to-transparent" />
+                <p className="absolute bottom-4 left-4 text-[11px] uppercase tracking-[0.2em] text-white font-semibold">On The Hole</p>
               </div>
             </div>
           </FadeIn>
@@ -123,7 +115,7 @@ export default function SubcontractDrillingPage() {
       </section>
 
       {/* 02 — Who we drill for */}
-      <section className="py-16 lg:py-20 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">
+      <section className="py-20 lg:py-24 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">
         <FadeIn className="mb-12">
           <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">02 &middot; Who We Drill For</p>
           <h2 className="text-3xl sm:text-4xl font-light tracking-tight font-montserrat text-slate-950">
@@ -144,7 +136,7 @@ export default function SubcontractDrillingPage() {
       </section>
 
       {/* 03 — The terms */}
-      <section className="py-16 lg:py-20 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">
+      <section className="py-20 lg:py-24 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">
         <FadeIn className="mb-12">
           <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">03 &middot; The Arrangement</p>
           <h2 className="text-3xl sm:text-4xl font-light tracking-tight font-montserrat text-slate-950">
@@ -166,12 +158,12 @@ export default function SubcontractDrillingPage() {
       </section>
 
       {/* Close */}
-      <section className="mt-8 relative overflow-hidden bg-[#050A07] text-white grain">
+      <section className="relative overflow-hidden bg-[#050A07] text-white grain">
         <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_-20%,rgba(45,90,58,0.3),transparent_60%)] pointer-events-none" />
         <div className="max-w-4xl mx-auto text-center px-6 py-28 lg:py-32 relative z-10">
           <FadeIn>
             <h2 className="text-4xl sm:text-6xl font-montserrat font-light tracking-tight mb-8">
-              Fleet Booked Out? <span className="font-semibold h-bold">Ours Isn&rsquo;t.</span>
+              Fleet Booked Out? <span className="font-semibold h-bold">Our Rig Isn&rsquo;t.</span>
             </h2>
             <p className="text-lg sm:text-xl text-gray-400 font-light leading-relaxed max-w-2xl mx-auto mb-12">
               Send the borehole schedule and the window. You&rsquo;ll have rates in writing within one business day — and a rig that turns up when it said it would.
@@ -180,7 +172,14 @@ export default function SubcontractDrillingPage() {
               <Link href="tel:+61423483555" className="flex items-center justify-center px-8 py-2.5 bg-gradient-to-b from-[#346b43] to-forest-green text-white rounded-full shadow-[0_8px_20px_-6px_rgba(45,90,58,0.4)] hover:brightness-105 transition-all hover:-translate-y-0.5 w-full sm:w-[280px] h-[46px] text-xs font-semibold tracking-wide">
                 Call 0423 483 555
               </Link>
-              <QuoteCta source="subcontract-drilling close" label="Enquire About Capacity" className="flex items-center justify-center px-8 py-2.5 bg-white/5 text-white rounded-full shadow-[inset_0_0_0_1px_rgba(255,255,255,0.25)] hover:bg-white/10 transition-all hover:-translate-y-0.5 w-full sm:w-[280px] h-[46px] text-xs font-semibold tracking-wide backdrop-blur-sm" />
+              <QuoteCta
+                source="subcontract-drilling close"
+                label="Enquire About Capacity"
+                eyebrow="Subcontract drilling"
+                heading="Enquire About Rig Capacity"
+                subheading="Send the borehole schedule and the window. Rates in writing within one business day."
+                className="flex items-center justify-center px-8 py-2.5 bg-white/5 text-white rounded-full shadow-[inset_0_0_0_1px_rgba(255,255,255,0.25)] hover:bg-white/10 transition-all hover:-translate-y-0.5 w-full sm:w-[280px] h-[46px] text-xs font-semibold tracking-wide backdrop-blur-sm"
+              />
             </div>
           </FadeIn>
         </div>

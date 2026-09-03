@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image, { getImageProps } from "next/image";
 import Link from "next/link";
 import GoogleReviews from "@/components/ui/GoogleReviews";
 import QuoteCta from "@/components/forms/QuoteCta";
@@ -9,6 +9,13 @@ import HomeReviews from "@/components/sections/HomeReviews";
 import Reveal from "@/components/ui/Reveal";
 import HeroParallax from "@/components/ui/HeroParallax";
 import OpeningVeil from "@/components/ui/OpeningVeil";
+import { pageMeta } from "@/lib/seo";
+
+export const metadata = pageMeta(
+  "Geotechnical Engineer Sydney | Solid Foundation Geotechnical",
+  "Sydney's boutique geotechnical consultancy. Principal-led site classifications, investigations, and 4WD drilling with fixed-fee quotes and local expertise.",
+  "/"
+);
 
 const caseStudies = [
   {
@@ -41,6 +48,19 @@ const caseStudies = [
 ];
 
 export default function Home() {
+  // One art-directed hero. A <picture> lets the browser fetch a single
+  // source per viewport, where two <Image priority> tags preloaded both
+  // crops on every device.
+  const heroImage = {
+    alt: "The SFGEO team drilling on the Georges River, Sydney",
+    title: "SFGEO team drilling — Georges River, Sydney",
+    fill: true,
+    sizes: "100vw",
+    className: "object-cover object-center",
+  };
+  const { props: { srcSet: heroDesktopSrcSet } } = getImageProps({ ...heroImage, src: "/sfgeo-crew-waterside-drilling.jpg" });
+  const { props: heroMobile } = getImageProps({ ...heroImage, src: "/sfgeo-crew-waterside-drilling-portrait.jpg" });
+
   return (
     <div className="bg-white text-slate-950 font-inter selection:bg-forest-green selection:text-white">
       <OpeningVeil />
@@ -53,24 +73,11 @@ export default function Home() {
             {/* Art-directed: a landscape frame crops to roughly a third of its
                 width in a portrait viewport, so phones get their own crop
                 rather than a 3x upscale of the wide one. */}
-            <Image
-              src="/sfgeo-crew-waterside-drilling-portrait.jpg"
-              alt="The SFGEO team drilling on the Georges River, Sydney"
-              title="SFGEO team drilling — Georges River, Sydney"
-              fill
-              sizes="100vw"
-              className="object-cover object-center lg:hidden"
-              priority
-            />
-            <Image
-              src="/sfgeo-crew-waterside-drilling.jpg"
-              alt="The SFGEO team drilling on the Georges River, Sydney"
-              title="SFGEO team drilling — Georges River, Sydney"
-              fill
-              sizes="100vw"
-              className="object-cover object-center hidden lg:block"
-              priority
-            />
+            <picture>
+              <source media="(min-width: 1024px)" srcSet={heroDesktopSrcSet} sizes="100vw" />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img {...heroMobile} fetchPriority="high" loading="eager" />
+            </picture>
           </div>
           </HeroParallax>
           <div className="absolute inset-0 bg-gradient-to-r from-[#050A07]/95 via-[#050A07]/65 to-[#050A07]/30" />
@@ -84,7 +91,7 @@ export default function Home() {
               <p className="hero-line text-sm uppercase tracking-[0.2em] text-[#8FBF9F] mb-6 font-semibold">
                 Independent Geotechnical Consultancy &middot; Sydney
               </p>
-              <h1 className="text-[clamp(3.2rem,7vw,6.6rem)] tracking-[-0.02em] font-montserrat font-light text-white leading-[1.04] mb-8">
+              <h1 className="text-[clamp(2.75rem,7vw,6.6rem)] lg:text-[clamp(2.8rem,5.5vw,6.6rem)] xl:text-[clamp(3.2rem,7vw,6.6rem)] tracking-[-0.02em] font-montserrat font-light text-white leading-[1.04] mb-8">
                 <span className="mask-line mask-d1"><span>Geotechnical.</span></span>{" "}
                 <span className="mask-line mask-d2"><span className="font-semibold h-bold">Done Properly.</span></span>
               </h1>
@@ -102,7 +109,7 @@ export default function Home() {
                 />
                 <Link
                   href="/contact?subject=b2b-enquiry"
-                  className="flex items-center justify-center px-5 py-2.5 bg-white/5 text-white rounded-full shadow-[inset_0_0_0_1px_rgba(255,255,255,0.25)] hover:bg-white/10 hover:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.45)] transition-all hover:-translate-y-0.5 w-[70%] sm:w-[240px] h-[46px] backdrop-blur-sm"
+                  className="flex items-center justify-center px-5 py-2.5 bg-[#050A07]/45 text-white rounded-full shadow-[inset_0_0_0_1px_rgba(255,255,255,0.25)] hover:bg-white/10 hover:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.45)] transition-all hover:-translate-y-0.5 w-[70%] sm:w-[240px] h-[46px] backdrop-blur-sm"
                 >
                   <span className="text-xs font-semibold tracking-wide">B2B Enquiries</span>
                 </Link>
@@ -113,6 +120,7 @@ export default function Home() {
             <div className="hidden lg:flex flex-col items-center shrink-0">
               <QuickQuoteCard
                 source="homepage hero"
+                headingId="hero-quote-heading"
                 secondaryLink={{ href: "/contact?subject=b2b-enquiry", label: "B2B and subcontract enquiries" }}
               />
             </div>
@@ -134,7 +142,7 @@ export default function Home() {
             "Family Owned",
             "Inner West Based",
             "PI & PL Insured",
-            "NATA Lab",
+            "NATA-Accredited Testing",
           ].map((c) => (
             <span key={c} className="text-[11px] uppercase tracking-[0.22em] font-semibold text-gray-500">
               {c}
@@ -174,7 +182,7 @@ export default function Home() {
             </h2>
             <div className="w-[96px] h-[3px] bg-forest-green mb-8" />
             <p className="text-lg text-gray-300 font-light leading-relaxed mb-6 max-w-xl">
-              A principal-led team, hired locally and backed by a trusted partner network — carrying fifteen years of Sydney ground, from Sydney Gateway, the M12 and Western Sydney Airport to terraces, granny flats and pools across the metro. With you all the way, from the first walk of the site to the final certificate.
+              A principal-led team backed by a trusted partner network, carrying fifteen years of Sydney ground — from Sydney Gateway, the M12 and Western Sydney Airport to granny flats, extensions and knockdown rebuilds across the metro. Hired from the Inner West and working for it: the street lighting and signals a suburb walks home under, as much as its terraces and pools.
             </p>
             <Link
               href="/about"
@@ -195,9 +203,9 @@ export default function Home() {
                 className="object-cover"
               />
               </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/50 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/80 via-[#050A07]/25 to-transparent" />
               <div className="absolute bottom-0 left-0 p-6">
-                <p className="text-[11px] uppercase tracking-[0.25em] text-white/70 font-semibold">The Crew &middot; Western Sydney</p>
+                <p className="text-[11px] uppercase tracking-[0.25em] text-white font-semibold">The Crew &middot; Western Sydney</p>
               </div>
             </div>
           </Reveal>
@@ -240,14 +248,14 @@ export default function Home() {
                     sizes="(max-width: 768px) 100vw, 33vw"
                     className="object-cover transition-transform duration-700 ease-in-out group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/70 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/80 via-[#050A07]/25 to-transparent" />
                   <div className="absolute bottom-0 left-0 p-5">
-                    <p className="text-[10px] uppercase tracking-[0.25em] text-white/70 font-semibold mb-1">{cs.tag}</p>
+                    <p className="text-[11px] uppercase tracking-[0.25em] text-white font-semibold mb-1">{cs.tag}</p>
                     <p className="text-white font-montserrat text-lg font-light">{cs.location}</p>
                   </div>
                 </div>
                 <div className="flex flex-col flex-grow p-7">
-                  <h3 className="text-lg font-montserrat font-semibold tracking-tight mb-3 group-hover:text-forest-green transition-colors">{cs.title}</h3>
+                  <h3 className="text-lg font-montserrat font-semibold tracking-tight mb-3 min-h-[3.5rem] group-hover:text-forest-green transition-colors">{cs.title}</h3>
                   <p className="text-sm text-gray-600 font-light leading-relaxed flex-grow">{cs.line}</p>
                   <span className="mt-5 text-sm font-medium tracking-wide text-slate-950 group-hover:text-forest-green transition-colors">
                     Read the project &rarr;
@@ -259,12 +267,8 @@ export default function Home() {
         </div>
       </section>
 
-      
-
-
-
       {/* ============ FAQ ============ */}
-      <section className="py-36 lg:py-44 px-6 lg:px-12 max-w-4xl mx-auto">
+      <section className="pt-0 pb-36 lg:pb-44 px-6 lg:px-12 max-w-4xl mx-auto">
         <Reveal className="text-center mb-16">
           <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">04 &middot; Before You Call</p>
           <h2 className="text-3xl font-light tracking-tight font-montserrat text-slate-950">
@@ -273,6 +277,13 @@ export default function Home() {
           <div className="mt-6 h-px bg-forest-green w-12 mx-auto" />
         </Reveal>
         <HomeFaq />
+      </section>
+
+      {/* ============ Reviews — gallery-neutral band ============ */}
+      <section className="py-32 lg:py-36 bg-white border-y border-gray-100">
+        <div className="mx-auto max-w-7xl px-6 lg:px-12">
+          <HomeReviews />
+        </div>
       </section>
 
       {/* ============ Close — start with the ground + the office ============ */}
@@ -284,7 +295,7 @@ export default function Home() {
             <h2 className="text-3xl sm:text-5xl font-montserrat font-light tracking-tight leading-[1.1] mb-6">
               Start With <span className="font-semibold h-bold">The Ground.</span>
             </h2>
-            <p className="text-gray-500 font-light leading-relaxed mb-10 max-w-md">
+            <p className="text-gray-400 font-light leading-relaxed mb-10 max-w-md">
               Fixed-fee quotes, scoped to your block. Response within one business day.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
@@ -294,15 +305,14 @@ export default function Home() {
               >
                 Call 0423 483 555
               </Link>
-              <Link
-                href="/contact"
+              <QuoteCta
+                source="homepage close"
+                label="Request A Quote"
                 className="flex items-center justify-center px-8 py-2.5 bg-white/5 text-white rounded-full shadow-[inset_0_0_0_1px_rgba(255,255,255,0.25)] hover:bg-white/10 hover:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.45)] transition-all hover:-translate-y-0.5 h-[46px] text-xs font-semibold tracking-wide backdrop-blur-sm"
-              >
-                Request A Quote
-              </Link>
+              />
             </div>
-            <p className="text-[12px] text-white/40 font-light tracking-wide mt-9">
-              Suite 3.01, Level 3, 107 Sydenham Road, Marrickville &middot; Mon&ndash;Fri 6am&ndash;6pm &middot; Sat 8am&ndash;2pm
+            <p className="text-[12px] text-white/60 font-light tracking-wide mt-9">
+              Suite 3.01, Level 3, 107 Sydenham Road, Marrickville NSW 2204 &middot; Mon&ndash;Fri 6am&ndash;6pm &middot; Sat 8am&ndash;2pm
             </p>
             <div className="mt-8 pt-7 border-t border-white/10">
               <p className="text-[11px] uppercase tracking-[0.25em] text-white/50 font-semibold mb-4">Follow The Fieldwork</p>
@@ -317,6 +327,7 @@ export default function Home() {
                     <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.475-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                   </svg>
                   <span className="text-xs font-semibold text-slate-950 tracking-wide">Connect On LinkedIn</span>
+                  <span className="sr-only"> (opens in a new tab)</span>
                 </a>
                 <a
                   href="https://instagram.com/sfgeo.syd"
@@ -328,6 +339,7 @@ export default function Home() {
                     <path fillRule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clipRule="evenodd" />
                   </svg>
                   <span className="text-xs font-semibold text-slate-950 tracking-wide">Follow On Instagram</span>
+                  <span className="sr-only"> (opens in a new tab)</span>
                 </a>
               </div>
             </div>
@@ -346,13 +358,6 @@ export default function Home() {
               
             </div>
           </Reveal>
-        </div>
-      </section>
-
-      {/* ============ Reviews — gallery-neutral band ============ */}
-      <section className="py-32 lg:py-36 bg-white border-y border-gray-100">
-        <div className="mx-auto max-w-7xl px-6 lg:px-12">
-          <HomeReviews />
         </div>
       </section>
     </div>

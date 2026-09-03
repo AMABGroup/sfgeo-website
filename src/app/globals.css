@@ -34,8 +34,10 @@ body {
 }
 
 /* Custom utilities for Framer Motion or smooth scrolling if needed */
-html {
-  scroll-behavior: smooth;
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 .safe-top {
@@ -81,12 +83,12 @@ html {
     100% { transform: scaleY(0); opacity: 0; }
   }
 
-  .reveal {
+  .js .reveal {
     opacity: 0;
     transform: translateY(16px);
     transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
   }
-  .reveal.is-in { opacity: 1; transform: translateY(0); }
+  .js .reveal.is-in { opacity: 1; transform: translateY(0); }
 }
 
 /* ============ Premium craft layer ============ */
@@ -128,8 +130,8 @@ html {
 
 /* Image unveil inside a Reveal */
 @media (prefers-reduced-motion: no-preference) {
-  .reveal .unveil { transform: scale(1.1); transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1); }
-  .reveal.is-in .unveil { transform: scale(1); }
+  .js .reveal .unveil { transform: scale(1.1); transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1); }
+  .js .reveal.is-in .unveil { transform: scale(1); }
 }
 
 /* ============ System rebuild: serif display voice ============ */

@@ -21,7 +21,7 @@ interface PlaceDetails {
 const PLACE_ID = "ChIJkbo3DVqq1IMRQYQUbuD9XDc";
 // Google retired /local/reviews?placeid= — it now answers 404. The Maps place
 // deep link is the supported way to send visitors to the review list.
-const READ_REVIEWS_URL = `https://www.google.com/maps/place/?q=place_id:${PLACE_ID}`;
+export const READ_REVIEWS_URL = `https://www.google.com/maps/place/?q=place_id:${PLACE_ID}`;
 const WRITE_REVIEW_URL = `https://search.google.com/local/writereview?placeid=${PLACE_ID}`;
 
 export default function GoogleReviews() {
@@ -85,6 +85,11 @@ export default function GoogleReviews() {
           Client Feedback
         </motion.h2>
         <motion.div variants={fadeIn} className="mt-6 h-px bg-forest-green w-12 mx-auto" />
+        {overallRating === null && (
+          <motion.p variants={fadeIn} className="mt-5 text-sm text-gray-500 font-light max-w-md mx-auto leading-relaxed">
+            Homeowners, builders and engineers across Sydney &mdash; read what they say about the work on Google.
+          </motion.p>
+        )}
         {overallRating !== null && (
           <motion.div variants={fadeIn} className="mt-4 flex items-center justify-center gap-2">
             <div className="flex text-accent-gold gap-0.5">
@@ -123,7 +128,7 @@ export default function GoogleReviews() {
                 <button
                   type="button"
                   onClick={() => setExpanded(expanded === index ? null : index)}
-                  className="relative z-10 self-start text-xs font-semibold tracking-wide text-forest-green hover:text-slate-950 transition-colors mb-6"
+                  className="relative z-10 self-start inline-flex items-center min-h-[44px] pr-4 -mt-3 -mb-1 text-xs font-semibold tracking-wide text-forest-green hover:text-slate-950 transition-colors"
                 >
                   {expanded === index ? "Show Less" : "Read More"}
                 </button>
@@ -148,18 +153,18 @@ export default function GoogleReviews() {
           href={readReviewsUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="px-8 py-3.5 bg-white text-slate-black text-sm font-semibold tracking-wide rounded-full shadow-md hover:shadow-lg transition-all hover:-translate-y-0.5 border border-gray-200"
+          className="flex items-center justify-center px-8 h-[46px] bg-white text-forest-green rounded-full shadow-[inset_0_0_0_1px_rgba(45,90,58,0.25),0_4px_10px_-4px_rgba(0,0,0,0.05)] hover:bg-forest-green/5 transition-all hover:-translate-y-0.5 text-xs font-semibold tracking-wide"
         >
-          Read Our Reviews
+          Read Our Reviews<span className="sr-only"> (opens in a new tab)</span>
         </motion.a>
         <motion.a
           variants={fadeIn}
           href={WRITE_REVIEW_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="px-8 py-3.5 bg-forest-green text-white text-sm font-semibold tracking-wide rounded-full shadow-md hover:shadow-lg transition-all hover:-translate-y-0.5 hover:bg-forest-green/90"
+          className="flex items-center justify-center px-8 h-[46px] bg-gradient-to-b from-[#346b43] to-forest-green text-white rounded-full text-xs font-semibold tracking-wide shadow-[0_8px_20px_-6px_rgba(45,90,58,0.4)] hover:shadow-[0_12px_24px_-8px_rgba(45,90,58,0.6)] hover:brightness-105 transition-all hover:-translate-y-0.5"
         >
-          Leave a Review
+          Leave A Review<span className="sr-only"> (opens in a new tab)</span>
         </motion.a>
       </motion.div>
     </>

@@ -63,11 +63,11 @@ export default function PrivacyPolicyPage() {
               <span className="font-medium text-slate-950">Google Ads conversion tracking.</span> If you arrive from a paid search advertisement and then submit our contact form or use the on-screen contact buttons, Google sets a short-lived identifier to attribute the enquiry to the campaign. The identifier does not, on its own, contain your name or contact details.
             </p>
             <p className="mt-3">
-              <span className="font-medium text-slate-950">Google Maps.</span> The contact page and site menu include an embedded map of our office. Google may set its own cookies when the map loads.
+              <span className="font-medium text-slate-950">Google Maps.</span> The home page, contact page and site menu include an embedded map of our office. Google may set its own cookies when the map loads.
             </p>
             <p className="mt-3">
               Both services are governed by Google&rsquo;s privacy policy at{" "}
-              <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-forest-green hover:underline">policies.google.com/privacy</a>. You can disable cookies in your browser settings; some features (such as the embedded map) may not function with cookies blocked. Disabling cookies will not prevent you from contacting us by phone, email or the contact form.
+              <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-forest-green hover:underline">policies.google.com/privacy<span className="sr-only"> (opens in a new tab)</span></a>. You can disable cookies in your browser settings; some features (such as the embedded map) may not function with cookies blocked. Disabling cookies will not prevent you from contacting us by phone, email or the contact form.
             </p>
           </div>
 

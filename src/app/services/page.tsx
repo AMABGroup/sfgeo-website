@@ -2,24 +2,13 @@ import { Metadata } from "next";
 import Link from "next/link";
 import QuoteCta from "@/components/forms/QuoteCta";
 import { FadeIn } from "../site-classification/MotionWrapper";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Geotechnical Services Sydney | SFGEO",
-  description: "Every SFGEO service line in one place — geotechnical, drilling, environmental and soil testing, other professional services and concrete coring. Principal-led, Sydney-wide.",
-  alternates: { canonical: '/services' },
-  openGraph: {
-    images: ['/og/sfgeo-og-card.jpg'],
-    title: "Geotechnical Services Sydney | SFGEO",
-    description: "Every SFGEO service line in one place — geotechnical, drilling, environmental, professional services and concrete coring.",
-    url: '/services',
-  },
-  twitter: {
-    card: "summary_large_image",
-    images: ['/og/sfgeo-og-card.jpg'],
-    title: "Geotechnical Services Sydney | SFGEO",
-    description: "Every SFGEO service line in one place.",
-  },
-};
+export const metadata: Metadata = pageMeta(
+  "Geotechnical, Drilling & Environmental Services | SFGEO",
+  "Every SFGEO service line in one place — geotechnical, drilling, environmental testing, specialist services and concrete coring. Principal-led, Sydney-wide.",
+  "/services",
+);
 
 const SEGMENTS = [
   {
@@ -96,18 +85,18 @@ export default function ServicesIndexPage() {
 
       {/* Hero */}
       <section className="pt-36 pb-20 px-6 lg:px-12 max-w-7xl mx-auto">
-        <FadeIn className="max-w-3xl">
-          <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-6 font-semibold">
-            All Services &middot; Principal-Led &middot; Sydney
+        <div className="max-w-3xl">
+          <p className="hero-line text-sm uppercase tracking-[0.2em] text-forest-green mb-6 font-semibold [text-wrap:balance]">
+            <span className="whitespace-nowrap">All Services</span> &middot; <span className="whitespace-nowrap">Principal-Led</span> &middot; <span className="whitespace-nowrap">Sydney</span>
           </p>
-          <h1 className="text-4xl sm:text-6xl font-montserrat font-light tracking-tight leading-[1.08] mb-8">
-            Full Suite. <span className="font-semibold h-bold">One Team.</span>
+          <h1 className="hero-line hero-d1 text-4xl sm:text-6xl font-montserrat font-light tracking-tight leading-[1.08] mb-8">
+            Geotechnical Services Sydney. <span className="font-semibold h-bold">One Team.</span>
           </h1>
-          <div className="w-[96px] h-[3px] bg-forest-green mb-8" />
-          <p className="text-lg sm:text-xl text-gray-600 font-light leading-relaxed">
+          <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />
+          <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed">
             Five service lines, one standard, one point of contact — and the Principal across every job. Start with the segment, or just tell us the project and we&rsquo;ll tell you what it needs.
           </p>
-        </FadeIn>
+        </div>
       </section>
 
       {/* Index */}
@@ -129,9 +118,9 @@ export default function ServicesIndexPage() {
               <div className="lg:col-span-6">
                 <p className="text-gray-600 font-light leading-relaxed mb-5">{seg.d}</p>
                 {seg.children.length > 0 && (
-                  <div className="flex flex-wrap gap-x-6 gap-y-2">
+                  <div className="flex flex-wrap gap-x-6 gap-y-0">
                     {seg.children.map((c) => (
-                      <Link key={c.name} href={c.href} className="text-sm font-medium text-gray-500 hover:text-forest-green underline underline-offset-4 decoration-gray-200 hover:decoration-forest-green transition-colors">
+                      <Link key={c.name} href={c.href} className="inline-block py-2 text-sm font-medium text-gray-500 hover:text-forest-green underline underline-offset-4 decoration-gray-200 hover:decoration-forest-green transition-colors">
                         {c.name}
                       </Link>
                     ))}

@@ -9,7 +9,7 @@ export default function ContactLayout({ children }: { children: React.ReactNode 
         "@id": "https://sfgeo.com.au/contact/#webpage",
         "url": "https://sfgeo.com.au/contact",
         "name": "Contact Solid Foundation Geotechnical",
-        "description": "Contact Sydney's leading boutique geotechnical consultancy for soil testing, site classifications, and drilling services.",
+        "description": "Speak directly with a Sydney geotechnical consultant. Fixed-fee quotes for site classifications, investigations, and drilling services across Greater Sydney.",
         "breadcrumb": {
           "@id": "https://sfgeo.com.au/contact/#breadcrumb"
         },

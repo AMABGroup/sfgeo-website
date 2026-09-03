@@ -44,7 +44,7 @@ New enquiry received via sfgeo.com.au contact form.
 
 Name: ${name}
 Email: ${email}
-Phone: ${sanitizedPhone}
+Phone: ${phone.trim()} (${sanitizedPhone})
 Site address: ${siteAddress}
 Project type: ${projectType}
 Proposed start date: ${startDate}

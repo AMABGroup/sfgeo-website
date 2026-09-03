@@ -19,38 +19,27 @@ const archivo = Archivo({
   weight: "variable",
   variable: "--font-archivo",
   display: "swap",
+  preload: false,
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://sfgeo.com.au'),
-  title: "Solid Foundation Geotechnical | Sydney Engineers & Drilling",
+  title: "Geotechnical Engineer Sydney | Solid Foundation Geotechnical",
   description: "Sydney's boutique geotechnical consultancy. Principal-led site classifications, investigations, and 4WD drilling with fixed-fee quotes and local expertise.",
-  keywords: [
-    "Geotechnical Engineer Sydney",
-    "Soil Testing Sydney",
-    "Site Classification Sydney",
-    "AS2870 Site Classification",
-    "AS1726 Geotechnical Investigation",
-    "Core Drilling Sydney",
-    "Tight Access Drilling",
-    "Borehole Drilling Sydney",
-    "Residential Geotechnical Report",
-    "Geotechnical Investigation Sydney",
-    "Pavement Design Sydney",
-    "Slope Stability Assessment Sydney",
-    "Wastewater Management Plan",
-    "Permeability Testing Sydney",
-    "Marrickville Geotechnical Engineer",
-    "Inner West Soil Testing",
-    "Western Sydney Geotechnical Services"
-  ],
-  alternates: {
-    canonical: '/',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
   openGraph: {
-    title: "Solid Foundation Geotechnical | Sydney Engineers & Drilling",
+    title: "Geotechnical Engineer Sydney | Solid Foundation Geotechnical",
     description: "Sydney's boutique geotechnical consultancy. Principal-led site classifications, investigations, and 4WD drilling with fixed-fee quotes and local expertise.",
-    url: "/",
     siteName: "SFGEO",
     locale: "en_AU",
     type: "website",
@@ -65,12 +54,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Solid Foundation Geotechnical | Sydney Engineers & Drilling",
+    title: "Geotechnical Engineer Sydney | Solid Foundation Geotechnical",
     description: "Sydney's boutique geotechnical consultancy. Principal-led site classifications, investigations, and 4WD drilling with fixed-fee quotes and local expertise.",
     images: ['/og/sfgeo-og-card.jpg'],
-  },
-  icons: {
-    icon: "/favicon.png",
   },
 };
 
@@ -84,20 +70,20 @@ export default function RootLayout({
     "@type": ["Organization", "ProfessionalService"],
     "@id": "https://sfgeo.com.au/#organization",
     "name": "Solid Foundation Geotechnical",
+    "alternateName": "SFGEO",
     "url": "https://sfgeo.com.au",
     "logo": {
       "@type": "ImageObject",
       "url": "https://sfgeo.com.au/og/sfgeo-logo-square.png"
     },
     "image": "https://sfgeo.com.au/og/sfgeo-og-card.jpg",
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "5.0",
-      "reviewCount": "20",
-      "bestRating": "5"
-    },
     "telephone": "+61423483555",
+    "email": "info@sfgeo.com.au",
     "priceRange": "$$",
+    "areaServed": [
+      { "@type": "City", "name": "Sydney" },
+      { "@type": "State", "name": "New South Wales" }
+    ],
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Suite 3.01, Level 3, 107 Sydenham Road",
@@ -111,6 +97,7 @@ export default function RootLayout({
       "latitude": -33.911,
       "longitude": 151.166
     },
+    "hasMap": "https://www.google.com/maps/place/?q=place_id:ChIJkbo3DVqq1IMRQYQUbuD9XDc",
     "openingHoursSpecification": [
       {
         "@type": "OpeningHoursSpecification",
@@ -127,18 +114,18 @@ export default function RootLayout({
     ],
     "sameAs": [
       "https://au.linkedin.com/company/sfgeo",
-      "https://instagram.com/sfgeo.syd"
+      "https://instagram.com/sfgeo.syd",
+      "https://maps.google.com/?cid=3989342510304756801"
     ],
     "contactPoint": {
       "@type": "ContactPoint",
       "telephone": "+61423483555",
       "contactType": "customer service",
-      "areaServed": "AU",
+      "areaServed": "AU-NSW",
       "availableLanguage": "en"
     },
     "founder": {
       "@type": "Person",
-      "@id": "https://sfgeo.com.au/about#alli-atmar",
       "name": "Alli Atmar",
       "jobTitle": "Principal Engineer",
       "worksFor": { "@id": "https://sfgeo.com.au/#organization" }
@@ -146,13 +133,14 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en-AU">
       <body
         className={`${inter.variable} ${montserrat.variable} ${archivo.variable} antialiased min-h-screen flex flex-col`}
       >
+        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=AW-18053070765"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
         <Script id="gtag-init" strategy="afterInteractive">
           {`window.dataLayer = window.dataLayer || [];

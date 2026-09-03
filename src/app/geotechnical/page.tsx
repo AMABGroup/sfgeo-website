@@ -4,20 +4,20 @@ import Link from "next/link";
 import QuoteCta from "@/components/forms/QuoteCta";
 import PhotoPlaceholder from "@/components/ui/PhotoPlaceholder";
 import { FadeIn } from "../site-classification/MotionWrapper";
+import { OG_BASE, TWITTER_BASE } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Geotechnical Engineering Sydney | The Full Suite | SFGEO",
-  description: "The full geotechnical suite for Sydney — site classifications, investigations, assessments, construction phase support and design parameters. Principal-led, fixed-fee, family owned.",
+  description: "The full geotechnical suite for Sydney — site classifications, investigations, assessments, construction phase support and design. Principal-led, fixed-fee.",
   alternates: { canonical: '/geotechnical' },
   openGraph: {
-    images: ['/og/sfgeo-og-card.jpg'],
+    ...OG_BASE,
     title: "Geotechnical Engineering Sydney | The Full Suite | SFGEO",
     description: "Site classifications, investigations, assessments, construction support and design — principal-led, fixed-fee.",
     url: '/geotechnical',
   },
   twitter: {
-    card: "summary_large_image",
-    images: ['/og/sfgeo-og-card.jpg'],
+    ...TWITTER_BASE,
     title: "Geotechnical Engineering Sydney | SFGEO",
     description: "The full geotechnical suite — principal-led, fixed-fee, family owned.",
   },
@@ -40,7 +40,7 @@ const SECTIONS = [
     image: "/sfgeo-gi-rig-golden-coogee.jpg",
     alt: "Drill rig in golden morning light above a Coogee allotment",
     body: "Boreholes, penetrometers and NATA-backed laboratory data for DAs, complying development, footings, basements and retaining structures. The engineer who drills your ground is the engineer who signs your report.",
-    link: { href: "/geotechnical-investigations", label: "Explore Investigations" },
+    link: { href: "/geotechnical-investigations", label: "Explore Geotechnical Investigations" },
   },
   {
     n: "03",
@@ -58,7 +58,7 @@ const SECTIONS = [
     image: "/footing-pile-inspection-north-willoughby-geotechnical.jpg",
     alt: "Footing and pier inspection at bearing level",
     body: "Footing, pier and pile inspections at bearing level, proof rolls, and engineered fill to AS 3798 — verified on site and confirmed in writing before the pour, so an open excavation never waits. Single visits for builders; standing engagements for commercial contractors.",
-    link: { href: "/construction-phase-support", label: "Explore Construction Support" },
+    link: { href: "/construction-phase-support", label: "Explore Construction Phase Support" },
   },
   {
     n: "05",
@@ -105,18 +105,18 @@ export default function GeotechnicalHubPage() {
 
       {/* Hero */}
       <section className="pt-36 pb-20 px-6 lg:px-12 max-w-7xl mx-auto">
-        <FadeIn className="max-w-3xl">
-          <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-6 font-semibold">
+        <div className="max-w-3xl">
+          <p className="hero-line text-sm uppercase tracking-[0.2em] text-forest-green mb-6 font-semibold">
             Geotechnical &middot; Principal-Led &middot; Sydney
           </p>
-          <h1 className="text-4xl sm:text-6xl font-montserrat font-light tracking-tight leading-[1.08] mb-8">
+          <h1 className="hero-line hero-d1 text-4xl sm:text-6xl font-montserrat font-light tracking-tight leading-[1.08] mb-8">
             Geotechnical. <span className="font-semibold h-bold">The Full Suite.</span>
           </h1>
-          <div className="w-[96px] h-[3px] bg-forest-green mb-8" />
-          <p className="text-lg sm:text-xl text-gray-600 font-light leading-relaxed">
+          <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />
+          <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed">
             From the first hole on an empty block to the last inspection before the pour — one team carries the whole geotechnical scope, and the Principal is across every job.
           </p>
-        </FadeIn>
+        </div>
       </section>
 
       {/* The suite — numbered editorial rows */}
@@ -126,9 +126,9 @@ export default function GeotechnicalHubPage() {
             <FadeIn className={idx % 2 === 1 ? "lg:order-2" : ""}>
               {sec.image ? (
                 <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-[0_26px_60px_-26px_rgba(5,10,7,0.4)]">
-                  <Image src={sec.image} alt={sec.alt} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/40 via-transparent to-transparent" />
-                  <p className="absolute bottom-5 left-6 text-[11px] uppercase tracking-[0.25em] text-white/80 font-semibold">{sec.n} &middot; {sec.title}</p>
+                  <Image src={sec.image} alt={sec.alt} fill sizes="(max-width: 1024px) 100vw, (max-width: 1280px) 50vw, 600px" priority={idx === 0} className="object-cover" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/80 via-[#050A07]/25 to-transparent" />
+                  <p className="absolute bottom-5 left-6 text-[11px] uppercase tracking-[0.25em] text-white font-semibold">{sec.n} &middot; {sec.title}</p>
                 </div>
               ) : (
                 <PhotoPlaceholder
@@ -167,7 +167,7 @@ export default function GeotechnicalHubPage() {
           {AUDIENCES.map((a) => (
             <FadeIn key={a.t}>
               <div className="p-8 bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-md transition-shadow h-full">
-                <h3 className="text-lg font-montserrat font-semibold text-slate-950 mb-3">{a.t}</h3>
+                <h3 className="text-lg font-montserrat font-semibold text-slate-950 mb-3 min-h-[56px]">{a.t}</h3>
                 <p className="text-gray-600 font-light leading-relaxed text-[15px]">{a.d}</p>
               </div>
             </FadeIn>

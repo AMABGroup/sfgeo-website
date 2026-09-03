@@ -1,135 +1,46 @@
 import { MetadataRoute } from 'next';
 
+type Route = {
+  path: string;
+  lastModified: string;
+  changeFrequency: MetadataRoute.Sitemap[number]['changeFrequency'];
+  priority: number;
+};
+
+// lastModified is a literal per route and moves only when that page's
+// content changes — a shared build-time timestamp is ignored by Google.
+const ROUTES: Route[] = [
+  { path: '', lastModified: '2026-09-01', changeFrequency: 'weekly', priority: 1.0 },
+  { path: '/about', lastModified: '2026-09-01', changeFrequency: 'monthly', priority: 0.7 },
+  { path: '/services', lastModified: '2026-09-01', changeFrequency: 'monthly', priority: 0.9 },
+  { path: '/geotechnical', lastModified: '2026-09-01', changeFrequency: 'monthly', priority: 0.9 },
+  { path: '/environmental', lastModified: '2026-09-01', changeFrequency: 'monthly', priority: 0.9 },
+  { path: '/geotechnical-investigations', lastModified: '2026-09-01', changeFrequency: 'weekly', priority: 0.9 },
+  { path: '/site-classification', lastModified: '2026-09-01', changeFrequency: 'weekly', priority: 0.9 },
+  { path: '/drilling', lastModified: '2026-09-01', changeFrequency: 'weekly', priority: 0.9 },
+  { path: '/borehole-drilling', lastModified: '2026-09-01', changeFrequency: 'monthly', priority: 0.8 },
+  { path: '/subcontract-drilling', lastModified: '2026-09-01', changeFrequency: 'monthly', priority: 0.8 },
+  { path: '/tight-access-drilling', lastModified: '2026-09-01', changeFrequency: 'monthly', priority: 0.8 },
+  { path: '/concrete-coring', lastModified: '2026-09-01', changeFrequency: 'monthly', priority: 0.8 },
+  { path: '/other-services', lastModified: '2026-09-01', changeFrequency: 'monthly', priority: 0.7 },
+  { path: '/construction-phase-support', lastModified: '2026-09-01', changeFrequency: 'monthly', priority: 0.8 },
+  { path: '/geotechnical-assessments', lastModified: '2026-09-01', changeFrequency: 'monthly', priority: 0.8 },
+  { path: '/geotechnical-design', lastModified: '2026-09-01', changeFrequency: 'monthly', priority: 0.8 },
+  { path: '/geotechnical-report-cost-sydney', lastModified: '2026-09-01', changeFrequency: 'monthly', priority: 0.8 },
+  { path: '/projects', lastModified: '2026-09-01', changeFrequency: 'monthly', priority: 0.8 },
+  { path: '/faq', lastModified: '2026-09-01', changeFrequency: 'monthly', priority: 0.7 },
+  { path: '/contact', lastModified: '2026-09-01', changeFrequency: 'monthly', priority: 0.7 },
+  { path: '/privacy-policy', lastModified: '2026-04-21', changeFrequency: 'yearly', priority: 0.3 },
+  { path: '/terms-and-conditions', lastModified: '2026-04-21', changeFrequency: 'yearly', priority: 0.3 },
+];
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://sfgeo.com.au';
-  const now = new Date();
 
-  return [
-    {
-      url: `${baseUrl}`,
-      lastModified: now,
-      changeFrequency: 'weekly',
-      priority: 1.0,
-    },
-    {
-      url: `${baseUrl}/about`,
-      lastModified: now,
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/services`,
-      lastModified: now,
-      changeFrequency: 'monthly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/geotechnical`,
-      lastModified: now,
-      changeFrequency: 'monthly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/environmental`,
-      lastModified: now,
-      changeFrequency: 'monthly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/geotechnical-investigations`,
-      lastModified: now,
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/site-classification`,
-      lastModified: now,
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/drilling`,
-      lastModified: now,
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/borehole-drilling`,
-      lastModified: now,
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/subcontract-drilling`,
-      lastModified: now,
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/tight-access-drilling`,
-      lastModified: now,
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/concrete-coring`,
-      lastModified: now,
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/other-services`,
-      lastModified: now,
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/construction-phase-support`,
-      lastModified: now,
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/geotechnical-assessments`,
-      lastModified: now,
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/geotechnical-design`,
-      lastModified: now,
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/projects`,
-      lastModified: now,
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/faq`,
-      lastModified: now,
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/contact`,
-      lastModified: now,
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/privacy-policy`,
-      lastModified: new Date('2026-04-21'),
-      changeFrequency: 'yearly',
-      priority: 0.3,
-    },
-    {
-      url: `${baseUrl}/terms-and-conditions`,
-      lastModified: new Date('2026-04-21'),
-      changeFrequency: 'yearly',
-      priority: 0.3,
-    },
-  ];
+  return ROUTES.map(({ path, lastModified, changeFrequency, priority }) => ({
+    url: `${baseUrl}${path}`,
+    lastModified: new Date(lastModified),
+    changeFrequency,
+    priority,
+  }));
 }

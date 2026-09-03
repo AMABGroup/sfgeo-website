@@ -3,27 +3,15 @@ import Image from "next/image";
 import Link from "next/link";
 import QuoteCta from "@/components/forms/QuoteCta";
 import PhotoPlaceholder from "@/components/ui/PhotoPlaceholder";
+import LazyVideo from "@/components/ui/LazyVideo";
+import { pageMeta } from "@/lib/seo";
 import { FadeIn } from "../site-classification/MotionWrapper";
 
-export const metadata: Metadata = {
-  title: "Geotechnical Drilling Sydney | 4WD Mobilised | SFGEO",
-  description: "Geotechnical and environmental drilling in Sydney. 4WD-mounted rig, borehole drilling, NMLC rock coring, tight-access capability and subcontract rig hire for builders and consultancies.",
-  alternates: {
-    canonical: '/drilling',
-  },
-  openGraph: {
-    images: ['/og/sfgeo-og-card.jpg'],
-    title: "Geotechnical Drilling Sydney | 4WD Mobilised | SFGEO",
-    description: "Geotechnical and environmental drilling in Sydney. 4WD-mounted rig, borehole drilling, NMLC rock coring, tight-access capability and subcontract rig hire.",
-    url: '/drilling',
-  },
-  twitter: {
-    card: "summary_large_image",
-    images: ['/og/sfgeo-og-card.jpg'],
-    title: "Geotechnical Drilling Sydney | 4WD Mobilised | SFGEO",
-    description: "Borehole drilling, NMLC rock coring, tight access and subcontract rig capacity across Sydney.",
-  },
-};
+export const metadata: Metadata = pageMeta(
+  "Geotechnical & Environmental Drilling Sydney | SFGEO",
+  "Geotechnical and environmental drilling in Sydney. 4WD-mounted rig, borehole drilling, NMLC rock coring, tight access and subcontract rig hire.",
+  "/drilling",
+);
 
 const SECTIONS = [
   {
@@ -53,7 +41,7 @@ const SECTIONS = [
     caption: "02 · Rock Coring",
     image: null,
     shot: "NMLC rock core in the tray — sandstone or shale runs laid out, defect-logged, with the core barrel or a scale alongside.",
-    body: "When the design needs more than refusal depth — intact cores from Hawkesbury sandstone and Ashfield shale, recovered, photographed and defect-logged so structural decisions rest on what the rock actually is. Coring runs are specialised work: they're booked with advance notice and prepaid.",
+    body: "When the design needs more than refusal depth — intact cores from Hawkesbury sandstone and Ashfield shale, recovered, photographed and defect-logged so structural decisions rest on what the rock actually is.",
     specs: [
       "NMLC rock coring with recovery and defect logging",
       "Hawkesbury sandstone, Ashfield shale and interbedded profiles",
@@ -72,10 +60,10 @@ const SECTIONS = [
     caption: "03 · Tight Access",
     image: "/sfgeo-hand-auger-sidepath-naremburn.jpg",
     alt: "Hand auger boreholing down a narrow side path beside a Sydney home",
-    body: "Terrace backyards, basement levels, side paths a wheelbarrow barely fits down — access shouldn't decide the quality of your engineering data. Motorised hand augers, tight-access coring and track-mounted rigs reach the ground other crews quote around, with the finished surfaces protected on the way through.",
+    body: "Terrace backyards, basement levels, side paths a wheelbarrow barely fits down — access shouldn't decide the quality of your engineering data. Motorised hand augers, tight-access coring and a 4WD-mounted rig reach the ground other crews quote around, with the finished surfaces protected on the way through.",
     specs: [
       "Manual and motorised hand augering",
-      "Track-mounted rigs for highly restricted sites",
+      "4WD-mounted rig where truck rigs stop at the kerb",
       "Basement and restricted-height drilling",
       "Low-impact setup and site protection",
     ],
@@ -94,7 +82,7 @@ const SECTIONS = [
     specs: [
       "Engineer-operated rig on your program and your paperwork",
       "Sampling, logs and chain of custody delivered in your format",
-      "Environmental sampling and monitoring wells for consultant programs",
+      "Environmental sampling for consultant programs — monitoring wells arranged through a licensed bore driller under our scope",
       "Standing arrangements for repeat capacity",
     ],
     link: { href: "/subcontract-drilling", label: "Explore Subcontract Drilling" },
@@ -104,7 +92,7 @@ const SECTIONS = [
 const AUDIENCES = [
   { t: "Builders", d: "Boreholes for the site classification or investigation, booked around your program — and answers when the excavation finds something the report didn't." },
   { t: "Engineering Consultancies", d: "Subcontract rig capacity with engineer-grade logging — field data you can put your letterhead on without re-checking it." },
-  { t: "Environmental Consultants", d: "Drilling, sampling and monitoring well installation for PSI and DSI programs — clean execution, chain of custody kept." },
+  { t: "Environmental Consultants", d: "Drilling and sampling for PSI and DSI programs — clean execution, chain of custody kept; monitoring wells through a licensed bore driller under our scope." },
   { t: "Bigger Firms & Majors", d: "Reliable capacity for programs that can't wait on a booked-out fleet — night works, staged access and standing arrangements included." },
 ];
 
@@ -125,7 +113,10 @@ export default function DrillingPage() {
     "description": "Borehole drilling, NMLC rock coring, tight-access drilling and subcontract rig capacity across Sydney and regional NSW — engineer operated, with every profile logged on site.",
     "url": "https://sfgeo.com.au/drilling",
     "provider": { "@id": "https://sfgeo.com.au/#organization" },
-    "areaServed": { "@type": "City", "name": "Sydney, New South Wales, Australia" },
+    "areaServed": [
+      { "@type": "City", "name": "Sydney, New South Wales, Australia" },
+      { "@type": "State", "name": "New South Wales, Australia" }
+    ],
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
       "name": "Drilling Services",
@@ -145,18 +136,31 @@ export default function DrillingPage() {
 
       {/* Hero */}
       <section className="pt-36 pb-20 px-6 lg:px-12 max-w-7xl mx-auto">
-        <FadeIn className="max-w-3xl">
-          <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-6 font-semibold">
+        <div className="max-w-4xl">
+          <p className="hero-line text-sm uppercase tracking-[0.2em] text-forest-green mb-6 font-semibold">
             Drilling &middot; Engineer Operated &middot; 4WD Mobilised
           </p>
-          <h1 className="text-4xl sm:text-6xl font-montserrat font-light tracking-tight leading-[1.08] mb-8">
+          <h1 className="hero-line hero-d1 text-4xl sm:text-6xl font-montserrat font-light tracking-tight leading-[1.08] mb-8">
             Geotechnical &amp; Environmental <span className="font-semibold h-bold">Drilling Sydney.</span>
           </h1>
-          <div className="w-[96px] h-[3px] bg-forest-green mb-8" />
-          <p className="text-lg sm:text-xl text-gray-600 font-light leading-relaxed">
+          <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />
+          <p className="hero-line hero-d2 max-w-3xl text-lg sm:text-xl text-gray-600 font-light leading-relaxed mb-10">
             Headquartered in Marrickville, mobilised across the Sydney metro and into regional NSW — one 4WD-mounted rig, operated by the engineers who log what it brings up. Drilling for builders, consultancies and some of the bigger firms in Sydney ground.
           </p>
-        </FadeIn>
+          <div className="hero-line hero-d3 flex flex-col sm:flex-row items-start gap-4">
+            <Link
+              href="tel:+61423483555"
+              className="flex items-center justify-center px-8 py-2.5 bg-gradient-to-b from-[#346b43] to-forest-green text-white rounded-full shadow-[0_8px_20px_-6px_rgba(45,90,58,0.4)] hover:shadow-[0_12px_24px_-8px_rgba(45,90,58,0.6)] hover:brightness-105 transition-all hover:-translate-y-0.5 w-full sm:w-auto h-[46px] text-xs font-semibold tracking-wide"
+            >
+              Call 0423 483 555
+            </Link>
+            <QuoteCta
+              source="drilling hero"
+              label="Request Drilling"
+              className="flex items-center justify-center px-8 py-2.5 bg-white text-forest-green rounded-full shadow-[inset_0_0_0_1px_rgba(45,90,58,0.25),0_4px_10px_-4px_rgba(0,0,0,0.05)] hover:bg-forest-green/5 hover:shadow-[inset_0_0_0_1px_rgba(45,90,58,0.4),0_6px_14px_-4px_rgba(0,0,0,0.1)] transition-all hover:-translate-y-0.5 w-full sm:w-auto h-[46px] text-xs font-semibold tracking-wide"
+            />
+          </div>
+        </div>
       </section>
 
       {/* The suite — numbered editorial rows */}
@@ -167,9 +171,9 @@ export default function DrillingPage() {
             <FadeIn className={idx % 2 === 1 ? "lg:order-2" : ""}>
               {sec.image ? (
                 <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-[0_26px_60px_-26px_rgba(5,10,7,0.4)]">
-                  <Image src={sec.image} alt={sec.alt} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/40 via-transparent to-transparent" />
-                  <p className="absolute bottom-5 left-6 text-[11px] uppercase tracking-[0.25em] text-white/80 font-semibold">{sec.caption}</p>
+                  <Image src={sec.image} alt={sec.alt} fill sizes="(max-width: 1024px) 100vw, (max-width: 1280px) 50vw, 600px" priority={idx === 0} className="object-cover" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/80 via-[#050A07]/25 to-transparent" />
+                  <p className="absolute bottom-5 left-6 text-[11px] uppercase tracking-[0.25em] text-white font-semibold">{sec.caption}</p>
                 </div>
               ) : (
                 <PhotoPlaceholder
@@ -216,13 +220,10 @@ export default function DrillingPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           <FadeIn>
             <div className="relative mx-auto w-full max-w-[340px] aspect-[720/1264] rounded-2xl overflow-hidden shadow-[0_26px_60px_-26px_rgba(5,10,7,0.5)]">
-              <video
+              <LazyVideo
                 src="/sfgeo-regional-sunrise-drilling.mp4"
                 poster="/sfgeo-regional-sunrise-poster.jpg"
-                autoPlay
-                muted
-                loop
-                playsInline
+                label="SFGEO 4WD rig drilling at sunrise on a farm track in western NSW"
                 className="absolute inset-0 w-full h-full object-cover"
               />
               <p className="absolute bottom-5 left-6 text-[11px] uppercase tracking-[0.25em] text-white/80 font-semibold pointer-events-none">Sunrise &middot; Western NSW</p>
@@ -237,6 +238,7 @@ export default function DrillingPage() {
             <p className="text-gray-600 font-light leading-relaxed">
               Sunrise on a farm track, frost still on the paddock, mast already up — that&rsquo;s what a regional program looks like when the rig travels self-sufficient. The 4WD rig runs the same engineer-operated standard hours from the nearest bitumen as it does in the Inner West, so consultancies and builders with work beyond the metro don&rsquo;t have to lower the bar to get holes in the ground.
             </p>
+            <QuoteCta source="drilling regional" label="Quote A Regional Program" className="mt-8 text-sm font-semibold tracking-wide text-forest-green group inline-flex items-center gap-2 draw-link" />
           </FadeIn>
         </div>
       </section>
@@ -254,7 +256,7 @@ export default function DrillingPage() {
           {AUDIENCES.map((a) => (
             <FadeIn key={a.t}>
               <div className="p-8 bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-md transition-shadow h-full">
-                <h3 className="text-lg font-montserrat font-semibold text-slate-950 mb-3">{a.t}</h3>
+                <h3 className="text-lg font-montserrat font-semibold text-slate-950 mb-3 min-h-[56px]">{a.t}</h3>
                 <p className="text-gray-600 font-light leading-relaxed text-[15px]">{a.d}</p>
               </div>
             </FadeIn>
@@ -270,7 +272,7 @@ export default function DrillingPage() {
             <h2 className="text-4xl sm:text-6xl font-montserrat font-light tracking-tight mb-8">
               One Call. <span className="font-semibold h-bold">Rig On Site.</span>
             </h2>
-            <p className="text-lg sm:text-xl text-gray-500 font-light leading-relaxed max-w-2xl mx-auto mb-12">
+            <p className="text-lg sm:text-xl text-gray-400 font-light leading-relaxed max-w-2xl mx-auto mb-12">
               Tell us the site, the access and the program. You&rsquo;ll have a quote within one business day — and a rig that turns up when it said it would.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">

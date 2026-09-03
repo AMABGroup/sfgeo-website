@@ -3,14 +3,13 @@ import Image from "next/image";
 import Link from "next/link";
 import QuoteCta from "@/components/forms/QuoteCta";
 import { FadeIn } from "../site-classification/MotionWrapper";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Construction Phase Support Sydney | Footing & Pier Inspections | SFGEO",
-  description: "Footing, pier and pile inspections, proof rolls and engineered fill to AS 3798 across Sydney — verified on site, confirmed in writing before the pour. Rapid mobilisation, fixed fees.",
-  alternates: { canonical: '/construction-phase-support' },
-  openGraph: { images: ['/og/sfgeo-og-card.jpg'], title: "Construction Phase Support Sydney | Footing & Pier Inspections | SFGEO", description: "Footing, pier and pile inspections, proof rolls and engineered fill to AS 3798 across Sydney — verified on site, confirmed in writing before the pour. Rapid mobilisation, fixed fees.", url: '/construction-phase-support' },
-  twitter: { card: "summary_large_image", images: ['/og/sfgeo-og-card.jpg'], title: "Construction Phase Support Sydney | Footing & Pier Inspections | SFGEO", description: "Footing, pier and pile inspections, proof rolls and engineered fill to AS 3798 across Sydney — verified on site, confirmed in writing before the pour. Rapid mobilisation, fixed fees." },
-};
+export const metadata: Metadata = pageMeta(
+  "Footing & Pier Inspections Sydney | Proof Rolls | SFGEO",
+  "Footing, pier and pile inspections, proof rolls and engineered fill to AS 3798 across Sydney — verified on site, confirmed in writing before the pour.",
+  "/construction-phase-support",
+);
 
 const ITEMS = [
   { t: "Footings & Piers", d: "Founding material verified against the structural drawings’ bearing requirement at excavation level." },
@@ -36,7 +35,7 @@ export default function Page() {
     "@type": "Service",
     "name": "Construction Phase Support",
     "serviceType": "Construction phase geotechnical inspections",
-    "description": "Footing, pier and pile inspections, proof rolls and engineered fill to AS 3798 across Sydney — verified on site, confirmed in writing before the pour. Rapid mobilisation, fixed fees.",
+    "description": "Footing, pier and pile inspections, proof rolls and engineered fill to AS 3798 across Sydney — verified on site, confirmed in writing before the pour.",
     "url": "https://sfgeo.com.au/construction-phase-support",
     "provider": { "@id": "https://sfgeo.com.au/#organization" },
     "areaServed": { "@type": "City", "name": "Sydney, New South Wales, Australia" }
@@ -47,37 +46,52 @@ export default function Page() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
 
-      <section className="pt-36 pb-16 px-6 lg:px-12 max-w-7xl mx-auto">
-        <FadeIn className="max-w-3xl">
-          <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-6 font-semibold">Construction Phase Support &middot; Sydney Metro</p>
-          <h1 className="text-4xl sm:text-6xl font-montserrat font-light tracking-tight leading-[1.08] mb-8">
-            Verified Before <span className="font-semibold h-bold">The Pour.</span>
+      <section className="pt-36 pb-20 px-6 lg:px-12 max-w-7xl mx-auto">
+        <div className="max-w-3xl">
+          <p className="hero-line text-sm uppercase tracking-[0.2em] text-forest-green mb-6 font-semibold">Construction Phase Support &middot; Sydney-Wide</p>
+          <h1 className="hero-line hero-d1 text-[min(2.25rem,8.2vw)] sm:text-6xl font-montserrat font-light tracking-tight leading-[1.08] mb-8">
+            Footing &amp; Pier Inspections. <span className="font-semibold h-bold">Verified Before The Pour.</span>
           </h1>
-          <div className="w-[96px] h-[3px] bg-forest-green mb-8" />
-          <p className="text-lg sm:text-xl text-gray-600 font-light leading-relaxed">An open excavation costs money every hour it waits. SFGEO inspects footings, piers and fill at the moment it matters, confirms the ground against the design on site, and puts the record in writing — so the next trade starts on time.</p>
-        </FadeIn>
+          <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />
+          <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed mb-10">An open excavation costs money every hour it waits. SFGEO inspects footings, piers and fill at the moment it matters, confirms the ground against the design on site, and puts the record in writing — so the next trade starts on time.</p>
+          <div className="hero-line hero-d3 flex flex-col sm:flex-row items-start gap-4">
+            <Link
+              href="tel:+61423483555"
+              className="flex items-center justify-center px-8 py-2.5 bg-gradient-to-b from-[#346b43] to-forest-green text-white rounded-full shadow-[0_8px_20px_-6px_rgba(45,90,58,0.4)] hover:shadow-[0_12px_24px_-8px_rgba(45,90,58,0.6)] hover:brightness-105 transition-all hover:-translate-y-0.5 w-full sm:w-auto h-[46px] text-xs font-semibold tracking-wide"
+            >
+              Call 0423 483 555
+            </Link>
+            <QuoteCta
+              source="construction-phase-support hero"
+              label="Book An Inspection"
+              className="flex items-center justify-center px-8 py-2.5 bg-white text-forest-green rounded-full shadow-[inset_0_0_0_1px_rgba(45,90,58,0.25),0_4px_10px_-4px_rgba(0,0,0,0.05)] hover:bg-forest-green/5 hover:shadow-[inset_0_0_0_1px_rgba(45,90,58,0.4),0_6px_14px_-4px_rgba(0,0,0,0.1)] transition-all hover:-translate-y-0.5 w-full sm:w-auto h-[46px] text-xs font-semibold tracking-wide"
+            />
+          </div>
+        </div>
       </section>
 
-      <section className="py-16 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">
+      <section className="py-20 lg:py-24 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           <FadeIn>
             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-[0_26px_60px_-26px_rgba(5,10,7,0.4)]">
-              <Image src="/sfgeo-dcp-open-excavation-newtown.jpg" alt="SFGEO engineer running a dynamic cone penetrometer in an open excavation beside a Newtown terrace before the pour" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/45 via-transparent to-transparent" />
-              <p className="absolute bottom-5 left-6 text-[11px] uppercase tracking-[0.25em] text-white/80 font-semibold">At Bearing Level</p>
+              <Image src="/sfgeo-dcp-open-excavation-newtown.jpg" alt="SFGEO engineer running a dynamic cone penetrometer in an open excavation beside a Newtown terrace before the pour" fill sizes="(max-width: 1024px) 100vw, (max-width: 1280px) 50vw, 600px" priority className="object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/80 via-[#050A07]/25 to-transparent" />
+              <p className="absolute bottom-5 left-6 text-[11px] uppercase tracking-[0.25em] text-white font-semibold">At Bearing Level</p>
             </div>
           </FadeIn>
           <FadeIn delay={0.12}>
-            <h2 className="text-3xl font-montserrat font-light tracking-tight text-slate-950 mb-5">The Answer, <span className="font-semibold h-bold">On Site</span></h2>
+            <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">01 &middot; On Site</p>
+            <h2 className="text-3xl sm:text-4xl font-montserrat font-light tracking-tight text-slate-950 mb-5">The Answer, <span className="font-semibold h-bold">On Site.</span></h2>
             <div className="h-px bg-forest-green w-12 mb-7" />
-            <p className="text-gray-600 font-light leading-relaxed">The engineer inspects at bearing level, logs the exposed stratum, and gives the call before leaving site — proceed, deepen, or adjust — with the formal record following within days. Single visits for local builders; standing schedule-of-rates engagements for commercial contractors, paired with compaction testing through our partners.</p>
+            <p className="text-gray-600 font-light leading-relaxed">The engineer inspects at bearing level, logs the exposed stratum, and gives the call before leaving site — proceed, deepen, or adjust — with the formal record following within days. Compaction testing through our partners is folded into the same visit where the spec calls for it. Single visits are quoted as a fixed fee per inspection, in writing, within one business day.</p>
           </FadeIn>
         </div>
       </section>
 
-      <section className="py-16 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">
+      <section className="py-20 lg:py-24 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">
         <FadeIn className="mb-12">
-          <h2 className="text-3xl font-montserrat font-light tracking-tight text-slate-950">What We <span className="font-semibold h-bold">Verify</span></h2>
+          <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">02 &middot; Scope</p>
+          <h2 className="text-3xl sm:text-4xl font-montserrat font-light tracking-tight text-slate-950">Footing Inspections. <span className="font-semibold h-bold">What We Verify.</span></h2>
           <div className="mt-6 h-px bg-forest-green w-12" />
         </FadeIn>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -93,9 +107,9 @@ export default function Page() {
       </section>
 
       {/* How a visit runs */}
-      <section className="py-16 lg:py-20 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">
+      <section className="py-20 lg:py-24 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">
         <FadeIn className="mb-12">
-          <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">How A Visit Runs</p>
+          <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">03 &middot; How A Visit Runs</p>
           <h2 className="text-3xl sm:text-4xl font-montserrat font-light tracking-tight">Booked Fast. <span className="font-semibold h-bold">Called On Site.</span></h2>
           <div className="mt-5 h-px bg-forest-green w-12" />
         </FadeIn>
@@ -118,10 +132,10 @@ export default function Page() {
       </section>
 
       {/* Proof */}
-      <section className="py-16 lg:py-20 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">
+      <section className="py-20 lg:py-24 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">
         <FadeIn>
           <div className="max-w-3xl">
-            <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">Proven On Site</p>
+            <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">04 &middot; Proven On Site</p>
             <h2 className="text-3xl sm:text-4xl font-montserrat font-light tracking-tight text-slate-950 mb-5">Calls We&rsquo;ve Made <span className="font-semibold h-bold">Standing In The Hole.</span></h2>
             <div className="h-px bg-forest-green w-12 mb-7" />
             <p className="text-gray-600 font-light leading-relaxed mb-8">
@@ -135,11 +149,14 @@ export default function Page() {
         </FadeIn>
       </section>
 
-      <section className="mt-8 relative overflow-hidden bg-[#050A07] text-white grain">
+      <section className="relative overflow-hidden bg-[#050A07] text-white grain">
         <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_-20%,rgba(45,90,58,0.3),transparent_60%)] pointer-events-none" />
-        <div className="max-w-4xl mx-auto text-center px-6 py-24 relative z-10">
+        <div className="max-w-4xl mx-auto text-center px-6 py-28 lg:py-32 relative z-10">
           <FadeIn>
-            <h2 className="text-4xl sm:text-5xl font-montserrat font-light tracking-tight mb-8">Open Excavation? <span className="font-semibold h-bold">Call Now.</span></h2>
+            <h2 className="text-4xl sm:text-6xl font-montserrat font-light tracking-tight mb-8">Open Excavation? <span className="font-semibold h-bold">Call Now.</span></h2>
+            <p className="text-lg sm:text-xl text-gray-400 font-light leading-relaxed max-w-2xl mx-auto mb-12">
+              Send the drawings and the date the excavation opens — the engineer is on site at bearing level, and the call is made before anyone leaves.
+            </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
               <Link href="tel:+61423483555" className="flex items-center justify-center px-8 py-2.5 bg-gradient-to-b from-[#346b43] to-forest-green text-white rounded-full shadow-[0_8px_20px_-6px_rgba(45,90,58,0.4)] hover:brightness-105 transition-all hover:-translate-y-0.5 w-full sm:w-[280px] h-[46px] text-xs font-semibold tracking-wide">Call 0423 483 555</Link>
               <QuoteCta source="construction-phase-support close" className="flex items-center justify-center px-8 py-2.5 bg-white/5 text-white rounded-full shadow-[inset_0_0_0_1px_rgba(255,255,255,0.25)] hover:bg-white/10 transition-all hover:-translate-y-0.5 w-full sm:w-[280px] h-[46px] text-xs font-semibold tracking-wide backdrop-blur-sm" />

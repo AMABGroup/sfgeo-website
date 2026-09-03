@@ -37,19 +37,48 @@ export default function OpeningVeil() {
   useEffect(() => {
     if (sessionStorage.getItem("sfgeo-veil")) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    // Late hydration (slow network / CPU): the hero has already been painted
+    // and read, so don't drop the intro over it. The session flag is left
+    // unset so the intro plays on the next fast load.
+    if (performance.now() > 1200) return;
     sessionStorage.setItem("sfgeo-veil", "1");
     document.documentElement.classList.add("veil-hold");
     setPhase("draw");
-    const t1 = setTimeout(() => setPhase("excavate"), 4400);
-    const t2 = setTimeout(() => {
-      // release the hero entrance as the upper layers clear
-      document.documentElement.classList.remove("veil-hold");
-    }, 4850);
-    const t3 = setTimeout(() => setPhase("done"), 6100);
+    let cutting = false;
+    let t2: ReturnType<typeof setTimeout> | undefined;
+    let t3: ReturnType<typeof setTimeout> | undefined;
+    // The cut: excavate now, release the hero entrance as the upper layers
+    // clear, then clear the veil. Same choreography whether the drawing
+    // phase runs its course or the visitor skips ahead.
+    const cut = () => {
+      if (cutting) return;
+      cutting = true;
+      window.removeEventListener("keydown", onKey);
+      window.removeEventListener("pointerdown", skip);
+      setPhase("excavate");
+      t2 = setTimeout(() => {
+        document.documentElement.classList.remove("veil-hold");
+      }, 450);
+      t3 = setTimeout(() => setPhase("done"), 1700);
+    };
+    // Escape hatch while the section is drawing: Escape or any pointer cuts
+    // straight to the excavation.
+    const skip = () => {
+      clearTimeout(t1);
+      cut();
+    };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") skip();
+    };
+    const t1 = setTimeout(cut, 4400);
+    window.addEventListener("keydown", onKey);
+    window.addEventListener("pointerdown", skip);
     return () => {
       clearTimeout(t1);
       clearTimeout(t2);
       clearTimeout(t3);
+      window.removeEventListener("keydown", onKey);
+      window.removeEventListener("pointerdown", skip);
       document.documentElement.classList.remove("veil-hold");
     };
   }, []);

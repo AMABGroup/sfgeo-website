@@ -1,28 +1,16 @@
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import QuoteCta from "@/components/forms/QuoteCta";
 import PhotoPlaceholder from "@/components/ui/PhotoPlaceholder";
 import { FadeIn } from "../site-classification/MotionWrapper";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Projects | Geotechnical Case Studies Sydney | SFGEO",
-  description: "Real SFGEO projects across Sydney — estate investigations, problem-site foundations, remedial works and council compliance, drawn from issued reports.",
-  alternates: {
-    canonical: '/projects',
-  },
-  openGraph: {
-    images: ['/og/sfgeo-og-card.jpg'],
-    title: "Projects | Geotechnical Case Studies Sydney | SFGEO",
-    description: "Real SFGEO projects across Sydney — estate investigations, problem-site foundations, remedial works and council compliance, drawn from issued reports.",
-    url: '/projects',
-  },
-  twitter: {
-    card: "summary_large_image",
-    images: ['/og/sfgeo-og-card.jpg'],
-    title: "Projects | Geotechnical Case Studies Sydney | SFGEO",
-    description: "Real SFGEO projects across Sydney — estate investigations, problem-site foundations, remedial works and council compliance, drawn from issued reports.",
-  },
-};
+export const metadata: Metadata = pageMeta(
+  "Projects | Geotechnical Case Studies Sydney | SFGEO",
+  "Real SFGEO projects across Sydney — estate investigations, problem-site foundations, remedial works and council compliance, drawn from issued reports.",
+  "/projects",
+);
 
 type CaseStudy = {
   id: string;
@@ -43,7 +31,7 @@ const caseStudies: CaseStudy[] = [
     id: "kenthurst",
     tag: "Geotechnical Investigation",
     title: "A Rural Estate, Read Hole By Hole",
-    location: "Kenthurst — 2-hectare rural-residential lot",
+    location: "Kenthurst — 2‑hectare rural‑residential lot",
     image: "/projects/project-kenthurst.jpg",
     imageAlt: "SFGEO 4WD drill rig investigating a rural-residential estate lot in Kenthurst",
     brief:
@@ -58,7 +46,7 @@ const caseStudies: CaseStudy[] = [
     id: "bondi-beach",
     tag: "Limited-Scope Investigation",
     title: "A Plunge Pool Cut Into Rock",
-    location: "Bondi Beach — strata courtyard, metres from a four-storey block",
+    location: "Bondi Beach — strata courtyard, metres from a four‑storey block",
     image: "/projects/project-bondi.jpg",
     imageAlt: "Hand-auger investigation in a Bondi Beach strata courtyard",
     brief:
@@ -88,7 +76,7 @@ const caseStudies: CaseStudy[] = [
     id: "bexley-north",
     tag: "Limited-Scope Investigation",
     title: "The Pod That Needed Different Foundations",
-    location: "Bexley North — rear-yard prefabricated dwelling",
+    location: "Bexley North — rear‑yard prefabricated dwelling",
     image: "/projects/project-bexley-north.jpg",
     imageAlt: "Hand-auger borehole investigation in a restricted-access Bexley North rear yard",
     brief:
@@ -178,7 +166,7 @@ const caseStudies: CaseStudy[] = [
     id: "newport",
     tag: "Geotechnical Investigation",
     title: "Remedial Works In A Live Building",
-    location: "Newport — three-storey strata building near the beach",
+    location: "Newport — three‑storey strata building near the beach",
     image: null,
     shot:
       "A remedial or strata investigation in a live building — working inside or beside an occupied structure.",
@@ -253,6 +241,16 @@ const caseStudies: CaseStudy[] = [
   },
 ];
 
+const TAG_HREF: Record<string, { href: string; label: string }> = {
+  "Geotechnical Investigation": { href: "/geotechnical-investigations", label: "Geotechnical Investigations" },
+  "Limited-Scope Investigation": { href: "/geotechnical-investigations", label: "Geotechnical Investigations" },
+  "Site Classification": { href: "/site-classification", label: "Site Classification" },
+  "Construction Phase Support": { href: "/construction-phase-support", label: "Construction Phase Support" },
+  "Night Works · Construction Phase Support": { href: "/construction-phase-support", label: "Construction Phase Support" },
+  "Subcontract Drilling": { href: "/subcontract-drilling", label: "Subcontract Drilling" },
+  "Investigation For A Consultancy": { href: "/subcontract-drilling", label: "Subcontract Drilling" },
+};
+
 export default function ProjectsPage() {
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -279,19 +277,32 @@ export default function ProjectsPage() {
       />
 
       {/* Hero */}
-      <section className="pt-32 pb-16 px-6 lg:px-12 max-w-7xl mx-auto">
-        <FadeIn className="max-w-3xl">
-          <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-6 font-semibold">
+      <section className="pt-36 pb-16 px-6 lg:px-12 max-w-7xl mx-auto">
+        <div className="max-w-3xl">
+          <p className="hero-line text-sm uppercase tracking-[0.2em] text-forest-green mb-6 font-semibold">
             Selected projects &middot; Drawn from issued reports
           </p>
-          <h1 className="text-4xl sm:text-6xl font-montserrat font-light tracking-tight leading-[1.1] mb-8">
+          <h1 className="hero-line hero-d1 text-4xl sm:text-6xl font-montserrat font-light tracking-tight leading-[1.08] mb-8">
             Proven On <span className="font-semibold h-bold">Sydney Ground.</span>
           </h1>
-          <div className="w-[96px] h-[3px] bg-forest-green mb-8" />
-          <p className="text-lg sm:text-xl text-gray-600 font-light leading-relaxed">
+          <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />
+          <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed">
             Every project below is real work from our issued reports: what the client needed, what the ground turned out to be, and what the engineering did about it. Some of it is for owners and builders. A good deal of it is for the community, from the community — the signals over the road, the lighting a suburb walks home under, the church hall going up, the high street that has to be trading again by morning. Client details are kept private.
           </p>
-        </FadeIn>
+        </div>
+
+        {/* Jump to a project */}
+        <nav aria-label="Jump to a project" className="hero-line hero-d3 mt-10 -mx-6 px-6 lg:mx-0 lg:px-0 flex lg:flex-wrap gap-2 overflow-x-auto lg:overflow-visible snap-x [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          {caseStudies.map((cs) => (
+            <a
+              key={cs.id}
+              href={`#${cs.id}`}
+              className="snap-start shrink-0 inline-flex items-center min-h-[44px] px-4 rounded-full bg-forest-green/[0.06] hover:bg-forest-green/[0.12] text-forest-green text-xs font-medium tracking-wide whitespace-nowrap transition-colors"
+            >
+              {cs.location.split(" — ")[0]}
+            </a>
+          ))}
+        </nav>
       </section>
 
       {/* Case studies */}
@@ -311,12 +322,12 @@ export default function ProjectsPage() {
                         src={cs.image}
                         alt={cs.imageAlt}
                         fill
-                        sizes="(max-width: 1024px) 100vw, 44vw"
+                        sizes="(max-width: 1024px) 100vw, (max-width: 1280px) 44vw, 560px"
                         className="object-cover"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/60 via-transparent to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/80 via-[#050A07]/25 to-transparent" />
                       <div className="absolute bottom-0 left-0 p-6">
-                        <p className="text-[11px] uppercase tracking-[0.25em] text-white/70 font-semibold mb-1">{cs.tag}</p>
+                        <p className="text-[11px] uppercase tracking-[0.25em] text-white font-semibold mb-1">{cs.tag}</p>
                         <p className="text-white font-montserrat text-lg font-light">{cs.location.split(" — ")[0]}</p>
                       </div>
                     </div>
@@ -361,6 +372,12 @@ export default function ProjectsPage() {
                       </span>
                     ))}
                   </div>
+                  {TAG_HREF[cs.tag] && (
+                    <Link href={TAG_HREF[cs.tag].href} className="mt-6 text-sm font-semibold tracking-wide text-forest-green group inline-flex items-center gap-2">
+                      <span className="draw-link">See {TAG_HREF[cs.tag].label}</span>
+                      <span className="transition-transform group-hover:translate-x-1">&rarr;</span>
+                    </Link>
+                  )}
                 </div>
               </article>
             </FadeIn>
@@ -376,21 +393,20 @@ export default function ProjectsPage() {
             <h2 className="text-4xl sm:text-6xl font-montserrat font-light tracking-tight mb-8">
               Your Ground Has A <span className="font-semibold h-bold">Story Too.</span>
             </h2>
-            <p className="text-lg sm:text-xl text-gray-500 font-light leading-relaxed max-w-2xl mx-auto mb-12">
+            <p className="text-lg sm:text-xl text-gray-400 font-light leading-relaxed max-w-2xl mx-auto mb-12">
               Every one of these projects started the same way — a conversation with the Principal Engineer about a block of land and what it needs to carry.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-              <Link
-                href="/contact"
+              <QuoteCta
+                source="projects close"
+                label="Start Your Project"
                 className="flex items-center justify-center px-8 py-2.5 bg-gradient-to-b from-[#346b43] to-forest-green text-white rounded-full shadow-[0_8px_20px_-6px_rgba(45,90,58,0.4)] hover:shadow-[0_12px_24px_-8px_rgba(45,90,58,0.6)] hover:brightness-105 transition-all hover:-translate-y-0.5 w-full sm:w-[280px] h-[46px] text-xs font-semibold tracking-wide"
-              >
-                Start Your Project
-              </Link>
+              />
               <Link
                 href="tel:+61423483555"
                 className="flex items-center justify-center px-8 py-2.5 bg-white/5 text-white rounded-full shadow-[inset_0_0_0_1px_rgba(255,255,255,0.25)] hover:bg-white/10 hover:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.45)] transition-all hover:-translate-y-0.5 w-full sm:w-[280px] h-[46px] text-xs font-semibold tracking-wide backdrop-blur-sm"
               >
-                Call The Principal Engineer
+                Call The Principal &mdash; 0423 483 555
               </Link>
             </div>
           </FadeIn>
