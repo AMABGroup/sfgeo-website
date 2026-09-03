@@ -1,9 +1,10 @@
 import { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
-import QuoteCta from "@/components/forms/QuoteCta";
+import type { CSSProperties } from "react";
 import PhotoPlaceholder from "@/components/ui/PhotoPlaceholder";
-import { FadeIn } from "../site-classification/MotionWrapper";
+import Reveal from "@/components/ui/Reveal";
+import PhotoFrame from "@/components/ui/PhotoFrame";
+import CloseBand from "@/components/ui/CloseBand";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta(
@@ -11,6 +12,8 @@ export const metadata: Metadata = pageMeta(
   "Real SFGEO projects across Sydney — estate investigations, problem-site foundations, remedial works and council compliance, drawn from issued reports.",
   "/projects",
 );
+
+const d = (ms: number) => ({ "--d": `${ms}ms` }) as CSSProperties;
 
 type CaseStudy = {
   id: string;
@@ -282,8 +285,9 @@ export default function ProjectsPage() {
           <p className="hero-line text-sm uppercase tracking-[0.2em] text-forest-green mb-6 font-semibold">
             Selected projects &middot; Drawn from issued reports
           </p>
-          <h1 className="hero-line hero-d1 text-4xl sm:text-6xl font-montserrat font-light tracking-tight leading-[1.08] mb-8">
-            Proven On <span className="font-semibold h-bold">Sydney Ground.</span>
+          <h1 className="text-4xl sm:text-6xl font-montserrat font-light tracking-tight leading-[1.08] mb-8">
+            <span className="hero-mask"><span className="mask-line mask-d1"><span>Proven On</span></span></span>
+            <span className="hero-mask"><span className="mask-line mask-d2"><span className="font-semibold h-bold">Sydney Ground.</span></span></span>
           </h1>
           <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />
           <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed">
@@ -309,109 +313,92 @@ export default function ProjectsPage() {
       <section className="pb-8 px-6 lg:px-12 max-w-7xl mx-auto">
         <div className="flex flex-col gap-20">
           {caseStudies.map((cs, idx) => (
-            <FadeIn key={cs.id}>
-              <article
-                id={cs.id}
-                className={`flex flex-col ${idx % 2 === 1 ? "lg:flex-row-reverse" : "lg:flex-row"} gap-10 lg:gap-16 border-t border-gray-100 pt-16`}
-              >
-                {/* Image column */}
-                <div className="lg:w-[44%] shrink-0">
-                  {cs.image ? (
-                    <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-[0_20px_50px_-20px_rgba(5,10,7,0.35)] lg:sticky lg:top-32">
-                      <Image
-                        src={cs.image}
-                        alt={cs.imageAlt}
-                        fill
-                        sizes="(max-width: 1024px) 100vw, (max-width: 1280px) 44vw, 560px"
-                        className="object-cover"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/80 via-[#050A07]/25 to-transparent" />
-                      <div className="absolute bottom-0 left-0 p-6">
-                        <p className="text-[11px] uppercase tracking-[0.25em] text-white font-semibold mb-1">{cs.tag}</p>
-                        <p className="text-white font-montserrat text-lg font-light">{cs.location.split(" — ")[0]}</p>
-                      </div>
+            <article
+              key={cs.id}
+              id={cs.id}
+              className={`flex flex-col ${idx % 2 === 1 ? "lg:flex-row-reverse" : "lg:flex-row"} gap-10 lg:gap-16 border-t border-gray-100 pt-16`}
+            >
+              {/* Image column */}
+              <div className="lg:w-[44%] shrink-0">
+                {cs.image ? (
+                  <PhotoFrame
+                    src={cs.image}
+                    alt={cs.imageAlt}
+                    aspect="aspect-[4/3]"
+                    sizes="(max-width: 1024px) 100vw, (max-width: 1280px) 44vw, 560px"
+                    className="w-full shadow-[0_20px_50px_-20px_rgba(5,10,7,0.35)]"
+                    wrapperClassName="lg:sticky lg:top-32"
+                  >
+                    <div data-fx="rise" style={d(420)} className="absolute bottom-0 left-0 p-6">
+                      <p className="text-[11px] uppercase tracking-[0.25em] text-white font-semibold mb-1">{cs.tag}</p>
+                      <p className="text-white font-montserrat text-lg font-light">{cs.location.split(" — ")[0]}</p>
                     </div>
-                  ) : (
-                    <PhotoPlaceholder
-                      subject={cs.shot ?? ""}
-                      caption={cs.location.split(" — ")[0]}
-                      className="w-full aspect-[4/3] rounded-2xl shadow-[0_20px_50px_-20px_rgba(5,10,7,0.35)] lg:sticky lg:top-32"
-                    />
-                  )}
+                  </PhotoFrame>
+                ) : (
+                  <Reveal variant="group" className="lg:sticky lg:top-32">
+                    <div data-fx="scale">
+                      <PhotoPlaceholder
+                        subject={cs.shot ?? ""}
+                        caption={cs.location.split(" — ")[0]}
+                        className="w-full aspect-[4/3] rounded-2xl shadow-[0_20px_50px_-20px_rgba(5,10,7,0.35)]"
+                      />
+                    </div>
+                  </Reveal>
+                )}
+              </div>
+
+              {/* Text column */}
+              <Reveal variant="group" className="flex-1">
+                <p data-fx="rise" className="text-[11px] uppercase tracking-[0.25em] text-forest-green font-semibold mb-4">{cs.location}</p>
+                <h2 data-fx="rise" style={d(80)} className="text-3xl sm:text-4xl font-montserrat font-light tracking-tight text-slate-950 mb-8">
+                  {cs.title}
+                </h2>
+
+                <div className="space-y-8">
+                  <div data-fx="rise" style={d(160)}>
+                    <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-gray-500 mb-3">The brief</h3>
+                    <p className="text-gray-600 font-light leading-relaxed">{cs.brief}</p>
+                  </div>
+                  <div data-fx="rise" style={d(220)}>
+                    <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-gray-500 mb-3">On the ground</h3>
+                    <p className="text-gray-600 font-light leading-relaxed">{cs.ground}</p>
+                  </div>
+                  <div data-fx="rise" style={d(280)}>
+                    <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-forest-green mb-3">The outcome</h3>
+                    <p className="text-slate-800 font-light leading-relaxed">{cs.outcome}</p>
+                  </div>
                 </div>
 
-                {/* Text column */}
-                <div className="flex-1">
-                  <p className="text-[11px] uppercase tracking-[0.25em] text-forest-green font-semibold mb-4">{cs.location}</p>
-                  <h2 className="text-3xl sm:text-4xl font-montserrat font-light tracking-tight text-slate-950 mb-8">
-                    {cs.title}
-                  </h2>
-
-                  <div className="space-y-8">
-                    <div>
-                      <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-gray-500 mb-3">The brief</h3>
-                      <p className="text-gray-600 font-light leading-relaxed">{cs.brief}</p>
-                    </div>
-                    <div>
-                      <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-gray-500 mb-3">On the ground</h3>
-                      <p className="text-gray-600 font-light leading-relaxed">{cs.ground}</p>
-                    </div>
-                    <div>
-                      <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-forest-green mb-3">The outcome</h3>
-                      <p className="text-slate-800 font-light leading-relaxed">{cs.outcome}</p>
-                    </div>
-                  </div>
-
-                  <div className="flex flex-wrap gap-2.5 mt-8">
-                    {cs.facts.map((fact) => (
-                      <span
-                        key={fact}
-                        className="px-4 py-1.5 rounded-full bg-forest-green/[0.06] text-forest-green text-xs font-medium tracking-wide"
-                      >
-                        {fact}
-                      </span>
-                    ))}
-                  </div>
-                  {TAG_HREF[cs.tag] && (
+                <div data-stagger style={d(340)} className="flex flex-wrap gap-2.5 mt-8">
+                  {cs.facts.map((fact) => (
+                    <span
+                      key={fact}
+                      className="px-4 py-1.5 rounded-full bg-forest-green/[0.06] text-forest-green text-xs font-medium tracking-wide"
+                    >
+                      {fact}
+                    </span>
+                  ))}
+                </div>
+                {TAG_HREF[cs.tag] && (
+                  <div data-fx="rise" style={d(420)}>
                     <Link href={TAG_HREF[cs.tag].href} className="mt-6 text-sm font-semibold tracking-wide text-forest-green group inline-flex items-center gap-2">
                       <span className="draw-link">See {TAG_HREF[cs.tag].label}</span>
                       <span className="transition-transform group-hover:translate-x-1">&rarr;</span>
                     </Link>
-                  )}
-                </div>
-              </article>
-            </FadeIn>
+                  </div>
+                )}
+              </Reveal>
+            </article>
           ))}
         </div>
       </section>
 
-      {/* Close CTA */}
-      <section className="relative overflow-hidden bg-[#050A07] text-white grain">
-        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_-20%,rgba(45,90,58,0.3),transparent_60%)] pointer-events-none" />
-        <div className="max-w-4xl mx-auto text-center px-6 py-28 lg:py-32 relative z-10">
-          <FadeIn>
-            <h2 className="text-4xl sm:text-6xl font-montserrat font-light tracking-tight mb-8">
-              Your Ground Has A <span className="font-semibold h-bold">Story Too.</span>
-            </h2>
-            <p className="text-lg sm:text-xl text-gray-400 font-light leading-relaxed max-w-2xl mx-auto mb-12">
-              Every one of these projects started the same way — a conversation with the Principal Engineer about a block of land and what it needs to carry.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-              <QuoteCta
-                source="projects close"
-                label="Start Your Project"
-                className="flex items-center justify-center px-8 py-2.5 bg-gradient-to-b from-[#346b43] to-forest-green text-white rounded-full shadow-[0_8px_20px_-6px_rgba(45,90,58,0.4)] hover:shadow-[0_12px_24px_-8px_rgba(45,90,58,0.6)] hover:brightness-105 transition-all hover:-translate-y-0.5 w-full sm:w-[280px] h-[46px] text-xs font-semibold tracking-wide"
-              />
-              <Link
-                href="tel:+61423483555"
-                className="flex items-center justify-center px-8 py-2.5 bg-white/5 text-white rounded-full shadow-[inset_0_0_0_1px_rgba(255,255,255,0.25)] hover:bg-white/10 hover:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.45)] transition-all hover:-translate-y-0.5 w-full sm:w-[280px] h-[46px] text-xs font-semibold tracking-wide backdrop-blur-sm"
-              >
-                Call The Principal &mdash; 0423 483 555
-              </Link>
-            </div>
-          </FadeIn>
-        </div>
-      </section>
+      <CloseBand
+        source="projects close"
+        heading={<>Your Ground Has A <span className="font-semibold h-bold">Story Too.</span></>}
+        sub="Every one of these projects started the same way — a conversation with the Principal Engineer about a block of land and what it needs to carry."
+        quoteLabel="Start Your Project"
+      />
     </div>
   );
 }

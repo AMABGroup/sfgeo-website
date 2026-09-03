@@ -72,6 +72,23 @@ export default function RootLayout({
     "name": "Solid Foundation Geotechnical",
     "alternateName": "SFGEO",
     "url": "https://sfgeo.com.au",
+    "description": "Family-owned, principal-led geotechnical engineering consultancy in Marrickville, Sydney: AS 2870 site classifications, geotechnical investigations and assessments, footing inspections, design parameters, 4WD tight-access drilling, environmental sampling and concrete coring. Fixed fees in writing within one business day.",
+    "slogan": "Geotechnical. Done Properly.",
+    "knowsAbout": [
+      "Geotechnical engineering",
+      "AS 2870 site classification",
+      "Geotechnical site investigation (AS 1726)",
+      "Slope stability assessment",
+      "Footing and pier inspection",
+      "Geotechnical design parameters",
+      "Borehole drilling",
+      "Tight access drilling",
+      "Contaminated land investigation",
+      "Acid sulfate soils",
+      "Concrete coring",
+      "Sydney geology"
+    ],
+    "foundingLocation": { "@type": "Place", "name": "Marrickville, Sydney, Australia" },
     "logo": {
       "@type": "ImageObject",
       "url": "https://sfgeo.com.au/og/sfgeo-logo-square.png"

@@ -1,9 +1,10 @@
 import { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
-import QuoteCta from "@/components/forms/QuoteCta";
+import type { CSSProperties } from "react";
 import PhotoPlaceholder from "@/components/ui/PhotoPlaceholder";
-import { FadeIn } from "../site-classification/MotionWrapper";
+import Reveal from "@/components/ui/Reveal";
+import PhotoFrame from "@/components/ui/PhotoFrame";
+import CloseBand from "@/components/ui/CloseBand";
 import { OG_BASE, TWITTER_BASE } from "@/lib/seo";
 
 export const metadata: Metadata = {
@@ -22,6 +23,8 @@ export const metadata: Metadata = {
     description: "The full geotechnical suite — principal-led, fixed-fee, family owned.",
   },
 };
+
+const d = (ms: number) => ({ "--d": `${ms}ms` }) as CSSProperties;
 
 const SECTIONS = [
   {
@@ -109,8 +112,9 @@ export default function GeotechnicalHubPage() {
           <p className="hero-line text-sm uppercase tracking-[0.2em] text-forest-green mb-6 font-semibold">
             Geotechnical &middot; Principal-Led &middot; Sydney
           </p>
-          <h1 className="hero-line hero-d1 text-4xl sm:text-6xl font-montserrat font-light tracking-tight leading-[1.08] mb-8">
-            Geotechnical. <span className="font-semibold h-bold">The Full Suite.</span>
+          <h1 className="text-4xl sm:text-6xl font-montserrat font-light tracking-tight leading-[1.08] mb-8">
+            <span className="hero-mask"><span className="mask-line mask-d1"><span>Geotechnical.</span></span></span>
+            <span className="hero-mask"><span className="mask-line mask-d2"><span className="font-semibold h-bold">The Full Suite.</span></span></span>
           </h1>
           <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />
           <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed">
@@ -123,78 +127,69 @@ export default function GeotechnicalHubPage() {
       {SECTIONS.map((sec, idx) => (
         <section key={sec.id} id={sec.id} className="py-20 lg:py-24 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100 scroll-mt-[90px]">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-            <FadeIn className={idx % 2 === 1 ? "lg:order-2" : ""}>
-              {sec.image ? (
-                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-[0_26px_60px_-26px_rgba(5,10,7,0.4)]">
-                  <Image src={sec.image} alt={sec.alt} fill sizes="(max-width: 1024px) 100vw, (max-width: 1280px) 50vw, 600px" priority={idx === 0} className="object-cover" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/80 via-[#050A07]/25 to-transparent" />
-                  <p className="absolute bottom-5 left-6 text-[11px] uppercase tracking-[0.25em] text-white font-semibold">{sec.n} &middot; {sec.title}</p>
+            {sec.image ? (
+              <PhotoFrame
+                src={sec.image}
+                alt={sec.alt}
+                caption={<>{sec.n} &middot; {sec.title}</>}
+                aspect="aspect-[4/3]"
+                sizes="(max-width: 1024px) 100vw, (max-width: 1280px) 50vw, 600px"
+                priority={idx === 0}
+                wrapperClassName={idx % 2 === 1 ? "lg:order-2" : ""}
+              />
+            ) : (
+              <Reveal variant="group" className={idx % 2 === 1 ? "lg:order-2" : ""}>
+                <div data-fx="scale">
+                  <PhotoPlaceholder
+                    subject={sec.shot ?? ""}
+                    caption={`${sec.n} · ${sec.title}`}
+                    className="aspect-[4/3] rounded-2xl shadow-[0_26px_60px_-26px_rgba(5,10,7,0.4)]"
+                  />
                 </div>
-              ) : (
-                <PhotoPlaceholder
-                  subject={sec.shot ?? ""}
-                  caption={`${sec.n} · ${sec.title}`}
-                  className="aspect-[4/3] rounded-2xl shadow-[0_26px_60px_-26px_rgba(5,10,7,0.4)]"
-                />
-              )}
-            </FadeIn>
-            <FadeIn delay={0.12}>
-              <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">{sec.n}</p>
-              <h2 className="text-3xl sm:text-4xl font-montserrat font-light tracking-tight text-slate-950 mb-5">
+              </Reveal>
+            )}
+            <Reveal variant="group">
+              <p data-fx="rise" className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">{sec.n}</p>
+              <h2 data-fx="rise" style={d(80)} className="text-3xl sm:text-4xl font-montserrat font-light tracking-tight text-slate-950 mb-5">
                 {sec.title.split(" ").slice(0, -1).join(" ")} <span className="font-semibold h-bold">{sec.title.split(" ").slice(-1)}</span>
               </h2>
-              <div className="h-px bg-forest-green w-12 mb-7" />
-              <p className="text-gray-600 font-light leading-relaxed mb-8">{sec.body}</p>
-              <Link href={sec.link.href} className="text-sm font-semibold tracking-wide text-forest-green group inline-flex items-center gap-2">
+              <div data-fx="line" style={d(200)} className="h-px bg-forest-green w-12 mb-7" />
+              <p data-fx="rise" style={d(160)} className="text-gray-600 font-light leading-relaxed mb-8">{sec.body}</p>
+              <Link data-fx="rise" style={d(220)} href={sec.link.href} className="text-sm font-semibold tracking-wide text-forest-green group inline-flex items-center gap-2">
                 <span className="draw-link">{sec.link.label}</span>
                 <span className="transition-transform group-hover:translate-x-1">&rarr;</span>
               </Link>
-            </FadeIn>
+            </Reveal>
           </div>
         </section>
       ))}
 
       {/* Who we work with */}
       <section className="py-24 lg:py-28 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">
-        <FadeIn className="mb-14">
-          <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">Who We Work With</p>
-          <h2 className="text-3xl sm:text-4xl font-montserrat font-light tracking-tight">
+        <Reveal variant="group" className="mb-14">
+          <p data-fx="rise" className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">Who We Work With</p>
+          <h2 data-fx="rise" style={d(80)} className="text-3xl sm:text-4xl font-montserrat font-light tracking-tight">
             Same Ground. <span className="font-semibold h-bold">Different Questions.</span>
           </h2>
-          <div className="mt-5 h-px bg-forest-green w-12" />
-        </FadeIn>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {AUDIENCES.map((a) => (
-            <FadeIn key={a.t}>
-              <div className="p-8 bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-md transition-shadow h-full">
+          <div data-fx="line" style={d(200)} className="mt-5 h-px bg-forest-green w-12" />
+        </Reveal>
+        <Reveal variant="group">
+          <div data-stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {AUDIENCES.map((a) => (
+              <div key={a.t} className="card-lift p-8 bg-white border border-gray-100 rounded-2xl shadow-sm h-full">
                 <h3 className="text-lg font-montserrat font-semibold text-slate-950 mb-3 min-h-[56px]">{a.t}</h3>
                 <p className="text-gray-600 font-light leading-relaxed text-[15px]">{a.d}</p>
               </div>
-            </FadeIn>
-          ))}
-        </div>
+            ))}
+          </div>
+        </Reveal>
       </section>
 
-      {/* Close */}
-      <section className="relative overflow-hidden bg-[#050A07] text-white grain">
-        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_-20%,rgba(45,90,58,0.3),transparent_60%)] pointer-events-none" />
-        <div className="max-w-4xl mx-auto text-center px-6 py-28 lg:py-32 relative z-10">
-          <FadeIn>
-            <h2 className="text-4xl sm:text-6xl font-montserrat font-light tracking-tight mb-8">
-              Not Sure Which <span className="font-semibold h-bold">You Need?</span>
-            </h2>
-            <p className="text-lg sm:text-xl text-gray-400 font-light leading-relaxed max-w-2xl mx-auto mb-12">
-              Describe the project in a sentence. The Principal will tell you what it needs — and what it doesn&rsquo;t.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-              <Link href="tel:+61423483555" className="flex items-center justify-center px-8 py-2.5 bg-gradient-to-b from-[#346b43] to-forest-green text-white rounded-full shadow-[0_8px_20px_-6px_rgba(45,90,58,0.4)] hover:shadow-[0_12px_24px_-8px_rgba(45,90,58,0.6)] hover:brightness-105 transition-all hover:-translate-y-0.5 w-full sm:w-[280px] h-[46px] text-xs font-semibold tracking-wide">
-                Call 0423 483 555
-              </Link>
-              <QuoteCta source="geotechnical close" className="flex items-center justify-center px-8 py-2.5 bg-white/5 text-white rounded-full shadow-[inset_0_0_0_1px_rgba(255,255,255,0.25)] hover:bg-white/10 hover:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.45)] transition-all hover:-translate-y-0.5 w-full sm:w-[280px] h-[46px] text-xs font-semibold tracking-wide backdrop-blur-sm" />
-            </div>
-          </FadeIn>
-        </div>
-      </section>
+      <CloseBand
+        source="geotechnical close"
+        heading={<>Not Sure Which <span className="font-semibold h-bold">You Need?</span></>}
+        sub={<>Describe the project in a sentence. The Principal will tell you what it needs &mdash; and what it doesn&rsquo;t.</>}
+      />
     </div>
   );
 }

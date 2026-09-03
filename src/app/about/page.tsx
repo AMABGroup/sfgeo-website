@@ -1,8 +1,10 @@
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import QuoteCta from "@/components/forms/QuoteCta";
-import { FadeIn } from "../site-classification/MotionWrapper";
+import type { CSSProperties } from "react";
+import Reveal from "@/components/ui/Reveal";
+import PhotoFrame from "@/components/ui/PhotoFrame";
+import CloseBand from "@/components/ui/CloseBand";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta(
@@ -10,6 +12,8 @@ export const metadata: Metadata = pageMeta(
   "Family owned, principal-led geotechnical engineers based in Marrickville — the Inner West team behind every classification, investigation and drilling job.",
   "/about",
 );
+
+const d = (ms: number) => ({ "--d": `${ms}ms` }) as CSSProperties;
 
 const VALUES = [
   { t: "Direct Access. Always.", d: "Call, email, turn up. You reach the team doing the work directly — no admin queues, no message chains." },
@@ -60,13 +64,14 @@ export default function About() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
       {/* Hero */}
-      <section className="pt-36 pb-16 px-6 lg:px-12 max-w-7xl mx-auto">
+      <section className="pt-36 pb-20 px-6 lg:px-12 max-w-7xl mx-auto">
         <div className="max-w-3xl">
           <p className="hero-line text-sm uppercase tracking-[0.2em] text-forest-green mb-6 font-semibold">
             About SFGEO &middot; Family Owned &middot; Inner West Based
           </p>
-          <h1 className="hero-line hero-d1 text-[min(2.25rem,8.2vw)] sm:text-6xl font-montserrat font-light tracking-tight leading-[1.08] mb-8">
-            Boutique Geotechnical <span className="font-semibold h-bold">Engineers. Sydney.</span>
+          <h1 className="text-[min(2.25rem,8.2vw)] sm:text-6xl font-montserrat font-light tracking-tight leading-[1.08] mb-8">
+            <span className="hero-mask"><span className="mask-line mask-d1"><span>Boutique Geotechnical</span></span></span>
+            <span className="hero-mask"><span className="mask-line mask-d2"><span className="font-semibold h-bold">Engineers. Sydney.</span></span></span>
           </h1>
           <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />
           <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed">
@@ -75,213 +80,190 @@ export default function About() {
         </div>
       </section>
 
-      {/* Full-width team photo */}
+      {/* Full-width banner */}
       <section className="px-6 lg:px-12 max-w-7xl mx-auto pb-20">
-        <FadeIn>
-          <div className="relative aspect-[21/9] rounded-2xl overflow-hidden shadow-[0_26px_60px_-26px_rgba(5,10,7,0.4)]">
-            <Image
-              src="/sfgeo-night-works-high-street-sydney.jpg"
-              alt="A Sydney high street closed under traffic control for overnight geotechnical works, shopfronts shut and the lane coned off"
-              fill
-              sizes="(max-width: 1024px) 100vw, 1216px"
-              priority
-              className="object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/80 via-[#050A07]/25 to-transparent" />
-            <p className="absolute bottom-5 left-6 text-[11px] uppercase tracking-[0.25em] text-white font-semibold">
-              Night Works &middot; Sydney
-            </p>
-          </div>
-        </FadeIn>
+        <PhotoFrame
+          src="/sfgeo-night-works-high-street-sydney.jpg"
+          alt="A Sydney high street closed under traffic control for overnight geotechnical works, shopfronts shut and the lane coned off"
+          caption={<>Night Works &middot; Sydney</>}
+          aspect="aspect-[16/9] lg:aspect-[21/9]"
+          sizes="(max-width: 1024px) 100vw, 1216px"
+          priority
+        />
       </section>
 
-      {/* Story + portrait */}
-      <section id="team" className="py-20 lg:py-24 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
-        <FadeIn className="lg:col-span-8">
-          <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">Our Foundation</p>
-          <h2 className="text-3xl sm:text-4xl font-montserrat font-light tracking-tight text-slate-950 mb-5">
+      {/* Story + the crew */}
+      <section id="team" className="py-20 lg:py-24 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <Reveal variant="group" className="lg:col-span-7">
+          <p data-fx="rise" className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">Our Foundation</p>
+          <h2 data-fx="rise" style={d(80)} className="text-3xl sm:text-4xl font-montserrat font-light tracking-tight text-slate-950 mb-5">
             Built On <span className="font-semibold h-bold">Direct Access.</span>
           </h2>
-          <div className="h-px bg-forest-green w-12 mb-7" />
-          <p className="text-lg text-gray-600 font-light leading-loose mb-6">
+          <div data-fx="line" style={d(200)} className="h-px bg-forest-green w-12 mb-7" />
+          <p data-fx="rise" style={d(160)} className="text-lg text-gray-600 font-light leading-loose mb-6">
             SFGEO is a locally-owned, independent geotechnical consultancy based in Marrickville, built on 15 years of hands-on Sydney experience across residential <Link href="/site-classification" className="text-forest-green hover:underline">site classifications</Link>, bespoke architectural homes, and landmark infrastructure.
           </p>
-          <p className="text-lg text-gray-600 font-light leading-loose mb-6">
+          <p data-fx="rise" style={d(220)} className="text-lg text-gray-600 font-light leading-loose mb-6">
             We were founded on a simple belief: clients deserve direct access to the professional doing the work, not a corporate chain. SFGEO is family owned and Sydney grown — the engineer who quotes your job is the one who drills it and signs the report.
           </p>
-          <p className="text-lg text-gray-600 font-light leading-loose">
+          <p data-fx="rise" style={d(280)} className="text-lg text-gray-600 font-light leading-loose">
             Our Principal Engineer has contributed to Sydney Gateway, the M12 Motorway, Western Sydney Airport, and the Canterbury Aquatic Centre. That depth of experience now serves your project with the responsiveness, transparency, and personal care that only an independent practice can offer.
           </p>
-        </FadeIn>
-        <FadeIn delay={0.12} className="lg:col-span-4">
-          <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-[0_26px_60px_-26px_rgba(5,10,7,0.4)]">
-            <Image
-              src="/geotechnical-engineer-led-field-operations-sydney.jpg"
-              alt="The Principal Engineer working on the drill rig"
-              fill
-              sizes="(max-width: 1024px) 100vw, 33vw"
-              className="object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/80 via-[#050A07]/25 to-transparent" />
-            <p className="absolute bottom-5 left-6 text-[11px] uppercase tracking-[0.25em] text-white font-semibold">Principal-Led &middot; On The Rig</p>
-          </div>
-        </FadeIn>
+        </Reveal>
+        <PhotoFrame
+          src="/sfgeo-crew-drill-rig-western-sydney.jpg"
+          alt="The two-person SFGEO crew beside the 4WD drill rig under a stormy Western Sydney sky"
+          caption={<>The Crew &middot; Western Sydney</>}
+          aspect="aspect-[4/3]"
+          sizes="(max-width: 1024px) 100vw, 42vw"
+          wrapperClassName="lg:col-span-5"
+          delay={120}
+        />
       </section>
 
       {/* Community — the why */}
-      <section className="relative overflow-hidden bg-[#050A07] text-white grain">
+      <section className="relative overflow-hidden bg-[#050A07] text-white grain aurora">
         <Image
           src="/sfgeo-street-handed-back-dawn.jpg"
           alt=""
           fill
           sizes="100vw"
-          className="object-cover opacity-[0.28] hidden lg:block"
+          className="absolute object-cover opacity-[0.28] hidden lg:block"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-[#050A07] via-[#050A07]/60 to-[#050A07]" />
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 py-24 lg:py-32 relative z-10">
-          <FadeIn>
-            <p className="text-sm uppercase tracking-[0.2em] text-[#8FBF9F] mb-6 font-semibold">Our Community</p>
-            <h2 className="text-[min(1.875rem,7.5vw)] sm:text-5xl font-montserrat font-light tracking-tight leading-[1.12] mb-8 max-w-3xl">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 py-24 lg:py-32">
+          <Reveal variant="group">
+            <p data-fx="rise" className="text-sm uppercase tracking-[0.2em] text-[#8FBF9F] mb-6 font-semibold">Our Community</p>
+            <h2 data-fx="rise" style={d(80)} className="text-[min(1.875rem,7.5vw)] sm:text-5xl font-montserrat font-light tracking-tight leading-[1.12] mb-8 max-w-3xl">
               For The Community, <span className="font-semibold h-bold">From The Community.</span>
             </h2>
-            <div className="w-[96px] h-[3px] bg-[#8FBF9F] mb-8" />
+            <div data-fx="line" style={d(200)} className="w-[96px] h-[3px] bg-[#8FBF9F] mb-8" />
             <div className="max-w-2xl space-y-5">
-              <p className="text-lg text-gray-300 font-light leading-relaxed">
+              <p data-fx="rise" style={d(180)} className="text-lg text-gray-300 font-light leading-relaxed">
                 The people who do this work grew up in Sydney&rsquo;s inner west and west, and it is the same suburbs the work goes back into. We hire locally and we train young engineers and drillers from our own neighbourhoods, because the opportunities we were given should keep going to people from here.
               </p>
-              <p className="text-lg text-gray-300 font-light leading-relaxed">
+              <p data-fx="rise" style={d(260)} className="text-lg text-gray-300 font-light leading-relaxed">
                 It matters most on the jobs nobody puts a name to. Street lighting, traffic signals &mdash; public safety infrastructure that a suburb only notices when it isn&rsquo;t there. On those, the engineer reading the ground is someone who lives here too.
               </p>
             </div>
-          </FadeIn>
+          </Reveal>
 
-          <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-14">
-            {COMMUNITY.map((c) => (
-              <FadeIn key={c.href} delay={0.1}>
-                <Link href={c.href} className="group block border-t border-white/15 pt-6 hover:border-[#8FBF9F]/50 transition-colors">
+          <Reveal variant="group" className="mt-16">
+            <div data-stagger className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-14">
+              {COMMUNITY.map((c) => (
+                <Link key={c.href} href={c.href} className="group block border-t border-white/15 pt-6 hover:border-[#8FBF9F]/50 transition-colors">
                   <p className="text-[11px] uppercase tracking-[0.28em] text-[#8FBF9F]/80 font-semibold mb-3">{c.place}</p>
                   <h3 className="text-xl font-montserrat font-light tracking-tight mb-3 group-hover:text-[#8FBF9F] transition-colors">{c.title}</h3>
                   <p className="text-sm text-white/60 font-light leading-relaxed">{c.line}</p>
+                  <span className="mt-4 inline-flex items-center gap-2 text-[12px] font-semibold tracking-wide text-white/70 group-hover:text-white transition-colors">
+                    See the project <span className="transition-transform group-hover:translate-x-1">&rarr;</span>
+                  </span>
                 </Link>
-              </FadeIn>
-            ))}
-          </div>
+              ))}
+            </div>
+          </Reveal>
         </div>
       </section>
 
-      {/* Why choose */}
+      {/* How we work */}
       <section className="py-24 lg:py-28 px-6 lg:px-12 max-w-7xl mx-auto">
-        <FadeIn className="mb-14">
-          <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">How We Work</p>
-          <h2 className="text-3xl sm:text-4xl font-montserrat font-light tracking-tight">
+        <Reveal variant="group" className="mb-14">
+          <p data-fx="rise" className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">How We Work</p>
+          <h2 data-fx="rise" style={d(80)} className="text-3xl sm:text-4xl font-montserrat font-light tracking-tight">
             Small Team. <span className="font-semibold h-bold">Serious Standards.</span>
           </h2>
-          <div className="mt-5 h-px bg-forest-green w-12" />
-        </FadeIn>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {VALUES.map((v) => (
-            <FadeIn key={v.t}>
-              <div className="p-8 bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-md transition-shadow h-full">
+          <div data-fx="line" style={d(200)} className="mt-5 h-px bg-forest-green w-12" />
+        </Reveal>
+        <Reveal variant="group">
+          <div data-stagger className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {VALUES.map((v) => (
+              <div key={v.t} className="card-lift p-8 bg-white border border-gray-100 rounded-2xl shadow-sm h-full">
                 <h3 className="text-lg font-montserrat font-semibold text-slate-950 mb-3">{v.t}</h3>
                 <p className="text-gray-600 font-light leading-relaxed text-[15px]">{v.d}</p>
               </div>
-            </FadeIn>
-          ))}
-        </div>
+            ))}
+          </div>
+        </Reveal>
       </section>
 
       {/* Infrastructure pedigree */}
       <section id="projects" className="py-24 lg:py-28 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">
-        <FadeIn className="mb-14 flex flex-col md:flex-row md:items-end md:justify-between gap-8">
+        <Reveal variant="group" className="mb-14 flex flex-col md:flex-row md:items-end md:justify-between gap-8">
           <div>
-            <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">Previous Project Experience</p>
-            <h2 className="text-3xl sm:text-4xl font-montserrat font-light tracking-tight">
+            <p data-fx="rise" className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">Previous Project Experience</p>
+            <h2 data-fx="rise" style={d(80)} className="text-3xl sm:text-4xl font-montserrat font-light tracking-tight">
               Where We <span className="font-semibold h-bold">Cut Our Teeth.</span>
             </h2>
-            <div className="mt-5 h-px bg-forest-green w-12" />
+            <div data-fx="line" style={d(200)} className="mt-5 h-px bg-forest-green w-12" />
           </div>
-          <p className="text-sm text-gray-500 max-w-md font-light leading-relaxed">
+          <p data-fx="rise" style={d(160)} className="text-sm text-gray-500 max-w-md font-light leading-relaxed">
             Before SFGEO carried its own name, its Principal carried these — landmark Sydney infrastructure, now serving every backyard we classify. For current work, see <Link href="/projects" className="text-forest-green hover:underline">our projects</Link>.
           </p>
-        </FadeIn>
+        </Reveal>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {PEDIGREE.map((p) => (
-            <FadeIn key={p.t}>
-              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-[0_20px_50px_-20px_rgba(5,10,7,0.35)]">
-                <Image src={p.image} alt={p.alt} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" className="object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/80 via-[#050A07]/25 to-transparent" />
-                <div className="absolute bottom-4 left-5 right-5">
-                  <p className="text-[13px] font-semibold text-white leading-tight">{p.t}</p>
-                  <p className="text-[11px] uppercase tracking-[0.2em] text-white font-semibold mt-1">{p.loc}</p>
-                </div>
+          {PEDIGREE.map((p, i) => (
+            <PhotoFrame
+              key={p.t}
+              src={p.image}
+              alt={p.alt}
+              aspect="aspect-[4/3]"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+              delay={i * 90}
+              className="shadow-[0_20px_50px_-20px_rgba(5,10,7,0.35)]"
+            >
+              <div data-fx="rise" style={d(i * 90 + 420)} className="absolute bottom-4 left-5 right-5">
+                <p className="text-[13px] font-semibold text-white leading-tight">{p.t}</p>
+                <p className="text-[11px] uppercase tracking-[0.2em] text-white font-semibold mt-1">{p.loc}</p>
               </div>
-            </FadeIn>
+            </PhotoFrame>
           ))}
         </div>
       </section>
 
       {/* Accreditations */}
       <section id="accreditations" className="py-24 lg:py-28 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">
-        <FadeIn className="mb-14 flex flex-col md:flex-row md:items-end md:justify-between gap-8">
+        <Reveal variant="group" className="mb-14 flex flex-col md:flex-row md:items-end md:justify-between gap-8">
           <div>
-            <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">Accreditation &amp; Assurance</p>
-            <h2 className="text-3xl sm:text-4xl font-montserrat font-light tracking-tight">
+            <p data-fx="rise" className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">Accreditation &amp; Assurance</p>
+            <h2 data-fx="rise" style={d(80)} className="text-3xl sm:text-4xl font-montserrat font-light tracking-tight">
               Credentials <span className="font-semibold h-bold">That Hold.</span>
             </h2>
-            <div className="mt-5 h-px bg-forest-green w-12" />
+            <div data-fx="line" style={d(200)} className="mt-5 h-px bg-forest-green w-12" />
           </div>
-          <p className="text-sm text-gray-500 max-w-md font-light leading-relaxed">
+          <p data-fx="rise" style={d(160)} className="text-sm text-gray-500 max-w-md font-light leading-relaxed">
             Fieldwork and reporting follow AS 1726, AS 2870 and AS 3798, written to what your certifier, council or Sydney Water actually asks for.
           </p>
-        </FadeIn>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-          <FadeIn>
-            <div className="p-8 bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-md transition-shadow flex flex-col items-center justify-center text-center h-full">
+        </Reveal>
+        <Reveal variant="group">
+          <div data-stagger className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            <div className="card-lift p-8 bg-white border border-gray-100 rounded-2xl shadow-sm flex flex-col items-center justify-center text-center h-full">
               <div className="relative h-16 w-full mb-6 max-w-[150px]">
                 <Image src="/ea-logo.png" alt="SFGEO is a member of Engineers Australia" fill className="object-contain" />
               </div>
               <span className="block text-sm font-semibold tracking-wide uppercase">Engineers Australia</span>
             </div>
-          </FadeIn>
-          <FadeIn delay={0.08}>
-            <div className="p-8 bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-md transition-shadow flex flex-col items-center justify-center text-center h-full">
+            <div className="card-lift p-8 bg-white border border-gray-100 rounded-2xl shadow-sm flex flex-col items-center justify-center text-center h-full">
               <div className="relative h-16 w-full mb-6 max-w-[150px]">
                 <Image src="/ags-logo.png" alt="SFGEO is a member of the Australian Geomechanics Society" fill className="object-contain" />
               </div>
               <span className="block text-sm font-semibold tracking-wide uppercase">Australian Geomechanics Society</span>
             </div>
-          </FadeIn>
-          <FadeIn delay={0.16}>
-            <div className="p-8 bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-md transition-shadow flex flex-col items-center justify-center text-center h-full">
+            <div className="card-lift p-8 bg-white border border-gray-100 rounded-2xl shadow-sm flex flex-col items-center justify-center text-center h-full">
               <span className="block text-slate-950 font-montserrat font-semibold text-lg mb-3">Fully Insured &amp; Compliant</span>
               <p className="text-sm font-light leading-relaxed text-gray-600">
                 Professional Indemnity (PI) and Public Liability (PL) insurance covering geotechnical engineering and drilling — certificates of currency on request.
               </p>
             </div>
-          </FadeIn>
-        </div>
+          </div>
+        </Reveal>
       </section>
 
-      {/* Close */}
-      <section className="relative overflow-hidden bg-[#050A07] text-white grain">
-        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_-20%,rgba(45,90,58,0.3),transparent_60%)] pointer-events-none" />
-        <div className="max-w-4xl mx-auto text-center px-6 py-28 lg:py-32 relative z-10">
-          <FadeIn>
-            <h2 className="text-4xl sm:text-6xl font-montserrat font-light tracking-tight mb-8">
-              Work With <span className="font-semibold h-bold">The Same Team.</span>
-            </h2>
-            <p className="text-lg sm:text-xl text-gray-400 font-light leading-relaxed max-w-2xl mx-auto mb-12">
-              From the first phone call to the final report — one team, one standard, and the Principal across every job.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-              <Link href="tel:+61423483555" className="flex items-center justify-center px-8 py-2.5 bg-gradient-to-b from-[#346b43] to-forest-green text-white rounded-full shadow-[0_8px_20px_-6px_rgba(45,90,58,0.4)] hover:shadow-[0_12px_24px_-8px_rgba(45,90,58,0.6)] hover:brightness-105 transition-all hover:-translate-y-0.5 w-full sm:w-[280px] h-[46px] text-xs font-semibold tracking-wide">
-                Call 0423 483 555
-              </Link>
-              <QuoteCta source="about close" className="flex items-center justify-center px-8 py-2.5 bg-white/5 text-white rounded-full shadow-[inset_0_0_0_1px_rgba(255,255,255,0.25)] hover:bg-white/10 hover:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.45)] transition-all hover:-translate-y-0.5 w-full sm:w-[280px] h-[46px] text-xs font-semibold tracking-wide backdrop-blur-sm" />
-            </div>
-          </FadeIn>
-        </div>
-      </section>
+      <CloseBand
+        source="about close"
+        kicker="Marrickville, Sydney"
+        heading={<>Work With <span className="font-semibold h-bold">The Same Team.</span></>}
+        sub="From the first phone call to the final report — one team, one standard, and the Principal across every job."
+      />
     </div>
   );
 }

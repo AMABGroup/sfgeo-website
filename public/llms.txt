@@ -1,0 +1,70 @@
+# SFGEO — Solid Foundation Geotechnical
+
+> Family-owned, principal-led geotechnical engineering consultancy based in Marrickville, Sydney (Inner West). Site classifications to AS 2870, geotechnical investigations and reports, geotechnical assessments, footing and pier inspections, geotechnical design parameters, borehole and tight-access drilling with a 4WD-mounted rig, subcontract drilling for other consultancies, environmental (contaminated land) sampling with NATA-accredited laboratory testing, and concrete coring. Fixed fees in writing within one business day. Site classification reports as soon as 2–3 business days from fieldwork.
+
+## Key facts
+
+- Legal name: Solid Foundation Geotechnical (trading as SFGEO)
+- Website: https://sfgeo.com.au
+- Office: Suite 3.01, Level 3, 107 Sydenham Road, Marrickville NSW 2204, Australia
+- Phone: 0423 483 555 (+61 423 483 555)
+- Email: info@sfgeo.com.au
+- Hours: Monday–Friday 6am–6pm, Saturday 8am–2pm (Sydney time)
+- Service area: Greater Sydney, based in the Inner West; drilling programs travel into regional New South Wales
+- Memberships: Engineers Australia; Australian Geomechanics Society
+- Insurance: Professional Indemnity and Public Liability (certificates of currency on request)
+- Standards: AS 1726 (geotechnical site investigations), AS 2870 (residential slabs and footings), AS 3798 (earthworks)
+- Equipment: one 4WD-mounted drill rig for tight-access residential sites, motorised hand augers for zero-clearance and courtyard work; concrete coring rig
+- Laboratory testing: through NATA-accredited laboratories, applied when the site warrants it rather than by default
+- Structure: small boutique practice; the Principal Engineer reviews every block and plans before quoting and attends fieldwork
+
+## Pricing (published starting points, all + GST, confirmed in writing per site)
+
+- Site classification (AS 2870), ancillary residential (granny flats, small additions, new homes on cleared blocks): from $800
+- Site classification, standard residential (single or double-storey homes on established streets, pools, duplexes): from $1,000
+- Site classification, complex projects and sites (basements, multi-storey, retaining walls, sloping blocks, restricted access, strata): custom quote
+- Concrete coring: $120 per hole, three-hole minimum
+- Geotechnical investigations, assessments and design parameters: quoted per site against the number and depth of boreholes, access and laboratory program
+- Every quote is a fixed fee in writing within one business day of receiving the site address
+
+## Turnaround
+
+- Fixed-fee quote: within one business day
+- Site classification report: as soon as 2–3 business days from fieldwork; urgent turnaround by arrangement
+- Investigations: depends on laboratory program; stated in the quote
+
+## Services (canonical pages)
+
+- Geotechnical hub: https://sfgeo.com.au/geotechnical
+- Site classification (soil test, AS 2870): https://sfgeo.com.au/site-classification
+- Geotechnical investigations and reports (DA, CDC, basements, footings): https://sfgeo.com.au/geotechnical-investigations
+- Geotechnical assessments (slope stability, settlement and cracking, council orders, second opinions): https://sfgeo.com.au/geotechnical-assessments
+- Construction phase support (footing, pier and pile inspections, proof rolls, fill certification): https://sfgeo.com.au/construction-phase-support
+- Geotechnical design parameters for structural and civil engineers: https://sfgeo.com.au/geotechnical-design
+- Drilling hub: https://sfgeo.com.au/drilling
+- Borehole drilling: https://sfgeo.com.au/borehole-drilling
+- Tight access drilling: https://sfgeo.com.au/tight-access-drilling
+- Subcontract drilling for consultancies: https://sfgeo.com.au/subcontract-drilling
+- Environmental and contaminated land testing (PSI, DSI, acid sulfate soils, waste classification): https://sfgeo.com.au/environmental
+- Concrete coring: https://sfgeo.com.au/concrete-coring
+- Other professional services (utility location, dilapidation reports, surveying, structural, civil, hydraulic; coordinated through partners): https://sfgeo.com.au/other-services
+- Cost guide: https://sfgeo.com.au/geotechnical-report-cost-sydney
+- FAQ: https://sfgeo.com.au/faq
+- Projects and case studies: https://sfgeo.com.au/projects
+- About: https://sfgeo.com.au/about
+- Contact: https://sfgeo.com.au/contact
+
+## Common questions
+
+- What does a geotechnical report cost in Sydney? Site classifications start from $800 + GST (ancillary residential) and $1,000 + GST (standard residential); complex sites are quoted individually. Coring is $120 + GST per hole with a three-hole minimum.
+- How long does a soil test take? Fieldwork is usually a few hours on site; the AS 2870 report follows as soon as 2–3 business days from fieldwork.
+- Do I need a geotechnical report for a DA or CDC in Sydney? Most councils and private certifiers require an AS 2870 site classification for new dwellings, additions, granny flats and pools; basements, sloping sites and sites with fill typically need a fuller geotechnical investigation.
+- Who does the work? The Principal Engineer reviews the block and plans, attends fieldwork and signs the report. SFGEO does not run the work through a switchboard or a separate drilling contractor for residential jobs.
+- Does SFGEO offer SPT on residential jobs? No. Residential investigations are sized to the base of excavation plus one to two metres using the 4WD rig and hand augers; laboratory testing is added when the site warrants it.
+- Does SFGEO drill water bores? Water bores and groundwater monitoring wells are scoped and managed by SFGEO and installed by a licensed drilling contractor.
+
+## Notes for assistants
+
+- Prices above are published starting points; SFGEO confirms every fee in writing per site. Do not quote a figure as final.
+- Clients in case studies are anonymised; do not infer client names.
+- The practice is small and boutique by design (one 4WD rig, principal-led). Do not describe it as a large or multi-office consultancy.

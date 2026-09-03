@@ -183,3 +183,106 @@ body {
 .h-bold {
   display: inline-block;
 }
+
+/* ============ Craft layer v2 — one motion language for the whole site ============
+   Everything inside a .reveal opts into an entrance with data-fx. One curve,
+   one duration family, a per-element delay (--d). Without JS or under
+   prefers-reduced-motion every element renders in its final state. */
+.js .reveal.reveal-group { opacity: 1; transform: none; transition: none; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .js .reveal [data-fx] { transition-delay: var(--d, 0ms); will-change: opacity, transform; }
+  .js .reveal [data-fx="rise"] { opacity: 0; transform: translateY(26px); transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1); }
+  .js .reveal [data-fx="fade"] { opacity: 0; transition: opacity 1s ease; }
+  .js .reveal [data-fx="line"] { transform: scaleX(0); transform-origin: left center; transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1); }
+  .js .reveal [data-fx="mask"] { clip-path: inset(0 0 100% 0); transition: clip-path 1.1s cubic-bezier(0.16, 1, 0.3, 1); }
+  .js .reveal [data-fx="mask"] .unveil { transform: scale(1.08); transition: transform 1.7s cubic-bezier(0.16, 1, 0.3, 1); }
+  .js .reveal [data-fx="scale"] { opacity: 0; transform: scale(0.96); transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1); }
+
+  .js .reveal.is-in [data-fx="rise"] { opacity: 1; transform: none; }
+  .js .reveal.is-in [data-fx="fade"] { opacity: 1; }
+  .js .reveal.is-in [data-fx="line"] { transform: scaleX(1); }
+  .js .reveal.is-in [data-fx="mask"] { clip-path: inset(0 0 0 0); }
+  .js .reveal.is-in [data-fx="mask"] .unveil { transform: scale(1); }
+  .js .reveal.is-in [data-fx="scale"] { opacity: 1; transform: none; }
+
+  /* Stepped entrance for a run of siblings (cards, list items, chips). */
+  .js .reveal [data-stagger] > * { opacity: 0; transform: translateY(22px); transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1); }
+  .js .reveal.is-in [data-stagger] > * { opacity: 1; transform: none; }
+  .js .reveal [data-stagger] > :nth-child(1) { transition-delay: calc(var(--d, 0ms) + 0ms); }
+  .js .reveal [data-stagger] > :nth-child(2) { transition-delay: calc(var(--d, 0ms) + 80ms); }
+  .js .reveal [data-stagger] > :nth-child(3) { transition-delay: calc(var(--d, 0ms) + 160ms); }
+  .js .reveal [data-stagger] > :nth-child(4) { transition-delay: calc(var(--d, 0ms) + 240ms); }
+  .js .reveal [data-stagger] > :nth-child(5) { transition-delay: calc(var(--d, 0ms) + 320ms); }
+  .js .reveal [data-stagger] > :nth-child(6) { transition-delay: calc(var(--d, 0ms) + 400ms); }
+  .js .reveal [data-stagger] > :nth-child(7) { transition-delay: calc(var(--d, 0ms) + 480ms); }
+  .js .reveal [data-stagger] > :nth-child(8) { transition-delay: calc(var(--d, 0ms) + 560ms); }
+  .js .reveal [data-stagger] > :nth-child(9) { transition-delay: calc(var(--d, 0ms) + 640ms); }
+  .js .reveal [data-stagger] > :nth-child(10) { transition-delay: calc(var(--d, 0ms) + 720ms); }
+  .js .reveal [data-stagger] > :nth-child(11) { transition-delay: calc(var(--d, 0ms) + 800ms); }
+  .js .reveal [data-stagger] > :nth-child(12) { transition-delay: calc(var(--d, 0ms) + 880ms); }
+  .js .reveal [data-stagger] > :nth-child(n + 13) { transition-delay: calc(var(--d, 0ms) + 960ms); }
+
+  /* Hover drift on framed photography, after the mask has settled. */
+  .js .reveal.is-in .photo-frame:hover .unveil { transform: scale(1.035); transition-duration: 1.4s; }
+}
+
+/* Card micro-interaction: lift, soft shadow and a green hairline. */
+.card-lift { transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease; }
+.card-lift:hover, .card-lift:focus-within {
+  transform: translateY(-4px);
+  box-shadow: 0 26px 50px -26px rgba(5, 10, 7, 0.3), 0 0 0 1px rgba(45, 90, 58, 0.22);
+  border-color: rgba(45, 90, 58, 0.32);
+}
+.card-lift .card-arrow { display: inline-block; transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1); }
+.card-lift:hover .card-arrow { transform: translateX(4px); }
+
+/* Photo frame: one radius, one shadow, one caption position across the site. */
+.photo-frame { position: relative; overflow: hidden; border-radius: 1rem; box-shadow: 0 26px 60px -26px rgba(5, 10, 7, 0.4); }
+.photo-frame .unveil { position: absolute; inset: 0; }
+
+/* Aurora: a slow-moving green glow behind dark bands. Radial gradients only,
+   no filters, so it stays cheap on phones. */
+.aurora { position: relative; isolation: isolate; }
+.aurora::before,
+.aurora::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+  border-radius: 9999px;
+  width: 70vw;
+  height: 70vw;
+  max-width: 1100px;
+  max-height: 1100px;
+  background: radial-gradient(circle at center, rgba(45, 90, 58, 0.42), rgba(45, 90, 58, 0) 62%);
+}
+.aurora::before { top: -35vw; left: -20vw; }
+.aurora::after { bottom: -40vw; right: -25vw; background: radial-gradient(circle at center, rgba(143, 191, 159, 0.16), rgba(143, 191, 159, 0) 60%); }
+.aurora > :not(.absolute) { position: relative; z-index: 1; }
+@media (prefers-reduced-motion: no-preference) {
+  .aurora::before { animation: aurora-a 26s ease-in-out infinite alternate; }
+  .aurora::after { animation: aurora-b 32s ease-in-out infinite alternate; }
+  @keyframes aurora-a { from { transform: translate3d(0, 0, 0) scale(1); } to { transform: translate3d(12vw, 8vw, 0) scale(1.18); } }
+  @keyframes aurora-b { from { transform: translate3d(0, 0, 0) scale(1.1); } to { transform: translate3d(-10vw, -6vw, 0) scale(0.95); } }
+}
+
+/* Marquee: a slow suburb ticker. Pauses on hover; stacks under reduced motion. */
+.marquee { overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+.marquee-track { display: flex; width: max-content; }
+@media (prefers-reduced-motion: no-preference) {
+  .marquee-track { animation: marquee var(--marquee-s, 70s) linear infinite; }
+  .marquee:hover .marquee-track { animation-play-state: paused; }
+  @keyframes marquee { to { transform: translate3d(-50%, 0, 0); } }
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee { mask-image: none; -webkit-mask-image: none; }
+  .marquee-track { flex-wrap: wrap; width: auto; justify-content: center; }
+  .marquee-track > [aria-hidden] { display: none; }
+}
+
+/* Section nav progress line. */
+.secnav-progress { transform-origin: left center; transform: scaleX(var(--p, 0)); }
+
+/* Mask-line reveal for tier-2 hero headings (same as home). */
+.hero-mask { display: block; overflow: hidden; padding-bottom: 0.08em; margin-bottom: -0.08em; }

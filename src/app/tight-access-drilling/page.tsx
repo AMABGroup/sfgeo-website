@@ -1,17 +1,21 @@
 import { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
+import type { CSSProperties } from "react";
 import QuoteCta from "@/components/forms/QuoteCta";
 import PhotoPlaceholder from "@/components/ui/PhotoPlaceholder";
 import Accordion from "@/components/ui/Accordion";
+import Reveal from "@/components/ui/Reveal";
+import PhotoFrame from "@/components/ui/PhotoFrame";
+import CloseBand from "@/components/ui/CloseBand";
 import { pageMeta } from "@/lib/seo";
-import { FadeIn } from "../site-classification/MotionWrapper";
 
 export const metadata: Metadata = pageMeta(
   "Tight Access Drilling Sydney | Restricted Sites | SFGEO",
   "Tight-access geotechnical drilling across Sydney — terraces, battleaxe blocks, backyards and basements. Motorised hand augers and a 4WD rig, engineer operated.",
   "/tight-access-drilling",
 );
+
+const d = (ms: number) => ({ "--d": `${ms}ms` }) as CSSProperties;
 
 const SITE_TYPES = [
   { t: "Inner West Terraces", d: "Through the hallway or over the back fence — motorised hand augers reach rear yards no rig can." },
@@ -80,8 +84,9 @@ export default function TightAccessDrillingPage() {
           <p className="hero-line text-sm uppercase tracking-[0.2em] text-forest-green mb-6 font-semibold">
             Tight Access &middot; Principal-Led &middot; Sydney
           </p>
-          <h1 className="hero-line hero-d1 text-[min(2.25rem,8.2vw)] sm:text-6xl font-montserrat font-light tracking-tight leading-[1.08] mb-8">
-            Tight Access Drilling. <span className="font-semibold h-bold">No Site Out Of Reach.</span>
+          <h1 className="text-[min(2.25rem,8.2vw)] sm:text-6xl font-montserrat font-light tracking-tight leading-[1.08] mb-8">
+            <span className="hero-mask"><span className="mask-line mask-d1"><span>Tight Access Drilling.</span></span></span>
+            <span className="hero-mask"><span className="mask-line mask-d2"><span className="font-semibold h-bold">No Site Out Of Reach.</span></span></span>
           </h1>
           <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />
           <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed mb-8">
@@ -102,105 +107,97 @@ export default function TightAccessDrillingPage() {
       {/* Imagery + method */}
       <section className="py-20 lg:py-24 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">
         <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-10 lg:gap-16 items-center">
-          <FadeIn>
-            <div className="grid grid-cols-2 gap-4 sm:gap-6">
-              <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-[0_20px_50px_-20px_rgba(5,10,7,0.35)]">
-                <Image src="/sfgeo-hand-auger-borehole-restricted-access-sydney-backyard.jpg" alt="Motorised hand-auger borehole in a restricted-access Sydney backyard" fill sizes="(max-width: 1024px) 50vw, 30vw" className="object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/80 via-[#050A07]/25 to-transparent" />
-                <p className="absolute bottom-4 left-4 text-[11px] uppercase tracking-[0.2em] text-white font-semibold">Backyard Borehole</p>
+          <div className="grid grid-cols-2 gap-4 sm:gap-6">
+            <PhotoFrame
+              src="/sfgeo-hand-auger-borehole-restricted-access-sydney-backyard.jpg"
+              alt="Motorised hand-auger borehole in a restricted-access Sydney backyard"
+              caption="Backyard Borehole"
+              aspect="aspect-[3/4]"
+              sizes="(max-width: 1024px) 50vw, 30vw"
+              className="shadow-[0_20px_50px_-20px_rgba(5,10,7,0.35)]"
+              delay={0}
+            />
+            <Reveal variant="group">
+              <div data-fx="scale" style={d(120)}>
+                <PhotoPlaceholder
+                  subject="A genuinely tight site — terrace hallway, basement or zero-clearance courtyard, with the gear in the gap so the constraint is obvious."
+                  caption="Heritage &middot; Inner West"
+                  className="aspect-[3/4] rounded-2xl shadow-[0_20px_50px_-20px_rgba(5,10,7,0.35)] lg:mt-10"
+                />
               </div>
-              <PhotoPlaceholder
-                subject="A genuinely tight site — terrace hallway, basement or zero-clearance courtyard, with the gear in the gap so the constraint is obvious."
-                caption="Heritage &middot; Inner West"
-                className="aspect-[3/4] rounded-2xl shadow-[0_20px_50px_-20px_rgba(5,10,7,0.35)] lg:mt-10"
-              />
-            </div>
-          </FadeIn>
-          <FadeIn delay={0.15}>
-            <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">01 &middot; The Method</p>
-            <h2 className="text-3xl sm:text-4xl font-light tracking-tight font-montserrat text-slate-950 mb-5">
+            </Reveal>
+          </div>
+          <Reveal variant="group">
+            <p data-fx="rise" className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">01 &middot; The Method</p>
+            <h2 data-fx="rise" style={d(80)} className="text-3xl sm:text-4xl font-light tracking-tight font-montserrat text-slate-950 mb-5">
               Same Data. <span className="font-semibold h-bold">Harder Sites.</span>
             </h2>
-            <div className="h-px bg-forest-green w-12 mb-8" />
-            <p className="text-lg text-gray-600 font-light leading-relaxed">
+            <div data-fx="line" style={d(200)} className="h-px bg-forest-green w-12 mb-8" />
+            <p data-fx="rise" style={d(160)} className="text-lg text-gray-600 font-light leading-relaxed">
               A tight site should not mean a thinner report. Hand-auger boreholes are logged to the same standard as rig holes and cross-checked with <Link href="/borehole-drilling" className="text-forest-green hover:underline font-medium">dynamic cone penetrometer testing</Link> on the spot — so your structural engineer gets the same parameters whether the hole was advanced by a rig on the street or an auger carried through the hallway.
             </p>
-          </FadeIn>
+          </Reveal>
         </div>
       </section>
 
       {/* Site types */}
       <section className="py-20 lg:py-24 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">
-        <FadeIn className="mb-12">
-          <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">02 &middot; Site Types</p>
-          <h2 className="text-3xl sm:text-4xl font-light tracking-tight font-montserrat text-slate-950">
+        <Reveal variant="group" className="mb-12">
+          <p data-fx="rise" className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">02 &middot; Site Types</p>
+          <h2 data-fx="rise" style={d(80)} className="text-3xl sm:text-4xl font-light tracking-tight font-montserrat text-slate-950">
             The Sites We&rsquo;re <span className="font-semibold h-bold">Built For.</span>
           </h2>
-          <div className="mt-6 h-px bg-forest-green w-12" />
-        </FadeIn>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {SITE_TYPES.map((s) => (
-            <FadeIn key={s.t}>
-              <div className="p-8 bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-md transition-shadow h-full">
+          <div data-fx="line" style={d(200)} className="mt-6 h-px bg-forest-green w-12" />
+        </Reveal>
+        <Reveal variant="group">
+          <div data-stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {SITE_TYPES.map((s) => (
+              <div key={s.t} className="card-lift p-8 bg-white border border-gray-100 rounded-2xl shadow-sm h-full">
                 <h3 className="text-lg font-montserrat font-semibold text-slate-950 mb-3">{s.t}</h3>
                 <p className="text-gray-600 font-light leading-relaxed text-[15px]">{s.d}</p>
               </div>
-            </FadeIn>
-          ))}
-        </div>
+            ))}
+          </div>
+        </Reveal>
       </section>
 
       {/* Where we work */}
       <section className="py-20 lg:py-24 px-6 lg:px-12 max-w-4xl mx-auto border-t border-gray-100">
-        <FadeIn>
-          <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">03 &middot; Where We Work</p>
-          <h2 className="text-3xl sm:text-4xl font-light tracking-tight font-montserrat text-slate-950 mb-5">
+        <Reveal variant="group">
+          <p data-fx="rise" className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">03 &middot; Where We Work</p>
+          <h2 data-fx="rise" style={d(80)} className="text-3xl sm:text-4xl font-light tracking-tight font-montserrat text-slate-950 mb-5">
             Where The Hard Sites <span className="font-semibold h-bold">Are.</span>
           </h2>
-          <p className="text-lg text-gray-600 font-light leading-relaxed">
+          <p data-fx="rise" style={d(160)} className="text-lg text-gray-600 font-light leading-relaxed">
             Marrickville, Newtown, Enmore and the Inner West terraces we call home. Paddington and Surry Hills rows. Eastern Suburbs battleaxe blocks, North Shore slopes, and the granny-flat boom across Canterbury-Bankstown and the Hills. If the rig cannot reach it, the augers can — and the engineer comes with them.
           </p>
-        </FadeIn>
+        </Reveal>
       </section>
 
       {/* FAQ — the visible half of the FAQPage schema above */}
       <section className="py-20 lg:py-24 px-6 lg:px-12 max-w-4xl mx-auto border-t border-gray-100">
-        <FadeIn>
-          <p className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">04 &middot; Common Questions</p>
-          <h2 className="text-3xl sm:text-4xl font-light tracking-tight font-montserrat text-slate-950 mb-5">
+        <Reveal variant="group">
+          <p data-fx="rise" className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">04 &middot; Common Questions</p>
+          <h2 data-fx="rise" style={d(80)} className="text-3xl sm:text-4xl font-light tracking-tight font-montserrat text-slate-950 mb-5">
             Tight Access. <span className="font-semibold h-bold">Common Questions.</span>
           </h2>
-          <div className="h-px bg-forest-green w-12 mb-6" />
-          <div className="border-t border-gray-200">
+          <div data-fx="line" style={d(200)} className="h-px bg-forest-green w-12 mb-6" />
+          <div data-stagger style={d(240)} className="border-t border-gray-200">
             {FAQS.map((f) => (
               <Accordion key={f.q} title={f.q}>
                 {f.a}
               </Accordion>
             ))}
           </div>
-        </FadeIn>
+        </Reveal>
       </section>
 
-      {/* Close CTA */}
-      <section className="relative overflow-hidden bg-[#050A07] text-white grain">
-        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_-20%,rgba(45,90,58,0.3),transparent_60%)] pointer-events-none" />
-        <div className="max-w-4xl mx-auto text-center px-6 py-28 lg:py-32 relative z-10">
-          <FadeIn>
-            <h2 className="text-4xl sm:text-6xl font-montserrat font-light tracking-tight mb-8">
-              Hard To Reach? <span className="font-semibold h-bold">Perfect.</span>
-            </h2>
-            <p className="text-lg sm:text-xl text-gray-400 font-light leading-relaxed max-w-2xl mx-auto mb-12">
-              Send the address and a photo of the access. You&rsquo;ll have a fixed fee in writing within one business day.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-              <Link href="tel:+61423483555" className="flex items-center justify-center px-8 py-2.5 bg-gradient-to-b from-[#346b43] to-forest-green text-white rounded-full shadow-[0_8px_20px_-6px_rgba(45,90,58,0.4)] hover:shadow-[0_12px_24px_-8px_rgba(45,90,58,0.6)] hover:brightness-105 transition-all hover:-translate-y-0.5 w-full sm:w-[280px] h-[46px] text-xs font-semibold tracking-wide">
-                Call 0423 483 555
-              </Link>
-              <QuoteCta source="tight-access-drilling close" label="Request A Fixed-Fee Quote" className="flex items-center justify-center px-8 py-2.5 bg-white/5 text-white rounded-full shadow-[inset_0_0_0_1px_rgba(255,255,255,0.25)] hover:bg-white/10 hover:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.45)] transition-all hover:-translate-y-0.5 w-full sm:w-[280px] h-[46px] text-xs font-semibold tracking-wide backdrop-blur-sm" />
-            </div>
-          </FadeIn>
-        </div>
-      </section>
+      <CloseBand
+        source="tight-access-drilling close"
+        heading={<>Hard To Reach? <span className="font-semibold h-bold">Perfect.</span></>}
+        sub={<>Send the address and a photo of the access. You&rsquo;ll have a fixed fee in writing within one business day.</>}
+        quoteLabel="Request A Fixed-Fee Quote"
+      />
     </div>
   );
 }

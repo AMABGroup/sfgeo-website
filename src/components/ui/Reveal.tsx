@@ -1,23 +1,36 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, type CSSProperties, type ReactNode } from "react";
+
+type Props = {
+  children: ReactNode;
+  className?: string;
+  /** Delay in ms before the entrance starts. */
+  delay?: number;
+  /**
+   * "self"  — the wrapper itself fades and rises (the original behaviour).
+   * "group" — the wrapper is static; children carry data-fx / data-stagger
+   *           and enter in choreography. Use this for any section block.
+   */
+  variant?: "self" | "group";
+  as?: "div" | "section" | "figure" | "li" | "header";
+  id?: string;
+  style?: CSSProperties;
+};
 
 /**
- * Lightweight scroll reveal: adds `.is-in` when the element enters the
- * viewport. Styling lives in globals.css (.reveal / .is-in) and collapses
- * to no motion under prefers-reduced-motion. Replaces framer-motion's
- * whileInView for server-rendered sections so content never SSRs invisible.
+ * Scroll reveal. Adds `.is-in` when the element enters the viewport; the
+ * motion itself lives in globals.css and collapses to nothing under
+ * prefers-reduced-motion or without JavaScript, so content never renders
+ * invisible on the server.
  */
-export default function Reveal({ children, className = "", delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
-  const ref = useRef<HTMLDivElement>(null);
+export default function Reveal({ children, className = "", delay = 0, variant = "self", as: Tag = "div", id, style }: Props) {
+  const ref = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    // If the element is already above the viewport when the observer attaches
-    // — the reader scrolled past it before hydration finished — it will never
-    // intersect again on the way down. Reveal it straight away so nothing is
-    // left blank behind them.
+    // Already scrolled past before hydration: reveal immediately.
     if (el.getBoundingClientRect().bottom < 0) {
       el.classList.add("is-in");
       return;
@@ -29,15 +42,25 @@ export default function Reveal({ children, className = "", delay = 0 }: { childr
           io.disconnect();
         }
       },
-      { rootMargin: "0px 0px -60px 0px", threshold: 0.1 }
+      { rootMargin: "0px 0px -10% 0px", threshold: 0.08 }
     );
     io.observe(el);
     return () => io.disconnect();
   }, []);
 
+  const cls = `reveal ${variant === "group" ? "reveal-group " : ""}${className}`.trim();
+  const st: CSSProperties | undefined = delay
+    ? variant === "group"
+      ? ({ ...(style || {}), "--d": `${delay}ms` } as CSSProperties)
+      : { ...(style || {}), transitionDelay: `${delay}ms` }
+    : style;
+
+  // A generic element with a shared ref type: the tag set is closed, so the
+  // cast is safe and keeps the JSX simple.
+  const El = Tag as unknown as "div";
   return (
-    <div ref={ref} className={`reveal ${className}`} style={delay ? { transitionDelay: `${delay}ms` } : undefined}>
+    <El ref={ref as React.RefObject<HTMLDivElement>} id={id} className={cls} style={st}>
       {children}
-    </div>
+    </El>
   );
 }

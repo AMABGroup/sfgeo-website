@@ -33,11 +33,11 @@ export default function PhotoPlaceholder({
       <span className="absolute bottom-4 left-4 w-4 h-4 border-l border-b border-white/20" />
       <span className="absolute bottom-4 right-4 w-4 h-4 border-r border-b border-white/20" />
 
-      <div className="relative z-10 text-center px-8 max-w-[85%]">
+      <div className="relative z-10 text-center px-5 sm:px-8 max-w-[85%]">
         <p className="text-[10px] uppercase tracking-[0.3em] text-[#8FBF9F]/70 font-semibold mb-3">
           Photograph To Come
         </p>
-        <p className="text-[13px] sm:text-sm text-white/55 font-light leading-relaxed">{subject}</p>
+        <p className="hidden sm:block text-[13px] sm:text-sm text-white/55 font-light leading-relaxed">{subject}</p>
       </div>
 
       {caption && (
