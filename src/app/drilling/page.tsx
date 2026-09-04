@@ -44,8 +44,8 @@ const SECTIONS = [
     titleLight: "Rock",
     titleBold: "Coring.",
     caption: "02 · Rock Coring",
-    image: null,
-    shot: "NMLC rock core in the tray — sandstone or shale runs laid out, defect-logged, with the core barrel or a scale alongside.",
+    image: "/sfgeo-rock-core-tray-detail-4x3.jpg",
+    alt: "Rock core laid out in a core tray at BH1, coring from 3.7 metres — weathered runs over grey shale, labelled run by run",
     body: "When the design needs more than refusal depth — intact cores from Hawkesbury sandstone and Ashfield shale, recovered, photographed and defect-logged so structural decisions rest on what the rock actually is.",
     specs: [
       "NMLC rock coring with recovery and defect logging",
@@ -199,7 +199,7 @@ export default function DrillingPage() {
               <Reveal variant="group" className={idx % 2 === 1 ? "lg:order-2" : ""}>
                 <div data-fx="scale">
                   <PhotoPlaceholder
-                    subject={sec.shot ?? ""}
+                    subject="Photograph to come"
                     caption={sec.caption}
                     className="aspect-[4/3] rounded-2xl shadow-[0_26px_60px_-26px_rgba(5,10,7,0.4)]"
                   />

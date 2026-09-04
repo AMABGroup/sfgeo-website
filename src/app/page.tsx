@@ -25,7 +25,7 @@ const d = (ms: number) => ({ "--d": `${ms}ms` }) as CSSProperties;
 
 const PROOF = [
   { value: "From $800", label: "Site Classifications", note: "+ GST. A fixed fee, in writing, before anyone drills." },
-  { value: "2–3", label: "Business Days, Best Case", note: "Fieldwork to a signed report on a straightforward block. Your quote states your turnaround." },
+  { value: "2", label: "Business Days, Best Case", note: "Fieldwork to a signed report on a straightforward block. Your quote states your turnaround." },
   { value: "1", label: "Business Day To A Quote", note: "The Principal reviews your block and plans first." },
   { value: "15", label: "Years Of Sydney Ground", note: "Sydney Gateway and the M12 down to backyard footings." },
 ];
@@ -44,7 +44,7 @@ const SUBURBS = [
 const JOURNEY = [
   { t: "The Call", d: "Send the address and what you’re building. The Principal reads the block, the geology and your plans, and the fee comes back in writing within one business day." },
   { t: "On Your Ground", d: "The engineer who quoted turns up with the rig. The profile is logged at the hole, samples taken to plan, and laboratory testing added only where the site warrants it." },
-  { t: "The Report", d: "Signed by the engineer who was there. Written to your certifier and your structural engineer — on a straightforward classification, as soon as 2–3 business days from fieldwork." },
+  { t: "The Report", d: "Signed by the engineer who was there. Written to your certifier and your structural engineer — on a straightforward classification, as soon as 2 business days from fieldwork." },
   { t: "Through The Build", d: "Footing and pier inspections while the excavation is open, questions answered on the phone, and the same team until the final certificate." },
 ];
 

@@ -158,7 +158,7 @@ export default function ContactPage() {
                   What Clients Say On Google.
                 </p>
                 <p className="text-[15px] text-gray-600 font-light leading-relaxed mb-6">
-                  The Principal reads every enquiry. Fieldwork is scheduled at first contact, and on a straightforward classification the report can land as soon as 2–3 business days after it.
+                  The Principal reads every enquiry. Fieldwork is scheduled at first contact, and on a straightforward classification the report can land as soon as 2 business days after it.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3">
                   <a

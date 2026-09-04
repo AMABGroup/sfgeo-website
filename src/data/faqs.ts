@@ -37,7 +37,7 @@ export const faqs = [
   {
     question: "How long does a soil test and geotechnical report take?",
     group: "Cost & Process",
-    answer: "For a clear <a href=\"/site-classification\">site classification</a>, expect your report as soon as two to three business days from fieldwork. A standard geotechnical investigation that includes NATA-accredited laboratory testing typically lands within five to seven business days, with the lab schedule being the main variable.<br/><br/>Urgent turnarounds are possible, and we handle them regularly for time-critical DAs, CDCs, and construction programs. We will tell you plainly whether your timeline is workable before you commit.<br/><br/>The only factors that realistically extend a project are the client's own site readiness and specific lab testing requirements written into the scope. Everything within our control, we move on quickly."
+    answer: "For a clear <a href=\"/site-classification\">site classification</a>, expect your report as soon as two business days from fieldwork. A standard geotechnical investigation that includes NATA-accredited laboratory testing typically lands within five to seven business days, with the lab schedule being the main variable.<br/><br/>Urgent turnarounds are possible, and we handle them regularly for time-critical DAs, CDCs, and construction programs. We will tell you plainly whether your timeline is workable before you commit.<br/><br/>The only factors that realistically extend a project are the client's own site readiness and specific lab testing requirements written into the scope. Everything within our control, we move on quickly."
   },
   {
     question: "What is 'Bearing Capacity' and why does my engineer need it?",
@@ -131,7 +131,7 @@ export const homeFaqs = [
   },
   {
     question: "How long does a soil test and geotechnical report take?",
-    answer: "For a clear AS 2870 site classification, expect your report as soon as two to three business days from fieldwork. A standard geotechnical investigation that includes NATA-accredited laboratory testing typically lands within five to seven business days, with the lab schedule being the main variable.<br/><br/>Urgent turnarounds are possible, and we handle them regularly for time-critical DAs, CDCs, and construction programs. We will tell you plainly whether your timeline is workable before you commit.<br/><br/>The only factors that realistically extend a project are the client's own site readiness and specific lab testing requirements written into the scope. Everything within our control, we move on quickly."
+    answer: "For a clear AS 2870 site classification, expect your report as soon as two business days from fieldwork. A standard geotechnical investigation that includes NATA-accredited laboratory testing typically lands within five to seven business days, with the lab schedule being the main variable.<br/><br/>Urgent turnarounds are possible, and we handle them regularly for time-critical DAs, CDCs, and construction programs. We will tell you plainly whether your timeline is workable before you commit.<br/><br/>The only factors that realistically extend a project are the client's own site readiness and specific lab testing requirements written into the scope. Everything within our control, we move on quickly."
   },
   {
     question: "Can you work on tight-access, sloping, or restricted sites?",

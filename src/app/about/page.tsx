@@ -19,7 +19,7 @@ const d = (ms: number) => ({ "--d": `${ms}ms` }) as CSSProperties;
 const VALUES = [
   { t: "Direct Access. Always.", d: "Call, email, turn up. You reach the team doing the work directly — no admin queues, no message chains." },
   { t: "Sydney Is Our Backyard.", d: "Locally owned, locally based. We know Sydney's ground, its councils and its sites — the Principal has worked them for 15 years, from Sydney Gateway to backyard footings." },
-  { t: "On Site. On Time. On Call.", d: "A fixed fee within one business day, classification reports as soon as 2–3 business days from fieldwork, and the Principal's mobile answered — not a switchboard." },
+  { t: "On Site. On Time. On Call.", d: "A fixed fee within one business day, classification reports as soon as 2 business days from fieldwork, and the Principal's mobile answered — not a switchboard." },
 ];
 
 const PEDIGREE = [

@@ -1,6 +1,6 @@
 # SFGEO — Solid Foundation Geotechnical
 
-> Family-owned, principal-led geotechnical engineering consultancy based in Marrickville, Sydney (Inner West). Site classifications to AS 2870, geotechnical investigations and reports, geotechnical assessments, footing and pier inspections, geotechnical design parameters, borehole and tight-access drilling with a 4WD-mounted rig, subcontract drilling for other consultancies, environmental (contaminated land) sampling with NATA-accredited laboratory testing, and concrete coring. Fixed fees in writing within one business day. Site classification reports as soon as 2–3 business days from fieldwork.
+> Family-owned, principal-led geotechnical engineering consultancy based in Marrickville, Sydney (Inner West). Site classifications to AS 2870, geotechnical investigations and reports, geotechnical assessments, footing and pier inspections, geotechnical design parameters, borehole and tight-access drilling with a 4WD-mounted rig, subcontract drilling for other consultancies, environmental (contaminated land) sampling with NATA-accredited laboratory testing, and concrete coring. Fixed fees in writing within one business day. Site classification reports as soon as 2 business days from fieldwork.
 
 ## Key facts
 
@@ -30,7 +30,7 @@
 ## Turnaround
 
 - Fixed-fee quote: within one business day
-- Site classification report: as soon as 2–3 business days from fieldwork; urgent turnaround by arrangement
+- Site classification report: as soon as 2 business days from fieldwork; urgent turnaround by arrangement
 - Investigations: depends on laboratory program; stated in the quote
 
 ## Services (canonical pages)
@@ -57,7 +57,7 @@
 ## Common questions
 
 - What does a geotechnical report cost in Sydney? Site classifications start from $800 + GST (ancillary residential) and $1,000 + GST (standard residential); complex sites are quoted individually. Coring is $120 + GST per hole with a three-hole minimum.
-- How long does a soil test take? Fieldwork is usually a few hours on site; the AS 2870 report follows as soon as 2–3 business days from fieldwork.
+- How long does a soil test take? Fieldwork is usually a few hours on site; the AS 2870 report follows as soon as 2 business days from fieldwork.
 - Do I need a geotechnical report for a DA or CDC in Sydney? Most councils and private certifiers require an AS 2870 site classification for new dwellings, additions, granny flats and pools; basements, sloping sites and sites with fill typically need a fuller geotechnical investigation.
 - Who does the work? The Principal Engineer reviews the block and plans, attends fieldwork and signs the report. SFGEO does not run the work through a switchboard or a separate drilling contractor for residential jobs.
 - Does SFGEO offer SPT on residential jobs? No. Residential investigations are sized to the base of excavation plus one to two metres using the 4WD rig and hand augers; laboratory testing is added when the site warrants it.

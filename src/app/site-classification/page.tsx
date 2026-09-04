@@ -12,7 +12,7 @@ import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta(
   "Site Classification & Soil Test Sydney | AS 2870 | SFGEO",
-  "AS 2870 site classifications for Sydney homes and granny flats — fixed fees from $800 + GST, the engineer on site, reports as soon as 2–3 business days.",
+  "AS 2870 site classifications for Sydney homes and granny flats — fixed fees from $800 + GST, the engineer on site, reports as soon as 2 business days.",
   "/site-classification",
 );
 
@@ -49,7 +49,7 @@ const PROCESS = [
   { t: "Send The Address", d: "A short project description and any plans you have. Answered within one business day." },
   { t: "Desktop Review & Fixed Fee", d: "The Principal reviews the block, the geology and your plans, and the fee is confirmed in writing within one business day. A site walkover is arranged where the site warrants it." },
   { t: "Fieldwork", d: "The Principal attends and logs the profile on site — with lab testing through a NATA-accredited laboratory only when the site warrants it." },
-  { t: "Report, Signed", d: "Written against your certifier's and structural engineer's requirements. As soon as 2–3 business days from fieldwork; urgent turnaround by arrangement." },
+  { t: "Report, Signed", d: "Written against your certifier's and structural engineer's requirements. As soon as 2 business days from fieldwork; urgent turnaround by arrangement." },
 ];
 
 const NAV = [
@@ -141,7 +141,7 @@ export default function SiteClassificationPage() {
               Call 0423 483 555
             </Link>
           </div>
-          <p className="hero-line hero-d3 mt-5 text-sm text-gray-500 font-light tracking-wide">From $800 + GST &middot; Reports as soon as 2–3 business days from fieldwork &middot; Response within one business day</p>
+          <p className="hero-line hero-d3 mt-5 text-sm text-gray-500 font-light tracking-wide">From $800 + GST &middot; Reports as soon as 2 business days from fieldwork &middot; Response within one business day</p>
         </div>
       </section>
 

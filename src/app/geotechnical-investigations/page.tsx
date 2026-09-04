@@ -180,6 +180,15 @@ export default function GeotechnicalInvestigationsPage() {
             Sydney sits on a handful of very different geologies, and the investigation is scoped to the one under your block — not a city-wide average. Two doors down from a stable site, your land can behave completely differently.
           </p>
         </Reveal>
+        <PhotoFrame
+          src="/sfgeo-rock-core-bh2-trays.jpg"
+          alt="Four runs of rock core in a tray at BH2, coring from 4.1 metres, laid out and labelled for logging"
+          caption={<>Rock Core &middot; BH2 From 4.1 m</>}
+          aspect="aspect-[16/9] sm:aspect-[7/2]"
+          sizes="(max-width: 1024px) 100vw, 1216px"
+          position="object-center"
+          wrapperClassName="mb-10 lg:mb-12"
+        />
         <Reveal variant="group">
           <div data-stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {REGIONS.map((r) => (

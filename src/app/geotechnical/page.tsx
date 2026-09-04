@@ -33,7 +33,7 @@ const SECTIONS = [
     title: "Site Classification",
     image: "/sfgeo-sc-hand-auger-panania.jpg",
     alt: "Hand auger mid-borehole in a Panania backyard",
-    body: "The AS 2870 report your structural engineer designs from — homes, extensions, granny flats, duplexes and pools, scoped to your block rather than a template. Fixed fees from $800 + GST, reports as soon as 2–3 business days from fieldwork.",
+    body: "The AS 2870 report your structural engineer designs from — homes, extensions, granny flats, duplexes and pools, scoped to your block rather than a template. Fixed fees from $800 + GST, reports as soon as 2 business days from fieldwork.",
     link: { href: "/site-classification", label: "Explore Site Classification" },
   },
   {

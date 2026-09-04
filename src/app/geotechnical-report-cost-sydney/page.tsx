@@ -221,7 +221,7 @@ export default function GeotechnicalReportCostPage() {
           </h2>
           <div data-fx="line" style={d(200)} className="h-px bg-forest-green w-12 mb-7" />
           <p data-fx="rise" style={d(160)} className="text-gray-600 font-light leading-relaxed">
-            A fixed fee in writing within one business day of your enquiry. Site classification reports as soon as 2–3 business days from fieldwork; urgent turnaround by arrangement. Investigation and design timelines are set out in the written quote.
+            A fixed fee in writing within one business day of your enquiry. Site classification reports as soon as 2 business days from fieldwork; urgent turnaround by arrangement. Investigation and design timelines are set out in the written quote.
           </p>
         </Reveal>
       </section>

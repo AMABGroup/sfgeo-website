@@ -59,9 +59,9 @@ export default function FaqClient() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-20 items-start">
           <aside className="lg:col-span-4 lg:sticky lg:top-28">
             <PhotoFrame
-              src="/sfgeo-rock-verification-marking.jpg"
-              alt="Founding level marked in blue on an exposed Sydney sandstone face"
-              caption={<>Sandstone &middot; Founding Level Marked</>}
+              src="/clay-sample.webp"
+              alt="Reactive clay lifted from a fresh borehole, held in the engineer's hand"
+              caption={<>Reactive Clay &middot; Read In The Hand</>}
               aspect="aspect-[4/5]"
               sizes="(max-width: 1024px) 100vw, 33vw"
               position="object-center"
