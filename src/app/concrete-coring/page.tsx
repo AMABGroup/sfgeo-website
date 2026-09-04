@@ -18,23 +18,34 @@ export const metadata: Metadata = pageMeta(
 
 const d = (ms: number) => ({ "--d": `${ms}ms` }) as CSSProperties;
 
-const SECTIONS = [
+type Section = {
+  id: string;
+  kicker: string;
+  titleLight: string;
+  titleBold: string;
+  caption: string;
+  image?: string;
+  video?: string;
+  poster?: string;
+  alt: string;
+  body: string;
+  cta: string;
+};
+
+const SECTIONS: Section[] = [
   {
-    n: "01",
     id: "slab-verification",
     kicker: "01 · Slab Verification",
     titleLight: "Slab",
     titleBold: "Verification.",
     caption: "01 · Slab Verification",
-    image: null,
     video: "/sfgeo-concrete-core-extracted.mp4",
     poster: "/sfgeo-concrete-core-extracted.jpg",
     alt: "The extracted concrete core lying beside the cored hole, aggregate showing in the core face",
-    body: "Thickness, reinforcement cover and condition — cored, logged and photographed, with strength testing through a NATA-accredited laboratory when the question needs a number. The core comes out as evidence, not just a hole in the floor.",
+    body: "Thickness, reinforcement cover and condition, read from the core rather than assumed from the drawings. Each core is logged and photographed on site; when the question needs a number, compressive strength is tested through a NATA-accredited laboratory. The core leaves as evidence, not as a hole in the floor.",
     cta: "Verify A Slab",
   },
   {
-    n: "02",
     id: "pavement-investigation",
     kicker: "02 · Pavement Investigation",
     titleLight: "Pavement",
@@ -42,23 +53,22 @@ const SECTIONS = [
     caption: "02 · Pavement Investigation",
     image: "/sfgeo-concrete-core-thickness-tape.jpg",
     alt: "Extracted concrete core measured against a tape on site",
-    body: "Core through the pavement and keep going — the same visit logs the concrete, the layers beneath it and the subgrade below, so you get one report instead of two contractors. Where the pavement question is really a ground question, the geotechnical crew is already standing on it.",
+    body: "Core through the pavement and keep going. One visit logs the concrete, the layers beneath it and the subgrade below, so a pavement question and a ground question are answered by the same crew, in the same report — and where the pavement question turns out to be a ground question, the geotechnical engineer is already standing on it.",
     cta: "Scope A Pavement Program",
   },
   {
-    n: "03",
     id: "penetrations",
     kicker: "03 · Penetrations & Services",
     titleLight: "Penetrations",
     titleBold: "& Services.",
     caption: "03 · Penetrations & Services",
-    image: "/sfgeo-concrete-coring-rig-wet-slab.jpg",
-    alt: "Coring rig cutting a clean penetration through a concrete slab",
-    body: "Clean, located penetrations through slabs and walls for services — positioned with the structure in mind, not just the drawing. Reinforcement is considered before the barrel spins, so the hole lands where it should and nothing load-bearing pays for it.",
+    video: "/sfgeo-concrete-coring-rig-hardstand.mp4",
+    poster: "/sfgeo-concrete-coring-rig-hardstand.jpg",
+    alt: "Wet coring rig cutting a clean core through a heavy-duty concrete hardstand",
+    body: "Located penetrations through slabs and walls for services, positioned with the structure in mind rather than the drawing alone. Reinforcement is considered before the barrel turns, services are marked, and the hole is reinstated — so the penetration lands where it should and nothing load-bearing pays for it.",
     cta: "Book Penetrations",
   },
   {
-    n: "04",
     id: "investigation-access",
     kicker: "04 · Investigation Access",
     titleLight: "Investigation",
@@ -76,7 +86,6 @@ const NAV = [
   { id: "pavement-investigation", label: "Pavement Investigation" },
   { id: "penetrations", label: "Penetrations & Services" },
   { id: "investigation-access", label: "Investigation Access" },
-  { id: "commercial-industrial", label: "Commercial & Industrial" },
   { id: "pricing", label: "Pricing" },
 ];
 
@@ -123,7 +132,7 @@ export default function ConcreteCoringPage() {
           </h1>
           <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />
           <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed mb-10">
-            Any cutting contractor can put a hole in a slab. SFGEO cores it under engineering supervision — the core is logged, the thickness verified, and when strength matters the sample goes to a NATA-accredited laboratory. One engagement, from the hole to the answer. Coring from $120 + GST per hole, three-hole minimum.
+            Any cutting contractor can put a hole in a slab. SFGEO cores it with the engineer standing over the barrel &mdash; the core logged and photographed, the thickness verified, and when strength matters, the sample on its way to a NATA-accredited laboratory. One engagement, from the hole to the answer.
           </p>
           <div className="hero-line hero-d3 flex flex-col sm:flex-row items-start gap-4">
             <QuoteCta
@@ -152,7 +161,7 @@ export default function ConcreteCoringPage() {
                 <div data-fx="scale" className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-[0_26px_60px_-26px_rgba(5,10,7,0.4)] bg-[#050A07] flex items-center justify-center">
                   {/* the poster frame, scaled up and blurred, so the portrait clip
                       sits on its own ground instead of two black bars */}
-                  <Image src={sec.poster!} alt="" fill sizes="(max-width:1024px) 100vw, 50vw" priority className="object-cover blur-2xl scale-110 opacity-60" />
+                  <Image src={sec.poster!} alt="" fill sizes="(max-width:1024px) 100vw, 50vw" priority={idx === 0} className="object-cover blur-2xl scale-110 opacity-60" />
                   <div className="absolute inset-0 bg-[#050A07]/35" />
                   <LazyVideo
                     src={sec.video}
@@ -189,33 +198,6 @@ export default function ConcreteCoringPage() {
         </section>
       ))}
 
-      {/* Commercial hardstands — the second clip */}
-      <section id="commercial-industrial" className="py-20 lg:py-24 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100 scroll-mt-[136px]">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-          <Reveal variant="group">
-            <div data-fx="scale" className="relative mx-auto w-full max-w-[340px] aspect-[448/804] rounded-2xl overflow-hidden shadow-[0_26px_60px_-26px_rgba(5,10,7,0.5)]">
-              <LazyVideo
-                src="/sfgeo-concrete-coring-rig-hardstand.mp4"
-                poster="/sfgeo-concrete-coring-rig-hardstand.jpg"
-                label="Wet coring rig cutting a core through a container terminal hardstand"
-                className="absolute inset-0 w-full h-full object-cover"
-              />
-              <p className="absolute bottom-5 left-6 text-[11px] uppercase tracking-[0.25em] text-white/80 font-semibold pointer-events-none">Hardstand &middot; Container Terminal</p>
-            </div>
-          </Reveal>
-          <Reveal variant="group">
-            <p data-fx="rise" className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">Commercial &amp; Industrial</p>
-            <h2 data-fx="rise" style={d(80)} className="text-3xl sm:text-4xl font-montserrat font-light tracking-tight text-slate-950 mb-5">
-              Not Just <span className="font-semibold h-bold">Domestic Slabs.</span>
-            </h2>
-            <div data-fx="line" style={d(200)} className="h-px bg-forest-green w-12 mb-7" />
-            <p data-fx="rise" style={d(160)} className="text-gray-600 font-light leading-relaxed">
-              Hardstands, port and terminal pavements, warehouse floors and industrial yards &mdash; heavily loaded surfaces where the question is what the pavement is actually made of and whether it will keep taking the load. Wet coring, services marked before the barrel turns, holes reinstated, and the core logged rather than left on the ground.
-            </p>
-          </Reveal>
-        </div>
-      </section>
-
       {/* Why engineer-supervised */}
       <section className="py-20 lg:py-24 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">
         <Reveal variant="group" className="max-w-3xl">
@@ -225,7 +207,7 @@ export default function ConcreteCoringPage() {
           </h2>
           <div data-fx="line" style={d(200)} className="h-px bg-forest-green w-12 mb-7" />
           <p data-fx="rise" style={d(160)} className="text-gray-600 font-light leading-relaxed">
-            Where it was taken, what the layers show, whether the surprise in the barrel changes the design question — those calls are engineering, not cutting. SFGEO positions each core deliberately, records what comes out, and puts the result in context, so the hole you pay for answers the question you actually have.
+            Where it was taken, what the layers show, whether the surprise in the barrel changes the design question &mdash; those calls are engineering, not cutting. SFGEO positions each core deliberately, records what comes out, and puts the result in context, so the hole you pay for answers the question you actually have.
           </p>
         </Reveal>
       </section>
@@ -235,11 +217,11 @@ export default function ConcreteCoringPage() {
         <Reveal variant="group" className="max-w-3xl">
           <p data-fx="rise" className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">Pricing</p>
           <h2 data-fx="rise" style={d(80)} className="text-3xl sm:text-4xl font-montserrat font-light tracking-tight text-slate-950 mb-5">
-            From $120 + GST <span className="font-semibold h-bold">Per Hole.</span>
+            Priced Per Hole. <span className="font-semibold h-bold">Quoted Per Site.</span>
           </h2>
           <div data-fx="line" style={d(200)} className="h-px bg-forest-green w-12 mb-7" />
           <p data-fx="rise" style={d(160)} className="text-gray-600 font-light leading-relaxed">
-            Three-hole minimum per visit. The final fee depends on core size, location, access and time on site — quoted fixed, in writing, before the barrel touches concrete.
+            Coring is priced per hole, from $120 + GST, with a three-hole minimum per visit. Core size, location, access and time on site set the fee, and it is confirmed in writing before the barrel touches concrete. Where a core goes on to laboratory testing, that is quoted alongside &mdash; never added afterwards.
           </p>
         </Reveal>
       </section>
@@ -247,7 +229,7 @@ export default function ConcreteCoringPage() {
       <CloseBand
         source="concrete-coring close"
         heading={<>One Hole. <span className="font-semibold h-bold">The Whole Answer.</span></>}
-        sub="Tell us what the slab is hiding — or what you need to put through it. Fixed fee in writing within one business day."
+        sub="Tell us what the slab is hiding — or what you need to put through it. A fixed fee in writing within one business day."
       />
     </div>
   );

@@ -13,7 +13,7 @@ export default function HomeFaq() {
   };
 
   return (
-    <div className="max-w-4xl mx-auto divide-y divide-gray-100 border-t border-gray-100 mt-8">
+    <div className="divide-y divide-gray-100 border-t border-gray-100">
       {homeFaqs.map((faq, index) => {
         const isOpen = openIndex === index;
         return (
@@ -23,7 +23,7 @@ export default function HomeFaq() {
               className={`flex w-full items-center justify-between py-6 text-left transition-colors duration-200 ${isOpen ? "text-forest-green" : "text-slate-950 hover:text-forest-green"}`}
               aria-expanded={isOpen}
             >
-              <span className="text-lg font-montserrat font-semibold pr-8">
+              <span className="text-[17px] sm:text-lg font-montserrat font-semibold pr-8 leading-snug">
                 {faq.question}
               </span>
               <span className={`p-1.5 rounded-full transition-colors flex-shrink-0 ${isOpen ? "bg-forest-green/10 text-forest-green" : "bg-gray-50 text-gray-500"}`}>

@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { CSSProperties } from "react";
 import Reveal from "@/components/ui/Reveal";
+import FollowFieldwork from "@/components/ui/FollowFieldwork";
 import PhotoFrame from "@/components/ui/PhotoFrame";
 import CloseBand from "@/components/ui/CloseBand";
 import { pageMeta } from "@/lib/seo";
@@ -77,6 +78,7 @@ export default function About() {
           <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed">
             A principal-led team, hired locally, backed by a trusted partner network — carrying fifteen years of Sydney ground from landmark infrastructure to backyard footings. When you work with SFGEO, you work with the same team, start to finish.
           </p>
+          <FollowFieldwork className="hero-line hero-d3 mt-10" />
         </div>
       </section>
 

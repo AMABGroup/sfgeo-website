@@ -67,7 +67,7 @@ const SEGMENTS = [
     n: "05",
     title: "Concrete Coring",
     href: "/concrete-coring",
-    d: "Engineer-supervised coring of slabs, pavements and penetrations — logged, verified and strength-tested when the question needs a number. From $120 + GST per hole.",
+    d: "Engineer-supervised coring of slabs, pavements and penetrations — logged, verified and strength-tested when the question needs a number.",
     children: [],
   },
 ];

@@ -45,9 +45,19 @@ function Value({ value, active }: { value: string; active: boolean }) {
   const n = useCountUp(active, target);
   if (!m) return <>{value}</>;
   const shown = active ? n.toLocaleString("en-AU") : "0";
+  // A word in the prefix ("From $800") is set small so the numeral stays
+  // the headline and the value holds one line.
+  const pm = m[1].match(/^([A-Za-z]+)\s*(.*)$/);
   return (
     <>
-      {m[1]}
+      {pm ? (
+        <>
+          <span className="text-[0.42em] font-normal tracking-wide align-[0.35em] mr-2">{pm[1]}</span>
+          {pm[2]}
+        </>
+      ) : (
+        m[1]
+      )}
       <span className="tabular-nums">{shown}</span>
       {m[3]}
     </>

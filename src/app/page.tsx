@@ -5,13 +5,14 @@ import QuoteCta from "@/components/forms/QuoteCta";
 import QuickQuoteCard from "@/components/forms/QuickQuoteCard";
 import ServiceIndex from "@/components/sections/ServiceIndex";
 import HomeFaq from "@/components/sections/HomeFaq";
-import HomeReviews from "@/components/sections/HomeReviews";
+import GoogleReviews from "@/components/ui/GoogleReviews";
 import Reveal from "@/components/ui/Reveal";
 import HeroParallax from "@/components/ui/HeroParallax";
 import OpeningVeil from "@/components/ui/OpeningVeil";
 import ProofStrip from "@/components/ui/ProofStrip";
 import Marquee from "@/components/ui/Marquee";
 import PhotoFrame from "@/components/ui/PhotoFrame";
+import FollowFieldwork from "@/components/ui/FollowFieldwork";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata = pageMeta(
@@ -23,23 +24,27 @@ export const metadata = pageMeta(
 const d = (ms: number) => ({ "--d": `${ms}ms` }) as CSSProperties;
 
 const PROOF = [
-  { value: "$800", label: "Site Classification From", note: "+ GST. Fixed fee, in writing, before anyone drills." },
-  { value: "2–3", label: "Business Days To Report", note: "From fieldwork, for a clear AS 2870 classification." },
+  { value: "From $800", label: "Site Classifications", note: "+ GST. A fixed fee, in writing, before anyone drills." },
+  { value: "2–3", label: "Business Days, Best Case", note: "Fieldwork to a signed report on a straightforward block. Your quote states your turnaround." },
   { value: "1", label: "Business Day To A Quote", note: "The Principal reviews your block and plans first." },
   { value: "15", label: "Years Of Sydney Ground", note: "Sydney Gateway and the M12 down to backyard footings." },
 ];
 
-const TICKER = [
-  "Marrickville", "Newtown", "Enmore", "Dulwich Hill", "Ashfield", "Leichhardt", "Balmain", "Strathfield", "Burwood",
-  "Canterbury", "Bankstown", "Parramatta", "Ryde", "Willoughby", "Chatswood", "Manly", "Randwick", "Coogee", "Maroubra",
-  "Sutherland", "Cronulla", "Hornsby", "The Hills", "Penrith", "Campbelltown",
-  "EA + AGS Members", "PI & PL Insured", "NATA-Accredited Testing", "Family Owned",
+const SUBURBS = [
+  "Marrickville", "Newtown", "Enmore", "Stanmore", "Petersham", "Dulwich Hill", "Summer Hill", "Ashfield", "Haberfield",
+  "Leichhardt", "Annandale", "Balmain", "Rozelle", "Drummoyne", "Five Dock", "Concord", "Burwood", "Strathfield", "Croydon",
+  "Canterbury", "Earlwood", "Tempe", "Glebe", "Camperdown", "Erskineville", "Alexandria", "Redfern", "Surry Hills",
+  "Darlinghurst", "Paddington", "Pyrmont", "Zetland", "Woollahra", "Double Bay", "Rose Bay", "Vaucluse", "Bellevue Hill",
+  "Bondi", "Bronte", "Clovelly", "Coogee", "Randwick", "Kensington", "Maroubra", "Mosman", "Neutral Bay", "Cremorne",
+  "North Sydney", "Crows Nest", "Lane Cove", "Hunters Hill", "Willoughby", "Chatswood", "Artarmon", "Roseville", "Lindfield",
+  "Killara", "Gordon", "Pymble", "Turramurra", "Wahroonga", "Hornsby", "Castle Hill", "Baulkham Hills", "Bella Vista",
+  "Kellyville", "Rouse Hill", "Glenhaven", "Dural", "Kenthurst", "Cherrybrook", "West Pennant Hills",
 ];
 
 const JOURNEY = [
-  { t: "The Call", d: "Send the address and what you\u2019re building. The Principal reads the block, the geology and your plans, and the fee comes back in writing within one business day." },
+  { t: "The Call", d: "Send the address and what you’re building. The Principal reads the block, the geology and your plans, and the fee comes back in writing within one business day." },
   { t: "On Your Ground", d: "The engineer who quoted turns up with the rig. The profile is logged at the hole, samples taken to plan, and laboratory testing added only where the site warrants it." },
-  { t: "The Report", d: "Signed by the engineer who was there. Written to your certifier and your structural engineer \u2014 as soon as 2\u20133 business days from fieldwork for a site classification." },
+  { t: "The Report", d: "Signed by the engineer who was there. Written to your certifier and your structural engineer — on a straightforward classification, as soon as 2–3 business days from fieldwork." },
   { t: "Through The Build", d: "Footing and pier inspections while the excavation is open, questions answered on the phone, and the same team until the final certificate." },
 ];
 
@@ -160,18 +165,20 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ============ Proof strip + suburb ticker ============ */}
+      {/* ============ Where we are, the numbers, and where we go ============ */}
       <section aria-label="Key facts" className="bg-white">
+        <p className="py-6 text-center text-[11px] uppercase tracking-[0.32em] text-forest-green font-semibold">
+          Inner West Based &middot; Sydney-Wide
+        </p>
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <ProofStrip items={PROOF} />
         </div>
-        <div className="border-b border-gray-100">
-          <p className="pt-7 text-center text-[10px] uppercase tracking-[0.3em] text-forest-green font-semibold">Inner West Based &middot; Sydney-Wide</p>
-          <Marquee items={TICKER} speed={90} className="pb-3" />
+        <div className="border-b border-gray-100 py-2">
+          <Marquee items={SUBURBS} speed={150} />
         </div>
       </section>
 
-      {/* ============ Service index ============ */}
+      {/* ============ 01 Service index ============ */}
       <section className="py-32 lg:py-40 px-6 lg:px-12 max-w-7xl mx-auto">
         <Reveal variant="group" className="mb-16 flex flex-col md:flex-row md:items-end md:justify-between gap-8">
           <div>
@@ -190,36 +197,11 @@ export default function Home() {
         </Reveal>
       </section>
 
-      {/* ============ The experience — start to finish ============ */}
-      <section className="py-28 lg:py-36 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">
-        <Reveal variant="group" className="mb-16 lg:mb-20 max-w-3xl">
-          <p data-fx="rise" className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">02 &middot; The Experience</p>
-          <h2 data-fx="rise" style={d(80)} className="text-4xl font-light tracking-tight sm:text-5xl font-montserrat">
-            More Than A Report. <span className="font-semibold h-bold">Start To Finish.</span>
-          </h2>
-          <div data-fx="line" style={d(200)} className="mt-4 h-px bg-forest-green w-12" />
-          <p data-fx="rise" style={d(160)} className="mt-7 text-lg text-gray-600 font-light leading-relaxed">
-            Small in size, big on capability. One engineer carries your job from the first phone call to the last inspection &mdash; and the same number answers the whole way through.
-          </p>
-        </Reveal>
-        <Reveal variant="group">
-          <ol data-stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-12">
-            {JOURNEY.map((s, i) => (
-              <li key={s.t} className="border-t border-gray-200 pt-7">
-                <span className="block font-montserrat font-light text-5xl leading-none text-forest-green/30 mb-6 tabular-nums">0{i + 1}</span>
-                <h3 className="font-montserrat text-xl font-semibold tracking-tight text-slate-950 mb-3">{s.t}</h3>
-                <p className="text-[15px] text-gray-600 font-light leading-relaxed">{s.d}</p>
-              </li>
-            ))}
-          </ol>
-        </Reveal>
-      </section>
-
-      {/* ============ The engineer — dark anchor band ============ */}
+      {/* ============ 02 The engineer — dark anchor band ============ */}
       <section className="relative overflow-hidden bg-[#050A07] text-white grain aurora">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-28 lg:py-40 grid grid-cols-1 lg:grid-cols-[1.15fr_1fr] gap-14 lg:gap-20 items-center">
           <Reveal variant="group">
-            <p data-fx="rise" className="text-sm uppercase tracking-[0.2em] text-[#8FBF9F] mb-6 font-semibold">03 &middot; Family Owned</p>
+            <p data-fx="rise" className="text-sm uppercase tracking-[0.2em] text-[#8FBF9F] mb-6 font-semibold">02 &middot; Family Owned</p>
             <h2 data-fx="rise" style={d(80)} className="text-3xl sm:text-5xl font-montserrat font-light tracking-tight leading-[1.15] mb-8">
               Family Owned. <span className="font-semibold h-bold">Sydney Grown.</span>
             </h2>
@@ -253,8 +235,33 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ============ Recent work ============ */}
-      <section className="py-32 lg:py-40 px-6 lg:px-12 max-w-7xl mx-auto">
+      {/* ============ 03 The experience — start to finish ============ */}
+      <section className="py-28 lg:py-36 px-6 lg:px-12 max-w-7xl mx-auto">
+        <Reveal variant="group" className="mb-16 lg:mb-20 max-w-3xl">
+          <p data-fx="rise" className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">03 &middot; The Experience</p>
+          <h2 data-fx="rise" style={d(80)} className="text-4xl font-light tracking-tight sm:text-5xl font-montserrat">
+            More Than A Report. <span className="font-semibold h-bold">Start To Finish.</span>
+          </h2>
+          <div data-fx="line" style={d(200)} className="mt-4 h-px bg-forest-green w-12" />
+          <p data-fx="rise" style={d(160)} className="mt-7 text-lg text-gray-600 font-light leading-relaxed">
+            Small in size, big on capability. One engineer carries your job from the first phone call to the last inspection &mdash; and the same number answers the whole way through.
+          </p>
+        </Reveal>
+        <Reveal variant="group">
+          <ol data-stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-12">
+            {JOURNEY.map((s, i) => (
+              <li key={s.t} className="border-t border-gray-200 pt-7">
+                <span className="block font-montserrat font-light text-5xl leading-none text-forest-green/30 mb-6 tabular-nums">0{i + 1}</span>
+                <h3 className="font-montserrat text-xl font-semibold tracking-tight text-slate-950 mb-3">{s.t}</h3>
+                <p className="text-[15px] text-gray-600 font-light leading-relaxed">{s.d}</p>
+              </li>
+            ))}
+          </ol>
+        </Reveal>
+      </section>
+
+      {/* ============ 04 Recent work ============ */}
+      <section className="py-28 lg:py-36 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">
         <Reveal variant="group" className="mb-16 flex flex-col md:flex-row md:items-end md:justify-between gap-8">
           <div>
             <p data-fx="rise" className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">04 &middot; Recent Work</p>
@@ -309,26 +316,33 @@ export default function Home() {
         </Reveal>
       </section>
 
-      {/* ============ FAQ ============ */}
-      <section className="pt-0 pb-32 lg:pb-40 px-6 lg:px-12 max-w-4xl mx-auto">
-        <Reveal variant="group" className="text-center mb-16">
+      {/* ============ 05 Before you call — questions and what clients say ============ */}
+      <section className="py-28 lg:py-36 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">
+        <Reveal variant="group" className="mb-14 lg:mb-16 max-w-3xl">
           <p data-fx="rise" className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">05 &middot; Before You Call</p>
-          <h2 data-fx="rise" style={d(80)} className="text-3xl font-light tracking-tight font-montserrat text-slate-950">
-            Common <span className="font-semibold h-bold">Questions.</span>
+          <h2 data-fx="rise" style={d(80)} className="text-4xl font-light tracking-tight sm:text-5xl font-montserrat">
+            Common Questions. <span className="font-semibold h-bold">Straight Answers.</span>
           </h2>
-          <div data-fx="line" style={d(200)} className="mt-6 h-px bg-forest-green w-12 mx-auto [transform-origin:center]" />
+          <div data-fx="line" style={d(200)} className="mt-4 h-px bg-forest-green w-12" />
+          <p data-fx="rise" style={d(160)} className="mt-7 text-lg text-gray-600 font-light leading-relaxed">
+            The questions every enquiry starts with &mdash; and what the people who have already called say afterwards.
+          </p>
         </Reveal>
-        <HomeFaq />
-      </section>
-
-      {/* ============ Reviews — gallery-neutral band ============ */}
-      <section className="py-28 lg:py-36 bg-white border-y border-gray-100">
-        <div className="mx-auto max-w-7xl px-6 lg:px-12">
-          <HomeReviews />
+        <div className="grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] gap-14 lg:gap-24 items-start">
+          <div>
+            <HomeFaq />
+            <Link href="/faq" className="mt-8 inline-flex items-center gap-2 text-sm font-semibold tracking-wide text-forest-green group">
+              <span className="draw-link">All the questions, answered</span>
+              <span className="transition-transform group-hover:translate-x-1">&rarr;</span>
+            </Link>
+          </div>
+          <aside className="lg:sticky lg:top-28 lg:pl-12 lg:border-l lg:border-gray-100">
+            <GoogleReviews layout="column" />
+          </aside>
         </div>
       </section>
 
-      {/* ============ Close — start with the ground + the office ============ */}
+      {/* ============ 06 Close — start with the ground + the office ============ */}
       <section className="relative overflow-hidden bg-[#050A07] text-white grain aurora">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-28 lg:py-40 grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center">
           <Reveal variant="group">
@@ -356,33 +370,7 @@ export default function Home() {
               Suite 3.01, Level 3, 107 Sydenham Road, Marrickville NSW 2204 &middot; Mon&ndash;Fri 6am&ndash;6pm &middot; Sat 8am&ndash;2pm
             </p>
             <div data-fx="rise" style={d(360)} className="mt-8 pt-7 border-t border-white/10">
-              <p className="text-[11px] uppercase tracking-[0.25em] text-white/50 font-semibold mb-4">Follow The Fieldwork</p>
-              <div className="flex flex-col sm:flex-row gap-3">
-                <a
-                  href="https://au.linkedin.com/company/sfgeo"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 px-5 h-[42px] bg-white rounded-full shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5 sm:w-[220px] group/link"
-                >
-                  <svg className="w-4 h-4 shrink-0 text-[#0A66C2] transition-transform group-hover/link:scale-110" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.475-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                  </svg>
-                  <span className="text-xs font-semibold text-slate-950 tracking-wide">Connect On LinkedIn</span>
-                  <span className="sr-only"> (opens in a new tab)</span>
-                </a>
-                <a
-                  href="https://instagram.com/sfgeo.syd"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 px-5 h-[42px] bg-white rounded-full shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5 sm:w-[220px] group/link"
-                >
-                  <svg className="w-4 h-4 shrink-0 text-[#E1306C] transition-transform group-hover/link:scale-110" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path fillRule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clipRule="evenodd" />
-                  </svg>
-                  <span className="text-xs font-semibold text-slate-950 tracking-wide">Follow On Instagram</span>
-                  <span className="sr-only"> (opens in a new tab)</span>
-                </a>
-              </div>
+              <FollowFieldwork variant="dark" />
             </div>
           </Reveal>
           <Reveal variant="group">

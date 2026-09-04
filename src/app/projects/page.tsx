@@ -3,6 +3,7 @@ import Link from "next/link";
 import type { CSSProperties } from "react";
 import PhotoPlaceholder from "@/components/ui/PhotoPlaceholder";
 import Reveal from "@/components/ui/Reveal";
+import FollowFieldwork from "@/components/ui/FollowFieldwork";
 import PhotoFrame from "@/components/ui/PhotoFrame";
 import CloseBand from "@/components/ui/CloseBand";
 import { pageMeta } from "@/lib/seo";
@@ -293,6 +294,7 @@ export default function ProjectsPage() {
           <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed">
             Every project below is real work from our issued reports: what the client needed, what the ground turned out to be, and what the engineering did about it. Some of it is for owners and builders. A good deal of it is for the community, from the community — the signals over the road, the lighting a suburb walks home under, the church hall going up, the high street that has to be trading again by morning. Client details are kept private.
           </p>
+          <FollowFieldwork className="hero-line hero-d3 mt-10" />
         </div>
 
         {/* Jump to a project */}
