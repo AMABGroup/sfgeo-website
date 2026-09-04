@@ -77,6 +77,36 @@ const caseStudies: CaseStudy[] = [
     facts: ["Night closure works", "150 kPa criteria checked at depth", "Not-suitable call made on site", "Road open by morning"],
   },
   {
+    id: "randwick",
+    tag: "Night Works · Construction Phase Support",
+    title: "Two Posts, Two Answers",
+    location: "Randwick — signal post upgrade, Carrington and Darley Roads",
+    image: "/projects/project-randwick-night.jpg",
+    imageAlt: "Signal post footing excavation under work lights at a closed Randwick intersection at night",
+    brief:
+      "Two new signal posts on a busy Randwick intersection, each footing to be verified against the State standard drawing — undisturbed ground for the full 1.4 metre depth, 150 kPa at the base. The excavations could only be opened at night, by vacuum truck, with the road handed back before the morning.",
+    ground:
+      "At the Carrington Road post the vacuum truck refused on sandstone at 950 millimetres, verified at 700 kPa, and the contractor broke rock by hand to the standard depth within it. At Darley Road the first position exposed a water main, the second an unidentified service above the rock, and backfill beside the kerb ruled out a piered footing. Neither position could meet the drawing.",
+    outcome:
+      "One post approved to pour, one told no — with the reason set out so an alternative footing could be designed rather than argued. Two nights, two records, and an intersection the whole suburb crosses standing on ground that was actually verified. Same programme, same standard, a different answer at each post, because the ground decides.",
+    facts: ["Two night inspections", "Vacuum excavation only", "Sandstone verified at 700 kPa", "Second post sent for redesign"],
+  },
+  {
+    id: "homebush",
+    tag: "Construction Phase Support",
+    title: "The Footing At The Markets Gate",
+    location: "Homebush — traffic light footing, Potts Street at Parramatta Road",
+    image: "/projects/project-homebush-signals.jpg",
+    imageAlt: "Night view of the Potts Street signals at Parramatta Road, Homebush, the Sydney Markets sign overhead",
+    brief:
+      "A new traffic light footing at the intersection the market trucks turn through — Potts Street at Parramatta Road, the gateway to Sydney Markets. The signals contractor needed the founding material verified for a 150 kPa allowable bearing before the pour, on a footing 2.1 metres deep in a live intersection.",
+    ground:
+      "The first visit found the excavation stopped short by services nobody had on a plan, so the assessment waited until they were cleared. At the second, the base was dry and clean: grey silty clay of medium to high plasticity with weathered sandstone and ironstone gravels, refusing the penetrometer with negligible penetration and reading very stiff under the pocket penetrometer.",
+    outcome:
+      "Assessed at least very stiff and suitable for the 150 kPa design pressure, with the conditions that keep that finding true — base kept clean and dry, concrete placed the same day it was approved, and a re-inspection if rain or delay changed the excavation. A footing on the road the markets run through, verified before the pole went up.",
+    facts: ["Footing 2.1 m deep, 1.3 × 1.4 m", "Penetrometer refusal at base", "150 kPa verified", "Services cleared before assessment"],
+  },
+  {
     id: "bexley-north",
     tag: "Limited-Scope Investigation",
     title: "The Pod That Needed Different Foundations",

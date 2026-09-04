@@ -85,7 +85,7 @@ export default function SiteClassificationPage() {
       {
         "@type": "Offer",
         "name": "Ancillary residential",
-        "description": "Granny flats. Small additions. New homes on cleared blocks. Tightly scoped projects with straightforward access, priced from $800. Every fee is set against your specific block.",
+        "description": "Granny flats. Small additions. New homes on cleared blocks. Tightly scoped projects with clear access, priced from $800. Every fee is set against your specific block.",
         "priceSpecification": {
           "@type": "PriceSpecification",
           "price": "800",
@@ -253,7 +253,7 @@ export default function SiteClassificationPage() {
         <Reveal variant="group">
           <div data-stagger className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              { k: "ANCILLARY RESIDENTIAL", price: <>$800</>, from: true, d: "Granny flats. Small additions. New homes on cleared blocks. Tightly scoped projects with straightforward access, priced from $800. Every fee is set against your specific block." },
+              { k: "ANCILLARY RESIDENTIAL", price: <>$800</>, from: true, d: "Granny flats. Small additions. New homes on cleared blocks. Tightly scoped projects with clear access, priced from $800. Every fee is set against your specific block." },
               { k: "STANDARD RESIDENTIAL", price: <>$1,000</>, from: true, d: "The right tier for most Sydney custom builds. Single or double-storey homes on established streets. Pool additions, duplexes, and dwellings with in-ground pools." },
               { k: "COMPLEX PROJECTS & SITES", price: <>Custom</>, from: false, d: "Basements. Multi-storey. Retaining walls. Sloping blocks. Restricted access. Strata. Prestige-suburb projects. Every complex site is different, and we price them that way." },
             ].map((c) => (

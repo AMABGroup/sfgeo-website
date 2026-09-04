@@ -120,7 +120,7 @@ export default function TightAccessDrillingPage() {
             <Reveal variant="group">
               <div data-fx="scale" style={d(120)}>
                 <PhotoPlaceholder
-                  subject="A genuinely tight site — terrace hallway, basement or zero-clearance courtyard, with the gear in the gap so the constraint is obvious."
+                  subject="A tight site — terrace hallway, basement or zero-clearance courtyard, with the gear in the gap so the constraint is obvious."
                   caption="Heritage &middot; Inner West"
                   className="aspect-[3/4] rounded-2xl shadow-[0_20px_50px_-20px_rgba(5,10,7,0.35)] lg:mt-10"
                 />

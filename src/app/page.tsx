@@ -25,7 +25,7 @@ const d = (ms: number) => ({ "--d": `${ms}ms` }) as CSSProperties;
 
 const PROOF = [
   { value: "From $800", label: "Site Classifications", note: "+ GST. A fixed fee, in writing, before anyone drills." },
-  { value: "2", label: "Business Days, Best Case", note: "Fieldwork to a signed report on a straightforward block. Your quote states your turnaround." },
+  { value: "2", label: "Business Days, Best Case", note: "Fieldwork to a signed report on a clear block. Your quote states your turnaround." },
   { value: "1", label: "Business Day To A Quote", note: "The Principal reviews your block and plans first." },
   { value: "15", label: "Years Of Sydney Ground", note: "Sydney Gateway and the M12 down to backyard footings." },
 ];
@@ -42,10 +42,22 @@ const SUBURBS = [
 ];
 
 const JOURNEY = [
-  { t: "The Call", d: "Send the address and what you’re building. The Principal reads the block, the geology and your plans, and the fee comes back in writing within one business day." },
-  { t: "On Your Ground", d: "The engineer who quoted turns up with the rig. The profile is logged at the hole, samples taken to plan, and laboratory testing added only where the site warrants it." },
-  { t: "The Report", d: "Signed by the engineer who was there. Written to your certifier and your structural engineer — on a straightforward classification, as soon as 2 business days from fieldwork." },
-  { t: "Through The Build", d: "Footing and pier inspections while the excavation is open, questions answered on the phone, and the same team until the final certificate." },
+  {
+    t: "The Call",
+    d: "It starts with an address and a sentence about what you\u2019re building. Before anyone quotes, the Principal reads your block \u2014 the geology beneath it, the plans you\u2019ve drawn, the access a rig will need \u2014 and a fixed fee arrives in writing within one business day. You know exactly what you\u2019re paying for before we arrive.",
+  },
+  {
+    t: "On Your Ground",
+    d: "The engineer who quoted your job is the one who turns up with the rig. Each borehole is logged at the hole, as the ground comes up, and samples are taken to a plan rather than by habit. Laboratory testing is added only where your site warrants it \u2014 never as padding on the invoice.",
+  },
+  {
+    t: "The Report",
+    d: "Written and signed by the engineer who stood on your ground, in the language your certifier and your structural engineer actually need \u2014 nothing templated, nothing assumed. On a clear site classification, the signed report can be with you as soon as two business days after fieldwork.",
+  },
+  {
+    t: "Through The Build",
+    d: "The relationship doesn\u2019t end at the report. When the excavation is open we inspect the footings and piers before the pour and put the record in writing, and when a question comes up on site the phone is answered by someone who knows your job \u2014 the same team, through to the final certificate.",
+  },
 ];
 
 const caseStudies = [

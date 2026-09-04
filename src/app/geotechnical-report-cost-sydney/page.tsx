@@ -17,7 +17,7 @@ const d = (ms: number) => ({ "--d": `${ms}ms` }) as CSSProperties;
 
 // The three site-classification tiers — copied verbatim from /site-classification.
 const TIERS = [
-  { k: "ANCILLARY RESIDENTIAL", price: <>$800</>, from: true, d: "Granny flats. Small additions. New homes on cleared blocks. Tightly scoped projects with straightforward access, priced from $800. Every fee is set against your specific block." },
+  { k: "ANCILLARY RESIDENTIAL", price: <>$800</>, from: true, d: "Granny flats. Small additions. New homes on cleared blocks. Tightly scoped projects with clear access, priced from $800. Every fee is set against your specific block." },
   { k: "STANDARD RESIDENTIAL", price: <>$1,000</>, from: true, d: "The right tier for most Sydney custom builds. Single or double-storey homes on established streets. Pool additions, duplexes, and dwellings with in-ground pools." },
   { k: "COMPLEX PROJECTS & SITES", price: <>Custom</>, from: false, d: "Basements. Multi-storey. Retaining walls. Sloping blocks. Restricted access. Strata. Prestige-suburb projects. Every complex site is different, and we price them that way." },
 ];
@@ -42,7 +42,7 @@ const FAQS = [
   },
   {
     q: "What if the ground turns out worse than expected?",
-    a: "The fee is fixed before fieldwork, so a harder day at the hole is ours. If what comes up genuinely changes the scope — fill or slope that calls for a full geotechnical investigation, for example — we tell you before doing more work, and the extra scope is quoted the same way: in writing, before it starts.",
+    a: "The fee is fixed before fieldwork, so a harder day at the hole is ours. If what comes up changes the scope — fill or slope that calls for a full geotechnical investigation, for example — we tell you before doing more work, and the extra scope is quoted the same way: in writing, before it starts.",
   },
   {
     q: "Do you charge for a quote?",
