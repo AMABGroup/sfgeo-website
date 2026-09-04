@@ -26,6 +26,23 @@ const WRITE_REVIEW_URL = `https://search.google.com/local/writereview?placeid=${
 
 const d = (ms: number) => ({ "--d": `${ms}ms` }) as CSSProperties;
 
+// Excerpts of published Google reviews (5.0 · 20 reviews at 4 Sep 2026), shown
+// whenever the live Places call returns nothing — so the band never goes bare.
+const FALLBACK_REVIEWS: Review[] = [
+  {
+    author_name: "Ehsan N.",
+    rating: 5,
+    text: "I recently engaged Solid Foundation Geotechnical for a geotechnical investigation and was extremely impressed with the quality of service and professionalism from start to finish.",
+    time: 0,
+  },
+  {
+    author_name: "Mina B.",
+    rating: 5,
+    text: "I had an excellent experience with Solid Foundation Geotechnical. The team was professional, knowledgeable, and responsive throughout the entire process.",
+    time: 0,
+  },
+];
+
 function Stars({ n, size = "w-4 h-4" }: { n: number; size?: string }) {
   return (
     <span className="flex gap-0.5" aria-hidden="true">
@@ -74,7 +91,8 @@ export default function GoogleReviews({ layout = "grid" }: Props) {
 
   const column = layout === "column";
   // High-quality reviews with real text only; three on the grid, two in a column.
-  const topReviews = data?.reviews?.filter((r) => r.rating >= 4 && r.text && r.text.trim().length > 0).slice(0, column ? 2 : 3) || [];
+  const liveReviews = data?.reviews?.filter((r) => r.rating >= 4 && r.text && r.text.trim().length > 0).slice(0, column ? 2 : 3) || [];
+  const topReviews = liveReviews.length ? liveReviews : FALLBACK_REVIEWS;
   // Only ever render a rating we actually received.
   const overallRating = typeof data?.rating === "number" ? data.rating : null;
   const ratingTotal = typeof data?.user_ratings_total === "number" ? data.user_ratings_total : null;
@@ -133,7 +151,7 @@ export default function GoogleReviews({ layout = "grid" }: Props) {
           </div>
         ) : (
           <p data-fx="rise" style={d(80)} className="text-[15px] text-gray-600 font-light leading-relaxed mb-2">
-            Homeowners, builders and engineers across Sydney &mdash; read what they say about the work on Google.
+            Homeowners, builders and engineers across Sydney, in their own words.
           </p>
         )}
         {topReviews.length > 0 && (

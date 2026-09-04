@@ -27,7 +27,6 @@ const PEDIGREE = [
   { image: "/infrastructure-drilling-sydney-gateway-airport.jpeg", alt: "Infrastructure drilling on the Sydney Gateway project beside Sydney Airport", t: "Sydney Gateway", loc: "Sydney Airport" },
   { image: "/civil-geotechnical-data-m7-m12-link-sydney.jpeg", alt: "Civil infrastructure fieldwork on the M7-M12 Link in south-west Sydney", t: "M7–M12 Link", loc: "South West Sydney" },
   { image: "/tier-1-infrastructure-drilling-sydney-metro-hurlstone.jpg", alt: "Drilling for Sydney Metro rail infrastructure at Hurlstone Park", t: "Sydney Metro", loc: "Hurlstone Park" },
-  { image: "/bulk-earthworks-platform-caringbah.jpg", alt: "A graded bulk earthworks platform at an industrial development in Caringbah, tyre tracks across the compacted fill", t: "Bulk Earthworks, Industrial Estate", loc: "Caringbah", wide: true },
 ];
 
 const COMMUNITY = [
@@ -44,10 +43,10 @@ const COMMUNITY = [
     href: "/projects#randwick",
   },
   {
-    place: "Blakehurst",
-    title: "Traffic Signals, Six Lanes",
-    line: "A signal mast footing checked at depth under night closure — and failed, because a pole over six lanes should stand on verified ground.",
-    href: "/projects#blakehurst",
+    place: "Caringbah",
+    title: "Industrial Estate, Footing By Footing",
+    line: "Ten lightpole footings and a stormwater unit certified before concrete — a civil contractor’s programme kept moving, one verified base at a time.",
+    href: "/projects#caringbah",
   },
   {
     place: "Telopea",
@@ -191,7 +190,7 @@ export default function About() {
         <Reveal variant="group" className="mb-14">
           <p data-fx="rise" className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">How We Work</p>
           <h2 data-fx="rise" style={d(80)} className="text-3xl sm:text-4xl font-montserrat font-light tracking-tight">
-            Small Team. <span className="font-semibold h-bold">Serious Standards.</span>
+            Small Team. Serious Standards. <span className="font-semibold h-bold">Big Capabilities.</span>
           </h2>
           <div data-fx="line" style={d(200)} className="mt-5 h-px bg-forest-green w-12" />
         </Reveal>
@@ -218,20 +217,19 @@ export default function About() {
             <div data-fx="line" style={d(200)} className="mt-5 h-px bg-forest-green w-12" />
           </div>
           <p data-fx="rise" style={d(160)} className="text-sm text-gray-500 max-w-md font-light leading-relaxed">
-            Landmark Sydney infrastructure the Principal carried before SFGEO had its own name — and the bulk earthworks and civil sites the practice stands on today. For current work, see <Link href="/projects" className="text-forest-green hover:underline">our projects</Link>.
+            Before SFGEO carried its own name, its Principal carried these — landmark Sydney infrastructure, now serving every backyard we classify. For current work, see <Link href="/projects" className="text-forest-green hover:underline">our projects</Link>.
           </p>
         </Reveal>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {PEDIGREE.map((p, i) => (
             <PhotoFrame
               key={p.t}
               src={p.image}
               alt={p.alt}
-              aspect={p.wide ? "aspect-[4/3] lg:aspect-[2.06/1]" : "aspect-[4/3]"}
-              sizes={p.wide ? "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 66vw" : "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"}
+              aspect="aspect-[4/3]"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
               delay={i * 90}
               className="shadow-[0_20px_50px_-20px_rgba(5,10,7,0.35)]"
-              wrapperClassName={p.wide ? "sm:col-span-2" : ""}
             >
               <div data-fx="rise" style={d(i * 90 + 420)} className="absolute bottom-4 left-5 right-5">
                 <p className="text-[13px] font-semibold text-white leading-tight">{p.t}</p>

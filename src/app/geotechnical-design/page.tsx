@@ -83,7 +83,7 @@ export default function Page() {
           <Reveal variant="group">
             <div data-fx="scale">
               <PhotoPlaceholder
-                subject="Where the numbers come from — SPT or in-situ testing underway, or field data being written up into design parameters."
+                subject="Where the numbers come from — in-situ testing underway, or field data being written up into design parameters."
                 caption="Derived From The Ground"
                 className="aspect-[4/3] rounded-2xl shadow-[0_26px_60px_-26px_rgba(5,10,7,0.4)]"
               />

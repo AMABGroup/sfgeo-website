@@ -149,6 +149,18 @@ export default function RootLayout({
     }
   };
 
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://sfgeo.com.au/#website",
+    "url": "https://sfgeo.com.au",
+    "name": "SFGEO — Solid Foundation Geotechnical",
+    "publisher": { "@id": "https://sfgeo.com.au/#organization" },
+    "copyrightHolder": { "@id": "https://sfgeo.com.au/#organization" },
+    "copyrightYear": 2026,
+    "inLanguage": "en-AU",
+  };
+
   return (
     <html lang="en-AU">
       <body
@@ -169,6 +181,11 @@ export default function RootLayout({
           id="schema-org"
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(combinedSchema) }}
+        />
+        <script
+          id="schema-website"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
         />
         <SiteChrome>{children}</SiteChrome>
       </body>

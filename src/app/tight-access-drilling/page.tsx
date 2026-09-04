@@ -2,7 +2,6 @@ import { Metadata } from "next";
 import Link from "next/link";
 import type { CSSProperties } from "react";
 import QuoteCta from "@/components/forms/QuoteCta";
-import PhotoPlaceholder from "@/components/ui/PhotoPlaceholder";
 import Accordion from "@/components/ui/Accordion";
 import Reveal from "@/components/ui/Reveal";
 import PhotoFrame from "@/components/ui/PhotoFrame";
@@ -117,15 +116,16 @@ export default function TightAccessDrillingPage() {
               className="shadow-[0_20px_50px_-20px_rgba(5,10,7,0.35)]"
               delay={0}
             />
-            <Reveal variant="group">
-              <div data-fx="scale" style={d(120)}>
-                <PhotoPlaceholder
-                  subject="A tight site — terrace hallway, basement or zero-clearance courtyard, with the gear in the gap so the constraint is obvious."
-                  caption="Heritage &middot; Inner West"
-                  className="aspect-[3/4] rounded-2xl shadow-[0_20px_50px_-20px_rgba(5,10,7,0.35)] lg:mt-10"
-                />
-              </div>
-            </Reveal>
+            <PhotoFrame
+              src="/sfgeo-tight-access-rig-terrace-courtyard.jpg"
+              alt="The SFGEO 4WD drill rig set up inside a narrow terrace courtyard in Enmore, mast up against the rendered wall"
+              caption={<>Terrace Courtyard &middot; Inner West</>}
+              aspect="aspect-[3/4]"
+              sizes="(max-width: 1024px) 50vw, 30vw"
+              className="shadow-[0_20px_50px_-20px_rgba(5,10,7,0.35)]"
+              wrapperClassName="lg:mt-10"
+              delay={120}
+            />
           </div>
           <Reveal variant="group">
             <p data-fx="rise" className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">01 &middot; The Method</p>

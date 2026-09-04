@@ -39,8 +39,8 @@ const SECTIONS = [
     titleLight: "Dilapidation",
     titleBold: "Reports.",
     caption: "02 · Dilapidation Reports",
-    image: null,
-    shot: "A dilapidation record being taken — crack gauge or tape against a neighbouring wall, or the photographer documenting a boundary structure.",
+    image: "/sfgeo-dilapidation-crack-caliper.jpg",
+    alt: "A stepped crack in a rendered wall measured with a vernier caliper during a dilapidation inspection in Naremburn",
     body: "Pre- and post-construction condition records of neighbouring structures — the evidence that protects everyone before excavation, demolition or heavy vibration starts next door. Delivered through our partner network, with SFGEO setting the scope and timing so the record exists before the first machine arrives.",
     link: { href: "/contact", label: "Arrange A Dilapidation Record" },
   },
@@ -152,7 +152,7 @@ export default function OtherServicesPage() {
               <Reveal variant="group" className={idx % 2 === 1 ? "lg:order-2" : ""}>
                 <div data-fx="scale">
                   <PhotoPlaceholder
-                    subject={sec.shot ?? ""}
+                    subject="Photograph to come"
                     caption={sec.caption}
                     className="aspect-[4/3] rounded-2xl shadow-[0_26px_60px_-26px_rgba(5,10,7,0.4)]"
                   />
