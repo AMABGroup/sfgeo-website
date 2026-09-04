@@ -26,19 +26,25 @@ const WRITE_REVIEW_URL = `https://search.google.com/local/writereview?placeid=${
 
 const d = (ms: number) => ({ "--d": `${ms}ms` }) as CSSProperties;
 
-// Excerpts of published Google reviews (5.0 · 20 reviews at 4 Sep 2026), shown
-// whenever the live Places call returns nothing — so the band never goes bare.
+// Complete published Google reviews (pulled from the live Places feed, 5 Sep 2026),
+// shown whenever the live call returns nothing — so the band never goes bare.
 const FALLBACK_REVIEWS: Review[] = [
-  {
-    author_name: "Ehsan N.",
-    rating: 5,
-    text: "I recently engaged Solid Foundation Geotechnical for a geotechnical investigation and was extremely impressed with the quality of service and professionalism from start to finish.",
-    time: 0,
-  },
   {
     author_name: "Mina B.",
     rating: 5,
-    text: "I had an excellent experience with Solid Foundation Geotechnical. The team was professional, knowledgeable, and responsive throughout the entire process.",
+    text: "I had an excellent experience with Solid Foundation Geotechnical. The team was professional, knowledgeable, and responsive throughout the entire process. They completed the geotechnical investigation efficiently, explained the results clearly, and delivered the report on time. Their communication was excellent, and they made the whole experience straightforward and stress-free. I highly recommend Solid Foundation Geotechnical to anyone looking for reliable and high-quality geotechnical services.",
+    time: 0,
+  },
+  {
+    author_name: "Fiona G.",
+    rating: 5,
+    text: "Council required us to get a geotechnical report for work we were doing at a family members property in Dural. We found SFGEO on google and so happy we did. Alli came out the same day, talked us through council requirements. He was able to do his soil testing the next day and gave us the geotechnical report in 2 days. Whenever we had questions he was always available on the phone, and even talked with the architect and structural engineer when needed. I really recommend using SFGEO and working with Alli for your geotechnical need, he is reliable, responsive, and super helpful throughout the entire process.",
+    time: 0,
+  },
+  {
+    author_name: "Jonathan T.",
+    rating: 5,
+    text: "We engaged Alli for cfa drilling on a major civil project and couldn't be happier with their work. The team arrived on time, communicated clearly about timelines and site logistics, and delivered high-quality samples with excellent documentation. They handled our site conditions professionally and were responsive to any adjustments we needed. The data they provided was accurate and instrumental to our project design phase. Would definitely recommend them for any geotechnical drilling needs.",
     time: 0,
   },
 ];
@@ -92,7 +98,7 @@ export default function GoogleReviews({ layout = "grid" }: Props) {
   const column = layout === "column";
   // High-quality reviews with real text only; three on the grid, two in a column.
   const liveReviews = data?.reviews?.filter((r) => r.rating >= 4 && r.text && r.text.trim().length > 0).slice(0, column ? 2 : 3) || [];
-  const topReviews = liveReviews.length ? liveReviews : FALLBACK_REVIEWS;
+  const topReviews = liveReviews.length ? liveReviews : FALLBACK_REVIEWS.slice(0, column ? 2 : 3);
   // Only ever render a rating we actually received.
   const overallRating = typeof data?.rating === "number" ? data.rating : null;
   const ratingTotal = typeof data?.user_ratings_total === "number" ? data.user_ratings_total : null;
