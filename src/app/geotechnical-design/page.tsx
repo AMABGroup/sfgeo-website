@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import type { CSSProperties } from "react";
 import QuoteCta from "@/components/forms/QuoteCta";
-import PhotoPlaceholder from "@/components/ui/PhotoPlaceholder";
+import PhotoFrame from "@/components/ui/PhotoFrame";
 import Reveal from "@/components/ui/Reveal";
 import CloseBand from "@/components/ui/CloseBand";
 import { pageMeta } from "@/lib/seo";
@@ -80,15 +80,14 @@ export default function Page() {
 
       <section className="py-20 lg:py-24 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-          <Reveal variant="group">
-            <div data-fx="scale">
-              <PhotoPlaceholder
-                subject="Where the numbers come from — in-situ testing underway, or field data being written up into design parameters."
-                caption="Derived From The Ground"
-                className="aspect-[4/3] rounded-2xl shadow-[0_26px_60px_-26px_rgba(5,10,7,0.4)]"
-              />
-            </div>
-          </Reveal>
+          <PhotoFrame
+            src="/sfgeo-dcp-testing-newport-strata.jpg"
+            alt="The engineer logging dynamic cone penetrometer results beside the propped eastern elevation of a strata building in Newport"
+            caption="Derived From The Ground"
+            aspect="aspect-[4/3]"
+            sizes="(max-width: 1024px) 100vw, (max-width: 1280px) 50vw, 600px"
+            className="shadow-[0_26px_60px_-26px_rgba(5,10,7,0.4)]"
+          />
           <Reveal variant="group">
             <p data-fx="rise" className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">01 &middot; The Approach</p>
             <h2 data-fx="rise" style={d(80)} className="text-3xl sm:text-4xl font-montserrat font-light tracking-tight text-slate-950 mb-5">Derived From The Ground, <span className="font-semibold h-bold">Not The Textbook.</span></h2>

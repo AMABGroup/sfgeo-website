@@ -149,6 +149,27 @@ export default function TightAccessDrillingPage() {
           </h2>
           <div data-fx="line" style={d(200)} className="mt-6 h-px bg-forest-green w-12" />
         </Reveal>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mb-12 lg:mb-16">
+          <PhotoFrame
+            src="/sfgeo-tight-access-side-passage-punchbowl.jpg"
+            alt="A side passage in Punchbowl barely wider than the air-conditioning unit standing in it, between a timber fence and a rendered wall"
+            caption={<>Side Passage &middot; Punchbowl</>}
+            aspect="aspect-[4/3]"
+            sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 600px"
+            className="shadow-[0_20px_50px_-20px_rgba(5,10,7,0.35)]"
+            delay={0}
+          />
+          <PhotoFrame
+            src="/sfgeo-tight-access-undercroft-punchbowl.jpg"
+            alt="The undercroft of a Punchbowl house, a timber bearer over brick piers with rubble on the ground and barely room to crawl"
+            caption={<>Undercroft &middot; Restricted Height</>}
+            aspect="aspect-[4/3]"
+            sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 600px"
+            className="shadow-[0_20px_50px_-20px_rgba(5,10,7,0.35)]"
+            scrim="strong"
+            delay={120}
+          />
+        </div>
         <Reveal variant="group">
           <div data-stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {SITE_TYPES.map((s) => (

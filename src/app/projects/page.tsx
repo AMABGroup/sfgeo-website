@@ -201,10 +201,8 @@ const caseStudies: CaseStudy[] = [
     tag: "Geotechnical Investigation",
     title: "Remedial Works In A Live Building",
     location: "Newport — three‑storey strata building near the beach",
-    image: null,
-    shot:
-      "A remedial or strata investigation in a live building — working inside or beside an occupied structure.",
-    imageAlt: "Geotechnical fieldwork alongside an occupied strata building in Newport",
+    image: "/projects/project-newport-props.jpg",
+    imageAlt: "Rows of temporary steel props under the balconies of an occupied three-storey brick walk-up in Newport during the remedial investigation",
     brief:
       "Corroded balconies on an occupied 1960s walk-up needed demolition and reconstruction. The remedial contractor needed the certifier's geotechnical requirements closed out — and the Class H1, 100 kPa assumption on the structural drawings tested against the actual ground.",
     ground:

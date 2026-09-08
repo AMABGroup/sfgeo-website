@@ -2,7 +2,6 @@ import { Metadata } from "next";
 import Link from "next/link";
 import type { CSSProperties } from "react";
 import QuoteCta from "@/components/forms/QuoteCta";
-import PhotoPlaceholder from "@/components/ui/PhotoPlaceholder";
 import Reveal from "@/components/ui/Reveal";
 import PhotoFrame from "@/components/ui/PhotoFrame";
 import SectionNav from "@/components/ui/SectionNav";
@@ -25,8 +24,8 @@ const SECTIONS = [
     titleLight: "Contaminated Land.",
     titleBold: "PSI & DSI.",
     caption: "01 · Contaminated Land",
-    image: null,
-    shot: "Contaminated land fieldwork — monitoring well or sampling rig on a former industrial site, or gloved hands bagging a suspect soil sample.",
+    image: "/sfgeo-contaminated-land-capped-site-surry-hills.jpg",
+    alt: "Geofabric capping laid over cleared ground on an inner-city Sydney site, with stockpiles waiting behind",
     body: "When a site's history raises questions — old fill, past industry, a council condition on the DA — a Preliminary Site Investigation traces what happened on the ground, and a Detailed Site Investigation drills, samples and tests to answer it. Every sample is logged by an engineer, tracked under chain of custody and analysed at NATA-accredited laboratories. And because the crew taking the samples is the crew that drills Sydney ground every week, one mobilisation can carry your geotechnical and environmental scope together.",
     link: { href: "/contact", label: "Scope A Site Investigation" },
   },
@@ -49,8 +48,8 @@ const SECTIONS = [
     titleLight: "Waste",
     titleBold: "Classification (VENM & ENM).",
     caption: "03 · Waste Classification",
-    image: null,
-    shot: "Waste classification sampling — spoil stockpile being sampled, or labelled sample jars ready for the laboratory.",
+    image: "/sfgeo-waste-classification-fill-concrete-bexley-north.jpg",
+    alt: "A gloved hand holding a lump of concrete and brick rubble lifted from the fill in a Bexley North backyard",
     body: "Spoil can't leave site on a guess — receiving facilities need a classification, and the wrong one is paid for twice. We sample stockpiles and in-situ ground, test at NATA-accredited laboratories and classify to the NSW EPA guidelines, from virgin excavated natural material (VENM) and excavated natural material (ENM) through to general solid waste — with the paperwork your facility and your certifier both need.",
     link: { href: "/contact", label: "Classify Your Spoil" },
   },
@@ -157,27 +156,15 @@ export default function EnvironmentalHubPage() {
       {SECTIONS.map((sec, idx) => (
         <section key={sec.id} id={sec.id} className="py-20 lg:py-24 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100 scroll-mt-[136px]">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-            {sec.image ? (
-              <PhotoFrame
-                src={sec.image}
-                alt={sec.alt}
-                caption={sec.caption}
-                aspect="aspect-[4/3]"
-                sizes="(max-width: 1024px) 100vw, (max-width: 1280px) 50vw, 600px"
-                priority={sec.id === FIRST_IMAGE_ID}
-                wrapperClassName={idx % 2 === 1 ? "lg:order-2" : ""}
-              />
-            ) : (
-              <Reveal variant="group" className={idx % 2 === 1 ? "lg:order-2" : ""}>
-                <div data-fx="scale">
-                  <PhotoPlaceholder
-                    subject={sec.shot ?? ""}
-                    caption={sec.caption}
-                    className="aspect-[4/3] rounded-2xl shadow-[0_26px_60px_-26px_rgba(5,10,7,0.4)]"
-                  />
-                </div>
-              </Reveal>
-            )}
+            <PhotoFrame
+              src={sec.image}
+              alt={sec.alt}
+              caption={sec.caption}
+              aspect="aspect-[4/3]"
+              sizes="(max-width: 1024px) 100vw, (max-width: 1280px) 50vw, 600px"
+              priority={sec.id === FIRST_IMAGE_ID}
+              wrapperClassName={idx % 2 === 1 ? "lg:order-2" : ""}
+            />
             <Reveal variant="group">
               <p data-fx="rise" className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">{sec.kicker}</p>
               <h2 data-fx="rise" style={d(80)} className="text-3xl sm:text-4xl font-montserrat font-light tracking-tight text-slate-950 mb-5">
