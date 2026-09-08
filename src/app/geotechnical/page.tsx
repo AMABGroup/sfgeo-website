@@ -1,7 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import type { CSSProperties } from "react";
-import PhotoPlaceholder from "@/components/ui/PhotoPlaceholder";
 import Reveal from "@/components/ui/Reveal";
 import PhotoFrame from "@/components/ui/PhotoFrame";
 import CloseBand from "@/components/ui/CloseBand";
@@ -67,8 +66,8 @@ const SECTIONS = [
     n: "05",
     id: "design",
     title: "Geotechnical Design",
-    image: null,
-    shot: "Design parameters being derived — the engineer at the plans desk, or a marked-up structural drawing beside the borehole log.",
+    image: "/sfgeo-design-parameters-plans-desk.jpg",
+    alt: "The engineer at the plans desk reading a borehole log against the structural details and a utility plan",
     body: "Site-specific inputs for structural and civil teams — bearing capacities, pile design values, retaining wall parameters to AS 4678, pavement and working platform assessments. We don't carry the structural design; we make sure the numbers under it are real.",
     link: { href: "/geotechnical-design", label: "Explore Geotechnical Design" },
   },
@@ -127,8 +126,7 @@ export default function GeotechnicalHubPage() {
       {SECTIONS.map((sec, idx) => (
         <section key={sec.id} id={sec.id} className="py-20 lg:py-24 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100 scroll-mt-[90px]">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-            {sec.image ? (
-              <PhotoFrame
+            <PhotoFrame
                 src={sec.image}
                 alt={sec.alt}
                 caption={<>{sec.n} &middot; {sec.title}</>}
@@ -137,17 +135,6 @@ export default function GeotechnicalHubPage() {
                 priority={idx === 0}
                 wrapperClassName={idx % 2 === 1 ? "lg:order-2" : ""}
               />
-            ) : (
-              <Reveal variant="group" className={idx % 2 === 1 ? "lg:order-2" : ""}>
-                <div data-fx="scale">
-                  <PhotoPlaceholder
-                    subject={sec.shot ?? ""}
-                    caption={`${sec.n} · ${sec.title}`}
-                    className="aspect-[4/3] rounded-2xl shadow-[0_26px_60px_-26px_rgba(5,10,7,0.4)]"
-                  />
-                </div>
-              </Reveal>
-            )}
             <Reveal variant="group">
               <p data-fx="rise" className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">{sec.n}</p>
               <h2 data-fx="rise" style={d(80)} className="text-3xl sm:text-4xl font-montserrat font-light tracking-tight text-slate-950 mb-5">

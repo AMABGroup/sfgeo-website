@@ -5,7 +5,6 @@ import type { CSSProperties } from "react";
 import Reveal from "@/components/ui/Reveal";
 import FollowFieldwork from "@/components/ui/FollowFieldwork";
 import PhotoFrame from "@/components/ui/PhotoFrame";
-import PhotoPlaceholder from "@/components/ui/PhotoPlaceholder";
 import CloseBand from "@/components/ui/CloseBand";
 import { pageMeta } from "@/lib/seo";
 
@@ -131,15 +130,15 @@ export default function About() {
             Our Principal Engineer has contributed to Sydney Gateway, the M12 Motorway, Western Sydney Airport, and the Canterbury Aquatic Centre. That depth of experience now serves your project with the responsiveness, transparency, and personal care that only an independent practice can offer.
           </p>
         </Reveal>
-        <Reveal variant="group" className="lg:col-span-5">
-          <div data-fx="scale">
-            <PhotoPlaceholder
-              subject="The team — a new photograph of the crew is being taken for this frame."
-              caption="The Crew"
-              className="aspect-[4/3] rounded-2xl shadow-[0_26px_60px_-26px_rgba(5,10,7,0.4)]"
-            />
-          </div>
-        </Reveal>
+        <PhotoFrame
+          src="/sfgeo-team-principal-and-crew-ute.jpg"
+          alt="The Principal and the crew in hard hats and hi-vis beside the SFGEO 4WD ute at the end of a day's fieldwork"
+          caption={<>The Crew &middot; End Of The Day</>}
+          aspect="aspect-[4/3]"
+          sizes="(max-width: 1024px) 100vw, 42vw"
+          wrapperClassName="lg:col-span-5"
+          delay={120}
+        />
       </section>
 
       {/* Community — the why */}
