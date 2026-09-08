@@ -81,8 +81,8 @@ export default function Page() {
       <section className="py-20 lg:py-24 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           <PhotoFrame
-            src="/sfgeo-dcp-testing-newport-strata.jpg"
-            alt="The engineer logging dynamic cone penetrometer results beside the propped eastern elevation of a strata building in Newport"
+            src="/sfgeo-weathered-rock-in-hand-newport.jpg"
+            alt="Cupped hands holding fragments of weathered Newport Formation rock brought up from a hand-auger borehole"
             caption="Derived From The Ground"
             aspect="aspect-[4/3]"
             sizes="(max-width: 1024px) 100vw, (max-width: 1280px) 50vw, 600px"

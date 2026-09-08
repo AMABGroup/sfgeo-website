@@ -10,8 +10,8 @@ const SERVICES = [
     title: "Geotechnical",
     desc: "Site classifications, investigations, assessments, construction phase support and design — the ground read before anything is built on it.",
     href: "/geotechnical",
-    image: "/sfgeo-soil-profile-sequence.jpg",
-    alt: "A soil profile laid out in sequence on site",
+    image: "/sfgeo-auger-flight-soil-profile.jpg",
+    alt: "An auger flight lifted from a borehole, the soil profile held in sequence on its flights",
   },
   {
     n: "02",
