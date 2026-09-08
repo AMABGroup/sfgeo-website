@@ -1,4 +1,4 @@
-# sfgeo.com.au — crawl policy
+# sfgeo.com.au crawl policy
 # Search engines and answer engines are welcome across the public site.
 # Only the API routes are excluded. The field docket app is excluded by
 # X-Robots-Tag headers rather than here.
@@ -7,7 +7,7 @@ User-agent: *
 Allow: /
 Disallow: /api/
 
-# Answer engines and AI assistants — explicitly allowed so the site can be
+# Answer engines and AI assistants: explicitly allowed so the site can be
 # cited by Google AI Overviews / Gemini, ChatGPT, Claude, Perplexity and Bing.
 User-agent: Googlebot
 Allow: /

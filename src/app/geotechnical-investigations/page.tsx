@@ -20,7 +20,7 @@ const d = (ms: number) => ({ "--d": `${ms}ms` }) as CSSProperties;
 const SCOPES = [
   {
     title: "DA & CDC Reports",
-    desc: "Geotechnical reports written to answer the questions your council, certifier or structural engineer will actually ask — prepared with the approval pathway in mind from the first borehole."
+    desc: "Geotechnical reports written to answer the questions your council, certifier or structural engineer will actually ask, prepared with the approval pathway in mind from the first borehole."
   },
   {
     title: "Footing & Slab Design Input",
@@ -37,10 +37,10 @@ const SCOPES = [
 ];
 
 const REGIONS = [
-  { title: "Inner West", desc: "Ashfield Shale country — residual clays over weathered shale, often moderately to highly reactive. Investigations here focus on clay depth and shale weathering, because the difference decides the footing system. Class M and H1 outcomes are common." },
-  { title: "North Shore", desc: "Hawkesbury Sandstone, with outcomes hinging on how much weathered soil sits above the rock. Shallow rock founds beautifully — bored piers to sandstone carry most of the harbour's basements. Deeper profiles behave like clay and need proper investigation." },
-  { title: "Western Sydney", desc: "Bringelly Shale — the most reactive common profile in metropolitan Sydney. Across the Cumberland Plain, H1 and H2 outcomes are frequent, and movement estimates need boreholes deep enough to see the whole active zone." },
-  { title: "South West Corridor", desc: "Legacy fill, alluvial soils and reactive clays push a higher proportion of sites into Class P — common across Liverpool and Campbelltown. The investigation's first job is finding where the fill stops and natural ground begins." },
+  { title: "Inner West", desc: "Ashfield Shale country: residual clays over weathered shale, often moderately to highly reactive. Investigations here focus on clay depth and shale weathering, because the difference decides the footing system. Class M and H1 outcomes are common." },
+  { title: "North Shore", desc: "Hawkesbury Sandstone, with outcomes hinging on how much weathered soil sits above the rock. Shallow rock founds beautifully. Bored piers to sandstone carry most of the harbour's basements. Deeper profiles behave like clay and need proper investigation." },
+  { title: "Western Sydney", desc: "Bringelly Shale, the most reactive common profile in metropolitan Sydney. Across the Cumberland Plain, H1 and H2 outcomes are frequent, and movement estimates need boreholes deep enough to see the whole active zone." },
+  { title: "South West Corridor", desc: "Legacy fill, alluvial soils and reactive clays push a higher proportion of sites into Class P, common across Liverpool and Campbelltown. The investigation's first job is finding where the fill stops and natural ground begins." },
   { title: "Eastern Suburbs & Coast", desc: "Dune sands over sandstone, steep marine slopes and tight streets. Sand profiles found well but cave in open excavations; the rock surface dips sharply block to block. Investigations here earn their keep on access and depth-to-rock." },
 ];
 
@@ -90,7 +90,7 @@ export default function GeotechnicalInvestigationsPage() {
           </h1>
           <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />
           <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed mb-10">
-            Boreholes, penetrometers and NATA-backed laboratory data, turned into reports your certifier, council and structural engineer can act on — for DAs, complying development, footings, basements and retaining structures across Sydney. The engineer who drills your ground is the engineer who signs your report.
+            Boreholes, penetrometers and NATA-backed laboratory data, turned into reports your certifier, council and structural engineer can act on, for DAs, complying development, footings, basements and retaining structures across Sydney. The engineer who drills your ground is the engineer who signs your report.
           </p>
           <div className="hero-line hero-d3 flex flex-col sm:flex-row items-start gap-4">
             <Link
@@ -141,7 +141,7 @@ export default function GeotechnicalInvestigationsPage() {
             </h2>
             <div data-fx="line" style={d(200)} className="h-px bg-forest-green w-12 mb-7" />
             <p data-fx="rise" style={d(160)} className="text-gray-600 font-light leading-relaxed">
-              No subcontracted drill crews, no drive-by inspections. The Principal Engineer operates the rig, logs the profile as it comes out of the ground, and cross-checks it with in-situ testing on the spot — so by the time the report is written, the ground has already been read twice.
+              No subcontracted drill crews, no drive-by inspections. The Principal Engineer operates the rig, logs the profile as it comes out of the ground, and cross-checks it with in-situ testing on the spot, so by the time the report is written, the ground has already been read twice.
             </p>
           </Reveal>
           <div className="grid grid-cols-2 gap-4 sm:gap-6">
@@ -177,7 +177,7 @@ export default function GeotechnicalInvestigationsPage() {
           </h2>
           <div data-fx="line" style={d(200)} className="h-px bg-forest-green w-12 mb-7" />
           <p data-fx="rise" style={d(160)} className="text-gray-600 font-light leading-relaxed">
-            Sydney sits on a handful of very different geologies, and the investigation is scoped to the one under your block — not a city-wide average. Two doors down from a stable site, your land can behave completely differently.
+            Sydney sits on a handful of very different geologies, and the investigation is scoped to the one under your block, not a city-wide average. Two doors down from a stable site, your land can behave completely differently.
           </p>
         </Reveal>
         <PhotoFrame
@@ -200,7 +200,7 @@ export default function GeotechnicalInvestigationsPage() {
             <div className="card-lift p-8 bg-[#050A07] text-white rounded-2xl h-full flex flex-col justify-between relative overflow-hidden grain">
               <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_70%_-20%,rgba(45,90,58,0.35),transparent_60%)] pointer-events-none" />
               <p className="relative z-10 text-lg font-montserrat font-light leading-snug mb-6">
-                Not sure which one you&rsquo;re on? Send the address — the desktop geology is checked before we even quote.
+                Not sure which one you&rsquo;re on? Send the address. The desktop geology is checked before we even quote.
               </p>
               <QuoteCta
                 source="geotechnical-investigations regions"
@@ -221,13 +221,13 @@ export default function GeotechnicalInvestigationsPage() {
           </h2>
           <div data-fx="line" style={d(200)} className="h-px bg-forest-green w-12 mb-7" />
           <p data-fx="rise" style={d(160)} className="text-gray-600 font-light leading-relaxed mb-6">
-            Unexpected rock, fill, or reactive clay discovered after contracts are signed becomes a variation — priced by whoever holds the leverage at that moment. An investigation done properly, and done early, converts those unknowns into design parameters while every option is still open and competitively priced.
+            Unexpected rock, fill, or reactive clay discovered after contracts are signed becomes a variation, priced by whoever holds the leverage at that moment. An investigation done properly, and done early, converts those unknowns into design parameters while every option is still open and competitively priced.
           </p>
           <p data-fx="rise" style={d(220)} className="text-gray-600 font-light leading-relaxed mb-6">
-            Turnaround is scoped at first contact, and urgent DA, CC and settlement timelines can be accommodated — call the Principal directly to arrange priority scheduling. And where standard rigs stop at the kerb, our 4WD rig and motorised hand augers keep going: <Link href="/tight-access-drilling" className="text-forest-green hover:underline font-medium">full access capability</Link>.
+            Turnaround is scoped at first contact, and urgent DA, CC and settlement timelines can be accommodated. Call the Principal directly to arrange priority scheduling. And where standard rigs stop at the kerb, our 4WD rig and motorised hand augers keep going: <Link href="/tight-access-drilling" className="text-forest-green hover:underline font-medium">full access capability</Link>.
           </p>
           <p data-fx="rise" style={d(280)} className="text-gray-600 font-light leading-relaxed">
-            Investigations are quoted fixed-fee against the number and depth of boreholes, access and the laboratory program — most fall under our Complex Projects tier (basements, multi-storey, retaining walls, sloping or restricted-access blocks), and the fee is confirmed in writing within one business day. What moves the figure is set out in the <Link href="/geotechnical-report-cost-sydney" className="text-forest-green hover:underline font-medium">geotechnical report cost guide</Link>.
+            Investigations are quoted fixed-fee against the number and depth of boreholes, access and the laboratory program. Most fall under our Complex Projects tier (basements, multi-storey, retaining walls, sloping or restricted-access blocks), and the fee is confirmed in writing within one business day. What moves the figure is set out in the <Link href="/geotechnical-report-cost-sydney" className="text-forest-green hover:underline font-medium">geotechnical report cost guide</Link>.
           </p>
         </Reveal>
       </section>
@@ -242,7 +242,7 @@ export default function GeotechnicalInvestigationsPage() {
         heading={<>Start With <span className="font-semibold h-bold">The Ground.</span></>}
         sub={
           <>
-            Every SFGEO engagement begins with the Principal Engineer reading your block and your plans — and standing on your ground on the day. Detailed answers to common questions are on <Link href="/faq" className="text-white underline hover:text-white/80 transition-colors">the full FAQ</Link>.
+            Every SFGEO engagement begins with the Principal Engineer reading your block and your plans, and standing on your ground on the day. Detailed answers to common questions are on <Link href="/faq" className="text-white underline hover:text-white/80 transition-colors">the full FAQ</Link>.
           </>
         }
       />

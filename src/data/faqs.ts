@@ -27,12 +27,12 @@ export const faqs = [
   {
     question: "Can you perform tight-access soil testing on restricted Sydney sites?",
     group: "Access & Coverage",
-    answer: "Yes. Where the 4WD rig can't get in, motorised hand augers carry through a doorway or down a side passage — terrace backyards, courtyards, under a carport with 2.1 m of clearance. Hand-auger holes are logged to the same standard and cross-checked with penetrometer tests, so the report is no thinner for the access. <a href=\"/tight-access-drilling\">See tight access drilling</a>."
+    answer: "Yes. Where the 4WD rig can't get in, motorised hand augers carry through a doorway or down a side passage: terrace backyards, courtyards, under a carport with 2.1 m of clearance. Hand-auger holes are logged to the same standard and cross-checked with penetrometer tests, so the report is no thinner for the access. <a href=\"/tight-access-drilling\">See tight access drilling</a>."
   },
   {
     question: "Can you test soil on sloping blocks?",
     group: "Access & Coverage",
-    answer: "Yes. On steep blocks the rig sets up where it can — the street or the council verge, as at Coogee — and motorised hand augers reach the rest of the block. The report addresses what the slope actually raises: differential settlement, slope stability and the retaining parameters your engineer needs, with the rock and soil data behind them."
+    answer: "Yes. On steep blocks the rig sets up where it can, the street or the council verge as at Coogee, and motorised hand augers reach the rest of the block. The report addresses what the slope actually raises: differential settlement, slope stability and the retaining parameters your engineer needs, with the rock and soil data behind them."
   },
   {
     question: "How long does a soil test and geotechnical report take?",
@@ -47,7 +47,7 @@ export const faqs = [
   {
     question: "Can you perform footing inspections, pier inspections, and proof rolling across Sydney?",
     group: "For Builders & Engineers",
-    answer: "Yes. The engineer inspects at bearing level, gives the call before leaving site — proceed, deepen or adjust — and the written record follows within days. Single visits for builders, standing arrangements for contractors. <a href=\"/construction-phase-support\">See Construction Phase Support</a>."
+    answer: "Yes. The engineer inspects at bearing level, gives the call before leaving site, proceed, deepen or adjust, and the written record follows within days. Single visits for builders, standing arrangements for contractors. <a href=\"/construction-phase-support\">See Construction Phase Support</a>."
   },
   {
     question: "What is 'Proof Rolling' and when is it required?",
@@ -62,7 +62,7 @@ export const faqs = [
   {
     question: "Does SFGEO service Western Sydney, the Inner West, and Greater Sydney?",
     group: "Access & Coverage",
-    answer: "Yes. We work across Greater Sydney from Marrickville — the reactive shale clays of the Inner West and Western Sydney, the Hawkesbury sandstone of the North Shore and Northern Beaches, and the sands of the Eastern Suburbs. For drilling programs the 4WD rig also travels into regional NSW — see <a href=\"/subcontract-drilling\">subcontract drilling</a>."
+    answer: "Yes. We work across Greater Sydney from Marrickville: the reactive shale clays of the Inner West and Western Sydney, the Hawkesbury sandstone of the North Shore and Northern Beaches, and the sands of the Eastern Suburbs. For drilling programs the 4WD rig also travels into regional NSW, see <a href=\"/subcontract-drilling\">subcontract drilling</a>."
   },
   {
     question: "What does a geotechnical investigation actually involve?",
@@ -102,17 +102,17 @@ export const faqs = [
   {
     question: "Will a site classification satisfy my certifier, or do I need a full geotechnical report?",
     group: "For Builders & Engineers",
-    answer: "For a standard house, extension, granny flat or pool on a level block, an AS 2870 <a href=\"/site-classification\">site classification</a> is typically what the certifier is asking for — it gives the structural engineer the class and the parameters for the slab and footing design. A full <a href=\"/geotechnical-investigations\">geotechnical investigation</a> is typically requested where the land is steep or mapped for landslip, where a basement or excavation runs close to a boundary, where retaining walls are proposed, where the block carries fill or soft ground, or where the classification comes back Class P.<br/><br/>Send us the certifier's or council's exact wording with the address and we scope to it rather than guess. If the classification is enough, that is what we quote."
+    answer: "For a standard house, extension, granny flat or pool on a level block, an AS 2870 <a href=\"/site-classification\">site classification</a> is typically what the certifier is asking for. It gives the structural engineer the class and the parameters for the slab and footing design. A full <a href=\"/geotechnical-investigations\">geotechnical investigation</a> is typically requested where the land is steep or mapped for landslip, where a basement or excavation runs close to a boundary, where retaining walls are proposed, where the block carries fill or soft ground, or where the classification comes back Class P.<br/><br/>Send us the certifier's or council's exact wording with the address and we scope to it rather than guess. If the classification is enough, that is what we quote."
   },
   {
     question: "When does a council require a geotechnical report for a DA or CDC?",
     group: "For Builders & Engineers",
-    answer: "It depends on the council and on what is mapped over the block. The common triggers are sloping or landslip-mapped land, cut or fill beyond what the council's DCP allows without a report, excavation near a boundary or an existing structure, retaining walls above the height the DCP sets, and land flagged for acid sulfate soils or contamination. Some councils name the trigger in the DA checklist; others raise it as a request for further information after lodgement.<br/><br/>Each council's threshold is its own, so the DCP and the certifier's checklist are the reference — not a rule of thumb. If you are not sure whether your block is caught, send us the address and any correspondence from council and we will tell you before you commit to anything."
+    answer: "It depends on the council and on what is mapped over the block. The common triggers are sloping or landslip-mapped land, cut or fill beyond what the council's DCP allows without a report, excavation near a boundary or an existing structure, retaining walls above the height the DCP sets, and land flagged for acid sulfate soils or contamination. Some councils name the trigger in the DA checklist; others raise it as a request for further information after lodgement.<br/><br/>Each council's threshold is its own, so the DCP and the certifier's checklist are the reference, not a rule of thumb. If you are not sure whether your block is caught, send us the address and any correspondence from council and we will tell you before you commit to anything."
   },
   {
     question: "How long is a geotechnical report valid for?",
     group: "For Builders & Engineers",
-    answer: "There is no expiry date written into a geotechnical report — the ground does not change on a schedule. What changes is the project and the site. Certifiers and councils typically want a report that reflects the current proposal and the current ground: if the design has moved (a basement added, the footprint shifted, a pool where there was not one), or the block has been cut, filled or built on since the fieldwork, they may ask for it to be reviewed or updated. A report written for a different building on the same block may not cover yours.<br/><br/>If you have an older report, send it through with the current plans. Often a review letter or an addendum is all that is needed; sometimes a fresh visit is, and we will say which."
+    answer: "There is no expiry date written into a geotechnical report, because the ground does not change on a schedule. What changes is the project and the site. Certifiers and councils typically want a report that reflects the current proposal and the current ground: if the design has moved (a basement added, the footprint shifted, a pool where there was not one), or the block has been cut, filled or built on since the fieldwork, they may ask for it to be reviewed or updated. A report written for a different building on the same block may not cover yours.<br/><br/>If you have an older report, send it through with the current plans. Often a review letter or an addendum is all that is needed; sometimes a fresh visit is, and we will say which."
   }
 ];
 

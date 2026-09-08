@@ -7,7 +7,7 @@ import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta(
   "Geotechnical, Drilling & Environmental Services | SFGEO",
-  "Every SFGEO service line in one place — geotechnical, drilling, environmental testing, specialist services and concrete coring. Principal-led, Sydney-wide.",
+  "Every SFGEO service line in one place: geotechnical, drilling, environmental testing, specialist services and concrete coring. Principal-led, Sydney-wide.",
   "/services",
 );
 
@@ -18,7 +18,7 @@ const SEGMENTS = [
     n: "01",
     title: "Geotechnical",
     href: "/geotechnical",
-    d: "From the first hole on an empty block to the last inspection before the pour — classifications, investigations, assessments, construction support and design parameters.",
+    d: "From the first hole on an empty block to the last inspection before the pour: classifications, investigations, assessments, construction support and design parameters.",
     children: [
       { name: "Site Classification", href: "/site-classification" },
       { name: "Geotechnical Investigations", href: "/geotechnical-investigations" },
@@ -31,7 +31,7 @@ const SEGMENTS = [
     n: "02",
     title: "Drilling",
     href: "/drilling",
-    d: "One 4WD-mounted rig, engineer operated — borehole drilling, NMLC rock coring and subcontract capacity for builders, consultancies and bigger firms, metro and regional.",
+    d: "One 4WD-mounted rig, engineer operated: borehole drilling, NMLC rock coring and subcontract capacity for builders, consultancies and bigger firms, metro and regional.",
     children: [
       { name: "Borehole Drilling", href: "/borehole-drilling" },
       { name: "Rock Coring", href: "/drilling#rock-coring" },
@@ -43,7 +43,7 @@ const SEGMENTS = [
     n: "03",
     title: "Environmental & Soil Testing",
     href: "/environmental",
-    d: "What the ground is carrying — contaminated land investigations, acid sulfate soils, waste classification and laboratory testing, sampled by the crew that drills it.",
+    d: "What the ground is carrying: contaminated land investigations, acid sulfate soils, waste classification and laboratory testing, sampled by the crew that drills it.",
     children: [
       { name: "Contaminated Land (PSI & DSI)", href: "/environmental#psi-dsi" },
       { name: "Acid Sulfate Soils", href: "/environmental#ass" },
@@ -55,7 +55,7 @@ const SEGMENTS = [
     n: "04",
     title: "Other Professional Services",
     href: "/other-services",
-    d: "The disciplines around the ground — utility location and GPR, dilapidation reports, surveys and specialist engineering, delivered through one point of contact.",
+    d: "The disciplines around the ground: utility location and GPR, dilapidation reports, surveys and specialist engineering, delivered through one point of contact.",
     children: [
       { name: "Utility Location & GPR", href: "/other-services#utility-gpr" },
       { name: "Dilapidation Reports", href: "/other-services#dilapidation" },
@@ -67,7 +67,7 @@ const SEGMENTS = [
     n: "05",
     title: "Concrete Coring",
     href: "/concrete-coring",
-    d: "Engineer-supervised coring of slabs, pavements and penetrations — logged, verified and strength-tested when the question needs a number.",
+    d: "Engineer-supervised coring of slabs, pavements and penetrations, logged, verified and strength-tested when the question needs a number.",
     children: [],
   },
 ];
@@ -98,7 +98,7 @@ export default function ServicesIndexPage() {
           </h1>
           <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />
           <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed">
-            Five service lines, one standard, one point of contact — and the Principal across every job. Start with the segment, or just tell us the project and we&rsquo;ll tell you what it needs.
+            Five service lines, one standard, one point of contact, and the Principal across every job. Start with the segment, or just tell us the project and we&rsquo;ll tell you what it needs.
           </p>
         </div>
       </section>
@@ -140,7 +140,7 @@ export default function ServicesIndexPage() {
         source="services index close"
         className="mt-8"
         heading={<>Not Sure Where <span className="font-semibold h-bold">To Start?</span></>}
-        sub={<>Describe the project in a sentence. The Principal will tell you what it needs — and what it doesn&rsquo;t.</>}
+        sub={<>Describe the project in a sentence. The Principal will tell you what it needs, and what it doesn&rsquo;t.</>}
       />
     </div>
   );

@@ -24,7 +24,7 @@ const FIELD_ORDER = ["name", "phone", "email", "siteAddress", "projectType", "st
  * label, so tracking stays unified. `source` is appended to the message so
  * Alli can see which placement produced the lead.
  */
-export default function QuickQuoteCard({ source, eyebrow = "Fixed-fee quote", heading = "Request A Fixed-Fee Quote", subheading = "Scoped against your block and plans. Response within one business day — reports as soon as 2–3 business days.", secondaryLink, headingId = "qq-heading" }: { source: string; eyebrow?: string; heading?: string; subheading?: string; secondaryLink?: { href: string; label: string }; headingId?: string }) {
+export default function QuickQuoteCard({ source, eyebrow = "Fixed-fee quote", heading = "Request A Fixed-Fee Quote", subheading = "Scoped against your block and plans. Response within one business day. Reports as soon as 2 business days from fieldwork.", secondaryLink, headingId = "qq-heading" }: { source: string; eyebrow?: string; heading?: string; subheading?: string; secondaryLink?: { href: string; label: string }; headingId?: string }) {
   const [status, setStatus] = useState<FormStatus>("idle");
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [formData, setFormData] = useState({
@@ -87,7 +87,7 @@ export default function QuickQuoteCard({ source, eyebrow = "Fixed-fee quote", he
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           ...formData,
-          message: `Quick quote request — submitted from ${source}.`,
+          message: `Quick quote request, submitted from ${source}.`,
         }),
       });
       if (response.ok) {
@@ -124,7 +124,7 @@ export default function QuickQuoteCard({ source, eyebrow = "Fixed-fee quote", he
             </div>
             <h2 id={headingId} ref={successHeadingRef} tabIndex={-1} className="text-xl font-montserrat font-light text-white mb-3 focus:outline-none">Request received</h2>
             <p className="text-sm text-gray-400 font-light leading-relaxed">
-              Thank you — your details are with our Principal Engineer. You&apos;ll have a response within one business day.
+              Thank you. Your details are with our Principal Engineer. You&apos;ll have a response within one business day.
             </p>
           </div>
         ) : (
@@ -201,7 +201,7 @@ export default function QuickQuoteCard({ source, eyebrow = "Fixed-fee quote", he
             </button>
             {status === "error" && (
               <p className="mt-3 text-xs text-red-400/90 text-center">
-                Something went wrong — please call 0423 483 555 or email info@sfgeo.com.au.
+                Something went wrong. Please call 0423 483 555 or email info@sfgeo.com.au.
               </p>
             )}
             <p className="mt-5 text-[11px] text-white/60 font-light text-center tracking-wide">

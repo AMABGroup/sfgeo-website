@@ -182,7 +182,7 @@ export default function GoogleReviews({ layout = "grid" }: Props) {
         <div data-fx="line" style={d(200)} className="mt-6 h-px bg-forest-green w-12 mx-auto [transform-origin:center]" />
         {overallRating === null ? (
           <p data-fx="rise" style={d(120)} className="mt-5 text-sm text-gray-500 font-light max-w-md mx-auto leading-relaxed">
-            Homeowners, builders and engineers across Sydney &mdash; read what they say about the work on Google.
+            Homeowners, builders and engineers across Sydney. Read what they say about the work on Google.
           </p>
         ) : (
           <div data-fx="rise" style={d(120)} className="mt-5 flex items-center justify-center gap-3">

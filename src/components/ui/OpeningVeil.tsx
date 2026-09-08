@@ -151,7 +151,7 @@ export default function OpeningVeil() {
       <div className={`absolute inset-0 flex flex-col items-center justify-center gap-6 transition-all duration-500 ${cutting ? "opacity-0 scale-[1.03]" : ""}`}>
         <div className="overflow-hidden">
           <div className="relative w-[clamp(200px,32vw,400px)] h-[clamp(52px,8.5vw,105px)] veil-logo">
-            <Image src="/SFGEO_logo.png" alt="SFGEO — Solid Foundation Geotechnical" fill sizes="400px" className="object-contain" priority />
+            <Image src="/SFGEO_logo.png" alt="SFGEO, Solid Foundation Geotechnical" fill sizes="400px" className="object-contain" priority />
           </div>
         </div>
         <p className="veil-reg text-[10px] sm:text-[11px] uppercase tracking-[0.34em] text-white/50 font-semibold text-center px-6" style={{ animationDelay: "1500ms" }}>

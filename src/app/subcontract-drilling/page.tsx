@@ -8,21 +8,21 @@ import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta(
   "Subcontract Drilling Sydney | Rig Hire With Engineer | SFGEO",
-  "Subcontract drilling for consultancies, environmental consultants, builders and civil contractors — an engineer-operated 4WD rig on your program, metro and NSW.",
+  "Subcontract drilling for consultancies, environmental consultants, builders and civil contractors: an engineer-operated 4WD rig on your program, metro and NSW.",
   "/subcontract-drilling",
 );
 
 const d = (ms: number) => ({ "--d": `${ms}ms` }) as CSSProperties;
 
 const CLIENTS = [
-  { t: "Engineering Consultancies", d: "Boutique practices to some of the bigger firms in Sydney ground — field data with engineer-grade logging you can put your letterhead on without re-checking it." },
-  { t: "Environmental Consultants", d: "Drilling and sampling for PSI and DSI programs — clean execution, chain of custody kept, your sampling plan followed to the letter. Monitoring wells through a licensed bore driller under our scope." },
-  { t: "Builders & Civil Contractors", d: "Holes without the overhead of an in-house crew — footing probes, pavement investigations, service trenching support, booked around your program." },
-  { t: "Bigger Firms & Majors", d: "Reliable capacity when the fleet is booked out — night works, staged access and standing arrangements, delivered at the same standard every visit." },
+  { t: "Engineering Consultancies", d: "Boutique practices to some of the bigger firms in Sydney ground: field data with engineer-grade logging you can put your letterhead on without re-checking it." },
+  { t: "Environmental Consultants", d: "Drilling and sampling for PSI and DSI programs: clean execution, chain of custody kept, your sampling plan followed to the letter. Monitoring wells through a licensed bore driller under our scope." },
+  { t: "Builders & Civil Contractors", d: "Holes without the overhead of an in-house crew: footing probes, pavement investigations, service trenching support, booked around your program." },
+  { t: "Bigger Firms & Majors", d: "Reliable capacity when the fleet is booked out: night works, staged access and standing arrangements, delivered at the same standard every visit." },
 ];
 
 const TERMS = [
-  { t: "Your Scope Or Ours", d: "Drill to your borehole schedule under your supervision, or hand us the brief and take back finished logs — both run every week." },
+  { t: "Your Scope Or Ours", d: "Drill to your borehole schedule under your supervision, or hand us the brief and take back finished logs. Both run every week." },
   { t: "Rates In Writing", d: "Day rates or per-hole pricing confirmed in writing before the rig moves. No surprises on the invoice, ever." },
   { t: "Your Format", d: "Logs, samples and chain-of-custody delivered the way your templates and your lab expect them." },
   { t: "Insured & Credentialed", d: "PI and PL insurance for consultant engagements, with the supplier paperwork your procurement team needs, handled once." },
@@ -69,7 +69,7 @@ export default function SubcontractDrillingPage() {
           </h1>
           <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />
           <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed mb-10">
-            An engineer-operated 4WD rig available under your paperwork — for the consultancies, environmental programs, builders and bigger firms that need holes in the ground without owning the machine that makes them. Rapid mobilisation, engineer logging as standard, and the same crew every time.
+            An engineer-operated 4WD rig available under your paperwork, for the consultancies, environmental programs, builders and bigger firms that need holes in the ground without owning the machine that makes them. Rapid mobilisation, engineer logging as standard, and the same crew every time.
           </p>
           <div className="hero-line hero-d3 flex flex-col sm:flex-row items-start gap-4">
             <Link
@@ -118,7 +118,7 @@ export default function SubcontractDrillingPage() {
             </h2>
             <div data-fx="line" style={d(200)} className="h-px bg-forest-green w-12 mb-7" />
             <p data-fx="rise" style={d(160)} className="text-gray-600 font-light leading-relaxed">
-              Most drill crews hand you spoil and a diary. This one hands you engineer-grade logs, because the operator is an engineer — the anomaly gets flagged on site, the extra SPT gets taken without a phone call, and the day doesn&rsquo;t end with a hole in your data. That&rsquo;s the difference between hiring a rig and hiring SFGEO.
+              Most drill crews hand you spoil and a diary. This one hands you engineer-grade logs, because the operator is an engineer. The anomaly gets flagged on site, the extra SPT gets taken without a phone call, and the day doesn&rsquo;t end with a hole in your data. That&rsquo;s the difference between hiring a rig and hiring SFGEO.
             </p>
           </Reveal>
         </div>
@@ -170,7 +170,7 @@ export default function SubcontractDrillingPage() {
       <CloseBand
         source="subcontract-drilling close"
         heading={<>Fleet Booked Out? <span className="font-semibold h-bold">Our Rig Isn&rsquo;t.</span></>}
-        sub={<>Send the borehole schedule and the window. You&rsquo;ll have rates in writing within one business day &mdash; and a rig that turns up when it said it would.</>}
+        sub={<>Send the borehole schedule and the window. You&rsquo;ll have rates in writing within one business day, and a rig that turns up when it said it would.</>}
         quoteLabel="Enquire About Capacity"
         quote={{
           eyebrow: "Subcontract drilling",

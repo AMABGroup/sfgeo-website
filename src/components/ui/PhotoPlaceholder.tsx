@@ -22,7 +22,7 @@ export default function PhotoPlaceholder({
     <div
       className={`relative overflow-hidden bg-[#050A07] grain flex items-center justify-center ${className}`}
       role="img"
-      aria-label={`Photograph to come — ${subject}`}
+      aria-label={`Photograph to come: ${subject}`}
     >
       {/* survey grid, same language as the opening section */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(143,191,159,0.22)_1px,transparent_1px),linear-gradient(90deg,rgba(143,191,159,0.22)_1px,transparent_1px)] bg-[size:32px_32px] opacity-[0.16] pointer-events-none" />

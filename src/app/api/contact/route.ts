@@ -38,7 +38,7 @@ export async function POST(request: Request) {
       from: "SFGEO Website <noreply@sfgeo.com.au>",
       to: ["alli@sfgeo.com.au"],
       replyTo: email,
-      subject: `New enquiry from ${name} — ${projectType}`,
+      subject: `New enquiry from ${name}: ${projectType}`,
       text: `
 New enquiry received via sfgeo.com.au contact form.
 

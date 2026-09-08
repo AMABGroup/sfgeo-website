@@ -8,7 +8,7 @@ const SERVICES = [
   {
     n: "01",
     title: "Geotechnical",
-    desc: "Site classifications, investigations, assessments, construction phase support and design — the ground read before anything is built on it.",
+    desc: "Site classifications, investigations, assessments, construction phase support and design. The ground read before anything is built on it.",
     href: "/geotechnical",
     image: "/sfgeo-auger-flight-soil-profile.jpg",
     alt: "An auger flight lifted from a borehole, the soil profile held in sequence on its flights",
@@ -16,7 +16,7 @@ const SERVICES = [
   {
     n: "02",
     title: "Drilling",
-    desc: "Borehole drilling, tight access and rock coring — 4WD rig and crew, for our investigations and yours.",
+    desc: "Borehole drilling, tight access and rock coring. 4WD rig and crew, for our investigations and yours.",
     href: "/drilling",
     image: "/sfgeo-rig-major-earthworks-clean.jpg",
     alt: "SFGEO rig drilling beside major earthworks",
@@ -32,7 +32,7 @@ const SERVICES = [
   {
     n: "04",
     title: "Other Professional Services",
-    desc: "Utility location and GPR, dilapidation reports, surveying, structural, civil and hydraulic — one point of contact.",
+    desc: "Utility location and GPR, dilapidation reports, surveying, structural, civil and hydraulic. One point of contact.",
     href: "/other-services",
     image: "/sfgeo-night-works-team.jpg",
     alt: "The SFGEO team on night works at a Sydney intersection",
@@ -40,7 +40,7 @@ const SERVICES = [
   {
     n: "05",
     title: "Concrete Coring",
-    desc: "Slabs, pavements and walls — cored with the engineering attached.",
+    desc: "Slabs, pavements and walls, cored with the engineering attached.",
     href: "/concrete-coring",
     image: "/sfgeo-concrete-coring-trinitas.jpg",
     alt: "Concrete coring in progress on a major slab",

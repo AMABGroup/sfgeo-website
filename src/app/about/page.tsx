@@ -10,16 +10,16 @@ import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta(
   "Geotechnical Engineers Marrickville & Inner West | SFGEO",
-  "Family owned, principal-led geotechnical engineers based in Marrickville — the Inner West team behind every classification, investigation and drilling job.",
+  "Family owned, principal-led geotechnical engineers based in Marrickville, the Inner West team behind every classification, investigation and drilling job.",
   "/about",
 );
 
 const d = (ms: number) => ({ "--d": `${ms}ms` }) as CSSProperties;
 
 const VALUES = [
-  { t: "Direct Access. Always.", d: "Call, email, turn up. You reach the team doing the work directly — no admin queues, no message chains." },
-  { t: "Sydney Is Our Backyard.", d: "Locally owned, locally based. We know Sydney's ground, its councils and its sites — the Principal has worked them for 15 years, from Sydney Gateway to backyard footings." },
-  { t: "On Site. On Time. On Call.", d: "A fixed fee within one business day, classification reports as soon as 2 business days from fieldwork, and the Principal's mobile answered — not a switchboard." },
+  { t: "Direct Access. Always.", d: "Call, email, turn up. You reach the team doing the work directly. No admin queues, no message chains." },
+  { t: "Sydney Is Our Backyard.", d: "Locally owned, locally based. We know Sydney's ground, its councils and its sites. The Principal has worked them for 15 years, from Sydney Gateway to backyard footings." },
+  { t: "On Site. On Time. On Call.", d: "A fixed fee within one business day, classification reports as soon as 2 business days from fieldwork, and the Principal's mobile answered, not a switchboard." },
 ];
 
 const PEDIGREE = [
@@ -39,25 +39,25 @@ const COMMUNITY = [
   {
     place: "Randwick",
     title: "Traffic Signals, Two Posts",
-    line: "Two signal post footings checked by night against the State standard — one approved on sandstone, one sent back for redesign, both recorded before the road reopened.",
+    line: "Two signal post footings checked by night against the State standard: one approved on sandstone, one sent back for redesign, both recorded before the road reopened.",
     href: "/projects#randwick",
   },
   {
     place: "Caringbah",
     title: "Industrial Estate, Footing By Footing",
-    line: "Ten lightpole footings and a stormwater unit certified before concrete — a civil contractor’s programme kept moving, one verified base at a time.",
+    line: "Ten lightpole footings and a stormwater unit certified before concrete, a civil contractor’s programme kept moving, one verified base at a time.",
     href: "/projects#caringbah",
   },
   {
     place: "Telopea",
     title: "Safety Lighting, Footpaths Open",
-    line: "Five boreholes down a residential verge so new street lighting had ground it could stand on — footpaths open the whole time.",
+    line: "Five boreholes down a residential verge so new street lighting had ground it could stand on, footpaths open the whole time.",
     href: "/projects#telopea",
   },
   {
     place: "Homebush",
     title: "Traffic Lights, Markets Gate",
-    line: "A new traffic light footing at Potts Street and Parramatta Road, the turn into Sydney Markets — verified at depth before the pole went up.",
+    line: "A new traffic light footing at Potts Street and Parramatta Road, the turn into Sydney Markets, verified at depth before the pole went up.",
     href: "/projects#homebush",
   },
   {
@@ -94,7 +94,7 @@ export default function About() {
           </h1>
           <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />
           <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed">
-            A principal-led team, hired locally, backed by a trusted partner network — carrying fifteen years of Sydney ground from landmark infrastructure to backyard footings. When you work with SFGEO, you work with the same team, start to finish.
+            A principal-led team, hired locally, backed by a trusted partner network, carrying fifteen years of Sydney ground from landmark infrastructure to backyard footings. When you work with SFGEO, you work with the same team, start to finish.
           </p>
           <FollowFieldwork className="hero-line hero-d3 mt-10" />
         </div>
@@ -124,7 +124,7 @@ export default function About() {
             SFGEO is a locally-owned, independent geotechnical consultancy based in Marrickville, built on 15 years of hands-on Sydney experience across residential <Link href="/site-classification" className="text-forest-green hover:underline">site classifications</Link>, bespoke architectural homes, and landmark infrastructure.
           </p>
           <p data-fx="rise" style={d(220)} className="text-lg text-gray-600 font-light leading-loose mb-6">
-            We were founded on a simple belief: clients deserve direct access to the professional doing the work, not a corporate chain. SFGEO is family owned and Sydney grown — the engineer who quotes your job is the one who drills it and signs the report.
+            We were founded on a simple belief: clients deserve direct access to the professional doing the work, not a corporate chain. SFGEO is family owned and Sydney grown. The engineer who quotes your job is the one who drills it and signs the report.
           </p>
           <p data-fx="rise" style={d(280)} className="text-lg text-gray-600 font-light leading-loose">
             Our Principal Engineer has contributed to Sydney Gateway, the M12 Motorway, Western Sydney Airport, and the Canterbury Aquatic Centre. That depth of experience now serves your project with the responsiveness, transparency, and personal care that only an independent practice can offer.
@@ -163,7 +163,7 @@ export default function About() {
                 The people who do this work grew up in Sydney&rsquo;s inner west and west, and it is the same suburbs the work goes back into. We hire locally and we train young engineers and drillers from our own neighbourhoods, because the opportunities we were given should keep going to people from here.
               </p>
               <p data-fx="rise" style={d(260)} className="text-lg text-gray-300 font-light leading-relaxed">
-                It matters most on the jobs nobody puts a name to. Street lighting, traffic signals &mdash; public safety infrastructure that a suburb only notices when it isn&rsquo;t there. On those, the engineer reading the ground is someone who lives here too.
+                It matters most on the jobs nobody puts a name to. Street lighting, traffic signals: public safety infrastructure that a suburb only notices when it isn&rsquo;t there. On those, the engineer reading the ground is someone who lives here too.
               </p>
             </div>
           </Reveal>
@@ -217,7 +217,7 @@ export default function About() {
             <div data-fx="line" style={d(200)} className="mt-5 h-px bg-forest-green w-12" />
           </div>
           <p data-fx="rise" style={d(160)} className="text-sm text-gray-500 max-w-md font-light leading-relaxed">
-            Before SFGEO carried its own name, its Principal carried these — landmark Sydney infrastructure, now serving every backyard we classify. For current work, see <Link href="/projects" className="text-forest-green hover:underline">our projects</Link>.
+            Before SFGEO carried its own name, its Principal carried these: landmark Sydney infrastructure, now serving every backyard we classify. For current work, see <Link href="/projects" className="text-forest-green hover:underline">our projects</Link>.
           </p>
         </Reveal>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -271,7 +271,7 @@ export default function About() {
             <div className="card-lift p-8 bg-white border border-gray-100 rounded-2xl shadow-sm flex flex-col items-center justify-center text-center h-full">
               <span className="block text-slate-950 font-montserrat font-semibold text-lg mb-3">Fully Insured &amp; Compliant</span>
               <p className="text-sm font-light leading-relaxed text-gray-600">
-                Professional Indemnity (PI) and Public Liability (PL) insurance covering geotechnical engineering and drilling — certificates of currency on request.
+                Professional Indemnity (PI) and Public Liability (PL) insurance covering geotechnical engineering and drilling. Certificates of currency on request.
               </p>
             </div>
           </div>
@@ -282,7 +282,7 @@ export default function About() {
         source="about close"
         kicker="Marrickville, Sydney"
         heading={<>Work With <span className="font-semibold h-bold">The Same Team.</span></>}
-        sub="From the first phone call to the final report — one team, one standard, and the Principal across every job."
+        sub="From the first phone call to the final report: one team, one standard, and the Principal across every job."
       />
     </div>
   );

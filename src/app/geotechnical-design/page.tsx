@@ -9,7 +9,7 @@ import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta(
   "Geotechnical Design Parameters Sydney | SFGEO",
-  "Site-specific geotechnical design inputs for structural and civil engineers — bearing capacities, pile values, AS 4678 retaining parameters and pavements.",
+  "Site-specific geotechnical design inputs for structural and civil engineers: bearing capacities, pile values, AS 4678 retaining parameters and pavements.",
   "/geotechnical-design",
 );
 
@@ -39,7 +39,7 @@ export default function Page() {
     "@type": "Service",
     "name": "Geotechnical Design",
     "serviceType": "Geotechnical design parameters",
-    "description": "Site-specific geotechnical design inputs for structural and civil engineers — bearing capacities, pile values, AS 4678 retaining parameters and pavements.",
+    "description": "Site-specific geotechnical design inputs for structural and civil engineers: bearing capacities, pile values, AS 4678 retaining parameters and pavements.",
     "url": "https://sfgeo.com.au/geotechnical-design",
     "provider": { "@id": "https://sfgeo.com.au/#organization" },
     "areaServed": { "@type": "City", "name": "Sydney, New South Wales, Australia" }
@@ -58,7 +58,7 @@ export default function Page() {
             <span className="hero-mask"><span className="mask-line mask-d2"><span className="font-semibold h-bold">The Numbers Under The Design.</span></span></span>
           </h1>
           <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />
-          <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed">Your structure is only as good as the parameters beneath it. SFGEO supplies the site-specific inputs structural and civil engineers design from — investigated, derived and signed by the engineer who read the ground.</p>
+          <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed">Your structure is only as good as the parameters beneath it. SFGEO supplies the site-specific inputs structural and civil engineers design from, investigated, derived and signed by the engineer who read the ground.</p>
           <div className="hero-line hero-d3 mt-10 flex flex-col sm:flex-row items-start gap-4">
             <Link
               href="tel:+61423483555"
@@ -92,7 +92,7 @@ export default function Page() {
             <p data-fx="rise" className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">01 &middot; The Approach</p>
             <h2 data-fx="rise" style={d(80)} className="text-3xl sm:text-4xl font-montserrat font-light tracking-tight text-slate-950 mb-5">Derived From The Ground, <span className="font-semibold h-bold">Not The Textbook.</span></h2>
             <div data-fx="line" style={d(200)} className="h-px bg-forest-green w-12 mb-7" />
-            <p data-fx="rise" style={d(160)} className="text-gray-600 font-light leading-relaxed">Every parameter traces to fieldwork on your site — <Link href="/geotechnical-investigations" className="text-forest-green hover:underline font-medium">boreholes, penetrometers, laboratory results</Link> — not presumptive values copied between reports. We do not carry the structural design; we make sure the numbers under it are real, and we stand behind them. Once the excavation opens, <Link href="/construction-phase-support" className="text-forest-green hover:underline font-medium">construction phase support</Link> verifies them at bearing level.</p>
+            <p data-fx="rise" style={d(160)} className="text-gray-600 font-light leading-relaxed">Every parameter traces to fieldwork on your site: <Link href="/geotechnical-investigations" className="text-forest-green hover:underline font-medium">boreholes, penetrometers, laboratory results</Link>, not presumptive values copied between reports. We do not carry the structural design; we make sure the numbers under it are real, and we stand behind them. Once the excavation opens, <Link href="/construction-phase-support" className="text-forest-green hover:underline font-medium">construction phase support</Link> verifies them at bearing level.</p>
           </Reveal>
         </div>
       </section>
@@ -125,8 +125,8 @@ export default function Page() {
         <Reveal variant="group">
           <div data-stagger className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              { t: "Parameters, Not Prose", d: "Design values delivered as memos and tables your software takes directly — with the derivation available when reviewers ask." },
-              { t: "Alternatives Reviewed", d: "When the contractor proposes a different footing system mid-build, we review it against the ground data fast — so the program holds." },
+              { t: "Parameters, Not Prose", d: "Design values delivered as memos and tables your software takes directly, with the derivation available when reviewers ask." },
+              { t: "Alternatives Reviewed", d: "When the contractor proposes a different footing system mid-build, we review it against the ground data fast, so the program holds." },
               { t: "On Call Through Construction", d: "The engineer who derived the numbers stays reachable when the excavation opens and the ground asks its own questions." },
             ].map((c) => (
               <div key={c.t} className="card-lift p-8 bg-white border border-gray-100 rounded-2xl shadow-sm h-full">
@@ -141,7 +141,7 @@ export default function Page() {
       <CloseBand
         source="geotechnical-design close"
         heading={<>Designing On Sydney Ground? <span className="font-semibold h-bold">Get Real Numbers.</span></>}
-        sub="Send the drawings and the site — the parameters come back derived from the ground, signed, and in a form your software takes directly."
+        sub="Send the drawings and the site. The parameters come back derived from the ground, signed, and in a form your software takes directly."
       />
     </div>
   );

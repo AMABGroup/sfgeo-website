@@ -9,7 +9,7 @@ import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta(
   "Dilapidation Reports, Utility Location & Surveys Sydney | SFGEO",
-  "Dilapidation reports, utility location and GPR scanning, land surveys and structural, civil and hydraulic specialists — SFGEO coordinates, one engagement.",
+  "Dilapidation reports, utility location and GPR scanning, land surveys and structural, civil and hydraulic specialists. SFGEO coordinates, one engagement.",
   "/other-services",
 );
 
@@ -27,7 +27,7 @@ const SECTIONS = [
     alt: "Exposed services in an open excavation with a tape measure",
     body: (
       <>
-        Before anything drills, digs or cores — services located and marked, concrete scanned, and the expensive unknowns taken off the table. Arranged through our specialist partner network and coordinated with the <Link href="/borehole-drilling" className="text-forest-green hover:underline">borehole drilling</Link> or <Link href="/concrete-coring" className="text-forest-green hover:underline">concrete coring</Link> it protects, so one engagement covers the scan and the work that follows it.
+        Before anything drills, digs or cores: services located and marked, concrete scanned, and the expensive unknowns taken off the table. Arranged through our specialist partner network and coordinated with the <Link href="/borehole-drilling" className="text-forest-green hover:underline">borehole drilling</Link> or <Link href="/concrete-coring" className="text-forest-green hover:underline">concrete coring</Link> it protects, so one engagement covers the scan and the work that follows it.
       </>
     ),
     link: { href: "/contact", label: "Book A Services Scan" },
@@ -41,7 +41,7 @@ const SECTIONS = [
     caption: "02 · Dilapidation Reports",
     image: "/sfgeo-dilapidation-crack-caliper.jpg",
     alt: "A stepped crack in a rendered wall measured with a vernier caliper during a dilapidation inspection in Naremburn",
-    body: "Pre- and post-construction condition records of neighbouring structures — the evidence that protects everyone before excavation, demolition or heavy vibration starts next door. Delivered through our partner network, with SFGEO setting the scope and timing so the record exists before the first machine arrives.",
+    body: "Pre- and post-construction condition records of neighbouring structures, the evidence that protects everyone before excavation, demolition or heavy vibration starts next door. Delivered through our partner network, with SFGEO setting the scope and timing so the record exists before the first machine arrives.",
     link: { href: "/contact", label: "Arrange A Dilapidation Record" },
   },
   {
@@ -55,7 +55,7 @@ const SECTIONS = [
     alt: "Level staff standing on a freshly graded pad during earthworks",
     body: (
       <>
-        Boundary, level and detail surveys through trusted surveying partners — commissioned alongside the <Link href="/geotechnical-investigations" className="text-forest-green hover:underline">geotechnical investigation</Link>, so the design team receives one aligned package instead of fragments from three separate vendors. SFGEO coordinates; the surveyors survey.
+        Boundary, level and detail surveys through trusted surveying partners, commissioned alongside the <Link href="/geotechnical-investigations" className="text-forest-green hover:underline">geotechnical investigation</Link>, so the design team receives one aligned package instead of fragments from three separate vendors. SFGEO coordinates; the surveyors survey.
       </>
     ),
     link: { href: "/contact", label: "Coordinate A Survey" },
@@ -71,7 +71,7 @@ const SECTIONS = [
     alt: "Piling rig working beside a brick building on a Sydney site",
     body: (
       <>
-        Some ground questions end in a structural answer — underpinning, <Link href="/geotechnical-design" className="text-forest-green hover:underline">retaining walls</Link>, stormwater, remediation. When a project needs disciplines beyond geotechnics, we introduce specialist structural, civil and hydraulic engineers we already work with, and stay in the room: one team around the project, not a referral and a goodbye.
+        Some ground questions end in a structural answer: underpinning, <Link href="/geotechnical-design" className="text-forest-green hover:underline">retaining walls</Link>, stormwater, remediation. When a project needs disciplines beyond geotechnics, we introduce specialist structural, civil and hydraulic engineers we already work with, and stay in the room: one team around the project, not a referral and a goodbye.
       </>
     ),
     link: { href: "/contact", label: "Assemble The Team" },
@@ -81,7 +81,7 @@ const SECTIONS = [
 const FIRST_IMAGE_ID = SECTIONS.find((s) => s.image)?.id;
 
 const ALSO = [
-  { t: "Groundwater Monitoring Wells & Water Bores", d: "Scoped and managed by SFGEO and installed by a licensed drilling contractor — one engagement, with the engineer who logs the ground writing the report." },
+  { t: "Groundwater Monitoring Wells & Water Bores", d: "Scoped and managed by SFGEO and installed by a licensed drilling contractor. One engagement, with the engineer who logs the ground writing the report." },
   {
     t: "Working Platform Assessments",
     d: (
@@ -106,7 +106,7 @@ export default function OtherServicesPage() {
     "@type": "Service",
     "name": "Other Professional Services",
     "serviceType": "Utility location, dilapidation reports, surveying and specialist engineering coordination",
-    "description": "Utility location and GPR scanning, dilapidation reports, land and detail surveys, and structural, civil and hydraulic engineering — arranged through SFGEO's partner network under one point of contact.",
+    "description": "Utility location and GPR scanning, dilapidation reports, land and detail surveys, and structural, civil and hydraulic engineering, arranged through SFGEO's partner network under one point of contact.",
     "url": "https://sfgeo.com.au/other-services",
     "provider": { "@id": "https://sfgeo.com.au/#organization" },
     "areaServed": { "@type": "City", "name": "Sydney, New South Wales, Australia" }
@@ -129,7 +129,7 @@ export default function OtherServicesPage() {
           </h1>
           <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />
           <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed">
-            Utility location, dilapidation records, surveys, specialist engineering — the services a project needs beside the geotechnics. Delivered through a trusted partner network, coordinated by SFGEO, under one engagement and one point of contact.
+            Utility location, dilapidation records, surveys, specialist engineering: the services a project needs beside the geotechnics. Delivered through a trusted partner network, coordinated by SFGEO, under one engagement and one point of contact.
           </p>
         </div>
       </section>
@@ -205,7 +205,7 @@ export default function OtherServicesPage() {
           </h2>
           <div data-fx="line" style={d(200)} className="h-px bg-forest-green w-12 mb-7" />
           <p data-fx="rise" style={d(160)} className="text-gray-600 font-light leading-relaxed">
-            Every partner in the network is a specialist we&rsquo;ve worked beside on real Sydney projects. SFGEO scopes the work, engages the right firm, coordinates it with the geotechnical program and stays accountable for the whole package — you deal with one team, one invoice trail and one standard, from the first phone call to the last report.
+            Every partner in the network is a specialist we&rsquo;ve worked beside on real Sydney projects. SFGEO scopes the work, engages the right firm, coordinates it with the geotechnical program and stays accountable for the whole package. You deal with one team, one invoice trail and one standard, from the first phone call to the last report.
           </p>
         </Reveal>
       </section>
@@ -213,7 +213,7 @@ export default function OtherServicesPage() {
       <CloseBand
         source="other-services close"
         heading={<>One Call Covers <span className="font-semibold h-bold">The Lot.</span></>}
-        sub={<>Tell us what the project needs — even if it isn&rsquo;t geotechnical. If it&rsquo;s not ours to do, we&rsquo;ll put the right specialist on it and stay across the result.</>}
+        sub={<>Tell us what the project needs, even if it isn&rsquo;t geotechnical. If it&rsquo;s not ours to do, we&rsquo;ll put the right specialist on it and stay across the result.</>}
       />
     </div>
   );

@@ -37,7 +37,7 @@ export default function ContactForm() {
     const subject = new URLSearchParams(window.location.search).get("subject");
     if (subject === "b2b-enquiry") {
       // Engineers and consultancies land here too — let them pick the type.
-      setFormData(prev => ({ ...prev, message: "B2B enquiry — " }));
+      setFormData(prev => ({ ...prev, message: "B2B enquiry: " }));
     } else if (subject === "Subcontract Drilling Enquiry") {
       setFormData(prev => ({ ...prev, projectType: "B2B subcontract drilling" }));
     } else if (subject === "site-inspection") {

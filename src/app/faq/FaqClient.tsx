@@ -47,7 +47,7 @@ export default function FaqClient() {
             </h1>
             <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />
             <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed">
-              Clear answers on soil testing, reports, access and process &mdash; from the team that does the work. If it isn&rsquo;t here, it&rsquo;s answered on the phone.
+              Clear answers on soil testing, reports, access and process, from the team that does the work. If it isn&rsquo;t here, it&rsquo;s answered on the phone.
             </p>
           </div>
           <FollowFieldwork className="hero-line hero-d3 mt-10 lg:mt-0 lg:shrink-0 lg:pb-2" />
@@ -150,7 +150,7 @@ export default function FaqClient() {
       <CloseBand
         source="faq close"
         heading={<>Still Have <span className="font-semibold h-bold">A Question?</span></>}
-        sub="Ask the engineer, not a form robot. Call, or send the question with your site address — answered within one business day."
+        sub="Ask the engineer, not a form robot. Call, or send the question with your site address. Answered within one business day."
         className="mt-24 lg:mt-32"
       >
         <Link href="/contact" className="inline-flex items-center gap-2 text-sm font-semibold tracking-wide text-white/80 hover:text-white group">

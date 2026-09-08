@@ -309,7 +309,7 @@ export function SystemHeader() {
               {open && (
                 <iframe
                   src={MAP_SRC}
-                  title="SFGEO office — Marrickville"
+                  title="SFGEO office, Marrickville"
                   className="absolute inset-0 w-full h-full"
                   style={{ border: 0 }}
                   loading="lazy"
@@ -379,7 +379,7 @@ export function SystemFooter() {
     <footer className="bg-[#050A07] text-white/55 px-6 lg:px-12 pt-12 pb-28 lg:pb-12">
       <div className="max-w-[90rem] mx-auto flex flex-col gap-8">
         <div className="flex flex-wrap items-center justify-between gap-6">
-          <span className="relative block h-8 w-28"><Image src="/SFGEO_logo.png" alt="SFGEO — Solid Foundation Geotechnical" fill sizes="140px" className="object-contain object-left" /></span>
+          <span className="relative block h-8 w-28"><Image src="/SFGEO_logo.png" alt="SFGEO, Solid Foundation Geotechnical" fill sizes="140px" className="object-contain object-left" /></span>
           <nav aria-label="Footer" className="flex flex-wrap gap-x-7 gap-y-0 text-[13px] font-medium">
             <Link href="/services" prefetch={false} className="inline-block py-2 hover:text-white transition-colors">Services</Link>
             <Link href="/projects" prefetch={false} className="inline-block py-2 hover:text-white transition-colors">Projects</Link>

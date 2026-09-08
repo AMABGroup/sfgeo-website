@@ -12,7 +12,7 @@ import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta(
   "Site Classification & Soil Test Sydney | AS 2870 | SFGEO",
-  "AS 2870 site classifications for Sydney homes and granny flats — fixed fees from $800 + GST, the engineer on site, reports as soon as 2 business days.",
+  "AS 2870 site classifications for Sydney homes and granny flats: fixed fees from $800 + GST, the engineer on site, reports as soon as 2 business days.",
   "/site-classification",
 );
 
@@ -24,7 +24,7 @@ const REPORT_CONTENTS = [
   "The subsurface profile, layer by layer, with groundwater observations",
   "Engineer-logged borehole records and a plan of where each hole went",
   "Laboratory results, where tested, and what they mean for the footing",
-  "Founding recommendations — depth, and the fill, trees, slope or drainage your engineer has to design around",
+  "Founding recommendations: depth, and the fill, trees, slope or drainage your engineer has to design around",
   "Written to your certifier's requirements and signed by the Principal Engineer",
 ];
 
@@ -48,7 +48,7 @@ const COMPARE = [
 const PROCESS = [
   { t: "Send The Address", d: "A short project description and any plans you have. Answered within one business day." },
   { t: "Desktop Review & Fixed Fee", d: "The Principal reviews the block, the geology and your plans, and the fee is confirmed in writing within one business day. A site walkover is arranged where the site warrants it." },
-  { t: "Fieldwork", d: "The Principal attends and logs the profile on site — with lab testing through a NATA-accredited laboratory only when the site warrants it." },
+  { t: "Fieldwork", d: "The Principal attends and logs the profile on site, with lab testing through a NATA-accredited laboratory only when the site warrants it." },
   { t: "Report, Signed", d: "Written against your certifier's and structural engineer's requirements. As soon as 2 business days from fieldwork; urgent turnaround by arrangement." },
 ];
 
@@ -126,7 +126,7 @@ export default function SiteClassificationPage() {
           </h1>
           <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />
           <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed mb-10">
-            The AS 2870 report your whole build stands on — led by the Principal Engineer, tailored to your site, your design and your certifier. No templates. No surprises.
+            The AS 2870 report your whole build stands on, led by the Principal Engineer, tailored to your site, your design and your certifier. No templates. No surprises.
           </p>
           <div className="hero-line hero-d3 flex flex-col sm:flex-row items-start gap-4">
             <QuoteCta
@@ -155,7 +155,7 @@ export default function SiteClassificationPage() {
               <div data-fx="scale" className="w-full aspect-video rounded-2xl overflow-hidden shadow-[0_26px_60px_-26px_rgba(5,10,7,0.4)]">
                 <VideoEmbed
                   id="F4pXJ63gAUM"
-                  title="Site Classification to AS 2870 — SFGEO geotechnical investigation in Cherrybrook, NSW"
+                  title="Site Classification to AS 2870: SFGEO geotechnical investigation in Cherrybrook, NSW"
                 />
               </div>
               <figcaption data-fx="rise" style={d(240)} className="mt-3 text-[11px] uppercase tracking-[0.25em] text-gray-500 font-semibold text-center">
@@ -170,13 +170,13 @@ export default function SiteClassificationPage() {
             </h2>
             <div data-fx="line" style={d(200)} className="h-px bg-forest-green w-12 mb-7" />
             <p data-fx="rise" style={d(160)} className="text-gray-600 font-light leading-relaxed mb-7">
-              Often called a soil test or geotech report, a site classification under AS 2870 — done properly, and done early — works for you four ways:
+              Often called a soil test or geotech report, a site classification under AS 2870, done properly and done early, works for you four ways:
             </p>
             <ul data-stagger style={d(240)} className="space-y-3 mb-2">
               {[
-                "Lets your architect design with the ground, not around it — before redesign fees exist",
+                "Lets your architect design with the ground, not around it, before redesign fees exist",
                 "Gives your structural engineer real data: a properly read Class M instead of an assumed worst-case H1 is tens of thousands in concrete and steel",
-                "Moves cleanly through DA and CDC — written to your certifier's requirements, not a template",
+                "Moves cleanly through DA and CDC, written to your certifier's requirements, not a template",
                 "Protects the finished home from the cracks that show up quietly, years later",
               ].map((s) => (
                 <li key={s} className="flex items-start gap-3 text-[15px] text-gray-600 font-light leading-relaxed">
@@ -207,7 +207,7 @@ export default function SiteClassificationPage() {
             </h2>
             <div data-fx="line" style={d(200)} className="h-px bg-forest-green w-12 mb-7" />
             <p data-fx="rise" style={d(160)} className="text-gray-600 font-light leading-relaxed">
-              Most Sydney geotechnical firms run on volume: cheap headline fees, templated reports, conservative defaults — and a signing engineer who never set foot on the property. You pay for that model either way, in concrete you didn&rsquo;t need or a report your certifier rejects. At SFGEO, the person reading your ground has drilled ground like it, built against ground like it, and carries the engineering qualifications on top — one professional, not three.
+              Most Sydney geotechnical firms run on volume: cheap headline fees, templated reports, conservative defaults, and a signing engineer who never set foot on the property. You pay for that model either way, in concrete you didn&rsquo;t need or a report your certifier rejects. At SFGEO, the person reading your ground has drilled ground like it, built against ground like it, and carries the engineering qualifications on top. One professional, not three.
             </p>
           </Reveal>
         </div>
@@ -244,7 +244,7 @@ export default function SiteClassificationPage() {
           </h2>
           <div data-fx="line" style={d(200)} className="h-px bg-forest-green w-12 mb-7" />
           <p data-fx="rise" style={d(160)} className="text-gray-600 font-light leading-relaxed">
-            The figures below are starting points — what drives a real quote is the site itself: access, ground conditions, existing structures, slope, and the depth of investigation your project actually needs. Every fee is confirmed in writing before work begins.
+            The figures below are starting points. What drives a real quote is the site itself: access, ground conditions, existing structures, slope, and the depth of investigation your project actually needs. Every fee is confirmed in writing before work begins.
           </p>
           <p data-fx="rise" style={d(220)} className="mt-4 text-gray-600 font-light leading-relaxed">
             Full price bands and what moves a quote: <Link href="/geotechnical-report-cost-sydney" className="text-forest-green hover:underline font-medium">geotechnical report cost guide</Link>.
@@ -274,7 +274,7 @@ export default function SiteClassificationPage() {
               label="Get Your Fixed-Fee Quote"
               className="inline-flex items-center justify-center px-8 py-2.5 bg-gradient-to-b from-[#346b43] to-forest-green text-white rounded-full shadow-[0_8px_20px_-6px_rgba(45,90,58,0.4)] hover:shadow-[0_12px_24px_-8px_rgba(45,90,58,0.6)] hover:brightness-105 transition-all hover:-translate-y-0.5 h-[46px] text-xs font-semibold tracking-wide"
             />
-            <p className="mt-4 text-sm text-gray-500 font-light">Send the address and what you&rsquo;re building — a fixed fee in writing within one business day.</p>
+            <p className="mt-4 text-sm text-gray-500 font-light">Send the address and what you&rsquo;re building. A fixed fee in writing within one business day.</p>
           </div>
         </Reveal>
       </section>
@@ -310,7 +310,7 @@ export default function SiteClassificationPage() {
             </h2>
             <div data-fx="line" style={d(200)} className="h-px bg-forest-green w-12 mb-7" />
             <p data-fx="rise" style={d(160)} className="text-gray-600 font-light leading-relaxed mb-8">
-              Inner West terraces, battleaxe blocks, rear-yard granny flat positions, stepped sites with deep investigation points — SFGEO runs a 4WD-mounted rig for the sites conventional trucks can&rsquo;t reach, with motorised hand augers covering zero-clearance and internal courtyard work. Access-ready from first contact, so your program doesn&rsquo;t slip waiting on a rig that can&rsquo;t get in.
+              Inner West terraces, battleaxe blocks, rear-yard granny flat positions, stepped sites with deep investigation points. SFGEO runs a 4WD-mounted rig for the sites conventional trucks can&rsquo;t reach, with motorised hand augers covering zero-clearance and internal courtyard work. Access-ready from first contact, so your program doesn&rsquo;t slip waiting on a rig that can&rsquo;t get in.
             </p>
             <Link data-fx="rise" style={d(220)} href="/tight-access-drilling" className="text-sm font-semibold tracking-wide text-forest-green group inline-flex items-center gap-2">
               <span className="draw-link">Explore Tight Access Capability</span>
@@ -329,7 +329,7 @@ export default function SiteClassificationPage() {
           </h2>
           <div data-fx="line" style={d(200)} className="h-px bg-forest-green w-12 mb-7" />
           <p data-fx="rise" style={d(160)} className="text-gray-600 font-light leading-relaxed">
-            AS 2870 classifies your site by how much the ground moves with moisture — and that letter drives every footing decision your structural engineer makes.
+            AS 2870 classifies your site by how much the ground moves with moisture, and that letter drives every footing decision your structural engineer makes.
           </p>
         </Reveal>
         <Reveal variant="group">
@@ -344,7 +344,7 @@ export default function SiteClassificationPage() {
             </div>
           </div>
           <p data-fx="rise" style={d(160)} className="text-gray-600 font-light leading-relaxed max-w-3xl">
-            <strong className="font-medium text-slate-950">Class P</strong> sits outside the reactivity scale — applied when conditions fall outside the standard framework: fill, steep slope, soft or collapsing soils, reactivity beyond Class E, or proximity to significant trees and watercourses. It requires individual engineering assessment, and often a full <Link href="/geotechnical-investigations" className="text-forest-green hover:underline">geotechnical investigation</Link>.
+            <strong className="font-medium text-slate-950">Class P</strong> sits outside the reactivity scale, applied when conditions fall outside the standard framework: fill, steep slope, soft or collapsing soils, reactivity beyond Class E, or proximity to significant trees and watercourses. It requires individual engineering assessment, and often a full <Link href="/geotechnical-investigations" className="text-forest-green hover:underline">geotechnical investigation</Link>.
           </p>
         </Reveal>
       </section>
@@ -358,7 +358,7 @@ export default function SiteClassificationPage() {
           </h2>
           <div data-fx="line" style={d(200)} className="h-px bg-forest-green w-12 mb-7" />
           <p data-fx="rise" style={d(160)} className="text-gray-600 font-light leading-relaxed">
-            A signed PDF written to your certifier&rsquo;s and structural engineer&rsquo;s requirements — the document the footing design is drawn from.
+            A signed PDF written to your certifier&rsquo;s and structural engineer&rsquo;s requirements, the document the footing design is drawn from.
           </p>
         </Reveal>
         <Reveal variant="group">
@@ -378,7 +378,7 @@ export default function SiteClassificationPage() {
         <div className="max-w-4xl mx-auto px-6 py-24 lg:py-28 text-center">
           <Reveal variant="group">
             <p data-fx="rise" className="text-2xl sm:text-4xl font-montserrat font-light leading-snug tracking-tight">
-              &ldquo;Two doors down from a Class S site, your land may be a Class H1 site. This is why the fieldwork — <span className="font-semibold text-[#8FBF9F]">engineered properly</span> — matters.&rdquo;
+              &ldquo;Two doors down from a Class S site, your land may be a Class H1 site. This is why the fieldwork, <span className="font-semibold text-[#8FBF9F]">engineered properly</span>, matters.&rdquo;
             </p>
           </Reveal>
         </div>
@@ -392,7 +392,7 @@ export default function SiteClassificationPage() {
       <CloseBand
         source="site-classification close"
         heading={<>Start With <span className="font-semibold h-bold">The Address.</span></>}
-        sub="Every SFGEO engagement begins with the Principal Engineer reading your block and your plans — and standing on your ground on the day."
+        sub="Every SFGEO engagement begins with the Principal Engineer reading your block and your plans, and standing on your ground on the day."
       >
         <div className="max-w-2xl mx-auto text-left">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-5">

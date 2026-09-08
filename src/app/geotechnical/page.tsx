@@ -8,18 +8,18 @@ import { OG_BASE, TWITTER_BASE } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Geotechnical Engineering Sydney | The Full Suite | SFGEO",
-  description: "The full geotechnical suite for Sydney — site classifications, investigations, assessments, construction phase support and design. Principal-led, fixed-fee.",
+  description: "The full geotechnical suite for Sydney: site classifications, investigations, assessments, construction phase support and design. Principal-led, fixed-fee.",
   alternates: { canonical: '/geotechnical' },
   openGraph: {
     ...OG_BASE,
     title: "Geotechnical Engineering Sydney | The Full Suite | SFGEO",
-    description: "Site classifications, investigations, assessments, construction support and design — principal-led, fixed-fee.",
+    description: "Site classifications, investigations, assessments, construction support and design. Principal-led, fixed-fee.",
     url: '/geotechnical',
   },
   twitter: {
     ...TWITTER_BASE,
     title: "Geotechnical Engineering Sydney | SFGEO",
-    description: "The full geotechnical suite — principal-led, fixed-fee, family owned.",
+    description: "The full geotechnical suite. Principal-led, fixed-fee, family owned.",
   },
 };
 
@@ -32,7 +32,7 @@ const SECTIONS = [
     title: "Site Classification",
     image: "/sfgeo-sc-hand-auger-panania.jpg",
     alt: "Hand auger mid-borehole in a Panania backyard",
-    body: "The AS 2870 report your structural engineer designs from — homes, extensions, granny flats, duplexes and pools, scoped to your block rather than a template. Fixed fees from $800 + GST, reports as soon as 2 business days from fieldwork.",
+    body: "The AS 2870 report your structural engineer designs from: homes, extensions, granny flats, duplexes and pools, scoped to your block rather than a template. Fixed fees from $800 + GST, reports as soon as 2 business days from fieldwork.",
     link: { href: "/site-classification", label: "Explore Site Classification" },
   },
   {
@@ -59,7 +59,7 @@ const SECTIONS = [
     title: "Construction Phase Support",
     image: "/footing-pile-inspection-north-willoughby-geotechnical.jpg",
     alt: "Footing and pier inspection at bearing level",
-    body: "Footing, pier and pile inspections at bearing level, proof rolls, and engineered fill to AS 3798 — verified on site and confirmed in writing before the pour, so an open excavation never waits. Single visits for builders; standing engagements for commercial contractors.",
+    body: "Footing, pier and pile inspections at bearing level, proof rolls, and engineered fill to AS 3798, verified on site and confirmed in writing before the pour, so an open excavation never waits. Single visits for builders; standing engagements for commercial contractors.",
     link: { href: "/construction-phase-support", label: "Explore Construction Phase Support" },
   },
   {
@@ -68,13 +68,13 @@ const SECTIONS = [
     title: "Geotechnical Design",
     image: "/sfgeo-design-parameters-plans-desk.jpg",
     alt: "The engineer at the plans desk reading a borehole log against the structural details and a utility plan",
-    body: "Site-specific inputs for structural and civil teams — bearing capacities, pile design values, retaining wall parameters to AS 4678, pavement and working platform assessments. We don't carry the structural design; we make sure the numbers under it are real.",
+    body: "Site-specific inputs for structural and civil teams: bearing capacities, pile design values, retaining wall parameters to AS 4678, pavement and working platform assessments. We don't carry the structural design; we make sure the numbers under it are real.",
     link: { href: "/geotechnical-design", label: "Explore Geotechnical Design" },
   },
 ];
 
 const AUDIENCES = [
-  { t: "Homeowners", d: "A classification or investigation for the home, pool or granny flat — explained in plain English, priced fixed." },
+  { t: "Homeowners", d: "A classification or investigation for the home, pool or granny flat, explained in plain English and priced fixed." },
   { t: "Architects & Builders", d: "Reports written to your certifier's requirements, and inspections that keep the program moving." },
   { t: "Engineers & Developers", d: "Parameters your designs can rely on, investigations at any access, peer-review depth on request." },
   { t: "Councils & Asset Owners", d: "Compliance records, asset investigations and assessments that stand up to scrutiny." },
@@ -117,7 +117,7 @@ export default function GeotechnicalHubPage() {
           </h1>
           <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />
           <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed">
-            From the first hole on an empty block to the last inspection before the pour — one team carries the whole geotechnical scope, and the Principal is across every job.
+            From the first hole on an empty block to the last inspection before the pour, one team carries the whole geotechnical scope, and the Principal is across every job.
           </p>
         </div>
       </section>
@@ -175,7 +175,7 @@ export default function GeotechnicalHubPage() {
       <CloseBand
         source="geotechnical close"
         heading={<>Not Sure Which <span className="font-semibold h-bold">You Need?</span></>}
-        sub={<>Describe the project in a sentence. The Principal will tell you what it needs &mdash; and what it doesn&rsquo;t.</>}
+        sub={<>Describe the project in a sentence. The Principal will tell you what it needs, and what it doesn&rsquo;t.</>}
       />
     </div>
   );

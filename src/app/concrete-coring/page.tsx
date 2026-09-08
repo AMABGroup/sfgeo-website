@@ -12,7 +12,7 @@ import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta(
   "Concrete Coring Sydney | Engineer-Supervised | SFGEO",
-  "Engineer-supervised concrete coring across Sydney — slabs, pavements and penetrations, with core logging and strength context. From $120 + GST per hole, min. 3.",
+  "Engineer-supervised concrete coring across Sydney: slabs, pavements and penetrations, with core logging and strength context. From $120 + GST per hole, min. 3.",
   "/concrete-coring",
 );
 
@@ -53,7 +53,7 @@ const SECTIONS: Section[] = [
     caption: "02 · Pavement Investigation",
     image: "/sfgeo-concrete-core-thickness-tape.jpg",
     alt: "Extracted concrete core measured against a tape on site",
-    body: "Core through the pavement and keep going. One visit logs the concrete, the layers beneath it and the subgrade below, so a pavement question and a ground question are answered by the same crew, in the same report — and where the pavement question turns out to be a ground question, the geotechnical engineer is already standing on it.",
+    body: "Core through the pavement and keep going. One visit logs the concrete, the layers beneath it and the subgrade below, so a pavement question and a ground question are answered by the same crew, in the same report, and where the pavement question turns out to be a ground question, the geotechnical engineer is already standing on it.",
     cta: "Scope A Pavement Program",
   },
   {
@@ -65,7 +65,7 @@ const SECTIONS: Section[] = [
     video: "/sfgeo-concrete-coring-rig-hardstand.mp4",
     poster: "/sfgeo-concrete-coring-rig-hardstand.jpg",
     alt: "Wet coring rig cutting a clean core through a heavy-duty concrete hardstand",
-    body: "Located penetrations through slabs and walls for services, positioned with the structure in mind rather than the drawing alone. Reinforcement is considered before the barrel turns, services are marked, and the hole is reinstated — so the penetration lands where it should and nothing load-bearing pays for it.",
+    body: "Located penetrations through slabs and walls for services, positioned with the structure in mind rather than the drawing alone. Reinforcement is considered before the barrel turns, services are marked, and the hole is reinstated, so the penetration lands where it should and nothing load-bearing pays for it.",
     cta: "Book Penetrations",
   },
   {
@@ -76,7 +76,7 @@ const SECTIONS: Section[] = [
     caption: "04 · Investigation Access",
     image: "/sfgeo-concrete-core-hole-depth-check.jpg",
     alt: "Tape measure checking depth down a cored hole through a slab",
-    body: "Coring through existing slabs so a geotechnical investigation can reach the ground beneath a building that was never meant to be drilled — warehouses, factory floors, basements. One crew cores the concrete and drills the ground under it in the same mobilisation.",
+    body: "Coring through existing slabs so a geotechnical investigation can reach the ground beneath a building that was never meant to be drilled: warehouses, factory floors, basements. One crew cores the concrete and drills the ground under it in the same mobilisation.",
     cta: "Open Up An Investigation",
   },
 ];
@@ -132,7 +132,7 @@ export default function ConcreteCoringPage() {
           </h1>
           <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />
           <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed mb-10">
-            Any cutting contractor can put a hole in a slab. SFGEO cores it with the engineer standing over the barrel &mdash; the core logged and photographed, the thickness verified, and when strength matters, the sample on its way to a NATA-accredited laboratory. One engagement, from the hole to the answer.
+            Any cutting contractor can put a hole in a slab. SFGEO cores it with the engineer standing over the barrel: the core logged and photographed, the thickness verified, and when strength matters, the sample on its way to a NATA-accredited laboratory. One engagement, from the hole to the answer.
           </p>
           <div className="hero-line hero-d3 flex flex-col sm:flex-row items-start gap-4">
             <QuoteCta
@@ -207,7 +207,7 @@ export default function ConcreteCoringPage() {
           </h2>
           <div data-fx="line" style={d(200)} className="h-px bg-forest-green w-12 mb-7" />
           <p data-fx="rise" style={d(160)} className="text-gray-600 font-light leading-relaxed">
-            Where it was taken, what the layers show, whether the surprise in the barrel changes the design question &mdash; those calls are engineering, not cutting. SFGEO positions each core deliberately, records what comes out, and puts the result in context, so the hole you pay for answers the question you actually have.
+            Where it was taken, what the layers show, whether the surprise in the barrel changes the design question. Those calls are engineering, not cutting. SFGEO positions each core deliberately, records what comes out, and puts the result in context, so the hole you pay for answers the question you actually have.
           </p>
         </Reveal>
       </section>
@@ -221,7 +221,7 @@ export default function ConcreteCoringPage() {
           </h2>
           <div data-fx="line" style={d(200)} className="h-px bg-forest-green w-12 mb-7" />
           <p data-fx="rise" style={d(160)} className="text-gray-600 font-light leading-relaxed">
-            Coring is priced per hole, from $120 + GST, with a three-hole minimum per visit. Core size, location, access and time on site set the fee, and it is confirmed in writing before the barrel touches concrete. Where a core goes on to laboratory testing, that is quoted alongside &mdash; never added afterwards.
+            Coring is priced per hole, from $120 + GST, with a three-hole minimum per visit. Core size, location, access and time on site set the fee, and it is confirmed in writing before the barrel touches concrete. Where a core goes on to laboratory testing, that is quoted alongside, never added afterwards.
           </p>
         </Reveal>
       </section>
@@ -229,7 +229,7 @@ export default function ConcreteCoringPage() {
       <CloseBand
         source="concrete-coring close"
         heading={<>One Hole. <span className="font-semibold h-bold">The Whole Answer.</span></>}
-        sub="Tell us what the slab is hiding — or what you need to put through it. A fixed fee in writing within one business day."
+        sub="Tell us what the slab is hiding, or what you need to put through it. A fixed fee in writing within one business day."
       />
     </div>
   );

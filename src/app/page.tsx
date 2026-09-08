@@ -68,7 +68,7 @@ const caseStudies = [
     tag: "Geotechnical Investigation",
     location: "Kenthurst",
     title: "A Rural Estate, Read Hole By Hole",
-    line: "Eight boreholes across a 2-hectare lot — reactive clay over shallow sandstone, mapped before a single footing was sized.",
+    line: "Eight boreholes across a 2-hectare lot: reactive clay over shallow sandstone, mapped before a single footing was sized.",
   },
   {
     href: "/projects#coogee",
@@ -77,7 +77,7 @@ const caseStudies = [
     tag: "Geotechnical Investigation",
     location: "Coogee",
     title: "A Pile Wall Designed From The Street",
-    line: "Five metres of fall, one borehole from the council verge — the full retaining parameter set, issued in 48 hours.",
+    line: "Five metres of fall, one borehole from the council verge, the full retaining parameter set, issued in 48 hours.",
   },
   {
     href: "/projects#hunters-hill",
@@ -86,7 +86,7 @@ const caseStudies = [
     tag: "Investigation For A Consultancy",
     location: "Hunters Hill",
     title: "A Boardwalk Read Between Tides",
-    line: "All-manual fieldwork through a tidal wetland — a founding map another consultancy designed from directly.",
+    line: "All-manual fieldwork through a tidal wetland, a founding map another consultancy designed from directly.",
   },
 ];
 
@@ -96,7 +96,7 @@ export default function Home() {
   // crops on every device.
   const heroImage = {
     alt: "The SFGEO team drilling on the Georges River, Sydney",
-    title: "SFGEO team drilling — Georges River, Sydney",
+    title: "SFGEO team drilling, Georges River, Sydney",
     fill: true,
     sizes: "100vw",
     className: "object-cover object-center",
@@ -201,7 +201,7 @@ export default function Home() {
             <div data-fx="line" style={d(200)} className="mt-4 h-px bg-forest-green w-12" />
           </div>
           <p data-fx="rise" style={d(160)} className="text-sm text-gray-500 max-w-md font-light">
-            One consultancy across the whole arc of a build — from the first borehole to the final inspection, scoped and delivered by the engineer who does the work.
+            One consultancy across the whole arc of a build, from the first borehole to the final inspection, scoped and delivered by the engineer who does the work.
           </p>
         </Reveal>
         <Reveal delay={80}>
@@ -219,10 +219,10 @@ export default function Home() {
             </h2>
             <div data-fx="line" style={d(200)} className="w-[96px] h-[3px] bg-forest-green mb-8" />
             <p data-fx="rise" style={d(180)} className="text-lg text-gray-300 font-light leading-relaxed mb-6 max-w-xl">
-              A principal-led team backed by a trusted partner network, carrying fifteen years of Sydney ground — from Sydney Gateway, the M12 and Western Sydney Airport to granny flats, extensions and knockdown rebuilds across the metro. Hired from the Inner West and working for it: the street lighting and signals a suburb walks home under, as much as its terraces and pools.
+              A principal-led team backed by a trusted partner network, carrying fifteen years of Sydney ground, from Sydney Gateway, the M12 and Western Sydney Airport to granny flats, extensions and knockdown rebuilds across the metro. Hired from the Inner West and working for it: the street lighting and signals a suburb walks home under, as much as its terraces and pools.
             </p>
             <p data-fx="rise" style={d(240)} className="text-[15px] text-white/60 font-light leading-relaxed mb-8 max-w-xl">
-              The engineer who quotes your job is the one who stands on your ground and signs the report. Small by design — so nothing is handed down a chain.
+              The engineer who quotes your job is the one who stands on your ground and signs the report. Small by design, so nothing is handed down a chain.
             </p>
             <Link
               data-fx="rise"
@@ -256,7 +256,7 @@ export default function Home() {
           </h2>
           <div data-fx="line" style={d(200)} className="mt-4 h-px bg-forest-green w-12" />
           <p data-fx="rise" style={d(160)} className="mt-7 text-lg text-gray-600 font-light leading-relaxed">
-            Small in size, big on capability. One engineer carries your job from the first phone call to the last inspection &mdash; and the same number answers the whole way through.
+            Small in size, big on capability. One engineer carries your job from the first phone call to the last inspection, and the same number answers the whole way through.
           </p>
         </Reveal>
         <Reveal variant="group">
@@ -284,7 +284,7 @@ export default function Home() {
           </div>
           <div data-fx="rise" style={d(160)} className="flex flex-col items-start md:items-end gap-3">
             <p className="text-sm text-gray-500 max-w-md font-light md:text-right">
-              Real projects from our issued reports — what the client needed, what the ground turned out to be, and what the engineering did about it.
+              Real projects from our issued reports: what the client needed, what the ground turned out to be, and what the engineering did about it.
             </p>
             <Link href="/projects" className="text-sm font-semibold tracking-wide text-forest-green group inline-flex items-center gap-2">
               <span className="draw-link">All projects</span>
@@ -337,7 +337,7 @@ export default function Home() {
           </h2>
           <div data-fx="line" style={d(200)} className="mt-4 h-px bg-forest-green w-12" />
           <p data-fx="rise" style={d(160)} className="mt-7 text-lg text-gray-600 font-light leading-relaxed">
-            The questions every enquiry starts with &mdash; and what the people who have already called say afterwards.
+            The questions every enquiry starts with, and what the people who have already called say afterwards.
           </p>
         </Reveal>
         <div className="grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] gap-14 lg:gap-24 items-start">
@@ -389,7 +389,7 @@ export default function Home() {
             <div data-fx="scale" style={d(160)} className="relative aspect-[16/11] rounded-2xl overflow-hidden shadow-[0_40px_90px_-34px_rgba(0,0,0,0.85)]">
               <iframe
                 src="https://www.google.com/maps?q=SFGEO%20Suite%203.01%20Level%203%20107%20Sydenham%20Road%20Marrickville%20NSW%202204&output=embed"
-                title="SFGEO office — Marrickville"
+                title="SFGEO office, Marrickville"
                 className="absolute inset-0 w-full h-full"
                 style={{ border: 0 }}
                 loading="lazy"

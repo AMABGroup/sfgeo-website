@@ -28,7 +28,7 @@ const SECTIONS = [
     caption: "01 · Borehole Drilling",
     image: "/sfgeo-crew-mast-reserve.jpg",
     alt: "SFGEO 4WD-mounted drill rig with mast raised on a Sydney reserve",
-    body: "An agile 4WD ute-mounted rig that gets on site fast and drills the ground Sydney is actually made of — Cumberland Plain clays and shales in the west, sands and estuarine profiles near the water, residual soils over sandstone everywhere else. Every borehole is logged by an engineer on site, not decoded from a driller's notes afterwards.",
+    body: "An agile 4WD ute-mounted rig that gets on site fast and drills the ground Sydney is actually made of: Cumberland Plain clays and shales in the west, sands and estuarine profiles near the water, residual soils over sandstone everywhere else. Every borehole is logged by an engineer on site, not decoded from a driller's notes afterwards.",
     specs: [
       "Solid flight and hollow stem auger drilling",
       "Standard Penetration Testing (SPT) and Dynamic Cone Penetrometer (DCP)",
@@ -45,8 +45,8 @@ const SECTIONS = [
     titleBold: "Coring.",
     caption: "02 · Rock Coring",
     image: "/sfgeo-rock-core-tray-detail-4x3.jpg",
-    alt: "Rock core laid out in a core tray at BH1, coring from 3.7 metres — weathered runs over grey shale, labelled run by run",
-    body: "When the design needs more than refusal depth — intact cores from Hawkesbury sandstone and Ashfield shale, recovered, photographed and defect-logged so structural decisions rest on what the rock actually is.",
+    alt: "Rock core laid out in a core tray at BH1, coring from 3.7 metres, weathered runs over grey shale, labelled run by run",
+    body: "When the design needs more than refusal depth: intact cores from Hawkesbury sandstone and Ashfield shale, recovered, photographed and defect-logged so structural decisions rest on what the rock actually is.",
     specs: [
       "NMLC rock coring with recovery and defect logging",
       "Hawkesbury sandstone, Ashfield shale and interbedded profiles",
@@ -65,7 +65,7 @@ const SECTIONS = [
     caption: "03 · Tight Access",
     image: "/sfgeo-hand-auger-sidepath-naremburn.jpg",
     alt: "Hand auger boreholing down a narrow side path beside a Sydney home",
-    body: "Terrace backyards, basement levels, side paths a wheelbarrow barely fits down — access shouldn't decide the quality of your engineering data. Motorised hand augers, tight-access coring and a 4WD-mounted rig reach the ground other crews quote around, with the finished surfaces protected on the way through.",
+    body: "Terrace backyards, basement levels, side paths a wheelbarrow barely fits down. Access shouldn't decide the quality of your engineering data. Motorised hand augers, tight-access coring and a 4WD-mounted rig reach the ground other crews quote around, with the finished surfaces protected on the way through.",
     specs: [
       "Manual and motorised hand augering",
       "4WD-mounted rig where truck rigs stop at the kerb",
@@ -83,11 +83,11 @@ const SECTIONS = [
     caption: "04 · Subcontract Drilling",
     image: "/sfgeo-operator-rig-controls-sydney.jpg",
     alt: "Operator at the controls of the SFGEO drill rig on a Sydney site",
-    body: "The rig and crew are available under your scope — engineering consultancies from boutique practices to some of the bigger firms in Sydney ground, environmental consultants running PSI and DSI programs, and builders and civil contractors who need holes without the overhead of an in-house crew. Your supervision or ours; engineer operated, always.",
+    body: "The rig and crew are available under your scope: engineering consultancies from boutique practices to some of the bigger firms in Sydney ground, environmental consultants running PSI and DSI programs, and builders and civil contractors who need holes without the overhead of an in-house crew. Your supervision or ours; engineer operated, always.",
     specs: [
       "Engineer-operated rig on your program and your paperwork",
       "Sampling, logs and chain of custody delivered in your format",
-      "Environmental sampling for consultant programs — monitoring wells arranged through a licensed bore driller under our scope",
+      "Environmental sampling for consultant programs, with monitoring wells arranged through a licensed bore driller under our scope",
       "Standing arrangements for repeat capacity",
     ],
     link: { href: "/subcontract-drilling", label: "Explore Subcontract Drilling" },
@@ -95,10 +95,10 @@ const SECTIONS = [
 ];
 
 const AUDIENCES = [
-  { t: "Builders", d: "Boreholes for the site classification or investigation, booked around your program — and answers when the excavation finds something the report didn't." },
-  { t: "Engineering Consultancies", d: "Subcontract rig capacity with engineer-grade logging — field data you can put your letterhead on without re-checking it." },
-  { t: "Environmental Consultants", d: "Drilling and sampling for PSI and DSI programs — clean execution, chain of custody kept; monitoring wells through a licensed bore driller under our scope." },
-  { t: "Bigger Firms & Majors", d: "Reliable capacity for programs that can't wait on a booked-out fleet — night works, staged access and standing arrangements included." },
+  { t: "Builders", d: "Boreholes for the site classification or investigation, booked around your program, and answers when the excavation finds something the report didn't." },
+  { t: "Engineering Consultancies", d: "Subcontract rig capacity with engineer-grade logging: field data you can put your letterhead on without re-checking it." },
+  { t: "Environmental Consultants", d: "Drilling and sampling for PSI and DSI programs: clean execution, chain of custody kept, monitoring wells through a licensed bore driller under our scope." },
+  { t: "Bigger Firms & Majors", d: "Reliable capacity for programs that can't wait on a booked-out fleet: night works, staged access and standing arrangements included." },
 ];
 
 const NAV = [
@@ -124,7 +124,7 @@ export default function DrillingPage() {
     "@type": "Service",
     "name": "Geotechnical Drilling",
     "serviceType": "Geotechnical Drilling & Environmental Sampling",
-    "description": "Borehole drilling, NMLC rock coring, tight-access drilling and subcontract rig capacity across Sydney and regional NSW — engineer operated, with every profile logged on site.",
+    "description": "Borehole drilling, NMLC rock coring, tight-access drilling and subcontract rig capacity across Sydney and regional NSW, engineer operated, with every profile logged on site.",
     "url": "https://sfgeo.com.au/drilling",
     "provider": { "@id": "https://sfgeo.com.au/#organization" },
     "areaServed": [
@@ -160,7 +160,7 @@ export default function DrillingPage() {
           </h1>
           <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />
           <p className="hero-line hero-d2 max-w-3xl text-lg sm:text-xl text-gray-600 font-light leading-relaxed mb-10">
-            Headquartered in Marrickville, mobilised across the Sydney metro and into regional NSW — one 4WD-mounted rig, operated by the engineers who log what it brings up. Drilling for builders, consultancies and some of the bigger firms in Sydney ground.
+            Headquartered in Marrickville, mobilised across the Sydney metro and into regional NSW: one 4WD-mounted rig, operated by the engineers who log what it brings up. Drilling for builders, consultancies and some of the bigger firms in Sydney ground.
           </p>
           <div className="hero-line hero-d3 flex flex-col sm:flex-row items-start gap-4">
             <Link
@@ -259,7 +259,7 @@ export default function DrillingPage() {
             </h2>
             <div data-fx="line" style={d(200)} className="h-px bg-forest-green w-12 mb-7" />
             <p data-fx="rise" style={d(160)} className="text-gray-600 font-light leading-relaxed">
-              Sunrise on a farm track, frost still on the paddock, mast already up — that&rsquo;s what a regional program looks like when the rig travels self-sufficient. The 4WD rig runs the same engineer-operated standard hours from the nearest bitumen as it does in the Inner West, so consultancies and builders with work beyond the metro don&rsquo;t have to lower the bar to get holes in the ground.
+              Sunrise on a farm track, frost still on the paddock, mast already up. That&rsquo;s what a regional program looks like when the rig travels self-sufficient. The 4WD rig runs the same engineer-operated standard hours from the nearest bitumen as it does in the Inner West, so consultancies and builders with work beyond the metro don&rsquo;t have to lower the bar to get holes in the ground.
             </p>
             <div data-fx="rise" style={d(220)}>
               <QuoteCta source="drilling regional" label="Quote A Regional Program" className="mt-8 text-sm font-semibold tracking-wide text-forest-green group inline-flex items-center gap-2 draw-link" />
@@ -292,7 +292,7 @@ export default function DrillingPage() {
       <CloseBand
         source="drilling close"
         heading={<>One Call. <span className="font-semibold h-bold">Rig On Site.</span></>}
-        sub={<>Tell us the site, the access and the program. You&rsquo;ll have a quote within one business day &mdash; and a rig that turns up when it said it would.</>}
+        sub={<>Tell us the site, the access and the program. You&rsquo;ll have a quote within one business day, and a rig that turns up when it said it would.</>}
       />
     </div>
   );

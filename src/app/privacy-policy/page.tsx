@@ -22,7 +22,7 @@ export default function PrivacyPolicyPage() {
           <div>
             <h2 className="font-semibold text-slate-950 mb-2">2. How we collect it</h2>
             <p>
-              We collect your personal information directly from you — when you submit an enquiry through our website contact form, correspond with us by email or telephone, or engage us for our services. We may also receive project details from your authorised architects or structural engineers where you have instructed them to retain our services on your behalf.
+              We collect your personal information directly from you: when you submit an enquiry through our website contact form, correspond with us by email or telephone, or engage us for our services. We may also receive project details from your authorised architects or structural engineers where you have instructed them to retain our services on your behalf.
             </p>
           </div>
 
@@ -36,7 +36,7 @@ export default function PrivacyPolicyPage() {
           <div>
             <h2 className="font-semibold text-slate-950 mb-2">4. Disclosure</h2>
             <p>
-              We do not sell your personal information. We disclose it only to authorised third parties where required to deliver your project — such as your structural engineer, certifier or local council — or where required by law.
+              We do not sell your personal information. We disclose it only to authorised third parties where required to deliver your project, such as your structural engineer, certifier or local council, or where required by law.
             </p>
           </div>
 

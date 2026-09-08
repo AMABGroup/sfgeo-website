@@ -154,7 +154,7 @@ export default function RootLayout({
     "@type": "WebSite",
     "@id": "https://sfgeo.com.au/#website",
     "url": "https://sfgeo.com.au",
-    "name": "SFGEO — Solid Foundation Geotechnical",
+    "name": "SFGEO (Solid Foundation Geotechnical)",
     "publisher": { "@id": "https://sfgeo.com.au/#organization" },
     "copyrightHolder": { "@id": "https://sfgeo.com.au/#organization" },
     "copyrightYear": 2026,

@@ -5,7 +5,7 @@ import { pageMeta } from '@/lib/seo';
 
 export const metadata: Metadata = pageMeta(
   "Geotechnical Report Cost & FAQ Sydney | SFGEO",
-  "Geotechnical report and soil test costs in Sydney (from $800 + GST), turnaround, and what DA, CDC and certifiers need — from the engineers who do the work.",
+  "Geotechnical report and soil test costs in Sydney (from $800 + GST), turnaround, and what DA, CDC and certifiers need, from the engineers who do the work.",
   "/faq"
 );
 

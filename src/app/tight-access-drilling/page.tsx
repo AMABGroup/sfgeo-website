@@ -10,14 +10,14 @@ import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta(
   "Tight Access Drilling Sydney | Restricted Sites | SFGEO",
-  "Tight-access geotechnical drilling across Sydney — terraces, battleaxe blocks, backyards and basements. Motorised hand augers and a 4WD rig, engineer operated.",
+  "Tight-access geotechnical drilling across Sydney: terraces, battleaxe blocks, backyards and basements. Motorised hand augers and a 4WD rig, engineer operated.",
   "/tight-access-drilling",
 );
 
 const d = (ms: number) => ({ "--d": `${ms}ms` }) as CSSProperties;
 
 const SITE_TYPES = [
-  { t: "Inner West Terraces", d: "Through the hallway or over the back fence — motorised hand augers reach rear yards no rig can." },
+  { t: "Inner West Terraces", d: "Through the hallway or over the back fence, motorised hand augers reach rear yards no rig can." },
   { t: "Battleaxe Blocks", d: "Long shared driveways and landlocked building envelopes, drilled without disturbing the neighbours." },
   { t: "Rear-Yard Granny Flats", d: "Investigation points behind an occupied home, with the yard left the way we found it." },
   { t: "Basements & Under Cover", d: "Restricted-height drilling inside garages, basements and undercrofts." },
@@ -89,7 +89,7 @@ export default function TightAccessDrillingPage() {
           </h1>
           <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />
           <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed mb-8">
-            Terraces, battleaxe blocks, backyards and basements — the Sydney sites where standard rigs stop at the kerb. SFGEO investigates them with motorised hand augers and a 4WD-mounted rig, operated by the engineer who logs the ground and <Link href="/site-classification" className="text-forest-green hover:underline font-medium">signs the report</Link>. Fixed fees, scoped to your block.
+            Terraces, battleaxe blocks, backyards and basements: the Sydney sites where standard rigs stop at the kerb. SFGEO investigates them with motorised hand augers and a 4WD-mounted rig, operated by the engineer who logs the ground and <Link href="/site-classification" className="text-forest-green hover:underline font-medium">signs the report</Link>. Fixed fees, scoped to your block.
           </p>
           <div className="hero-line hero-d3 flex flex-col sm:flex-row items-start gap-4">
             <Link
@@ -134,7 +134,7 @@ export default function TightAccessDrillingPage() {
             </h2>
             <div data-fx="line" style={d(200)} className="h-px bg-forest-green w-12 mb-8" />
             <p data-fx="rise" style={d(160)} className="text-lg text-gray-600 font-light leading-relaxed">
-              A tight site should not mean a thinner report. Hand-auger boreholes are logged to the same standard as rig holes and cross-checked with <Link href="/borehole-drilling" className="text-forest-green hover:underline font-medium">dynamic cone penetrometer testing</Link> on the spot — so your structural engineer gets the same parameters whether the hole was advanced by a rig on the street or an auger carried through the hallway.
+              A tight site should not mean a thinner report. Hand-auger boreholes are logged to the same standard as rig holes and cross-checked with <Link href="/borehole-drilling" className="text-forest-green hover:underline font-medium">dynamic cone penetrometer testing</Link> on the spot, so your structural engineer gets the same parameters whether the hole was advanced by a rig on the street or an auger carried through the hallway.
             </p>
           </Reveal>
         </div>
@@ -190,7 +190,7 @@ export default function TightAccessDrillingPage() {
             Where The Hard Sites <span className="font-semibold h-bold">Are.</span>
           </h2>
           <p data-fx="rise" style={d(160)} className="text-lg text-gray-600 font-light leading-relaxed">
-            Marrickville, Newtown, Enmore and the Inner West terraces we call home. Paddington and Surry Hills rows. Eastern Suburbs battleaxe blocks, North Shore slopes, and the granny-flat boom across Canterbury-Bankstown and the Hills. If the rig cannot reach it, the augers can — and the engineer comes with them.
+            Marrickville, Newtown, Enmore and the Inner West terraces we call home. Paddington and Surry Hills rows. Eastern Suburbs battleaxe blocks, North Shore slopes, and the granny-flat boom across Canterbury-Bankstown and the Hills. If the rig cannot reach it, the augers can, and the engineer comes with them.
           </p>
         </Reveal>
       </section>

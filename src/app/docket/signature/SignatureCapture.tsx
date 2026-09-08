@@ -150,7 +150,7 @@ export default function SignatureCapture() {
         </div>
 
         <p className="text-xs text-sfgeo-label leading-relaxed">
-          The signature lives only on this iPad — it never gets sent to the SFGEO server unless
+          The signature lives only on this iPad. It never gets sent to the SFGEO server unless
           attached to a docket you submit. Use <strong>Download PNG</strong> if you want a backup
           file, or to share it with another device.
         </p>

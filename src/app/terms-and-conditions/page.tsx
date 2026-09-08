@@ -38,7 +38,7 @@ export default function TermsAndConditionsPage() {
           <div>
             <h2 className="font-semibold text-slate-950 mb-2">4. Intellectual property</h2>
             <p>
-              All content on this website — text, graphics, photography, logos and report formats — is the property of AMAB Group Pty Ltd. You may not reproduce, distribute or transmit any part of this site without prior written permission.
+              All content on this website, including text, graphics, photography, logos and report formats, is the property of AMAB Group Pty Ltd. You may not reproduce, distribute or transmit any part of this site without prior written permission.
             </p>
           </div>
 

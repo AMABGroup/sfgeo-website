@@ -46,7 +46,7 @@ export default function ContactPage() {
             </h1>
             <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />
             <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed">
-              Send the address and a sentence about the project. You&rsquo;ll have a fixed-fee quote in writing within one business day — or call <a href="tel:+61423483555" className="text-forest-green font-semibold whitespace-nowrap">0423 483 555</a>.
+              Send the address and a sentence about the project. You&rsquo;ll have a fixed-fee quote in writing within one business day, or call <a href="tel:+61423483555" className="text-forest-green font-semibold whitespace-nowrap">0423 483 555</a>.
             </p>
           </div>
           <FollowFieldwork className="hero-line hero-d3 mt-10 lg:mt-0 lg:shrink-0 lg:pb-2" />
@@ -96,7 +96,7 @@ export default function ContactPage() {
                 />
               </div>
               <p data-fx="rise" style={d(260)} className="mt-5 text-sm text-gray-500 font-light leading-relaxed">
-                Suite 3.01, Level 3, 107 Sydenham Road, Marrickville NSW 2204. Visits by appointment &mdash; fieldwork runs across Greater Sydney from here, and drilling programs travel into regional NSW.
+                Suite 3.01, Level 3, 107 Sydenham Road, Marrickville NSW 2204. Visits by appointment. Fieldwork runs across Greater Sydney from here, and drilling programs travel into regional NSW.
               </p>
             </Reveal>
           </div>
@@ -149,7 +149,7 @@ export default function ContactPage() {
                   <span className="font-medium">Saturday</span><span className="font-light text-gray-500">8am – 2pm</span>
                   <span className="font-medium">Sunday</span><span className="font-light text-gray-500">Closed</span>
                 </div>
-                <p className="text-sm text-gray-500 font-light mt-4">The Principal&rsquo;s mobile is the number above &mdash; not a switchboard.</p>
+                <p className="text-sm text-gray-500 font-light mt-4">The Principal&rsquo;s mobile is the number above, not a switchboard.</p>
               </div>
 
               <div className={CARD}>
