@@ -19,12 +19,6 @@
   --foreground: #0A0A0A;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0A0A0A;
-    --foreground: #FAFAFA;
-  }
-}
 
 body {
   background-color: var(--background);
@@ -142,6 +136,9 @@ body {
 .font-disp-wide { font-family: var(--font-archivo), sans-serif; font-stretch: 140%; text-transform: uppercase; letter-spacing: 0.04em; }
 
 /* ===== Opening veil choreography ===== */
+/* Painted before hydration by the inline script in layout.tsx, so the hero never flashes
+   under the opening; OpeningVeil removes the class the moment it mounts or opts out. */
+.veil-pre body::before { content: ""; position: fixed; inset: 0; background: #050A07; z-index: 99; pointer-events: none; }
 /* Hold the hero's CSS entrance while the veil covers the page; released
    the moment the curtains part, so the headline rises through the split. */
 .veil-hold .hero-line,
@@ -191,7 +188,8 @@ body {
 .js .reveal.reveal-group { opacity: 1; transform: none; transition: none; }
 
 @media (prefers-reduced-motion: no-preference) {
-  .js .reveal [data-fx] { transition-delay: var(--d, 0ms); will-change: opacity, transform; }
+  .js .reveal [data-fx] { transition-delay: var(--d, 0ms); }
+  .js .reveal:not(.is-in) [data-fx] { will-change: opacity, transform; }
   .js .reveal [data-fx="rise"] { opacity: 0; transform: translateY(26px); transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1); }
   .js .reveal [data-fx="fade"] { opacity: 0; transition: opacity 1s ease; }
   .js .reveal [data-fx="line"] { transform: scaleX(0); transform-origin: left center; transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1); }

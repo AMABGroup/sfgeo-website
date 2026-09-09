@@ -185,6 +185,7 @@ export default function ConcreteCoringPage() {
                 src={sec.image!}
                 alt={sec.alt}
                 caption={sec.caption}
+                captionClassName="hidden lg:block"
                 aspect="aspect-[4/3]"
                 sizes="(max-width: 1024px) 100vw, (max-width: 1280px) 50vw, 600px"
                 wrapperClassName={idx % 2 === 1 ? "lg:order-2" : ""}

@@ -183,8 +183,8 @@ export default function TightAccessDrillingPage() {
       </section>
 
       {/* Where we work */}
-      <section className="py-20 lg:py-24 px-6 lg:px-12 max-w-4xl mx-auto border-t border-gray-100">
-        <Reveal variant="group">
+      <section className="py-20 lg:py-24 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">
+        <Reveal variant="group" className="max-w-4xl">
           <p data-fx="rise" className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">03 &middot; Where We Work</p>
           <h2 data-fx="rise" style={d(80)} className="text-3xl sm:text-4xl font-light tracking-tight font-montserrat text-slate-950 mb-5">
             Where The <span className="font-semibold h-bold">Hard Sites Are.</span>
@@ -196,8 +196,8 @@ export default function TightAccessDrillingPage() {
       </section>
 
       {/* FAQ — the visible half of the FAQPage schema above */}
-      <section className="py-20 lg:py-24 px-6 lg:px-12 max-w-4xl mx-auto border-t border-gray-100">
-        <Reveal variant="group">
+      <section className="py-20 lg:py-24 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">
+        <Reveal variant="group" className="max-w-4xl">
           <p data-fx="rise" className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">04 &middot; Common Questions</p>
           <h2 data-fx="rise" style={d(80)} className="text-3xl sm:text-4xl font-light tracking-tight font-montserrat text-slate-950 mb-5">
             Tight Access. <span className="font-semibold h-bold">Common Questions.</span>

@@ -160,6 +160,7 @@ export default function EnvironmentalHubPage() {
               src={sec.image}
               alt={sec.alt}
               caption={sec.caption}
+              captionClassName="hidden lg:block"
               aspect="aspect-[4/3]"
               sizes="(max-width: 1024px) 100vw, (max-width: 1280px) 50vw, 600px"
               priority={sec.id === FIRST_IMAGE_ID}

@@ -119,6 +119,7 @@ export default function GeotechnicalHubPage() {
                 src={sec.image}
                 alt={sec.alt}
                 caption={<>{sec.n} &middot; {sec.title}</>}
+                captionClassName="hidden lg:block"
                 aspect="aspect-[4/3]"
                 sizes="(max-width: 1024px) 100vw, (max-width: 1280px) 50vw, 600px"
                 priority={idx === 0}

@@ -1,7 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import type { CSSProperties } from "react";
-import PhotoPlaceholder from "@/components/ui/PhotoPlaceholder";
 import Reveal from "@/components/ui/Reveal";
 import FollowFieldwork from "@/components/ui/FollowFieldwork";
 import PhotoFrame from "@/components/ui/PhotoFrame";
@@ -21,9 +20,8 @@ type CaseStudy = {
   tag: string;
   title: string;
   location: string;
-  image: string | null;
+  image: string;
   imageAlt: string;
-  shot?: string;
   brief: string;
   ground: string;
   outcome: string;
@@ -350,8 +348,7 @@ export default function ProjectsPage() {
             >
               {/* Image column */}
               <div className="lg:w-[44%] shrink-0">
-                {cs.image ? (
-                  <PhotoFrame
+                <PhotoFrame
                     src={cs.image}
                     alt={cs.imageAlt}
                     aspect="aspect-[4/3]"
@@ -364,17 +361,6 @@ export default function ProjectsPage() {
                       <p className="text-white font-montserrat text-lg font-light">{cs.location.split(" · ")[0]}</p>
                     </div>
                   </PhotoFrame>
-                ) : (
-                  <Reveal variant="group" className="lg:sticky lg:top-32">
-                    <div data-fx="scale">
-                      <PhotoPlaceholder
-                        subject={cs.shot ?? ""}
-                        caption={cs.location.split(" · ")[0]}
-                        className="w-full aspect-[4/3] rounded-2xl shadow-[0_20px_50px_-20px_rgba(5,10,7,0.35)]"
-                      />
-                    </div>
-                  </Reveal>
-                )}
               </div>
 
               {/* Text column */}

@@ -19,7 +19,7 @@ const archivo = Archivo({
   weight: "variable",
   variable: "--font-archivo",
   display: "swap",
-  preload: false,
+  preload: true,
 });
 
 const GA4_ID = process.env.NEXT_PUBLIC_GA4_ID;
@@ -179,7 +179,7 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${montserrat.variable} ${archivo.variable} antialiased min-h-screen flex flex-col`}
       >
-        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
+        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js');try{if(location.pathname==='/'&&!sessionStorage.getItem('sfgeo-veil')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){var c=navigator.connection;if(!(c&&(c.saveData||(c.effectiveType&&c.effectiveType!=='4g')))){document.documentElement.classList.add('veil-pre');var l=document.createElement('link');l.rel='preload';l.as='image';l.href='/veil/harbour-bridge-poster.jpg';document.head.appendChild(l);setTimeout(function(){document.documentElement.classList.remove('veil-pre')},2500)}}}catch(e){}" }} />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=AW-18053070765"
           strategy="lazyOnload"

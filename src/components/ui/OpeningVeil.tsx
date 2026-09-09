@@ -19,6 +19,7 @@ import Image from "next/image";
 // buried as the section goes down; the excavation then pulls the bands
 // apart to reveal the drive before the hero takes over.
 const VEIL_VIDEO_MP4 = "/veil/harbour-bridge.mp4";
+const VEIL_VIDEO_MOBILE_MP4 = "/veil/harbour-bridge-mobile.mp4";
 const VEIL_POSTER = "/veil/harbour-bridge-poster.jpg";
 
 // How much of the drive shows through each stratum: legible at the surface,
@@ -35,15 +36,24 @@ const STRATA = [
 
 export default function OpeningVeil() {
   const [phase, setPhase] = useState<"hidden" | "draw" | "excavate" | "done">("hidden");
+  const [videoSrc, setVideoSrc] = useState(VEIL_VIDEO_MP4);
 
   useEffect(() => {
-    if (sessionStorage.getItem("sfgeo-veil")) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    // The inline script in layout.tsx may have painted the ground before hydration; from here the
+    // component owns the veil, so release that ground on every path out of this effect.
+    const release = () => document.documentElement.classList.remove("veil-pre");
+    if (sessionStorage.getItem("sfgeo-veil")) return release();
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return release();
+    // Data saver or a slow link: skip the video entirely rather than fight for bandwidth.
+    const conn = (navigator as Navigator & { connection?: { saveData?: boolean; effectiveType?: string } }).connection;
+    if (conn && (conn.saveData || (conn.effectiveType && conn.effectiveType !== "4g"))) return release();
+    if (window.innerWidth <= 768) setVideoSrc(VEIL_VIDEO_MOBILE_MP4);
     // Late hydration (slow network / CPU): the hero has already been painted
     // and read, so don't drop the intro over it. The session flag is left
     // unset so the intro plays on the next fast load.
-    if (performance.now() > 1200) return;
+    if (performance.now() > 1200) return release();
     sessionStorage.setItem("sfgeo-veil", "1");
+    release();
     document.documentElement.classList.add("veil-hold");
     setPhase("draw");
     let cutting = false;
@@ -106,7 +116,7 @@ export default function OpeningVeil() {
         preload="auto"
         poster={VEIL_POSTER}
       >
-        <source src={VEIL_VIDEO_MP4} type="video/mp4" />
+        <source src={videoSrc} type="video/mp4" />
       </video>
 
       {/* The ground — five strata over the drive, excavated in sequence */}

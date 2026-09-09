@@ -21,6 +21,8 @@ type Props = {
   scrim?: "soft" | "strong" | "none";
   /** Object position, e.g. "object-top". */
   position?: string;
+  /** Extra classes on the caption, e.g. "hidden lg:block" where a kicker already carries the label. */
+  captionClassName?: string;
   children?: ReactNode;
 };
 
@@ -41,6 +43,7 @@ export default function PhotoFrame({
   delay = 0,
   scrim = "strong",
   position = "object-center",
+  captionClassName = "",
   children,
 }: Props) {
   const scrimCls =
@@ -53,14 +56,14 @@ export default function PhotoFrame({
     <Reveal variant="group" className={wrapperClassName}>
       <div data-fx="mask" className={`photo-frame ${aspect} ${className}`} style={{ "--d": `${delay}ms` } as CSSProperties}>
         <div className="unveil">
-          <Image src={src} alt={alt} fill sizes={sizes} priority={priority} className={`object-cover ${position}`} />
+          <Image src={src} alt={alt} fill sizes={sizes} priority={priority} fetchPriority={priority ? "high" : undefined} quality={70} className={`object-cover ${position}`} />
         </div>
         {scrimCls && <div className={`absolute inset-0 ${scrimCls}`} />}
         {caption && (
           <p
             data-fx="rise"
             style={{ "--d": `${delay + 420}ms` } as CSSProperties}
-            className="absolute bottom-5 left-6 right-6 text-[11px] uppercase tracking-[0.25em] text-white font-semibold"
+            className={`absolute bottom-5 left-6 right-6 text-[11px] uppercase tracking-[0.25em] text-white font-semibold ${captionClassName}`}
           >
             {caption}
           </p>
