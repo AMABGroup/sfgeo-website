@@ -48,10 +48,11 @@ export default function OpeningVeil() {
     const conn = (navigator as Navigator & { connection?: { saveData?: boolean; effectiveType?: string } }).connection;
     if (conn && (conn.saveData || (conn.effectiveType && conn.effectiveType !== "4g"))) return release();
     if (window.innerWidth <= 768) setVideoSrc(VEIL_VIDEO_MOBILE_MP4);
-    // Late hydration (slow network / CPU): the hero has already been painted
-    // and read, so don't drop the intro over it. The session flag is left
-    // unset so the intro plays on the next fast load.
-    if (performance.now() > 1200) return release();
+    // Late hydration (slow network / CPU): if the inline script never painted the ground, the hero
+    // has been visible and read, so don't drop the intro over it. If the ground has been up since
+    // first paint, nothing has been seen yet and the intro can still run.
+    const prePainted = document.documentElement.classList.contains("veil-pre");
+    if (!prePainted && performance.now() > 1200) return release();
     sessionStorage.setItem("sfgeo-veil", "1");
     release();
     document.documentElement.classList.add("veil-hold");
