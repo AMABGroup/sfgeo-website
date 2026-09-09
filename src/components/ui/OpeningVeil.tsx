@@ -58,10 +58,12 @@ export default function OpeningVeil() {
       window.removeEventListener("keydown", onKey);
       window.removeEventListener("pointerdown", skip);
       setPhase("excavate");
+      // Release the hero entrance as the upper bands clear (700 ms), dissolve
+      // the veil over the rising headline (800–1900 ms), then unmount.
       t2 = setTimeout(() => {
         document.documentElement.classList.remove("veil-hold");
-      }, 450);
-      t3 = setTimeout(() => setPhase("done"), 1700);
+      }, 700);
+      t3 = setTimeout(() => setPhase("done"), 2000);
     };
     // Escape hatch while the section is drawing: Escape or any pointer cuts
     // straight to the excavation.
@@ -91,12 +93,12 @@ export default function OpeningVeil() {
 
   return (
     <div
-      className={`fixed inset-0 z-[100] pointer-events-none overflow-hidden bg-[#050A07] transition-opacity duration-700 ease-out ${cutting ? "opacity-0 delay-[950ms]" : ""}`}
+      className={`fixed inset-0 z-[100] pointer-events-none overflow-hidden bg-[#050A07] transition-opacity duration-[1100ms] ease-in-out ${cutting ? "opacity-0 delay-[800ms]" : ""}`}
       aria-hidden="true"
     >
       {/* The drive: muted, looping, poster until the first frame decodes */}
       <video
-        className="absolute inset-0 w-full h-full object-cover"
+        className={`absolute inset-0 w-full h-full object-cover transition-transform duration-[2400ms] ease-out ${cutting ? "scale-[1.06]" : "scale-100"}`}
         autoPlay
         muted
         loop
