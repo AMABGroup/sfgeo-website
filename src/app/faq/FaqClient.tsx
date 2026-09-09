@@ -1,161 +1,161 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { PlusIcon, MinusIcon } from "@heroicons/react/24/outline";
+import { useState, type CSSProperties } from "react";
 import Link from "next/link";
-import ServiceAreaBlock from "@/components/sections/ServiceAreaBlock";
+import { motion } from "framer-motion";
+import { PlusIcon, MinusIcon } from "@heroicons/react/24/outline";
+import Reveal from "@/components/ui/Reveal";
+import PhotoFrame from "@/components/ui/PhotoFrame";
+import CloseBand from "@/components/ui/CloseBand";
+import FollowFieldwork from "@/components/ui/FollowFieldwork";
 import { faqs } from "@/data/faqs";
+
+const d = (ms: number) => ({ "--d": `${ms}ms` }) as CSSProperties;
+
+const GROUPS = [
+  { name: "Cost & Process", id: "cost-and-process", line: "What it costs, how long it takes, what you get." },
+  { name: "For Homeowners", id: "for-homeowners", line: "Granny flats, extensions, pools and new homes." },
+  { name: "For Builders & Engineers", id: "for-builders-and-engineers", line: "Certifiers, DA and CDC, inspections at the pour." },
+  { name: "Access & Coverage", id: "access-and-coverage", line: "Tight sites, where we work, how the rig gets in." },
+  { name: "About SFGEO", id: "about-sfgeo", line: "Who does the work, and how the practice runs." },
+];
+
+type Faq = (typeof faqs)[number] & { group?: string };
+
+function splitLast(name: string): [string, string] {
+  const i = name.lastIndexOf(" ");
+  return i === -1 ? ["", name] : [name.slice(0, i), name.slice(i + 1)];
+}
 
 export default function FaqClient() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
-
-  const toggleFaq = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
-
-  const fadeIn = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
-  };
-
-  const stagger = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { staggerChildren: 0.15 } }
-  };
+  const toggleFaq = (index: number) => setOpenIndex(openIndex === index ? null : index);
+  const byGroup = GROUPS.map((g) => ({ ...g, items: (faqs as Faq[]).filter((f) => f.group === g.name) }));
 
   return (
-    <div className="bg-white text-slate-950 font-inter min-h-screen">
-                  <section className="pt-32 pb-16 px-6 lg:px-12 max-w-7xl mx-auto">
-        <div className="flex flex-col gap-10">
-          
-          {/* Row 1: Social Links */}
-          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 w-full border-b border-gray-100 lg:border-none pb-6 lg:pb-0">
-            <h3 className="text-[11px] font-bold tracking-[0.2em] text-forest-green uppercase m-0 text-center lg:text-left w-full lg:w-auto">
-              FAMILY OWNED • INDEPENDENT • SYDNEY BASED
-            </h3>
-            <div className="flex flex-row justify-center lg:justify-end gap-3 sm:gap-4 w-full lg:w-auto">
-            <a 
-              href="https://au.linkedin.com/company/sfgeo" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="flex-1 sm:flex-none flex items-center justify-center gap-2 px-3 sm:px-5 py-2.5 bg-white border border-gray-200 rounded-full shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5 sm:w-[240px] h-[46px] group/link"
-            >
-              <svg className="w-4 h-4 shrink-0 text-[#0A66C2] transition-transform group-hover/link:scale-110" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.475-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-              </svg>
-              <span className="text-[11px] sm:text-xs font-semibold text-slate-950 tracking-wide truncate">
-                <span className="hidden sm:inline">Connect on </span>LinkedIn
-              </span>
-            </a>
-            <a 
-              href="https://instagram.com/sfgeo.syd" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="flex-1 sm:flex-none flex items-center justify-center gap-2 px-3 sm:px-5 py-2.5 bg-white border border-gray-200 rounded-full shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5 sm:w-[240px] h-[46px] group/link"
-            >
-              <svg className="w-4 h-4 shrink-0 text-[#E1306C] transition-transform group-hover/link:scale-110" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path fillRule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clipRule="evenodd" />
-              </svg>
-              <span className="text-[11px] sm:text-xs font-semibold text-slate-950 tracking-wide truncate">
-                <span className="hidden sm:inline">Follow on </span>Instagram
-              </span>
-            </a>
-            </div>
+    <div className="bg-white text-slate-950 font-inter min-h-screen selection:bg-forest-green selection:text-white">
+      {/* Hero */}
+      <section className="pt-36 pb-16 px-6 lg:px-12 max-w-7xl mx-auto">
+        <div className="lg:flex lg:items-end lg:justify-between lg:gap-16">
+          <div className="max-w-3xl">
+            <p className="hero-line text-sm uppercase tracking-[0.2em] text-forest-green mb-6 font-semibold">
+              FAQ &middot; Straight Answers &middot; Sydney
+            </p>
+            <h1 className="text-4xl sm:text-6xl font-montserrat font-light tracking-tight leading-[1.08] mb-8">
+              <span className="hero-mask"><span className="mask-line mask-d1"><span>Frequently Asked</span></span></span>
+              <span className="hero-mask"><span className="mask-line mask-d2"><span className="font-semibold h-bold">Questions.</span></span></span>
+            </h1>
+            <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />
+            <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed">
+              Clear answers on soil testing, reports, access and process, from the team that does the work. If it isn&rsquo;t here, it&rsquo;s answered on the phone.
+            </p>
           </div>
-
-          {/* Row 2: H1 + CTAs */}
-          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-10">
-            {/* H1 */}
-            <div className="flex flex-col items-center lg:items-start text-center lg:text-left flex-1">
-              <h1 className="text-4xl sm:text-5xl font-montserrat font-light tracking-tight text-slate-950 max-w-4xl mb-0 leading-tight w-full">
-                Frequently Asked <span className="font-semibold">Questions</span>
-              </h1>
-              
-              <div className="w-[96px] h-[3px] bg-forest-green mt-5 mb-5 mx-auto lg:mx-0"></div>
-              
-              {/* Mobile CTAs sit here above subhead */}
-              <div className="lg:hidden flex flex-col items-center gap-4 w-full mb-8">
-                <Link 
-                  href="/contact" 
-                  className="flex items-center justify-center px-5 py-2.5 bg-gradient-to-b from-[#346b43] to-forest-green text-white rounded-full shadow-[0_8px_20px_-6px_rgba(45,90,58,0.4)] hover:shadow-[0_12px_24px_-8px_rgba(45,90,58,0.6)] hover:brightness-105 transition-all hover:-translate-y-0.5 w-[70%] sm:w-[240px] h-[46px]"
-                >
-                  <span className="text-xs font-semibold tracking-wide">Talk to an engineer</span>
-                </Link>
-                <Link 
-                  href="/services" 
-                  className="flex items-center justify-center px-5 py-2.5 bg-white text-forest-green rounded-full shadow-[inset_0_0_0_1px_rgba(45,90,58,0.25),0_4px_10px_-4px_rgba(0,0,0,0.05)] hover:bg-forest-green/5 hover:shadow-[inset_0_0_0_1px_rgba(45,90,58,0.4),0_6px_14px_-4px_rgba(0,0,0,0.1)] transition-all hover:-translate-y-0.5 w-[70%] sm:w-[240px] h-[46px]"
-                >
-                  <span className="text-xs font-semibold tracking-wide">View our services</span>
-                </Link>
-              </div>
-
-              <p className="text-xl text-gray-500 font-light leading-relaxed max-w-2xl mb-8 lg:mb-0 w-full">
-
-
-              Technical engineering knowledge decoded for our clients. Everything you need to know about navigating your geotechnical investigation.
-            
-              
-              </p>
-            </div>
-
-            {/* Desktop CTAs */}
-            <div className="hidden lg:flex flex-row items-center gap-4 shrink-0">
-              <Link 
-                href="/contact" 
-                className="flex items-center justify-center px-5 py-2.5 bg-gradient-to-b from-[#346b43] to-forest-green text-white rounded-full shadow-[0_8px_20px_-6px_rgba(45,90,58,0.4)] hover:shadow-[0_12px_24px_-8px_rgba(45,90,58,0.6)] hover:brightness-105 transition-all hover:-translate-y-0.5 w-[240px] h-[46px]"
-              >
-                <span className="text-xs font-semibold tracking-wide">Talk to an engineer</span>
-              </Link>
-              <Link 
-                href="/services" 
-                className="flex items-center justify-center px-5 py-2.5 bg-white text-forest-green rounded-full shadow-[inset_0_0_0_1px_rgba(45,90,58,0.25),0_4px_10px_-4px_rgba(0,0,0,0.05)] hover:bg-forest-green/5 hover:shadow-[inset_0_0_0_1px_rgba(45,90,58,0.4),0_6px_14px_-4px_rgba(0,0,0,0.1)] transition-all hover:-translate-y-0.5 w-[240px] h-[46px]"
-              >
-                <span className="text-xs font-semibold tracking-wide">View our services</span>
-              </Link>
-            </div>
-          </div>
-        </div>
-        <div className="max-w-4xl mx-auto divide-y divide-gray-100 border-t border-gray-100">
-          {faqs.map((faq, index) => {
-            const isOpen = openIndex === index;
-            return (
-              <div key={index} className="py-6">
-                <button 
-                  onClick={() => toggleFaq(index)}
-                  className={`flex w-full items-center justify-between text-left transition-colors duration-200 ${isOpen ? 'text-forest-green' : 'text-slate-950 hover:text-forest-green'}`}
-                  aria-expanded={isOpen}
-                >
-                  <span className="text-lg font-montserrat font-semibold pr-8">
-                    {faq.question}
-                  </span>
-                  <span className={`p-1.5 rounded-full transition-colors flex-shrink-0 ${isOpen ? 'bg-forest-green/10 text-forest-green' : 'bg-gray-50 text-gray-400 group-hover:bg-gray-100'}`}>
-                    {isOpen ? <MinusIcon className="w-5 h-5" /> : <PlusIcon className="w-5 h-5" />}
-                  </span>
-                </button>
-                <AnimatePresence>
-                  {isOpen && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3, ease: "easeInOut" }}
-                      className="overflow-hidden"
-                    >
-                      <div 
-                        className="pt-6 pb-2 text-base text-gray-600 font-light leading-loose"
-                        dangerouslySetInnerHTML={{ __html: faq.answer }}
-                      />
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-            );
-          })}
+          <FollowFieldwork className="hero-line hero-d3 mt-10 lg:mt-0 lg:shrink-0 lg:pb-2" />
         </div>
       </section>
 
-      <ServiceAreaBlock pageType="faq" />
+      {/* Questions, with a sidebar that stays with you */}
+      <section className="px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100 pt-16 lg:pt-20">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-20 items-start">
+          <aside className="lg:col-span-4 lg:sticky lg:top-28">
+            <PhotoFrame
+                    priority
+                    src="/clay-sample.webp"
+              alt="Reactive clay lifted from a fresh borehole, held in the engineer’s hand"
+              caption={<>Reactive Clay &middot; Read In The Hand</>}
+              aspect="aspect-[4/5]"
+              sizes="(max-width: 1024px) 100vw, 33vw"
+              position="object-center"
+              wrapperClassName="hidden lg:block"
+            />
+            <Reveal variant="group" className="lg:mt-10">
+              <p data-fx="rise" className="text-[10px] uppercase tracking-[0.3em] text-gray-500 font-semibold mb-4">On This Page</p>
+              <ol data-stagger style={d(80)} className="divide-y divide-gray-100 border-y border-gray-100">
+                {byGroup.map((g, i) => (
+                  <li key={g.id}>
+                    <a href={`#${g.id}`} className="group flex items-baseline gap-4 py-3.5 text-slate-950 hover:text-forest-green transition-colors">
+                      <span className="text-[11px] font-semibold tracking-[0.2em] text-gray-500 tabular-nums group-hover:text-forest-green transition-colors">0{i + 1}</span>
+                      <span className="text-[15px] font-medium">{g.name}</span>
+                      <span className="ml-auto text-[11px] text-gray-500 tabular-nums">{g.items.length}</span>
+                    </a>
+                  </li>
+                ))}
+              </ol>
+              <p data-fx="rise" style={d(300)} className="mt-7 text-[14px] text-gray-500 font-light leading-relaxed">
+                Not answered here?{" "}
+                <a href="tel:+61423483555" className="text-forest-green font-semibold whitespace-nowrap">0423 483 555</a>
+                {" "}reaches the engineer, or{" "}
+                <Link href="/contact" className="text-forest-green font-semibold">send the question</Link> with your site address.
+              </p>
+            </Reveal>
+          </aside>
+
+          <div className="lg:col-span-8">
+            {byGroup.map((g, gi) => {
+              const [light, bold] = splitLast(g.name);
+              return (
+                <section key={g.id} id={g.id} className={`scroll-mt-[100px] ${gi === 0 ? "" : "mt-20 lg:mt-24"}`}>
+                  <Reveal variant="group" className="mb-6">
+                    <p data-fx="rise" className="text-sm uppercase tracking-[0.2em] text-forest-green mb-3 font-semibold">0{gi + 1} &middot; {g.name}</p>
+                    <h2 data-fx="rise" style={d(80)} className="text-3xl sm:text-4xl font-montserrat font-light tracking-tight text-slate-950 mb-4">
+                      {light} <span className="font-semibold h-bold">{bold}.</span>
+                    </h2>
+                    <div data-fx="line" style={d(200)} className="h-px bg-forest-green w-12 mb-5" />
+                    <p data-fx="rise" style={d(160)} className="text-gray-500 font-light leading-relaxed">{g.line}</p>
+                  </Reveal>
+                  <Reveal variant="group">
+                    <div data-stagger style={d(120)} className="divide-y divide-gray-100 border-t border-gray-100">
+                      {g.items.map((faq) => {
+                        const index = faqs.indexOf(faq);
+                        const isOpen = openIndex === index;
+                        return (
+                          <div key={index}>
+                            <button
+                              onClick={() => toggleFaq(index)}
+                              className={`flex w-full items-center justify-between py-6 text-left transition-colors duration-200 ${isOpen ? "text-forest-green" : "text-slate-950 hover:text-forest-green"}`}
+                              aria-expanded={isOpen}
+                            >
+                              <span className="text-[17px] sm:text-lg font-montserrat font-semibold pr-8 leading-snug">{faq.question}</span>
+                              <span className={`p-1.5 rounded-full transition-colors flex-shrink-0 ${isOpen ? "bg-forest-green/10 text-forest-green" : "bg-gray-50 text-gray-500"}`}>
+                                {isOpen ? <MinusIcon className="w-5 h-5" /> : <PlusIcon className="w-5 h-5" />}
+                              </span>
+                            </button>
+                            <motion.div
+                              initial={false}
+                              animate={{ height: isOpen ? "auto" : 0, opacity: isOpen ? 1 : 0 }}
+                              transition={{ duration: 0.3, ease: "easeInOut" }}
+                              className="overflow-hidden"
+                              aria-hidden={!isOpen}
+                              inert={!isOpen}
+                            >
+                                  <div
+                                    className="pb-6 text-base text-gray-600 font-light leading-loose [&_a]:text-forest-green [&_a]:underline [&_a]:underline-offset-4 [&_a]:decoration-forest-green/40 [&_a:hover]:decoration-forest-green"
+                                    dangerouslySetInnerHTML={{ __html: faq.answer }}
+                                  />
+                                </motion.div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </Reveal>
+                </section>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <CloseBand
+        source="faq close"
+        heading={<>Still Have <span className="font-semibold h-bold">A Question?</span></>}
+        sub="Ask the engineer, not a form robot. Call, or send the question with your site address. Answered within one business day."
+        className="mt-24 lg:mt-32"
+      >
+        <Link href="/contact" className="inline-flex items-center gap-2 text-sm font-semibold tracking-wide text-white/80 hover:text-white group">
+          <span className="draw-link">Or send the question through the contact page</span>
+          <span className="transition-transform group-hover:translate-x-1">&rarr;</span>
+        </Link>
+      </CloseBand>
     </div>
   );
 }

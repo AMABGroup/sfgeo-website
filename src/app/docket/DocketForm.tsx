@@ -380,7 +380,7 @@ export default function DocketForm({ draftId: incomingDraftId }: DocketFormProps
         setStatus("error");
       }
     } catch {
-      setErrorMessage("Network error. Your draft is saved on this device — try again.");
+      setErrorMessage("Network error. Your draft is saved on this device. Try again.");
       setStatus("error");
     }
   };
@@ -511,7 +511,7 @@ export default function DocketForm({ draftId: incomingDraftId }: DocketFormProps
                 onChange={(e) => { update("projectName", e.target.value); setNameSuggestionsOpen(true); }}
                 onFocus={() => setNameSuggestionsOpen(true)}
                 onBlur={() => setTimeout(() => setNameSuggestionsOpen(false), 150)}
-                placeholder="e.g. Proposed Secondary Dwelling — Chipping Norton"
+                placeholder="e.g. Proposed Secondary Dwelling, Chipping Norton"
                 className={inputCls}
               />
               {nameSuggestionsOpen && nameMatches.length > 0 && (
@@ -878,7 +878,7 @@ function ConfirmSendModal({
       <div className="relative bg-white rounded-2xl shadow-2xl border border-slate-200 w-full max-w-md max-h-[85vh] flex flex-col">
         <div className="px-5 py-4 border-b border-slate-100">
           <h2 className="text-base font-bold text-sfgeo-ink">Send this docket?</h2>
-          <p className="text-xs text-sfgeo-label mt-1">Have one last look — you can cancel and tweak anything.</p>
+          <p className="text-xs text-sfgeo-label mt-1">Have one last look. You can cancel and tweak anything.</p>
         </div>
 
         <div className="px-5 py-4 overflow-y-auto flex flex-col gap-3 text-sm">
@@ -896,7 +896,7 @@ function ConfirmSendModal({
             {!form.clientCompany && !form.clientName && <em className="text-sfgeo-label">No client details</em>}
           </Row>
           <Row label="Inspection">
-            {form.jobType}{form.jobTypeDetail ? ` — ${form.jobTypeDetail}` : ""}
+            {form.jobType}{form.jobTypeDetail ? ` · ${form.jobTypeDetail}` : ""}
             {form.totalHours && <div className="text-sfgeo-label">{form.totalHours} hrs total</div>}
           </Row>
 
@@ -907,7 +907,7 @@ function ConfirmSendModal({
           )}
           {!hardBlock && missing.length > 0 && (
             <div className="bg-amber-50 border border-amber-200 text-amber-800 rounded-lg px-3 py-2 text-xs">
-              <div className="font-semibold mb-1">Missing — send anyway?</div>
+              <div className="font-semibold mb-1">Missing. Send anyway?</div>
               <ul className="list-disc pl-4">
                 {missing.map((m) => <li key={m}>{m}</li>)}
               </ul>

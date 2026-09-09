@@ -317,7 +317,7 @@ export async function buildDocketPdf(data: DocketData): Promise<Uint8Array> {
 
   // ROW 3 — Inspection type (full-width)
   {
-    const typeText = data.jobTypeDetail ? `${data.jobType} — ${data.jobTypeDetail}` : data.jobType;
+    const typeText = data.jobTypeDetail ? `${data.jobType} · ${data.jobTypeDetail}` : data.jobType;
     const lines = wrapText(typeText, bold, 11, W - 20);
     const rowH = 28 + lines.length * 13 + 4;
     drawCellRow([{ cell: { label: "Inspection type", lines }, width: W }], rowH);
@@ -541,7 +541,7 @@ export async function buildDocketPdf(data: DocketData): Promise<Uint8Array> {
     y: footerY, size: 8.5, font, color: BRAND_GREEN,
   });
   page.drawText(
-    `Issued ${formatDateLong(new Date().toISOString().slice(0, 10))}  ·  Digital docket — retained on file by SFGEO.`,
+    `Issued ${formatDateLong(new Date().toISOString().slice(0, 10))}  ·  Digital docket, retained on file by SFGEO.`,
     { x: left, y: footerY - 12, size: 7.5, font, color: LABEL }
   );
 

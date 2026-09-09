@@ -45,12 +45,12 @@ function buildHtmlSummary(data: DocketData): string {
               ${row("Visit", data.visitNumber || "")}
               ${row("Inspection date", data.inspectionDate)}
               ${row("Inspector", data.inspectorName)}
-              ${row("Type", `${data.jobType}${data.jobTypeDetail ? ` — ${data.jobTypeDetail}` : ""}`)}
+              ${row("Type", `${data.jobType}${data.jobTypeDetail ? ` · ${data.jobTypeDetail}` : ""}`)}
               ${row("Site", data.siteAddress)}
               ${row("Start / End", `${data.timeOn || "—"}  →  ${data.timeOff || "—"}`)}
               ${data.travelHours ? row("Travel", `${data.travelHours} hrs`) : ""}
               ${row("Total hours", data.totalHours ? `${data.totalHours} hrs` : "—")}
-              ${row("Client", `${data.clientCompany} — ${data.clientName}`)}
+              ${row("Client", `${data.clientCompany}, ${data.clientName}`)}
               ${data.siteContactName ? row("Site contact", [data.siteContactName, data.siteContactRole, data.siteContactPhone].filter(Boolean).join(" · ")) : ""}
             </table>
             ${(data.reportToFollow || data.siteNote || data.noReportRequired) ? `<div style="margin-top:18px;font-size:13px;color:#111111;">
@@ -159,7 +159,7 @@ export async function POST(request: Request) {
       to: [data.clientEmail],
       bcc: ADMIN_BCC,
       replyTo: "alli@sfgeo.com.au",
-      subject: `SFGEO Site Inspection Docket ${data.docketNumber} — ${data.projectName}`,
+      subject: `SFGEO Site Inspection Docket ${data.docketNumber}: ${data.projectName}`,
       html: buildHtmlSummary(data),
       attachments: [
         {

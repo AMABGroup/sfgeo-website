@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactNode, useState, KeyboardEvent, useId, useEffect } from "react";
+import { ReactNode, useState, KeyboardEvent, useId } from "react";
 import { useOverlayGroup } from "./OverlayGroup";
 
 interface ImageOverlayProps {
@@ -30,7 +30,7 @@ export default function ImageOverlay({
     ? group.activeId === id 
     : (externalRevealed !== undefined ? externalRevealed : internalRevealed);
 
-  const handleToggle = (e: React.MouseEvent | React.KeyboardEvent) => {
+  const handleToggle = () => {
     if (onToggle) {
       onToggle();
     } else if (group) {
@@ -43,7 +43,7 @@ export default function ImageOverlay({
   const handleKeyDown = (e: KeyboardEvent) => {
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
-      handleToggle(e);
+      handleToggle();
     }
   };
 

@@ -107,7 +107,7 @@ export default function Register() {
             <h1 className="text-2xl font-bold text-sfgeo-ink">Dockets</h1>
             <p className="text-sm text-sfgeo-label mt-1">
               {records.length === 0
-                ? "Your register is empty — start a new docket below."
+                ? "Your register is empty. Start a new docket below."
                 : `${records.length} docket${records.length === 1 ? "" : "s"} on this device.`}
             </p>
           </div>

@@ -1,358 +1,404 @@
-"use client";
-
-import { useState } from "react";
-import { homeFaqs } from "@/data/faqs";
-
-import Image from "next/image";
+import Image, { getImageProps } from "next/image";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
-import { PlusIcon, MinusIcon } from "@heroicons/react/24/outline";
-import { StarIcon } from "@heroicons/react/24/solid";
+import type { CSSProperties } from "react";
+import QuoteCta from "@/components/forms/QuoteCta";
+import QuickQuoteCard from "@/components/forms/QuickQuoteCard";
+import ServiceIndex from "@/components/sections/ServiceIndex";
+import HomeFaq from "@/components/sections/HomeFaq";
 import GoogleReviews from "@/components/ui/GoogleReviews";
-import ServiceAreaBlock from "@/components/sections/ServiceAreaBlock";
+import Reveal from "@/components/ui/Reveal";
+import HeroParallax from "@/components/ui/HeroParallax";
+import OpeningVeil from "@/components/ui/OpeningVeil";
+import ProofStrip from "@/components/ui/ProofStrip";
+import Marquee from "@/components/ui/Marquee";
+import PhotoFrame from "@/components/ui/PhotoFrame";
+import FollowFieldwork from "@/components/ui/FollowFieldwork";
+import { pageMeta } from "@/lib/seo";
+
+export const metadata = pageMeta(
+  "Geotechnical Engineer Sydney | Solid Foundation Geotechnical",
+  "Sydney’s boutique geotechnical consultancy. Principal-led site classifications, investigations, and 4WD drilling with fixed-fee quotes and local expertise.",
+  "/"
+);
+
+const d = (ms: number) => ({ "--d": `${ms}ms` }) as CSSProperties;
+
+const PROOF = [
+  { value: "From $800", label: "Site Classifications", note: "+ GST. A fixed fee, in writing, before anyone drills." },
+  { value: "2", label: "Business Days, Best Case", note: "Fieldwork to a signed report on a clear block. Your quote states your turnaround." },
+  { value: "1", label: "Business Day To A Quote", note: "The Principal reviews your block and plans first." },
+  { value: "15", label: "Years Of Sydney Ground", note: "Sydney Gateway and the M12 down to backyard footings." },
+];
+
+const SUBURBS = [
+  "Marrickville", "Newtown", "Enmore", "Stanmore", "Petersham", "Dulwich Hill", "Summer Hill", "Ashfield", "Haberfield",
+  "Leichhardt", "Annandale", "Balmain", "Rozelle", "Drummoyne", "Five Dock", "Concord", "Burwood", "Strathfield", "Croydon",
+  "Canterbury", "Earlwood", "Tempe", "Glebe", "Camperdown", "Erskineville", "Alexandria", "Redfern", "Surry Hills",
+  "Darlinghurst", "Paddington", "Pyrmont", "Zetland", "Woollahra", "Double Bay", "Rose Bay", "Vaucluse", "Bellevue Hill",
+  "Bondi", "Bronte", "Clovelly", "Coogee", "Randwick", "Kensington", "Maroubra", "Mosman", "Neutral Bay", "Cremorne",
+  "North Sydney", "Crows Nest", "Lane Cove", "Hunters Hill", "Willoughby", "Chatswood", "Artarmon", "Roseville", "Lindfield",
+  "Killara", "Gordon", "Pymble", "Turramurra", "Wahroonga", "Hornsby", "Castle Hill", "Baulkham Hills", "Bella Vista",
+  "Kellyville", "Rouse Hill", "Glenhaven", "Dural", "Kenthurst", "Cherrybrook", "West Pennant Hills",
+];
+
+const JOURNEY = [
+  {
+    t: "The Call",
+    d: "It starts with an address and a sentence about what you\u2019re building. Before anyone quotes, the Principal reads your block: the geology beneath it, the plans you\u2019ve drawn, the access a rig will need. A fixed fee arrives in writing within one business day. You know exactly what you\u2019re paying for before we arrive.",
+  },
+  {
+    t: "On Your Ground",
+    d: "The engineer who quoted your job is the one who turns up with the rig. Each borehole is logged at the hole, as the ground comes up, and samples are taken to a plan rather than by habit. Laboratory testing is added only where your site warrants it, never as padding on the invoice.",
+  },
+  {
+    t: "The Report",
+    d: "Written and signed by the engineer who stood on your ground, in the language your certifier and your structural engineer actually need: nothing templated, nothing assumed. On a clear site classification, the signed report can be with you as soon as two business days after fieldwork.",
+  },
+  {
+    t: "Through The Build",
+    d: "The relationship doesn\u2019t end at the report. When the excavation is open we inspect the footings and piers before the pour and put the record in writing, and when a question comes up on site the phone is answered by someone who knows your job: the same team, through to the final certificate.",
+  },
+];
+
+const caseStudies = [
+  {
+    href: "/projects#kenthurst",
+    image: "/projects/project-kenthurst.jpg",
+    alt: "SFGEO drill rig investigating a rural-residential estate lot in Kenthurst",
+    tag: "Geotechnical Investigation",
+    location: "Kenthurst",
+    title: "A Rural Estate, Read Hole By Hole",
+    line: "Eight boreholes across a 2-hectare lot: reactive clay over shallow sandstone, mapped before a single footing was sized.",
+  },
+  {
+    href: "/projects#coogee",
+    image: "/projects/project-coogee.jpg",
+    alt: "Drilling from the road verge above a steep Coogee allotment",
+    tag: "Geotechnical Investigation",
+    location: "Coogee",
+    title: "A Pile Wall Designed From The Street",
+    line: "Five metres of fall, one borehole from the council verge, the full retaining parameter set, issued in 48 hours.",
+  },
+  {
+    href: "/projects#hunters-hill",
+    image: "/projects/project-hunters-hill.jpg",
+    alt: "Boardwalk through the tidal mangroves at Buffalo Creek Reserve",
+    tag: "Investigation For A Consultancy",
+    location: "Hunters Hill",
+    title: "A Boardwalk Read Between Tides",
+    line: "All-manual fieldwork through a tidal wetland, a founding map another consultancy designed from directly.",
+  },
+];
 
 export default function Home() {
-
-  const fadeIn = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
+  // One art-directed hero. A <picture> lets the browser fetch a single
+  // source per viewport, where two <Image priority> tags preloaded both
+  // crops on every device.
+  const heroImage = {
+    alt: "The SFGEO team drilling on the Georges River, Sydney",
+    title: "SFGEO team drilling, Georges River, Sydney",
+    fill: true,
+    sizes: "100vw",
+    className: "object-cover object-center",
   };
-
-  const staggerContainer = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { staggerChildren: 0.15 } }
-  };
-
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
-
-  const toggleFaq = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
+  const { props: { srcSet: heroDesktopSrcSet } } = getImageProps({ ...heroImage, src: "/sfgeo-crew-waterside-drilling.jpg" });
+  const { props: heroMobile } = getImageProps({ ...heroImage, src: "/sfgeo-crew-waterside-drilling-portrait.jpg" });
 
   return (
     <div className="bg-white text-slate-950 font-inter selection:bg-forest-green selection:text-white">
-      {/* ArchDaily Minimal Hero Section */}
-      <section className="relative px-6 lg:px-12 py-32 min-h-[90vh] flex flex-col justify-center overflow-hidden">
-        {/* Full Bleed Background Image with Subtle Gradient */}
+      <OpeningVeil />
+
+      {/* ============ Cinematic hero — server-rendered, CSS choreography ============ */}
+      <section className="relative px-6 lg:px-12 pt-40 pb-28 min-h-[100svh] flex flex-col justify-center overflow-hidden bg-[#050A07] grain">
         <div className="absolute inset-0 z-0">
-          <Image
-            src="/img_0078_v3.png"
-            alt="Sydney geotechnical engineer site assessment — SFGEO"
-            title="Sydney geotechnical engineer conducting site assessment - SFGEO"
-            fill
-            sizes="100vw"
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-white/90 via-white/60 to-white/95" />
-          {/* Structural Plan line-art overlay */}
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(45,90,58,0.2)_1px,transparent_1px),linear-gradient(90deg,rgba(45,90,58,0.2)_1px,transparent_1px)] bg-[size:40px_40px] opacity-20 pointer-events-none mix-blend-multiply" />
+          <HeroParallax>
+          <div className="absolute inset-[-12%_0_0_0] hero-kenburns">
+            {/* Art-directed: a landscape frame crops to roughly a third of its
+                width in a portrait viewport, so phones get their own crop
+                rather than a 3x upscale of the wide one. */}
+            <picture>
+              <source media="(min-width: 1024px)" srcSet={heroDesktopSrcSet} sizes="100vw" />
+              <img {...heroMobile} alt="The SFGEO crew drilling beside the water on a Sydney reserve" fetchPriority="high" loading="eager" />
+            </picture>
+          </div>
+          </HeroParallax>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#050A07]/95 via-[#050A07]/65 to-[#050A07]/30" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#050A07] via-transparent to-[#050A07]/45" />
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(143,191,159,0.25)_1px,transparent_1px),linear-gradient(90deg,rgba(143,191,159,0.25)_1px,transparent_1px)] bg-[size:40px_40px] opacity-10 pointer-events-none" />
         </div>
-        
+
         <div className="mx-auto max-w-7xl relative z-10 w-full">
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={staggerContainer}
-            className="flex flex-col lg:flex-row lg:items-center justify-between gap-10"
-          >
-            {/* H1 and Subhead Block */}
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-10">
             <div className="flex flex-col items-center lg:items-start text-center lg:text-left flex-1 max-w-3xl">
-              <motion.p variants={fadeIn} className="text-sm uppercase tracking-[0.2em] text-forest-green mb-6 font-semibold">
-                Sydney, Australia
-              </motion.p>
-              <motion.h1 
-                variants={fadeIn}
-                className="text-5xl tracking-tight sm:text-7xl font-montserrat font-light text-slate-950 leading-[1.1] mb-8"
-              >
-                Geotechnical. <br />
-                <span className="font-semibold">Done Properly.</span>
-              </motion.h1>
-              <div className="w-[96px] h-[3px] bg-forest-green mt-5 mb-5 mx-auto lg:mx-0"></div>
-              
-              {/* Mobile CTAs */}
-              <motion.div variants={fadeIn} className="lg:hidden flex flex-col items-center gap-4 w-full mb-8">
-                <Link
-                  href="/contact?subject=site-inspection"
-                  className="flex items-center justify-center px-5 py-2.5 bg-gradient-to-b from-[#346b43] to-forest-green text-white rounded-full shadow-[0_8px_20px_-6px_rgba(45,90,58,0.4)] hover:shadow-[0_12px_24px_-8px_rgba(45,90,58,0.6)] hover:brightness-105 transition-all hover:-translate-y-0.5 w-[70%] sm:w-[240px] h-[46px]"
-                >
-                  <span className="text-xs font-semibold tracking-wide">Request an Inspection</span>
-                </Link>
+              <p className="hero-line text-sm uppercase tracking-[0.2em] text-[#8FBF9F] mb-6 font-semibold">
+                Independent Geotechnical Consultancy &middot; Sydney
+              </p>
+              <h1 className="text-[clamp(2.75rem,7vw,6.6rem)] lg:text-[clamp(2.8rem,5.5vw,6.6rem)] xl:text-[clamp(3.2rem,7vw,6.6rem)] tracking-[-0.02em] font-montserrat font-light text-white leading-[1.04] mb-8">
+                <span className="mask-line mask-d1"><span>Geotechnical.</span></span>{" "}
+                <span className="mask-line mask-d2"><span className="font-semibold h-bold">Done Properly.</span></span>
+              </h1>
+              <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mt-5 mb-5 mx-auto lg:mx-0"></div>
+
+              <p className="hero-line hero-d3 text-lg sm:text-xl text-gray-300 font-light leading-relaxed mb-8 max-w-xl w-full">
+                Family owned. Sydney grown. A principal-led team with you from the first conversation to the final certificate.
+              </p>
+
+              {/* Mobile CTAs — the form itself lives in the desktop column */}
+              <div className="hero-line hero-d3 lg:hidden flex flex-col sm:flex-row items-center gap-4 w-full">
+                <QuoteCta
+                  source="homepage hero mobile"
+                  className="flex items-center justify-center px-5 py-2.5 bg-gradient-to-b from-[#346b43] to-forest-green text-white rounded-full shadow-[0_8px_20px_-6px_rgba(45,90,58,0.4)] hover:shadow-[0_12px_24px_-8px_rgba(45,90,58,0.6)] hover:brightness-105 transition-all hover:-translate-y-0.5 w-[70%] sm:w-[240px] h-[46px] text-xs font-semibold tracking-wide"
+                />
                 <Link
                   href="/contact?subject=b2b-enquiry"
-                  className="flex items-center justify-center px-5 py-2.5 bg-white text-forest-green rounded-full shadow-[inset_0_0_0_1px_rgba(45,90,58,0.25),0_4px_10px_-4px_rgba(0,0,0,0.05)] hover:bg-forest-green/5 hover:shadow-[inset_0_0_0_1px_rgba(45,90,58,0.4),0_6px_14px_-4px_rgba(0,0,0,0.1)] transition-all hover:-translate-y-0.5 w-[70%] sm:w-[240px] h-[46px]"
+                  className="flex items-center justify-center px-5 py-2.5 bg-[#050A07]/45 text-white rounded-full shadow-[inset_0_0_0_1px_rgba(255,255,255,0.25)] hover:bg-white/10 hover:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.45)] transition-all hover:-translate-y-0.5 w-[70%] sm:w-[240px] h-[46px] backdrop-blur-sm"
                 >
                   <span className="text-xs font-semibold tracking-wide">B2B Enquiries</span>
                 </Link>
-              </motion.div>
-
-              <motion.p variants={fadeIn} className="text-lg sm:text-xl text-gray-600 font-light leading-relaxed mb-6 max-w-3xl w-full">
-                Solid Foundation Geotechnical is a locally-owned, independent Sydney consultancy. Built on local expertise, we are your trusted consulting engineers. There from discussing ideas with your architect to the day your slab is poured, making sure it's built right. NATA lab-backed. Fixed-fee quotes. No corporate overhead.
-              </motion.p>
-            </div>
-
-            {/* Desktop CTAs */}
-            <motion.div variants={fadeIn} className="hidden lg:flex flex-row items-center gap-4 shrink-0">
-              <Link
-                href="/contact?subject=site-inspection"
-                className="flex items-center justify-center px-5 py-2.5 bg-gradient-to-b from-[#346b43] to-forest-green text-white rounded-full shadow-[0_8px_20px_-6px_rgba(45,90,58,0.4)] hover:shadow-[0_12px_24px_-8px_rgba(45,90,58,0.6)] hover:brightness-105 transition-all hover:-translate-y-0.5 w-[240px] h-[46px]"
-              >
-                <span className="text-xs font-semibold tracking-wide">Request an Inspection</span>
-              </Link>
-              <Link
-                href="/contact?subject=b2b-enquiry"
-                className="flex items-center justify-center px-5 py-2.5 bg-white text-forest-green rounded-full shadow-[inset_0_0_0_1px_rgba(45,90,58,0.25),0_4px_10px_-4px_rgba(0,0,0,0.05)] hover:bg-forest-green/5 hover:shadow-[inset_0_0_0_1px_rgba(45,90,58,0.4),0_6px_14px_-4px_rgba(0,0,0,0.1)] transition-all hover:-translate-y-0.5 w-[240px] h-[46px]"
-              >
-                <span className="text-xs font-semibold tracking-wide">B2B Enquiries</span>
-              </Link>
-            </motion.div>
-
-          </motion.div>
-        </div>
-      </section>
-
-
-      {/* Main Service Sections */}
-      <section className="py-24 px-6 lg:px-12 max-w-7xl mx-auto">
-        <motion.div 
-          initial="hidden" 
-          whileInView="visible" 
-          viewport={{ once: true, margin: "-100px" }}
-          variants={staggerContainer}
-          className="mb-16 flex flex-col md:flex-row md:items-end md:justify-between gap-8"
-        >
-          <div>
-            <motion.h2 variants={fadeIn} className="text-3xl font-light tracking-tight sm:text-4xl font-montserrat">
-              Geotechnical Services | <span className="font-semibold">Drilling Services</span>
-            </motion.h2>
-            <motion.div variants={fadeIn} className="mt-4 h-px bg-forest-green w-12" />
-          </div>
-          <motion.p variants={fadeIn} className="text-sm text-gray-500 max-w-md font-light">
-            Expert engineering guidance for Sydney’s residential and commercial projects, from initial soil testing to final construction sign-offs.
-          </motion.p>
-        </motion.div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 relative">
-          
-          {/* Pillar 1 */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="group flex flex-col h-full bg-white border border-gray-100 p-8 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300"
-          >
-            <div className="relative h-32 mb-6 overflow-hidden rounded-lg bg-gray-100 flex-shrink-0">
-              <Image 
-                src="/clay-sample.webp" 
-                alt="Residential soil sample AS2870 site classification Sydney" 
-                fill 
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover transition-transform duration-700 ease-in-out group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </div>
-            <h3 className="text-xl font-montserrat font-semibold mb-3 tracking-tight">Preliminary Site Works</h3>
-            <p className="text-sm text-gray-600 font-light leading-relaxed flex-grow mb-6">
-              Essential soil testing for residential projects—from new homes and extensions to granny flats and in-ground pools. We deliver fast, accurate <Link href="/site-classification" className="text-forest-green hover:underline font-medium relative z-10">Site Classifications (AS2870)</Link> and Geotechnical Investigations (AS1726). We provide clear foundation advice and the geotechnical reporting necessary to support DA and CDC pathways, partnering directly with homeowners, architects, and builders to get projects out of the ground.
-            </p>
-            <Link 
-              href="/services" 
-              className="mt-auto text-sm font-medium tracking-wide flex items-center gap-1.5 text-slate-950 hover:text-forest-green transition-colors group/link after:absolute after:inset-0 after:z-0"
-              title="Learn more about our Preliminary Site Works & Soil Testing Services in Sydney"
-              aria-label="Explore Preliminary Site Works"
-            >
-              <span className="relative overflow-hidden z-10">
-                Explore Preliminary Works
-                <span className="absolute bottom-0 left-0 w-full h-[1px] bg-forest-green transform scale-x-0 origin-left transition-transform duration-300 ease-out group-hover/link:scale-x-100" />
-              </span>
-            </Link>
-          </motion.div>
-
-          {/* Pillar 2 */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="group flex flex-col h-full bg-white border border-gray-100 p-8 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300"
-          >
-            <div className="relative h-32 mb-6 overflow-hidden rounded-lg bg-gray-100 flex-shrink-0">
-              <Image 
-                src="/construction-support.jpg" 
-                alt="Geotechnical construction phase inspection Sydney footing" 
-                title="Geotechnical engineer performing footing inspection on a Sydney construction site"
-                fill 
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover transition-transform duration-700 ease-in-out group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </div>
-            <h3 className="text-xl font-montserrat font-semibold mb-3 tracking-tight">Construction Phase Support</h3>
-            <p className="text-sm text-gray-600 font-light leading-relaxed flex-grow mb-6">
-              Keep your site moving safely. We provide rapid, on-site geotechnical inspections for footings, piers, retaining walls, and engineered fill (AS3798). Whether you are a local builder needing a quick proof roll or a structural engineer requiring verified bearing capacity data, we deliver practical, plain-English advice when it matters most to avoid heavy downtime.
-            </p>
-            <Link 
-              href="/services#inspections" 
-              className="mt-auto text-sm font-medium tracking-wide flex items-center gap-1.5 text-slate-950 hover:text-forest-green transition-colors group/link after:absolute after:inset-0 after:z-0"
-              title="Learn more about our Geotechnical Inspections and Construction Phase Support in Sydney"
-              aria-label="Explore Construction Phase Support"
-            >
-              <span className="relative overflow-hidden z-10">
-                Explore Construction Support
-                <span className="absolute bottom-0 left-0 w-full h-[1px] bg-forest-green transform scale-x-0 origin-left transition-transform duration-300 ease-out group-hover/link:scale-x-100" />
-              </span>
-            </Link>
-          </motion.div>
-
-          {/* Pillar 3 */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="group flex flex-col h-full bg-white border border-gray-100 p-8 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300"
-          >
-            <div className="relative h-32 mb-6 overflow-hidden rounded-lg bg-gray-100 flex-shrink-0">
-              <Image 
-                src="/rw-design.png" 
-                alt="Geotechnical design parameters retaining wall Sydney" 
-                title="Geotechnical design parameters for retaining walls - Sydney project"
-                fill 
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover transition-transform duration-700 ease-in-out group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </div>
-            <h3 className="text-xl font-montserrat font-semibold mb-3 tracking-tight">Geotechnical Design</h3>
-            <p className="text-sm text-gray-600 font-light leading-relaxed flex-grow mb-6">
-              Providing the critical foundational data that structural and civil engineers rely on. From precise soil parameters to pile design inputs and retaining wall design parameters, we equip your team with the reliable geotechnical metrics required for technically demanding structures. We also provide working platform assessments to support safe temporary works planning.
-            </p>
-            <Link 
-              href="/services#design" 
-              className="mt-auto text-sm font-medium tracking-wide flex items-center gap-1.5 text-slate-950 hover:text-forest-green transition-colors group/link after:absolute after:inset-0 after:z-0"
-              title="Learn more about our Geotechnical Design, Pile Design, and Foundation Parameters in Sydney"
-              aria-label="Explore Geotechnical Design"
-            >
-              <span className="relative overflow-hidden z-10">
-                Explore Geotechnical Design
-                <span className="absolute bottom-0 left-0 w-full h-[1px] bg-forest-green transform scale-x-0 origin-left transition-transform duration-300 ease-out group-hover/link:scale-x-100" />
-              </span>
-            </Link>
-          </motion.div>
-
-          {/* Pillar 4 */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="group flex flex-col h-full bg-white border border-gray-100 p-8 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300"
-          >
-            <div className="relative h-32 mb-6 overflow-hidden rounded-lg bg-gray-100 flex-shrink-0">
-              <Image 
-                src="/drilling-bh.png" 
-                alt="4WD borehole drilling geotechnical investigation Sydney" 
-                title="4WD mounted drill rig performing borehole drilling in Sydney"
-                fill 
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover transition-transform duration-700 ease-in-out group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </div>
-            <h3 className="text-xl font-montserrat font-semibold mb-3 tracking-tight">Drilling Services</h3>
-            <p className="text-sm text-gray-600 font-light leading-relaxed flex-grow mb-6">
-              Our <Link href="/drilling" className="text-forest-green hover:underline font-medium">4WD Mounted Drill Rig</Link> mobilises rapidly across the Sydney Metro. From prestige North Shore sites to tight Inner West terraces. For zero-clearance locations, internal courtyards, and rear-yard investigations, we deploy motorised hand augers and in-situ testing that extract the same quality data without machinery access.
-            </p>
-            <Link 
-              href="/drilling#drilling" 
-              className="mt-auto text-sm font-medium tracking-wide flex items-center gap-1.5 text-slate-950 hover:text-forest-green transition-colors group/link after:absolute after:inset-0 after:z-0"
-              title="Learn more about our Tight-Access Drilling & Environmental Sampling Services in Sydney Metro"
-              aria-label="Explore Drilling Services"
-            >
-              <span className="relative overflow-hidden z-10">
-                Explore Drilling Services
-                <span className="absolute bottom-0 left-0 w-full h-[1px] bg-forest-green transform scale-x-0 origin-left transition-transform duration-300 ease-out group-hover/link:scale-x-100" />
-              </span>
-            </Link>
-          </motion.div>
-
-        </div>
-      </section>
-
-
-{/* Client Success / Testimonials via Glassmorphism */}
-      <section className="py-32 relative overflow-hidden bg-slate-200 border-y border-gray-200">
-        <div className="absolute inset-0 z-0">
-          <Image src="/img_0078_v3.png" alt="Sydney geotechnical engineer site assessment — SFGEO" title="Sydney geotechnical engineering site investigation - SFGEO" fill className="object-cover opacity-60 blur-xl scale-110" />
-          <div className="absolute inset-0 bg-slate-100/40 mix-blend-overlay" />
-        </div>
-        
-        <div className="mx-auto max-w-7xl px-6 lg:px-12 relative z-10">
-           <GoogleReviews />
-        </div>
-      </section>
-
-
-
-      
-      {/* Homepage FAQ Section (Big 10) */}
-      <section className="py-24 px-6 lg:px-12 max-w-4xl mx-auto">
-        <motion.div 
-          initial="hidden" 
-          whileInView="visible" 
-          viewport={{ once: true, margin: "-100px" }}
-          variants={staggerContainer}
-          className="text-center mb-16"
-        >
-          <motion.h2 variants={fadeIn} className="text-3xl font-light tracking-tight font-montserrat text-slate-950 mb-6">
-            Common Questions about Geotechnical Services in Sydney
-          </motion.h2>
-          <motion.div variants={fadeIn} className="mt-4 h-px bg-forest-green w-12 mx-auto" />
-        </motion.div>
-
-        <div className="max-w-4xl mx-auto divide-y divide-gray-100 border-t border-gray-100 mt-8">
-          {homeFaqs.map((faq, index) => {
-            const isOpen = openIndex === index;
-            return (
-              <div key={index} className="py-6">
-                <button 
-                  onClick={() => toggleFaq(index)}
-                  className={`flex w-full items-center justify-between text-left transition-colors duration-200 ${isOpen ? 'text-forest-green' : 'text-slate-950 hover:text-forest-green'}`}
-                  aria-expanded={isOpen}
-                >
-                  <span className="text-lg font-montserrat font-semibold pr-8">
-                    {faq.question}
-                  </span>
-                  <span className={`p-1.5 rounded-full transition-colors flex-shrink-0 ${isOpen ? 'bg-forest-green/10 text-forest-green' : 'bg-gray-50 text-gray-400 group-hover:bg-gray-100'}`}>
-                    {isOpen ? <MinusIcon className="w-5 h-5" /> : <PlusIcon className="w-5 h-5" />}
-                  </span>
-                </button>
-                <AnimatePresence>
-                  {isOpen && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3, ease: "easeInOut" }}
-                      className="overflow-hidden"
-                    >
-                      <div 
-                        className="pt-6 pb-2 text-base text-gray-600 font-light leading-loose"
-                        dangerouslySetInnerHTML={{ __html: faq.answer }}
-                      />
-                    </motion.div>
-                  )}
-                </AnimatePresence>
               </div>
-            );
-          })}
+            </div>
+
+            {/* The permanent home of the quote form */}
+            <div className="hidden lg:flex flex-col items-center shrink-0">
+              <QuickQuoteCard
+                source="homepage hero"
+                headingId="hero-quote-heading"
+                secondaryLink={{ href: "/contact?subject=b2b-enquiry", label: "B2B and subcontract enquiries" }}
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Scroll cue */}
+        <div className="hero-line hero-d4 absolute bottom-7 left-1/2 -translate-x-1/2 z-10 hidden sm:flex flex-col items-center gap-3 pointer-events-none">
+          <span className="text-[10px] uppercase tracking-[0.3em] text-white/50 font-semibold">Scroll</span>
+          <span className="w-px h-10 bg-gradient-to-b from-white/40 to-transparent scroll-cue" />
         </div>
       </section>
 
-      <ServiceAreaBlock pageType="home" />
+      {/* ============ Where we are, the numbers, and where we go ============ */}
+      <section aria-label="Key facts" className="bg-white">
+        <p className="py-6 text-center text-[11px] uppercase tracking-[0.32em] text-forest-green font-semibold">
+          Inner West Based &middot; Sydney-Wide
+        </p>
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <ProofStrip items={PROOF} />
+        </div>
+        <div className="border-b border-gray-100 py-2">
+          <Marquee items={SUBURBS} speed={150} />
+        </div>
+      </section>
 
+      {/* ============ 01 Service index ============ */}
+      <section className="py-32 lg:py-40 px-6 lg:px-12 max-w-7xl mx-auto">
+        <Reveal variant="group" className="mb-16 flex flex-col md:flex-row md:items-end md:justify-between gap-8">
+          <div>
+            <p data-fx="rise" className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">01 &middot; What We Do</p>
+            <h2 data-fx="rise" style={d(80)} className="text-4xl font-light tracking-tight sm:text-5xl font-montserrat">
+              Full Suite. <span className="font-semibold h-bold">One Team.</span>
+            </h2>
+            <div data-fx="line" style={d(200)} className="mt-4 h-px bg-forest-green w-12" />
+          </div>
+          <p data-fx="rise" style={d(160)} className="text-sm text-gray-500 max-w-md font-light">
+            One consultancy across the whole arc of a build, from the first borehole to the final inspection, scoped and delivered by the engineer who does the work.
+          </p>
+        </Reveal>
+        <Reveal delay={80}>
+          <ServiceIndex />
+        </Reveal>
+      </section>
 
+      {/* ============ 02 The engineer — dark anchor band ============ */}
+      <section className="relative overflow-hidden bg-[#050A07] text-white grain aurora">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 py-28 lg:py-40 grid grid-cols-1 lg:grid-cols-[1.15fr_1fr] gap-14 lg:gap-20 items-center">
+          <Reveal variant="group">
+            <p data-fx="rise" className="text-sm uppercase tracking-[0.2em] text-[#8FBF9F] mb-6 font-semibold">02 &middot; Family Owned</p>
+            <h2 data-fx="rise" style={d(80)} className="text-3xl sm:text-5xl font-montserrat font-light tracking-tight leading-[1.15] mb-8">
+              Family Owned. <span className="font-semibold h-bold">Sydney Grown.</span>
+            </h2>
+            <div data-fx="line" style={d(200)} className="w-[96px] h-[3px] bg-forest-green mb-8" />
+            <p data-fx="rise" style={d(180)} className="text-lg text-gray-300 font-light leading-relaxed mb-6 max-w-xl">
+              A principal-led team backed by a trusted partner network, carrying fifteen years of Sydney ground, from Sydney Gateway, the M12 and Western Sydney Airport to granny flats, extensions and knockdown rebuilds across the metro. Hired from the Inner West and working for it: the street lighting and signals a suburb walks home under, as much as its terraces and pools.
+            </p>
+            <p data-fx="rise" style={d(240)} className="text-[15px] text-white/60 font-light leading-relaxed mb-8 max-w-xl">
+              The engineer who quotes your job is the one who stands on your ground and signs the report. Small by design, so nothing is handed down a chain.
+            </p>
+            <Link
+              data-fx="rise"
+              style={d(300)}
+              href="/about"
+              className="inline-flex items-center gap-2 text-sm font-semibold tracking-wide text-white group"
+            >
+              <span className="draw-link">Meet The Team</span>
+              <span className="transition-transform group-hover:translate-x-1">&rarr;</span>
+            </Link>
+          </Reveal>
+          <PhotoFrame
+            src="/sfgeo-principal-engineer-marrickville.jpg"
+            alt="SFGEO’s Principal Engineer in hard hat and hi-vis beside the site ute on a Sydney job"
+            caption={<>The Principal &middot; On Site</>}
+            aspect="aspect-[4/5]"
+            sizes="(max-width: 1024px) 100vw, 40vw"
+            position="object-top"
+            className="max-w-md mx-auto lg:mx-0 lg:ml-auto shadow-[0_32px_80px_-32px_rgba(0,0,0,0.8)]"
+            delay={120}
+          />
+        </div>
+      </section>
+
+      {/* ============ 03 The experience — start to finish ============ */}
+      <section className="py-28 lg:py-36 px-6 lg:px-12 max-w-7xl mx-auto">
+        <Reveal variant="group" className="mb-16 lg:mb-20 max-w-3xl">
+          <p data-fx="rise" className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">03 &middot; The Experience</p>
+          <h2 data-fx="rise" style={d(80)} className="text-4xl font-light tracking-tight sm:text-5xl font-montserrat">
+            More Than A Report. <span className="font-semibold h-bold">Start To Finish.</span>
+          </h2>
+          <div data-fx="line" style={d(200)} className="mt-4 h-px bg-forest-green w-12" />
+          <p data-fx="rise" style={d(160)} className="mt-7 text-lg text-gray-600 font-light leading-relaxed">
+            Small in size, big on capability. One engineer carries your job from the first phone call to the last inspection, and the same number answers the whole way through.
+          </p>
+        </Reveal>
+        <Reveal variant="group">
+          <ol data-stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-12">
+            {JOURNEY.map((s, i) => (
+              <li key={s.t} className="border-t border-gray-200 pt-7">
+                <span className="block font-montserrat font-light text-5xl leading-none text-forest-green/30 mb-6 tabular-nums">0{i + 1}</span>
+                <h3 className="font-montserrat text-xl font-semibold tracking-tight text-slate-950 mb-3">{s.t}</h3>
+                <p className="text-[15px] text-gray-600 font-light leading-relaxed">{s.d}</p>
+              </li>
+            ))}
+          </ol>
+        </Reveal>
+      </section>
+
+      {/* ============ 04 Recent work ============ */}
+      <section className="py-28 lg:py-36 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">
+        <Reveal variant="group" className="mb-16 flex flex-col md:flex-row md:items-end md:justify-between gap-8">
+          <div>
+            <p data-fx="rise" className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">04 &middot; Recent Work</p>
+            <h2 data-fx="rise" style={d(80)} className="text-4xl font-light tracking-tight sm:text-5xl font-montserrat">
+              Proven On <span className="font-semibold h-bold">Sydney Ground.</span>
+            </h2>
+            <div data-fx="line" style={d(200)} className="mt-4 h-px bg-forest-green w-12" />
+          </div>
+          <div data-fx="rise" style={d(160)} className="flex flex-col items-start md:items-end gap-3">
+            <p className="text-sm text-gray-500 max-w-md font-light md:text-right">
+              Real projects from our issued reports: what the client needed, what the ground turned out to be, and what the engineering did about it.
+            </p>
+            <Link href="/projects" className="text-sm font-semibold tracking-wide text-forest-green group inline-flex items-center gap-2 min-h-[44px]">
+              <span className="draw-link">All projects</span>
+              <span className="transition-transform group-hover:translate-x-1">&rarr;</span>
+            </Link>
+          </div>
+        </Reveal>
+
+        <Reveal variant="group">
+          <div data-stagger className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {caseStudies.map((cs) => (
+              <Link
+                key={cs.href}
+                href={cs.href}
+                className="card-lift group flex flex-col h-full rounded-2xl overflow-hidden bg-white border border-gray-100 shadow-sm"
+              >
+                <div className="relative h-56 overflow-hidden">
+                  <Image
+                    src={cs.image}
+                    alt={cs.alt}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.06]"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#050A07]/80 via-[#050A07]/25 to-transparent" />
+                  <div className="absolute bottom-0 left-0 p-5">
+                    <p className="text-[11px] uppercase tracking-[0.25em] text-white font-semibold mb-1">{cs.tag}</p>
+                    <p className="text-white font-montserrat text-lg font-light">{cs.location}</p>
+                  </div>
+                </div>
+                <div className="flex flex-col flex-grow p-7">
+                  <h3 className="text-lg font-montserrat font-semibold tracking-tight mb-3 min-h-[3.5rem] group-hover:text-forest-green transition-colors">{cs.title}</h3>
+                  <p className="text-sm text-gray-600 font-light leading-relaxed flex-grow">{cs.line}</p>
+                  <span className="mt-5 text-sm font-medium tracking-wide text-slate-950 group-hover:text-forest-green transition-colors">
+                    Read the project <span className="card-arrow">&rarr;</span>
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </Reveal>
+      </section>
+
+      {/* ============ 05 Before you call — questions and what clients say ============ */}
+      <section className="py-28 lg:py-36 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">
+        <Reveal variant="group" className="mb-14 lg:mb-16 max-w-3xl">
+          <p data-fx="rise" className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">05 &middot; Before You Call</p>
+          <h2 data-fx="rise" style={d(80)} className="text-4xl font-light tracking-tight sm:text-5xl font-montserrat">
+            Common Questions. <span className="font-semibold h-bold">Straight Answers.</span>
+          </h2>
+          <div data-fx="line" style={d(200)} className="mt-4 h-px bg-forest-green w-12" />
+          <p data-fx="rise" style={d(160)} className="mt-7 text-lg text-gray-600 font-light leading-relaxed">
+            The questions every enquiry starts with, and what the people who have already called say afterwards.
+          </p>
+        </Reveal>
+        <div className="grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] gap-14 lg:gap-24 items-start">
+          <div>
+            <HomeFaq />
+            <Link href="/faq" className="mt-8 inline-flex items-center gap-2 text-sm font-semibold tracking-wide text-forest-green group">
+              <span className="draw-link">All the questions, answered</span>
+              <span className="transition-transform group-hover:translate-x-1">&rarr;</span>
+            </Link>
+          </div>
+          <aside className="lg:sticky lg:top-28 lg:pl-12 lg:border-l lg:border-gray-100">
+            <GoogleReviews layout="column" />
+          </aside>
+        </div>
+      </section>
+
+      {/* ============ 06 Close — start with the ground + the office ============ */}
+      <section className="relative overflow-hidden bg-[#050A07] text-white grain aurora">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 py-28 lg:py-40 grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center">
+          <Reveal variant="group">
+            <p data-fx="rise" className="text-sm uppercase tracking-[0.2em] text-[#8FBF9F] mb-6 font-semibold">06 &middot; Marrickville, Sydney</p>
+            <h2 data-fx="rise" style={d(80)} className="text-3xl sm:text-5xl font-montserrat font-light tracking-tight leading-[1.1] mb-6">
+              Start With <span className="font-semibold h-bold">The Ground.</span>
+            </h2>
+            <p data-fx="rise" style={d(160)} className="text-gray-400 font-light leading-relaxed mb-10 max-w-md">
+              Fixed-fee quotes, scoped to your block. Response within one business day.
+            </p>
+            <div data-fx="rise" style={d(240)} className="flex flex-col sm:flex-row gap-4">
+              <Link
+                href="tel:+61423483555"
+                className="flex items-center justify-center px-8 py-2.5 bg-gradient-to-b from-[#346b43] to-forest-green text-white rounded-full shadow-[0_8px_20px_-6px_rgba(45,90,58,0.4)] hover:shadow-[0_12px_24px_-8px_rgba(45,90,58,0.6)] hover:brightness-105 transition-all hover:-translate-y-0.5 h-[46px] text-xs font-semibold tracking-wide"
+              >
+                Call 0423 483 555
+              </Link>
+              <QuoteCta
+                source="homepage close"
+                label="Request A Quote"
+                className="flex items-center justify-center px-8 py-2.5 bg-white/5 text-white rounded-full shadow-[inset_0_0_0_1px_rgba(255,255,255,0.25)] hover:bg-white/10 hover:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.45)] transition-all hover:-translate-y-0.5 h-[46px] text-xs font-semibold tracking-wide backdrop-blur-sm"
+              />
+            </div>
+            <p data-fx="rise" style={d(300)} className="text-[12px] text-white/60 font-light tracking-wide mt-9">
+              Suite 3.01, Level 3, 107 Sydenham Road, Marrickville NSW 2204 &middot; Mon&ndash;Fri 6am&ndash;6pm &middot; Sat 8am&ndash;2pm
+            </p>
+            <div data-fx="rise" style={d(360)} className="mt-8 pt-7 border-t border-white/10">
+              <FollowFieldwork variant="dark" />
+            </div>
+          </Reveal>
+          <Reveal variant="group">
+            <div data-fx="scale" style={d(160)} className="relative aspect-[16/11] rounded-2xl overflow-hidden shadow-[0_40px_90px_-34px_rgba(0,0,0,0.85)]">
+              <iframe
+                src="https://www.google.com/maps?q=SFGEO%20Suite%203.01%20Level%203%20107%20Sydenham%20Road%20Marrickville%20NSW%202204&output=embed"
+                title="SFGEO office, Marrickville"
+                className="absolute inset-0 w-full h-full"
+                style={{ border: 0 }}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
+              />
+            </div>
+          </Reveal>
+        </div>
+      </section>
     </div>
   );
 }

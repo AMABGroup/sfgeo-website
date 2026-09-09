@@ -1,8 +1,13 @@
 import { NextResponse } from "next/server";
 import { getCookieName, signToken, verifyPasscode } from "@/lib/docketAuth";
+import { clientIp, rateLimited } from "@/lib/rateLimit";
 
 export async function POST(request: Request) {
   try {
+    // Five attempts per ten minutes per address, so a short passcode cannot be brute-forced.
+    if (rateLimited(`docket-auth:${clientIp(request)}`, 5, 10 * 60_000)) {
+      return NextResponse.json({ error: "Too many attempts. Try again in ten minutes." }, { status: 429 });
+    }
     const { passcode } = await request.json();
     if (typeof passcode !== "string" || !verifyPasscode(passcode)) {
       return NextResponse.json({ error: "Incorrect passcode" }, { status: 401 });

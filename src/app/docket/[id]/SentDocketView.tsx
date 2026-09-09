@@ -105,7 +105,7 @@ export default function SentDocketView({ id }: { id: string }) {
 
         <Field label="Project ref"><span className="font-mono">{d.projectRef}</span> · Visit {d.visitNumber}</Field>
         <Field label="Inspection type">
-          {d.jobType}{d.jobTypeDetail ? ` — ${d.jobTypeDetail}` : ""}
+          {d.jobType}{d.jobTypeDetail ? ` · ${d.jobTypeDetail}` : ""}
         </Field>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

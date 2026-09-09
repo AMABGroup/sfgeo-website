@@ -1,23 +1,13 @@
 import { Metadata } from 'next';
 import FaqClient from './FaqClient';
 import { faqs } from '@/data/faqs';
+import { pageMeta } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: "Geotechnical Engineering FAQ Sydney | SFGEO",
-  description: "Common questions about geotechnical investigations, site classifications, and soil testing in Sydney. Clear, technical advice for homeowners and builders.",
-  alternates: {
-    canonical: '/faq',
-  },
-  openGraph: {
-    title: "Geotechnical Engineering FAQ Sydney | SFGEO",
-    description: "Common questions about geotechnical investigations, site classifications, and soil testing in Sydney. Clear, technical advice for homeowners and builders.",
-    url: '/faq',
-  },
-  twitter: {
-    title: "Geotechnical Engineering FAQ Sydney | SFGEO",
-    description: "Common questions about geotechnical investigations, site classifications, and soil testing in Sydney. Clear, technical advice for homeowners and builders.",
-  },
-};
+export const metadata: Metadata = pageMeta(
+  "Soil Test & Geotechnical Report FAQ Sydney | SFGEO",
+  "Do you need a soil test for a granny flat? What is Class M? How long does a geotechnical report take? Clear answers from the engineers who do the work in Sydney.",
+  "/faq"
+);
 
 export default function FaqPage() {
   const breadcrumbSchema = {
@@ -51,7 +41,7 @@ export default function FaqPage() {
       "name": faq.question,
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": faq.answer.replace(/<br\/>/g, ' ')
+        "text": faq.answer.replace(/<br\/>/g, ' ').replace(/href="\//g, 'href="https://sfgeo.com.au/')
       }
     }))
   };

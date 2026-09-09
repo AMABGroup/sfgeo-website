@@ -10,9 +10,10 @@ interface VideoEmbedProps {
   webp?: boolean;
 }
 
-export default function VideoEmbed({ id, title, poster = "maxresdefault", webp = true }: VideoEmbedProps) {
+export default function VideoEmbed({ id, title, poster = "sddefault", webp = true }: VideoEmbedProps) {
   return (
     <LiteYouTubeEmbed
+      lazyLoad
       id={id}
       title={title}
       poster={poster}

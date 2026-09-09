@@ -31,10 +31,13 @@ interface NormalisedPlace {
 }
 
 export async function GET() {
-  const apiKey = process.env.GOOGLE_PLACES_API_KEY;
+  const apiKey = process.env.GOOGLE_PLACES_API_KEY || process.env.GOOGLE_MAPS_API_KEY;
 
+  // No key: answer with an empty payload so the client components render
+  // nothing rather than spin. (The previous fallback fetched the production
+  // URL, which on the production host is this route calling itself.)
   if (!apiKey) {
-    return NextResponse.json({ error: 'API key not configured' }, { status: 500 });
+    return NextResponse.json({ rating: null, user_ratings_total: 0, reviews: [] });
   }
 
   // Places API (New). The legacy `maps/api/place/details/json` endpoint this
@@ -56,8 +59,7 @@ export async function GET() {
       // Log Google's actual message — the previous version swallowed it, which
       // made the 500 undiagnosable from the outside.
       console.error('Places API (New) error:', response.status, JSON.stringify(data));
-      return NextResponse.json(
-        { error: data?.error?.message ?? 'Failed to fetch reviews' },
+      return NextResponse.json({ error: "Failed to fetch reviews" },
         { status: 502 }
       );
     }

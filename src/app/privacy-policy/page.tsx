@@ -1,122 +1,92 @@
-"use client";
-
-import { motion } from "framer-motion";
-
 export default function PrivacyPolicyPage() {
-  const fadeIn = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
-  };
-
-  const stagger = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { staggerChildren: 0.15 } }
-  };
-
   return (
-    <div className="bg-white text-slate-black font-inter min-h-screen">
-      <section className="pt-32 pb-16 px-6 lg:px-12 max-w-7xl mx-auto text-left">
-        <motion.div initial="hidden" animate="visible" variants={stagger} className="max-w-[800px] mx-auto">
-          
-          <motion.h1 
-            variants={fadeIn} 
-            className="text-3xl sm:text-4xl font-montserrat font-light tracking-tight text-slate-950 mb-4"
-          >
-            Privacy Policy
-          </motion.h1>
-          <motion.div variants={fadeIn} className="w-[96px] h-[3px] bg-forest-green mt-5 mb-5 mx-0"></motion.div>
-          <motion.p 
-            variants={fadeIn} 
-            className="text-xl text-gray-500 font-light leading-relaxed max-w-[800px] mb-4"
-          >
-            How Solid Foundation Geotechnical collects, uses, and protects your information.
-          </motion.p>
-          
-          <motion.p 
-            variants={fadeIn} 
-            className="text-sm text-gray-400 font-semibold tracking-wider uppercase mb-12 border-b border-gray-100 pb-8"
-          >
-            Last Updated: May 2026
-          </motion.p>
-        </motion.div>
-      </section>
+    <div className="bg-white text-slate-950 font-inter">
+      <div className="max-w-2xl mx-auto px-6 pt-28 pb-24">
+        <h1 className="text-2xl sm:text-3xl font-montserrat font-medium tracking-tight mb-2">Privacy Policy</h1>
+        <p className="text-sm text-gray-500 mb-10">
+          Solid Foundation Geotechnical, a business of AMAB Group Pty Ltd (ABN 54 686 815 252). Last updated August 2026.
+        </p>
 
-      {/* Architectural Narrow Content Wrapper */}
-      <section className="px-6 pb-32">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="max-w-[800px] mx-auto prose prose-lg prose-slate"
-        >
+        <div className="space-y-8 text-[15px] text-gray-700 leading-relaxed">
+          <p>
+            This policy explains how we collect, use and protect your personal information. We act in accordance with the Australian Privacy Principles.
+          </p>
 
-          <div className="prose prose-lg prose-slate text-gray-600 font-light leading-loose">
+          <div>
+            <h2 className="font-semibold text-slate-950 mb-2">1. What we collect</h2>
             <p>
-              <strong>Entity:</strong> Solid Foundation Geotechnical (a business under AMAB Group Pty Ltd, ABN 54 686 815 252).
+              We collect personal information necessary to provide our geotechnical engineering services. This may include your name, contact details (email address, phone number), site addresses, architectural plans, and billing information.
             </p>
-            <p>
-              This Privacy Policy outlines how Solid Foundation Geotechnical ("we", "our", or "us") manages your personal information. We respect the privacy of individuals and are committed to protecting the personal information we collect, acting in accordance with the Australian Privacy Principles (APPs).
-            </p>
-
-            <h2 className="text-2xl font-montserrat font-bold text-slate-black mt-12 mb-6">1. What we collect</h2>
-            <p>
-              We collect personal information necessary for us to provide our geotechnical engineering services. This may include your name, contact details (email address, phone number), site addresses, architectural plans, and billing information.
-            </p>
-
-            <h2 className="text-2xl font-montserrat font-bold text-slate-black mt-12 mb-6">2. How we collect it</h2>
-            <p>
-              We collect your personal information directly from you when you interact with us. This occurs when you submit an inquiry through our website contact form, correspond with us via email or telephone, or engage us formally for our consulting services. We may also collect project details indirectly via your authorized architects or structural engineers if you have instructed them to retain our services on your behalf.
-            </p>
-
-            <h2 className="text-2xl font-montserrat font-bold text-slate-black mt-12 mb-6">3. Why we collect it</h2>
-            <p>
-              We collect your data primarily to deliver our specialised geotechnical advice and site reporting. Specifically, we use it to calculate tailored fee proposals, conduct necessary site investigations, issue verified engineering reports (such as AS 2870 site classifications), process payments, and maintain our internal records.
-            </p>
-
-            <h2 className="text-2xl font-montserrat font-bold text-slate-black mt-12 mb-6">4. Disclosure of information</h2>
-            <p>
-              We do not sell your personal information to third parties. We will only disclose your information to authorized third parties when required to execute your project (such as sharing site parameters with your designated structural engineer or local Sydney Council), or when explicitly required by law.
-            </p>
-
-            <h2 className="text-2xl font-montserrat font-bold text-slate-black mt-12 mb-6">5. Storage and security</h2>
-            <p>
-              Your personal information is stored securely in our digital environments. We implement industry-standard administrative, physical, and technical safeguards to protect your project data and personal details against unauthorized access, loss, or misuse.
-            </p>
-
-            <h2 className="text-2xl font-montserrat font-bold text-slate-black mt-12 mb-6">6. Access and correction</h2>
-            <p>
-              You have the right to request access to the personal information we hold about you and to ask for it to be updated or corrected. If you wish to review your information, please contact us directly. We will respond promptly within a reasonable timeframe.
-            </p>
-
-            <h2 className="text-2xl font-montserrat font-bold text-slate-black mt-12 mb-6">7. Cookies and third-party services</h2>
-            <p>
-              Our website uses cookies to support core site functionality and to measure how visitors find and engage with us. Some cookies are set by third-party services we integrate.
-            </p>
-            <p>
-              <strong>Google Ads conversion tracking.</strong> When you arrive at the site from a paid search advertisement and then submit our contact form or use the on-screen contact buttons, Google sets a short-lived identifier to attribute that enquiry to the campaign that brought you here. The identifier does not, on its own, contain your name or contact details.
-            </p>
-            <p>
-              <strong>Google Maps.</strong> The Contact page includes an embedded map of our office, provided by Google Maps. Google may set its own cookies when the map loads.
-            </p>
-            <p>
-              Both Google services are governed by Google&apos;s privacy policy, available at <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-forest-green font-semibold hover:underline">policies.google.com/privacy</a>. You can disable cookies through your browser settings, though some features (such as the embedded map) may not function correctly if cookies are blocked. Disabling cookies will not prevent you from contacting us by phone, email, or the contact form.
-            </p>
-
-            <h2 className="text-2xl font-montserrat font-bold text-slate-black mt-12 mb-6">8. Changes to policy</h2>
-            <p>
-              We may update this Privacy Policy periodically to reflect changes in our operational procedures or to comply with evolving legal and regulatory frameworks. The most recent version will always be published on this page, indicated by the "Last Updated" date at the top.
-            </p>
-
-            <div className="mt-16 pt-8 border-t border-gray-100">
-              <h2 className="text-xl font-montserrat font-bold text-slate-black mb-4">Contact</h2>
-              <p>
-                If you have any questions or concerns regarding this Privacy Policy, please contact us at: <br />
-                <a href="mailto:info@sfgeo.com.au" className="text-forest-green font-semibold hover:underline mt-2 inline-block">info@sfgeo.com.au</a>
-              </p>
-            </div>
           </div>
-        </motion.div>
-      </section>
+
+          <div>
+            <h2 className="font-semibold text-slate-950 mb-2">2. How we collect it</h2>
+            <p>
+              We collect your personal information directly from you: when you submit an enquiry through our website contact form, correspond with us by email or telephone, or engage us for our services. We may also receive project details from your authorised architects or structural engineers where you have instructed them to retain our services on your behalf.
+            </p>
+          </div>
+
+          <div>
+            <h2 className="font-semibold text-slate-950 mb-2">3. Why we collect it</h2>
+            <p>
+              We use your information to prepare fee proposals, conduct site investigations, issue engineering reports (such as AS 2870 site classifications), process payments, and maintain our records.
+            </p>
+          </div>
+
+          <div>
+            <h2 className="font-semibold text-slate-950 mb-2">4. Disclosure</h2>
+            <p>
+              We do not sell your personal information. We disclose it only to authorised third parties where required to deliver your project, such as your structural engineer, certifier or local council, or where required by law.
+            </p>
+          </div>
+
+          <div>
+            <h2 className="font-semibold text-slate-950 mb-2">5. Storage and security</h2>
+            <p>
+              Your personal information is stored securely in our digital environments. We apply administrative, physical and technical safeguards to protect it against unauthorised access, loss or misuse.
+            </p>
+          </div>
+
+          <div>
+            <h2 className="font-semibold text-slate-950 mb-2">6. Access and correction</h2>
+            <p>
+              You may request access to the personal information we hold about you, and ask for it to be updated or corrected, by contacting us. We will respond within a reasonable timeframe.
+            </p>
+          </div>
+
+          <div>
+            <h2 className="font-semibold text-slate-950 mb-2">7. Cookies and third-party services</h2>
+            <p>
+              Our website uses cookies to support core functionality and to measure how visitors find and use the site. Some cookies are set by third-party services:
+            </p>
+            <p className="mt-3">
+              <span className="font-medium text-slate-950">Google Ads conversion tracking.</span> If you arrive from a paid search advertisement and then submit our contact form or use the on-screen contact buttons, Google sets a short-lived identifier to attribute the enquiry to the campaign. The identifier does not, on its own, contain your name or contact details.
+            </p>
+            <p className="mt-3">
+              <span className="font-medium text-slate-950">Google Maps.</span> The home page, contact page and site menu include an embedded map of our office. Google may set its own cookies when the map loads.
+            </p>
+            <p className="mt-3">
+              Both services are governed by Google&rsquo;s privacy policy at{" "}
+              <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-forest-green underline underline-offset-4 decoration-forest-green/40 hover:decoration-forest-green">policies.google.com/privacy<span className="sr-only"> (opens in a new tab)</span></a>. You can disable cookies in your browser settings; some features (such as the embedded map) may not function with cookies blocked. Disabling cookies will not prevent you from contacting us by phone, email or the contact form.
+            </p>
+          </div>
+
+          <div>
+            <h2 className="font-semibold text-slate-950 mb-2">8. Changes to this policy</h2>
+            <p>
+              We may update this policy from time to time. The current version is always published on this page, with the date above.
+            </p>
+          </div>
+
+          <div>
+            <h2 className="font-semibold text-slate-950 mb-2">Contact</h2>
+            <p>
+              Questions about this policy:{" "}
+              <a href="mailto:info@sfgeo.com.au" className="text-forest-green underline underline-offset-4 decoration-forest-green/40 hover:decoration-forest-green">info@sfgeo.com.au</a>
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
