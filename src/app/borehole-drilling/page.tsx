@@ -9,7 +9,7 @@ import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta(
   "Borehole Drilling Sydney | Engineer-Logged Boreholes | SFGEO",
-  "Borehole drilling in Sydney with a 4WD-mounted rig: solid flight and hollow stem augers, SPT and DCP testing, every profile logged by the engineer on site.",
+  "Borehole drilling in Sydney with a 4WD-mounted rig: solid flight and hollow stem augers, in-situ testing, every profile logged by the engineer on site.",
   "/borehole-drilling",
 );
 
@@ -17,7 +17,7 @@ const d = (ms: number) => ({ "--d": `${ms}ms` }) as CSSProperties;
 
 const DELIVERS = [
   { t: "The Soil Profile", d: "Every layer logged as it comes off the flights, material, moisture and consistency, by the engineer standing at the hole, not reconstructed later." },
-  { t: "In-Situ Strength", d: "Standard Penetration Testing down the hole and Dynamic Cone Penetrometer testing beside it, so the log carries numbers as well as descriptions." },
+  { t: "In-Situ Strength", d: "Dynamic Cone Penetrometer testing beside every hole, and Standard Penetration Testing down the hole on consultancy and commercial programs, so the log carries numbers as well as descriptions." },
   { t: "Groundwater Observations", d: "Seepage and standing water levels recorded during and after drilling, the observation that changes basement and footing design most often." },
   { t: "Samples For The Lab", d: "Disturbed and undisturbed samples taken at the depths that matter, bagged, labelled and tracked to NATA-accredited laboratories when testing is warranted." },
 ];
@@ -37,7 +37,7 @@ export default function BoreholeDrillingPage() {
     "@type": "Service",
     "name": "Borehole Drilling",
     "serviceType": "Borehole drilling and in-situ testing",
-    "description": "Borehole drilling across Sydney with a 4WD-mounted rig: solid flight and hollow stem augers, SPT and DCP in-situ testing, engineer-logged profiles and sampling for laboratory testing.",
+    "description": "Borehole drilling across Sydney with a 4WD-mounted rig: solid flight and hollow stem augers, DCP in-situ testing (SPT on commercial programs), engineer-logged profiles and sampling for laboratory testing.",
     "url": "https://sfgeo.com.au/borehole-drilling",
     "provider": { "@id": "https://sfgeo.com.au/#organization" },
     "areaServed": [
@@ -99,7 +99,7 @@ export default function BoreholeDrillingPage() {
             />
             <PhotoFrame
               src="/sfgeo-borehole-sample-in-hand.jpg"
-              alt="Sand sample read in the engineer's hand at the borehole"
+              alt="Sand sample read in the engineer’s hand at the borehole"
               caption="The Sample"
               aspect="aspect-[3/4]"
               sizes="(max-width: 1024px) 50vw, 30vw"
@@ -114,7 +114,7 @@ export default function BoreholeDrillingPage() {
             </h2>
             <div data-fx="line" style={d(200)} className="h-px bg-forest-green w-12 mb-7" />
             <p data-fx="rise" style={d(160)} className="text-gray-600 font-light leading-relaxed">
-              Solid flight augers for Sydney&rsquo;s clays and residual soils; hollow stem when the hole needs support; SPT and DCP testing to put numbers behind the descriptions. The material comes up, gets read in the hand, and goes on the log in the field, because the ground doesn&rsquo;t look the same in a photo the next day.
+              Solid flight augers for Sydney&rsquo;s clays and residual soils; hollow stem when the hole needs support; DCP testing at every hole, and SPT on consultancy and commercial programs, to put numbers behind the descriptions. The material comes up, gets read in the hand, and goes on the log in the field, because the ground doesn&rsquo;t look the same in a photo the next day.
             </p>
           </Reveal>
         </div>
@@ -150,9 +150,9 @@ export default function BoreholeDrillingPage() {
           </h2>
           <div data-fx="line" style={d(200)} className="h-px bg-forest-green w-12 mb-7" />
           <p data-fx="rise" style={d(160)} className="text-gray-600 font-light leading-relaxed mb-8">
-            A granny flat doesn&rsquo;t need the borehole a basement does. Investigation depths are scoped to the structure and the ground: through the reactive zone for footings, below founding level for piers, deep enough to see what a basement excavation will meet. Where the ground turns to rock, <Link href="/drilling#rock-coring" className="text-forest-green hover:underline font-medium">NMLC rock coring</Link> takes over; where the rig can&rsquo;t reach, <Link href="/tight-access-drilling" className="text-forest-green hover:underline font-medium">tight access methods</Link> do.
+            A granny flat doesn&rsquo;t need the borehole a basement does. Investigation depths are scoped to the structure and the ground: through the reactive zone for footings, below founding level for piers, deep enough to see what a basement excavation will meet. Where the ground turns to rock, <Link href="/drilling#rock-coring" className="text-forest-green underline underline-offset-4 decoration-forest-green/40 hover:decoration-forest-green font-medium">NMLC rock coring</Link> takes over; where the rig can&rsquo;t reach, <Link href="/tight-access-drilling" className="text-forest-green underline underline-offset-4 decoration-forest-green/40 hover:decoration-forest-green font-medium">tight access methods</Link> do.
           </p>
-          <Link data-fx="rise" style={d(220)} href="/drilling" className="text-sm font-semibold tracking-wide text-forest-green group inline-flex items-center gap-2">
+          <Link data-fx="rise" style={d(220)} href="/drilling" className="text-sm font-semibold tracking-wide text-forest-green group inline-flex items-center gap-2 min-h-[44px]">
             <span className="draw-link">All Drilling Services</span>
             <span className="transition-transform group-hover:translate-x-1">&rarr;</span>
           </Link>

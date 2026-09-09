@@ -273,6 +273,7 @@ body {
 @media (prefers-reduced-motion: no-preference) {
   .marquee-track { animation: marquee var(--marquee-s, 70s) linear infinite; }
   .marquee:hover .marquee-track { animation-play-state: paused; }
+.marquee:focus-within .marquee-track { animation-play-state: paused; }
   @keyframes marquee { to { transform: translate3d(-50%, 0, 0); } }
 }
 @media (prefers-reduced-motion: reduce) {

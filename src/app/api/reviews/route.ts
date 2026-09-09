@@ -59,8 +59,7 @@ export async function GET() {
       // Log Google's actual message — the previous version swallowed it, which
       // made the 500 undiagnosable from the outside.
       console.error('Places API (New) error:', response.status, JSON.stringify(data));
-      return NextResponse.json(
-        { error: data?.error?.message ?? 'Failed to fetch reviews' },
+      return NextResponse.json({ error: "Failed to fetch reviews" },
         { status: 502 }
       );
     }

@@ -26,7 +26,7 @@ const SECTIONS = [
     caption: "01 · Contaminated Land",
     image: "/sfgeo-contaminated-land-capped-site-surry-hills.jpg",
     alt: "Geofabric capping laid over cleared ground on an inner-city Sydney site, with stockpiles waiting behind",
-    body: "When a site's history raises questions (old fill, past industry, a council condition on the DA), a Preliminary Site Investigation traces what happened on the ground, and a Detailed Site Investigation drills, samples and tests to answer it. Every sample is logged by an engineer, tracked under chain of custody and analysed at NATA-accredited laboratories. And because the crew taking the samples is the crew that drills Sydney ground every week, one mobilisation can carry your geotechnical and environmental scope together.",
+    body: "When a site’s history raises questions (old fill, past industry, a council condition on the DA), a Preliminary Site Investigation traces what happened on the ground, and a Detailed Site Investigation drills, samples and tests to answer it. Every sample is logged by an engineer, tracked under chain of custody and analysed at NATA-accredited laboratories. And because the crew taking the samples is the crew that drills Sydney ground every week, one mobilisation can carry your geotechnical and environmental scope together.",
     link: { href: "/contact", label: "Scope A Site Investigation" },
   },
   {
@@ -38,7 +38,7 @@ const SECTIONS = [
     caption: "02 · Acid Sulfate Soils",
     image: "/sfgeo-acid-sulfate-soils-riverbank-drilling.jpg",
     alt: "Drill rig and crew sampling low-lying ground beside a Sydney river",
-    body: "Low-lying and estuarine ground across Sydney can hold sulfides that stay harmless until they're exposed to air, then turn acidic, attack concrete and steel, and stall an excavation under council conditions. We drill, sample and test the ground before works start, and where acid sulfate soils are present, report the findings with a management plan so excavation and dewatering can proceed with conditions settled.",
+    body: "Low-lying and estuarine ground across Sydney can hold sulfides that stay harmless until they’re exposed to air, then turn acidic, attack concrete and steel, and stall an excavation under council conditions. We drill, sample and test the ground before works start, and where acid sulfate soils are present, report the findings with a management plan so excavation and dewatering can proceed with conditions settled.",
     link: { href: "/contact", label: "Ask About Your Site" },
   },
   {
@@ -50,7 +50,7 @@ const SECTIONS = [
     caption: "03 · Waste Classification",
     image: "/sfgeo-waste-classification-fill-concrete-bexley-north.jpg",
     alt: "A gloved hand holding a lump of concrete and brick rubble lifted from the fill in a Bexley North backyard",
-    body: "Spoil can't leave site on a guess. Receiving facilities need a classification, and the wrong one is paid for twice. We sample stockpiles and in-situ ground, test at NATA-accredited laboratories and classify to the NSW EPA guidelines, from virgin excavated natural material (VENM) and excavated natural material (ENM) through to general solid waste, with the paperwork your facility and your certifier both need.",
+    body: "Spoil can’t leave site on a guess. Receiving facilities need a classification, and the wrong one is paid for twice. We sample stockpiles and in-situ ground, test at NATA-accredited laboratories and classify to the NSW EPA guidelines, from virgin excavated natural material (VENM) and excavated natural material (ENM) through to general solid waste, with the paperwork your facility and your certifier both need.",
     link: { href: "/contact", label: "Classify Your Spoil" },
   },
   {
@@ -64,7 +64,7 @@ const SECTIONS = [
     alt: "Labelled soil sample bag and field tablet during sampling for laboratory testing",
     body: (
       <>
-        Behind every report is a laboratory program scoped to the question: CBR and compaction for pavements, <Link href="/site-classification" className="text-forest-green hover:underline">Atterberg limits and shrink–swell for footings</Link>, pH, sulfate and chloride where concrete meets aggressive ground, and contamination suites where history demands them. Samples are logged in the field by the engineer who took them, and results come back interpreted: numbers with a recommendation, not a spreadsheet to decode.
+        Behind every report is a laboratory program scoped to the question: CBR and compaction for pavements, <Link href="/site-classification" className="text-forest-green underline underline-offset-4 decoration-forest-green/40 hover:decoration-forest-green">Atterberg limits and shrink–swell for footings</Link>, pH, sulfate and chloride where concrete meets aggressive ground, and contamination suites where history demands them. Samples are logged in the field by the engineer who took them, and results come back interpreted: numbers with a recommendation, not a spreadsheet to decode.
       </>
     ),
     link: { href: "/contact", label: "Build A Testing Program" },
@@ -89,7 +89,7 @@ const AUDIENCES = [
     t: "Consultants & Engineers",
     d: (
       <>
-        <Link href="/subcontract-drilling" className="text-forest-green hover:underline">Drilling and sampling</Link> for your own assessment programs: clean field data, chain of custody kept. Monitoring wells go in through a licensed bore driller under our scope.
+        <Link href="/subcontract-drilling" className="text-forest-green underline underline-offset-4 decoration-forest-green/40 hover:decoration-forest-green">Drilling and sampling</Link> for your own assessment programs: clean field data, chain of custody kept. Monitoring wells go in through a licensed bore driller under our scope.
       </>
     ),
   },
@@ -132,7 +132,7 @@ export default function EnvironmentalHubPage() {
           </h1>
           <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />
           <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed mb-10">
-            Geotechnical tells you how the ground behaves. Environmental tells you what it&rsquo;s carrying: contamination, acid sulfate risk, spoil that needs a classification before it moves. One crew drills, samples and reports on both.
+            Geotechnical tells you how the ground behaves. Environmental tells you what it&rsquo;s carrying: contaminated land investigation, acid sulfate soil assessment and waste classification across Sydney, from one crew that drills, samples and reports on both.
           </p>
           <div className="hero-line hero-d3 flex flex-col sm:flex-row items-start gap-4">
             <Link
@@ -172,7 +172,7 @@ export default function EnvironmentalHubPage() {
               </h2>
               <div data-fx="line" style={d(200)} className="h-px bg-forest-green w-12 mb-7" />
               <p data-fx="rise" style={d(160)} className="text-gray-600 font-light leading-relaxed mb-8">{sec.body}</p>
-              <Link data-fx="rise" style={d(220)} href={sec.link.href} className="text-sm font-semibold tracking-wide text-forest-green group inline-flex items-center gap-2">
+              <Link data-fx="rise" style={d(220)} href={sec.link.href} className="text-sm font-semibold tracking-wide text-forest-green group inline-flex items-center gap-2 min-h-[44px]">
                 <span className="draw-link">{sec.link.label}</span>
                 <span className="transition-transform group-hover:translate-x-1">&rarr;</span>
               </Link>

@@ -57,17 +57,17 @@ export default function ContactForm() {
     const newErrors: Record<string, string> = {};
 
     if (!formData.name.trim()) {
-      newErrors.name = "We'll need your name to address you properly.";
+      newErrors.name = "We’ll need your name to address you properly.";
     }
 
     if (!formData.email.trim()) {
       newErrors.email = "Please provide an email so we can send your quote through.";
     } else if (!formData.email.includes("@") || !formData.email.split("@")[1].includes(".")) {
-      newErrors.email = "That email format doesn't look quite right.";
+      newErrors.email = "That email format doesn’t look quite right.";
     }
 
     if (!formData.phone.trim()) {
-      newErrors.phone = "We'll need your phone number to call you back with a quote.";
+      newErrors.phone = "We’ll need your phone number to call you back with a quote.";
     }
 
     if (!formData.siteAddress.trim()) {
@@ -79,7 +79,7 @@ export default function ContactForm() {
     }
 
     if (!formData.startDate) {
-      newErrors.startDate = "Please let us know when you're looking to start.";
+      newErrors.startDate = "Please let us know when you’re looking to start.";
     }
 
     setErrors(newErrors);
@@ -99,7 +99,8 @@ export default function ContactForm() {
     // Clear error when user starts typing
     if (errors[name]) {
       setErrors((prev) => {
-        const { [name]: _, ...rest } = prev;
+        const rest = { ...prev };
+        delete rest[name];
         return rest;
       });
     }
@@ -144,10 +145,10 @@ export default function ContactForm() {
   };
 
   const fieldClasses = (name: string) =>
-    `bg-transparent border-b ${errors[name] ? 'border-red-400' : 'border-gray-200 focus:border-forest-green'} py-3 text-lg font-light text-slate-950 ${FOCUS_RING} transition-colors placeholder:text-gray-500 min-h-[44px]`;
+    `bg-transparent border-b ${errors[name] ? 'border-red-400' : 'border-gray-500 focus:border-forest-green'} py-3 text-lg font-light text-slate-950 ${FOCUS_RING} transition-colors placeholder:text-gray-500 min-h-[44px]`;
 
   const selectClasses = (name: string) =>
-    `bg-transparent border-b ${errors[name] ? 'border-red-400' : 'border-gray-200 focus:border-forest-green'} py-3 text-lg font-light text-slate-950 ${FOCUS_RING} transition-colors appearance-none cursor-pointer min-h-[44px]`;
+    `bg-transparent border-b ${errors[name] ? 'border-red-400' : 'border-gray-500 focus:border-forest-green'} py-3 text-lg font-light text-slate-950 ${FOCUS_RING} transition-colors appearance-none cursor-pointer min-h-[44px]`;
 
   const ariaFor = (name: string) => ({
     "aria-invalid": !!errors[name],
@@ -182,7 +183,7 @@ export default function ContactForm() {
           Thanks, {formData.name.split(" ")[0]}.
         </h2>
         <p className="text-lg text-gray-600 font-light max-w-md leading-relaxed">
-          We've received your enquiry and will be in touch within one business day. If your project is time-critical, please call us on{" "}
+          We’ve received your enquiry and will be in touch within one business day. If your project is time-critical, please call us on{" "}
           <a href="tel:+61423483555" className="text-forest-green font-semibold hover:underline whitespace-nowrap">
             0423 483 555
           </a>.
@@ -426,7 +427,7 @@ export default function ContactForm() {
             placeholder="Site details, engineer requirements, or context that helps us quote accurately."
             value={formData.message}
             onChange={handleChange}
-            className={`bg-transparent border-b border-gray-200 py-3 text-lg font-light text-slate-950 ${FOCUS_RING} transition-colors focus:border-forest-green placeholder:text-gray-500 resize-none min-h-[100px]`}
+            className={`bg-transparent border-b border-gray-500 py-3 text-lg font-light text-slate-950 ${FOCUS_RING} transition-colors focus:border-forest-green placeholder:text-gray-500 resize-none min-h-[100px]`}
           />
         </div>
 
@@ -451,7 +452,7 @@ export default function ContactForm() {
           </button>
           <p className="text-xs text-gray-500 font-light leading-relaxed">
             By sending this you agree to be contacted about your enquiry. See our{" "}
-            <Link href="/privacy-policy" className="text-forest-green hover:underline">Privacy Policy</Link>.
+            <Link href="/privacy-policy" className="text-forest-green underline underline-offset-4 decoration-forest-green/40 hover:decoration-forest-green">Privacy Policy</Link>.
           </p>
         </div>
       </form>

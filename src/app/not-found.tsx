@@ -19,12 +19,12 @@ export default function NotFound() {
           The page you&rsquo;re after doesn&rsquo;t exist or has moved. The ground you&rsquo;re looking for is probably one of these:
         </p>
         <div className="flex flex-wrap items-center justify-center gap-x-7 gap-y-3 mb-12 text-sm font-medium">
-          <Link href="/" className="text-forest-green hover:underline">Home</Link>
-          <Link href="/services" className="text-forest-green hover:underline">All Services</Link>
-          <Link href="/site-classification" className="text-forest-green hover:underline">Site Classification</Link>
-          <Link href="/geotechnical-investigations" className="text-forest-green hover:underline">Investigations</Link>
-          <Link href="/drilling" className="text-forest-green hover:underline">Drilling</Link>
-          <Link href="/contact" className="text-forest-green hover:underline">Contact</Link>
+          <Link href="/" className="text-forest-green underline underline-offset-4 decoration-forest-green/40 hover:decoration-forest-green">Home</Link>
+          <Link href="/services" className="text-forest-green underline underline-offset-4 decoration-forest-green/40 hover:decoration-forest-green">All Services</Link>
+          <Link href="/site-classification" className="text-forest-green underline underline-offset-4 decoration-forest-green/40 hover:decoration-forest-green">Site Classification</Link>
+          <Link href="/geotechnical-investigations" className="text-forest-green underline underline-offset-4 decoration-forest-green/40 hover:decoration-forest-green">Investigations</Link>
+          <Link href="/drilling" className="text-forest-green underline underline-offset-4 decoration-forest-green/40 hover:decoration-forest-green">Drilling</Link>
+          <Link href="/contact" className="text-forest-green underline underline-offset-4 decoration-forest-green/40 hover:decoration-forest-green">Contact</Link>
         </div>
         <Link
           href="/"

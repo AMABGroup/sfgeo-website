@@ -39,7 +39,7 @@ const caseStudies: CaseStudy[] = [
     image: "/projects/project-kenthurst.jpg",
     imageAlt: "SFGEO 4WD drill rig investigating a rural-residential estate lot in Kenthurst",
     brief:
-      "A two-storey home, granny flat, gym, cabanas and a 216,000-litre infinity-edge pool, planned across a lot with five metres of fall, with the architect's design still live and every founding decision open.",
+      "A two-storey home, granny flat, gym, cabanas and a 216,000-litre infinity-edge pool, planned across a lot with five metres of fall, with the architect’s design still live and every founding decision open.",
     ground:
       "Eight boreholes with our 4WD-mounted rig and eight penetrometer tests found high-plasticity reactive clays over Hawkesbury Sandstone, with every hole refusing on rock between 0.9 and 2.1 metres. NATA-accredited lab testing confirmed the reactivity and soil aggressivity.",
     outcome:
@@ -73,7 +73,7 @@ const caseStudies: CaseStudy[] = [
     ground:
       "At footing depth, the ground was read against the standard’s acceptance criteria: 150 kPa vertical bearing and lateral strength over the full footing depth, in undisturbed soil. It didn’t meet them. Not marginal, not arguable: the standard footing detail could not be used.",
     outcome:
-      "The not-suitable call was made on site that night, the excavation backfilled and the road reopened for the morning peak. The record set out the engineering path forward, a specific footing design in place of the standard detail, because a pole holding signals over six lanes should stand on verified ground, not hope. On the same programme, sister intersections passed and proceeded.",
+      "The not-suitable call was made on site that night, the excavation backfilled and the road reopened for the morning peak. The record set out the engineering path forward, a specific footing design in place of the standard detail, because a pole holding signals over six lanes should stand on verified ground, not hope. On the same program, sister intersections passed and proceeded.",
     facts: ["Night closure works", "150 kPa criteria checked at depth", "Not-suitable call made on site", "Road open by morning"],
   },
   {
@@ -118,7 +118,7 @@ const caseStudies: CaseStudy[] = [
     ground:
       "One borehole through the reinforced concrete pavement to 4.7 metres: reactive Bringelly Shale clay over weathered shale. The clay was ruled out as a founding stratum, because localised wetting is a fact of life in a dairy yard.",
     outcome:
-      "The tank went onto bored piers socketed into weathered shale at 400 to 700 kPa end bearing with shaft adhesion values, and dilapidation surveys recommended for the boundary wall. Issued in two days and independently reviewed by a Registered Professional Geotechnical engineer.",
+      "The tank went onto bored piers socketed into weathered shale at 400 to 700 kPa end bearing with shaft adhesion values, and dilapidation surveys recommended for the boundary wall. Issued in two days and independently reviewed by a registered professional geotechnical engineer.",
     facts: ["60-tonne tank load", "Piers socketed in shale", "Live factory yard", "Peer-reviewed"],
   },
   {
@@ -144,7 +144,7 @@ const caseStudies: CaseStudy[] = [
     image: "/projects/project-newport-props.jpg",
     imageAlt: "Rows of temporary steel props under the balconies of an occupied three-storey brick walk-up in Newport during the remedial investigation",
     brief:
-      "Corroded balconies on an occupied 1960s walk-up needed demolition and reconstruction. The remedial contractor needed the certifier's geotechnical requirements closed out, and the Class H1, 100 kPa assumption on the structural drawings tested against the actual ground.",
+      "Corroded balconies on an occupied 1960s walk-up needed demolition and reconstruction. The remedial contractor needed the certifier’s geotechnical requirements closed out, and the Class H1, 100 kPa assumption on the structural drawings tested against the actual ground.",
     ground:
       "A hand-auger borehole and penetrometer tests along the eastern elevation, with the building in service throughout, found residual silty clays stiffening with depth over weathered Newport Formation rock.",
     outcome:
@@ -163,7 +163,7 @@ const caseStudies: CaseStudy[] = [
     ground:
       "At the Carrington Road post the vacuum truck refused on sandstone at 950 millimetres, verified at 700 kPa, and the contractor broke rock by hand to the standard depth within it. At Darley Road the first position exposed a water main, the second an unidentified service above the rock, and backfill beside the kerb ruled out a piered footing. Neither position could meet the drawing.",
     outcome:
-      "One post approved to pour, one told no, with the reason set out so an alternative footing could be designed rather than argued. Two nights, two records, and an intersection the whole suburb crosses standing on ground that was actually verified. Same programme, same standard, a different answer at each post, because the ground decides.",
+      "One post approved to pour, one told no, with the reason set out so an alternative footing could be designed rather than argued. Two nights, two records, and an intersection the whole suburb crosses standing on ground that was actually verified. Same program, same standard, a different answer at each post, because the ground decides.",
     facts: ["Two night inspections", "Vacuum excavation only", "Sandstone verified at 700 kPa", "Second post sent for redesign"],
   },
   {
@@ -174,7 +174,7 @@ const caseStudies: CaseStudy[] = [
     image: "/projects/project-oatley.jpg",
     imageAlt: "Footing excavation inspection at a Sydney residential construction site",
     brief:
-      "A new build had stopped: a Stop Work Order, a certifier's directions notice, and council Development Control Orders over excavation near the boundary. The owners needed an engineering pathway back to work, in writing, that council and certifier would accept.",
+      "A new build had stopped: a Stop Work Order, a certifier’s directions notice, and council Development Control Orders over excavation near the boundary. The owners needed an engineering pathway back to work, in writing, that council and certifier would accept.",
     ground:
       "Footing inspections verified the exposed founding stratum as weathered sandstone bedrock suitable for the 700 kPa design bearing. A survey reconciliation of the excavation levels showed the reported over-excavation was largely work-in-progress levels, within tolerance where cuts were complete.",
     outcome:
@@ -264,7 +264,7 @@ const caseStudies: CaseStudy[] = [
     image: "/projects/project-lakemba-night.jpg",
     imageAlt: "Haldon Street, Lakemba, under night traffic control, a lane coned off for borehole drilling with the shopfronts closed behind",
     brief:
-      "New street lighting for one of Sydney's busiest retail strips: shopfronts trading seven days, kerb to kerb parked out by mid-morning. The pole footings needed ground data, and the holes had to go into the carriageway itself. Which meant they could only go in at night, with the lane back in service before the first roller shutter went up.",
+      "New street lighting for one of Sydney’s busiest retail strips: shopfronts trading seven days, kerb to kerb parked out by mid-morning. The pole footings needed ground data, and the holes had to go into the carriageway itself. Which meant they could only go in at night, with the lane back in service before the first roller shutter went up.",
     ground:
       "Full traffic control from the first cone to the last. Locations set out and service-marked before a flight turned, then boreholes advanced through the road pavement, sampled and logged at the hole, backfilled and reinstated one at a time, so no more of the street was open than the work actually needed.",
     outcome:
@@ -320,7 +320,7 @@ export default function ProjectsPage() {
           </h1>
           <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />
           <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed">
-            Every project below is real work from our issued reports: what the client needed, what the ground turned out to be, and what the engineering did about it. Some of it is for owners and builders. A good deal of it is for the community, from the community: the signals over the road, the lighting a suburb walks home under, the church hall going up, the high street that has to be trading again by morning. Client details are kept private.
+            Geotechnical case studies from across Sydney. Every project below is real work from our issued reports: what the client needed, what the ground turned out to be, and what the engineering did about it. Some of it is for owners and builders. A good deal of it is for the community, from the community: the signals over the road, the lighting a suburb walks home under, the church hall going up, the high street that has to be trading again by morning. Client details are kept private.
           </p>
           <FollowFieldwork className="hero-line hero-d3 mt-10" />
         </div>
@@ -411,7 +411,7 @@ export default function ProjectsPage() {
                 </div>
                 {TAG_HREF[cs.tag] && (
                   <div data-fx="rise" style={d(420)}>
-                    <Link href={TAG_HREF[cs.tag].href} className="mt-6 text-sm font-semibold tracking-wide text-forest-green group inline-flex items-center gap-2">
+                    <Link href={TAG_HREF[cs.tag].href} className="mt-6 text-sm font-semibold tracking-wide text-forest-green group inline-flex items-center gap-2 min-h-[44px]">
                       <span className="draw-link">See {TAG_HREF[cs.tag].label}</span>
                       <span className="transition-transform group-hover:translate-x-1">&rarr;</span>
                     </Link>

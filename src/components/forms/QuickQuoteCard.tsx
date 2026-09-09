@@ -17,7 +17,7 @@ const FIELD_ORDER = ["name", "phone", "email", "siteAddress", "projectType", "st
 
 /**
  * Concierge-style enquiry panel for high-intent placements (hero, pricing
- * sections, ad landing pages). Styled to match the site's dark close-CTA
+ * sections, ad landing pages). Styled to match the site’s dark close-CTA
  * blocks (#050A07 with the radial forest-green glow) so it reads as a brand
  * element rather than a bolted-on form. Posts to the same /api/contact
  * endpoint as the full ContactForm and fires the same Google Ads conversion
@@ -52,7 +52,8 @@ export default function QuickQuoteCard({ source, eyebrow = "Fixed-fee quote", he
     setFormData((prev) => ({ ...prev, [name]: value }));
     if (errors[name]) {
       setErrors((prev) => {
-        const { [name]: _, ...rest } = prev;
+        const rest = { ...prev };
+        delete rest[name];
         return rest;
       });
     }
@@ -106,7 +107,7 @@ export default function QuickQuoteCard({ source, eyebrow = "Fixed-fee quote", he
   };
 
   const fieldClasses = (field: string) =>
-    `w-full bg-transparent border-0 border-b py-3 px-0 text-base sm:text-sm font-light text-white placeholder:text-white/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#8FBF9F] focus-visible:ring-offset-2 focus-visible:ring-offset-[#050A07] rounded-sm transition-colors ${errors[field] ? "border-red-400/70 focus:border-red-400" : "border-white/20 focus:border-forest-green"}`;
+    `w-full bg-transparent border-0 border-b py-3 px-0 text-base sm:text-sm font-light text-white placeholder:text-white/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#8FBF9F] focus-visible:ring-offset-2 focus-visible:ring-offset-[#050A07] rounded-sm transition-colors ${errors[field] ? "border-red-400/70 focus:border-red-400" : "border-white/45 focus:border-forest-green"}`;
 
   const selectClasses = (field: string, hasValue: boolean) =>
     `${fieldClasses(field)} appearance-none cursor-pointer ${hasValue ? "text-white" : "text-white/60"}`;

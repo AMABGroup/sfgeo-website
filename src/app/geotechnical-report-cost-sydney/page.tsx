@@ -24,11 +24,11 @@ const TIERS = [
 
 const DRIVERS = [
   { t: "Access", d: "A 4WD rig on a cleared block is the base case. A battleaxe block, a rear yard behind a carport or an internal courtyard means motorised hand augers and more time at the hole." },
-  { t: "Ground conditions", d: "Reactive clay, uncontrolled fill and shallow rock each change how deep the holes go and what has to be sampled." },
-  { t: "Existing structures", d: "Footings, slabs, pools and neighbouring buildings shape where the holes can go and what the report has to answer." },
+  { t: "Ground Conditions", d: "Reactive clay, uncontrolled fill and shallow rock each change how deep the holes go and what has to be sampled." },
+  { t: "Existing Structures", d: "Footings, slabs, pools and neighbouring buildings shape where the holes can go and what the report has to answer." },
   { t: "Slope", d: "A sloping block brings retaining and stability questions into the scope." },
-  { t: "Investigation depth", d: "Holes are sized to the base of the excavation plus what the footing design needs below it. A basement is a different job to a slab on ground." },
-  { t: "Laboratory program", d: "Testing through a NATA-accredited laboratory when the site warrants it, not as padding." },
+  { t: "Investigation Depth", d: "Holes are sized to the base of the excavation plus what the footing design needs below it. A basement is a different job to a slab on ground." },
+  { t: "Laboratory Program", d: "Testing through a NATA-accredited laboratory when the site warrants it, not as padding." },
 ];
 
 const FAQS = [
@@ -42,7 +42,7 @@ const FAQS = [
   },
   {
     q: "What if the ground turns out worse than expected?",
-    a: "The fee is fixed before fieldwork, so a harder day at the hole is ours. If what comes up changes the scope, fill or slope that calls for a full geotechnical investigation, for example, we tell you before doing more work, and the extra scope is quoted the same way: in writing, before it starts.",
+    a: "The fee is fixed before fieldwork, so a harder day at the hole is ours. If what comes up changes the scope (fill or slope that calls for a full geotechnical investigation, for example), we tell you before doing more work, and the extra scope is quoted the same way: in writing, before it starts.",
   },
   {
     q: "Do you charge for a quote?",
@@ -124,7 +124,7 @@ export default function GeotechnicalReportCostPage() {
           </h2>
           <div data-fx="line" style={d(200)} className="h-px bg-forest-green w-12 mb-7" />
           <p data-fx="rise" style={d(160)} className="text-gray-600 font-light leading-relaxed">
-            The AS 2870 <Link href="/site-classification" className="text-forest-green hover:underline">site classification</Link> is the report most Sydney homes, extensions, pools and granny flats need. It is fixed-fee, and the tier is set by the complexity of your block, not the size of your project.
+            The AS 2870 <Link href="/site-classification" className="text-forest-green underline underline-offset-4 decoration-forest-green/40 hover:decoration-forest-green">site classification</Link> is the report most Sydney homes, extensions, pools and granny flats need. It is fixed-fee, and the tier is set by the complexity of your block, not the size of your project.
           </p>
         </Reveal>
         <Reveal variant="group">
@@ -175,10 +175,10 @@ export default function GeotechnicalReportCostPage() {
           </h2>
           <div data-fx="line" style={d(200)} className="h-px bg-forest-green w-12 mb-7" />
           <p data-fx="rise" style={d(160)} className="text-gray-600 font-light leading-relaxed mb-8">
-            <Link href="/concrete-coring" className="text-forest-green hover:underline">Engineer-supervised concrete coring</Link> is $120 + GST per hole, with a three-hole minimum per visit. The final fee depends on core size, location, access and time on site, quoted fixed, in writing, before the barrel touches concrete.
+            <Link href="/concrete-coring" className="text-forest-green underline underline-offset-4 decoration-forest-green/40 hover:decoration-forest-green">Engineer-supervised concrete coring</Link> is $120 + GST per hole, with a three-hole minimum per visit. The final fee depends on core size, location, access and time on site, quoted fixed, in writing, before the barrel touches concrete.
           </p>
           <div data-fx="rise" style={d(220)}>
-            <Link href="/concrete-coring" className="text-sm font-semibold tracking-wide text-forest-green group inline-flex items-center gap-2">
+            <Link href="/concrete-coring" className="text-sm font-semibold tracking-wide text-forest-green group inline-flex items-center gap-2 min-h-[44px]">
               <span className="draw-link">What Coring Covers</span>
               <span className="transition-transform group-hover:translate-x-1">&rarr;</span>
             </Link>
@@ -195,16 +195,16 @@ export default function GeotechnicalReportCostPage() {
           </h2>
           <div data-fx="line" style={d(200)} className="h-px bg-forest-green w-12 mb-7" />
           <p data-fx="rise" style={d(160)} className="text-gray-600 font-light leading-relaxed mb-6">
-            <Link href="/geotechnical-investigations" className="text-forest-green hover:underline">Geotechnical investigations</Link>, assessments and design parameters carry no published band, because no two are alike. Each is quoted against the number and depth of boreholes, the access, and the laboratory program the design needs.
+            <Link href="/geotechnical-investigations" className="text-forest-green underline underline-offset-4 decoration-forest-green/40 hover:decoration-forest-green">Geotechnical investigations</Link>, assessments and design parameters carry no published band, because no two are alike. Each is quoted against the number and depth of boreholes, the access, and the laboratory program the design needs.
           </p>
           <p data-fx="rise" style={d(220)} className="text-gray-600 font-light leading-relaxed mb-6">
             The Complex Projects tier above is the signpost: basements, multi-storey, retaining walls, sloping blocks, restricted access, strata and prestige-suburb projects. Every complex site is different, and we price them that way.
           </p>
           <p data-fx="rise" style={d(280)} className="text-gray-600 font-light leading-relaxed mb-8">
-            <Link href="/contact" className="text-forest-green hover:underline">Send the address and the plans you have</Link>. A fixed fee in writing within one business day.
+            <Link href="/contact" className="text-forest-green underline underline-offset-4 decoration-forest-green/40 hover:decoration-forest-green">Send the address and the plans you have</Link>. A fixed fee in writing within one business day.
           </p>
           <div data-fx="rise" style={d(340)}>
-            <Link href="/geotechnical-investigations" className="text-sm font-semibold tracking-wide text-forest-green group inline-flex items-center gap-2">
+            <Link href="/geotechnical-investigations" className="text-sm font-semibold tracking-wide text-forest-green group inline-flex items-center gap-2 min-h-[44px]">
               <span className="draw-link">What An Investigation Involves</span>
               <span className="transition-transform group-hover:translate-x-1">&rarr;</span>
             </Link>

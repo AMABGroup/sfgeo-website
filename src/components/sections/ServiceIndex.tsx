@@ -42,7 +42,7 @@ const SERVICES = [
     title: "Concrete Coring",
     desc: "Slabs, pavements and walls, cored with the engineering attached.",
     href: "/concrete-coring",
-    image: "/sfgeo-concrete-coring-trinitas.jpg",
+    image: "/sfgeo-concrete-coring-major-slab.jpg",
     alt: "Concrete coring in progress on a major slab",
   },
 ];
@@ -68,7 +68,7 @@ export default function ServiceIndex() {
   };
 
   // Warm the row the cursor is most likely heading to next, using the
-  // same candidate set the panel's <Image> will request.
+  // same candidate set the panel’s <Image> will request.
   const warm = (i: number) => {
     const s = SERVICES[i];
     if (!s || typeof window === "undefined") return;

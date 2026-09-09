@@ -108,9 +108,16 @@ export default function ConcreteCoringPage() {
     "provider": { "@id": "https://sfgeo.com.au/#organization" },
     "areaServed": { "@type": "City", "name": "Sydney, New South Wales, Australia" },
     "offers": {
-      "@type": "AggregateOffer",
+      "@type": "Offer",
+      "name": "Concrete coring, per hole",
       "priceCurrency": "AUD",
-      "lowPrice": "120.00",
+      "priceSpecification": {
+        "@type": "UnitPriceSpecification",
+        "price": "120.00",
+        "priceCurrency": "AUD",
+        "valueAddedTaxIncluded": false,
+        "unitText": "per hole, minimum three holes per visit"
+      },
       "description": "From $120 + GST per hole, three-hole minimum per visit. Final fee depends on core size, location, access and time on site."
     }
   };
@@ -191,7 +198,7 @@ export default function ConcreteCoringPage() {
               <div data-fx="line" style={d(200)} className="h-px bg-forest-green w-12 mb-7" />
               <p data-fx="rise" style={d(160)} className="text-gray-600 font-light leading-relaxed mb-8">{sec.body}</p>
               <div data-fx="rise" style={d(220)}>
-                <QuoteCta source={`concrete-coring ${sec.id}`} label={sec.cta} className="text-sm font-semibold tracking-wide text-forest-green group inline-flex items-center gap-2 draw-link" />
+                <QuoteCta source={`concrete-coring ${sec.id}`} label={sec.cta} className="text-sm font-semibold tracking-wide text-forest-green group inline-flex items-center gap-2 min-h-[44px] draw-link" />
               </div>
             </Reveal>
           </div>

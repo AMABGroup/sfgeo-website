@@ -32,8 +32,10 @@ export default function SiteChrome({ children }: Props) {
       <SystemFooter />
       {pathname !== "/contact" && (
         <>
-          <ContactBubble />
-          <CallBubble />
+          <nav aria-label="Call or text SFGEO">
+            <ContactBubble />
+            <CallBubble />
+          </nav>
         </>
       )}
       <ContactClickTracker />

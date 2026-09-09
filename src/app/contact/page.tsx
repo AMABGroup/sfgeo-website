@@ -145,8 +145,8 @@ export default function ContactPage() {
               <div className={CARD}>
                 <span className={LABEL}>Hours</span>
                 <div className="grid grid-cols-[auto_1fr] gap-x-6 gap-y-1.5 text-[15px] max-w-xs">
-                  <span className="font-medium">Mon–Fri</span><span className="font-light text-gray-500">6am – 6pm</span>
-                  <span className="font-medium">Saturday</span><span className="font-light text-gray-500">8am – 2pm</span>
+                  <span className="font-medium">Mon–Fri</span><span className="font-light text-gray-500">6am–6pm</span>
+                  <span className="font-medium">Saturday</span><span className="font-light text-gray-500">8am–2pm</span>
                   <span className="font-medium">Sunday</span><span className="font-light text-gray-500">Closed</span>
                 </div>
                 <p className="text-sm text-gray-500 font-light mt-4">The Principal&rsquo;s mobile is the number above, not a switchboard.</p>
@@ -165,7 +165,7 @@ export default function ContactPage() {
                     href={READ_REVIEWS_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm font-semibold tracking-wide text-forest-green group inline-flex items-center gap-2"
+                    className="text-sm font-semibold tracking-wide text-forest-green group inline-flex items-center gap-2 min-h-[44px]"
                   >
                     <span className="draw-link">Read Our Reviews</span>
                     <span className="card-arrow">&rarr;</span>
@@ -175,7 +175,7 @@ export default function ContactPage() {
                     href={WRITE_REVIEW_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm font-semibold tracking-wide text-forest-green group inline-flex items-center gap-2 sm:ml-6"
+                    className="text-sm font-semibold tracking-wide text-forest-green group inline-flex items-center gap-2 min-h-[44px] sm:ml-6"
                   >
                     <span className="draw-link">Leave A Review</span>
                     <span className="card-arrow">&rarr;</span>

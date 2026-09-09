@@ -1,27 +1,16 @@
 import { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import Link from "next/link";
 import type { CSSProperties } from "react";
 import Reveal from "@/components/ui/Reveal";
 import PhotoFrame from "@/components/ui/PhotoFrame";
 import CloseBand from "@/components/ui/CloseBand";
-import { OG_BASE, TWITTER_BASE } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Geotechnical Engineering Sydney | The Full Suite | SFGEO",
-  description: "The full geotechnical suite for Sydney: site classifications, investigations, assessments, construction phase support and design. Principal-led, fixed-fee.",
-  alternates: { canonical: '/geotechnical' },
-  openGraph: {
-    ...OG_BASE,
-    title: "Geotechnical Engineering Sydney | The Full Suite | SFGEO",
-    description: "Site classifications, investigations, assessments, construction support and design. Principal-led, fixed-fee.",
-    url: '/geotechnical',
-  },
-  twitter: {
-    ...TWITTER_BASE,
-    title: "Geotechnical Engineering Sydney | SFGEO",
-    description: "The full geotechnical suite. Principal-led, fixed-fee, family owned.",
-  },
-};
+export const metadata: Metadata = pageMeta(
+  "Geotechnical Engineering Sydney | The Full Suite | SFGEO",
+  "The full geotechnical suite for Sydney: site classifications, investigations, assessments, construction phase support and design. Principal-led, fixed-fee.",
+  "/geotechnical",
+);
 
 const d = (ms: number) => ({ "--d": `${ms}ms` }) as CSSProperties;
 
@@ -50,7 +39,7 @@ const SECTIONS = [
     title: "Geotechnical Assessments",
     image: "/sfgeo-sandstone-outcrop-hunters-hill.jpg",
     alt: "Layered sandstone outcrop above a Sydney site",
-    body: "The specific questions that need an engineering answer: slope stability and retaining assessments, settlement and cracking investigations, compliance records for council orders, and second opinions on someone else's report. Scoped to the question, answered in writing.",
+    body: "The specific questions that need an engineering answer: slope stability and retaining assessments, settlement and cracking investigations, compliance records for council orders, and second opinions on someone else’s report. Scoped to the question, answered in writing.",
     link: { href: "/geotechnical-assessments", label: "Explore Assessments" },
   },
   {
@@ -68,14 +57,14 @@ const SECTIONS = [
     title: "Geotechnical Design",
     image: "/sfgeo-design-parameters-plans-desk.jpg",
     alt: "The engineer at the plans desk reading a borehole log against the structural details and a utility plan",
-    body: "Site-specific inputs for structural and civil teams: bearing capacities, pile design values, retaining wall parameters to AS 4678, pavement and working platform assessments. We don't carry the structural design; we make sure the numbers under it are real.",
+    body: "Site-specific inputs for structural and civil teams: bearing capacities, pile design values, retaining wall parameters to AS 4678, pavement and working platform assessments. We don’t carry the structural design; we make sure the numbers under it are real.",
     link: { href: "/geotechnical-design", label: "Explore Geotechnical Design" },
   },
 ];
 
 const AUDIENCES = [
   { t: "Homeowners", d: "A classification or investigation for the home, pool or granny flat, explained in plain English and priced fixed." },
-  { t: "Architects & Builders", d: "Reports written to your certifier's requirements, and inspections that keep the program moving." },
+  { t: "Architects & Builders", d: "Reports written to your certifier’s requirements, and inspections that keep the program moving." },
   { t: "Engineers & Developers", d: "Parameters your designs can rely on, investigations at any access, peer-review depth on request." },
   { t: "Councils & Asset Owners", d: "Compliance records, asset investigations and assessments that stand up to scrutiny." },
 ];
@@ -138,11 +127,11 @@ export default function GeotechnicalHubPage() {
             <Reveal variant="group">
               <p data-fx="rise" className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">{sec.n}</p>
               <h2 data-fx="rise" style={d(80)} className="text-3xl sm:text-4xl font-montserrat font-light tracking-tight text-slate-950 mb-5">
-                {sec.title.split(" ").slice(0, -1).join(" ")} <span className="font-semibold h-bold">{sec.title.split(" ").slice(-1)}</span>
+                {sec.title.split(" ").slice(0, -1).join(" ")} <span className="font-semibold h-bold">{sec.title.split(" ").slice(-1)}.</span>
               </h2>
               <div data-fx="line" style={d(200)} className="h-px bg-forest-green w-12 mb-7" />
               <p data-fx="rise" style={d(160)} className="text-gray-600 font-light leading-relaxed mb-8">{sec.body}</p>
-              <Link data-fx="rise" style={d(220)} href={sec.link.href} className="text-sm font-semibold tracking-wide text-forest-green group inline-flex items-center gap-2">
+              <Link data-fx="rise" style={d(220)} href={sec.link.href} className="text-sm font-semibold tracking-wide text-forest-green group inline-flex items-center gap-2 min-h-[44px]">
                 <span className="draw-link">{sec.link.label}</span>
                 <span className="transition-transform group-hover:translate-x-1">&rarr;</span>
               </Link>

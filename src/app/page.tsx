@@ -17,7 +17,7 @@ import { pageMeta } from "@/lib/seo";
 
 export const metadata = pageMeta(
   "Geotechnical Engineer Sydney | Solid Foundation Geotechnical",
-  "Sydney's boutique geotechnical consultancy. Principal-led site classifications, investigations, and 4WD drilling with fixed-fee quotes and local expertise.",
+  "Sydney’s boutique geotechnical consultancy. Principal-led site classifications, investigations, and 4WD drilling with fixed-fee quotes and local expertise.",
   "/"
 );
 
@@ -118,8 +118,7 @@ export default function Home() {
                 rather than a 3x upscale of the wide one. */}
             <picture>
               <source media="(min-width: 1024px)" srcSet={heroDesktopSrcSet} sizes="100vw" />
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img {...heroMobile} fetchPriority="high" loading="eager" />
+              <img {...heroMobile} alt="The SFGEO crew drilling beside the water on a Sydney reserve" fetchPriority="high" loading="eager" />
             </picture>
           </div>
           </HeroParallax>
@@ -172,7 +171,7 @@ export default function Home() {
 
         {/* Scroll cue */}
         <div className="hero-line hero-d4 absolute bottom-7 left-1/2 -translate-x-1/2 z-10 hidden sm:flex flex-col items-center gap-3 pointer-events-none">
-          <span className="text-[10px] uppercase tracking-[0.3em] text-white/40 font-semibold">Scroll</span>
+          <span className="text-[10px] uppercase tracking-[0.3em] text-white/50 font-semibold">Scroll</span>
           <span className="w-px h-10 bg-gradient-to-b from-white/40 to-transparent scroll-cue" />
         </div>
       </section>
@@ -236,7 +235,7 @@ export default function Home() {
           </Reveal>
           <PhotoFrame
             src="/sfgeo-principal-engineer-marrickville.jpg"
-            alt="SFGEO's Principal Engineer in hard hat and hi-vis beside the site ute on a Sydney job"
+            alt="SFGEO’s Principal Engineer in hard hat and hi-vis beside the site ute on a Sydney job"
             caption={<>The Principal &middot; On Site</>}
             aspect="aspect-[4/5]"
             sizes="(max-width: 1024px) 100vw, 40vw"
@@ -286,7 +285,7 @@ export default function Home() {
             <p className="text-sm text-gray-500 max-w-md font-light md:text-right">
               Real projects from our issued reports: what the client needed, what the ground turned out to be, and what the engineering did about it.
             </p>
-            <Link href="/projects" className="text-sm font-semibold tracking-wide text-forest-green group inline-flex items-center gap-2">
+            <Link href="/projects" className="text-sm font-semibold tracking-wide text-forest-green group inline-flex items-center gap-2 min-h-[44px]">
               <span className="draw-link">All projects</span>
               <span className="transition-transform group-hover:translate-x-1">&rarr;</span>
             </Link>

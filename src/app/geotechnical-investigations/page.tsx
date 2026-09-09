@@ -28,7 +28,7 @@ const SCOPES = [
   },
   {
     title: "Basements, Excavations & Retaining",
-    desc: "Subsurface profiles, groundwater observations and lateral parameters for basements, cut batters and retaining structures on Sydney's stepped and sloping blocks."
+    desc: "Subsurface profiles, groundwater observations and lateral parameters for basements, cut batters and retaining structures on Sydney’s stepped and sloping blocks."
   },
   {
     title: "Drilling, DCP & Lab Testing",
@@ -38,9 +38,9 @@ const SCOPES = [
 
 const REGIONS = [
   { title: "Inner West", desc: "Ashfield Shale country: residual clays over weathered shale, often moderately to highly reactive. Investigations here focus on clay depth and shale weathering, because the difference decides the footing system. Class M and H1 outcomes are common." },
-  { title: "North Shore", desc: "Hawkesbury Sandstone, with outcomes hinging on how much weathered soil sits above the rock. Shallow rock founds beautifully. Bored piers to sandstone carry most of the harbour's basements. Deeper profiles behave like clay and need proper investigation." },
+  { title: "North Shore", desc: "Hawkesbury Sandstone, with outcomes hinging on how much weathered soil sits above the rock. Shallow rock founds beautifully. Bored piers to sandstone carry most of the harbour’s basements. Deeper profiles behave like clay and need proper investigation." },
   { title: "Western Sydney", desc: "Bringelly Shale, the most reactive common profile in metropolitan Sydney. Across the Cumberland Plain, H1 and H2 outcomes are frequent, and movement estimates need boreholes deep enough to see the whole active zone." },
-  { title: "South West Corridor", desc: "Legacy fill, alluvial soils and reactive clays push a higher proportion of sites into Class P, common across Liverpool and Campbelltown. The investigation's first job is finding where the fill stops and natural ground begins." },
+  { title: "South West Corridor", desc: "Legacy fill, alluvial soils and reactive clays push a higher proportion of sites into Class P, common across Liverpool and Campbelltown. The investigation’s first job is finding where the fill stops and natural ground begins." },
   { title: "Eastern Suburbs & Coast", desc: "Dune sands over sandstone, steep marine slopes and tight streets. Sand profiles found well but cave in open excavations; the rock surface dips sharply block to block. Investigations here earn their keep on access and depth-to-rock." },
 ];
 
@@ -224,10 +224,10 @@ export default function GeotechnicalInvestigationsPage() {
             Unexpected rock, fill, or reactive clay discovered after contracts are signed becomes a variation, priced by whoever holds the leverage at that moment. An investigation done properly, and done early, converts those unknowns into design parameters while every option is still open and competitively priced.
           </p>
           <p data-fx="rise" style={d(220)} className="text-gray-600 font-light leading-relaxed mb-6">
-            Turnaround is scoped at first contact, and urgent DA, CC and settlement timelines can be accommodated. Call the Principal directly to arrange priority scheduling. And where standard rigs stop at the kerb, our 4WD rig and motorised hand augers keep going: <Link href="/tight-access-drilling" className="text-forest-green hover:underline font-medium">full access capability</Link>.
+            Turnaround is scoped at first contact, and urgent DA, CC and settlement timelines can be accommodated. Call the Principal directly to arrange priority scheduling. And where standard rigs stop at the kerb, our 4WD rig and motorised hand augers keep going. See <Link href="/tight-access-drilling" className="text-forest-green underline underline-offset-4 decoration-forest-green/40 hover:decoration-forest-green font-medium">tight-access drilling</Link>.
           </p>
           <p data-fx="rise" style={d(280)} className="text-gray-600 font-light leading-relaxed">
-            Investigations are quoted fixed-fee against the number and depth of boreholes, access and the laboratory program. Most fall under our Complex Projects tier (basements, multi-storey, retaining walls, sloping or restricted-access blocks), and the fee is confirmed in writing within one business day. What moves the figure is set out in the <Link href="/geotechnical-report-cost-sydney" className="text-forest-green hover:underline font-medium">geotechnical report cost guide</Link>.
+            Investigations are quoted fixed-fee against the number and depth of boreholes, access and the laboratory program. Most fall under our Complex Projects tier (basements, multi-storey, retaining walls, sloping or restricted-access blocks), and the fee is confirmed in writing within one business day. What moves the figure is set out in the <Link href="/geotechnical-report-cost-sydney" className="text-forest-green underline underline-offset-4 decoration-forest-green/40 hover:decoration-forest-green font-medium">geotechnical report cost guide</Link>.
           </p>
         </Reveal>
       </section>

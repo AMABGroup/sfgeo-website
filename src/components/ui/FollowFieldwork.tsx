@@ -38,7 +38,7 @@ export default function FollowFieldwork({ variant = "light", className = "", lab
   const dark = variant === "dark";
   return (
     <div className={className}>
-      <p className={`text-[10px] uppercase tracking-[0.3em] font-semibold mb-4 ${dark ? "text-white/45" : "text-gray-500"}`}>{label}</p>
+      <p className={`text-[10px] uppercase tracking-[0.3em] font-semibold mb-4 ${dark ? "text-white/55" : "text-gray-500"}`}>{label}</p>
       <ul className="flex items-center gap-7">
         {LINKS.map((l) => (
           <li key={l.label}>

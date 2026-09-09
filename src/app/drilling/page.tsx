@@ -28,10 +28,10 @@ const SECTIONS = [
     caption: "01 · Borehole Drilling",
     image: "/sfgeo-crew-mast-reserve.jpg",
     alt: "SFGEO 4WD-mounted drill rig with mast raised on a Sydney reserve",
-    body: "An agile 4WD ute-mounted rig that gets on site fast and drills the ground Sydney is actually made of: Cumberland Plain clays and shales in the west, sands and estuarine profiles near the water, residual soils over sandstone everywhere else. Every borehole is logged by an engineer on site, not decoded from a driller's notes afterwards.",
+    body: "An agile 4WD ute-mounted rig that gets on site fast and drills the ground Sydney is actually made of: Cumberland Plain clays and shales in the west, sands and estuarine profiles near the water, residual soils over sandstone everywhere else. Every borehole is logged by an engineer on site, not decoded from a driller’s notes afterwards.",
     specs: [
       "Solid flight and hollow stem auger drilling",
-      "Standard Penetration Testing (SPT) and Dynamic Cone Penetrometer (DCP)",
+      "Dynamic Cone Penetrometer (DCP) at every hole; SPT on consultancy and commercial programs",
       "Engineer-logged profiles, scoped to Sydney ground conditions",
       "Rapid mobilisation across the Sydney metro and regional NSW",
     ],
@@ -65,7 +65,7 @@ const SECTIONS = [
     caption: "03 · Tight Access",
     image: "/sfgeo-hand-auger-sidepath-naremburn.jpg",
     alt: "Hand auger boreholing down a narrow side path beside a Sydney home",
-    body: "Terrace backyards, basement levels, side paths a wheelbarrow barely fits down. Access shouldn't decide the quality of your engineering data. Motorised hand augers, tight-access coring and a 4WD-mounted rig reach the ground other crews quote around, with the finished surfaces protected on the way through.",
+    body: "Terrace backyards, basement levels, side paths a wheelbarrow barely fits down. Access shouldn’t decide the quality of your engineering data. Motorised hand augers, tight-access coring and a 4WD-mounted rig reach the ground other crews quote around, with the finished surfaces protected on the way through.",
     specs: [
       "Manual and motorised hand augering",
       "4WD-mounted rig where truck rigs stop at the kerb",
@@ -95,10 +95,10 @@ const SECTIONS = [
 ];
 
 const AUDIENCES = [
-  { t: "Builders", d: "Boreholes for the site classification or investigation, booked around your program, and answers when the excavation finds something the report didn't." },
+  { t: "Builders", d: "Boreholes for the site classification or investigation, booked around your program, and answers when the excavation finds something the report didn’t." },
   { t: "Engineering Consultancies", d: "Subcontract rig capacity with engineer-grade logging: field data you can put your letterhead on without re-checking it." },
   { t: "Environmental Consultants", d: "Drilling and sampling for PSI and DSI programs: clean execution, chain of custody kept, monitoring wells through a licensed bore driller under our scope." },
-  { t: "Bigger Firms & Majors", d: "Reliable capacity for programs that can't wait on a booked-out fleet: night works, staged access and standing arrangements included." },
+  { t: "Bigger Firms & Majors", d: "Reliable capacity for programs that can’t wait on a booked-out fleet: night works, staged access and standing arrangements included." },
 ];
 
 const NAV = [
@@ -221,7 +221,7 @@ export default function DrillingPage() {
                   </li>
                 ))}
               </ul>
-              <Link data-fx="rise" style={d(280)} href={sec.link.href} className="text-sm font-semibold tracking-wide text-forest-green group inline-flex items-center gap-2">
+              <Link data-fx="rise" style={d(280)} href={sec.link.href} className="text-sm font-semibold tracking-wide text-forest-green group inline-flex items-center gap-2 min-h-[44px]">
                 <span className="draw-link">{sec.link.label}</span>
                 <span className="transition-transform group-hover:translate-x-1">&rarr;</span>
               </Link>
@@ -262,7 +262,7 @@ export default function DrillingPage() {
               Sunrise on a farm track, frost still on the paddock, mast already up. That&rsquo;s what a regional program looks like when the rig travels self-sufficient. The 4WD rig runs the same engineer-operated standard hours from the nearest bitumen as it does in the Inner West, so consultancies and builders with work beyond the metro don&rsquo;t have to lower the bar to get holes in the ground.
             </p>
             <div data-fx="rise" style={d(220)}>
-              <QuoteCta source="drilling regional" label="Quote A Regional Program" className="mt-8 text-sm font-semibold tracking-wide text-forest-green group inline-flex items-center gap-2 draw-link" />
+              <QuoteCta source="drilling regional" label="Quote A Regional Program" className="mt-8 text-sm font-semibold tracking-wide text-forest-green group inline-flex items-center gap-2 min-h-[44px] draw-link" />
             </div>
           </Reveal>
         </div>

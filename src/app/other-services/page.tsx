@@ -8,7 +8,7 @@ import CloseBand from "@/components/ui/CloseBand";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta(
-  "Dilapidation Reports, Utility Location & Surveys Sydney | SFGEO",
+  "Dilapidation Reports & Utility Location Sydney | SFGEO",
   "Dilapidation reports, utility location and GPR scanning, land surveys and structural, civil and hydraulic specialists. SFGEO coordinates, one engagement.",
   "/other-services",
 );
@@ -27,7 +27,7 @@ const SECTIONS = [
     alt: "Exposed services in an open excavation with a tape measure",
     body: (
       <>
-        Before anything drills, digs or cores: services located and marked, concrete scanned, and the expensive unknowns taken off the table. Arranged through our specialist partner network and coordinated with the <Link href="/borehole-drilling" className="text-forest-green hover:underline">borehole drilling</Link> or <Link href="/concrete-coring" className="text-forest-green hover:underline">concrete coring</Link> it protects, so one engagement covers the scan and the work that follows it.
+        Before anything drills, digs or cores: services located and marked, concrete scanned, and the expensive unknowns taken off the table. Arranged through our specialist partner network and coordinated with the <Link href="/borehole-drilling" className="text-forest-green underline underline-offset-4 decoration-forest-green/40 hover:decoration-forest-green">borehole drilling</Link> or <Link href="/concrete-coring" className="text-forest-green underline underline-offset-4 decoration-forest-green/40 hover:decoration-forest-green">concrete coring</Link> it protects, so one engagement covers the scan and the work that follows it.
       </>
     ),
     link: { href: "/contact", label: "Book A Services Scan" },
@@ -55,7 +55,7 @@ const SECTIONS = [
     alt: "Level staff standing on a freshly graded pad during earthworks",
     body: (
       <>
-        Boundary, level and detail surveys through trusted surveying partners, commissioned alongside the <Link href="/geotechnical-investigations" className="text-forest-green hover:underline">geotechnical investigation</Link>, so the design team receives one aligned package instead of fragments from three separate vendors. SFGEO coordinates; the surveyors survey.
+        Boundary, level and detail surveys through trusted surveying partners, commissioned alongside the <Link href="/geotechnical-investigations" className="text-forest-green underline underline-offset-4 decoration-forest-green/40 hover:decoration-forest-green">geotechnical investigation</Link>, so the design team receives one aligned package instead of fragments from three separate vendors. SFGEO coordinates; the surveyors survey.
       </>
     ),
     link: { href: "/contact", label: "Coordinate A Survey" },
@@ -71,7 +71,7 @@ const SECTIONS = [
     alt: "Piling rig working beside a brick building on a Sydney site",
     body: (
       <>
-        Some ground questions end in a structural answer: underpinning, <Link href="/geotechnical-design" className="text-forest-green hover:underline">retaining walls</Link>, stormwater, remediation. When a project needs disciplines beyond geotechnics, we introduce specialist structural, civil and hydraulic engineers we already work with, and stay in the room: one team around the project, not a referral and a goodbye.
+        Some ground questions end in a structural answer: underpinning, <Link href="/geotechnical-design" className="text-forest-green underline underline-offset-4 decoration-forest-green/40 hover:decoration-forest-green">retaining walls</Link>, stormwater, remediation. When a project needs disciplines beyond geotechnics, we introduce specialist structural, civil and hydraulic engineers we already work with, and stay in the room: one team around the project, not a referral and a goodbye.
       </>
     ),
     link: { href: "/contact", label: "Assemble The Team" },
@@ -86,7 +86,7 @@ const ALSO = [
     t: "Working Platform Assessments",
     d: (
       <>
-        <Link href="/construction-phase-support" className="text-forest-green hover:underline">Platform verification</Link> to support safe temporary works planning for cranes, rigs and heavy plant.
+        <Link href="/construction-phase-support" className="text-forest-green underline underline-offset-4 decoration-forest-green/40 hover:decoration-forest-green">Platform verification</Link> to support safe temporary works planning for cranes, rigs and heavy plant.
       </>
     ),
   },
@@ -106,7 +106,7 @@ export default function OtherServicesPage() {
     "@type": "Service",
     "name": "Other Professional Services",
     "serviceType": "Utility location, dilapidation reports, surveying and specialist engineering coordination",
-    "description": "Utility location and GPR scanning, dilapidation reports, land and detail surveys, and structural, civil and hydraulic engineering, arranged through SFGEO's partner network under one point of contact.",
+    "description": "Utility location and GPR scanning, dilapidation reports, land and detail surveys, and structural, civil and hydraulic engineering, arranged through SFGEO’s partner network under one point of contact.",
     "url": "https://sfgeo.com.au/other-services",
     "provider": { "@id": "https://sfgeo.com.au/#organization" },
     "areaServed": { "@type": "City", "name": "Sydney, New South Wales, Australia" }
@@ -129,7 +129,7 @@ export default function OtherServicesPage() {
           </h1>
           <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />
           <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed">
-            Utility location, dilapidation records, surveys, specialist engineering: the services a project needs beside the geotechnics. Delivered through a trusted partner network, coordinated by SFGEO, under one engagement and one point of contact.
+            Dilapidation reports, utility location and GPR scanning, surveys and specialist engineering across Sydney: the services a project needs beside the geotechnics. Delivered through a trusted partner network, coordinated by SFGEO, under one engagement and one point of contact.
           </p>
         </div>
       </section>
@@ -166,7 +166,7 @@ export default function OtherServicesPage() {
               </h2>
               <div data-fx="line" style={d(200)} className="h-px bg-forest-green w-12 mb-7" />
               <p data-fx="rise" style={d(160)} className="text-gray-600 font-light leading-relaxed mb-8">{sec.body}</p>
-              <Link data-fx="rise" style={d(220)} href={sec.link.href} className="text-sm font-semibold tracking-wide text-forest-green group inline-flex items-center gap-2">
+              <Link data-fx="rise" style={d(220)} href={sec.link.href} className="text-sm font-semibold tracking-wide text-forest-green group inline-flex items-center gap-2 min-h-[44px]">
                 <span className="draw-link">{sec.link.label}</span>
                 <span className="transition-transform group-hover:translate-x-1">&rarr;</span>
               </Link>

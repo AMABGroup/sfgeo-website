@@ -146,7 +146,7 @@ export default function Page() {
           <p data-fx="rise" style={d(160)} className="text-gray-600 font-light leading-relaxed mb-8">
             A church expansion&rsquo;s tank base verified at 500 kPa and approved the same visit. A signal-pole footing on a six-lane State road failed against the standard at 2am. Called not-suitable on the spot, backfilled, and the road open by morning. The value of construction phase support is the judgement at the moment it&rsquo;s needed, either way it goes.
           </p>
-          <Link data-fx="rise" style={d(220)} href="/projects" className="text-sm font-semibold tracking-wide text-forest-green group inline-flex items-center gap-2">
+          <Link data-fx="rise" style={d(220)} href="/projects" className="text-sm font-semibold tracking-wide text-forest-green group inline-flex items-center gap-2 min-h-[44px]">
             <span className="draw-link">Read The Case Studies</span>
             <span className="transition-transform group-hover:translate-x-1">&rarr;</span>
           </Link>

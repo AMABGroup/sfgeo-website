@@ -74,7 +74,7 @@ export default function OpeningVeil() {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") skip();
     };
-    const t1 = setTimeout(cut, 4400);
+    const t1 = setTimeout(cut, 3600);
     window.addEventListener("keydown", onKey);
     window.addEventListener("pointerdown", skip);
     return () => {
@@ -144,6 +144,14 @@ export default function OpeningVeil() {
 
         </div>
       ))}
+
+      {/* Skip hint: any pointer or Escape already cuts to the site */}
+      <span
+        className={`veil-reg absolute bottom-5 right-6 lg:right-12 text-[10px] uppercase tracking-[0.3em] text-white/45 font-semibold transition-opacity duration-300 ${cutting ? "opacity-0" : ""}`}
+        style={{ animationDelay: "1200ms" }}
+      >
+        Skip &middot; Click Or Esc
+      </span>
 
       {/* Depth scale — draws down the left edge */}
       <div className={`absolute left-[4.5rem] lg:left-[7.5rem] top-0 bottom-0 w-px bg-gradient-to-b from-white/20 via-white/10 to-white/20 veil-scale transition-opacity duration-300 ${cutting ? "opacity-0" : ""}`} />

@@ -67,7 +67,7 @@ export default function PrivacyPolicyPage() {
             </p>
             <p className="mt-3">
               Both services are governed by Google&rsquo;s privacy policy at{" "}
-              <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-forest-green hover:underline">policies.google.com/privacy<span className="sr-only"> (opens in a new tab)</span></a>. You can disable cookies in your browser settings; some features (such as the embedded map) may not function with cookies blocked. Disabling cookies will not prevent you from contacting us by phone, email or the contact form.
+              <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-forest-green underline underline-offset-4 decoration-forest-green/40 hover:decoration-forest-green">policies.google.com/privacy<span className="sr-only"> (opens in a new tab)</span></a>. You can disable cookies in your browser settings; some features (such as the embedded map) may not function with cookies blocked. Disabling cookies will not prevent you from contacting us by phone, email or the contact form.
             </p>
           </div>
 
@@ -82,7 +82,7 @@ export default function PrivacyPolicyPage() {
             <h2 className="font-semibold text-slate-950 mb-2">Contact</h2>
             <p>
               Questions about this policy:{" "}
-              <a href="mailto:info@sfgeo.com.au" className="text-forest-green hover:underline">info@sfgeo.com.au</a>
+              <a href="mailto:info@sfgeo.com.au" className="text-forest-green underline underline-offset-4 decoration-forest-green/40 hover:decoration-forest-green">info@sfgeo.com.au</a>
             </p>
           </div>
         </div>

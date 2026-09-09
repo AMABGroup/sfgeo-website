@@ -4,8 +4,8 @@ import { faqs } from '@/data/faqs';
 import { pageMeta } from '@/lib/seo';
 
 export const metadata: Metadata = pageMeta(
-  "Geotechnical Report Cost & FAQ Sydney | SFGEO",
-  "Geotechnical report and soil test costs in Sydney (from $800 + GST), turnaround, and what DA, CDC and certifiers need, from the engineers who do the work.",
+  "Soil Test & Geotechnical Report FAQ Sydney | SFGEO",
+  "Do you need a soil test for a granny flat? What is Class M? How long does a geotechnical report take? Clear answers from the engineers who do the work in Sydney.",
   "/faq"
 );
 

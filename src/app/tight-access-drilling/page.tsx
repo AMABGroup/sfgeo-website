@@ -22,7 +22,7 @@ const SITE_TYPES = [
   { t: "Rear-Yard Granny Flats", d: "Investigation points behind an occupied home, with the yard left the way we found it." },
   { t: "Basements & Under Cover", d: "Restricted-height drilling inside garages, basements and undercrofts." },
   { t: "Sloping & Stepped Sites", d: "Benched blocks and steep boundaries where a truck-mounted rig stops at the kerb." },
-  { t: "Zero-Clearance Courtyards", d: "Internal courtyards and side passages down to a doorway's width." },
+  { t: "Zero-Clearance Courtyards", d: "Internal courtyards and side passages down to a doorway’s width." },
 ];
 
 // Rendered visibly below and mirrored into the FAQPage schema — the two must stay in step.
@@ -89,7 +89,7 @@ export default function TightAccessDrillingPage() {
           </h1>
           <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />
           <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed mb-8">
-            Terraces, battleaxe blocks, backyards and basements: the Sydney sites where standard rigs stop at the kerb. SFGEO investigates them with motorised hand augers and a 4WD-mounted rig, operated by the engineer who logs the ground and <Link href="/site-classification" className="text-forest-green hover:underline font-medium">signs the report</Link>. Fixed fees, scoped to your block.
+            Terraces, battleaxe blocks, backyards and basements: the Sydney sites where standard rigs stop at the kerb. SFGEO investigates them with motorised hand augers and a 4WD-mounted rig, operated by the engineer who logs the ground and <Link href="/site-classification" className="text-forest-green underline underline-offset-4 decoration-forest-green/40 hover:decoration-forest-green font-medium">signs the report</Link>. Fixed fees, scoped to your block.
           </p>
           <div className="hero-line hero-d3 flex flex-col sm:flex-row items-start gap-4">
             <Link
@@ -134,7 +134,7 @@ export default function TightAccessDrillingPage() {
             </h2>
             <div data-fx="line" style={d(200)} className="h-px bg-forest-green w-12 mb-8" />
             <p data-fx="rise" style={d(160)} className="text-lg text-gray-600 font-light leading-relaxed">
-              A tight site should not mean a thinner report. Hand-auger boreholes are logged to the same standard as rig holes and cross-checked with <Link href="/borehole-drilling" className="text-forest-green hover:underline font-medium">dynamic cone penetrometer testing</Link> on the spot, so your structural engineer gets the same parameters whether the hole was advanced by a rig on the street or an auger carried through the hallway.
+              A tight site should not mean a thinner report. Hand-auger boreholes are logged to the same standard as rig holes and cross-checked with <Link href="/borehole-drilling" className="text-forest-green underline underline-offset-4 decoration-forest-green/40 hover:decoration-forest-green font-medium">dynamic cone penetrometer testing</Link> on the spot, so your structural engineer gets the same parameters whether the hole was advanced by a rig on the street or an auger carried through the hallway.
             </p>
           </Reveal>
         </div>
@@ -187,7 +187,7 @@ export default function TightAccessDrillingPage() {
         <Reveal variant="group">
           <p data-fx="rise" className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">03 &middot; Where We Work</p>
           <h2 data-fx="rise" style={d(80)} className="text-3xl sm:text-4xl font-light tracking-tight font-montserrat text-slate-950 mb-5">
-            Where The Hard Sites <span className="font-semibold h-bold">Are.</span>
+            Where The <span className="font-semibold h-bold">Hard Sites Are.</span>
           </h2>
           <p data-fx="rise" style={d(160)} className="text-lg text-gray-600 font-light leading-relaxed">
             Marrickville, Newtown, Enmore and the Inner West terraces we call home. Paddington and Surry Hills rows. Eastern Suburbs battleaxe blocks, North Shore slopes, and the granny-flat boom across Canterbury-Bankstown and the Hills. If the rig cannot reach it, the augers can, and the engineer comes with them.

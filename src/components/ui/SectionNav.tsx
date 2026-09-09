@@ -56,7 +56,7 @@ export default function SectionNav({ items, label = "On this page" }: { items: S
   return (
     <nav ref={barRef} aria-label={label} className="sticky top-[72px] z-30 bg-white/85 backdrop-blur-md border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 flex items-center gap-1 overflow-x-auto snap-x [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-        <span className="hidden lg:inline text-[10px] uppercase tracking-[0.28em] text-gray-400 font-semibold pr-6 shrink-0">{label}</span>
+        <span className="hidden lg:inline text-[10px] uppercase tracking-[0.28em] text-gray-500 font-semibold pr-6 shrink-0">{label}</span>
         {items.map((it) => {
           const on = it.id === active;
           return (

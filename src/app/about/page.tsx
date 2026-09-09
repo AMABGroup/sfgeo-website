@@ -18,8 +18,8 @@ const d = (ms: number) => ({ "--d": `${ms}ms` }) as CSSProperties;
 
 const VALUES = [
   { t: "Direct Access. Always.", d: "Call, email, turn up. You reach the team doing the work directly. No admin queues, no message chains." },
-  { t: "Sydney Is Our Backyard.", d: "Locally owned, locally based. We know Sydney's ground, its councils and its sites. The Principal has worked them for 15 years, from Sydney Gateway to backyard footings." },
-  { t: "On Site. On Time. On Call.", d: "A fixed fee within one business day, classification reports as soon as 2 business days from fieldwork, and the Principal's mobile answered, not a switchboard." },
+  { t: "Sydney Is Our Backyard.", d: "Locally owned, locally based. We know Sydney’s ground, its councils and its sites. The Principal has worked them for 15 years, from Sydney Gateway to backyard footings." },
+  { t: "On Site. On Time. On Call.", d: "A fixed fee within one business day, classification reports as soon as 2 business days from fieldwork, and the Principal’s mobile answered, not a switchboard." },
 ];
 
 const PEDIGREE = [
@@ -45,7 +45,7 @@ const COMMUNITY = [
   {
     place: "Caringbah",
     title: "Industrial Estate, Footing By Footing",
-    line: "Ten lightpole footings and a stormwater unit certified before concrete, a civil contractor’s programme kept moving, one verified base at a time.",
+    line: "Ten lightpole footings and a stormwater unit certified before concrete, a civil contractor’s program kept moving, one verified base at a time.",
     href: "/projects#caringbah",
   },
   {
@@ -94,7 +94,7 @@ export default function About() {
           </h1>
           <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />
           <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed">
-            A principal-led team, hired locally, backed by a trusted partner network, carrying fifteen years of Sydney ground from landmark infrastructure to backyard footings. When you work with SFGEO, you work with the same team, start to finish.
+            Geotechnical engineers based in Marrickville: a principal-led team, hired locally, backed by a trusted partner network, carrying fifteen years of Sydney ground from landmark infrastructure to backyard footings. When you work with SFGEO, you work with the same team, start to finish.
           </p>
           <FollowFieldwork className="hero-line hero-d3 mt-10" />
         </div>
@@ -121,7 +121,7 @@ export default function About() {
           </h2>
           <div data-fx="line" style={d(200)} className="h-px bg-forest-green w-12 mb-7" />
           <p data-fx="rise" style={d(160)} className="text-lg text-gray-600 font-light leading-loose mb-6">
-            SFGEO is a locally-owned, independent geotechnical consultancy based in Marrickville, built on 15 years of hands-on Sydney experience across residential <Link href="/site-classification" className="text-forest-green hover:underline">site classifications</Link>, bespoke architectural homes, and landmark infrastructure.
+            SFGEO is a locally-owned, independent geotechnical consultancy based in Marrickville, built on 15 years of hands-on Sydney experience across residential <Link href="/site-classification" className="text-forest-green underline underline-offset-4 decoration-forest-green/40 hover:decoration-forest-green">site classifications</Link>, bespoke architectural homes, and landmark infrastructure.
           </p>
           <p data-fx="rise" style={d(220)} className="text-lg text-gray-600 font-light leading-loose mb-6">
             We were founded on a simple belief: clients deserve direct access to the professional doing the work, not a corporate chain. SFGEO is family owned and Sydney grown. The engineer who quotes your job is the one who drills it and signs the report.
@@ -132,7 +132,7 @@ export default function About() {
         </Reveal>
         <PhotoFrame
           src="/sfgeo-team-principal-and-crew-ute.jpg"
-          alt="The Principal and the crew in hard hats and hi-vis beside the SFGEO 4WD ute at the end of a day's fieldwork"
+          alt="The Principal and the crew in hard hats and hi-vis beside the SFGEO 4WD ute at the end of a day’s fieldwork"
           caption={<>The Crew &middot; End Of The Day</>}
           aspect="aspect-[4/3]"
           sizes="(max-width: 1024px) 100vw, 42vw"
@@ -217,7 +217,7 @@ export default function About() {
             <div data-fx="line" style={d(200)} className="mt-5 h-px bg-forest-green w-12" />
           </div>
           <p data-fx="rise" style={d(160)} className="text-sm text-gray-500 max-w-md font-light leading-relaxed">
-            Before SFGEO carried its own name, its Principal carried these: landmark Sydney infrastructure, now serving every backyard we classify. For current work, see <Link href="/projects" className="text-forest-green hover:underline">our projects</Link>.
+            Before SFGEO carried its own name, its Principal carried these: landmark Sydney infrastructure, now serving every backyard we classify. For current work, see <Link href="/projects" className="text-forest-green underline underline-offset-4 decoration-forest-green/40 hover:decoration-forest-green">our projects</Link>.
           </p>
         </Reveal>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">

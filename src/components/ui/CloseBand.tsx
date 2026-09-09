@@ -33,7 +33,7 @@ export default function CloseBand({ source, kicker, heading, sub, quoteLabel, qu
   const center = align === "center";
   return (
     <section className={`relative overflow-hidden bg-[#050A07] text-white grain aurora ${className}`}>
-      <div className={`max-w-4xl mx-auto px-6 py-28 lg:py-36 ${center ? "text-center" : ""}`}>
+      <div className={`max-w-4xl mx-auto px-6 pt-28 pb-40 lg:py-36 ${center ? "text-center" : ""}`}>
         <Reveal variant="group">
           {kicker && (
             <p data-fx="rise" className="text-sm uppercase tracking-[0.2em] text-[#8FBF9F] mb-6 font-semibold">

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Montserrat, Archivo } from "next/font/google";
 import "./globals.css";
 import SiteChrome from "@/components/layout/SiteChrome";
@@ -22,8 +22,19 @@ const archivo = Archivo({
   preload: false,
 });
 
+const GA4_ID = process.env.NEXT_PUBLIC_GA4_ID;
+const GSC_TOKEN = process.env.NEXT_PUBLIC_GSC_TOKEN;
+const BING_TOKEN = process.env.NEXT_PUBLIC_BING_TOKEN;
+
+export const viewport: Viewport = {
+  themeColor: "#2D5A3A",
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL('https://sfgeo.com.au'),
+  ...(GSC_TOKEN || BING_TOKEN
+    ? { verification: { ...(GSC_TOKEN ? { google: GSC_TOKEN } : {}), ...(BING_TOKEN ? { other: { "msvalidate.01": BING_TOKEN } } : {}) } }
+    : {}),
   title: "Geotechnical Engineer Sydney | Solid Foundation Geotechnical",
   description: "Sydney's boutique geotechnical consultancy. Principal-led site classifications, investigations, and 4WD drilling with fixed-fee quotes and local expertise.",
   robots: {
@@ -141,6 +152,8 @@ export default function RootLayout({
       "areaServed": "AU-NSW",
       "availableLanguage": "en"
     },
+    "legalName": "AMAB Group Pty Ltd",
+    "taxID": "ABN 54 686 815 252",
     "founder": {
       "@type": "Person",
       "name": "Alli Atmar",
@@ -175,7 +188,7 @@ export default function RootLayout({
           {`window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'AW-18053070765');`}
+            gtag('config', 'AW-18053070765');${GA4_ID ? `\n            gtag('config', '${GA4_ID}');` : ""}`}
         </Script>
         <script
           id="schema-org"

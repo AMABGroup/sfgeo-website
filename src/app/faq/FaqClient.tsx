@@ -2,7 +2,7 @@
 
 import { useState, type CSSProperties } from "react";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { PlusIcon, MinusIcon } from "@heroicons/react/24/outline";
 import Reveal from "@/components/ui/Reveal";
 import PhotoFrame from "@/components/ui/PhotoFrame";
@@ -60,7 +60,7 @@ export default function FaqClient() {
           <aside className="lg:col-span-4 lg:sticky lg:top-28">
             <PhotoFrame
               src="/clay-sample.webp"
-              alt="Reactive clay lifted from a fresh borehole, held in the engineer's hand"
+              alt="Reactive clay lifted from a fresh borehole, held in the engineer’s hand"
               caption={<>Reactive Clay &middot; Read In The Hand</>}
               aspect="aspect-[4/5]"
               sizes="(max-width: 1024px) 100vw, 33vw"
@@ -73,9 +73,9 @@ export default function FaqClient() {
                 {byGroup.map((g, i) => (
                   <li key={g.id}>
                     <a href={`#${g.id}`} className="group flex items-baseline gap-4 py-3.5 text-slate-950 hover:text-forest-green transition-colors">
-                      <span className="text-[11px] font-semibold tracking-[0.2em] text-gray-400 tabular-nums group-hover:text-forest-green transition-colors">0{i + 1}</span>
+                      <span className="text-[11px] font-semibold tracking-[0.2em] text-gray-500 tabular-nums group-hover:text-forest-green transition-colors">0{i + 1}</span>
                       <span className="text-[15px] font-medium">{g.name}</span>
-                      <span className="ml-auto text-[11px] text-gray-400 tabular-nums">{g.items.length}</span>
+                      <span className="ml-auto text-[11px] text-gray-500 tabular-nums">{g.items.length}</span>
                     </a>
                   </li>
                 ))}
@@ -119,22 +119,19 @@ export default function FaqClient() {
                                 {isOpen ? <MinusIcon className="w-5 h-5" /> : <PlusIcon className="w-5 h-5" />}
                               </span>
                             </button>
-                            <AnimatePresence>
-                              {isOpen && (
-                                <motion.div
-                                  initial={{ height: 0, opacity: 0 }}
-                                  animate={{ height: "auto", opacity: 1 }}
-                                  exit={{ height: 0, opacity: 0 }}
-                                  transition={{ duration: 0.3, ease: "easeInOut" }}
-                                  className="overflow-hidden"
-                                >
+                            <motion.div
+                              initial={false}
+                              animate={{ height: isOpen ? "auto" : 0, opacity: isOpen ? 1 : 0 }}
+                              transition={{ duration: 0.3, ease: "easeInOut" }}
+                              className="overflow-hidden"
+                              aria-hidden={!isOpen}
+                              inert={!isOpen}
+                            >
                                   <div
                                     className="pb-6 text-base text-gray-600 font-light leading-loose [&_a]:text-forest-green [&_a]:underline [&_a]:underline-offset-4 [&_a]:decoration-forest-green/40 [&_a:hover]:decoration-forest-green"
                                     dangerouslySetInnerHTML={{ __html: faq.answer }}
                                   />
                                 </motion.div>
-                              )}
-                            </AnimatePresence>
                           </div>
                         );
                       })}

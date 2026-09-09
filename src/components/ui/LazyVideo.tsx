@@ -80,7 +80,7 @@ export default function LazyVideo({
         onClick={toggle}
         aria-pressed={playing}
         aria-label={playing ? "Pause video" : "Play video"}
-        className="absolute top-3 right-3 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-[#050A07]/55 text-white/85 opacity-60 backdrop-blur-sm transition-opacity hover:opacity-100 focus-visible:opacity-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+        className="absolute top-3 right-3 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-[#050A07]/55 text-white/85 opacity-60 backdrop-blur-sm transition-opacity hover:opacity-100 focus-visible:opacity-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
       >
         {playing ? (
           <svg className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">

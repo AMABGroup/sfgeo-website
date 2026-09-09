@@ -25,16 +25,16 @@ const REPORT_CONTENTS = [
   "Engineer-logged borehole records and a plan of where each hole went",
   "Laboratory results, where tested, and what they mean for the footing",
   "Founding recommendations: depth, and the fill, trees, slope or drainage your engineer has to design around",
-  "Written to your certifier's requirements and signed by the Principal Engineer",
+  "Written to your certifier’s requirements and signed by the Principal Engineer",
 ];
 
 const CLASSES = [
   { cls: "A", desc: "Stable. Minimal movement. Sand or rock." },
   { cls: "S", desc: "Slightly reactive. Standard footings." },
   { cls: "M", desc: "Moderately reactive. Stiffened slab." },
-  { cls: "H1", desc: "Highly reactive, 40–60mm surface movement." },
-  { cls: "H2", desc: "Highly reactive, 60–75mm." },
-  { cls: "E", desc: "Extremely reactive, greater than 75mm." },
+  { cls: "H1", desc: "Highly reactive, 40–60 mm surface movement." },
+  { cls: "H2", desc: "Highly reactive, 60–75 mm." },
+  { cls: "E", desc: "Extremely reactive, greater than 75 mm." },
 ];
 
 const COMPARE = [
@@ -49,7 +49,7 @@ const PROCESS = [
   { t: "Send The Address", d: "A short project description and any plans you have. Answered within one business day." },
   { t: "Desktop Review & Fixed Fee", d: "The Principal reviews the block, the geology and your plans, and the fee is confirmed in writing within one business day. A site walkover is arranged where the site warrants it." },
   { t: "Fieldwork", d: "The Principal attends and logs the profile on site, with lab testing through a NATA-accredited laboratory only when the site warrants it." },
-  { t: "Report, Signed", d: "Written against your certifier's and structural engineer's requirements. As soon as 2 business days from fieldwork; urgent turnaround by arrangement." },
+  { t: "Report, Signed", d: "Written against your certifier’s and structural engineer’s requirements. As soon as 2 business days from fieldwork; urgent turnaround by arrangement." },
 ];
 
 const NAV = [
@@ -176,7 +176,7 @@ export default function SiteClassificationPage() {
               {[
                 "Lets your architect design with the ground, not around it, before redesign fees exist",
                 "Gives your structural engineer real data: a properly read Class M instead of an assumed worst-case H1 is tens of thousands in concrete and steel",
-                "Moves cleanly through DA and CDC, written to your certifier's requirements, not a template",
+                "Moves cleanly through DA and CDC, written to your certifier’s requirements, not a template",
                 "Protects the finished home from the cracks that show up quietly, years later",
               ].map((s) => (
                 <li key={s} className="flex items-start gap-3 text-[15px] text-gray-600 font-light leading-relaxed">
@@ -247,7 +247,7 @@ export default function SiteClassificationPage() {
             The figures below are starting points. What drives a real quote is the site itself: access, ground conditions, existing structures, slope, and the depth of investigation your project actually needs. Every fee is confirmed in writing before work begins.
           </p>
           <p data-fx="rise" style={d(220)} className="mt-4 text-gray-600 font-light leading-relaxed">
-            Full price bands and what moves a quote: <Link href="/geotechnical-report-cost-sydney" className="text-forest-green hover:underline font-medium">geotechnical report cost guide</Link>.
+            Full price bands and what moves a quote: <Link href="/geotechnical-report-cost-sydney" className="text-forest-green underline underline-offset-4 decoration-forest-green/40 hover:decoration-forest-green font-medium">geotechnical report cost guide</Link>.
           </p>
         </Reveal>
         <Reveal variant="group">
@@ -312,7 +312,7 @@ export default function SiteClassificationPage() {
             <p data-fx="rise" style={d(160)} className="text-gray-600 font-light leading-relaxed mb-8">
               Inner West terraces, battleaxe blocks, rear-yard granny flat positions, stepped sites with deep investigation points. SFGEO runs a 4WD-mounted rig for the sites conventional trucks can&rsquo;t reach, with motorised hand augers covering zero-clearance and internal courtyard work. Access-ready from first contact, so your program doesn&rsquo;t slip waiting on a rig that can&rsquo;t get in.
             </p>
-            <Link data-fx="rise" style={d(220)} href="/tight-access-drilling" className="text-sm font-semibold tracking-wide text-forest-green group inline-flex items-center gap-2">
+            <Link data-fx="rise" style={d(220)} href="/tight-access-drilling" className="text-sm font-semibold tracking-wide text-forest-green group inline-flex items-center gap-2 min-h-[44px]">
               <span className="draw-link">Explore Tight Access Capability</span>
               <span className="transition-transform group-hover:translate-x-1">&rarr;</span>
             </Link>
@@ -344,7 +344,7 @@ export default function SiteClassificationPage() {
             </div>
           </div>
           <p data-fx="rise" style={d(160)} className="text-gray-600 font-light leading-relaxed max-w-3xl">
-            <strong className="font-medium text-slate-950">Class P</strong> sits outside the reactivity scale, applied when conditions fall outside the standard framework: fill, steep slope, soft or collapsing soils, reactivity beyond Class E, or proximity to significant trees and watercourses. It requires individual engineering assessment, and often a full <Link href="/geotechnical-investigations" className="text-forest-green hover:underline">geotechnical investigation</Link>.
+            <strong className="font-medium text-slate-950">Class P</strong> sits outside the reactivity scale, applied when conditions fall outside the standard framework: fill, steep slope, soft or collapsing soils, reactivity beyond Class E, or proximity to significant trees and watercourses. It requires individual engineering assessment, and often a full <Link href="/geotechnical-investigations" className="text-forest-green underline underline-offset-4 decoration-forest-green/40 hover:decoration-forest-green">geotechnical investigation</Link>.
           </p>
         </Reveal>
       </section>

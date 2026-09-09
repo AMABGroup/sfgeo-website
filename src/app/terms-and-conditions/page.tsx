@@ -60,7 +60,7 @@ export default function TermsAndConditionsPage() {
             <h2 className="font-semibold text-slate-950 mb-2">7. Privacy</h2>
             <p>
               The collection and handling of your personal information are governed by our{" "}
-              <Link href="/privacy-policy" className="text-forest-green hover:underline">Privacy Policy</Link>.
+              <Link href="/privacy-policy" className="text-forest-green underline underline-offset-4 decoration-forest-green/40 hover:decoration-forest-green">Privacy Policy</Link>.
             </p>
           </div>
 
@@ -82,7 +82,7 @@ export default function TermsAndConditionsPage() {
             <h2 className="font-semibold text-slate-950 mb-2">Contact</h2>
             <p>
               Questions about these terms:{" "}
-              <a href="mailto:info@sfgeo.com.au" className="text-forest-green hover:underline">info@sfgeo.com.au</a>
+              <a href="mailto:info@sfgeo.com.au" className="text-forest-green underline underline-offset-4 decoration-forest-green/40 hover:decoration-forest-green">info@sfgeo.com.au</a>
             </p>
           </div>
         </div>
