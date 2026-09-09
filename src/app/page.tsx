@@ -44,19 +44,19 @@ const SUBURBS = [
 const JOURNEY = [
   {
     t: "The Call",
-    d: "It starts with an address and a sentence about what you\u2019re building. Before anyone quotes, the Principal reads your block \u2014 the geology beneath it, the plans you\u2019ve drawn, the access a rig will need \u2014 and a fixed fee arrives in writing within one business day. You know exactly what you\u2019re paying for before we arrive.",
+    d: "It starts with an address and a sentence about what you\u2019re building. Before anyone quotes, the Principal reads your block: the geology beneath it, the plans you\u2019ve drawn, the access a rig will need. A fixed fee arrives in writing within one business day. You know exactly what you\u2019re paying for before we arrive.",
   },
   {
     t: "On Your Ground",
-    d: "The engineer who quoted your job is the one who turns up with the rig. Each borehole is logged at the hole, as the ground comes up, and samples are taken to a plan rather than by habit. Laboratory testing is added only where your site warrants it \u2014 never as padding on the invoice.",
+    d: "The engineer who quoted your job is the one who turns up with the rig. Each borehole is logged at the hole, as the ground comes up, and samples are taken to a plan rather than by habit. Laboratory testing is added only where your site warrants it, never as padding on the invoice.",
   },
   {
     t: "The Report",
-    d: "Written and signed by the engineer who stood on your ground, in the language your certifier and your structural engineer actually need \u2014 nothing templated, nothing assumed. On a clear site classification, the signed report can be with you as soon as two business days after fieldwork.",
+    d: "Written and signed by the engineer who stood on your ground, in the language your certifier and your structural engineer actually need: nothing templated, nothing assumed. On a clear site classification, the signed report can be with you as soon as two business days after fieldwork.",
   },
   {
     t: "Through The Build",
-    d: "The relationship doesn\u2019t end at the report. When the excavation is open we inspect the footings and piers before the pour and put the record in writing, and when a question comes up on site the phone is answered by someone who knows your job \u2014 the same team, through to the final certificate.",
+    d: "The relationship doesn\u2019t end at the report. When the excavation is open we inspect the footings and piers before the pour and put the record in writing, and when a question comes up on site the phone is answered by someone who knows your job: the same team, through to the final certificate.",
   },
 ];
 

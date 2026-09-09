@@ -5,9 +5,9 @@
 import { readFileSync, readdirSync, statSync } from "node:fs";
 import { join, extname } from "node:path";
 
-const ROOTS = ["src/app", "src/components", "src/data", "src/lib"];
+const ROOTS = ["src"];
 const EXTRA = ["public/llms.txt"];
-const EXT = new Set([".ts", ".tsx", ".txt"]);
+const EXT = new Set([".ts", ".tsx", ".js", ".jsx", ".mjs", ".json", ".md", ".mdx", ".txt"]);
 const BANNED = [/\bgenuinely\b/i, /\bhonestly\b/i, /\bstraightforward\b/i, /\b2\s*[–-]\s*3 business days\b/i];
 
 function walk(dir, out = []) {
@@ -27,7 +27,7 @@ for (const f of files) {
     if (/^(\/\/|\*|\/\*|\{\/\*)/.test(t)) return; // comment
     // strip em dashes that stand alone as an empty-value marker: "—", '—', `—`, "—")
     const stripped = line.replace(/(["'`])—\1/g, "");
-    if (/—|&mdash;/.test(stripped)) findings.push(`${f}:${i + 1}: em dash: ${t.slice(0, 120)}`);
+    if (/—|&mdash;|&#8212;|&#x2014;|\\u2014/i.test(stripped)) findings.push(`${f}:${i + 1}: em dash: ${t.slice(0, 120)}`);
     if (/GoogleReviews/.test(f)) return; // client review text is quoted verbatim, not house copy
     for (const re of BANNED) if (re.test(line)) findings.push(`${f}:${i + 1}: banned wording (${re.source}): ${t.slice(0, 120)}`);
   });
