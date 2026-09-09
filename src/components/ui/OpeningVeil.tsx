@@ -13,14 +13,16 @@ import Image from "next/image";
  * session; skipped for reduced-motion users.
  */
 
-// The ground itself: an Inner West aerial — Marrickville, Petersham,
-// Lewisham, Stanmore, Newtown — graded to the green-black palette and
-// ghosted beneath the section lines. Each band carries its own slice, so
-// the excavation pulls the suburb apart with the strata.
-const AERIAL: string | null = "/sfgeo-inner-west-aerial.jpg";
-const AERIAL_CREDIT = "Base Imagery \u00A9 Google \u00B7 Landsat / Copernicus";
+// The ground itself: the drive through the Harbour Bridge arch at dusk,
+// shot from the ute, looping beneath the section lines. Each stratum band
+// is a translucent layer over it, so the city reads at the surface and is
+// buried as the section goes down; the excavation then pulls the bands
+// apart to reveal the drive before the hero takes over.
+const VEIL_VIDEO_MP4 = "/veil/harbour-bridge.mp4";
+const VEIL_POSTER = "/veil/harbour-bridge-poster.jpg";
 
-// The suburb is legible at the surface and buried as the section goes down.
+// How much of the drive shows through each stratum: legible at the surface,
+// near-black at depth.
 const DEPTH_FADE = [0.66, 0.46, 0.30, 0.17, 0.09];
 
 const STRATA = [
@@ -88,31 +90,37 @@ export default function OpeningVeil() {
   const cutting = phase === "excavate";
 
   return (
-    <div className="fixed inset-0 z-[100] pointer-events-none overflow-hidden" aria-hidden="true">
-      {/* The ground — five strata, excavated in sequence */}
+    <div
+      className={`fixed inset-0 z-[100] pointer-events-none overflow-hidden bg-[#050A07] transition-opacity duration-700 ease-out ${cutting ? "opacity-0 delay-[950ms]" : ""}`}
+      aria-hidden="true"
+    >
+      {/* The drive: muted, looping, poster until the first frame decodes */}
+      <video
+        className="absolute inset-0 w-full h-full object-cover"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        poster={VEIL_POSTER}
+      >
+        <source src={VEIL_VIDEO_MP4} type="video/mp4" />
+      </video>
+
+      {/* The ground — five strata over the drive, excavated in sequence */}
       {STRATA.map((s, i) => (
         <div
           key={s.label}
-          className={`absolute left-0 right-0 bg-[#050A07] transition-transform duration-[1050ms] ease-[cubic-bezier(0.87,0,0.13,1)] ${
+          className={`absolute left-0 right-0 transition-transform duration-[1050ms] ease-[cubic-bezier(0.87,0,0.13,1)] ${
             cutting ? (i % 2 === 0 ? "-translate-x-[103%]" : "translate-x-[103%]") : ""
           }`}
-          style={{ top: `${i * 20.05}svh`, height: "20.15svh", transitionDelay: cutting ? `${i * 120}ms` : "0ms" }}
+          style={{
+            top: `${i * 20.05}svh`,
+            height: "20.15svh",
+            backgroundColor: `rgba(5, 10, 7, ${(1 - DEPTH_FADE[i]).toFixed(2)})`,
+            transitionDelay: cutting ? `${i * 120}ms` : "0ms",
+          }}
         >
-          {/* this band's slice of the ground imagery — the suburb reads at the
-              surface and is progressively buried with depth */}
-          {AERIAL && (
-            <img
-              src={AERIAL}
-              alt=""
-              className="absolute left-0 w-full max-w-none object-cover pointer-events-none"
-              style={{
-                top: `${-i * 20.05}svh`,
-                height: "100.4svh",
-                objectPosition: "center",
-                opacity: DEPTH_FADE[i],
-              }}
-            />
-          )}
           {/* contact shadow at the stratum boundary — reads as geology and
               keeps the drafting furniture legible over bright ground */}
           <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-[#050A07]/85 via-[#050A07]/45 to-transparent pointer-events-none" />
@@ -132,15 +140,6 @@ export default function OpeningVeil() {
             {s.depth}
           </span>
 
-          {/* source note — drawing furniture, excavates with the deepest layer */}
-          {AERIAL && i === STRATA.length - 1 && (
-            <span
-              className="veil-reg absolute bottom-5 left-6 lg:left-12 text-[9px] uppercase tracking-[0.22em] text-white/30 font-medium"
-              style={{ animationDelay: "1800ms" }}
-            >
-              {AERIAL_CREDIT}
-            </span>
-          )}
         </div>
       ))}
 
