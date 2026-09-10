@@ -9,6 +9,7 @@ import PhotoFrame from "@/components/ui/PhotoFrame";
 import SectionNav from "@/components/ui/SectionNav";
 import CloseBand from "@/components/ui/CloseBand";
 import { pageMeta } from "@/lib/seo";
+import Accordion from "@/components/ui/Accordion";
 
 export const metadata: Metadata = pageMeta(
   "Site Classification & Soil Test Sydney | AS 2870 | SFGEO",
@@ -61,6 +62,30 @@ const NAV = [
   { id: "report", label: "Your Report" },
 ];
 
+// Rendered visibly below and mirrored into the FAQPage schema: the two must stay in step.
+const FAQS = [
+  {
+    q: "What happens on the day of the soil test?",
+    a: "Fieldwork usually takes a few hours. The Principal Engineer bores the holes with the 4WD-mounted rig, or motorised hand augers where access is tight, logs the profile and cross-checks it with penetrometers. Boreholes are sized to the base of excavation plus one to two metres. Samples go to a NATA-accredited laboratory when the site warrants it. You need not be there, provided access is clear and gates are open.",
+  },
+  {
+    q: "What does Class M mean for my footings?",
+    a: "Class M means moderately reactive ground: clay that moves with seasonal moisture, within the range a standard stiffened raft or strip footing is designed for. AS 2870 sets stiffer rafts and deeper footings for the more reactive classes, so the letter on your report is what your structural engineer designs to. Classified as M rather than an assumed worst case, your footings are sized for the ground, not for a guess.",
+  },
+  {
+    q: "Does a site classification include laboratory testing?",
+    a: "Only when the site warrants it, never by default. Laboratory testing is added where the ground calls for it, not applied to every job and billed regardless. All laboratory work goes to third-party NATA-accredited laboratories. The results, and what they mean for your footing, are written into the report. The fee is fixed in writing before work starts.",
+  },
+  {
+    q: "How is my pricing tier decided?",
+    a: "Fees start from $800 + GST for ancillary residential work and $1,000 + GST for standard residential, with a custom quote for complex sites. What moves the tier is the block: how the rig gets in, the ground, existing structures, the slope and how deep the holes must go. The Principal reviews your block and plans, and confirms a fixed fee in writing within one business day.",
+  },
+  {
+    q: "What does the site classification report contain?",
+    a: "The report gives the AS 2870 class, the surface movement behind it and allowable bearing pressures for your footings. It sets out the ground profile and groundwater, the borehole logs written on site and a hole plan. Laboratory results appear where tested. It ends with founding depth, plus any fill, trees, slope or drainage to design around. The Principal Engineer writes it to your certifier’s requirements and signs it.",
+  },
+];
+
 export default function SiteClassificationPage() {
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -109,10 +134,21 @@ export default function SiteClassificationPage() {
     ]
   };
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": FAQS.map((f) => ({
+      "@type": "Question",
+      "name": f.q,
+      "acceptedAnswer": { "@type": "Answer", "text": f.a },
+    })),
+  };
+
   return (
     <div className="bg-white text-slate-950 font-inter selection:bg-forest-green selection:text-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       {/* Hero */}
       <section className="pt-36 pb-20 px-6 lg:px-12 max-w-7xl mx-auto">
@@ -126,7 +162,7 @@ export default function SiteClassificationPage() {
           </h1>
           <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />
           <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed mb-10">
-            The AS 2870 report your whole build stands on, led by the Principal Engineer, tailored to your site, your design and your certifier. No templates. No surprises.
+            A site classification is the soil test for a new home, extension, granny flat or pool. Most councils and certifiers require one. It gives your structural engineer the AS 2870 class and the parameters the footing design is drawn from. The Principal Engineer attends every site and signs every report. Fees are fixed, from $800 + GST. The report follows as soon as 2 business days from fieldwork.
           </p>
           <div className="hero-line hero-d3 flex flex-col sm:flex-row items-start gap-4">
             <QuoteCta
@@ -387,6 +423,24 @@ export default function SiteClassificationPage() {
       {/* Reviews */}
       <section className="py-24 px-6 lg:px-12 max-w-7xl mx-auto">
         <GoogleReviews />
+      </section>
+
+      {/* FAQ: the visible half of the FAQPage schema above */}
+      <section className="py-20 lg:py-24 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">
+        <Reveal variant="group" className="max-w-4xl">
+          <p data-fx="rise" className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">07 &middot; Common Questions</p>
+          <h2 data-fx="rise" style={d(80)} className="text-3xl sm:text-4xl font-light tracking-tight font-montserrat text-slate-950 mb-5">
+            Site Classification. <span className="font-semibold h-bold">Common Questions.</span>
+          </h2>
+          <div data-fx="line" style={d(200)} className="h-px bg-forest-green w-12 mb-6" />
+          <div data-stagger style={d(240)} className="border-t border-gray-200">
+            {FAQS.map((f) => (
+              <Accordion key={f.q} title={f.q}>
+                {f.a}
+              </Accordion>
+            ))}
+          </div>
+        </Reveal>
       </section>
 
       <CloseBand

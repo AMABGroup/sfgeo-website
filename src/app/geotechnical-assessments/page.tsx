@@ -6,10 +6,11 @@ import Reveal from "@/components/ui/Reveal";
 import PhotoFrame from "@/components/ui/PhotoFrame";
 import CloseBand from "@/components/ui/CloseBand";
 import { pageMeta } from "@/lib/seo";
+import Accordion from "@/components/ui/Accordion";
 
 export const metadata: Metadata = pageMeta(
   "Geotechnical Assessments Sydney | Slope & Settlement | SFGEO",
-  "Slope stability and retaining assessments, settlement and cracking investigations, compliance records and second opinions across Sydney, answered in writing.",
+  "Geotechnical assessments in Sydney: slope stability, settlement and cracking, council orders, second opinions. Fixed fee in writing within one business day.",
   "/geotechnical-assessments",
 );
 
@@ -22,6 +23,26 @@ const ITEMS = [
   { t: "Second Opinions", d: "An independent read of someone else’s report before you build, buy or litigate on it." },
   { t: "Purchase Due Diligence", d: "The ground read before you sign: fill, slopes, trees and drainage flagged while you can still walk away." },
   { t: "Pool & Excavation Feasibility", d: "What the dig will hit, what it will cost to hold up, and whether the machine can even get in." },
+];
+
+// Rendered visibly below and mirrored into the FAQPage schema: the two must stay in step.
+const FAQS = [
+  {
+    q: "Can an assessment answer a council order or a certifier’s direction?",
+    a: "Yes: an assessment written against a development control order or a certifier’s direction is an engineering record of the matter the order names. It is in a form council and certifier can accept. Where the order calls for a record at footing level, that is construction phase support. Send the order with the address and the record is scoped to it.",
+  },
+  {
+    q: "Can an assessment tell me why my house is cracking and whether it is still moving?",
+    a: "A settlement and cracking assessment is a written engineering answer to exactly that question, from investigation rather than speculation. The Principal reads the structure and its history against the ground it stands on, with fieldwork only where the question calls for it. If the answer needs boreholes, the job is quoted as a geotechnical investigation, and the quote says so. An insurer or a buyer can act on it.",
+  },
+  {
+    q: "How is an assessment different from a full geotechnical investigation?",
+    a: "An assessment is scoped to the one question asked, with fieldwork limited to what that question needs, sometimes none. A geotechnical investigation drills boreholes for the ground profile and the design parameters a footing or basement needs. Where the answer takes boreholes, it is quoted as an investigation; where it takes a record at footing level, as construction phase support. You are told which before the fee.",
+  },
+  {
+    q: "What does a geotechnical assessment cost, and what sets the fee?",
+    a: "Assessments are quoted per site, with a fixed fee in writing within one business day of receiving the address. There is no published band for assessments. What moves the fee is the number and depth of any boreholes, the access, and any laboratory testing through NATA-accredited laboratories. The published bands for site classifications and concrete coring are on the cost guide.",
+  },
 ];
 
 export default function Page() {
@@ -45,10 +66,21 @@ export default function Page() {
     "areaServed": { "@type": "City", "name": "Sydney, New South Wales, Australia" }
   };
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": FAQS.map((f) => ({
+      "@type": "Question",
+      "name": f.q,
+      "acceptedAnswer": { "@type": "Answer", "text": f.a },
+    })),
+  };
+
   return (
     <div className="bg-white text-slate-950 font-inter selection:bg-forest-green selection:text-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       <section className="pt-36 pb-20 px-6 lg:px-12 max-w-7xl mx-auto">
         <div className="max-w-3xl">
@@ -58,7 +90,7 @@ export default function Page() {
             <span className="hero-mask"><span className="mask-line mask-d2"><span className="font-semibold h-bold">The Specific Question, Answered.</span></span></span>
           </h1>
           <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />
-          <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed">Not every job is a full investigation. Sometimes there is one question: is this slope stable, why is this wall cracking, will council accept this. It needs an engineering answer in writing. That is an assessment.</p>
+          <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed">A geotechnical assessment is a written engineering answer to a single question about your ground or structure, for the certifier, council, insurer or buyer who has to act on it. Not every job is a full investigation. Sometimes there is one question: is this slope stable, why is this wall cracking, will council accept this. Quoted per site, with a fixed fee in writing within one business day.</p>
           <div className="hero-line hero-d3 mt-10 flex flex-col sm:flex-row items-start gap-4">
             <Link
               href="tel:+61423483555"
@@ -75,6 +107,7 @@ export default function Page() {
               className="flex items-center justify-center px-8 py-2.5 bg-white text-forest-green rounded-full shadow-[inset_0_0_0_1px_rgba(45,90,58,0.25),0_4px_10px_-4px_rgba(0,0,0,0.05)] hover:bg-forest-green/5 hover:shadow-[inset_0_0_0_1px_rgba(45,90,58,0.4),0_6px_14px_-4px_rgba(0,0,0,0.1)] transition-all hover:-translate-y-0.5 w-full sm:w-auto h-[46px] text-xs font-semibold tracking-wide"
             />
           </div>
+          <p className="hero-line hero-d3 mt-5 text-sm text-gray-500 font-light tracking-wide">Quoted per site &middot; Fixed fee in writing within one business day &middot; Fieldwork only where the question calls for it</p>
         </div>
       </section>
 
@@ -124,6 +157,24 @@ export default function Page() {
           <p data-fx="rise" style={d(160)} className="text-gray-600 font-light leading-relaxed">
             Every assessment ends in a signed engineering document scoped to its purpose: a letter for a certifier or council order, a report for a settlement investigation, an opinion you can put in front of a lawyer or insurer. It states what was observed, what it means, and what to do next. Where the question needs boreholes, it becomes a <Link href="/geotechnical-investigations" className="text-forest-green underline underline-offset-4 decoration-forest-green/40 hover:decoration-forest-green font-medium">geotechnical investigation</Link>; where it needs a record at footing level, <Link href="/construction-phase-support" className="text-forest-green underline underline-offset-4 decoration-forest-green/40 hover:decoration-forest-green font-medium">construction phase support</Link>, and we say which before the fee does.
           </p>
+        </Reveal>
+      </section>
+
+      {/* FAQ: the visible half of the FAQPage schema above */}
+      <section className="py-20 lg:py-24 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">
+        <Reveal variant="group" className="max-w-4xl">
+          <p data-fx="rise" className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">04 &middot; Common Questions</p>
+          <h2 data-fx="rise" style={d(80)} className="text-3xl sm:text-4xl font-light tracking-tight font-montserrat text-slate-950 mb-5">
+            Assessments. <span className="font-semibold h-bold">Common Questions.</span>
+          </h2>
+          <div data-fx="line" style={d(200)} className="h-px bg-forest-green w-12 mb-6" />
+          <div data-stagger style={d(240)} className="border-t border-gray-200">
+            {FAQS.map((f) => (
+              <Accordion key={f.q} title={f.q}>
+                {f.a}
+              </Accordion>
+            ))}
+          </div>
         </Reveal>
       </section>
 

@@ -22,7 +22,11 @@ const archivo = Archivo({
   preload: true,
 });
 
-const GA4_ID = process.env.NEXT_PUBLIC_GA4_ID;
+// GA4 web stream "sfgeo.com.au" (stream 15752487903), created 10 Sep 2026. The
+// Google tag on this page (AW-18053070765 / GT-NBXF23P8) is combined with the
+// GA4 destination in Analytics, so collection runs even without this config
+// call; the explicit id keeps the stream wired if the tag is ever split.
+const GA4_ID = process.env.NEXT_PUBLIC_GA4_ID ?? "G-VXSTDPETHH";
 const GSC_TOKEN = process.env.NEXT_PUBLIC_GSC_TOKEN;
 const BING_TOKEN = process.env.NEXT_PUBLIC_BING_TOKEN;
 

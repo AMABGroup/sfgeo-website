@@ -10,7 +10,7 @@ import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta(
   "Geotechnical Engineers Marrickville & Inner West | SFGEO",
-  "Family owned, principal-led geotechnical engineers based in Marrickville, the Inner West team behind every classification, investigation and drilling job.",
+  "Family-owned, principal-led geotechnical engineers in Marrickville, Sydney’s Inner West. Fixed fee in writing within one business day.",
   "/about",
 );
 

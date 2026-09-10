@@ -9,7 +9,7 @@ import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta(
   "Projects | Geotechnical Case Studies Sydney | SFGEO",
-  "Real SFGEO projects across Sydney: estate investigations, problem-site foundations, remedial works and council compliance, drawn from issued reports.",
+  "Sydney geotechnical case studies: rural estates, problem-site foundations, remedial works, council orders. Fixed fee in writing within one business day.",
   "/projects",
 );
 
@@ -313,8 +313,8 @@ export default function ProjectsPage() {
             Selected projects &middot; Drawn from issued reports
           </p>
           <h1 className="text-4xl sm:text-6xl font-montserrat font-light tracking-tight leading-[1.08] mb-8">
-            <span className="hero-mask"><span className="mask-line mask-d1"><span>Proven On</span></span></span>{" "}
-            <span className="hero-mask"><span className="mask-line mask-d2"><span className="font-semibold h-bold">Sydney Ground.</span></span></span>
+            <span className="hero-mask"><span className="mask-line mask-d1"><span>Geotechnical Case Studies</span></span></span>{" "}
+            <span className="hero-mask"><span className="mask-line mask-d2"><span className="font-semibold h-bold">Proven On Sydney Ground.</span></span></span>
           </h1>
           <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />
           <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed">

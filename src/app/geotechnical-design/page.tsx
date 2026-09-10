@@ -6,10 +6,11 @@ import PhotoFrame from "@/components/ui/PhotoFrame";
 import Reveal from "@/components/ui/Reveal";
 import CloseBand from "@/components/ui/CloseBand";
 import { pageMeta } from "@/lib/seo";
+import Accordion from "@/components/ui/Accordion";
 
 export const metadata: Metadata = pageMeta(
   "Geotechnical Design Parameters Sydney | SFGEO",
-  "Site-specific geotechnical design inputs for structural and civil engineers: bearing capacities, pile values, AS 4678 retaining parameters and pavements.",
+  "Geotechnical design parameters for Sydney structural and civil engineers: bearing, pile and retaining values. Fixed fee in writing within one business day.",
   "/geotechnical-design",
 );
 
@@ -22,6 +23,26 @@ const ITEMS = [
   { t: "Pavement & Subgrade", d: "CBR values and subgrade advice for driveways, car parks and civil pavements." },
   { t: "Working Platforms", d: "Platform bearing verification for cranes, rigs and heavy plant." },
   { t: "Excavation & Groundwater", d: "Batter guidance, excavatability and groundwater observations for basements and cuts." },
+];
+
+// Rendered visibly below and mirrored into the FAQPage schema: the two must stay in step.
+const FAQS = [
+  {
+    q: "What geotechnical design parameters does SFGEO provide?",
+    a: "SFGEO provides the design parameters for footings, piles, retaining walls, pavements, working platforms and excavations. Allowable bearing pressures are given by stratum and depth for shallow footings and piers. Pile values cover end bearing and shaft adhesion. Retaining walls take AS 4678 parameters per stratum. Pavements take CBR values. Working platforms are verified for cranes and heavy plant. Basements and cuts get batter guidance, excavatability and groundwater observations.",
+  },
+  {
+    q: "Which investigation do the design parameters come from?",
+    a: "A geotechnical investigation on your site: boreholes drilled by the engineer with the 4WD-mounted rig or motorised hand augers, penetrometer tests, and laboratory testing through NATA-accredited laboratories where the site warrants it. Residential boreholes are sized to the base of excavation plus one to two metres. No value is a presumptive figure copied between reports. See geotechnical investigations.",
+  },
+  {
+    q: "What form do the design parameters come in?",
+    a: "The parameters arrive as a signed memo with tables your design software takes directly. The derivation is available on request. SFGEO does not carry the structural design. Your engineer reads the values into the footing, pile or retaining wall design. If the contractor proposes another footing system, SFGEO reviews it against the ground data. Once the excavation opens, construction phase support verifies the values at bearing level.",
+  },
+  {
+    q: "How is geotechnical design work priced?",
+    a: "The fee is set against the number and depth of boreholes, site access and the laboratory programme. Send the site address and the structural concept. The quote is a fixed fee in writing within one business day. An investigation that includes laboratory testing is typically five to seven business days from fieldwork, confirmed in the written quote. Laboratory testing is applied where the site warrants it, not by default.",
+  },
 ];
 
 export default function Page() {
@@ -45,10 +66,21 @@ export default function Page() {
     "areaServed": { "@type": "City", "name": "Sydney, New South Wales, Australia" }
   };
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": FAQS.map((f) => ({
+      "@type": "Question",
+      "name": f.q,
+      "acceptedAnswer": { "@type": "Answer", "text": f.a },
+    })),
+  };
+
   return (
     <div className="bg-white text-slate-950 font-inter selection:bg-forest-green selection:text-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       <section className="pt-36 pb-20 px-6 lg:px-12 max-w-7xl mx-auto">
         <div className="max-w-3xl">
@@ -58,7 +90,7 @@ export default function Page() {
             <span className="hero-mask"><span className="mask-line mask-d2"><span className="font-semibold h-bold">The Numbers Under The Design.</span></span></span>
           </h1>
           <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />
-          <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed">Your structure is only as good as the parameters beneath it. SFGEO supplies the site-specific inputs structural and civil engineers design from, investigated, derived and signed by the engineer who read the ground.</p>
+          <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed">SFGEO supplies the site-specific inputs structural and civil engineers design from. They cover bearing pressures, pile values, AS 4678 retaining parameters and pavement CBR values. The engineer who read the ground derives and signs each value. Every scope is quoted per site, a fixed fee in writing within one business day. With laboratory testing, reports are typically five to seven business days from fieldwork, confirmed in the written quote.</p>
           <div className="hero-line hero-d3 mt-10 flex flex-col sm:flex-row items-start gap-4">
             <Link
               href="tel:+61423483555"
@@ -75,6 +107,7 @@ export default function Page() {
               className="flex items-center justify-center px-8 py-2.5 bg-white text-forest-green rounded-full shadow-[inset_0_0_0_1px_rgba(45,90,58,0.25),0_4px_10px_-4px_rgba(0,0,0,0.05)] hover:bg-forest-green/5 hover:shadow-[inset_0_0_0_1px_rgba(45,90,58,0.4),0_6px_14px_-4px_rgba(0,0,0,0.1)] transition-all hover:-translate-y-0.5 w-full sm:w-auto h-[46px] text-xs font-semibold tracking-wide"
             />
           </div>
+          <p className="hero-line hero-d3 mt-5 text-sm text-gray-500 font-light tracking-wide">For structural and civil engineers &middot; Fixed fee in writing within one business day &middot; Reports typically five to seven business days from fieldwork</p>
         </div>
       </section>
 
@@ -133,6 +166,24 @@ export default function Page() {
                 <h3 className="text-lg font-montserrat font-semibold text-slate-950 mb-3">{c.t}</h3>
                 <p className="text-gray-600 font-light leading-relaxed text-[15px]">{c.d}</p>
               </div>
+            ))}
+          </div>
+        </Reveal>
+      </section>
+
+      {/* FAQ: the visible half of the FAQPage schema above */}
+      <section className="py-20 lg:py-24 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">
+        <Reveal variant="group" className="max-w-4xl">
+          <p data-fx="rise" className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">04 &middot; Common Questions</p>
+          <h2 data-fx="rise" style={d(80)} className="text-3xl sm:text-4xl font-light tracking-tight font-montserrat text-slate-950 mb-5">
+            Design Parameters. <span className="font-semibold h-bold">Common Questions.</span>
+          </h2>
+          <div data-fx="line" style={d(200)} className="h-px bg-forest-green w-12 mb-6" />
+          <div data-stagger style={d(240)} className="border-t border-gray-200">
+            {FAQS.map((f) => (
+              <Accordion key={f.q} title={f.q}>
+                {f.a}
+              </Accordion>
             ))}
           </div>
         </Reveal>

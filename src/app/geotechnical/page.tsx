@@ -5,10 +5,11 @@ import type { CSSProperties } from "react";
 import Reveal from "@/components/ui/Reveal";
 import PhotoFrame from "@/components/ui/PhotoFrame";
 import CloseBand from "@/components/ui/CloseBand";
+import Accordion from "@/components/ui/Accordion";
 
 export const metadata: Metadata = pageMeta(
   "Geotechnical Engineering Sydney | The Full Suite | SFGEO",
-  "The full geotechnical suite for Sydney: site classifications, investigations, assessments, construction phase support and design. Principal-led, fixed-fee.",
+  "Sydney geotechnical engineering: site classifications, investigations, assessments, design and inspections. Fixed fee in writing within one business day.",
   "/geotechnical",
 );
 
@@ -69,6 +70,26 @@ const AUDIENCES = [
   { t: "Councils & Asset Owners", d: "Compliance records, asset investigations and assessments that stand up to scrutiny." },
 ];
 
+// Rendered visibly below and mirrored into the FAQPage schema: the two must stay in step.
+const FAQS = [
+  {
+    q: "Which geotechnical service does my project need?",
+    a: "For most homes, extensions, granny flats and pools it is an AS 2870 site classification. Slope, fill or a basement points to a geotechnical investigation; a cracking building or a council order, to an assessment. Send the address, the plans and any council or certifier wording, and the Principal reviews the block before quoting the report the site needs.",
+  },
+  {
+    q: "How is each geotechnical service priced?",
+    a: "Site classifications are fixed fees from $800 + GST (ancillary residential) and from $1,000 + GST (standard residential); complex sites are quoted individually. Investigations, assessments and design parameters are quoted per site against the number and depth of boreholes, access and the laboratory programme. Inspections are quoted per site as single visits or standing engagements. Every fee is confirmed in writing within one business day. See the cost guide.",
+  },
+  {
+    q: "How long does each type of geotechnical report take?",
+    a: "Site classification reports are issued as soon as 2 business days from fieldwork. A geotechnical investigation with NATA-accredited laboratory testing typically takes five to seven business days from fieldwork, confirmed in the written quote. For footing and pier inspections the engineer gives the call at bearing level before leaving site, and the written record follows within days. Urgent turnaround is by arrangement.",
+  },
+  {
+    q: "Who usually asks for a geotechnical report?",
+    a: "Most councils and private certifiers require an AS 2870 site classification for new dwellings, additions, granny flats and pools. Some councils name the trigger in the DA checklist; others raise it after lodgement. The structural engineer then reads the class and bearing parameters straight into the footing design. Owners arrive with a different question: a building that has cracked, or a council order that needs a compliance record.",
+  },
+];
+
 export default function GeotechnicalHubPage() {
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -89,10 +110,21 @@ export default function GeotechnicalHubPage() {
     "areaServed": { "@type": "City", "name": "Sydney, New South Wales, Australia" }
   };
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": FAQS.map((f) => ({
+      "@type": "Question",
+      "name": f.q,
+      "acceptedAnswer": { "@type": "Answer", "text": f.a },
+    })),
+  };
+
   return (
     <div className="bg-white text-slate-950 font-inter selection:bg-forest-green selection:text-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       {/* Hero */}
       <section className="pt-36 pb-20 px-6 lg:px-12 max-w-7xl mx-auto">
@@ -106,8 +138,9 @@ export default function GeotechnicalHubPage() {
           </h1>
           <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />
           <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed">
-            From the first hole on an empty block to the last inspection before the pour, one team carries the whole geotechnical scope, and the Principal is across every job.
+            SFGEO is a geotechnical engineering consultancy for Sydney homeowners, builders, engineers and councils. The work runs from the first hole on an empty block, through investigations, assessments and design parameters, to the last inspection before the pour. Every job is quoted per site: a fixed fee in writing within one business day. AS 2870 site classification reports follow as soon as 2 business days from fieldwork.
           </p>
+          <p className="hero-line hero-d3 mt-5 text-sm text-gray-500 font-light tracking-wide">Site classifications from $800 + GST &middot; Fixed fee in writing within one business day &middot; The engineer who drills your site signs the report</p>
         </div>
       </section>
 
@@ -157,6 +190,24 @@ export default function GeotechnicalHubPage() {
                 <h3 className="text-lg font-montserrat font-semibold text-slate-950 mb-3 min-h-[56px]">{a.t}</h3>
                 <p className="text-gray-600 font-light leading-relaxed text-[15px]">{a.d}</p>
               </div>
+            ))}
+          </div>
+        </Reveal>
+      </section>
+
+      {/* FAQ: the visible half of the FAQPage schema above */}
+      <section className="py-20 lg:py-24 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">
+        <Reveal variant="group" className="max-w-4xl">
+          <p data-fx="rise" className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">Common Questions</p>
+          <h2 data-fx="rise" style={d(80)} className="text-3xl sm:text-4xl font-light tracking-tight font-montserrat text-slate-950 mb-5">
+            Geotechnical Services. <span className="font-semibold h-bold">Common Questions.</span>
+          </h2>
+          <div data-fx="line" style={d(200)} className="h-px bg-forest-green w-12 mb-6" />
+          <div data-stagger style={d(240)} className="border-t border-gray-200">
+            {FAQS.map((f) => (
+              <Accordion key={f.q} title={f.q}>
+                {f.a}
+              </Accordion>
             ))}
           </div>
         </Reveal>

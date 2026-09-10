@@ -6,8 +6,8 @@ import CloseBand from "@/components/ui/CloseBand";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta(
-  "Geotechnical, Drilling & Environmental Services | SFGEO",
-  "Every SFGEO service line in one place: geotechnical, drilling, environmental testing, specialist services and concrete coring. Principal-led, Sydney-wide.",
+  "Geotechnical Services Sydney | Drilling & Testing | SFGEO",
+  "Geotechnical, drilling, environmental testing and concrete coring for Sydney, principal-led from Marrickville. Fixed fee in writing within one business day.",
   "/services",
 );
 
@@ -18,7 +18,7 @@ const SEGMENTS = [
     n: "01",
     title: "Geotechnical",
     href: "/geotechnical",
-    d: "From the first hole on an empty block to the last inspection before the pour: classifications, investigations, assessments, construction support and design parameters.",
+    d: "From the first hole on an empty block to the last inspection before the pour: site classifications to AS 2870, geotechnical investigations, assessments, construction phase support and design parameters. Site classifications start from $800 + GST, with reports as soon as 2 business days from fieldwork. Investigations, assessments and inspections are quoted per site, with residential boreholes sized to the base of excavation plus one to two metres.",
     children: [
       { name: "Site Classification", href: "/site-classification" },
       { name: "Geotechnical Investigations", href: "/geotechnical-investigations" },
@@ -31,7 +31,7 @@ const SEGMENTS = [
     n: "02",
     title: "Drilling",
     href: "/drilling",
-    d: "One 4WD-mounted rig, engineer operated: borehole drilling, NMLC rock coring and subcontract capacity for builders, consultancies and bigger firms, metro and regional.",
+    d: "One 4WD-mounted rig, engineer operated, for borehole drilling and NMLC rock coring across metro and regional New South Wales. Where the rig cannot get in, motorised hand augers carry through a doorway or down a side passage, and the engineer logs the hole either way. Builders, consultancies and bigger firms book the rig as subcontract capacity.",
     children: [
       { name: "Borehole Drilling", href: "/borehole-drilling" },
       { name: "Rock Coring", href: "/drilling#rock-coring" },
@@ -43,7 +43,7 @@ const SEGMENTS = [
     n: "03",
     title: "Environmental & Soil Testing",
     href: "/environmental",
-    d: "What the ground is carrying: contaminated land investigations, acid sulfate soils, waste classification and laboratory testing, sampled by the crew that drills it.",
+    d: "What the ground is carrying: contaminated land investigations (PSI and DSI), acid sulfate soils, waste classification and soil testing, sampled by the crew that drills it and tested through NATA-accredited laboratories. Where council has flagged the land for contamination, send its wording with the address and the programme is scoped to it rather than guessed.",
     children: [
       { name: "Contaminated Land (PSI & DSI)", href: "/environmental#psi-dsi" },
       { name: "Acid Sulfate Soils", href: "/environmental#ass" },
@@ -55,7 +55,7 @@ const SEGMENTS = [
     n: "04",
     title: "Other Professional Services",
     href: "/other-services",
-    d: "The disciplines around the ground: utility location and GPR, dilapidation reports, surveys and specialist engineering, delivered through one point of contact.",
+    d: "The disciplines around the ground: utility location and GPR, dilapidation reports, surveying, and structural, civil and hydraulic engineering, coordinated through partners and delivered through one point of contact. If the project does not yet have a structural engineer, SFGEO introduces Sydney firms it works with regularly.",
     children: [
       { name: "Utility Location & GPR", href: "/other-services#utility-gpr" },
       { name: "Dilapidation Reports", href: "/other-services#dilapidation" },
@@ -67,7 +67,7 @@ const SEGMENTS = [
     n: "05",
     title: "Concrete Coring",
     href: "/concrete-coring",
-    d: "Engineer-supervised coring of slabs, pavements and penetrations, logged, verified and strength-tested when the question needs a number.",
+    d: "Engineer-supervised coring of slabs, pavements and penetrations, logged, verified and strength-tested when the question needs a number. Coring is $120 + GST per hole with a three-hole minimum per visit. The final fee depends on core size, location, access and time on site: a fixed fee in writing within one business day.",
     children: [],
   },
 ];
@@ -98,8 +98,9 @@ export default function ServicesIndexPage() {
           </h1>
           <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />
           <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed">
-            Five service lines, one standard, one point of contact, and the Principal across every job. Start with the segment, or just tell us the project and we&rsquo;ll tell you what it needs.
+            SFGEO runs five service lines for Sydney homeowners, builders and engineers, with the Principal across every job: site classifications to AS 2870, geotechnical investigations and inspections, drilling, environmental testing and concrete coring. Site classifications start from $800 + GST, with reports as soon as 2 business days from fieldwork. Everything else is quoted per site, as a fixed fee in writing within one business day. Tell us the project and we&rsquo;ll tell you what it needs.
           </p>
+          <p className="hero-line hero-d3 mt-5 text-sm text-gray-500 font-light tracking-wide">Site classifications from $800 + GST &middot; Coring $120 + GST per hole, three-hole minimum &middot; Fixed fee in writing within one business day</p>
         </div>
       </section>
 
