@@ -101,7 +101,7 @@ export default function GeotechnicalHubPage() {
             Geotechnical &middot; Principal-Led &middot; Sydney
           </p>
           <h1 className="text-4xl sm:text-6xl font-montserrat font-light tracking-tight leading-[1.08] mb-8">
-            <span className="hero-mask"><span className="mask-line mask-d1"><span>Geotechnical.</span></span></span>
+            <span className="hero-mask"><span className="mask-line mask-d1"><span>Geotechnical.</span></span></span>{" "}
             <span className="hero-mask"><span className="mask-line mask-d2"><span className="font-semibold h-bold">The Full Suite.</span></span></span>
           </h1>
           <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />

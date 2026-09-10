@@ -41,7 +41,7 @@ export default function ContactPage() {
               Contact &middot; Marrickville<span className="hidden sm:inline"> &middot; Response Within One Business Day</span>
             </p>
             <h1 className="text-4xl sm:text-6xl font-montserrat font-light tracking-tight leading-[1.08] mb-8">
-              <span className="hero-mask"><span className="mask-line mask-d1"><span>Talk To</span></span></span>
+              <span className="hero-mask"><span className="mask-line mask-d1"><span>Talk To</span></span></span>{" "}
               <span className="hero-mask"><span className="mask-line mask-d2"><span className="font-semibold h-bold">The Engineer.</span></span></span>
             </h1>
             <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />

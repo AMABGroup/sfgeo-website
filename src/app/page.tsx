@@ -52,7 +52,7 @@ const JOURNEY = [
   },
   {
     t: "The Report",
-    d: "Written and signed by the engineer who stood on your ground, in the language your certifier and your structural engineer actually need: nothing templated, nothing assumed. On a clear site classification, the signed report can be with you as soon as two business days after fieldwork.",
+    d: "Written and signed by the engineer who stood on your ground, in the language your certifier and your structural engineer actually need: nothing templated, nothing assumed. On a clear site classification, the signed report can be with you as soon as 2 business days from fieldwork.",
   },
   {
     t: "Through The Build",

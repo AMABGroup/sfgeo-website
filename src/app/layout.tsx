@@ -141,7 +141,7 @@ export default function RootLayout({
       }
     ],
     "sameAs": [
-      "https://au.linkedin.com/company/sfgeo",
+      "https://www.linkedin.com/company/sfgeo",
       "https://instagram.com/sfgeo.syd",
       "https://maps.google.com/?cid=3989342510304756801"
     ],
@@ -153,7 +153,7 @@ export default function RootLayout({
       "availableLanguage": "en"
     },
     "legalName": "AMAB Group Pty Ltd",
-    "taxID": "ABN 54 686 815 252",
+    "taxID": "54 686 815 252",
     "founder": {
       "@type": "Person",
       "name": "Alli Atmar",
@@ -167,7 +167,8 @@ export default function RootLayout({
     "@type": "WebSite",
     "@id": "https://sfgeo.com.au/#website",
     "url": "https://sfgeo.com.au",
-    "name": "SFGEO (Solid Foundation Geotechnical)",
+    "name": "Solid Foundation Geotechnical",
+    "alternateName": "SFGEO",
     "publisher": { "@id": "https://sfgeo.com.au/#organization" },
     "copyrightHolder": { "@id": "https://sfgeo.com.au/#organization" },
     "copyrightYear": 2026,

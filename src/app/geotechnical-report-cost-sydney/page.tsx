@@ -17,7 +17,7 @@ const d = (ms: number) => ({ "--d": `${ms}ms` }) as CSSProperties;
 
 // The three site-classification tiers — copied verbatim from /site-classification.
 const TIERS = [
-  { k: "ANCILLARY RESIDENTIAL", price: <>$800</>, from: true, d: "Granny flats. Small additions. New homes on cleared blocks. Tightly scoped projects with clear access, priced from $800. Every fee is set against your specific block." },
+  { k: "ANCILLARY RESIDENTIAL", price: <>$800</>, from: true, d: "Granny flats. Small additions. New homes on cleared blocks. Tightly scoped projects with clear access, priced from $800 + GST. Every fee is set against your specific block." },
   { k: "STANDARD RESIDENTIAL", price: <>$1,000</>, from: true, d: "The right tier for most Sydney custom builds. Single or double-storey homes on established streets. Pool additions, duplexes, and dwellings with in-ground pools." },
   { k: "COMPLEX PROJECTS & SITES", price: <>Custom</>, from: false, d: "Basements. Multi-storey. Retaining walls. Sloping blocks. Restricted access. Strata. Prestige-suburb projects. Every complex site is different, and we price them that way." },
 ];
@@ -90,7 +90,7 @@ export default function GeotechnicalReportCostPage() {
             Cost Guide &middot; Fixed Fees &middot; Sydney
           </p>
           <h1 className="text-4xl sm:text-6xl font-montserrat font-light tracking-tight leading-[1.08] mb-8">
-            <span className="hero-mask"><span className="mask-line mask-d1"><span>How Much Does A Geotechnical Report</span></span></span>
+            <span className="hero-mask"><span className="mask-line mask-d1"><span>How Much Does A Geotechnical Report</span></span></span>{" "}
             <span className="hero-mask"><span className="mask-line mask-d2"><span className="font-semibold h-bold">Cost In Sydney?</span></span></span>
           </h1>
           <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />

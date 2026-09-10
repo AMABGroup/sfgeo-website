@@ -18,6 +18,7 @@ export default function HomeFaq() {
         const isOpen = openIndex === index;
         return (
           <div key={index}>
+            <h3 className="m-0">
             <button
               onClick={() => toggleFaq(index)}
               className={`flex w-full items-center justify-between py-6 text-left transition-colors duration-200 ${isOpen ? "text-forest-green" : "text-slate-950 hover:text-forest-green"}`}
@@ -30,6 +31,7 @@ export default function HomeFaq() {
                 {isOpen ? <MinusIcon className="w-5 h-5" /> : <PlusIcon className="w-5 h-5" />}
               </span>
             </button>
+            </h3>
             <motion.div
               initial={false}
               animate={{ height: isOpen ? "auto" : 0, opacity: isOpen ? 1 : 0 }}

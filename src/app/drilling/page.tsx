@@ -82,7 +82,7 @@ const SECTIONS = [
     caption: "04 · Subcontract Drilling",
     image: "/sfgeo-operator-rig-controls-sydney.jpg",
     alt: "Operator at the controls of the SFGEO drill rig on a Sydney site",
-    body: "The rig and crew are available under your scope: engineering consultancies from boutique practices to some of the bigger firms in Sydney ground, environmental consultants running PSI and DSI programs, and builders and civil contractors who need holes without the overhead of an in-house crew. Your supervision or ours; engineer operated, always.",
+    body: "The rig and crew are available under your scope: engineering consultancies from boutique practices to some of the bigger firms in Sydney, environmental consultants running PSI and DSI programs, and builders and civil contractors who need holes without the overhead of an in-house crew. Your supervision or ours; engineer operated, always.",
     specs: [
       "Engineer-operated rig on your program and your paperwork",
       "Sampling, logs and chain of custody delivered in your format",
@@ -154,12 +154,12 @@ export default function DrillingPage() {
             Drilling &middot; Engineer Operated &middot; 4WD Mobilised
           </p>
           <h1 className="text-4xl sm:text-6xl font-montserrat font-light tracking-tight leading-[1.08] mb-8">
-            <span className="hero-mask"><span className="mask-line mask-d1"><span>Geotechnical &amp; Environmental</span></span></span>
+            <span className="hero-mask"><span className="mask-line mask-d1"><span>Geotechnical &amp; Environmental</span></span></span>{" "}
             <span className="hero-mask"><span className="mask-line mask-d2"><span className="font-semibold h-bold">Drilling Sydney.</span></span></span>
           </h1>
           <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />
           <p className="hero-line hero-d2 max-w-3xl text-lg sm:text-xl text-gray-600 font-light leading-relaxed mb-10">
-            Headquartered in Marrickville, mobilised across the Sydney metro and into regional NSW: one 4WD-mounted rig, operated by the engineers who log what it brings up. Drilling for builders, consultancies and some of the bigger firms in Sydney ground.
+            Headquartered in Marrickville, mobilised across the Sydney metro and into regional NSW: one 4WD-mounted rig, operated by the engineers who log what it brings up. Drilling for builders, consultancies and some of the bigger firms in Sydney.
           </p>
           <div className="hero-line hero-d3 flex flex-col sm:flex-row items-start gap-4">
             <Link

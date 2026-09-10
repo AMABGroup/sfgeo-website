@@ -19,7 +19,7 @@ const d = (ms: number) => ({ "--d": `${ms}ms` }) as CSSProperties;
 const VALUES = [
   { t: "Direct Access. Always.", d: "Call, email, turn up. You reach the team doing the work directly. No admin queues, no message chains." },
   { t: "Sydney Is Our Backyard.", d: "Locally owned, locally based. We know Sydney’s ground, its councils and its sites. The Principal has worked them for 15 years, from Sydney Gateway to backyard footings." },
-  { t: "On Site. On Time. On Call.", d: "A fixed fee within one business day, classification reports as soon as 2 business days from fieldwork, and the Principal’s mobile answered, not a switchboard." },
+  { t: "On Site. On Time. On Call.", d: "A fixed fee in writing within one business day, classification reports as soon as 2 business days from fieldwork, and the Principal’s mobile answered, not a switchboard." },
 ];
 
 const PEDIGREE = [
@@ -89,7 +89,7 @@ export default function About() {
             About SFGEO &middot; Family Owned &middot; Inner West Based
           </p>
           <h1 className="text-[min(2.25rem,8.2vw)] sm:text-6xl font-montserrat font-light tracking-tight leading-[1.08] mb-8">
-            <span className="hero-mask"><span className="mask-line mask-d1"><span>Boutique Geotechnical</span></span></span>
+            <span className="hero-mask"><span className="mask-line mask-d1"><span>Boutique Geotechnical</span></span></span>{" "}
             <span className="hero-mask"><span className="mask-line mask-d2"><span className="font-semibold h-bold">Engineers. Sydney.</span></span></span>
           </h1>
           <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />

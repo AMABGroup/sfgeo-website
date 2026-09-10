@@ -15,7 +15,7 @@ export const metadata: Metadata = pageMeta(
 const d = (ms: number) => ({ "--d": `${ms}ms` }) as CSSProperties;
 
 const CLIENTS = [
-  { t: "Engineering Consultancies", d: "Boutique practices to some of the bigger firms in Sydney ground: field data with engineer-grade logging you can put your letterhead on without re-checking it." },
+  { t: "Engineering Consultancies", d: "Boutique practices to some of the bigger firms in Sydney: field data with engineer-grade logging you can put your letterhead on without re-checking it." },
   { t: "Environmental Consultants", d: "Drilling and sampling for PSI and DSI programs: clean execution, chain of custody kept, your sampling plan followed to the letter. Monitoring wells through a licensed bore driller under our scope." },
   { t: "Builders & Civil Contractors", d: "Holes without the overhead of an in-house crew: footing probes, pavement investigations, service trenching support, booked around your program." },
   { t: "Bigger Firms & Majors", d: "Reliable capacity when the fleet is booked out: night works, staged access and standing arrangements, delivered at the same standard every visit." },
@@ -64,7 +64,7 @@ export default function SubcontractDrillingPage() {
             Subcontract Drilling &middot; B2B &middot; Metro + Regional NSW
           </p>
           <h1 className="text-[min(2.25rem,8.2vw)] sm:text-6xl font-montserrat font-light tracking-tight leading-[1.08] mb-8">
-            <span className="hero-mask"><span className="mask-line mask-d1"><span>Subcontract Drilling.</span></span></span>
+            <span className="hero-mask"><span className="mask-line mask-d1"><span>Subcontract Drilling.</span></span></span>{" "}
             <span className="hero-mask"><span className="mask-line mask-d2"><span className="font-semibold h-bold">Your Scope. Our Rig.</span></span></span>
           </h1>
           <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />

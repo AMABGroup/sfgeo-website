@@ -217,7 +217,7 @@ const caseStudies: CaseStudy[] = [
     image: "/projects/project-telopea-verge.jpg",
     imageAlt: "SFGEO 4WD rig drilling from the grass verge of a residential street in Telopea, footpath and traffic lane still open",
     brief:
-      "One of the bigger testing firms in Sydney ground needed five boreholes along a residential street: the ground data to found new safety lighting going into a renewing suburb. Drilled, sampled and handed over clean, without shutting the street down around the people who live on it.",
+      "One of the bigger testing firms in Sydney needed five boreholes along a residential street: the ground data to found new safety lighting going into a renewing suburb. Drilled, sampled and handed over clean, without shutting the street down around the people who live on it.",
     ground:
       "The 4WD rig worked hole to hole along the verge: five boreholes with penetrometer tests at termination, services located before the first flight turned, footpaths kept open, every location reinstated before the rig moved on.",
     outcome:
@@ -313,7 +313,7 @@ export default function ProjectsPage() {
             Selected projects &middot; Drawn from issued reports
           </p>
           <h1 className="text-4xl sm:text-6xl font-montserrat font-light tracking-tight leading-[1.08] mb-8">
-            <span className="hero-mask"><span className="mask-line mask-d1"><span>Proven On</span></span></span>
+            <span className="hero-mask"><span className="mask-line mask-d1"><span>Proven On</span></span></span>{" "}
             <span className="hero-mask"><span className="mask-line mask-d2"><span className="font-semibold h-bold">Sydney Ground.</span></span></span>
           </h1>
           <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />

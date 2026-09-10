@@ -134,7 +134,7 @@ export default function ConcreteCoringPage() {
             Concrete Coring &middot; Engineer&#8209;Supervised &middot; Sydney
           </p>
           <h1 className="text-[min(2.25rem,7.4vw)] sm:text-6xl font-montserrat font-light tracking-tight leading-[1.08] mb-8">
-            <span className="hero-mask"><span className="mask-line mask-d1"><span>Concrete Coring.</span></span></span>
+            <span className="hero-mask"><span className="mask-line mask-d1"><span>Concrete Coring.</span></span></span>{" "}
             <span className="hero-mask"><span className="mask-line mask-d2"><span className="font-semibold h-bold">Engineering Attached.</span></span></span>
           </h1>
           <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />

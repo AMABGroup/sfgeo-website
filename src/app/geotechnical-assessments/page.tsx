@@ -54,7 +54,7 @@ export default function Page() {
         <div className="max-w-3xl">
           <p className="hero-line text-sm uppercase tracking-[0.2em] text-forest-green mb-6 font-semibold">Geotechnical Assessments &middot; Principal-Led</p>
           <h1 className="text-[min(2.25rem,8.2vw)] sm:text-6xl font-montserrat font-light tracking-tight leading-[1.08] mb-8">
-            <span className="hero-mask"><span className="mask-line mask-d1"><span>Geotechnical Assessments.</span></span></span>
+            <span className="hero-mask"><span className="mask-line mask-d1"><span>Geotechnical Assessments.</span></span></span>{" "}
             <span className="hero-mask"><span className="mask-line mask-d2"><span className="font-semibold h-bold">The Specific Question, Answered.</span></span></span>
           </h1>
           <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />

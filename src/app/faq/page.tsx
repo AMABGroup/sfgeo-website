@@ -5,7 +5,7 @@ import { pageMeta } from '@/lib/seo';
 
 export const metadata: Metadata = pageMeta(
   "Soil Test & Geotechnical Report FAQ Sydney | SFGEO",
-  "Do you need a soil test for a granny flat? What is Class M? How long does a geotechnical report take? Clear answers from the engineers who do the work in Sydney.",
+  "Do you need a soil test for a granny flat? What is Class M? How long does a geotechnical report take? Clear answers from the Sydney engineers who do the work.",
   "/faq"
 );
 
