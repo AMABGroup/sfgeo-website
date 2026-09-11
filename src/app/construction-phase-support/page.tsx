@@ -10,7 +10,7 @@ import Accordion from "@/components/ui/Accordion";
 
 export const metadata: Metadata = pageMeta(
   "Footing & Pier Inspections Sydney | Proof Rolls | SFGEO",
-  "Footing, pier and pile inspections, proof rolls and AS 3798 fill supervision in Sydney. Fixed fee per inspection in writing within one business day.",
+  "Footing and pier inspections, proof rolls and AS 3798 fill supervision in Sydney. From $600 + GST per inspection, fixed in writing within one business day.",
   "/construction-phase-support",
 );
 
@@ -29,7 +29,7 @@ const ITEMS = [
 const FAQS = [
   {
     q: "How much does a footing or pier inspection cost?",
-    a: "A footing or pier inspection is a fixed fee per inspection, in writing within one business day of receiving the drawings and the site address. No figure is published because the fee is set against each site and each visit. Builders book single visits; contractors with a run of inspections work from a standing schedule of rates. Send the drawings and the date.",
+    a: "A footing or pier inspection is priced from $600 + GST per inspection, as a fixed fee in writing within one business day of receiving the drawings and the site address. The fee is set against each site and each visit: travel, the number of footings or piers exposed, and whether compaction testing is folded into the same visit. Builders book single visits; contractors with a run of inspections work from a standing schedule of rates. Send the drawings and the date.",
   },
   {
     q: "What happens if the footing has not reached suitable bearing material?",
@@ -98,7 +98,7 @@ export default function Page() {
             <span className="hero-mask"><span className="mask-line mask-d2"><span className="font-semibold h-bold">Verified Before The Pour.</span></span></span>
           </h1>
           <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />
-          <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed mb-10">Construction phase support is the engineer on site for builders and contractors: footing, pier and pile inspections, proof rolls and engineered fill to AS 3798. An open excavation costs money every hour it waits, so SFGEO confirms the ground against the design on site and gives the call before anyone leaves. Single visits are a fixed fee in writing within one business day, and the record follows within days.</p>
+          <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed mb-10">Construction phase support is the engineer on site for builders and contractors: footing, pier and pile inspections, proof rolls and engineered fill to AS 3798. An open excavation costs money every hour it waits, so SFGEO confirms the ground against the design on site and gives the call before anyone leaves. Single visits are priced from $600 + GST, fixed in writing within one business day, and the record follows within days.</p>
           <div className="hero-line hero-d3 flex flex-col sm:flex-row items-start gap-4">
             <Link
               href="tel:+61423483555"
@@ -112,7 +112,7 @@ export default function Page() {
               className="flex items-center justify-center px-8 py-2.5 bg-white text-forest-green rounded-full shadow-[inset_0_0_0_1px_rgba(45,90,58,0.25),0_4px_10px_-4px_rgba(0,0,0,0.05)] hover:bg-forest-green/5 hover:shadow-[inset_0_0_0_1px_rgba(45,90,58,0.4),0_6px_14px_-4px_rgba(0,0,0,0.1)] transition-all hover:-translate-y-0.5 w-full sm:w-auto h-[46px] text-xs font-semibold tracking-wide"
             />
           </div>
-          <p className="hero-line hero-d3 mt-5 text-sm text-gray-500 font-light tracking-wide">Fixed fee in writing within one business day &middot; Footing, pier and pile inspections, proof rolls, fill certification &middot; Engineered fill supervised layer by layer to AS 3798</p>
+          <p className="hero-line hero-d3 mt-5 text-sm text-gray-500 font-light tracking-wide">Footing and pier inspections from $600 + GST &middot; Fixed fee in writing within one business day &middot; Engineered fill supervised layer by layer to AS 3798</p>
         </div>
       </section>
 
@@ -130,7 +130,7 @@ export default function Page() {
             <p data-fx="rise" className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">01 &middot; On Site</p>
             <h2 data-fx="rise" style={d(80)} className="text-3xl sm:text-4xl font-montserrat font-light tracking-tight text-slate-950 mb-5">The Answer, <span className="font-semibold h-bold">On Site.</span></h2>
             <div data-fx="line" style={d(200)} className="h-px bg-forest-green w-12 mb-7" />
-            <p data-fx="rise" style={d(160)} className="text-gray-600 font-light leading-relaxed">The engineer inspects at bearing level, logs the exposed stratum, and gives the call before leaving site: proceed, deepen or adjust. The formal record follows within days. Compaction testing through our partners is folded into the same visit where the spec calls for it. Single visits are quoted as a fixed fee per inspection, in writing, within one business day.</p>
+            <p data-fx="rise" style={d(160)} className="text-gray-600 font-light leading-relaxed">The engineer inspects at bearing level, logs the exposed stratum, and gives the call before leaving site: proceed, deepen or adjust. The formal record follows within days. Compaction testing through our partners is folded into the same visit where the spec calls for it. Single visits are quoted from $600 + GST as a fixed fee per inspection, in writing, within one business day.</p>
           </Reveal>
         </div>
       </section>

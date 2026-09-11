@@ -57,7 +57,7 @@ export const faqs = [
   {
     question: "Can you perform footing inspections, pier inspections, and proof rolling across Sydney?",
     group: "For Builders & Engineers",
-    answer: "Yes. The engineer inspects at bearing level and gives the call before leaving site: proceed, deepen or adjust. The written record follows within days. Single visits for builders, standing arrangements for contractors. <a href=\"/construction-phase-support\">See Construction Phase Support</a>."
+    answer: "Yes. The engineer inspects at bearing level and gives the call before leaving site: proceed, deepen or adjust. The written record follows within days. Single visits for builders from $600 + GST per inspection, standing arrangements for contractors. <a href=\"/construction-phase-support\">See Construction Phase Support</a>."
   },
   {
     question: "What is 'Proof Rolling' and when is it required?",

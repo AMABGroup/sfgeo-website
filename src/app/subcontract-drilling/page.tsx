@@ -17,7 +17,7 @@ const d = (ms: number) => ({ "--d": `${ms}ms` }) as CSSProperties;
 
 const CLIENTS = [
   { t: "Engineering Consultancies", d: "Boutique practices to some of the bigger firms in Sydney: field data with engineer-grade logging you can put your letterhead on without re-checking it." },
-  { t: "Environmental Consultants", d: "Drilling and sampling for PSI and DSI programs: clean execution, chain of custody kept, your sampling plan followed to the letter. Monitoring wells through a licensed bore driller under our scope." },
+  { t: "Environmental Consultants", d: "Drilling and sampling for PSI and DSI programs: clean execution, chain of custody kept, your sampling plan followed to the letter. Monitoring wells through a bore driller under our scope." },
   { t: "Builders & Civil Contractors", d: "Holes without the overhead of an in-house crew: footing probes, pavement investigations, service trenching support, booked around your program." },
   { t: "Bigger Firms & Majors", d: "Reliable capacity when the fleet is booked out: night works, staged access and standing arrangements, delivered at the same standard every visit." },
 ];
@@ -45,7 +45,7 @@ const FAQS = [
   },
   {
     q: "What format do the logs and samples arrive in?",
-    a: "Yours. Logs go onto your template, samples follow your sampling plan, and chain of custody is kept from the hole to your laboratory. The engineer who ran the rig writes the log, so what arrives is engineer-grade rather than spoil and a diary. Where the programme needs monitoring wells, they are scoped and managed by SFGEO and installed by a licensed drilling contractor. See environmental sampling.",
+    a: "Yours. Logs go onto your template, samples follow your sampling plan, and chain of custody is kept from the hole to your laboratory. The engineer who ran the rig writes the log, so what arrives is engineer-grade rather than spoil and a diary. Where the programme needs monitoring wells, they are scoped and managed by SFGEO and installed by a drilling contractor. See environmental sampling.",
   },
 ];
 

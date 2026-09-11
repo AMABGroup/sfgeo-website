@@ -87,7 +87,7 @@ const SECTIONS = [
     specs: [
       "Engineer-operated rig on your program and your paperwork",
       "Sampling, logs and chain of custody delivered in your format",
-      "Environmental sampling for consultant programs, with monitoring wells arranged through a licensed bore driller under our scope",
+      "Environmental sampling for consultant programs, with monitoring wells arranged through a bore driller under our scope",
       "Standing arrangements for repeat capacity",
     ],
     link: { href: "/subcontract-drilling", label: "Explore Subcontract Drilling" },
@@ -97,7 +97,7 @@ const SECTIONS = [
 const AUDIENCES = [
   { t: "Builders", d: "Boreholes for the site classification or investigation, booked around your program, and answers when the excavation finds something the report didn’t." },
   { t: "Engineering Consultancies", d: "Subcontract rig capacity with engineer-grade logging: field data you can put your letterhead on without re-checking it." },
-  { t: "Environmental Consultants", d: "Drilling and sampling for PSI and DSI programs: clean execution, chain of custody kept, monitoring wells through a licensed bore driller under our scope." },
+  { t: "Environmental Consultants", d: "Drilling and sampling for PSI and DSI programs: clean execution, chain of custody kept, monitoring wells through a bore driller under our scope." },
   { t: "Bigger Firms & Majors", d: "Reliable capacity for programs that can’t wait on a booked-out fleet: night works, staged access and standing arrangements included." },
 ];
 
@@ -122,7 +122,7 @@ const FAQS = [
   },
   {
     q: "Can SFGEO drill for another consultancy?",
-    a: "Yes. Engineering consultancies and environmental consultants book the rig under their own scope and paperwork, with the SFGEO engineer at the controls and on the log. Samples, logs and chain of custody come back in your format for PSI, DSI and geotechnical programmes; repeat capacity can be a standing arrangement. Monitoring wells are installed by a licensed drilling contractor under our scope. See subcontract drilling.",
+    a: "Yes. Engineering consultancies and environmental consultants book the rig under their own scope and paperwork, with the SFGEO engineer at the controls and on the log. Samples, logs and chain of custody come back in your format for PSI, DSI and geotechnical programmes; repeat capacity can be a standing arrangement. Monitoring wells are installed by a drilling contractor under our scope. See subcontract drilling.",
   },
   {
     q: "How far does the rig travel?",

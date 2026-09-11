@@ -9,7 +9,7 @@ import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta(
   "Geotechnical Report Cost Sydney | From $800 + GST | SFGEO",
-  "Geotechnical report and soil test costs in Sydney: site classification from $800 + GST, coring from $120 + GST per hole, and how investigations are quoted.",
+  "Sydney geotechnical report costs: site classification from $800 + GST, footing inspections from $600 + GST, coring $120 + GST per hole, investigations per site.",
   "/geotechnical-report-cost-sydney",
 );
 
@@ -62,7 +62,7 @@ const FAQS = [
   },
   {
     q: "How is a footing or pier inspection priced?",
-    a: "As a fixed fee per inspection, in writing within one business day of receiving the drawings and the site address. There is no published figure because the fee is set against each site and each visit. Builders book single visits; contractors with a run of inspections work from a standing schedule of rates. Compaction testing on the same visit is quoted alongside the inspection.",
+    a: "From $600 + GST per inspection, as a fixed fee in writing within one business day of receiving the drawings and the site address. The fee is set against each site and each visit: travel, the number of footings or piers exposed, and whether compaction testing is folded into the same visit. Builders book single visits; contractors with a run of inspections work from a standing schedule of rates.",
   },
 ];
 

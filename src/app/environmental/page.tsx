@@ -90,7 +90,7 @@ const AUDIENCES = [
     t: "Consultants & Engineers",
     d: (
       <>
-        <Link href="/subcontract-drilling" className="text-forest-green underline underline-offset-4 decoration-forest-green/40 hover:decoration-forest-green">Drilling and sampling</Link> for your own assessment programs: clean field data, chain of custody kept. Monitoring wells go in through a licensed bore driller under our scope.
+        <Link href="/subcontract-drilling" className="text-forest-green underline underline-offset-4 decoration-forest-green/40 hover:decoration-forest-green">Drilling and sampling</Link> for your own assessment programs: clean field data, chain of custody kept. Monitoring wells go in through a bore driller under our scope.
       </>
     ),
   },

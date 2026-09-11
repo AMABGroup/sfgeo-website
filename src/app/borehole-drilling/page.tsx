@@ -35,7 +35,7 @@ const FAQS = [
   },
   {
     q: "Is groundwater recorded on the log?",
-    a: "Yes. Seepage is noted as it appears during drilling, and the standing water level is recorded after the hole is finished. No single observation changes a basement or footing design more often. Both are readings taken on the day of drilling; where the design needs the water table monitored over time, SFGEO scopes a groundwater monitoring well and a licensed drilling contractor installs it.",
+    a: "Yes. Seepage is noted as it appears during drilling, and the standing water level is recorded after the hole is finished. No single observation changes a basement or footing design more often. Both are readings taken on the day of drilling; where the design needs the water table monitored over time, SFGEO scopes a groundwater monitoring well and a drilling contractor installs it.",
   },
   {
     q: "Are samples taken for laboratory testing?",

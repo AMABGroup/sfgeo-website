@@ -81,7 +81,7 @@ const SECTIONS = [
 const FIRST_IMAGE_ID = SECTIONS.find((s) => s.image)?.id;
 
 const ALSO = [
-  { t: "Groundwater Monitoring Wells & Water Bores", d: "Scoped and managed by SFGEO and installed by a licensed drilling contractor. One engagement, with the engineer who logs the ground writing the report." },
+  { t: "Groundwater Monitoring Wells & Water Bores", d: "Scoped and managed by SFGEO and installed by a drilling contractor. One engagement, with the engineer who logs the ground writing the report." },
   {
     t: "Working Platform Assessments",
     d: (
