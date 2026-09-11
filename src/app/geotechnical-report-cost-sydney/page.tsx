@@ -9,7 +9,7 @@ import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta(
   "Geotechnical Report Cost Sydney | From $800 + GST | SFGEO",
-  "Geotechnical report and soil test costs in Sydney: site classification from $800 + GST, coring from $120 + GST per hole, and how investigations are quoted.",
+  "Sydney geotechnical report costs: site classification from $800 + GST, footing inspections from $600 + GST, coring $120 + GST per hole, investigations per site.",
   "/geotechnical-report-cost-sydney",
 );
 
@@ -17,7 +17,7 @@ const d = (ms: number) => ({ "--d": `${ms}ms` }) as CSSProperties;
 
 // The three site-classification tiers — copied verbatim from /site-classification.
 const TIERS = [
-  { k: "ANCILLARY RESIDENTIAL", price: <>$800</>, from: true, d: "Granny flats. Small additions. New homes on cleared blocks. Tightly scoped projects with clear access, priced from $800. Every fee is set against your specific block." },
+  { k: "ANCILLARY RESIDENTIAL", price: <>$800</>, from: true, d: "Granny flats. Small additions. New homes on cleared blocks. Tightly scoped projects with clear access, priced from $800 + GST. Every fee is set against your specific block." },
   { k: "STANDARD RESIDENTIAL", price: <>$1,000</>, from: true, d: "The right tier for most Sydney custom builds. Single or double-storey homes on established streets. Pool additions, duplexes, and dwellings with in-ground pools." },
   { k: "COMPLEX PROJECTS & SITES", price: <>Custom</>, from: false, d: "Basements. Multi-storey. Retaining walls. Sloping blocks. Restricted access. Strata. Prestige-suburb projects. Every complex site is different, and we price them that way." },
 ];
@@ -47,6 +47,22 @@ const FAQS = [
   {
     q: "Do you charge for a quote?",
     a: "No. Send the address and what you are building, and you will have a fixed fee in writing within one business day.",
+  },
+  {
+    q: "How is a geotechnical investigation priced?",
+    a: "A geotechnical investigation is quoted per site, with a fixed fee in writing within one business day of receiving the site address. Boreholes drive the fee: how many, how deep, and how the rig reaches them, plus NATA-accredited laboratory testing when the site warrants it. Reports with laboratory testing typically land five to seven business days from fieldwork, confirmed in the written quote.",
+  },
+  {
+    q: "Why are basements and sloping blocks a custom quote?",
+    a: "Basements and sloping blocks count as complex projects, so each is a custom quote: a fixed fee in writing within one business day. Both typically need a geotechnical investigation rather than a site classification. A basement is a different job to a slab on ground, with residential boreholes sized to the base of excavation plus one to two metres, and a slope adds stability and retaining questions to the scope.",
+  },
+  {
+    q: "Is concrete coring priced per hole or per visit?",
+    a: "Per hole, with a minimum per visit: engineer-supervised concrete coring is $120 + GST per hole and each visit carries a three-hole minimum. The final fee depends on core size, location, access and time on site, and it is confirmed as a fixed fee in writing within one business day, before work begins. See what coring covers.",
+  },
+  {
+    q: "How is a footing or pier inspection priced?",
+    a: "From $600 + GST per inspection, as a fixed fee in writing within one business day of receiving the drawings and the site address. The fee is set against each site and each visit: travel, the number of footings or piers exposed, and whether compaction testing is folded into the same visit. Builders book single visits; contractors with a run of inspections work from a standing schedule of rates.",
   },
 ];
 
@@ -90,12 +106,12 @@ export default function GeotechnicalReportCostPage() {
             Cost Guide &middot; Fixed Fees &middot; Sydney
           </p>
           <h1 className="text-4xl sm:text-6xl font-montserrat font-light tracking-tight leading-[1.08] mb-8">
-            <span className="hero-mask"><span className="mask-line mask-d1"><span>How Much Does A Geotechnical Report</span></span></span>
+            <span className="hero-mask"><span className="mask-line mask-d1"><span>How Much Does A Geotechnical Report</span></span></span>{" "}
             <span className="hero-mask"><span className="mask-line mask-d2"><span className="font-semibold h-bold">Cost In Sydney?</span></span></span>
           </h1>
           <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />
           <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed mb-10">
-            It depends on the block, not the size of the build, but the starting points are published, and every fee is confirmed in writing before anyone drills. Here is what each kind of report costs and what moves the number.
+            Most homes, extensions, pools and granny flats need an AS 2870 site classification, priced by the block, not the size of the build. Granny flats and small additions start from $800 + GST; homes, pools and duplexes on established streets from $1,000 + GST. Complex sites and geotechnical investigations are quoted per site, with a fixed fee in writing within one business day. Classification reports follow as soon as 2 business days from fieldwork.
           </p>
           <div className="hero-line hero-d3 flex flex-col sm:flex-row items-start gap-4">
             <Link
@@ -110,6 +126,7 @@ export default function GeotechnicalReportCostPage() {
               className="flex items-center justify-center px-8 py-2.5 bg-white text-forest-green rounded-full shadow-[inset_0_0_0_1px_rgba(45,90,58,0.25),0_4px_10px_-4px_rgba(0,0,0,0.05)] hover:bg-forest-green/5 hover:shadow-[inset_0_0_0_1px_rgba(45,90,58,0.4),0_6px_14px_-4px_rgba(0,0,0,0.1)] transition-all hover:-translate-y-0.5 w-full sm:w-auto h-[46px] text-xs font-semibold tracking-wide"
             />
           </div>
+          <p className="hero-line hero-d3 mt-5 text-sm text-gray-500 font-light tracking-wide">Site classification from $800 + GST &middot; Coring $120 + GST per hole, three-hole minimum &middot; Fixed fee in writing within one business day</p>
         </div>
       </section>
 

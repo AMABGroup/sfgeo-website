@@ -39,6 +39,11 @@ const SUBURBS = [
   "North Sydney", "Crows Nest", "Lane Cove", "Hunters Hill", "Willoughby", "Chatswood", "Artarmon", "Roseville", "Lindfield",
   "Killara", "Gordon", "Pymble", "Turramurra", "Wahroonga", "Hornsby", "Castle Hill", "Baulkham Hills", "Bella Vista",
   "Kellyville", "Rouse Hill", "Glenhaven", "Dural", "Kenthurst", "Cherrybrook", "West Pennant Hills",
+  "Ryde", "Epping", "Carlingford", "Parramatta", "Granville", "Wentworthville", "Merrylands", "Auburn", "Lidcombe",
+  "Homebush", "Blacktown", "Penrith", "Glenmore Park", "Liverpool", "Moorebank", "Casula", "Fairfield", "Cabramatta",
+  "Bankstown", "Lakemba", "Punchbowl", "Belmore", "Campsie", "Revesby", "Padstow", "Picnic Point", "Bexley", "Rockdale",
+  "Kogarah", "Hurstville", "Beverly Hills", "Peakhurst", "Sans Souci", "Sutherland", "Miranda", "Caringbah", "Cronulla",
+  "Oyster Bay", "Engadine", "Menai", "Mascot", "Botany", "Rosebery", "Camden", "Narellan", "Oran Park", "Campbelltown",
 ];
 
 const JOURNEY = [
@@ -52,7 +57,7 @@ const JOURNEY = [
   },
   {
     t: "The Report",
-    d: "Written and signed by the engineer who stood on your ground, in the language your certifier and your structural engineer actually need: nothing templated, nothing assumed. On a clear site classification, the signed report can be with you as soon as two business days after fieldwork.",
+    d: "Written and signed by the engineer who stood on your ground, in the language your certifier and your structural engineer actually need: nothing templated, nothing assumed. On a clear site classification, the signed report can be with you as soon as 2 business days from fieldwork.",
   },
   {
     t: "Through The Build",
@@ -184,8 +189,20 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <ProofStrip items={PROOF} />
         </div>
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 pt-16 pb-6">
+          <Reveal variant="group" className="max-w-3xl">
+            <p data-fx="rise" className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">Where We Work</p>
+            <h2 data-fx="rise" style={d(80)} className="text-3xl font-light tracking-tight sm:text-4xl font-montserrat">
+              From Marrickville. <span className="font-semibold h-bold">Across Greater Sydney.</span>
+            </h2>
+            <div data-fx="line" style={d(200)} className="mt-4 h-px bg-forest-green w-12" />
+            <p data-fx="rise" style={d(160)} className="mt-6 text-gray-600 font-light leading-relaxed">
+              The rig leaves Marrickville for every part of Greater Sydney: the Inner West and the Eastern Suburbs, the Lower North Shore and the Hills, west through Parramatta, Blacktown and Penrith, south-west through Bankstown, Liverpool and Camden, the St George suburbs and the Sutherland Shire. The Illawarra, the Blue Mountains, the Central Coast and regional New South Wales by arrangement.
+            </p>
+          </Reveal>
+        </div>
         <div className="border-b border-gray-100 py-2">
-          <Marquee items={SUBURBS} speed={150} />
+          <Marquee items={SUBURBS} speed={250} />
         </div>
       </section>
 

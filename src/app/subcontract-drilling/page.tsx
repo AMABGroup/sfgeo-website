@@ -5,18 +5,19 @@ import Reveal from "@/components/ui/Reveal";
 import PhotoFrame from "@/components/ui/PhotoFrame";
 import CloseBand from "@/components/ui/CloseBand";
 import { pageMeta } from "@/lib/seo";
+import Accordion from "@/components/ui/Accordion";
 
 export const metadata: Metadata = pageMeta(
   "Subcontract Drilling Sydney | Rig Hire With Engineer | SFGEO",
-  "Subcontract drilling for consultancies, environmental consultants, builders and civil contractors: an engineer-operated 4WD rig on your program, metro and NSW.",
+  "Subcontract drilling for consultancies and contractors: engineer-operated 4WD rig, Sydney and regional NSW. Fixed fee in writing within one business day.",
   "/subcontract-drilling",
 );
 
 const d = (ms: number) => ({ "--d": `${ms}ms` }) as CSSProperties;
 
 const CLIENTS = [
-  { t: "Engineering Consultancies", d: "Boutique practices to some of the bigger firms in Sydney ground: field data with engineer-grade logging you can put your letterhead on without re-checking it." },
-  { t: "Environmental Consultants", d: "Drilling and sampling for PSI and DSI programs: clean execution, chain of custody kept, your sampling plan followed to the letter. Monitoring wells through a licensed bore driller under our scope." },
+  { t: "Engineering Consultancies", d: "Boutique practices to some of the bigger firms in Sydney: field data with engineer-grade logging you can put your letterhead on without re-checking it." },
+  { t: "Environmental Consultants", d: "Drilling and sampling for PSI and DSI programs: clean execution, chain of custody kept, your sampling plan followed to the letter. Monitoring wells through a bore driller under our scope." },
   { t: "Builders & Civil Contractors", d: "Holes without the overhead of an in-house crew: footing probes, pavement investigations, service trenching support, booked around your program." },
   { t: "Bigger Firms & Majors", d: "Reliable capacity when the fleet is booked out: night works, staged access and standing arrangements, delivered at the same standard every visit." },
 ];
@@ -26,6 +27,26 @@ const TERMS = [
   { t: "Rates In Writing", d: "Day rates or per-hole pricing confirmed in writing before the rig moves. No surprises on the invoice, ever." },
   { t: "Your Format", d: "Logs, samples and chain-of-custody delivered the way your templates and your lab expect them." },
   { t: "Insured & Credentialed", d: "PI and PL insurance for consultant engagements, with the supplier paperwork your procurement team needs, handled once." },
+];
+
+// Rendered visibly below and mirrored into the FAQPage schema: the two must stay in step.
+const FAQS = [
+  {
+    q: "How is a subcontract drilling programme priced?",
+    a: "By the day, or as a programme fee against the borehole schedule. Send the schedule and the window and you have a fixed fee in writing within one business day, confirmed before the rig moves. Standing arrangements are available for firms that need reliable capacity when the fleet is booked out, at the same standard every visit.",
+  },
+  {
+    q: "Is SPT available on consultancy and commercial programmes?",
+    a: "Yes, on consultancy and commercial programmes. SPT is not offered on residential jobs. Where your programme calls for it, SPT and penetrometer testing run alongside the drilling and go on the log in the field. Because an engineer runs the rig, anomalies are flagged on site and the log arrives engineer-grade. See borehole drilling.",
+  },
+  {
+    q: "Whose supervision does the rig work under?",
+    a: "Yours or ours. Under your supervision, the rig drills to your borehole schedule and follows your sampling plan to the letter. Under ours, you send the brief and receive finished logs. Either way the operator is an engineer and the engineer logs the hole, so the field data goes on your letterhead without re-checking. Both arrangements run every week. See the drilling capability.",
+  },
+  {
+    q: "What format do the logs and samples arrive in?",
+    a: "Yours. Logs go onto your template, samples follow your sampling plan, and chain of custody is kept from the hole to your laboratory. The engineer who ran the rig writes the log, so what arrives is engineer-grade rather than spoil and a diary. Where the programme needs monitoring wells, they are scoped and managed by SFGEO and installed by a drilling contractor. See environmental sampling.",
+  },
 ];
 
 export default function SubcontractDrillingPage() {
@@ -52,10 +73,21 @@ export default function SubcontractDrillingPage() {
     ]
   };
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": FAQS.map((f) => ({
+      "@type": "Question",
+      "name": f.q,
+      "acceptedAnswer": { "@type": "Answer", "text": f.a },
+    })),
+  };
+
   return (
     <div className="bg-white text-slate-950 font-inter selection:bg-forest-green selection:text-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       {/* Hero */}
       <section className="pt-36 pb-20 px-6 lg:px-12 max-w-7xl mx-auto">
@@ -64,12 +96,12 @@ export default function SubcontractDrillingPage() {
             Subcontract Drilling &middot; B2B &middot; Metro + Regional NSW
           </p>
           <h1 className="text-[min(2.25rem,8.2vw)] sm:text-6xl font-montserrat font-light tracking-tight leading-[1.08] mb-8">
-            <span className="hero-mask"><span className="mask-line mask-d1"><span>Subcontract Drilling.</span></span></span>
+            <span className="hero-mask"><span className="mask-line mask-d1"><span>Subcontract Drilling.</span></span></span>{" "}
             <span className="hero-mask"><span className="mask-line mask-d2"><span className="font-semibold h-bold">Your Scope. Our Rig.</span></span></span>
           </h1>
           <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />
           <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed mb-10">
-            An engineer-operated 4WD rig available under your paperwork, for the consultancies, environmental programs, builders and bigger firms that need holes in the ground without owning the machine that makes them. Rapid mobilisation, engineer logging as standard, and the same crew every time.
+            An engineer-operated 4WD rig works under your paperwork, for the consultancies, builders and civil contractors that need holes in the ground without owning the machine that makes them. Engineer logging as standard, and the same crew every time. Day rates on request; every programme is a fixed fee in writing within one business day. Rapid mobilisation across Sydney and into regional New South Wales.
           </p>
           <div className="hero-line hero-d3 flex flex-col sm:flex-row items-start gap-4">
             <Link
@@ -85,6 +117,7 @@ export default function SubcontractDrillingPage() {
               Call 0423 483 555
             </Link>
           </div>
+          <p className="hero-line hero-d3 mt-5 text-sm text-gray-500 font-light tracking-wide">Engineer-logged field data &middot; Day rates on request &middot; Fixed fee in writing within one business day</p>
         </div>
       </section>
 
@@ -162,6 +195,24 @@ export default function SubcontractDrillingPage() {
                 <h3 className="text-base font-montserrat font-semibold text-slate-950 mb-2">{t.t}</h3>
                 <p className="text-gray-600 font-light leading-relaxed text-[14px]">{t.d}</p>
               </div>
+            ))}
+          </div>
+        </Reveal>
+      </section>
+
+      {/* FAQ: the visible half of the FAQPage schema above */}
+      <section className="py-20 lg:py-24 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">
+        <Reveal variant="group" className="max-w-4xl">
+          <p data-fx="rise" className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">04 &middot; Common Questions</p>
+          <h2 data-fx="rise" style={d(80)} className="text-3xl sm:text-4xl font-light tracking-tight font-montserrat text-slate-950 mb-5">
+            Subcontract Drilling. <span className="font-semibold h-bold">Common Questions.</span>
+          </h2>
+          <div data-fx="line" style={d(200)} className="h-px bg-forest-green w-12 mb-6" />
+          <div data-stagger style={d(240)} className="border-t border-gray-200">
+            {FAQS.map((f) => (
+              <Accordion key={f.q} title={f.q}>
+                {f.a}
+              </Accordion>
             ))}
           </div>
         </Reveal>

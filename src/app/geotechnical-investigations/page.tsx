@@ -8,10 +8,11 @@ import PhotoFrame from "@/components/ui/PhotoFrame";
 import SectionNav from "@/components/ui/SectionNav";
 import CloseBand from "@/components/ui/CloseBand";
 import { pageMeta } from "@/lib/seo";
+import Accordion from "@/components/ui/Accordion";
 
 export const metadata: Metadata = pageMeta(
   "Geotechnical Investigations & Reports Sydney | SFGEO",
-  "Principal-led geotechnical investigations for Sydney DAs, footings, basements and retaining structures. Fixed-fee quotes, reports certifiers accept.",
+  "Geotechnical investigations to AS 1726 for Sydney DAs, CDCs, basements and footings. Principal-led fieldwork. Fixed fee in writing within one business day.",
   "/geotechnical-investigations",
 );
 
@@ -51,6 +52,30 @@ const NAV = [
   { id: "why-early", label: "Why Early" },
 ];
 
+// Rendered visibly below and mirrored into the FAQPage schema: the two must stay in step.
+const FAQS = [
+  {
+    q: "How much does a geotechnical investigation cost in Sydney?",
+    a: "Every investigation is a fixed fee, confirmed in writing within one business day of receiving the address. There is no published starting figure. The fee is set against the number and depth of boreholes, rig access and the laboratory programme the design calls for, and the Principal reviews the block and plans before quoting. What moves a quote is on the geotechnical report cost guide.",
+  },
+  {
+    q: "How deep are the boreholes?",
+    a: "Residential boreholes are sized to the base of the proposed excavation plus one to two metres, so a basement or deep piers call for deeper holes than a slab on grade. Target depths are set from your plans at the desktop review. The 4WD-mounted rig drills where it can reach and motorised hand augers cover the rest; the engineer logs every hole.",
+  },
+  {
+    q: "How long does a geotechnical investigation take?",
+    a: "Typically five to seven business days from fieldwork when NATA-accredited laboratory testing is included, with the turnaround confirmed in the written quote. The laboratory schedule is the main variable, and testing is added only when the site warrants it. Urgent DA, CDC and construction deadlines are taken on regularly. Send the date with the address and you will have a yes or no before any fee is agreed.",
+  },
+  {
+    q: "What is in a geotechnical investigation report?",
+    a: "The report sets out the subsurface profile, layer by layer, with groundwater observations. Each borehole is engineer-logged and plotted on a plan. Penetrometer and laboratory results, where tested, sit behind the allowable bearing pressures and founding recommendations for the footing types on your plans. Lateral parameters cover basements, cut batters and retaining structures. It is written to your certifier’s requirements and signed by the engineer who logged the holes.",
+  },
+  {
+    q: "Do I need a geotechnical investigation for a DA or a CDC?",
+    a: "It depends on the council or certifier and on what is mapped over the block. A standard house or pool on a level block typically needs only an AS 2870 site classification. Basements, excavation near a boundary, retaining walls, sloping or landslip-mapped land, fill, or a Class P result usually trigger a full investigation. Forward council or certifier correspondence with the address and the scope is matched to it.",
+  },
+];
+
 export default function GeotechnicalInvestigationsPage() {
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -73,10 +98,21 @@ export default function GeotechnicalInvestigationsPage() {
     "areaServed": { "@type": "City", "name": "Sydney, New South Wales, Australia" }
   };
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": FAQS.map((f) => ({
+      "@type": "Question",
+      "name": f.q,
+      "acceptedAnswer": { "@type": "Answer", "text": f.a },
+    })),
+  };
+
   return (
     <div className="bg-white text-slate-950 font-inter selection:bg-forest-green selection:text-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       {/* Hero */}
       <section className="pt-36 pb-20 px-6 lg:px-12 max-w-7xl mx-auto">
@@ -85,12 +121,12 @@ export default function GeotechnicalInvestigationsPage() {
             Geotechnical Investigations &middot; Principal-Led &middot; Sydney
           </p>
           <h1 className="text-[min(2.25rem,8.2vw)] sm:text-6xl font-montserrat font-light tracking-tight leading-[1.08] mb-8">
-            <span className="hero-mask"><span className="mask-line mask-d1"><span>Geotechnical Investigations.</span></span></span>
+            <span className="hero-mask"><span className="mask-line mask-d1"><span>Geotechnical Investigations.</span></span></span>{" "}
             <span className="hero-mask"><span className="mask-line mask-d2"><span className="font-semibold h-bold">Engineered Properly.</span></span></span>
           </h1>
           <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />
           <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed mb-10">
-            Boreholes, penetrometers and NATA-backed laboratory data, turned into reports your certifier, council and structural engineer can act on, for DAs, complying development, footings, basements and retaining structures across Sydney. The engineer who drills your ground is the engineer who signs your report.
+            An AS 1726 geotechnical investigation provides the ground data for Sydney DAs, CDCs, footings, basements and retaining structures. Boreholes, penetrometers and NATA-accredited laboratory data become a report your certifier, council and structural engineer can act on. Fees are fixed and quoted per site. Reports with laboratory testing typically take five to seven business days from fieldwork, confirmed in the written quote. The engineer who drills your ground signs your report.
           </p>
           <div className="hero-line hero-d3 flex flex-col sm:flex-row items-start gap-4">
             <Link
@@ -105,6 +141,7 @@ export default function GeotechnicalInvestigationsPage() {
               className="flex items-center justify-center px-8 py-2.5 bg-white text-forest-green rounded-full shadow-[inset_0_0_0_1px_rgba(45,90,58,0.25),0_4px_10px_-4px_rgba(0,0,0,0.05)] hover:bg-forest-green/5 hover:shadow-[inset_0_0_0_1px_rgba(45,90,58,0.4),0_6px_14px_-4px_rgba(0,0,0,0.1)] transition-all hover:-translate-y-0.5 w-full sm:w-auto h-[46px] text-xs font-semibold tracking-wide"
             />
           </div>
+          <p className="hero-line hero-d3 mt-5 text-sm text-gray-500 font-light tracking-wide">Boreholes to AS 1726, quoted per site &middot; Fixed fee in writing within one business day &middot; Reports typically five to seven business days from fieldwork</p>
         </div>
       </section>
 
@@ -235,6 +272,24 @@ export default function GeotechnicalInvestigationsPage() {
       {/* Reviews */}
       <section className="py-24 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">
         <GoogleReviews />
+      </section>
+
+      {/* FAQ: the visible half of the FAQPage schema above */}
+      <section className="py-20 lg:py-24 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">
+        <Reveal variant="group" className="max-w-4xl">
+          <p data-fx="rise" className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">05 &middot; Common Questions</p>
+          <h2 data-fx="rise" style={d(80)} className="text-3xl sm:text-4xl font-light tracking-tight font-montserrat text-slate-950 mb-5">
+            Investigations. <span className="font-semibold h-bold">Common Questions.</span>
+          </h2>
+          <div data-fx="line" style={d(200)} className="h-px bg-forest-green w-12 mb-6" />
+          <div data-stagger style={d(240)} className="border-t border-gray-200">
+            {FAQS.map((f) => (
+              <Accordion key={f.q} title={f.q}>
+                {f.a}
+              </Accordion>
+            ))}
+          </div>
+        </Reveal>
       </section>
 
       <CloseBand

@@ -15,18 +15,21 @@ export default function Accordion({ title, defaultOpen = false, children }: Acco
 
   return (
     <div className="border-b border-gray-200 py-6 group">
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="w-full flex justify-between items-center text-left focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-forest-green"
-        aria-expanded={isOpen}
-      >
-        <h3 className="text-xl sm:text-2xl font-light font-montserrat text-slate-black group-hover:text-forest-green transition-colors m-0">
-          {title}
-        </h3>
-        <span className={`p-1.5 transition-colors flex-shrink-0 ${isOpen ? 'text-forest-green' : 'text-gray-400 group-hover:text-forest-green'}`}>
-          {isOpen ? <MinusIcon className="w-5 h-5" /> : <PlusIcon className="w-5 h-5" />}
-        </span>
-      </button>
+      {/* Heading wraps the button (valid HTML; the question enters the document outline). */}
+      <h3 className="m-0">
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="w-full flex justify-between items-center text-left focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-forest-green"
+          aria-expanded={isOpen}
+        >
+          <span className="text-xl sm:text-2xl font-light font-montserrat text-slate-black group-hover:text-forest-green transition-colors">
+            {title}
+          </span>
+          <span className={`p-1.5 transition-colors flex-shrink-0 ${isOpen ? 'text-forest-green' : 'text-gray-400 group-hover:text-forest-green'}`}>
+            {isOpen ? <MinusIcon className="w-5 h-5" /> : <PlusIcon className="w-5 h-5" />}
+          </span>
+        </button>
+      </h3>
       {/* Always rendered so the answer is in the served HTML (crawlers, FAQPage schema); collapsed panels are inert. */}
       <motion.div
         initial={false}

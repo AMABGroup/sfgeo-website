@@ -1,9 +1,9 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 
 export type ProofItem = {
-  /** e.g. "$800", "2–3", "1", "15+". The leading number counts up. */
+  /** e.g. "From $800", "2", "1", "15+". The leading number counts up. */
   value: string;
   label: string;
   note?: string;
@@ -17,14 +17,25 @@ type Props = {
 
 const NUM = /^([^\d]*)(\d[\d,]*)(.*)$/;
 
+// True once React is live in the browser; false in the server render and
+// during hydration, so the served HTML carries the real figure ("From $800",
+// never "From $0") for crawlers, answer engines and readers without JavaScript.
+const noSubscribe = () => () => {};
+const useHydrated = () => useSyncExternalStore(noSubscribe, () => true, () => false);
+
+const REDUCED = "(prefers-reduced-motion: reduce)";
+function subscribeReducedMotion(onChange: () => void) {
+  const mq = window.matchMedia(REDUCED);
+  mq.addEventListener("change", onChange);
+  return () => mq.removeEventListener("change", onChange);
+}
+const useReducedMotion = () =>
+  useSyncExternalStore(subscribeReducedMotion, () => window.matchMedia(REDUCED).matches, () => false);
+
 function useCountUp(active: boolean, target: number, ms = 1400) {
   const [n, setN] = useState(0);
   useEffect(() => {
     if (!active) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setN(target);
-      return;
-    }
     let raf = 0;
     const t0 = performance.now();
     const tick = (t: number) => {
@@ -42,9 +53,14 @@ function useCountUp(active: boolean, target: number, ms = 1400) {
 function Value({ value, active }: { value: string; active: boolean }) {
   const m = value.match(NUM);
   const target = m ? parseInt(m[2].replace(/,/g, ""), 10) : 0;
-  const n = useCountUp(active, target);
+  const hydrated = useHydrated();
+  const reduced = useReducedMotion();
+  const n = useCountUp(active && !reduced, target);
   if (!m) return <>{value}</>;
-  const shown = active ? n.toLocaleString("en-AU") : "0";
+  // Server and hydration print the final figure. Once React is live (and the
+  // visitor has not asked for reduced motion) the value starts at zero and
+  // counts up as the strip enters the viewport.
+  const shown = (hydrated && !reduced ? n : target).toLocaleString("en-AU");
   // A word in the prefix ("From $800") is set small so the numeral stays
   // the headline and the value holds one line.
   const pm = m[1].match(/^([A-Za-z]+)\s*(.*)$/);
@@ -65,7 +81,7 @@ function Value({ value, active }: { value: string; active: boolean }) {
 }
 
 /**
- * A strip of the numbers that matter — fee from, turnaround, response —
+ * A strip of the numbers that matter (fee from, turnaround, response),
  * counting up as it enters the viewport.
  */
 export default function ProofStrip({ items, variant = "light", className = "" }: Props) {
@@ -75,13 +91,10 @@ export default function ProofStrip({ items, variant = "light", className = "" }:
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    if (el.getBoundingClientRect().bottom < 0) {
-      setActive(true);
-      return;
-    }
     const io = new IntersectionObserver(
       ([e]) => {
-        if (e.isIntersecting) {
+        // Fire on entry, or straight away when the strip is already scrolled past.
+        if (e.isIntersecting || e.boundingClientRect.bottom < 0) {
           setActive(true);
           io.disconnect();
         }

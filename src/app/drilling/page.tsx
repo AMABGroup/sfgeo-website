@@ -8,10 +8,11 @@ import PhotoFrame from "@/components/ui/PhotoFrame";
 import SectionNav from "@/components/ui/SectionNav";
 import CloseBand from "@/components/ui/CloseBand";
 import { pageMeta } from "@/lib/seo";
+import Accordion from "@/components/ui/Accordion";
 
 export const metadata: Metadata = pageMeta(
   "Geotechnical & Environmental Drilling Sydney | SFGEO",
-  "Geotechnical and environmental drilling in Sydney. 4WD-mounted rig, borehole drilling, NMLC rock coring, tight access and subcontract rig hire.",
+  "Geotechnical and environmental drilling in Sydney and regional NSW from one engineer-operated 4WD rig. Fixed fee in writing within one business day.",
   "/drilling",
 );
 
@@ -82,11 +83,11 @@ const SECTIONS = [
     caption: "04 · Subcontract Drilling",
     image: "/sfgeo-operator-rig-controls-sydney.jpg",
     alt: "Operator at the controls of the SFGEO drill rig on a Sydney site",
-    body: "The rig and crew are available under your scope: engineering consultancies from boutique practices to some of the bigger firms in Sydney ground, environmental consultants running PSI and DSI programs, and builders and civil contractors who need holes without the overhead of an in-house crew. Your supervision or ours; engineer operated, always.",
+    body: "The rig and crew are available under your scope: engineering consultancies from boutique practices to some of the bigger firms in Sydney, environmental consultants running PSI and DSI programs, and builders and civil contractors who need holes without the overhead of an in-house crew. Your supervision or ours; engineer operated, always.",
     specs: [
       "Engineer-operated rig on your program and your paperwork",
       "Sampling, logs and chain of custody delivered in your format",
-      "Environmental sampling for consultant programs, with monitoring wells arranged through a licensed bore driller under our scope",
+      "Environmental sampling for consultant programs, with monitoring wells arranged through a bore driller under our scope",
       "Standing arrangements for repeat capacity",
     ],
     link: { href: "/subcontract-drilling", label: "Explore Subcontract Drilling" },
@@ -96,7 +97,7 @@ const SECTIONS = [
 const AUDIENCES = [
   { t: "Builders", d: "Boreholes for the site classification or investigation, booked around your program, and answers when the excavation finds something the report didn’t." },
   { t: "Engineering Consultancies", d: "Subcontract rig capacity with engineer-grade logging: field data you can put your letterhead on without re-checking it." },
-  { t: "Environmental Consultants", d: "Drilling and sampling for PSI and DSI programs: clean execution, chain of custody kept, monitoring wells through a licensed bore driller under our scope." },
+  { t: "Environmental Consultants", d: "Drilling and sampling for PSI and DSI programs: clean execution, chain of custody kept, monitoring wells through a bore driller under our scope." },
   { t: "Bigger Firms & Majors", d: "Reliable capacity for programs that can’t wait on a booked-out fleet: night works, staged access and standing arrangements included." },
 ];
 
@@ -107,6 +108,26 @@ const NAV = [
   { id: "b2b-drilling", label: "Subcontract Drilling" },
   { id: "regional", label: "Regional NSW" },
   { id: "who-we-drill-for", label: "Who We Drill For" },
+];
+
+// Rendered visibly below and mirrored into the FAQPage schema: the two must stay in step.
+const FAQS = [
+  {
+    q: "What ground does SFGEO drill?",
+    a: "The soils and rock under Sydney: Cumberland Plain clays and shales in the west, sands and estuarine profiles near the water, residual soils over sandstone across the rest. Residential boreholes are sized to the base of excavation plus one to two metres. When refusal depth is not enough for the design, NMLC coring recovers intact Hawkesbury sandstone and Ashfield shale, photographed and defect-logged. See borehole drilling.",
+  },
+  {
+    q: "How is a drilling programme priced?",
+    a: "Per site, against the number and depth of boreholes, the access and any laboratory programme, so two sites with the same hole count can price differently. Rock coring runs are booked in advance. SPT is run on consultancy and commercial programmes only, so a residential programme is not quoted for it. Send the address and the programme and the quote follows.",
+  },
+  {
+    q: "Can SFGEO drill for another consultancy?",
+    a: "Yes. Engineering consultancies and environmental consultants book the rig under their own scope and paperwork, with the SFGEO engineer at the controls and on the log. Samples, logs and chain of custody come back in your format for PSI, DSI and geotechnical programmes; repeat capacity can be a standing arrangement. Monitoring wells are installed by a drilling contractor under our scope. See subcontract drilling.",
+  },
+  {
+    q: "How far does the rig travel?",
+    a: "Across Greater Sydney and into regional New South Wales. The rig is based in the Inner West. Beyond the metro it travels self-sufficient and the engineer still logs every hole, so a regional programme runs to the same standard as a Sydney one. Book it the same way: the address, the access and the number and depth of holes. Quote a regional programme.",
+  },
 ];
 
 export default function DrillingPage() {
@@ -142,10 +163,21 @@ export default function DrillingPage() {
     }
   };
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": FAQS.map((f) => ({
+      "@type": "Question",
+      "name": f.q,
+      "acceptedAnswer": { "@type": "Answer", "text": f.a },
+    })),
+  };
+
   return (
     <div className="bg-white text-slate-950 font-inter selection:bg-forest-green selection:text-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       {/* Hero */}
       <section className="pt-36 pb-20 px-6 lg:px-12 max-w-7xl mx-auto">
@@ -154,12 +186,12 @@ export default function DrillingPage() {
             Drilling &middot; Engineer Operated &middot; 4WD Mobilised
           </p>
           <h1 className="text-4xl sm:text-6xl font-montserrat font-light tracking-tight leading-[1.08] mb-8">
-            <span className="hero-mask"><span className="mask-line mask-d1"><span>Geotechnical &amp; Environmental</span></span></span>
+            <span className="hero-mask"><span className="mask-line mask-d1"><span>Geotechnical &amp; Environmental</span></span></span>{" "}
             <span className="hero-mask"><span className="mask-line mask-d2"><span className="font-semibold h-bold">Drilling Sydney.</span></span></span>
           </h1>
           <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />
           <p className="hero-line hero-d2 max-w-3xl text-lg sm:text-xl text-gray-600 font-light leading-relaxed mb-10">
-            Headquartered in Marrickville, mobilised across the Sydney metro and into regional NSW: one 4WD-mounted rig, operated by the engineers who log what it brings up. Drilling for builders, consultancies and some of the bigger firms in Sydney ground.
+            SFGEO drills boreholes, cores rock and runs tight-access and subcontract programmes for builders, engineering consultancies, environmental consultants and some of the bigger firms in Sydney. One 4WD-mounted rig, based in Marrickville and operated by the engineers who log what it brings up, mobilises across the Sydney metro and into regional NSW. Programmes are quoted per site, as a fixed fee in writing within one business day.
           </p>
           <div className="hero-line hero-d3 flex flex-col sm:flex-row items-start gap-4">
             <Link
@@ -174,6 +206,7 @@ export default function DrillingPage() {
               className="flex items-center justify-center px-8 py-2.5 bg-white text-forest-green rounded-full shadow-[inset_0_0_0_1px_rgba(45,90,58,0.25),0_4px_10px_-4px_rgba(0,0,0,0.05)] hover:bg-forest-green/5 hover:shadow-[inset_0_0_0_1px_rgba(45,90,58,0.4),0_6px_14px_-4px_rgba(0,0,0,0.1)] transition-all hover:-translate-y-0.5 w-full sm:w-auto h-[46px] text-xs font-semibold tracking-wide"
             />
           </div>
+          <p className="hero-line hero-d3 mt-5 text-sm text-gray-500 font-light tracking-wide">Engineer-operated 4WD rig, every hole engineer-logged &middot; Fixed fee in writing within one business day &middot; Sydney metro and regional NSW</p>
         </div>
       </section>
 
@@ -272,6 +305,24 @@ export default function DrillingPage() {
                 <h3 className="text-lg font-montserrat font-semibold text-slate-950 mb-3 min-h-[56px]">{a.t}</h3>
                 <p className="text-gray-600 font-light leading-relaxed text-[15px]">{a.d}</p>
               </div>
+            ))}
+          </div>
+        </Reveal>
+      </section>
+
+      {/* FAQ: the visible half of the FAQPage schema above */}
+      <section className="py-20 lg:py-24 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">
+        <Reveal variant="group" className="max-w-4xl">
+          <p data-fx="rise" className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">05 &middot; Common Questions</p>
+          <h2 data-fx="rise" style={d(80)} className="text-3xl sm:text-4xl font-light tracking-tight font-montserrat text-slate-950 mb-5">
+            Drilling. <span className="font-semibold h-bold">Common Questions.</span>
+          </h2>
+          <div data-fx="line" style={d(200)} className="h-px bg-forest-green w-12 mb-6" />
+          <div data-stagger style={d(240)} className="border-t border-gray-200">
+            {FAQS.map((f) => (
+              <Accordion key={f.q} title={f.q}>
+                {f.a}
+              </Accordion>
             ))}
           </div>
         </Reveal>

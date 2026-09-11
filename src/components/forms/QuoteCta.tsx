@@ -15,13 +15,15 @@ type QuoteCtaProps = {
 const FOCUSABLE =
   'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
-// A CTA button that pops the quote form as a modal — the site-wide
-// replacement for inline QuickQuoteCard panels (menu modal pattern).
+// A CTA that pops the quote form as a modal: the site-wide replacement for
+// inline QuickQuoteCard panels (menu modal pattern). It renders as a real
+// link to /contact so crawlers and readers without JavaScript still reach the
+// form; a plain left click is intercepted to open the modal instead.
 // `eyebrow` / `heading` / `subheading` let B2B pages replace the homeowner
 // copy on the card; the defaults live in QuickQuoteCard.
 export default function QuoteCta({ source, label = "Request A Quote", className, eyebrow, heading, subheading }: QuoteCtaProps) {
   const [open, setOpen] = useState(false);
-  const triggerRef = useRef<HTMLButtonElement>(null);
+  const triggerRef = useRef<HTMLAnchorElement>(null);
   const dialogRef = useRef<HTMLDivElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
 
@@ -68,9 +70,18 @@ export default function QuoteCta({ source, label = "Request A Quote", className,
 
   return (
     <>
-      <button ref={triggerRef} type="button" onClick={() => setOpen(true)} className={className}>
+      <a
+        ref={triggerRef}
+        href="/contact"
+        onClick={(e) => {
+          if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+          e.preventDefault();
+          setOpen(true);
+        }}
+        className={className}
+      >
         {label}
-      </button>
+      </a>
       {open && (
         <div ref={dialogRef} className="fixed inset-0 z-[90] flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="qq-heading">
           <div className="absolute inset-0 bg-[#050A07]/80 backdrop-blur-sm" onClick={() => setOpen(false)} />

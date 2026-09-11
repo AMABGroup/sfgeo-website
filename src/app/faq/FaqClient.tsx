@@ -42,7 +42,7 @@ export default function FaqClient() {
               FAQ &middot; Straight Answers &middot; Sydney
             </p>
             <h1 className="text-4xl sm:text-6xl font-montserrat font-light tracking-tight leading-[1.08] mb-8">
-              <span className="hero-mask"><span className="mask-line mask-d1"><span>Frequently Asked</span></span></span>
+              <span className="hero-mask"><span className="mask-line mask-d1"><span>Frequently Asked</span></span></span>{" "}
               <span className="hero-mask"><span className="mask-line mask-d2"><span className="font-semibold h-bold">Questions.</span></span></span>
             </h1>
             <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />
@@ -110,6 +110,7 @@ export default function FaqClient() {
                         const isOpen = openIndex === index;
                         return (
                           <div key={index}>
+                            <h3 className="m-0">
                             <button
                               onClick={() => toggleFaq(index)}
                               className={`flex w-full items-center justify-between py-6 text-left transition-colors duration-200 ${isOpen ? "text-forest-green" : "text-slate-950 hover:text-forest-green"}`}
@@ -120,6 +121,7 @@ export default function FaqClient() {
                                 {isOpen ? <MinusIcon className="w-5 h-5" /> : <PlusIcon className="w-5 h-5" />}
                               </span>
                             </button>
+                            </h3>
                             <motion.div
                               initial={false}
                               animate={{ height: isOpen ? "auto" : 0, opacity: isOpen ? 1 : 0 }}

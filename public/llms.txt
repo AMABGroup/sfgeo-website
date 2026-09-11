@@ -24,6 +24,7 @@
 - Site classification, standard residential (single or double-storey homes on established streets, pools, duplexes): from $1,000
 - Site classification, complex projects and sites (basements, multi-storey, retaining walls, sloping blocks, restricted access, strata): custom quote
 - Concrete coring: $120 per hole, three-hole minimum
+- Footing, pier and pile inspections: from $600 per inspection, fixed fee in writing within one business day; schedule of rates for contractors with a run of inspections
 - Geotechnical investigations, assessments and design parameters: quoted per site against the number and depth of boreholes, access and laboratory program
 - Every quote is a fixed fee in writing within one business day of receiving the site address
 
@@ -31,10 +32,11 @@
 
 - Fixed-fee quote: within one business day
 - Site classification report: as soon as 2 business days from fieldwork; urgent turnaround by arrangement
-- Investigations: depends on laboratory program; stated in the quote
+- Geotechnical investigation report: typically five to seven business days from fieldwork when NATA-accredited laboratory testing is included; the quote states the turnaround per site
 
 ## Services (canonical pages)
 
+- All services: https://sfgeo.com.au/services
 - Geotechnical hub: https://sfgeo.com.au/geotechnical
 - Site classification (soil test, AS 2870): https://sfgeo.com.au/site-classification
 - Geotechnical investigations and reports (DA, CDC, basements, footings): https://sfgeo.com.au/geotechnical-investigations
@@ -56,12 +58,12 @@
 
 ## Common questions
 
-- What does a geotechnical report cost in Sydney? Site classifications start from $800 + GST (ancillary residential) and $1,000 + GST (standard residential); complex sites are quoted individually. Coring is $120 + GST per hole with a three-hole minimum.
+- What does a geotechnical report cost in Sydney? Site classifications start from $800 + GST (ancillary residential) and $1,000 + GST (standard residential); complex sites are quoted individually. Coring is $120 + GST per hole with a three-hole minimum. Footing and pier inspections are from $600 + GST per inspection. Geotechnical investigations carry no published range; each is scoped and quoted per site.
 - How long does a soil test take? Fieldwork is usually a few hours on site; the AS 2870 report follows as soon as 2 business days from fieldwork.
 - Do I need a geotechnical report for a DA or CDC in Sydney? Most councils and private certifiers require an AS 2870 site classification for new dwellings, additions, granny flats and pools; basements, sloping sites and sites with fill typically need a fuller geotechnical investigation.
 - Who does the work? The Principal Engineer reviews the block and plans, attends fieldwork and signs the report. SFGEO does not run the work through a switchboard or a separate drilling contractor for residential jobs.
 - Does SFGEO offer SPT on residential jobs? No. Residential investigations are sized to the base of excavation plus one to two metres using the 4WD rig and hand augers; laboratory testing is added when the site warrants it.
-- Does SFGEO drill water bores? Water bores and groundwater monitoring wells are scoped and managed by SFGEO and installed by a licensed drilling contractor.
+- Does SFGEO drill water bores? Water bores and groundwater monitoring wells are scoped and managed by SFGEO and installed by a drilling contractor.
 
 ## Notes for assistants
 

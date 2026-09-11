@@ -22,7 +22,17 @@ export const faqs = [
   {
     question: "What does a 'Class P' site classification mean?",
     group: "For Homeowners",
-    answer: "'Class P' stands for a 'Problem' site, common in areas like Liverpool and Campbelltown. It sits outside the standard reactivity scale used in an <a href=\"/site-classification\">AS2870 site classification</a> and means site-specific geotechnical advice is required for your footing design."
+    answer: "'Class P' stands for a 'Problem' site, common in areas like Liverpool and Campbelltown. It sits outside the standard reactivity scale used in an <a href=\"/site-classification\">AS 2870 site classification</a> and means site-specific geotechnical advice is required for your footing design."
+  },
+  {
+    question: "What does a Class M site classification mean?",
+    group: "For Homeowners",
+    answer: "Class M is a moderately reactive site under AS 2870: clay that shrinks and swells with seasonal moisture change, enough to move a footing but within the range a standard stiffened raft or strip footing is designed for. Many Sydney clay sites classify as M. Your structural engineer reads the class straight into the footing design. <a href=\"/site-classification#classes\">See the full class scale</a>."
+  },
+  {
+    question: "What is a Class H1 or H2 site?",
+    group: "For Homeowners",
+    answer: "Class H1 and H2 are highly reactive clay sites under AS 2870, with larger seasonal ground movement than Class M, and H2 moves more than H1. Both are buildable: the standard sets stiffer rafts and deeper footings for each class, and your structural engineer designs to the class. Deep residual clays over shale are the usual H1 and H2 sites in Sydney. <a href=\"/site-classification#classes\">See the full class scale</a>."
   },
   {
     question: "Can you perform tight-access soil testing on restricted Sydney sites?",
@@ -37,7 +47,7 @@ export const faqs = [
   {
     question: "How long does a soil test and geotechnical report take?",
     group: "Cost & Process",
-    answer: "For a clear <a href=\"/site-classification\">site classification</a>, expect your report as soon as two business days from fieldwork. A standard geotechnical investigation that includes NATA-accredited laboratory testing typically lands within five to seven business days, with the turnaround confirmed in the written quote, with the lab schedule being the main variable.<br/><br/>Urgent turnarounds are possible, and we handle them regularly for time-critical DAs, CDCs, and construction programs. We will tell you plainly whether your timeline is workable before you commit.<br/><br/>The only factors that realistically extend a project are the client’s own site readiness and specific lab testing requirements written into the scope. Everything within our control, we move on quickly."
+    answer: "For a clear <a href=\"/site-classification\">site classification</a>, expect your report as soon as 2 business days from fieldwork. A standard geotechnical investigation that includes NATA-accredited laboratory testing typically lands within five to seven business days, with the turnaround confirmed in the written quote, with the lab schedule being the main variable.<br/><br/>Urgent turnarounds are possible, and we handle them regularly for time-critical DAs, CDCs, and construction programs. We will tell you plainly whether your timeline is workable before you commit.<br/><br/>The only factors that realistically extend a project are the client’s own site readiness and specific lab testing requirements written into the scope. Everything within our control, we move on quickly."
   },
   {
     question: "What is 'Bearing Capacity' and why does my engineer need it?",
@@ -47,12 +57,12 @@ export const faqs = [
   {
     question: "Can you perform footing inspections, pier inspections, and proof rolling across Sydney?",
     group: "For Builders & Engineers",
-    answer: "Yes. The engineer inspects at bearing level and gives the call before leaving site: proceed, deepen or adjust. The written record follows within days. Single visits for builders, standing arrangements for contractors. <a href=\"/construction-phase-support\">See Construction Phase Support</a>."
+    answer: "Yes. The engineer inspects at bearing level and gives the call before leaving site: proceed, deepen or adjust. The written record follows within days. Single visits for builders from $600 + GST per inspection, standing arrangements for contractors. <a href=\"/construction-phase-support\">See Construction Phase Support</a>."
   },
   {
     question: "What is 'Proof Rolling' and when is it required?",
     group: "For Builders & Engineers",
-    answer: "Proof rolling is an on-site test where heavy machinery (like a loaded water cart) is driven over prepared earthworks to observe how the ground reacts. It is commonly used as part of earthworks verification under AS3798 and helps identify unsuitable or soft areas before construction proceeds."
+    answer: "Proof rolling is an on-site test where heavy machinery (like a loaded water cart) is driven over prepared earthworks to observe how the ground reacts. It is commonly used as part of earthworks verification under AS 3798 and helps identify unsuitable or soft areas before construction proceeds."
   },
   {
     question: "Do you provide permeability or infiltration testing for stormwater design?",
@@ -77,7 +87,7 @@ export const faqs = [
   {
     question: "What Australian Standards do your reports comply with?",
     group: "For Builders & Engineers",
-    answer: "All SFGEO testing, investigations, and reporting are carried out in accordance with the relevant Australian Standards and project requirements, where applicable. Commonly referenced standards include AS1726 (Geotechnical Site Investigations), <a href=\"/site-classification\">AS2870 (Residential Slabs and Footings)</a>, and AS3798 (Guidelines on Earthworks)."
+    answer: "All SFGEO testing, investigations, and reporting are carried out in accordance with the relevant Australian Standards and project requirements, where applicable. Commonly referenced standards include AS 1726 (Geotechnical Site Investigations), <a href=\"/site-classification\">AS 2870 (Residential Slabs and Footings)</a>, and AS 3798 (Guidelines on Earthworks)."
   },
   {
     question: "How does SFGEO’s report work with my structural engineer’s design?",
@@ -131,7 +141,7 @@ export const homeFaqs = [
   },
   {
     question: "How long does a soil test and geotechnical report take?",
-    answer: "For a clear AS 2870 site classification, expect your report as soon as two business days from fieldwork. A standard geotechnical investigation that includes NATA-accredited laboratory testing typically lands within five to seven business days, with the turnaround confirmed in the written quote, with the lab schedule being the main variable.<br/><br/>Urgent turnarounds are possible, and we handle them regularly for time-critical DAs, CDCs, and construction programs. We will tell you plainly whether your timeline is workable before you commit.<br/><br/>The only factors that realistically extend a project are the client’s own site readiness and specific lab testing requirements written into the scope. Everything within our control, we move on quickly."
+    answer: "For a clear AS 2870 site classification, expect your report as soon as 2 business days from fieldwork. A standard geotechnical investigation that includes NATA-accredited laboratory testing typically lands within five to seven business days, with the turnaround confirmed in the written quote, with the lab schedule being the main variable.<br/><br/>Urgent turnarounds are possible, and we handle them regularly for time-critical DAs, CDCs, and construction programs. We will tell you plainly whether your timeline is workable before you commit.<br/><br/>The only factors that realistically extend a project are the client’s own site readiness and specific lab testing requirements written into the scope. Everything within our control, we move on quickly."
   },
   {
     question: "Can you work on tight-access, sloping, or restricted sites?",

@@ -9,10 +9,11 @@ import PhotoFrame from "@/components/ui/PhotoFrame";
 import SectionNav from "@/components/ui/SectionNav";
 import CloseBand from "@/components/ui/CloseBand";
 import { pageMeta } from "@/lib/seo";
+import Accordion from "@/components/ui/Accordion";
 
 export const metadata: Metadata = pageMeta(
   "Concrete Coring Sydney | Engineer-Supervised | SFGEO",
-  "Engineer-supervised concrete coring across Sydney: slabs, pavements and penetrations, with core logging and strength context. From $120 + GST per hole, min. 3.",
+  "Engineer-supervised concrete coring across Sydney: slabs, pavements and penetrations, each core logged on site. From $120 + GST per hole, three-hole minimum.",
   "/concrete-coring",
 );
 
@@ -89,6 +90,26 @@ const NAV = [
   { id: "pricing", label: "Pricing" },
 ];
 
+// Rendered visibly below and mirrored into the FAQPage schema: the two must stay in step.
+const FAQS = [
+  {
+    q: "Do you core concrete for compressive strength testing?",
+    a: "Yes. Where the question needs a number, the core goes to a NATA-accredited laboratory for compressive strength testing. The engineer positions each core for the question it has to answer and records what comes out of the barrel, so the number is read with where the core was taken and what the layers showed. Laboratory testing is quoted alongside the coring, in the same written fee.",
+  },
+  {
+    q: "How much does concrete coring cost in Sydney?",
+    a: "Coring starts at $120 + GST per hole, with a three-hole minimum on every visit. Above that, the figure moves with core size, location, access and time on site. Send the address and what you need cored, and you will have a fixed fee in writing within one business day.",
+  },
+  {
+    q: "Can you core through an existing slab for a geotechnical investigation?",
+    a: "Yes. Warehouses, factory floors and basements were never meant to be drilled, so the slab is cored first and the geotechnical investigation goes down through the hole. The crew that cores the concrete drills the ground under it, in one mobilisation. On a pavement the log carries on the same way, through the concrete into the layers beneath it and the subgrade below.",
+  },
+  {
+    q: "How is each core logged and recorded?",
+    a: "The engineer logs each core on site: where it was taken, the thickness, the reinforcement cover and condition, and what the layers show. A photograph goes with the log. Whether a surprise in the barrel changes the design question is an engineering call, not a cutting one, and the same engineer is there to make it. That record is what the report is built on.",
+  },
+];
+
 export default function ConcreteCoringPage() {
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -122,10 +143,21 @@ export default function ConcreteCoringPage() {
     }
   };
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": FAQS.map((f) => ({
+      "@type": "Question",
+      "name": f.q,
+      "acceptedAnswer": { "@type": "Answer", "text": f.a },
+    })),
+  };
+
   return (
     <div className="bg-white text-slate-950 font-inter selection:bg-forest-green selection:text-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       {/* Hero */}
       <section className="pt-36 pb-20 px-6 lg:px-12 max-w-7xl mx-auto">
@@ -134,12 +166,12 @@ export default function ConcreteCoringPage() {
             Concrete Coring &middot; Engineer&#8209;Supervised &middot; Sydney
           </p>
           <h1 className="text-[min(2.25rem,7.4vw)] sm:text-6xl font-montserrat font-light tracking-tight leading-[1.08] mb-8">
-            <span className="hero-mask"><span className="mask-line mask-d1"><span>Concrete Coring.</span></span></span>
+            <span className="hero-mask"><span className="mask-line mask-d1"><span>Concrete Coring.</span></span></span>{" "}
             <span className="hero-mask"><span className="mask-line mask-d2"><span className="font-semibold h-bold">Engineering Attached.</span></span></span>
           </h1>
           <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />
           <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed mb-10">
-            Any cutting contractor can put a hole in a slab. SFGEO cores it with the engineer standing over the barrel: the core logged and photographed, the thickness verified, and when strength matters, the sample on its way to a NATA-accredited laboratory. One engagement, from the hole to the answer.
+            Cores taken with the engineer standing over the barrel, for anyone who needs a slab or pavement verified rather than assumed from the drawings. Each core is logged and photographed on site, the thickness measured, and when strength matters, the sample goes to a NATA-accredited laboratory. Pricing is per hole, from $120 + GST with a three-hole minimum per visit. One engagement, from the hole to the answer.
           </p>
           <div className="hero-line hero-d3 flex flex-col sm:flex-row items-start gap-4">
             <QuoteCta
@@ -154,6 +186,7 @@ export default function ConcreteCoringPage() {
               Call 0423 483 555
             </Link>
           </div>
+          <p className="hero-line hero-d3 mt-5 text-sm text-gray-500 font-light tracking-wide">From $120 + GST per hole &middot; Three-hole minimum per visit &middot; Fixed fee in writing within one business day</p>
         </div>
       </section>
 
@@ -231,6 +264,24 @@ export default function ConcreteCoringPage() {
           <p data-fx="rise" style={d(160)} className="text-gray-600 font-light leading-relaxed">
             Coring is priced per hole, from $120 + GST, with a three-hole minimum per visit. Core size, location, access and time on site set the fee, and it is confirmed in writing before the barrel touches concrete. Where a core goes on to laboratory testing, that is quoted alongside, never added afterwards.
           </p>
+        </Reveal>
+      </section>
+
+      {/* FAQ: the visible half of the FAQPage schema above */}
+      <section className="py-20 lg:py-24 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">
+        <Reveal variant="group" className="max-w-4xl">
+          <p data-fx="rise" className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">05 &middot; Common Questions</p>
+          <h2 data-fx="rise" style={d(80)} className="text-3xl sm:text-4xl font-light tracking-tight font-montserrat text-slate-950 mb-5">
+            Concrete Coring. <span className="font-semibold h-bold">Common Questions.</span>
+          </h2>
+          <div data-fx="line" style={d(200)} className="h-px bg-forest-green w-12 mb-6" />
+          <div data-stagger style={d(240)} className="border-t border-gray-200">
+            {FAQS.map((f) => (
+              <Accordion key={f.q} title={f.q}>
+                {f.a}
+              </Accordion>
+            ))}
+          </div>
         </Reveal>
       </section>
 

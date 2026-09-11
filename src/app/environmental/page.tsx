@@ -7,10 +7,11 @@ import PhotoFrame from "@/components/ui/PhotoFrame";
 import SectionNav from "@/components/ui/SectionNav";
 import CloseBand from "@/components/ui/CloseBand";
 import { pageMeta } from "@/lib/seo";
+import Accordion from "@/components/ui/Accordion";
 
 export const metadata: Metadata = pageMeta(
   "Contaminated Land & Environmental Testing Sydney | SFGEO",
-  "Contaminated land (PSI & DSI), acid sulfate soils, waste classification and NATA lab testing across Sydney. One crew drills, samples and reports.",
+  "Engineer-led contaminated land testing across Sydney: PSI, DSI, acid sulfate soils and waste classification. Fixed fee in writing within one business day.",
   "/environmental",
 );
 
@@ -89,9 +90,29 @@ const AUDIENCES = [
     t: "Consultants & Engineers",
     d: (
       <>
-        <Link href="/subcontract-drilling" className="text-forest-green underline underline-offset-4 decoration-forest-green/40 hover:decoration-forest-green">Drilling and sampling</Link> for your own assessment programs: clean field data, chain of custody kept. Monitoring wells go in through a licensed bore driller under our scope.
+        <Link href="/subcontract-drilling" className="text-forest-green underline underline-offset-4 decoration-forest-green/40 hover:decoration-forest-green">Drilling and sampling</Link> for your own assessment programs: clean field data, chain of custody kept. Monitoring wells go in through a bore driller under our scope.
       </>
     ),
+  },
+];
+
+// Rendered visibly below and mirrored into the FAQPage schema: the two must stay in step.
+const FAQS = [
+  {
+    q: "What is the difference between a PSI and a DSI?",
+    a: "A PSI reads the site’s history; a DSI tests the ground. The Preliminary Site Investigation covers the block’s history: whether old fill, past industry or a council condition has raised a question about the ground. The Detailed Site Investigation then answers that question from the ground itself: boreholes, samples and laboratory results. Buyers use them as due diligence before the contract goes unconditional.",
+  },
+  {
+    q: "When does a council require a contaminated land investigation for a DA?",
+    a: "A council requires one when the site’s history or its mapping raises a question. Old fill, past industry and land mapped for contamination or acid sulfate soils are the usual reasons. It may sit in the DA conditions or arrive after lodgement as a request for further information. The scope follows the risk the condition names, so send the condition itself with the address, not a summary.",
+  },
+  {
+    q: "How much does contaminated land testing cost in Sydney?",
+    a: "Contaminated land testing is quoted per site, as a fixed fee in writing within one business day of receiving the address. The scope is set to the risk the site carries, not to a template. Laboratory testing is applied when the site warrants it, not by default. For a stockpile, that means sampling, testing and classification to the NSW EPA guidelines, with the paperwork the facility needs.",
+  },
+  {
+    q: "Can one site visit cover both geotechnical and environmental testing?",
+    a: "Yes. Both scopes can go out on one mobilisation. SFGEO drills its own geotechnical investigations across Sydney, so the environmental sampling can be done on the same visit. Samples for both scopes are logged in the field by the engineer who took them. Consultants running their own assessment programmes can use the same crew for drilling and sampling only.",
   },
 ];
 
@@ -115,10 +136,21 @@ export default function EnvironmentalHubPage() {
     "areaServed": { "@type": "City", "name": "Sydney, New South Wales, Australia" }
   };
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": FAQS.map((f) => ({
+      "@type": "Question",
+      "name": f.q,
+      "acceptedAnswer": { "@type": "Answer", "text": f.a },
+    })),
+  };
+
   return (
     <div className="bg-white text-slate-950 font-inter selection:bg-forest-green selection:text-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       {/* Hero */}
       <section className="pt-36 pb-20 px-6 lg:px-12 max-w-7xl mx-auto">
@@ -127,12 +159,12 @@ export default function EnvironmentalHubPage() {
             Environmental &amp; Soil Testing &middot; Engineer-Led &middot; Sydney
           </p>
           <h1 className="text-[min(2.25rem,7.8vw)] sm:text-6xl font-montserrat font-light tracking-tight leading-[1.08] mb-8">
-            <span className="hero-mask"><span className="mask-line mask-d1"><span>Environmental Testing Sydney.</span></span></span>
+            <span className="hero-mask"><span className="mask-line mask-d1"><span>Environmental Testing Sydney.</span></span></span>{" "}
             <span className="hero-mask"><span className="mask-line mask-d2"><span className="font-semibold h-bold">What&rsquo;s In The Ground.</span></span></span>
           </h1>
           <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />
           <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed mb-10">
-            Geotechnical tells you how the ground behaves. Environmental tells you what it&rsquo;s carrying: contaminated land investigation, acid sulfate soil assessment and waste classification across Sydney, from one crew that drills, samples and reports on both.
+            We carry out contaminated land investigation (PSI and DSI), acid sulfate soil assessment and waste classification across Sydney, for buyers, builders, homeowners and consultants. Geotechnical tells you how the ground behaves. Environmental tells you what it&rsquo;s carrying. One crew drills, samples and reports on both. Each site is quoted individually, with a fixed fee in writing within one business day.
           </p>
           <div className="hero-line hero-d3 flex flex-col sm:flex-row items-start gap-4">
             <Link
@@ -147,6 +179,7 @@ export default function EnvironmentalHubPage() {
               className="flex items-center justify-center px-8 py-2.5 bg-white text-forest-green rounded-full shadow-[inset_0_0_0_1px_rgba(45,90,58,0.25),0_4px_10px_-4px_rgba(0,0,0,0.05)] hover:bg-forest-green/5 hover:shadow-[inset_0_0_0_1px_rgba(45,90,58,0.4),0_6px_14px_-4px_rgba(0,0,0,0.1)] transition-all hover:-translate-y-0.5 w-full sm:w-auto h-[46px] text-xs font-semibold tracking-wide"
             />
           </div>
+          <p className="hero-line hero-d3 mt-5 text-sm text-gray-500 font-light tracking-wide">Quoted per site &middot; Chain of custody on every sample &middot; Response within one business day</p>
         </div>
       </section>
 
@@ -198,6 +231,24 @@ export default function EnvironmentalHubPage() {
                 <h3 className="text-lg font-montserrat font-semibold text-slate-950 mb-3 min-h-[56px]">{a.t}</h3>
                 <p className="text-gray-600 font-light leading-relaxed text-[15px]">{a.d}</p>
               </div>
+            ))}
+          </div>
+        </Reveal>
+      </section>
+
+      {/* FAQ: the visible half of the FAQPage schema above */}
+      <section className="py-20 lg:py-24 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">
+        <Reveal variant="group" className="max-w-4xl">
+          <p data-fx="rise" className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">05 &middot; Common Questions</p>
+          <h2 data-fx="rise" style={d(80)} className="text-3xl sm:text-4xl font-light tracking-tight font-montserrat text-slate-950 mb-5">
+            Environmental Testing. <span className="font-semibold h-bold">Common Questions.</span>
+          </h2>
+          <div data-fx="line" style={d(200)} className="h-px bg-forest-green w-12 mb-6" />
+          <div data-stagger style={d(240)} className="border-t border-gray-200">
+            {FAQS.map((f) => (
+              <Accordion key={f.q} title={f.q}>
+                {f.a}
+              </Accordion>
             ))}
           </div>
         </Reveal>
