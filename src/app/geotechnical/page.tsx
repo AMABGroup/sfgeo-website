@@ -5,7 +5,7 @@ import type { CSSProperties } from "react";
 import Reveal from "@/components/ui/Reveal";
 import PhotoFrame from "@/components/ui/PhotoFrame";
 import CloseBand from "@/components/ui/CloseBand";
-import Accordion from "@/components/ui/Accordion";
+import QuietFaq from "@/components/sections/QuietFaq";
 
 export const metadata: Metadata = pageMeta(
   "Geotechnical Engineering Sydney | The Full Suite | SFGEO",
@@ -138,9 +138,9 @@ export default function GeotechnicalHubPage() {
           </h1>
           <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />
           <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed">
-            SFGEO is a geotechnical engineering consultancy for Sydney homeowners, builders, engineers and councils. The work runs from the first hole on an empty block, through investigations, assessments and design parameters, to the last inspection before the pour. Every job is quoted per site: a fixed fee in writing within one business day. AS 2870 site classification reports follow as soon as 2 business days from fieldwork.
+            From the first hole on an empty block to the last inspection before the pour, one team carries the whole geotechnical scope, and the Principal is across every job.
           </p>
-          <p className="hero-line hero-d3 mt-5 text-sm text-gray-500 font-light tracking-wide">Site classifications from $800 + GST &middot; Fixed fee in writing within one business day &middot; The engineer who drills your site signs the report</p>
+          <p className="hero-line hero-d3 mt-5 text-xs text-gray-400 font-light tracking-wide">Site classifications from $800 + GST &middot; Fixed fee in writing within one business day &middot; The engineer who drills your site signs the report</p>
         </div>
       </section>
 
@@ -195,23 +195,7 @@ export default function GeotechnicalHubPage() {
         </Reveal>
       </section>
 
-      {/* FAQ: the visible half of the FAQPage schema above */}
-      <section className="py-20 lg:py-24 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">
-        <Reveal variant="group" className="max-w-4xl">
-          <p data-fx="rise" className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">Common Questions</p>
-          <h2 data-fx="rise" style={d(80)} className="text-3xl sm:text-4xl font-light tracking-tight font-montserrat text-slate-950 mb-5">
-            Geotechnical Services. <span className="font-semibold h-bold">Common Questions.</span>
-          </h2>
-          <div data-fx="line" style={d(200)} className="h-px bg-forest-green w-12 mb-6" />
-          <div data-stagger style={d(240)} className="border-t border-gray-200">
-            {FAQS.map((f) => (
-              <Accordion key={f.q} title={f.q}>
-                {f.a}
-              </Accordion>
-            ))}
-          </div>
-        </Reveal>
-      </section>
+      <QuietFaq intro={<>SFGEO is a geotechnical engineering consultancy for Sydney homeowners, builders, engineers and councils. The work runs from the first hole on an empty block, through investigations, assessments and design parameters, to the last inspection before the pour. Every job is quoted per site: a fixed fee in writing within one business day. AS 2870 site classification reports follow as soon as 2 business days from fieldwork.</>} faqs={FAQS} />
 
       <CloseBand
         source="geotechnical close"

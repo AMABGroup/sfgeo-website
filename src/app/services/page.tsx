@@ -3,6 +3,7 @@ import Link from "next/link";
 import type { CSSProperties } from "react";
 import Reveal from "@/components/ui/Reveal";
 import CloseBand from "@/components/ui/CloseBand";
+import QuietFaq from "@/components/sections/QuietFaq";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta(
@@ -98,9 +99,9 @@ export default function ServicesIndexPage() {
           </h1>
           <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />
           <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed">
-            SFGEO runs five service lines for Sydney homeowners, builders and engineers, with the Principal across every job: site classifications to AS 2870, geotechnical investigations and inspections, drilling, environmental testing and concrete coring. Site classifications start from $800 + GST, with reports as soon as 2 business days from fieldwork. Everything else is quoted per site, as a fixed fee in writing within one business day. Tell us the project and we&rsquo;ll tell you what it needs.
+            Five service lines, one standard, one point of contact, and the Principal across every job. Start with the segment, or just tell us the project and we&rsquo;ll tell you what it needs.
           </p>
-          <p className="hero-line hero-d3 mt-5 text-sm text-gray-500 font-light tracking-wide">Site classifications from $800 + GST &middot; Coring $120 + GST per hole, three-hole minimum &middot; Fixed fee in writing within one business day</p>
+          <p className="hero-line hero-d3 mt-5 text-xs text-gray-400 font-light tracking-wide">Site classifications from $800 + GST &middot; Coring $120 + GST per hole, three-hole minimum &middot; Fixed fee in writing within one business day</p>
         </div>
       </section>
 
@@ -136,6 +137,8 @@ export default function ServicesIndexPage() {
           </Reveal>
         </section>
       ))}
+
+      <QuietFaq intro={<>SFGEO runs five service lines for Sydney homeowners, builders and engineers, with the Principal across every job: site classifications to AS 2870, geotechnical investigations and inspections, drilling, environmental testing and concrete coring. Site classifications start from $800 + GST, with reports as soon as 2 business days from fieldwork. Everything else is quoted per site, as a fixed fee in writing within one business day. Tell us the project and we&rsquo;ll tell you what it needs.</>} />
 
       <CloseBand
         source="services index close"
