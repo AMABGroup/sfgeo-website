@@ -5,7 +5,7 @@ import Reveal from "@/components/ui/Reveal";
 import PhotoFrame from "@/components/ui/PhotoFrame";
 import CloseBand from "@/components/ui/CloseBand";
 import { pageMeta } from "@/lib/seo";
-import Accordion from "@/components/ui/Accordion";
+import QuietFaq from "@/components/sections/QuietFaq";
 
 export const metadata: Metadata = pageMeta(
   "Subcontract Drilling Sydney | Rig Hire With Engineer | SFGEO",
@@ -101,7 +101,7 @@ export default function SubcontractDrillingPage() {
           </h1>
           <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />
           <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed mb-10">
-            An engineer-operated 4WD rig works under your paperwork, for the consultancies, builders and civil contractors that need holes in the ground without owning the machine that makes them. Engineer logging as standard, and the same crew every time. Day rates on request; every programme is a fixed fee in writing within one business day. Rapid mobilisation across Sydney and into regional New South Wales.
+            An engineer-operated 4WD rig available under your paperwork, for the consultancies, environmental programs, builders and bigger firms that need holes in the ground without owning the machine that makes them. Rapid mobilisation, engineer logging as standard, and the same crew every time.
           </p>
           <div className="hero-line hero-d3 flex flex-col sm:flex-row items-start gap-4">
             <Link
@@ -117,7 +117,7 @@ export default function SubcontractDrillingPage() {
               Call 0423 483 555
             </Link>
           </div>
-          <p className="hero-line hero-d3 mt-5 text-sm text-gray-500 font-light tracking-wide">Engineer-logged field data &middot; Day rates on request &middot; Fixed fee in writing within one business day</p>
+          <p className="hero-line hero-d3 mt-5 text-xs text-gray-400 font-light tracking-wide">Engineer-logged field data &middot; Day rates on request &middot; Fixed fee in writing within one business day</p>
         </div>
       </section>
 
@@ -200,23 +200,7 @@ export default function SubcontractDrillingPage() {
         </Reveal>
       </section>
 
-      {/* FAQ: the visible half of the FAQPage schema above */}
-      <section className="py-20 lg:py-24 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">
-        <Reveal variant="group" className="max-w-4xl">
-          <p data-fx="rise" className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">04 &middot; Common Questions</p>
-          <h2 data-fx="rise" style={d(80)} className="text-3xl sm:text-4xl font-light tracking-tight font-montserrat text-slate-950 mb-5">
-            Subcontract Drilling. <span className="font-semibold h-bold">Common Questions.</span>
-          </h2>
-          <div data-fx="line" style={d(200)} className="h-px bg-forest-green w-12 mb-6" />
-          <div data-stagger style={d(240)} className="border-t border-gray-200">
-            {FAQS.map((f) => (
-              <Accordion key={f.q} title={f.q}>
-                {f.a}
-              </Accordion>
-            ))}
-          </div>
-        </Reveal>
-      </section>
+      <QuietFaq intro={<>An engineer-operated 4WD rig works under your paperwork, for the consultancies, builders and civil contractors that need holes in the ground without owning the machine that makes them. Engineer logging as standard, and the same crew every time. Day rates on request; every programme is a fixed fee in writing within one business day. Rapid mobilisation across Sydney and into regional New South Wales.</>} faqs={FAQS} />
 
       <CloseBand
         source="subcontract-drilling close"

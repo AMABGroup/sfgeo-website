@@ -5,7 +5,7 @@ import Reveal from "@/components/ui/Reveal";
 import PhotoFrame from "@/components/ui/PhotoFrame";
 import CloseBand from "@/components/ui/CloseBand";
 import { pageMeta } from "@/lib/seo";
-import Accordion from "@/components/ui/Accordion";
+import QuietFaq from "@/components/sections/QuietFaq";
 
 export const metadata: Metadata = pageMeta(
   "Dilapidation Reports & Utility Location Sydney | SFGEO",
@@ -160,9 +160,9 @@ export default function OtherServicesPage() {
           </h1>
           <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />
           <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed">
-            The services a project needs beside the geotechnics, for owners, builders and design teams across Sydney: dilapidation records, utility location and GPR scanning, land surveys and structural, civil and hydraulic engineering. Partner firms do the work. SFGEO scopes it, times it against the geotechnical programme and answers for the result. Every service is quoted per site, as a fixed fee in writing within one business day.
+            Dilapidation reports, utility location and GPR scanning, surveys and specialist engineering across Sydney: the services a project needs beside the geotechnics. Delivered through a trusted partner network, coordinated by SFGEO, under one engagement and one point of contact.
           </p>
-          <p className="hero-line hero-d3 mt-5 text-sm text-gray-500 font-light tracking-wide">Partner-delivered under one SFGEO engagement &middot; Quoted per site &middot; Fixed fee in writing within one business day</p>
+          <p className="hero-line hero-d3 mt-5 text-xs text-gray-400 font-light tracking-wide">Partner-delivered under one SFGEO engagement &middot; Quoted per site &middot; Fixed fee in writing within one business day</p>
         </div>
       </section>
 
@@ -231,23 +231,7 @@ export default function OtherServicesPage() {
         </Reveal>
       </section>
 
-      {/* FAQ: the visible half of the FAQPage schema above */}
-      <section className="py-20 lg:py-24 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">
-        <Reveal variant="group" className="max-w-4xl">
-          <p data-fx="rise" className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">05 &middot; Common Questions</p>
-          <h2 data-fx="rise" style={d(80)} className="text-3xl sm:text-4xl font-light tracking-tight font-montserrat text-slate-950 mb-5">
-            Other Services. <span className="font-semibold h-bold">Common Questions.</span>
-          </h2>
-          <div data-fx="line" style={d(200)} className="h-px bg-forest-green w-12 mb-6" />
-          <div data-stagger style={d(240)} className="border-t border-gray-200">
-            {FAQS.map((f) => (
-              <Accordion key={f.q} title={f.q}>
-                {f.a}
-              </Accordion>
-            ))}
-          </div>
-        </Reveal>
-      </section>
+      <QuietFaq intro={<>The services a project needs beside the geotechnics, for owners, builders and design teams across Sydney: dilapidation records, utility location and GPR scanning, land surveys and structural, civil and hydraulic engineering. Partner firms do the work. SFGEO scopes it, times it against the geotechnical programme and answers for the result. Every service is quoted per site, as a fixed fee in writing within one business day.</>} faqs={FAQS} />
 
       <CloseBand
         source="other-services close"
