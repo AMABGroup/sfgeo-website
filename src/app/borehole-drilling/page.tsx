@@ -6,7 +6,7 @@ import Reveal from "@/components/ui/Reveal";
 import PhotoFrame from "@/components/ui/PhotoFrame";
 import CloseBand from "@/components/ui/CloseBand";
 import { pageMeta } from "@/lib/seo";
-import Accordion from "@/components/ui/Accordion";
+import QuietFaq from "@/components/sections/QuietFaq";
 
 export const metadata: Metadata = pageMeta(
   "Borehole Drilling Sydney | Engineer-Logged Boreholes | SFGEO",
@@ -40,6 +40,10 @@ const FAQS = [
   {
     q: "Are samples taken for laboratory testing?",
     a: "Yes, when the site warrants it rather than by default. The engineer reads the material in the hand as it comes up and decides on site which depths to sample and what the design needs tested. Disturbed and undisturbed samples go to NATA-accredited laboratories. A geotechnical investigation report with laboratory testing is typically five to seven business days from fieldwork, confirmed in the written quote.",
+  },
+  {
+    q: "What ground does the rig meet across Sydney?",
+    a: "Most Sydney boreholes start in fill or topsoil over residual clay and finish in weathered shale or sandstone: shale-derived clays across the inner west and the Cumberland Plain, Hawkesbury Sandstone through the north and east, and sand over the Botany basin. Solid flight augers advance through cohesive soils and weathered rock, and the engineer logs each layer as it comes off the flights. Hollow stem augers are chosen where the hole would collapse, in loose sand or below the water table, because the stem holds the hole open for sampling and testing. Where the auger refuses on rock and the design needs more, the hole continues as NMLC rock coring.",
   },
 ];
 
@@ -95,7 +99,7 @@ export default function BoreholeDrillingPage() {
           </h1>
           <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />
           <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed mb-10">
-            Engineer-logged boreholes for site classifications, geotechnical investigations and subcontract programmes for other consultancies, drilled by SFGEO&rsquo;s 4WD-mounted rig with solid flight and hollow stem augers. The engineer stands at the hole, logging every layer to AS 1726, testing as it goes and sampling what the design will need. Quoted per site, with a fixed fee in writing within one business day. Metro and regional NSW.
+            A borehole is only as good as the person reading it. SFGEO&rsquo;s 4WD-mounted rig drills Sydney&rsquo;s clays, sands, shales and residual profiles with the engineer at the hole, logging every layer as it surfaces, testing as it goes, and sampling what the design will need. Metro and regional NSW.
           </p>
           <div className="hero-line hero-d3 flex flex-col sm:flex-row items-start gap-4">
             <QuoteCta
@@ -113,7 +117,7 @@ export default function BoreholeDrillingPage() {
               Call 0423 483 555
             </Link>
           </div>
-          <p className="hero-line hero-d3 mt-5 text-sm text-gray-500 font-light tracking-wide">Solid flight and hollow stem augers &middot; Every hole logged by the engineer on site &middot; Fixed fee in writing within one business day &middot; Sydney metro and regional NSW</p>
+          <p className="hero-line hero-d3 mt-5 text-xs text-gray-400 font-light tracking-wide">Solid flight and hollow stem augers &middot; Every hole logged by the engineer on site &middot; Fixed fee in writing within one business day &middot; Sydney metro and regional NSW</p>
         </div>
       </section>
 
@@ -192,37 +196,8 @@ export default function BoreholeDrillingPage() {
         </Reveal>
       </section>
 
-      {/* Typical profiles and auger choice */}
-      <section className="py-20 lg:py-24 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">
-        <Reveal variant="group" className="max-w-4xl">
-          <p data-fx="rise" className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">04 &middot; Sydney Ground</p>
-          <h2 data-fx="rise" style={d(80)} className="text-3xl sm:text-4xl font-light tracking-tight font-montserrat text-slate-950 mb-5">
-            What The Rig <span className="font-semibold h-bold">Meets.</span>
-          </h2>
-          <div data-fx="line" style={d(200)} className="h-px bg-forest-green w-12 mb-6" />
-          <p data-fx="rise" style={d(240)} className="text-lg text-gray-600 font-light leading-relaxed">
-            Most Sydney boreholes start in fill or topsoil over residual clay and finish in weathered shale or sandstone: shale-derived clays across the inner west and the Cumberland Plain, Hawkesbury Sandstone through the north and east, and sand over the Botany basin. Solid flight augers advance through cohesive soils and weathered rock, and the engineer logs each layer as it comes off the flights. Hollow stem augers are chosen where the hole would collapse, in loose sand or below the water table, because the stem holds the hole open for sampling and testing. Where the auger refuses on rock and the design needs more, the hole continues as NMLC rock coring.
-          </p>
-        </Reveal>
-      </section>
 
-      {/* FAQ: the visible half of the FAQPage schema above */}
-      <section className="py-20 lg:py-24 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">
-        <Reveal variant="group" className="max-w-4xl">
-          <p data-fx="rise" className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">05 &middot; Common Questions</p>
-          <h2 data-fx="rise" style={d(80)} className="text-3xl sm:text-4xl font-light tracking-tight font-montserrat text-slate-950 mb-5">
-            Borehole Drilling. <span className="font-semibold h-bold">Common Questions.</span>
-          </h2>
-          <div data-fx="line" style={d(200)} className="h-px bg-forest-green w-12 mb-6" />
-          <div data-stagger style={d(240)} className="border-t border-gray-200">
-            {FAQS.map((f) => (
-              <Accordion key={f.q} title={f.q}>
-                {f.a}
-              </Accordion>
-            ))}
-          </div>
-        </Reveal>
-      </section>
+      <QuietFaq intro={<>Engineer-logged boreholes for site classifications, geotechnical investigations and subcontract programmes for other consultancies, drilled by SFGEO&rsquo;s 4WD-mounted rig with solid flight and hollow stem augers. The engineer stands at the hole, logging every layer to AS 1726, testing as it goes and sampling what the design will need. Quoted per site, with a fixed fee in writing within one business day. Metro and regional NSW.</>} faqs={FAQS} />
 
       <CloseBand
         source="borehole-drilling close"

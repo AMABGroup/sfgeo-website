@@ -9,7 +9,7 @@ import PhotoFrame from "@/components/ui/PhotoFrame";
 import SectionNav from "@/components/ui/SectionNav";
 import CloseBand from "@/components/ui/CloseBand";
 import { pageMeta } from "@/lib/seo";
-import Accordion from "@/components/ui/Accordion";
+import QuietFaq from "@/components/sections/QuietFaq";
 
 export const metadata: Metadata = pageMeta(
   "Concrete Coring Sydney | Engineer-Supervised | SFGEO",
@@ -171,7 +171,7 @@ export default function ConcreteCoringPage() {
           </h1>
           <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />
           <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed mb-10">
-            Cores taken with the engineer standing over the barrel, for anyone who needs a slab or pavement verified rather than assumed from the drawings. Each core is logged and photographed on site, the thickness measured, and when strength matters, the sample goes to a NATA-accredited laboratory. Pricing is per hole, from $120 + GST with a three-hole minimum per visit. One engagement, from the hole to the answer.
+            Any cutting contractor can put a hole in a slab. SFGEO cores it with the engineer standing over the barrel: the core logged and photographed, the thickness verified, and when strength matters, the sample on its way to a NATA-accredited laboratory. One engagement, from the hole to the answer.
           </p>
           <div className="hero-line hero-d3 flex flex-col sm:flex-row items-start gap-4">
             <QuoteCta
@@ -186,7 +186,7 @@ export default function ConcreteCoringPage() {
               Call 0423 483 555
             </Link>
           </div>
-          <p className="hero-line hero-d3 mt-5 text-sm text-gray-500 font-light tracking-wide">From $120 + GST per hole &middot; Three-hole minimum per visit &middot; Fixed fee in writing within one business day</p>
+          <p className="hero-line hero-d3 mt-5 text-xs text-gray-400 font-light tracking-wide">From $120 + GST per hole &middot; Three-hole minimum per visit &middot; Fixed fee in writing within one business day</p>
         </div>
       </section>
 
@@ -267,23 +267,7 @@ export default function ConcreteCoringPage() {
         </Reveal>
       </section>
 
-      {/* FAQ: the visible half of the FAQPage schema above */}
-      <section className="py-20 lg:py-24 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">
-        <Reveal variant="group" className="max-w-4xl">
-          <p data-fx="rise" className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">05 &middot; Common Questions</p>
-          <h2 data-fx="rise" style={d(80)} className="text-3xl sm:text-4xl font-light tracking-tight font-montserrat text-slate-950 mb-5">
-            Concrete Coring. <span className="font-semibold h-bold">Common Questions.</span>
-          </h2>
-          <div data-fx="line" style={d(200)} className="h-px bg-forest-green w-12 mb-6" />
-          <div data-stagger style={d(240)} className="border-t border-gray-200">
-            {FAQS.map((f) => (
-              <Accordion key={f.q} title={f.q}>
-                {f.a}
-              </Accordion>
-            ))}
-          </div>
-        </Reveal>
-      </section>
+      <QuietFaq intro={<>Cores taken with the engineer standing over the barrel, for anyone who needs a slab or pavement verified rather than assumed from the drawings. Each core is logged and photographed on site, the thickness measured, and when strength matters, the sample goes to a NATA-accredited laboratory. Pricing is per hole, from $120 + GST with a three-hole minimum per visit. One engagement, from the hole to the answer.</>} faqs={FAQS} />
 
       <CloseBand
         source="concrete-coring close"

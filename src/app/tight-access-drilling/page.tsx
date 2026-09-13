@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import type { CSSProperties } from "react";
 import QuoteCta from "@/components/forms/QuoteCta";
-import Accordion from "@/components/ui/Accordion";
+import QuietFaq from "@/components/sections/QuietFaq";
 import Reveal from "@/components/ui/Reveal";
 import PhotoFrame from "@/components/ui/PhotoFrame";
 import CloseBand from "@/components/ui/CloseBand";
@@ -105,7 +105,7 @@ export default function TightAccessDrillingPage() {
           </h1>
           <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />
           <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed mb-8">
-            Restricted-access geotechnical drilling is for anyone building on a Sydney site where a standard rig stops at the kerb: terraces, battleaxe blocks, backyards, courtyards and basements. SFGEO investigates them with motorised hand augers and a 4WD-mounted rig, operated by the engineer who logs the ground and signs the report. Fixed fees, scoped to your block. Site classification reports follow as soon as 2 business days from fieldwork.
+            Terraces, battleaxe blocks, backyards and basements: the Sydney sites where standard rigs stop at the kerb. SFGEO investigates them with motorised hand augers and a 4WD-mounted rig, operated by the engineer who logs the ground and <Link href="/site-classification" className="text-forest-green underline underline-offset-4 decoration-forest-green/40 hover:decoration-forest-green font-medium">signs the report</Link>. Fixed fees, scoped to your block.
           </p>
           <div className="hero-line hero-d3 flex flex-col sm:flex-row items-start gap-4">
             <Link
@@ -116,7 +116,7 @@ export default function TightAccessDrillingPage() {
             </Link>
             <QuoteCta source="tight-access-drilling hero" label="Quote A Tight-Access Site" className="flex items-center justify-center px-8 py-2.5 bg-white text-forest-green rounded-full shadow-[inset_0_0_0_1px_rgba(45,90,58,0.25),0_4px_10px_-4px_rgba(0,0,0,0.05)] hover:bg-forest-green/5 hover:shadow-[inset_0_0_0_1px_rgba(45,90,58,0.4),0_6px_14px_-4px_rgba(0,0,0,0.1)] transition-all hover:-translate-y-0.5 w-full sm:w-auto h-[46px] text-xs font-semibold tracking-wide" />
           </div>
-          <p className="hero-line hero-d3 mt-5 text-sm text-gray-500 font-light tracking-wide">Fixed fee, quoted per site &middot; Reports as soon as 2 business days from fieldwork &middot; Response within one business day</p>
+          <p className="hero-line hero-d3 mt-5 text-xs text-gray-400 font-light tracking-wide">Fixed fee, quoted per site &middot; Reports as soon as 2 business days from fieldwork &middot; Response within one business day</p>
         </div>
       </section>
 
@@ -212,23 +212,7 @@ export default function TightAccessDrillingPage() {
         </Reveal>
       </section>
 
-      {/* FAQ — the visible half of the FAQPage schema above */}
-      <section className="py-20 lg:py-24 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">
-        <Reveal variant="group" className="max-w-4xl">
-          <p data-fx="rise" className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">04 &middot; Common Questions</p>
-          <h2 data-fx="rise" style={d(80)} className="text-3xl sm:text-4xl font-light tracking-tight font-montserrat text-slate-950 mb-5">
-            Tight Access. <span className="font-semibold h-bold">Common Questions.</span>
-          </h2>
-          <div data-fx="line" style={d(200)} className="h-px bg-forest-green w-12 mb-6" />
-          <div data-stagger style={d(240)} className="border-t border-gray-200">
-            {FAQS.map((f) => (
-              <Accordion key={f.q} title={f.q}>
-                {f.a}
-              </Accordion>
-            ))}
-          </div>
-        </Reveal>
-      </section>
+      <QuietFaq intro={<>Restricted-access geotechnical drilling is for anyone building on a Sydney site where a standard rig stops at the kerb: terraces, battleaxe blocks, backyards, courtyards and basements. SFGEO investigates them with motorised hand augers and a 4WD-mounted rig, operated by the engineer who logs the ground and signs the report. Fixed fees, scoped to your block. Site classification reports follow as soon as 2 business days from fieldwork.</>} faqs={FAQS} />
 
       <CloseBand
         source="tight-access-drilling close"

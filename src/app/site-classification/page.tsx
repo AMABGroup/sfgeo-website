@@ -9,7 +9,7 @@ import PhotoFrame from "@/components/ui/PhotoFrame";
 import SectionNav from "@/components/ui/SectionNav";
 import CloseBand from "@/components/ui/CloseBand";
 import { pageMeta } from "@/lib/seo";
-import Accordion from "@/components/ui/Accordion";
+import QuietFaq from "@/components/sections/QuietFaq";
 
 export const metadata: Metadata = pageMeta(
   "Site Classification & Soil Test Sydney | AS 2870 | SFGEO",
@@ -162,7 +162,7 @@ export default function SiteClassificationPage() {
           </h1>
           <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />
           <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed mb-10">
-            A site classification is the soil test for a new home, extension, granny flat or pool. Most councils and certifiers require one. It gives your structural engineer the AS 2870 class and the parameters the footing design is drawn from. The Principal Engineer attends every site and signs every report. Fees are fixed, from $800 + GST. The report follows as soon as 2 business days from fieldwork.
+            The AS 2870 report your whole build stands on, led by the Principal Engineer, tailored to your site, your design and your certifier. No templates. No surprises.
           </p>
           <div className="hero-line hero-d3 flex flex-col sm:flex-row items-start gap-4">
             <QuoteCta
@@ -177,7 +177,7 @@ export default function SiteClassificationPage() {
               Call 0423 483 555
             </Link>
           </div>
-          <p className="hero-line hero-d3 mt-5 text-sm text-gray-500 font-light tracking-wide">From $800 + GST &middot; Reports as soon as 2 business days from fieldwork &middot; Response within one business day</p>
+          <p className="hero-line hero-d3 mt-5 text-xs text-gray-400 font-light tracking-wide">From $800 + GST &middot; Reports as soon as 2 business days from fieldwork &middot; Response within one business day</p>
         </div>
       </section>
 
@@ -425,23 +425,7 @@ export default function SiteClassificationPage() {
         <GoogleReviews />
       </section>
 
-      {/* FAQ: the visible half of the FAQPage schema above */}
-      <section className="py-20 lg:py-24 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">
-        <Reveal variant="group" className="max-w-4xl">
-          <p data-fx="rise" className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">07 &middot; Common Questions</p>
-          <h2 data-fx="rise" style={d(80)} className="text-3xl sm:text-4xl font-light tracking-tight font-montserrat text-slate-950 mb-5">
-            Site Classification. <span className="font-semibold h-bold">Common Questions.</span>
-          </h2>
-          <div data-fx="line" style={d(200)} className="h-px bg-forest-green w-12 mb-6" />
-          <div data-stagger style={d(240)} className="border-t border-gray-200">
-            {FAQS.map((f) => (
-              <Accordion key={f.q} title={f.q}>
-                {f.a}
-              </Accordion>
-            ))}
-          </div>
-        </Reveal>
-      </section>
+      <QuietFaq intro={<>A site classification is the soil test for a new home, extension, granny flat or pool. Most councils and certifiers require one. It gives your structural engineer the AS 2870 class and the parameters the footing design is drawn from. The Principal Engineer attends every site and signs every report. Fees are fixed, from $800 + GST. The report follows as soon as 2 business days from fieldwork.</>} faqs={FAQS} />
 
       <CloseBand
         source="site-classification close"

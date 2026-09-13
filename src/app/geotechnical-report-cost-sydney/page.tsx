@@ -111,7 +111,7 @@ export default function GeotechnicalReportCostPage() {
           </h1>
           <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />
           <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed mb-10">
-            Most homes, extensions, pools and granny flats need an AS 2870 site classification, priced by the block, not the size of the build. Granny flats and small additions start from $800 + GST; homes, pools and duplexes on established streets from $1,000 + GST. Complex sites and geotechnical investigations are quoted per site, with a fixed fee in writing within one business day. Classification reports follow as soon as 2 business days from fieldwork.
+            It depends on the block, not the size of the build, but the starting points are published, and every fee is confirmed in writing before anyone drills. Here is what each kind of report costs and what moves the number.
           </p>
           <div className="hero-line hero-d3 flex flex-col sm:flex-row items-start gap-4">
             <Link
@@ -126,7 +126,7 @@ export default function GeotechnicalReportCostPage() {
               className="flex items-center justify-center px-8 py-2.5 bg-white text-forest-green rounded-full shadow-[inset_0_0_0_1px_rgba(45,90,58,0.25),0_4px_10px_-4px_rgba(0,0,0,0.05)] hover:bg-forest-green/5 hover:shadow-[inset_0_0_0_1px_rgba(45,90,58,0.4),0_6px_14px_-4px_rgba(0,0,0,0.1)] transition-all hover:-translate-y-0.5 w-full sm:w-auto h-[46px] text-xs font-semibold tracking-wide"
             />
           </div>
-          <p className="hero-line hero-d3 mt-5 text-sm text-gray-500 font-light tracking-wide">Site classification from $800 + GST &middot; Coring $120 + GST per hole, three-hole minimum &middot; Fixed fee in writing within one business day</p>
+          <p className="hero-line hero-d3 mt-5 text-xs text-gray-400 font-light tracking-wide">Site classification from $800 + GST &middot; Coring $120 + GST per hole, three-hole minimum &middot; Fixed fee in writing within one business day</p>
         </div>
       </section>
 
@@ -251,6 +251,7 @@ export default function GeotechnicalReportCostPage() {
             Before You Ask. <span className="font-semibold h-bold">Straight Answers.</span>
           </h2>
           <div data-fx="line" style={d(200)} className="h-px bg-forest-green w-12" />
+          <p data-fx="rise" style={d(240)} className="mt-6 text-sm text-gray-500 font-light leading-relaxed">Most homes, extensions, pools and granny flats need an AS 2870 site classification, priced by the block, not the size of the build. Granny flats and small additions start from $800 + GST; homes, pools and duplexes on established streets from $1,000 + GST. Complex sites and geotechnical investigations are quoted per site, with a fixed fee in writing within one business day. Classification reports follow as soon as 2 business days from fieldwork.</p>
         </Reveal>
         <Reveal variant="group">
           <dl data-stagger className="max-w-3xl divide-y divide-gray-100 border-y border-gray-100">

@@ -7,7 +7,7 @@ import PhotoFrame from "@/components/ui/PhotoFrame";
 import SectionNav from "@/components/ui/SectionNav";
 import CloseBand from "@/components/ui/CloseBand";
 import { pageMeta } from "@/lib/seo";
-import Accordion from "@/components/ui/Accordion";
+import QuietFaq from "@/components/sections/QuietFaq";
 
 export const metadata: Metadata = pageMeta(
   "Contaminated Land & Environmental Testing Sydney | SFGEO",
@@ -164,7 +164,7 @@ export default function EnvironmentalHubPage() {
           </h1>
           <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />
           <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed mb-10">
-            We carry out contaminated land investigation (PSI and DSI), acid sulfate soil assessment and waste classification across Sydney, for buyers, builders, homeowners and consultants. Geotechnical tells you how the ground behaves. Environmental tells you what it&rsquo;s carrying. One crew drills, samples and reports on both. Each site is quoted individually, with a fixed fee in writing within one business day.
+            Geotechnical tells you how the ground behaves. Environmental tells you what it&rsquo;s carrying: contaminated land investigation, acid sulfate soil assessment and waste classification across Sydney, from one crew that drills, samples and reports on both.
           </p>
           <div className="hero-line hero-d3 flex flex-col sm:flex-row items-start gap-4">
             <Link
@@ -179,7 +179,7 @@ export default function EnvironmentalHubPage() {
               className="flex items-center justify-center px-8 py-2.5 bg-white text-forest-green rounded-full shadow-[inset_0_0_0_1px_rgba(45,90,58,0.25),0_4px_10px_-4px_rgba(0,0,0,0.05)] hover:bg-forest-green/5 hover:shadow-[inset_0_0_0_1px_rgba(45,90,58,0.4),0_6px_14px_-4px_rgba(0,0,0,0.1)] transition-all hover:-translate-y-0.5 w-full sm:w-auto h-[46px] text-xs font-semibold tracking-wide"
             />
           </div>
-          <p className="hero-line hero-d3 mt-5 text-sm text-gray-500 font-light tracking-wide">Quoted per site &middot; Chain of custody on every sample &middot; Response within one business day</p>
+          <p className="hero-line hero-d3 mt-5 text-xs text-gray-400 font-light tracking-wide">Quoted per site &middot; Chain of custody on every sample &middot; Response within one business day</p>
         </div>
       </section>
 
@@ -236,23 +236,7 @@ export default function EnvironmentalHubPage() {
         </Reveal>
       </section>
 
-      {/* FAQ: the visible half of the FAQPage schema above */}
-      <section className="py-20 lg:py-24 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">
-        <Reveal variant="group" className="max-w-4xl">
-          <p data-fx="rise" className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">05 &middot; Common Questions</p>
-          <h2 data-fx="rise" style={d(80)} className="text-3xl sm:text-4xl font-light tracking-tight font-montserrat text-slate-950 mb-5">
-            Environmental Testing. <span className="font-semibold h-bold">Common Questions.</span>
-          </h2>
-          <div data-fx="line" style={d(200)} className="h-px bg-forest-green w-12 mb-6" />
-          <div data-stagger style={d(240)} className="border-t border-gray-200">
-            {FAQS.map((f) => (
-              <Accordion key={f.q} title={f.q}>
-                {f.a}
-              </Accordion>
-            ))}
-          </div>
-        </Reveal>
-      </section>
+      <QuietFaq intro={<>We carry out contaminated land investigation (PSI and DSI), acid sulfate soil assessment and waste classification across Sydney, for buyers, builders, homeowners and consultants. Geotechnical tells you how the ground behaves. Environmental tells you what it&rsquo;s carrying. One crew drills, samples and reports on both. Each site is quoted individually, with a fixed fee in writing within one business day.</>} faqs={FAQS} />
 
       <CloseBand
         source="environmental close"

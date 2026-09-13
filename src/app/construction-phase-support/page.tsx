@@ -6,7 +6,7 @@ import Reveal from "@/components/ui/Reveal";
 import PhotoFrame from "@/components/ui/PhotoFrame";
 import CloseBand from "@/components/ui/CloseBand";
 import { pageMeta } from "@/lib/seo";
-import Accordion from "@/components/ui/Accordion";
+import QuietFaq from "@/components/sections/QuietFaq";
 
 export const metadata: Metadata = pageMeta(
   "Footing & Pier Inspections Sydney | Proof Rolls | SFGEO",
@@ -98,7 +98,7 @@ export default function Page() {
             <span className="hero-mask"><span className="mask-line mask-d2"><span className="font-semibold h-bold">Verified Before The Pour.</span></span></span>
           </h1>
           <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />
-          <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed mb-10">Construction phase support is the engineer on site for builders and contractors: footing, pier and pile inspections, proof rolls and engineered fill to AS 3798. An open excavation costs money every hour it waits, so SFGEO confirms the ground against the design on site and gives the call before anyone leaves. Single visits are priced from $600 + GST, fixed in writing within one business day, and the record follows within days.</p>
+          <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed mb-10">An open excavation costs money every hour it waits. SFGEO inspects footings, piers and fill at the moment it matters, confirms the ground against the design on site, and puts the record in writing, so the next trade starts on time.</p>
           <div className="hero-line hero-d3 flex flex-col sm:flex-row items-start gap-4">
             <Link
               href="tel:+61423483555"
@@ -112,7 +112,7 @@ export default function Page() {
               className="flex items-center justify-center px-8 py-2.5 bg-white text-forest-green rounded-full shadow-[inset_0_0_0_1px_rgba(45,90,58,0.25),0_4px_10px_-4px_rgba(0,0,0,0.05)] hover:bg-forest-green/5 hover:shadow-[inset_0_0_0_1px_rgba(45,90,58,0.4),0_6px_14px_-4px_rgba(0,0,0,0.1)] transition-all hover:-translate-y-0.5 w-full sm:w-auto h-[46px] text-xs font-semibold tracking-wide"
             />
           </div>
-          <p className="hero-line hero-d3 mt-5 text-sm text-gray-500 font-light tracking-wide">Footing and pier inspections from $600 + GST &middot; Fixed fee in writing within one business day &middot; Engineered fill supervised layer by layer to AS 3798</p>
+          <p className="hero-line hero-d3 mt-5 text-xs text-gray-400 font-light tracking-wide">Footing and pier inspections from $600 + GST &middot; Fixed fee in writing within one business day &middot; Engineered fill supervised layer by layer to AS 3798</p>
         </div>
       </section>
 
@@ -194,23 +194,7 @@ export default function Page() {
         </Reveal>
       </section>
 
-      {/* FAQ: the visible half of the FAQPage schema above */}
-      <section className="py-20 lg:py-24 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">
-        <Reveal variant="group" className="max-w-4xl">
-          <p data-fx="rise" className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">05 &middot; Common Questions</p>
-          <h2 data-fx="rise" style={d(80)} className="text-3xl sm:text-4xl font-light tracking-tight font-montserrat text-slate-950 mb-5">
-            Inspections. <span className="font-semibold h-bold">Common Questions.</span>
-          </h2>
-          <div data-fx="line" style={d(200)} className="h-px bg-forest-green w-12 mb-6" />
-          <div data-stagger style={d(240)} className="border-t border-gray-200">
-            {FAQS.map((f) => (
-              <Accordion key={f.q} title={f.q}>
-                {f.a}
-              </Accordion>
-            ))}
-          </div>
-        </Reveal>
-      </section>
+      <QuietFaq intro={<>Construction phase support is the engineer on site for builders and contractors: footing, pier and pile inspections, proof rolls and engineered fill to AS 3798. An open excavation costs money every hour it waits, so SFGEO confirms the ground against the design on site and gives the call before anyone leaves. Single visits are priced from $600 + GST, fixed in writing within one business day, and the record follows within days.</>} faqs={FAQS} />
 
       <CloseBand
         source="construction-phase-support close"
