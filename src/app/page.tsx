@@ -217,6 +217,22 @@ export default function Home() {
         <Reveal delay={80}>
           <ServiceIndex />
         </Reveal>
+        {/* Every service page, as fine print: crawlers found no referring page for most of them. */}
+        <p aria-label="All services" className="mt-10 text-xs text-gray-500 font-light tracking-wide leading-loose max-w-4xl">
+          <Link href="/site-classification" className="hover:text-forest-green transition-colors">Site classification</Link> &middot;{" "}
+          <Link href="/geotechnical-investigations" className="hover:text-forest-green transition-colors">Geotechnical investigations</Link> &middot;{" "}
+          <Link href="/geotechnical-assessments" className="hover:text-forest-green transition-colors">Geotechnical assessments</Link> &middot;{" "}
+          <Link href="/geotechnical-design" className="hover:text-forest-green transition-colors">Design parameters</Link> &middot;{" "}
+          <Link href="/construction-phase-support" className="hover:text-forest-green transition-colors">Footing and pier inspections</Link> &middot;{" "}
+          <Link href="/borehole-drilling" className="hover:text-forest-green transition-colors">Borehole drilling</Link> &middot;{" "}
+          <Link href="/tight-access-drilling" className="hover:text-forest-green transition-colors">Tight access drilling</Link> &middot;{" "}
+          <Link href="/subcontract-drilling" className="hover:text-forest-green transition-colors">Subcontract drilling</Link> &middot;{" "}
+          <Link href="/concrete-coring" className="hover:text-forest-green transition-colors">Concrete coring</Link> &middot;{" "}
+          <Link href="/environmental" className="hover:text-forest-green transition-colors">Environmental sampling</Link> &middot;{" "}
+          <Link href="/other-services" className="hover:text-forest-green transition-colors">Dilapidation, utility location and surveys</Link> &middot;{" "}
+          <Link href="/geotechnical-report-cost-sydney" className="hover:text-forest-green transition-colors">Cost guide</Link> &middot;{" "}
+          <Link href="/services" className="hover:text-forest-green transition-colors">All services</Link>
+        </p>
       </section>
 
       {/* ============ 02 The engineer — dark anchor band ============ */}

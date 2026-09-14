@@ -24,7 +24,7 @@ const MAP_SRC =
 const PLACE_ID = "ChIJkbo3DVqq1IMRQYQUbuD9XDc";
 const READ_REVIEWS_URL = `https://www.google.com/maps/place/?q=place_id:${PLACE_ID}`;
 const WRITE_REVIEW_URL = `https://search.google.com/local/writereview?placeid=${PLACE_ID}`;
-const DIRECTIONS_URL = `https://www.google.com/maps/dir/?api=1&destination=Solid+Foundation+Geotechnical+107+Sydenham+Road+Marrickville+NSW+2204&destination_place_id=${PLACE_ID}`;
+const DIRECTIONS_URL = `https://www.google.com/maps/dir/?api=1&destination=Solid+Foundation+Geotechnical+Suite+3.01+Level+3+107+Sydenham+Road+Marrickville+NSW+2204&destination_place_id=${PLACE_ID}`;
 
 const CARD = "card-lift p-8 rounded-2xl bg-white border border-gray-100 shadow-sm";
 const LABEL = "block text-[11px] font-semibold text-gray-500 uppercase tracking-[0.2em] mb-3";
@@ -87,7 +87,7 @@ export default function ContactPage() {
               </div>
               <div data-fx="scale" style={d(200)} className="w-full rounded-2xl overflow-hidden shadow-[0_26px_60px_-26px_rgba(5,10,7,0.4)] aspect-[16/10]">
                 <iframe
-                  title="Map showing SFGEO office at Suite 3.01, 107 Sydenham Road, Marrickville NSW 2204"
+                  title="Map showing SFGEO office at Suite 3.01, Level 3, 107 Sydenham Road, Marrickville NSW 2204"
                   src={MAP_SRC}
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
