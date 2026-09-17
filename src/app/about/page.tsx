@@ -131,9 +131,9 @@ export default function About() {
           </p>
         </Reveal>
         <PhotoFrame
-          src="/sfgeo-team-principal-and-crew-ute.jpg"
-          alt="The Principal and the crew in hard hats and hi-vis beside the SFGEO 4WD ute at the end of a day’s fieldwork"
-          caption={<>The Crew &middot; End Of The Day</>}
+          src="/sfgeo-crew-night-works-concord.jpg"
+          alt="The Principal and the crew in hard hats and hi-vis beside the ute-mounted drill rig on a Concord street at the end of a night shift"
+          caption={<>The Crew &middot; End Of The Shift</>}
           aspect="aspect-[4/3]"
           sizes="(max-width: 1024px) 100vw, 42vw"
           wrapperClassName="lg:col-span-5"

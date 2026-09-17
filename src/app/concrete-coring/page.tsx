@@ -52,8 +52,9 @@ const SECTIONS: Section[] = [
     titleLight: "Pavement",
     titleBold: "Investigation.",
     caption: "02 · Pavement Investigation",
-    image: "/sfgeo-concrete-core-thickness-tape.jpg",
-    alt: "Extracted concrete core measured against a tape on site",
+    video: "/sfgeo-pavement-investigation-night-works-concord.mp4",
+    poster: "/sfgeo-pavement-investigation-night-works-concord.jpg",
+    alt: "Ute-mounted rig augering into a Concord road pavement during night works, the crew at the controls and beside the mast",
     body: "Core through the pavement and keep going. One visit logs the concrete, the layers beneath it and the subgrade below, so a pavement question and a ground question are answered by the same crew, in the same report, and where the pavement question turns out to be a ground question, the geotechnical engineer is already standing on it.",
     cta: "Scope A Pavement Program",
   },
@@ -210,7 +211,7 @@ export default function ConcreteCoringPage() {
                     className="relative h-full w-auto max-w-full object-contain"
                   />
                   <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#050A07]/70 to-transparent pointer-events-none" />
-                  <p className="absolute bottom-5 left-6 text-[11px] uppercase tracking-[0.25em] text-white/80 font-semibold pointer-events-none">{sec.caption}</p>
+                  <p className="hidden lg:block absolute bottom-5 left-6 text-[11px] uppercase tracking-[0.25em] text-white/80 font-semibold pointer-events-none">{sec.caption}</p>
                 </div>
               </Reveal>
             ) : (
