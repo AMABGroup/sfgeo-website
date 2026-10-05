@@ -6,6 +6,7 @@ import { SystemHeader, SystemFooter } from "./SystemChrome";
 import ContactBubble from "@/components/ui/ContactBubble";
 import CallBubble from "@/components/ui/CallBubble";
 import ContactClickTracker from "@/components/analytics/ContactClickTracker";
+import LeadSourceCapture from "@/components/analytics/LeadSourceCapture";
 
 type Props = {
   children: React.ReactNode;
@@ -39,6 +40,7 @@ export default function SiteChrome({ children }: Props) {
         </>
       )}
       <ContactClickTracker />
+      <LeadSourceCapture />
     </MotionConfig>
   );
 }
