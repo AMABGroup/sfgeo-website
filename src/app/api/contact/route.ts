@@ -108,7 +108,7 @@ export async function POST(request: Request) {
     if (phone && sanitizedPhone.length < 6) failed.push("phone under 6 digits");
 
     const check = failed.length > 0;
-    if (check && sanitizedPhone.length < 6 && !email.includes("@")) {
+    if (check && sanitizedPhone.length < 6 && !/\S@\S/.test(email)) {
       return reject(400, "Missing or invalid fields", `${failed.join(", ")}; no usable phone or email`, placement);
     }
 

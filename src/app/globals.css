@@ -56,10 +56,8 @@ body {
   .hero-d2 { animation-delay: 0.24s; }
   .hero-d3 { animation-delay: 0.36s; }
   .hero-d4 { animation-delay: 1.2s; }
-  /* Ends at `none`, not translateY(0): a finished line must not stay a
-     containing block or stacking context for fixed descendants. */
   @keyframes hero-rise {
-    to { opacity: 1; transform: none; }
+    to { opacity: 1; transform: translateY(0); }
   }
 
   .hero-kenburns {
