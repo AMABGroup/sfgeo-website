@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import QuickQuoteCard from "./QuickQuoteCard";
 
 type QuoteCtaProps = {
@@ -21,6 +22,10 @@ const FOCUSABLE =
 // form; a plain left click is intercepted to open the modal instead.
 // `eyebrow` / `heading` / `subheading` let B2B pages replace the homeowner
 // copy on the card; the defaults live in QuickQuoteCard.
+// The dialog is portalled to <body>: an ancestor with a transform (the hero
+// rise animation, card-lift on hover or focus) would otherwise become the
+// containing block for `fixed`, shrinking the backdrop and pushing Submit off
+// screen. `open` only turns true after a click, so document is always defined.
 export default function QuoteCta({ source, label = "Request A Quote", className, eyebrow, heading, subheading }: QuoteCtaProps) {
   const [open, setOpen] = useState(false);
   const triggerRef = useRef<HTMLAnchorElement>(null);
@@ -82,7 +87,7 @@ export default function QuoteCta({ source, label = "Request A Quote", className,
       >
         {label}
       </a>
-      {open && (
+      {open && createPortal(
         <div ref={dialogRef} className="fixed inset-0 z-[90] flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="qq-heading">
           <div className="absolute inset-0 bg-[#050A07]/80 backdrop-blur-sm" onClick={() => setOpen(false)} />
           <div className="relative">
@@ -99,7 +104,8 @@ export default function QuoteCta({ source, label = "Request A Quote", className,
               <QuickQuoteCard source={source} eyebrow={eyebrow} heading={heading} subheading={subheading} />
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </>
   );
