@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { PROJECT_TYPES, START_DATES } from "@/data/projectTypes";
+import { readLeadSource } from "@/lib/leadSource";
 
 declare global {
   interface Window {
@@ -12,6 +13,10 @@ declare global {
 }
 
 type FormStatus = "idle" | "submitting" | "success" | "error";
+
+// Names this form in the enquiry email, the API logs and GA4, alongside the
+// QuickQuoteCard placements ("site-classification hero" and so on).
+const PLACEMENT = "contact page";
 
 const FOCUS_RING =
   "focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-forest-green";
@@ -124,7 +129,7 @@ export default function ContactForm() {
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, placement: PLACEMENT, source: readLeadSource() }),
       });
 
       if (response.ok) {
@@ -133,6 +138,11 @@ export default function ContactForm() {
         if (typeof window !== "undefined" && window.gtag) {
           window.gtag("event", "conversion", {
             send_to: "AW-18053070765/53SQCIy9158cEK3_r6BD",
+          });
+          // GA4 only; not imported into Ads, so the conversion is not counted twice.
+          window.gtag("event", "generate_lead", {
+            send_to: "G-VXSTDPETHH",
+            form_placement: PLACEMENT,
           });
         }
       } else {

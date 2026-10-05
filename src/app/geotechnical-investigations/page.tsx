@@ -142,6 +142,7 @@ export default function GeotechnicalInvestigationsPage() {
             />
           </div>
           <p className="hero-line hero-d3 mt-5 text-xs text-gray-400 font-light tracking-wide">Boreholes to AS 1726, quoted per site &middot; Fixed fee in writing within one business day &middot; Reports typically five to seven business days from fieldwork</p>
+          <p className="hero-line hero-d3 mt-1.5 text-xs text-gray-400 font-light tracking-wide">Free site visit &middot; Same-day site visits across Metro Sydney</p>
         </div>
       </section>
 

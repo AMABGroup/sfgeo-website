@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { PROJECT_TYPES, START_DATES } from "@/data/projectTypes";
+import { readLeadSource } from "@/lib/leadSource";
 
 declare global {
   interface Window {
@@ -89,6 +90,8 @@ export default function QuickQuoteCard({ source, eyebrow = "Fixed-fee quote", he
         body: JSON.stringify({
           ...formData,
           message: `Quick quote request, submitted from ${source}.`,
+          placement: source,
+          source: readLeadSource(),
         }),
       });
       if (response.ok) {
@@ -96,6 +99,11 @@ export default function QuickQuoteCard({ source, eyebrow = "Fixed-fee quote", he
         if (typeof window !== "undefined" && window.gtag) {
           window.gtag("event", "conversion", {
             send_to: "AW-18053070765/53SQCIy9158cEK3_r6BD",
+          });
+          // GA4 only; not imported into Ads, so the conversion is not counted twice.
+          window.gtag("event", "generate_lead", {
+            send_to: "G-VXSTDPETHH",
+            form_placement: source,
           });
         }
       } else {
