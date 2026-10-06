@@ -48,17 +48,33 @@ function newUploadId(): string {
   return `${h.slice(0, 8)}-${h.slice(8, 12)}-${h.slice(12, 16)}-${h.slice(16, 20)}-${h.slice(20)}`;
 }
 
-/** One slice, retried once after a dropped connection or a server hiccup. */
+/**
+ * A slice still sending after this is abandoned, so a stalled connection cannot
+ * hold up the enquiry: the form then sends it without plans. 4 MiB in 60 s is
+ * about 0.6 Mbps of upload.
+ */
+const SLICE_TIMEOUT_MS = 60_000;
+
+/** One slice, retried once after a dropped connection or a server hiccup (not after a stall). */
 async function sendSlice(headers: Record<string, string>, body: Blob): Promise<void> {
   for (let attempt = 0; ; attempt++) {
     let status = 0;
+    let stalled = false;
+    const controller = new AbortController();
+    const timer = setTimeout(() => {
+      stalled = true;
+      controller.abort();
+    }, SLICE_TIMEOUT_MS);
     try {
-      const res = await fetch("/api/upload", { method: "POST", headers, body });
+      const res = await fetch("/api/upload", { method: "POST", headers, body, signal: controller.signal });
       if (res.ok) return;
       status = res.status;
     } catch {
-      // Network error: status stays 0.
+      // Network error or stall: status stays 0.
+    } finally {
+      clearTimeout(timer);
     }
+    if (stalled) throw new Error("Plan upload stalled");
     const retry = attempt === 0 && (status === 0 || status === 500 || status === 502 || status === 504);
     if (!retry) throw new Error(`Plan upload failed (${status || "network"})`);
     await new Promise((r) => setTimeout(r, 1000));
