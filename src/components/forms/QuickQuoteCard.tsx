@@ -190,7 +190,9 @@ export default function QuickQuoteCard({ source, eyebrow = "Fixed-fee quote", he
               aria-hidden="true"
             />
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4 mb-4">
+            {/* Name and phone share a row on phones too: it pays for the Attach
+                plans row, so Submit stays in view when the pop-up opens at 375x812. */}
+            <div className="grid grid-cols-2 gap-x-6 gap-y-4 mb-4">
               <div>
                 <input type="text" name="name" placeholder="Name" value={formData.name} onChange={handleChange} className={fieldClasses("name")} aria-label="Name" autoComplete="name" aria-invalid={!!errors.name} aria-describedby={errors.name ? "qq-name-err" : undefined} />
                 {errors.name && <p id="qq-name-err" role="alert" className="mt-1.5 text-xs text-red-300">{errors.name}</p>}
