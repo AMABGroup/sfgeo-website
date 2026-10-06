@@ -5,6 +5,8 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { PROJECT_TYPES, START_DATES } from "@/data/projectTypes";
 import { readLeadSource } from "@/lib/leadSource";
+import { uploadPlans } from "@/lib/planUpload";
+import PlanAttach from "./PlanAttach";
 
 declare global {
   interface Window {
@@ -33,6 +35,14 @@ export default function ContactForm() {
     message: "",
     website: "", // Honeypot
   });
+
+  const [plans, setPlans] = useState<File[]>([]);
+  const [plansError, setPlansError] = useState("");
+  // Percent of the plans sent, shown on the button while they upload.
+  const [progress, setProgress] = useState<number | null>(null);
+  // True when the visitor chose plans that did not reach the email.
+  const [plansNotSent, setPlansNotSent] = useState(false);
+  const busy = useRef(false);
 
   const successHeadingRef = useRef<HTMLHeadingElement>(null);
 
@@ -123,16 +133,37 @@ export default function ContactForm() {
       return;
     }
 
+    if (busy.current) return;
+    busy.current = true;
     setStatus("submitting");
 
     try {
+      // Plans go first; if they cannot be sent, the enquiry still goes without them.
+      let uploaded: Awaited<ReturnType<typeof uploadPlans>> | null = null;
+      if (plans.length) {
+        try {
+          uploaded = await uploadPlans(plans, setProgress);
+        } catch (err) {
+          console.error("Plan upload error:", err);
+          uploaded = null;
+        }
+        setProgress(null);
+      }
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...formData, placement: PLACEMENT, source: readLeadSource() }),
+        body: JSON.stringify({
+          ...formData,
+          placement: PLACEMENT,
+          source: readLeadSource(),
+          ...(uploaded ? { uploadId: uploaded.uploadId, files: uploaded.files } : {}),
+          ...(plans.length && !uploaded ? { plansNotSent: plans.map((f) => f.name) } : {}),
+        }),
       });
 
       if (response.ok) {
+        const result = (await response.json().catch(() => ({}))) as { plans?: string };
+        setPlansNotSent(plans.length > 0 && (!uploaded || result.plans !== "attached"));
         setStatus("success");
         // Fire Google Ads conversion
         if (typeof window !== "undefined" && window.gtag) {
@@ -152,6 +183,9 @@ export default function ContactForm() {
       console.error("Submission error:", err);
       setStatus("error");
     }
+    // No finally: the React Compiler lint skips components that use one.
+    setProgress(null);
+    busy.current = false;
   };
 
   const fieldClasses = (name: string) =>
@@ -198,6 +232,12 @@ export default function ContactForm() {
             0423 483 555
           </a>.
         </p>
+        {plansNotSent && (
+          <p className="mt-4 text-lg text-gray-600 font-light max-w-md leading-relaxed">
+            Your plans did not come through. Please email them to{" "}
+            <a href="mailto:info@sfgeo.com.au" className="text-forest-green font-semibold hover:underline whitespace-nowrap">info@sfgeo.com.au</a>.
+          </p>
+        )}
       </motion.div>
     );
   }
@@ -441,6 +481,15 @@ export default function ContactForm() {
           />
         </div>
 
+        <PlanAttach
+          tone="light"
+          files={plans}
+          onFilesChange={setPlans}
+          error={plansError}
+          onErrorChange={setPlansError}
+          disabled={status === "submitting"}
+        />
+
         {/* Submit Button */}
         <div className="pt-6 flex flex-col gap-4">
           <button
@@ -454,7 +503,7 @@ export default function ContactForm() {
                   <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
                   <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
                 </svg>
-                Sending...
+                {progress !== null ? `Sending plans ${progress}%` : "Sending..."}
               </>
             ) : (
               "Request a Fixed-Fee Quote"

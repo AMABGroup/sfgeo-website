@@ -127,7 +127,7 @@ export default function ContactPage() {
                   </div>
                 </div>
                 <p className="text-sm text-gray-500 font-light mt-4">
-                  Plans too large for the form? Email <a href="mailto:info@sfgeo.com.au" className="text-forest-green font-semibold hover:underline">info@sfgeo.com.au</a>.
+                  Email plans over 20 MB in total to <a href="mailto:info@sfgeo.com.au" className="text-forest-green font-semibold hover:underline">info@sfgeo.com.au</a>.
                 </p>
               </div>
 
