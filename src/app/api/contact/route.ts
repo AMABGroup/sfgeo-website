@@ -2,6 +2,19 @@ import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { PROJECT_TYPES, START_DATES } from "@/data/projectTypes";
 import { clientIp, rateLimited } from "@/lib/rateLimit";
+import { getPlanStore } from "@/lib/planStore";
+import {
+  collectPlans,
+  dropAttachments,
+  parsePlanRequest,
+  planEmailBlock,
+  plansComplete,
+  purgeStaleUploads,
+  removeUpload,
+  unsentPlanNames,
+  withTimeout,
+  type PlanResult,
+} from "@/lib/enquiryPlans";
 
 const MAX_BODY_BYTES = 20_000;
 const LIMITS = { name: 120, email: 254, phone: 40, siteAddress: 300, message: 3000 } as const;
@@ -10,6 +23,9 @@ const CLICK_IDS = ["gclid", "gbraid", "wbraid"] as const;
 const UTMS = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"] as const;
 const SOURCE_KEYS = [...CLICK_IDS, ...UTMS, "landing", "referrer"] as const;
 const SOURCE_MAX = 300;
+// Housekeeping after a send is cut off at these, so it never holds up the reply.
+const CLEANUP_MS = 1_500;
+const PURGE_MS = 1_500;
 
 function str(v: unknown, max: number): string | null {
   if (typeof v !== "string") return null;
@@ -118,15 +134,29 @@ export async function POST(request: Request) {
     }
     const resend = new Resend(process.env.RESEND_API_KEY);
 
-    const { error } = await resend.emails.send({
-      from: "SFGEO Website <noreply@sfgeo.com.au>",
-      to: ["alli@sfgeo.com.au"],
-      // Only a well-formed address goes in Reply-To, so a malformed one cannot fail the send.
-      ...(validEmail ? { replyTo: email } : {}),
-      subject: oneLine(`${check ? "[CHECK] " : ""}New enquiry from ${name.slice(0, LIMITS.name) || "(no name)"}: ${projectType}`),
-      text: `
+    // Plans (optional): /api/upload has stored them under the upload id. A plan
+    // problem never refuses or loses the lead: it is sent as [CHECK] with the
+    // reason, and whatever reached storage is kept for 7 days.
+    const planRequest = parsePlanRequest(body.uploadId, body.files);
+    const unsent = unsentPlanNames(body.plansNotSent);
+    const store = await getPlanStore();
+    // Runs alongside the send; awaited (with a cap) before replying.
+    const purge = store ? withTimeout(purgeStaleUploads(store, planRequest?.uploadId ?? null), PURGE_MS) : null;
+    const plans: PlanResult | null = planRequest ? await collectPlans(store, planRequest) : null;
+
+    const send = async (attach: boolean) => {
+      const planCheck = plans !== null && !plansComplete(plans);
+      const planText = planEmailBlock(plans, unsent);
+      try {
+        return await resend.emails.send({
+          from: "SFGEO Website <noreply@sfgeo.com.au>",
+          to: ["alli@sfgeo.com.au"],
+          // Only a well-formed address goes in Reply-To, so a malformed one cannot fail the send.
+          ...(validEmail ? { replyTo: email } : {}),
+          subject: oneLine(`${check || planCheck ? "[CHECK] " : ""}New enquiry from ${name.slice(0, LIMITS.name) || "(no name)"}: ${projectType}`),
+          text: `
 New enquiry received via sfgeo.com.au contact form.
-${check ? `\nFailed checks: ${failed.join(", ")}. Sent so the lead is not lost; check the details before replying.\n` : ""}
+${check ? `\nFailed checks: ${failed.join(", ")}. Sent so the lead is not lost; check the details before replying.\n` : ""}${planCheck ? "\nNot every plan could be attached; see Plans below.\n" : ""}
 Name: ${oneLine(name)}
 Email: ${oneLine(email)}
 Phone: ${oneLine(phone)} (${sanitizedPhone || "no digits"})
@@ -136,21 +166,42 @@ Proposed start date: ${startDate}
 
 Message:
 ${message || "(none provided)"}
-
+${planText ? `\n${planText}\n` : ""}
 ${sourceBlock(placement, leadSource(body.source))}
 
 ---
 Submitted at: ${new Date().toISOString()}
       `,
-    });
+          ...(attach && plans?.attachments.length ? { attachments: plans.attachments } : {}),
+        });
+      } catch (err) {
+        return { data: null, error: { name: "exception", message: err instanceof Error ? err.message : String(err) } };
+      }
+    };
+
+    let { error } = await send(true);
+    if (error && plans?.attachments.length) {
+      // Most likely the attachments themselves: send the lead without them.
+      console.error(`Resend refused the enquiry with plans attached; resending without them [placement: ${placement}]:`, error);
+      dropAttachments(plans, `email service refused the attachments: ${error.name}`);
+      ({ error } = await send(false));
+    }
 
     if (error) {
       console.error(`Resend error [placement: ${placement}]:`, error);
       return NextResponse.json({ error: "Failed to send email" }, { status: 500 });
     }
 
+    if (store && plans?.uploadId && plansComplete(plans)) await withTimeout(removeUpload(store, plans.uploadId), CLEANUP_MS);
+    if (purge) await purge;
+    if (plans && !plansComplete(plans)) console.warn(`Contact sent as [CHECK]: plans not attached [placement: ${placement}]`);
+
     if (check) console.warn(`Contact sent as [CHECK]: ${failed.join(", ")} [placement: ${placement}]`);
-    return NextResponse.json({ success: true }, { status: 200 });
+    // Tells the form whether to ask the visitor to email their plans instead.
+    return NextResponse.json(
+      { success: true, ...(plans ? { plans: plansComplete(plans) ? "attached" : "not_attached" } : {}) },
+      { status: 200 }
+    );
   } catch (error) {
     console.error(`API error [placement: ${placement}]:`, error);
     return NextResponse.json({ error: "Internal server error" }, { status: 500 });

@@ -4,6 +4,8 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { PROJECT_TYPES, START_DATES } from "@/data/projectTypes";
 import { readLeadSource } from "@/lib/leadSource";
+import { uploadPlans } from "@/lib/planUpload";
+import PlanAttach from "./PlanAttach";
 
 declare global {
   interface Window {
@@ -37,6 +39,13 @@ export default function QuickQuoteCard({ source, eyebrow = "Fixed-fee quote", he
     startDate: "",
     website: "", // Honeypot
   });
+  const [plans, setPlans] = useState<File[]>([]);
+  const [plansError, setPlansError] = useState("");
+  // Percent of the plans sent, shown on the button while they upload.
+  const [progress, setProgress] = useState<number | null>(null);
+  // True when the visitor chose plans that did not reach the email.
+  const [plansNotSent, setPlansNotSent] = useState(false);
+  const busy = useRef(false);
   const formRef = useRef<HTMLFormElement>(null);
   const successHeadingRef = useRef<HTMLHeadingElement>(null);
 
@@ -82,8 +91,20 @@ export default function QuickQuoteCard({ source, eyebrow = "Fixed-fee quote", he
       }
       return;
     }
+    if (busy.current) return;
+    busy.current = true;
     setStatus("submitting");
     try {
+      // Plans go first; if they cannot be sent, the enquiry still goes without them.
+      let uploaded: Awaited<ReturnType<typeof uploadPlans>> | null = null;
+      if (plans.length) {
+        try {
+          uploaded = await uploadPlans(plans, setProgress);
+        } catch {
+          uploaded = null;
+        }
+        setProgress(null);
+      }
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -92,9 +113,13 @@ export default function QuickQuoteCard({ source, eyebrow = "Fixed-fee quote", he
           message: `Quick quote request, submitted from ${source}.`,
           placement: source,
           source: readLeadSource(),
+          ...(uploaded ? { uploadId: uploaded.uploadId, files: uploaded.files } : {}),
+          ...(plans.length && !uploaded ? { plansNotSent: plans.map((f) => f.name) } : {}),
         }),
       });
       if (response.ok) {
+        const result = (await response.json().catch(() => ({}))) as { plans?: string };
+        setPlansNotSent(plans.length > 0 && (!uploaded || result.plans !== "attached"));
         setStatus("success");
         if (typeof window !== "undefined" && window.gtag) {
           window.gtag("event", "conversion", {
@@ -112,6 +137,9 @@ export default function QuickQuoteCard({ source, eyebrow = "Fixed-fee quote", he
     } catch {
       setStatus("error");
     }
+    // No finally: the React Compiler lint skips components that use one.
+    setProgress(null);
+    busy.current = false;
   };
 
   const fieldClasses = (field: string) =>
@@ -135,6 +163,12 @@ export default function QuickQuoteCard({ source, eyebrow = "Fixed-fee quote", he
             <p className="text-sm text-gray-400 font-light leading-relaxed">
               Thank you. Your details are with our Principal Engineer. You&apos;ll have a response within one business day.
             </p>
+            {plansNotSent && (
+              <p className="mt-4 text-sm text-gray-400 font-light leading-relaxed">
+                Your plans did not come through. Please email them to{" "}
+                <a href="mailto:info@sfgeo.com.au" className="text-[#8FBF9F] hover:text-white transition-colors">info@sfgeo.com.au</a>.
+              </p>
+            )}
           </div>
         ) : (
           <form ref={formRef} onSubmit={handleSubmit} noValidate>
@@ -156,7 +190,9 @@ export default function QuickQuoteCard({ source, eyebrow = "Fixed-fee quote", he
               aria-hidden="true"
             />
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4 mb-4">
+            {/* Name and phone share a row on phones too: it pays for the Attach
+                plans row, so Submit stays in view when the pop-up opens at 375x812. */}
+            <div className="grid grid-cols-2 gap-x-6 gap-y-4 mb-4">
               <div>
                 <input type="text" name="name" placeholder="Name" value={formData.name} onChange={handleChange} className={fieldClasses("name")} aria-label="Name" autoComplete="name" aria-invalid={!!errors.name} aria-describedby={errors.name ? "qq-name-err" : undefined} />
                 {errors.name && <p id="qq-name-err" role="alert" className="mt-1.5 text-xs text-red-300">{errors.name}</p>}
@@ -174,7 +210,7 @@ export default function QuickQuoteCard({ source, eyebrow = "Fixed-fee quote", he
               <input type="text" name="siteAddress" placeholder="Site suburb or address" value={formData.siteAddress} onChange={handleChange} className={fieldClasses("siteAddress")} aria-label="Site suburb or address" autoComplete="off" aria-invalid={!!errors.siteAddress} aria-describedby={errors.siteAddress ? "qq-siteAddress-err" : undefined} />
               {errors.siteAddress && <p id="qq-siteAddress-err" role="alert" className="mt-1.5 text-xs text-red-300">{errors.siteAddress}</p>}
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4 mb-9">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4 mb-4">
               <div className="relative">
                 <select name="projectType" value={formData.projectType} onChange={handleChange} className={selectClasses("projectType", !!formData.projectType)} aria-label="Project type" aria-invalid={!!errors.projectType} aria-describedby={errors.projectType ? "qq-projectType-err" : undefined}>
                   <option value="" disabled>Project type</option>
@@ -201,12 +237,23 @@ export default function QuickQuoteCard({ source, eyebrow = "Fixed-fee quote", he
               </div>
             </div>
 
+            <div className="mb-9">
+              <PlanAttach
+                tone="dark"
+                files={plans}
+                onFilesChange={setPlans}
+                error={plansError}
+                onErrorChange={setPlansError}
+                disabled={status === "submitting"}
+              />
+            </div>
+
             <button
               type="submit"
               disabled={status === "submitting"}
               className="w-full flex items-center justify-center px-5 h-[46px] bg-gradient-to-b from-[#346b43] to-forest-green text-white rounded-full shadow-[0_8px_20px_-6px_rgba(45,90,58,0.5)] hover:shadow-[0_12px_24px_-8px_rgba(45,90,58,0.7)] hover:brightness-105 transition-all hover:-translate-y-0.5 disabled:opacity-60 disabled:hover:translate-y-0 text-xs font-semibold tracking-wide"
             >
-              {status === "submitting" ? "Sending…" : "Request my quote"}
+              {status !== "submitting" ? "Request my quote" : progress !== null ? `Sending plans ${progress}%` : "Sending…"}
             </button>
             {status === "error" && (
               <p className="mt-3 text-xs text-red-400/90 text-center">
