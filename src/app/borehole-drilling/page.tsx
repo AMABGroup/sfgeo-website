@@ -117,7 +117,7 @@ export default function BoreholeDrillingPage() {
               Call 0423 483 555
             </Link>
           </div>
-          <p className="hero-line hero-d3 mt-5 text-xs text-gray-400 font-light tracking-wide">Solid flight augers, hollow stem through a partner rig &middot; Every hole logged by the engineer on site &middot; Fixed fee in writing within one business day &middot; Sydney metro and regional NSW</p>
+          <p className="hero-line hero-d3 mt-5 text-xs text-gray-400 font-light tracking-wide">Solid flight and hollow stem augers &middot; Every hole logged by the engineer on site &middot; Fixed fee in writing within one business day &middot; Sydney metro and regional NSW</p>
         </div>
       </section>
 
