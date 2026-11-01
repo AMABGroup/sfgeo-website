@@ -9,6 +9,10 @@ import SectionNav from "@/components/ui/SectionNav";
 import CloseBand from "@/components/ui/CloseBand";
 import { pageMeta } from "@/lib/seo";
 import QuietFaq from "@/components/sections/QuietFaq";
+import RatingFact from "@/components/ui/RatingFact";
+
+// Rebuilt daily for the live Google rating and reviews.
+export const revalidate = 86400;
 
 export const metadata: Metadata = pageMeta(
   "Geotechnical Investigations & Reports Sydney | SFGEO",
@@ -142,7 +146,7 @@ export default function GeotechnicalInvestigationsPage() {
             />
           </div>
           <p className="hero-line hero-d3 mt-5 text-xs text-gray-400 font-light tracking-wide">Boreholes to AS 1726, quoted per site &middot; Fixed fee in writing within one business day &middot; Reports typically five to seven business days from fieldwork</p>
-          <p className="hero-line hero-d3 mt-1.5 text-xs text-gray-400 font-light tracking-wide">Free site visit &middot; Same-day site visits across Metro Sydney</p>
+          <p className="hero-line hero-d3 mt-1.5 text-xs text-gray-400 font-light tracking-wide">Free site visit &middot; Same-day site visits across Metro Sydney<RatingFact /></p>
         </div>
       </section>
 

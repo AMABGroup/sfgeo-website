@@ -6,6 +6,10 @@ import Reveal from "@/components/ui/Reveal";
 import PhotoFrame from "@/components/ui/PhotoFrame";
 import CloseBand from "@/components/ui/CloseBand";
 import QuietFaq from "@/components/sections/QuietFaq";
+import RatingFact from "@/components/ui/RatingFact";
+
+// Rebuilt daily for the live Google rating and reviews.
+export const revalidate = 86400;
 
 export const metadata: Metadata = pageMeta(
   "Geotechnical Engineering Sydney | The Full Suite | SFGEO",
@@ -140,7 +144,7 @@ export default function GeotechnicalHubPage() {
           <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed">
             From the first hole on an empty block to the last inspection before the pour, one team carries the whole geotechnical scope, and the Principal is across every job.
           </p>
-          <p className="hero-line hero-d3 mt-5 text-xs text-gray-400 font-light tracking-wide">Site classifications from $800 + GST &middot; Fixed fee in writing within one business day &middot; The engineer who drills your site signs the report</p>
+          <p className="hero-line hero-d3 mt-5 text-xs text-gray-400 font-light tracking-wide">Site classifications from $800 + GST &middot; Fixed fee in writing within one business day &middot; The engineer who drills your site signs the report<RatingFact /></p>
         </div>
       </section>
 

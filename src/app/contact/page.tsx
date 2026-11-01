@@ -6,6 +6,9 @@ import type { Metadata } from "next";
 import type { CSSProperties } from "react";
 import { pageMeta } from "@/lib/seo";
 
+// Rebuilt daily for the live Google rating and reviews.
+export const revalidate = 86400;
+
 export const metadata: Metadata = pageMeta(
   "Contact Our Sydney Geotechnical Engineers | SFGEO",
   "Speak directly with a Sydney geotechnical consultant. Fixed-fee quotes for site classifications, investigations, and drilling services across Greater Sydney.",
@@ -15,7 +18,7 @@ export const metadata: Metadata = pageMeta(
 const d = (ms: number) => ({ "--d": `${ms}ms` }) as CSSProperties;
 
 // These two strings are also exported as MAP_SRC (SystemChrome.tsx) and
-// READ_REVIEWS_URL (GoogleReviews.tsx). Both of those are "use client" modules,
+// READ_REVIEWS_URL (GoogleReviewsClient.tsx). Both of those are "use client" modules,
 // and a server component cannot import a plain value across that boundary
 // (every export becomes a client-reference proxy), so they are mirrored here.
 // Keep all three identical.

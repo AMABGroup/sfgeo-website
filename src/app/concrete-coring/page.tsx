@@ -10,6 +10,10 @@ import SectionNav from "@/components/ui/SectionNav";
 import CloseBand from "@/components/ui/CloseBand";
 import { pageMeta } from "@/lib/seo";
 import QuietFaq from "@/components/sections/QuietFaq";
+import RatingFact from "@/components/ui/RatingFact";
+
+// Rebuilt daily for the live Google rating and reviews.
+export const revalidate = 86400;
 
 export const metadata: Metadata = pageMeta(
   "Concrete Coring Sydney | Engineer-Supervised | SFGEO",
@@ -187,7 +191,7 @@ export default function ConcreteCoringPage() {
               Call 0423 483 555
             </Link>
           </div>
-          <p className="hero-line hero-d3 mt-5 text-xs text-gray-400 font-light tracking-wide">From $120 + GST per hole &middot; Three-hole minimum per visit &middot; Fixed fee in writing within one business day</p>
+          <p className="hero-line hero-d3 mt-5 text-xs text-gray-400 font-light tracking-wide">From $120 + GST per hole &middot; Three-hole minimum per visit &middot; Fixed fee in writing within one business day<RatingFact /></p>
         </div>
       </section>
 
