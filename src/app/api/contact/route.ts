@@ -82,6 +82,13 @@ function sourceBlock(placement: string, s: LeadSource): string {
   ].join("\n");
 }
 
+// Lets a test confirm a deploy is in dry run before posting anything to it.
+// Production answers 405, as it did before this route had a GET.
+export function GET() {
+  if (DRY_RUN) return NextResponse.json({ dryRun: true });
+  return new NextResponse(null, { status: 405, headers: { Allow: "POST" } });
+}
+
 export async function POST(request: Request) {
   let placement = "unknown, body not read";
   try {
