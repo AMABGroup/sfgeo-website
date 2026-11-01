@@ -39,7 +39,7 @@ const FAQS = [
   },
   {
     q: "Are samples taken for laboratory testing?",
-    a: "Yes, when the site warrants it rather than by default. The engineer reads the material in the hand as it comes up and decides on site which depths to sample and what the design needs tested. Disturbed and undisturbed samples go to NATA-accredited laboratories. A geotechnical investigation report with laboratory testing is typically five to seven business days from fieldwork, confirmed in the written quote.",
+    a: "Yes, when the site warrants it rather than by default. The engineer reads the material in the hand as it comes up and decides on site which depths to sample and what the design needs tested. Disturbed and undisturbed samples go to NATA-accredited laboratories. A geotechnical investigation report with laboratory testing is typically 8 to 12 business days from fieldwork, confirmed in the written quote, with interim findings available where the programme needs them.",
   },
   {
     q: "What ground does the rig meet across Sydney?",

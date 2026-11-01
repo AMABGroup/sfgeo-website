@@ -53,7 +53,7 @@ const FAQS = [
   },
   {
     q: "Does a tight-access site slow the report down?",
-    a: "No, a site classification report is issued as soon as 2 business days from fieldwork, and an investigation with NATA-accredited laboratory testing typically five to seven business days from fieldwork, confirmed in the written quote. The turnaround runs from the day on site, so access shapes the fieldwork rather than the report. Urgent turnaround is by arrangement.",
+    a: "No, a site classification report is issued as soon as 2 business days from fieldwork, and an investigation with NATA-accredited laboratory testing typically 8 to 12 business days from fieldwork, confirmed in the written quote, with interim findings available where the programme needs them. The turnaround runs from the day on site, so access shapes the fieldwork rather than the report. Urgent turnaround is by arrangement.",
   },
 ];
 

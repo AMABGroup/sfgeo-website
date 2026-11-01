@@ -41,7 +41,7 @@ const FAQS = [
   },
   {
     q: "How is geotechnical design work priced?",
-    a: "The fee is set against the number and depth of boreholes, site access and the laboratory programme. Send the site address and the structural concept. The quote is a fixed fee in writing within one business day. An investigation that includes laboratory testing is typically five to seven business days from fieldwork, confirmed in the written quote. Laboratory testing is applied where the site warrants it, not by default.",
+    a: "The fee is set against the number and depth of boreholes, site access and the laboratory programme. Send the site address and the structural concept. The quote is a fixed fee in writing within one business day. An investigation that includes laboratory testing is typically 8 to 12 business days from fieldwork, confirmed in the written quote, with interim findings available where the programme needs them. Laboratory testing is applied where the site warrants it, not by default.",
   },
 ];
 
@@ -107,7 +107,7 @@ export default function Page() {
               className="flex items-center justify-center px-8 py-2.5 bg-white text-forest-green rounded-full shadow-[inset_0_0_0_1px_rgba(45,90,58,0.25),0_4px_10px_-4px_rgba(0,0,0,0.05)] hover:bg-forest-green/5 hover:shadow-[inset_0_0_0_1px_rgba(45,90,58,0.4),0_6px_14px_-4px_rgba(0,0,0,0.1)] transition-all hover:-translate-y-0.5 w-full sm:w-auto h-[46px] text-xs font-semibold tracking-wide"
             />
           </div>
-          <p className="hero-line hero-d3 mt-5 text-xs text-gray-400 font-light tracking-wide">For structural and civil engineers &middot; Fixed fee in writing within one business day &middot; Reports typically five to seven business days from fieldwork</p>
+          <p className="hero-line hero-d3 mt-5 text-xs text-gray-400 font-light tracking-wide">For structural and civil engineers &middot; Fixed fee in writing within one business day &middot; Reports with laboratory testing typically 8 to 12 business days from fieldwork</p>
         </div>
       </section>
 
@@ -171,7 +171,7 @@ export default function Page() {
         </Reveal>
       </section>
 
-      <QuietFaq intro={<>SFGEO supplies the site-specific inputs structural and civil engineers design from. They cover bearing pressures, pile values, AS 4678 retaining parameters and pavement CBR values. The engineer who read the ground derives and signs each value. Every scope is quoted per site, a fixed fee in writing within one business day. With laboratory testing, reports are typically five to seven business days from fieldwork, confirmed in the written quote.</>} faqs={FAQS} />
+      <QuietFaq intro={<>SFGEO supplies the site-specific inputs structural and civil engineers design from. They cover bearing pressures, pile values, AS 4678 retaining parameters and pavement CBR values. The engineer who read the ground derives and signs each value. Every scope is quoted per site, a fixed fee in writing within one business day. With laboratory testing, reports are typically 8 to 12 business days from fieldwork, confirmed in the written quote, with interim findings available where the programme needs them.</>} faqs={FAQS} />
 
       <CloseBand
         source="geotechnical-design close"

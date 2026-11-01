@@ -64,7 +64,7 @@ const FAQS = [
   },
   {
     q: "How long does a geotechnical investigation take?",
-    a: "Typically five to seven business days from fieldwork when NATA-accredited laboratory testing is included, with the turnaround confirmed in the written quote. The laboratory schedule is the main variable, and testing is added only when the site warrants it. Urgent DA, CDC and construction deadlines are taken on regularly. Send the date with the address and you will have a yes or no before any fee is agreed.",
+    a: "Typically 8 to 12 business days from fieldwork when NATA-accredited laboratory testing is included, with interim findings available where the programme needs them. The turnaround is confirmed in the written quote. The laboratory schedule is the main variable, and testing is added only when the site warrants it. Urgent DA, CDC and construction deadlines are taken on regularly. Send the date with the address and you will have a yes or no before any fee is agreed.",
   },
   {
     q: "What is in a geotechnical investigation report?",
@@ -141,7 +141,7 @@ export default function GeotechnicalInvestigationsPage() {
               className="flex items-center justify-center px-8 py-2.5 bg-white text-forest-green rounded-full shadow-[inset_0_0_0_1px_rgba(45,90,58,0.25),0_4px_10px_-4px_rgba(0,0,0,0.05)] hover:bg-forest-green/5 hover:shadow-[inset_0_0_0_1px_rgba(45,90,58,0.4),0_6px_14px_-4px_rgba(0,0,0,0.1)] transition-all hover:-translate-y-0.5 w-full sm:w-auto h-[46px] text-xs font-semibold tracking-wide"
             />
           </div>
-          <p className="hero-line hero-d3 mt-5 text-xs text-gray-400 font-light tracking-wide">Boreholes to AS 1726, quoted per site &middot; Fixed fee in writing within one business day &middot; Reports typically five to seven business days from fieldwork</p>
+          <p className="hero-line hero-d3 mt-5 text-xs text-gray-400 font-light tracking-wide">Boreholes to AS 1726, quoted per site &middot; Fixed fee in writing within one business day &middot; Reports with laboratory testing typically 8 to 12 business days from fieldwork</p>
           <p className="hero-line hero-d3 mt-1.5 text-xs text-gray-400 font-light tracking-wide">Free site visit &middot; Same-day site visits across Metro Sydney</p>
         </div>
       </section>
@@ -275,7 +275,7 @@ export default function GeotechnicalInvestigationsPage() {
         <GoogleReviews />
       </section>
 
-      <QuietFaq intro={<>An AS 1726 geotechnical investigation provides the ground data for Sydney DAs, CDCs, footings, basements and retaining structures. Boreholes, penetrometers and NATA-accredited laboratory data become a report your certifier, council and structural engineer can act on. Fees are fixed and quoted per site. Reports with laboratory testing typically take five to seven business days from fieldwork, confirmed in the written quote. The engineer who drills your ground signs your report.</>} faqs={FAQS} />
+      <QuietFaq intro={<>An AS 1726 geotechnical investigation provides the ground data for Sydney DAs, CDCs, footings, basements and retaining structures. Boreholes, penetrometers and NATA-accredited laboratory data become a report your certifier, council and structural engineer can act on. Fees are fixed and quoted per site. Reports with laboratory testing typically take 8 to 12 business days from fieldwork, confirmed in the written quote, with interim findings available where the programme needs them. The engineer who drills your ground signs your report.</>} faqs={FAQS} />
 
       <CloseBand
         source="geotechnical-investigations close"

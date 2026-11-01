@@ -82,7 +82,7 @@ const FAQS = [
   },
   {
     q: "How long does each type of geotechnical report take?",
-    a: "Site classification reports are issued as soon as 2 business days from fieldwork. A geotechnical investigation with NATA-accredited laboratory testing typically takes five to seven business days from fieldwork, confirmed in the written quote. For footing and pier inspections the engineer gives the call at bearing level before leaving site, and the written record follows within days. Urgent turnaround is by arrangement.",
+    a: "Site classification reports are issued as soon as 2 business days from fieldwork. A geotechnical investigation with NATA-accredited laboratory testing typically takes 8 to 12 business days from fieldwork, confirmed in the written quote, with interim findings available where the programme needs them. For footing and pier inspections the engineer gives the call at bearing level before leaving site, and the written record follows within days. Urgent turnaround is by arrangement.",
   },
   {
     q: "Who usually asks for a geotechnical report?",
