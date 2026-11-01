@@ -11,5 +11,5 @@ export default async function RatingFact({ lineClassName }: { lineClassName?: st
   if (place?.rating == null || !place.user_ratings_total) return null;
   const fact = `${place.rating.toFixed(1)} from ${place.user_ratings_total} Google review${place.user_ratings_total === 1 ? "" : "s"}`;
   if (lineClassName) return <p className={lineClassName}>{fact}</p>;
-  return <> &middot; {fact}</>;
+  return <> &middot; <span className="whitespace-nowrap">{fact}</span></>;
 }
