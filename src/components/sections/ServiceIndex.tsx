@@ -16,7 +16,7 @@ const SERVICES = [
   {
     n: "02",
     title: "Drilling",
-    desc: "Borehole drilling, tight access and rock coring. 4WD rig and crew, for our investigations and yours.",
+    desc: "Borehole drilling and tight access, with rock coring through a partner rig. 4WD rig and crew, for our investigations and yours.",
     href: "/drilling",
     image: "/sfgeo-rig-major-earthworks-clean.jpg",
     alt: "SFGEO rig drilling beside major earthworks",

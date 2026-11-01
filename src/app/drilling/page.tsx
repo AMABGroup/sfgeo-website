@@ -30,7 +30,7 @@ const SECTIONS = [
     alt: "SFGEO 4WD-mounted drill rig with mast raised on a Sydney reserve",
     body: "An agile 4WD ute-mounted rig that gets on site fast and drills the ground Sydney is actually made of: Cumberland Plain clays and shales in the west, sands and estuarine profiles near the water, residual soils over sandstone everywhere else. Every borehole is logged by an engineer on site, not decoded from a driller’s notes afterwards.",
     specs: [
-      "Solid flight and hollow stem auger drilling",
+      "Solid flight auger drilling on our rig; hollow stem through a partner rig",
       "Dynamic Cone Penetrometer (DCP) at every hole; SPT on consultancy and commercial programs",
       "Engineer-logged profiles, scoped to Sydney ground conditions",
       "Rapid mobilisation across the Sydney metro and regional NSW",
@@ -46,9 +46,9 @@ const SECTIONS = [
     caption: "02 · Rock Coring",
     image: "/sfgeo-rock-core-tray-detail-4x3.jpg",
     alt: "Rock core laid out in a core tray at BH1, coring from 3.7 metres, weathered runs over grey shale, labelled run by run",
-    body: "When the design needs more than refusal depth: intact cores from Hawkesbury sandstone and Ashfield shale, recovered, photographed and defect-logged so structural decisions rest on what the rock actually is.",
+    body: "When the design needs more than refusal depth: intact cores from Hawkesbury sandstone and Ashfield shale, drilled on a partner rig under one SFGEO engagement, then recovered, photographed and defect-logged so structural decisions rest on what the rock actually is.",
     specs: [
-      "NMLC rock coring with recovery and defect logging",
+      "NMLC rock coring through a partner rig, with recovery and defect logging",
       "Hawkesbury sandstone, Ashfield shale and interbedded profiles",
       "Intact core for point load and strength testing",
       "Advance booking and prepayment required",
@@ -65,7 +65,7 @@ const SECTIONS = [
     caption: "03 · Tight Access",
     image: "/sfgeo-hand-auger-sidepath-naremburn.jpg",
     alt: "Hand auger boreholing down a narrow side path beside a Sydney home",
-    body: "Terrace backyards, basement levels, side paths a wheelbarrow barely fits down. Access shouldn’t decide the quality of your engineering data. Motorised hand augers, tight-access coring and a 4WD-mounted rig reach the ground other crews quote around, with the finished surfaces protected on the way through.",
+    body: "Terrace backyards, basement levels, side paths a wheelbarrow barely fits down. Access shouldn’t decide the quality of your engineering data. Motorised hand augers and a 4WD-mounted rig reach the ground other crews quote around, with the finished surfaces protected on the way through.",
     specs: [
       "Manual and motorised hand augering",
       "4WD-mounted rig where truck rigs stop at the kerb",
@@ -114,11 +114,11 @@ const NAV = [
 const FAQS = [
   {
     q: "What ground does SFGEO drill?",
-    a: "The soils and rock under Sydney: Cumberland Plain clays and shales in the west, sands and estuarine profiles near the water, residual soils over sandstone across the rest. Residential boreholes are sized to the base of excavation plus one to two metres. When refusal depth is not enough for the design, NMLC coring recovers intact Hawkesbury sandstone and Ashfield shale, photographed and defect-logged. See borehole drilling.",
+    a: "The soils and rock under Sydney: Cumberland Plain clays and shales in the west, sands and estuarine profiles near the water, residual soils over sandstone across the rest. Residential boreholes are sized to the base of excavation plus one to two metres. When refusal depth is not enough for the design, NMLC coring on a partner rig recovers intact Hawkesbury sandstone and Ashfield shale, photographed and defect-logged. See borehole drilling.",
   },
   {
     q: "How is a drilling programme priced?",
-    a: "Per site, against the number and depth of boreholes, the access and any laboratory programme, so two sites with the same hole count can price differently. Rock coring runs are booked in advance. SPT is run on consultancy and commercial programmes only, so a residential programme is not quoted for it. Send the address and the programme and the quote follows.",
+    a: "Per site, against the number and depth of boreholes, the access and any laboratory programme, so two sites with the same hole count can price differently. Rock coring runs go through a partner rig and are booked in advance. SPT is run on consultancy and commercial programmes only, so a residential programme is not quoted for it. Send the address and the programme and the quote follows.",
   },
   {
     q: "Can SFGEO drill for another consultancy?",
@@ -144,7 +144,7 @@ export default function DrillingPage() {
     "@type": "Service",
     "name": "Geotechnical Drilling",
     "serviceType": "Geotechnical Drilling & Environmental Sampling",
-    "description": "Borehole drilling, NMLC rock coring, tight-access drilling and subcontract rig capacity across Sydney and regional NSW, engineer operated, with every profile logged on site.",
+    "description": "Borehole drilling, NMLC rock coring through a partner rig, tight-access drilling and subcontract rig capacity across Sydney and regional NSW, engineer operated, with every profile logged on site.",
     "url": "https://sfgeo.com.au/drilling",
     "provider": { "@id": "https://sfgeo.com.au/#organization" },
     "areaServed": [
@@ -310,7 +310,7 @@ export default function DrillingPage() {
         </Reveal>
       </section>
 
-      <QuietFaq intro={<>SFGEO drills boreholes, cores rock and runs tight-access and subcontract programmes for builders, engineering consultancies, environmental consultants and some of the bigger firms in Sydney. One 4WD-mounted rig, based in Marrickville and operated by the engineers who log what it brings up, mobilises across the Sydney metro and into regional NSW. Programmes are quoted per site, as a fixed fee in writing within one business day.</>} faqs={FAQS} />
+      <QuietFaq intro={<>SFGEO drills boreholes, arranges rock coring through a partner rig, and runs tight-access and subcontract programmes for builders, engineering consultancies, environmental consultants and some of the bigger firms in Sydney. One 4WD-mounted rig, based in Marrickville and operated by the engineers who log what it brings up, mobilises across the Sydney metro and into regional NSW. Programmes are quoted per site, as a fixed fee in writing within one business day.</>} faqs={FAQS} />
 
       <CloseBand
         source="drilling close"
