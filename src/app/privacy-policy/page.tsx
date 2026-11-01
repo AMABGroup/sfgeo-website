@@ -4,7 +4,7 @@ export default function PrivacyPolicyPage() {
       <div className="max-w-2xl mx-auto px-6 pt-28 pb-24">
         <h1 className="text-2xl sm:text-3xl font-montserrat font-medium tracking-tight mb-2">Privacy Policy</h1>
         <p className="text-sm text-gray-500 mb-10">
-          Solid Foundation Geotechnical, a business of AMAB Group Pty Ltd (ABN 54 686 815 252). Last updated August 2026.
+          Solid Foundation Geotechnical, a business of AMAB Group Pty Ltd (ABN 54 686 815 252). Last updated November 2026.
         </p>
 
         <div className="space-y-8 text-[15px] text-gray-700 leading-relaxed">
@@ -23,6 +23,9 @@ export default function PrivacyPolicyPage() {
             <h2 className="font-semibold text-slate-950 mb-2">2. How we collect it</h2>
             <p>
               We collect your personal information directly from you: when you submit an enquiry through our website contact form, correspond with us by email or telephone, or engage us for our services. We may also receive project details from your authorised architects or structural engineers where you have instructed them to retain our services on your behalf.
+            </p>
+            <p className="mt-3">
+              When you submit an enquiry through the website, we also record how you found us: the page you first landed on, the site or search that referred you, and any campaign tag or advertising click identifier in the link. This is kept with your enquiry so we can see which channels are working.
             </p>
           </div>
 
@@ -48,16 +51,29 @@ export default function PrivacyPolicyPage() {
           </div>
 
           <div>
-            <h2 className="font-semibold text-slate-950 mb-2">6. Access and correction</h2>
+            <h2 className="font-semibold text-slate-950 mb-2">6. Service providers and overseas processing</h2>
+            <p>
+              We use cloud and software providers to run our business, including website hosting, email delivery, file storage, analytics, business software and artificial intelligence (AI) tools that help us draft, organise and check our correspondence, records and documents. Your personal information may pass through these services when we use them to handle your enquiry or project.
+            </p>
+            <p className="mt-3">
+              Some of these providers store or process information outside Australia, including in the United States. We use them only to deliver our services and run our business, and we take reasonable steps to ensure they handle your information consistently with the Australian Privacy Principles.
+            </p>
+          </div>
+
+          <div>
+            <h2 className="font-semibold text-slate-950 mb-2">7. Access and correction</h2>
             <p>
               You may request access to the personal information we hold about you, and ask for it to be updated or corrected, by contacting us. We will respond within a reasonable timeframe.
             </p>
           </div>
 
           <div>
-            <h2 className="font-semibold text-slate-950 mb-2">7. Cookies and third-party services</h2>
+            <h2 className="font-semibold text-slate-950 mb-2">8. Cookies and third-party services</h2>
             <p>
               Our website uses cookies to support core functionality and to measure how visitors find and use the site. Some cookies are set by third-party services:
+            </p>
+            <p className="mt-3">
+              <span className="font-medium text-slate-950">Google Analytics.</span> We use Google Analytics 4 to measure visits and enquiries: the pages viewed, how visitors arrived, and whether a form was sent. It sets cookies and reports in aggregate. It does not, on its own, give us your name or contact details.
             </p>
             <p className="mt-3">
               <span className="font-medium text-slate-950">Google Ads conversion tracking.</span> If you arrive from a paid search advertisement and then submit our contact form or use the on-screen contact buttons, Google sets a short-lived identifier to attribute the enquiry to the campaign. The identifier does not, on its own, contain your name or contact details.
@@ -66,13 +82,13 @@ export default function PrivacyPolicyPage() {
               <span className="font-medium text-slate-950">Google Maps.</span> The home page, contact page and site menu include an embedded map of our office. Google may set its own cookies when the map loads.
             </p>
             <p className="mt-3">
-              Both services are governed by Google&rsquo;s privacy policy at{" "}
+              These services are governed by Google&rsquo;s privacy policy at{" "}
               <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-forest-green underline underline-offset-4 decoration-forest-green/40 hover:decoration-forest-green">policies.google.com/privacy<span className="sr-only"> (opens in a new tab)</span></a>. You can disable cookies in your browser settings; some features (such as the embedded map) may not function with cookies blocked. Disabling cookies will not prevent you from contacting us by phone, email or the contact form.
             </p>
           </div>
 
           <div>
-            <h2 className="font-semibold text-slate-950 mb-2">8. Changes to this policy</h2>
+            <h2 className="font-semibold text-slate-950 mb-2">9. Changes to this policy</h2>
             <p>
               We may update this policy from time to time. The current version is always published on this page, with the date above.
             </p>
