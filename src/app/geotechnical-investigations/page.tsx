@@ -179,7 +179,7 @@ export default function GeotechnicalInvestigationsPage() {
             </h2>
             <div data-fx="line" style={d(200)} className="h-px bg-forest-green w-12 mb-7" />
             <p data-fx="rise" style={d(160)} className="text-gray-600 font-light leading-relaxed">
-              No subcontracted drill crews, no drive-by inspections. The Principal Engineer operates the rig, logs the profile as it comes out of the ground, and cross-checks it with in-situ testing on the spot, so by the time the report is written, the ground has already been read twice.
+              No drive-by inspections. The Principal Engineer operates the rig, logs the profile as it comes out of the ground, and cross-checks it with in-situ testing on the spot, so by the time the report is written, the ground has already been read twice.
             </p>
           </Reveal>
           <div className="grid grid-cols-2 gap-4 sm:gap-6">
