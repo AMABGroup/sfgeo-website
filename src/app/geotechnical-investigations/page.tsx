@@ -181,7 +181,7 @@ export default function GeotechnicalInvestigationsPage() {
           <Reveal variant="group">
             <p data-fx="rise" className="text-sm uppercase tracking-[0.2em] text-forest-green mb-4 font-semibold">02 &middot; Fieldwork</p>
             <h2 data-fx="rise" style={d(80)} className="text-3xl sm:text-4xl font-montserrat font-light tracking-tight text-slate-950 mb-5">
-              Done By <span className="font-semibold h-bold">The Engineer.</span>
+              Led By <span className="font-semibold h-bold">The Engineer.</span>
             </h2>
             <div data-fx="line" style={d(200)} className="h-px bg-forest-green w-12 mb-7" />
             <p data-fx="rise" style={d(160)} className="text-gray-600 font-light leading-relaxed">

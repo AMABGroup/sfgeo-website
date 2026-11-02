@@ -195,7 +195,7 @@ export default function DrillingPage() {
           </h1>
           <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />
           <p className="hero-line hero-d2 max-w-3xl text-lg sm:text-xl text-gray-600 font-light leading-relaxed mb-10">
-            Headquartered in Marrickville, mobilised across the Sydney metro and into regional NSW: one 4WD-mounted rig, led by the engineer who answers for what it brings up. Drilling for builders, consultancies and some of the bigger firms in Sydney.
+            Headquartered in Marrickville, mobilised across the Sydney metro and into regional NSW: one 4WD-mounted rig, with the crew led by the engineer who answers for what it brings up. Drilling for builders, consultancies and some of the bigger firms in Sydney.
           </p>
           <div className="hero-line hero-d3 flex flex-col sm:flex-row items-start gap-4">
             <Link
@@ -284,7 +284,7 @@ export default function DrillingPage() {
             </h2>
             <div data-fx="line" style={d(200)} className="h-px bg-forest-green w-12 mb-7" />
             <p data-fx="rise" style={d(160)} className="text-gray-600 font-light leading-relaxed">
-              Sunrise on a farm track, frost still on the paddock, mast already up. That&rsquo;s what a regional program looks like when the rig travels self-sufficient. The 4WD rig runs the same engineer-led standard hours from the nearest bitumen as it does in the Inner West, so consultancies and builders with work beyond the metro don&rsquo;t have to lower the bar to get holes in the ground.
+              Sunrise on a farm track, frost still on the paddock, mast already up. That&rsquo;s what a regional program looks like when the rig travels self-sufficient. The 4WD rig runs to the same engineer-led standard, hours from the nearest bitumen, as it does in the Inner West, so consultancies and builders with work beyond the metro don&rsquo;t have to lower the bar to get holes in the ground.
             </p>
             <div data-fx="rise" style={d(220)}>
               <QuoteCta source="drilling regional" label="Quote A Regional Program" className="mt-8 text-sm font-semibold tracking-wide text-forest-green group inline-flex items-center gap-2 min-h-[44px] draw-link" />
@@ -314,7 +314,7 @@ export default function DrillingPage() {
         </Reveal>
       </section>
 
-      <QuietFaq intro={<>SFGEO drills boreholes, cores rock and runs tight-access and subcontract programmes for builders, engineering consultancies, environmental consultants and some of the bigger firms in Sydney. One 4WD-mounted rig, based in Marrickville and led by the engineer who answers for what it brings up, mobilises across the Sydney metro and into regional NSW. Programmes are quoted per site, as a fixed fee in writing within one business day.</>} faqs={FAQS} />
+      <QuietFaq intro={<>SFGEO drills boreholes, cores rock and runs tight-access and subcontract programmes for builders, engineering consultancies, environmental consultants and some of the bigger firms in Sydney. One 4WD-mounted rig, based in Marrickville, with the crew led by the engineer who answers for what it brings up, mobilises across the Sydney metro and into regional NSW. Programmes are quoted per site, as a fixed fee in writing within one business day.</>} faqs={FAQS} />
 
       <CloseBand
         source="drilling close"

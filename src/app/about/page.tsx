@@ -95,7 +95,7 @@ export default function About() {
           </h1>
           <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />
           <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed">
-            Geotechnical engineers based in Marrickville: a principal-led team, hired locally, backed by a trusted partner network. Our Principal has spent fifteen years in construction, from labouring to engineering. When you work with SFGEO, you work with the same team, start to finish.
+            Geotechnical engineers based in Marrickville: a principal-led team, hired locally, backed by a trusted partner network. Our Principal has spent 15 years in construction, from labouring to engineering. When you work with SFGEO, you work with the same team, start to finish.
           </p>
           <FollowFieldwork className="hero-line hero-d3 mt-10" />
         </div>
@@ -122,7 +122,7 @@ export default function About() {
           </h2>
           <div data-fx="line" style={d(200)} className="h-px bg-forest-green w-12 mb-7" />
           <p data-fx="rise" style={d(160)} className="text-lg text-gray-600 font-light leading-loose mb-6">
-            SFGEO is a locally-owned, independent geotechnical consultancy based in Marrickville. Its Principal brings 15 years of hands-on construction experience, and its work runs from residential <Link href="/site-classification" className="text-forest-green underline underline-offset-4 decoration-forest-green/40 hover:decoration-forest-green">site classifications</Link> to bespoke architectural homes and landmark infrastructure.
+            SFGEO is a locally-owned, independent geotechnical consultancy based in Marrickville. Our work runs from residential <Link href="/site-classification" className="text-forest-green underline underline-offset-4 decoration-forest-green/40 hover:decoration-forest-green">site classifications</Link> to bespoke architectural homes.
           </p>
           <p data-fx="rise" style={d(220)} className="text-lg text-gray-600 font-light leading-loose mb-6">
             We were founded on a simple belief: clients deserve direct access to the professional doing the work, not a corporate chain. SFGEO is family owned and Sydney grown. The engineer who quotes your job is the one who stands on your ground and signs the report.

@@ -41,11 +41,11 @@ const FAQS = [
   },
   {
     q: "Whose supervision does the rig work under?",
-    a: "Yours or ours. Under your supervision, the rig drills to your borehole schedule and follows your sampling plan to the letter. Under ours, you send the brief and receive finished logs. Either way an engineer leads the crew and an engineer logs the hole, so the field data goes on your letterhead without re-checking. Both arrangements run every week. See the drilling capability.",
+    a: "Yours or ours. Under your supervision, the rig drills to your borehole schedule and follows your sampling plan to the letter. Under ours, you send the brief and receive finished logs. Either way an engineer leads the crew and every log is engineer-checked, so the field data goes on your letterhead without re-checking. Both arrangements run every week. See the drilling capability.",
   },
   {
     q: "What format do the logs and samples arrive in?",
-    a: "Yours. Logs go onto your template, samples follow your sampling plan, and chain of custody is kept from the hole to your laboratory. An engineer writes the log in the field, so what arrives is engineer-grade rather than spoil and a diary. Where the programme needs monitoring wells, they are scoped and managed by SFGEO and installed by a drilling contractor. See environmental sampling.",
+    a: "Yours. Logs go onto your template, samples follow your sampling plan, and chain of custody is kept from the hole to your laboratory. Every log is written in the field and engineer-checked, so what arrives is engineer-grade rather than spoil and a diary. Where the programme needs monitoring wells, they are scoped and managed by SFGEO and installed by a drilling contractor. See environmental sampling.",
   },
 ];
 
@@ -101,7 +101,7 @@ export default function SubcontractDrillingPage() {
           </h1>
           <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />
           <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed mb-10">
-            An engineer-led 4WD rig available under your paperwork, for the consultancies, environmental programs, builders and bigger firms that need holes in the ground without owning the machine that makes them. Rapid mobilisation, engineer logging as standard, and the same crew every time.
+            An engineer-led 4WD rig available under your paperwork, for the consultancies, environmental programs, builders and bigger firms that need holes in the ground without owning the machine that makes them. Rapid mobilisation, engineer-checked logs as standard, and the same crew every time.
           </p>
           <div className="hero-line hero-d3 flex flex-col sm:flex-row items-start gap-4">
             <Link
@@ -117,7 +117,7 @@ export default function SubcontractDrillingPage() {
               Call 0423 483 555
             </Link>
           </div>
-          <p className="hero-line hero-d3 mt-5 text-xs text-gray-400 font-light tracking-wide">Engineer-logged field data &middot; Day rates on request &middot; Fixed fee in writing within one business day</p>
+          <p className="hero-line hero-d3 mt-5 text-xs text-gray-400 font-light tracking-wide">Engineer-checked field data &middot; Day rates on request &middot; Fixed fee in writing within one business day</p>
         </div>
       </section>
 
@@ -200,7 +200,7 @@ export default function SubcontractDrillingPage() {
         </Reveal>
       </section>
 
-      <QuietFaq intro={<>An engineer-led 4WD rig works under your paperwork, for the consultancies, builders and civil contractors that need holes in the ground without owning the machine that makes them. Engineer logging as standard, and the same crew every time. Day rates on request; every programme is a fixed fee in writing within one business day. Rapid mobilisation across Sydney and into regional New South Wales.</>} faqs={FAQS} />
+      <QuietFaq intro={<>An engineer-led 4WD rig works under your paperwork, for the consultancies, builders and civil contractors that need holes in the ground without owning the machine that makes them. Engineer-checked logs as standard, and the same crew every time. Day rates on request; every programme is a fixed fee in writing within one business day. Rapid mobilisation across Sydney and into regional New South Wales.</>} faqs={FAQS} />
 
       <CloseBand
         source="subcontract-drilling close"

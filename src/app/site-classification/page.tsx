@@ -30,7 +30,7 @@ const REPORT_CONTENTS = [
   "Engineer-checked borehole records and a plan of where each hole went",
   "Laboratory results, where tested, and what they mean for the footing",
   "Founding recommendations: depth, and the fill, trees, slope or drainage your engineer has to design around",
-  "Set to your certifier’s requirements and signed by the Principal Engineer",
+  "Written to your certifier’s requirements and signed by the Principal Engineer",
 ];
 
 const CLASSES = [
@@ -54,7 +54,7 @@ const PROCESS = [
   { t: "Send The Address", d: "A short project description and any plans you have. Answered within one business day." },
   { t: "Desktop Review & Fixed Fee", d: "The Principal reviews the block, the geology and your plans, and the fee is confirmed in writing within one business day. A site walkover is arranged where the site warrants it." },
   { t: "Fieldwork", d: "The Principal attends and reads the profile on site, with lab testing through a NATA-accredited laboratory only when the site warrants it." },
-  { t: "Report, Signed", d: "Set against your certifier’s and structural engineer’s requirements. As soon as 2 business days from fieldwork; urgent turnaround by arrangement." },
+  { t: "Report, Signed", d: "Written against your certifier’s and structural engineer’s requirements. As soon as 2 business days from fieldwork; urgent turnaround by arrangement." },
 ];
 
 const NAV = [
@@ -70,7 +70,7 @@ const NAV = [
 const FAQS = [
   {
     q: "What happens on the day of the soil test?",
-    a: "Fieldwork usually takes a few hours. The Principal Engineer leads the fieldwork with the 4WD-mounted rig, or motorised hand augers where access is tight, reads the profile and cross-checks it with penetrometers. Boreholes are sized to the base of excavation plus one to two metres. Samples go to a NATA-accredited laboratory when the site warrants it. You need not be there, provided access is clear and gates are open.",
+    a: "Fieldwork usually takes a few hours. The Principal Engineer leads the work with the 4WD-mounted rig, or motorised hand augers where access is tight, reads the profile and cross-checks it with penetrometers. Boreholes are sized to the base of excavation plus one to two metres. Samples go to a NATA-accredited laboratory when the site warrants it. You need not be there, provided access is clear and gates are open.",
   },
   {
     q: "What does Class M mean for my footings?",
@@ -216,7 +216,7 @@ export default function SiteClassificationPage() {
               {[
                 "Lets your architect design with the ground, not around it, before redesign fees exist",
                 "Gives your structural engineer real data: a properly read Class M instead of an assumed worst-case H1 is tens of thousands in concrete and steel",
-                "Moves cleanly through DA and CDC, set to your certifier’s requirements and specific to your site",
+                "Moves cleanly through DA and CDC, written to your certifier’s requirements and specific to your site",
                 "Protects the finished home from the cracks that show up quietly, years later",
               ].map((s) => (
                 <li key={s} className="flex items-start gap-3 text-[15px] text-gray-600 font-light leading-relaxed">
@@ -398,7 +398,7 @@ export default function SiteClassificationPage() {
           </h2>
           <div data-fx="line" style={d(200)} className="h-px bg-forest-green w-12 mb-7" />
           <p data-fx="rise" style={d(160)} className="text-gray-600 font-light leading-relaxed">
-            A signed PDF set to your certifier&rsquo;s and structural engineer&rsquo;s requirements, the document the footing design is drawn from.
+            A signed PDF written to your certifier&rsquo;s and structural engineer&rsquo;s requirements, the document the footing design is drawn from.
           </p>
         </Reveal>
         <Reveal variant="group">
