@@ -261,7 +261,7 @@ export default function QuickQuoteCard({ source, eyebrow = "Fixed-fee quote", he
               </p>
             )}
             <p className="mt-5 text-[11px] text-white/60 font-light text-center tracking-wide">
-              Principal Engineer on every job &middot; Fixed fee, scoped to your block
+              Principal Engineer across every job &middot; Fixed fee, scoped to your block
             </p>
             {secondaryLink && (
               <div className="mt-5 pt-4 border-t border-white/10 text-center">

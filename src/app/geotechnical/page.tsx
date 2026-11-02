@@ -35,7 +35,7 @@ const SECTIONS = [
     title: "Geotechnical Investigations",
     image: "/sfgeo-gi-rig-golden-coogee.jpg",
     alt: "Drill rig in golden morning light above a Coogee allotment",
-    body: "Boreholes, penetrometers and NATA-backed laboratory data for DAs, complying development, footings, basements and retaining structures. The engineer who drills your ground is the engineer who signs your report.",
+    body: "Boreholes, penetrometers and NATA-backed laboratory data for DAs, complying development, footings, basements and retaining structures. The engineer who stands on your ground is the engineer who signs your report.",
     link: { href: "/geotechnical-investigations", label: "Explore Geotechnical Investigations" },
   },
   {
@@ -144,7 +144,7 @@ export default function GeotechnicalHubPage() {
           <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed">
             From the first hole on an empty block to the last inspection before the pour, one team carries the whole geotechnical scope, and the Principal is across every job.
           </p>
-          <p className="hero-line hero-d3 mt-5 text-xs text-gray-400 font-light tracking-wide">Site classifications from $800 + GST &middot; Fixed fee in writing within one business day &middot; The engineer who drills your site signs the report<RatingFact /></p>
+          <p className="hero-line hero-d3 mt-5 text-xs text-gray-400 font-light tracking-wide">Site classifications from $800 + GST &middot; Fixed fee in writing within one business day &middot; The engineer who stands on your site signs the report<RatingFact /></p>
         </div>
       </section>
 

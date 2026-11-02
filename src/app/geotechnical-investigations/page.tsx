@@ -64,7 +64,7 @@ const FAQS = [
   },
   {
     q: "How deep are the boreholes?",
-    a: "Residential boreholes are sized to the base of the proposed excavation plus one to two metres, so a basement or deep piers call for deeper holes than a slab on grade. Target depths are set from your plans at the desktop review. The 4WD-mounted rig drills where it can reach and motorised hand augers cover the rest; the engineer logs every hole.",
+    a: "Residential boreholes are sized to the base of the proposed excavation plus one to two metres, so a basement or deep piers call for deeper holes than a slab on grade. Target depths are set from your plans at the desktop review. The 4WD-mounted rig drills where it can reach and motorised hand augers cover the rest; the engineer checks every log.",
   },
   {
     q: "How long does a geotechnical investigation take?",
@@ -72,7 +72,7 @@ const FAQS = [
   },
   {
     q: "What is in a geotechnical investigation report?",
-    a: "The report sets out the subsurface profile, layer by layer, with groundwater observations. Each borehole is engineer-logged and plotted on a plan. Penetrometer and laboratory results, where tested, sit behind the allowable bearing pressures and founding recommendations for the footing types on your plans. Lateral parameters cover basements, cut batters and retaining structures. It is written to your certifier’s requirements and signed by the engineer who logged the holes.",
+    a: "The report sets out the subsurface profile, layer by layer, with groundwater observations. Each borehole is logged, engineer-checked and plotted on a plan. Penetrometer and laboratory results, where tested, sit behind the allowable bearing pressures and founding recommendations for the footing types on your plans. Lateral parameters cover basements, cut batters and retaining structures. It is written to your certifier’s requirements and signed by the engineer who led the fieldwork.",
   },
   {
     q: "Do I need a geotechnical investigation for a DA or a CDC?",
@@ -131,7 +131,7 @@ export default function GeotechnicalInvestigationsPage() {
           </h1>
           <div className="hero-line hero-d2 -order-1 sm:order-none w-[96px] h-[3px] bg-forest-green mb-8" />
           <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed sm:mb-10">
-            Boreholes, penetrometers and NATA-backed laboratory data, turned into reports your certifier, council and structural engineer can act on, for DAs, complying development, footings, basements and retaining structures across Sydney. The engineer who drills your ground is the engineer who signs your report.
+            Boreholes, penetrometers and NATA-backed laboratory data, turned into reports your certifier, council and structural engineer can act on, for DAs, complying development, footings, basements and retaining structures across Sydney. The engineer who stands on your ground is the engineer who signs your report.
           </p>
           <div className="hero-line hero-d3 -order-1 sm:order-none mb-8 sm:mb-0 flex flex-col sm:flex-row items-start gap-4">
             <Link
@@ -185,7 +185,7 @@ export default function GeotechnicalInvestigationsPage() {
             </h2>
             <div data-fx="line" style={d(200)} className="h-px bg-forest-green w-12 mb-7" />
             <p data-fx="rise" style={d(160)} className="text-gray-600 font-light leading-relaxed">
-              No drive-by inspections. The Principal Engineer operates the rig, logs the profile as it comes out of the ground, and cross-checks it with in-situ testing on the spot, so by the time the report is written, the ground has already been read twice.
+              No drive-by inspections. The Principal Engineer leads the drilling, reads the profile as it comes out of the ground, and cross-checks it with in-situ testing on the spot, so by the time the report is written, the ground has already been read twice.
             </p>
           </Reveal>
           <div className="grid grid-cols-2 gap-4 sm:gap-6">
@@ -281,7 +281,7 @@ export default function GeotechnicalInvestigationsPage() {
         <GoogleReviews />
       </section>
 
-      <QuietFaq intro={<>An AS 1726 geotechnical investigation provides the ground data for Sydney DAs, CDCs, footings, basements and retaining structures. Boreholes, penetrometers and NATA-accredited laboratory data become a report your certifier, council and structural engineer can act on. Fees are fixed and quoted per site. Reports with laboratory testing typically take 8 to 12 business days from fieldwork, confirmed in the written quote, with interim findings available where the programme needs them. The engineer who drills your ground signs your report.</>} faqs={FAQS} />
+      <QuietFaq intro={<>An AS 1726 geotechnical investigation provides the ground data for Sydney DAs, CDCs, footings, basements and retaining structures. Boreholes, penetrometers and NATA-accredited laboratory data become a report your certifier, council and structural engineer can act on. Fees are fixed and quoted per site. Reports with laboratory testing typically take 8 to 12 business days from fieldwork, confirmed in the written quote, with interim findings available where the programme needs them. The engineer who stands on your ground signs your report.</>} faqs={FAQS} />
 
       <CloseBand
         source="geotechnical-investigations close"

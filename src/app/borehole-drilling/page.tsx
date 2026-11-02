@@ -13,8 +13,8 @@ import RatingFact from "@/components/ui/RatingFact";
 export const revalidate = 86400;
 
 export const metadata: Metadata = pageMeta(
-  "Borehole Drilling Sydney | Engineer-Logged Boreholes | SFGEO",
-  "Borehole drilling in Sydney: solid flight and hollow stem augers, every hole logged by the engineer on site. Fixed fee in writing within one business day.",
+  "Borehole Drilling Sydney | Engineer-Led Boreholes | SFGEO",
+  "Borehole drilling in Sydney: solid flight and hollow stem augers, every hole logged on site, engineer-checked. Fixed fee in writing within one business day.",
   "/borehole-drilling",
 );
 
@@ -22,7 +22,7 @@ const d = (ms: number) => ({ "--d": `${ms}ms` }) as CSSProperties;
 
 const DELIVERS = [
   { t: "The Soil Profile", d: "Every layer logged as it comes off the flights, material, moisture and consistency, by the engineer standing at the hole, not reconstructed later." },
-  { t: "In-Situ Strength", d: "Dynamic Cone Penetrometer testing beside every hole, and Standard Penetration Testing down the hole on consultancy and commercial programs, so the log carries numbers as well as descriptions." },
+  { t: "In-Situ Strength", d: "Dynamic Cone Penetrometer testing beside every hole, and Standard Penetration Testing down the hole to the quoted depth on consultancy and commercial programs, so the log carries numbers as well as descriptions." },
   { t: "Groundwater Observations", d: "Seepage and standing water levels recorded during and after drilling, the observation that changes basement and footing design most often." },
   { t: "Samples For The Lab", d: "Disturbed and undisturbed samples taken at the depths that matter, bagged, labelled and tracked to NATA-accredited laboratories when testing is warranted." },
 ];
@@ -35,7 +35,7 @@ const FAQS = [
   },
   {
     q: "What does the borehole log contain?",
-    a: "Each log describes every layer by material, moisture and consistency, with the Dynamic Cone Penetrometer results beside the hole, groundwater observations during and after drilling, and the depth of every sample. The engineer who drilled the hole writes it in the field, not from photographs the next day. Consultancy and commercial programmes add Standard Penetration Testing results. A plan shows where each hole went.",
+    a: "Each log describes every layer by material, moisture and consistency, with the Dynamic Cone Penetrometer results beside the hole, groundwater observations during and after drilling, and the depth of every sample. The log is written in the field, not from photographs the next day. Consultancy and commercial programmes add Standard Penetration Testing results. A plan shows where each hole went.",
   },
   {
     q: "Is groundwater recorded on the log?",
@@ -47,7 +47,7 @@ const FAQS = [
   },
   {
     q: "What ground does the rig meet across Sydney?",
-    a: "Most Sydney boreholes start in fill or topsoil over residual clay and finish in weathered shale or sandstone: shale-derived clays across the inner west and the Cumberland Plain, Hawkesbury Sandstone through the north and east, and sand over the Botany basin. Solid flight augers advance through cohesive soils and weathered rock, and the engineer logs each layer as it comes off the flights. Hollow stem augers are chosen where the hole would collapse, in loose sand or below the water table, because the stem holds the hole open for sampling and testing. Where the auger refuses on rock and the design needs more, the hole continues as NMLC rock coring.",
+    a: "Most Sydney boreholes start in fill or topsoil over residual clay and finish in weathered shale or sandstone: shale-derived clays across the inner west and the Cumberland Plain, Hawkesbury Sandstone through the north and east, and sand over the Botany basin. Solid flight augers advance through cohesive soils and weathered rock, and each layer is logged as it comes off the flights. Hollow stem augers are chosen where the hole would collapse, in loose sand or below the water table, because the stem holds the hole open for sampling and testing. Where the auger refuses on rock and the design needs more, the hole continues as NMLC rock coring.",
   },
 ];
 
@@ -66,7 +66,7 @@ export default function BoreholeDrillingPage() {
     "@type": "Service",
     "name": "Borehole Drilling",
     "serviceType": "Borehole drilling and in-situ testing",
-    "description": "Borehole drilling across Sydney: solid flight and hollow stem augers, DCP in-situ testing (SPT on commercial programs), engineer-logged profiles and sampling for laboratory testing.",
+    "description": "Borehole drilling across Sydney: solid flight and hollow stem augers, DCP in-situ testing (SPT on commercial programs), engineer-checked profiles and sampling for laboratory testing.",
     "url": "https://sfgeo.com.au/borehole-drilling",
     "provider": { "@id": "https://sfgeo.com.au/#organization" },
     "areaServed": [
@@ -95,7 +95,7 @@ export default function BoreholeDrillingPage() {
       <section className="pt-36 pb-20 px-6 lg:px-12 max-w-7xl mx-auto">
         <div className="max-w-3xl">
           <p className="hero-line text-sm uppercase tracking-[0.2em] text-forest-green mb-6 font-semibold">
-            Borehole Drilling &middot; Engineer Operated &middot; Sydney
+            Borehole Drilling &middot; Engineer-Led &middot; Sydney
           </p>
           <h1 className="text-[min(2.25rem,7.4vw)] sm:text-6xl font-montserrat font-light tracking-tight leading-[1.08] mb-8">
             <span className="hero-mask"><span className="mask-line mask-d1"><span>Borehole Drilling.</span></span></span>{" "}
@@ -103,7 +103,7 @@ export default function BoreholeDrillingPage() {
           </h1>
           <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />
           <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed mb-10">
-            A borehole is only as good as the person reading it. SFGEO&rsquo;s 4WD-mounted rig drills Sydney&rsquo;s clays, sands, shales and residual profiles with the engineer at the hole, logging every layer as it surfaces, testing as it goes, and sampling what the design will need. Metro and regional NSW.
+            A borehole is only as good as the person reading it. SFGEO&rsquo;s 4WD-mounted rig drills Sydney&rsquo;s clays, sands, shales and residual profiles with the engineer at the hole, reading every layer as it surfaces, testing as it goes, and sampling what the design will need. Metro and regional NSW.
           </p>
           <div className="hero-line hero-d3 flex flex-col sm:flex-row items-start gap-4">
             <QuoteCta
@@ -121,7 +121,7 @@ export default function BoreholeDrillingPage() {
               Call 0423 483 555
             </Link>
           </div>
-          <p className="hero-line hero-d3 mt-5 text-xs text-gray-400 font-light tracking-wide">Solid flight and hollow stem augers &middot; Every hole logged by the engineer on site &middot; Fixed fee in writing within one business day &middot; Sydney metro and regional NSW<RatingFact /></p>
+          <p className="hero-line hero-d3 mt-5 text-xs text-gray-400 font-light tracking-wide">Solid flight and hollow stem augers &middot; Every hole logged on site, engineer-checked &middot; Fixed fee in writing within one business day &middot; Sydney metro and regional NSW<RatingFact /></p>
         </div>
       </section>
 
@@ -201,7 +201,7 @@ export default function BoreholeDrillingPage() {
       </section>
 
 
-      <QuietFaq intro={<>Engineer-logged boreholes for site classifications, geotechnical investigations and subcontract programmes for other consultancies, drilled with solid flight and hollow stem augers. The engineer stands at the hole, logging every layer to AS 1726, testing as it goes and sampling what the design will need. Quoted per site, with a fixed fee in writing within one business day. Metro and regional NSW.</>} faqs={FAQS} />
+      <QuietFaq intro={<>Engineer-led boreholes for site classifications, geotechnical investigations and subcontract programmes for other consultancies, drilled with solid flight and hollow stem augers. The engineer stands at the hole, reading every layer to AS 1726, testing as it goes and sampling what the design will need. Quoted per site, with a fixed fee in writing within one business day. Metro and regional NSW.</>} faqs={FAQS} />
 
       <CloseBand
         source="borehole-drilling close"

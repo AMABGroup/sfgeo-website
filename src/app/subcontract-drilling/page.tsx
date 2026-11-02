@@ -8,8 +8,8 @@ import { pageMeta } from "@/lib/seo";
 import QuietFaq from "@/components/sections/QuietFaq";
 
 export const metadata: Metadata = pageMeta(
-  "Subcontract Drilling Sydney | Rig Hire With Engineer | SFGEO",
-  "Subcontract drilling for consultancies and contractors: engineer-operated 4WD rig, Sydney and regional NSW. Fixed fee in writing within one business day.",
+  "Subcontract Drilling Sydney | Rig And Engineer | SFGEO",
+  "Subcontract drilling for consultancies and contractors: engineer-led 4WD rig, Sydney and regional NSW. Fixed fee in writing within one business day.",
   "/subcontract-drilling",
 );
 
@@ -26,7 +26,7 @@ const TERMS = [
   { t: "Your Scope Or Ours", d: "Drill to your borehole schedule under your supervision, or hand us the brief and take back finished logs. Both run every week." },
   { t: "Rates In Writing", d: "Day rates or per-hole pricing confirmed in writing before the rig moves. No surprises on the invoice, ever." },
   { t: "Your Format", d: "Logs, samples and chain-of-custody delivered the way your templates and your lab expect them." },
-  { t: "Insured & Credentialed", d: "PI and PL insurance for consultant engagements, with the supplier paperwork your procurement team needs, handled once." },
+  { t: "Certificates On Request", d: "Professional Indemnity and Public Liability certificates of currency on request, with the supplier paperwork your procurement team needs, handled once." },
 ];
 
 // Rendered visibly below and mirrored into the FAQPage schema: the two must stay in step.
@@ -37,15 +37,15 @@ const FAQS = [
   },
   {
     q: "Is SPT available on consultancy and commercial programmes?",
-    a: "Yes, on consultancy and commercial programmes. SPT is not offered on residential jobs. Where your programme calls for it, SPT and penetrometer testing run alongside the drilling and go on the log in the field. Because an engineer runs the rig, anomalies are flagged on site and the log arrives engineer-grade. See borehole drilling.",
+    a: "Yes, on consultancy and commercial programmes. SPT is not offered on residential jobs. Where your programme calls for it, SPT and penetrometer testing run alongside the drilling to the quoted depth and go on the log in the field. Because an engineer leads the crew, anomalies are flagged on site and the log arrives engineer-grade. See borehole drilling.",
   },
   {
     q: "Whose supervision does the rig work under?",
-    a: "Yours or ours. Under your supervision, the rig drills to your borehole schedule and follows your sampling plan to the letter. Under ours, you send the brief and receive finished logs. Either way the operator is an engineer and the engineer logs the hole, so the field data goes on your letterhead without re-checking. Both arrangements run every week. See the drilling capability.",
+    a: "Yours or ours. Under your supervision, the rig drills to your borehole schedule and follows your sampling plan to the letter. Under ours, you send the brief and receive finished logs. Either way an engineer leads the crew and an engineer logs the hole, so the field data goes on your letterhead without re-checking. Both arrangements run every week. See the drilling capability.",
   },
   {
     q: "What format do the logs and samples arrive in?",
-    a: "Yours. Logs go onto your template, samples follow your sampling plan, and chain of custody is kept from the hole to your laboratory. The engineer who ran the rig writes the log, so what arrives is engineer-grade rather than spoil and a diary. Where the programme needs monitoring wells, they are scoped and managed by SFGEO and installed by a drilling contractor. See environmental sampling.",
+    a: "Yours. Logs go onto your template, samples follow your sampling plan, and chain of custody is kept from the hole to your laboratory. An engineer writes the log in the field, so what arrives is engineer-grade rather than spoil and a diary. Where the programme needs monitoring wells, they are scoped and managed by SFGEO and installed by a drilling contractor. See environmental sampling.",
   },
 ];
 
@@ -64,7 +64,7 @@ export default function SubcontractDrillingPage() {
     "@type": "Service",
     "name": "Subcontract Drilling",
     "serviceType": "Subcontract geotechnical and environmental drilling",
-    "description": "Engineer-operated subcontract drilling for engineering consultancies, environmental consultants, builders and civil contractors across Sydney and regional NSW.",
+    "description": "Engineer-led subcontract drilling for engineering consultancies, environmental consultants, builders and civil contractors across Sydney and regional NSW.",
     "url": "https://sfgeo.com.au/subcontract-drilling",
     "provider": { "@id": "https://sfgeo.com.au/#organization" },
     "areaServed": [
@@ -101,7 +101,7 @@ export default function SubcontractDrillingPage() {
           </h1>
           <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />
           <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed mb-10">
-            An engineer-operated 4WD rig available under your paperwork, for the consultancies, environmental programs, builders and bigger firms that need holes in the ground without owning the machine that makes them. Rapid mobilisation, engineer logging as standard, and the same crew every time.
+            An engineer-led 4WD rig available under your paperwork, for the consultancies, environmental programs, builders and bigger firms that need holes in the ground without owning the machine that makes them. Rapid mobilisation, engineer logging as standard, and the same crew every time.
           </p>
           <div className="hero-line hero-d3 flex flex-col sm:flex-row items-start gap-4">
             <Link
@@ -151,7 +151,7 @@ export default function SubcontractDrillingPage() {
             </h2>
             <div data-fx="line" style={d(200)} className="h-px bg-forest-green w-12 mb-7" />
             <p data-fx="rise" style={d(160)} className="text-gray-600 font-light leading-relaxed">
-              Most drill crews hand you spoil and a diary. This one hands you engineer-grade logs, because the operator is an engineer. The anomaly gets flagged on site, the extra SPT gets taken without a phone call, and the day doesn&rsquo;t end with a hole in your data. That&rsquo;s the difference between hiring a rig and hiring SFGEO.
+              Most drill crews hand you spoil and a diary. This one hands you engineer-grade logs, because an engineer leads the crew. The anomaly gets flagged on site, the extra SPT gets taken without a phone call, and the day doesn&rsquo;t end with a hole in your data. That&rsquo;s the difference between hiring a rig and hiring SFGEO.
             </p>
           </Reveal>
         </div>
@@ -200,7 +200,7 @@ export default function SubcontractDrillingPage() {
         </Reveal>
       </section>
 
-      <QuietFaq intro={<>An engineer-operated 4WD rig works under your paperwork, for the consultancies, builders and civil contractors that need holes in the ground without owning the machine that makes them. Engineer logging as standard, and the same crew every time. Day rates on request; every programme is a fixed fee in writing within one business day. Rapid mobilisation across Sydney and into regional New South Wales.</>} faqs={FAQS} />
+      <QuietFaq intro={<>An engineer-led 4WD rig works under your paperwork, for the consultancies, builders and civil contractors that need holes in the ground without owning the machine that makes them. Engineer logging as standard, and the same crew every time. Day rates on request; every programme is a fixed fee in writing within one business day. Rapid mobilisation across Sydney and into regional New South Wales.</>} faqs={FAQS} />
 
       <CloseBand
         source="subcontract-drilling close"

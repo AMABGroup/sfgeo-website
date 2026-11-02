@@ -30,7 +30,7 @@ const PROOF = [
   { value: "From $800", label: "Site Classifications", note: "+ GST. A fixed fee, in writing, before anyone drills." },
   { value: "2", label: "Business Days, Best Case", note: "Fieldwork to a signed report on a clear block. Your quote states your turnaround." },
   { value: "1", label: "Business Day To A Quote", note: "The Principal reviews your block and plans first." },
-  { value: "15", label: "Years Of Sydney Ground", note: "Sydney Gateway and the M12 down to backyard footings." },
+  { value: "15", label: "Years In Construction", note: "From labouring to engineering, the Principal has worked the job first-hand." },
 ];
 
 const SUBURBS = [
@@ -60,7 +60,7 @@ const JOURNEY = [
   },
   {
     t: "The Report",
-    d: "Written and signed by the engineer who stood on your ground, in the language your certifier and your structural engineer actually need: nothing templated, nothing assumed. On a clear site classification, the signed report can be with you as soon as 2 business days from fieldwork.",
+    d: "Scoped, reviewed and signed by the engineer who stood on your ground, in the language your certifier and your structural engineer actually need: specific to your site, nothing assumed. On a clear site classification, the signed report can be with you as soon as 2 business days from fieldwork.",
   },
   {
     t: "Through The Build",
@@ -248,7 +248,7 @@ export default function Home() {
             </h2>
             <div data-fx="line" style={d(200)} className="w-[96px] h-[3px] bg-forest-green mb-8" />
             <p data-fx="rise" style={d(180)} className="text-lg text-gray-300 font-light leading-relaxed mb-6 max-w-xl">
-              A principal-led team backed by a trusted partner network, carrying fifteen years of Sydney ground, from Sydney Gateway, the M12 and Western Sydney Airport to granny flats, extensions and knockdown rebuilds across the metro. Hired from the Inner West and working for it: the street lighting and signals a suburb walks home under, as much as its terraces and pools.
+              A principal-led team backed by a trusted partner network. The Principal brings fifteen years in construction, from labouring to engineering, with project work on Sydney Gateway, the M12 and Western Sydney Airport. The team now serves granny flats, extensions and knockdown rebuilds across the metro. Hired from the Inner West and working for it: the street lighting and signals a suburb walks home under, as much as its terraces and pools.
             </p>
             <p data-fx="rise" style={d(240)} className="text-[15px] text-white/60 font-light leading-relaxed mb-8 max-w-xl">
               The engineer who quotes your job is the one who stands on your ground and signs the report. Small by design, so nothing is handed down a chain.

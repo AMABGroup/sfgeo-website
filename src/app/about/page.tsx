@@ -17,8 +17,9 @@ export const metadata: Metadata = pageMeta(
 const d = (ms: number) => ({ "--d": `${ms}ms` }) as CSSProperties;
 
 const VALUES = [
+  { t: "From The Ground Up.", d: "The Principal has spent 15 years in construction, from labouring to engineering. That first-hand experience is what sets SFGEO apart: advice from someone who knows how the job actually gets built." },
   { t: "Direct Access. Always.", d: "Call, email, turn up. You reach the team doing the work directly. No admin queues, no message chains." },
-  { t: "Sydney Is Our Backyard.", d: "Locally owned, locally based. We know Sydney’s ground, its councils and its sites. The Principal has worked them for 15 years, from Sydney Gateway to backyard footings." },
+  { t: "Sydney Is Our Backyard.", d: "Locally owned, locally based. We know Sydney’s ground, its councils and its sites, from Sydney Gateway to backyard footings." },
   { t: "On Site. On Time. On Call.", d: "A fixed fee in writing within one business day, classification reports as soon as 2 business days from fieldwork, and the Principal’s mobile answered, not a switchboard." },
 ];
 
@@ -94,7 +95,7 @@ export default function About() {
           </h1>
           <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />
           <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed">
-            Geotechnical engineers based in Marrickville: a principal-led team, hired locally, backed by a trusted partner network, carrying fifteen years of Sydney ground from landmark infrastructure to backyard footings. When you work with SFGEO, you work with the same team, start to finish.
+            Geotechnical engineers based in Marrickville: a principal-led team, hired locally, backed by a trusted partner network. Our Principal has spent fifteen years in construction, from labouring to engineering. When you work with SFGEO, you work with the same team, start to finish.
           </p>
           <FollowFieldwork className="hero-line hero-d3 mt-10" />
         </div>
@@ -121,10 +122,10 @@ export default function About() {
           </h2>
           <div data-fx="line" style={d(200)} className="h-px bg-forest-green w-12 mb-7" />
           <p data-fx="rise" style={d(160)} className="text-lg text-gray-600 font-light leading-loose mb-6">
-            SFGEO is a locally-owned, independent geotechnical consultancy based in Marrickville, built on 15 years of hands-on Sydney experience across residential <Link href="/site-classification" className="text-forest-green underline underline-offset-4 decoration-forest-green/40 hover:decoration-forest-green">site classifications</Link>, bespoke architectural homes, and landmark infrastructure.
+            SFGEO is a locally-owned, independent geotechnical consultancy based in Marrickville. Its Principal brings 15 years of hands-on construction experience, and its work runs from residential <Link href="/site-classification" className="text-forest-green underline underline-offset-4 decoration-forest-green/40 hover:decoration-forest-green">site classifications</Link> to bespoke architectural homes and landmark infrastructure.
           </p>
           <p data-fx="rise" style={d(220)} className="text-lg text-gray-600 font-light leading-loose mb-6">
-            We were founded on a simple belief: clients deserve direct access to the professional doing the work, not a corporate chain. SFGEO is family owned and Sydney grown. The engineer who quotes your job is the one who drills it and signs the report.
+            We were founded on a simple belief: clients deserve direct access to the professional doing the work, not a corporate chain. SFGEO is family owned and Sydney grown. The engineer who quotes your job is the one who stands on your ground and signs the report.
           </p>
           <p data-fx="rise" style={d(280)} className="text-lg text-gray-600 font-light leading-loose">
             Our Principal Engineer has contributed to Sydney Gateway, the M12 Motorway, Western Sydney Airport, and the Canterbury Aquatic Centre. That depth of experience now serves your project with the responsiveness, transparency, and personal care that only an independent practice can offer.
@@ -195,7 +196,7 @@ export default function About() {
           <div data-fx="line" style={d(200)} className="mt-5 h-px bg-forest-green w-12" />
         </Reveal>
         <Reveal variant="group">
-          <div data-stagger className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div data-stagger className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {VALUES.map((v) => (
               <div key={v.t} className="card-lift p-8 bg-white border border-gray-100 rounded-2xl shadow-sm h-full">
                 <h3 className="text-lg font-montserrat font-semibold text-slate-950 mb-3">{v.t}</h3>
@@ -269,9 +270,9 @@ export default function About() {
               <span className="block text-sm font-semibold tracking-wide uppercase">Australian Geomechanics Society</span>
             </div>
             <div className="card-lift p-8 bg-white border border-gray-100 rounded-2xl shadow-sm flex flex-col items-center justify-center text-center h-full">
-              <span className="block text-slate-950 font-montserrat font-semibold text-lg mb-3">Fully Insured &amp; Compliant</span>
+              <span className="block text-slate-950 font-montserrat font-semibold text-lg mb-3">PI &amp; PL Insured</span>
               <p className="text-sm font-light leading-relaxed text-gray-600">
-                Professional Indemnity (PI) and Public Liability (PL) insurance covering geotechnical engineering and drilling. Certificates of currency on request.
+                Professional Indemnity (PI) and Public Liability (PL) insurance covering geotechnical engineering. Certificates of currency on request.
               </p>
             </div>
           </div>
