@@ -165,7 +165,7 @@ export default function QuickQuoteCard({ source, eyebrow = "Fixed-fee quote", he
             </p>
             {plansNotSent && (
               <p className="mt-4 text-sm text-gray-400 font-light leading-relaxed">
-                Your plans did not come through. Please email them to{" "}
+                Your files did not come through. Please email them to{" "}
                 <a href="mailto:info@sfgeo.com.au" className="text-[#8FBF9F] hover:text-white transition-colors">info@sfgeo.com.au</a>.
               </p>
             )}

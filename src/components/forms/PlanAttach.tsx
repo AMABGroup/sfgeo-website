@@ -73,7 +73,7 @@ export default function PlanAttach({ files, onFilesChange, error, onErrorChange,
           aria-describedby={describedBy}
           className={`w-full flex items-center justify-between gap-3 bg-transparent border-0 border-b py-3 px-0 text-left text-base sm:text-sm font-light text-white/60 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-[#8FBF9F] focus-visible:ring-offset-2 focus-visible:ring-offset-[#050A07] rounded-sm transition-colors disabled:opacity-60 ${error ? "border-red-400/70" : "border-white/45 hover:border-white/70"}`}
         >
-          <span>Attach plans (optional)</span>
+          <span>Attach plans or photos (optional)</span>
           <span aria-hidden="true" className="shrink-0 text-[11px] uppercase tracking-[0.2em] font-semibold text-[#8FBF9F]">
             {action}
           </span>
@@ -81,7 +81,7 @@ export default function PlanAttach({ files, onFilesChange, error, onErrorChange,
       ) : (
         <>
           <span id={labelId} className="text-[13px] font-bold tracking-widest text-slate-900 uppercase">
-            Attach plans (optional)
+            Attach plans or photos (optional)
           </span>
           <button
             ref={buttonRef}
@@ -108,7 +108,7 @@ export default function PlanAttach({ files, onFilesChange, error, onErrorChange,
 
       <div aria-live="polite">
         {files.length > 0 && (
-          <ul aria-label="Attached plans" className={dark ? "mt-2" : ""}>
+          <ul aria-label="Attached files" className={dark ? "mt-2" : ""}>
             {files.map((f, i) => (
               <li
                 key={`${f.name}-${f.size}-${f.lastModified}`}

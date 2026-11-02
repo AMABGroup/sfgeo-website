@@ -11,9 +11,9 @@ export const ACK_SUBJECT = "Thanks for your enquiry";
 export type AckPlans = "none" | "attached" | "not_received";
 
 const PLANS_LINE: Record<AckPlans, string> = {
-  none: "If you have plans, just reply to this email with them.",
-  attached: "Your plans came through with it.",
-  not_received: "Your plans did not come through, so please reply to this email with them.",
+  none: "If you have plans or photos, just reply to this email with them.",
+  attached: "Your files came through with it.",
+  not_received: "Your files did not come through, so please reply to this email with them.",
 };
 
 /** The first name if it looks like one, tidied, otherwise null. */

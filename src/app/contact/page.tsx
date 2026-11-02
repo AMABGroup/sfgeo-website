@@ -113,7 +113,7 @@ export default function ContactPage() {
                     <p className="text-base text-slate-950 font-medium mb-2">Homeowners</p>
                     <ul className="text-[15px] text-gray-600 font-light leading-relaxed list-disc pl-4 space-y-1">
                       <li>The site address</li>
-                      <li>Plans, if you have them</li>
+                      <li>Plans or photos, if you have them</li>
                       <li>What you are building</li>
                       <li>Access notes</li>
                     </ul>

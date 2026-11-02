@@ -234,7 +234,7 @@ export default function ContactForm() {
         </p>
         {plansNotSent && (
           <p className="mt-4 text-lg text-gray-600 font-light max-w-md leading-relaxed">
-            Your plans did not come through. Please email them to{" "}
+            Your files did not come through. Please email them to{" "}
             <a href="mailto:info@sfgeo.com.au" className="text-forest-green font-semibold hover:underline whitespace-nowrap">info@sfgeo.com.au</a>.
           </p>
         )}
