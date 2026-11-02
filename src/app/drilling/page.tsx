@@ -9,6 +9,10 @@ import SectionNav from "@/components/ui/SectionNav";
 import CloseBand from "@/components/ui/CloseBand";
 import { pageMeta } from "@/lib/seo";
 import QuietFaq from "@/components/sections/QuietFaq";
+import RatingFact from "@/components/ui/RatingFact";
+
+// Rebuilt daily for the live Google rating and reviews.
+export const revalidate = 86400;
 
 export const metadata: Metadata = pageMeta(
   "Geotechnical & Environmental Drilling Sydney | SFGEO",
@@ -206,7 +210,7 @@ export default function DrillingPage() {
               className="flex items-center justify-center px-8 py-2.5 bg-white text-forest-green rounded-full shadow-[inset_0_0_0_1px_rgba(45,90,58,0.25),0_4px_10px_-4px_rgba(0,0,0,0.05)] hover:bg-forest-green/5 hover:shadow-[inset_0_0_0_1px_rgba(45,90,58,0.4),0_6px_14px_-4px_rgba(0,0,0,0.1)] transition-all hover:-translate-y-0.5 w-full sm:w-auto h-[46px] text-xs font-semibold tracking-wide"
             />
           </div>
-          <p className="hero-line hero-d3 mt-5 text-xs text-gray-400 font-light tracking-wide">Engineer-operated 4WD rig, every hole engineer-logged &middot; Fixed fee in writing within one business day &middot; Sydney metro and regional NSW</p>
+          <p className="hero-line hero-d3 mt-5 text-xs text-gray-400 font-light tracking-wide">Engineer-operated 4WD rig, every hole engineer-logged &middot; Fixed fee in writing within one business day &middot; Sydney metro and regional NSW<RatingFact /></p>
         </div>
       </section>
 

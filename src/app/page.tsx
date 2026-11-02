@@ -15,6 +15,9 @@ import PhotoFrame from "@/components/ui/PhotoFrame";
 import FollowFieldwork from "@/components/ui/FollowFieldwork";
 import { pageMeta } from "@/lib/seo";
 
+// Rebuilt daily for the live Google rating and reviews.
+export const revalidate = 86400;
+
 export const metadata = pageMeta(
   "Geotechnical Engineer Sydney | Solid Foundation Geotechnical",
   "Sydney’s boutique geotechnical consultancy. Principal-led site classifications, investigations, and 4WD drilling with fixed-fee quotes and local expertise.",

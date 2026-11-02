@@ -1,44 +1,14 @@
-"use client";
-
-import { useEffect, useState } from "react";
 import { StarIcon } from "@heroicons/react/24/solid";
-
-interface Summary {
-  rating: number | null;
-  total: number | null;
-}
+import { getPlace } from "@/lib/googleReviews";
 
 /**
- * Stars + "5.0 on Google · 20 reviews" from /api/reviews. Renders nothing
- * until a numeric rating arrives — never a defaulted 5.0.
+ * Stars + "5.0 on Google · 30 reviews", on the server. Renders nothing without
+ * a numeric rating from Google: never a defaulted figure.
  */
-export default function ReviewsSummary() {
-  const [summary, setSummary] = useState<Summary | null>(null);
-
-  useEffect(() => {
-    let cancelled = false;
-    async function load() {
-      try {
-        const response = await fetch("/api/reviews");
-        if (!response.ok) return;
-        const data = await response.json();
-        if (cancelled) return;
-        setSummary({
-          rating: typeof data?.rating === "number" ? data.rating : null,
-          total: typeof data?.user_ratings_total === "number" ? data.user_ratings_total : null,
-        });
-      } catch (error) {
-        console.error("Failed to fetch reviews summary", error);
-      }
-    }
-    load();
-    return () => {
-      cancelled = true;
-    };
-  }, []);
-
-  const overallRating = summary?.rating ?? null;
-  const ratingTotal = summary?.total ?? null;
+export default async function ReviewsSummary() {
+  const place = await getPlace();
+  const overallRating = place?.rating ?? null;
+  const ratingTotal = place?.user_ratings_total ?? null;
 
   if (overallRating === null) return null;
 

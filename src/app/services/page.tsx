@@ -5,6 +5,10 @@ import Reveal from "@/components/ui/Reveal";
 import CloseBand from "@/components/ui/CloseBand";
 import QuietFaq from "@/components/sections/QuietFaq";
 import { pageMeta } from "@/lib/seo";
+import RatingFact from "@/components/ui/RatingFact";
+
+// Rebuilt daily for the live Google rating and reviews.
+export const revalidate = 86400;
 
 export const metadata: Metadata = pageMeta(
   "Geotechnical Services Sydney | Drilling & Testing | SFGEO",
@@ -101,7 +105,7 @@ export default function ServicesIndexPage() {
           <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed">
             Five service lines, one standard, one point of contact, and the Principal across every job. Start with the segment, or just tell us the project and we&rsquo;ll tell you what it needs.
           </p>
-          <p className="hero-line hero-d3 mt-5 text-xs text-gray-400 font-light tracking-wide">Site classifications from $800 + GST &middot; Coring $120 + GST per hole, three-hole minimum &middot; Fixed fee in writing within one business day</p>
+          <p className="hero-line hero-d3 mt-5 text-xs text-gray-400 font-light tracking-wide">Site classifications from $800 + GST &middot; Coring $120 + GST per hole, three-hole minimum &middot; Fixed fee in writing within one business day<RatingFact /></p>
         </div>
       </section>
 

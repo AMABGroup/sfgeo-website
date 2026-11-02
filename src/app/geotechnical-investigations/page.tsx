@@ -9,6 +9,10 @@ import SectionNav from "@/components/ui/SectionNav";
 import CloseBand from "@/components/ui/CloseBand";
 import { pageMeta } from "@/lib/seo";
 import QuietFaq from "@/components/sections/QuietFaq";
+import RatingFact from "@/components/ui/RatingFact";
+
+// Rebuilt daily for the live Google rating and reviews.
+export const revalidate = 86400;
 
 export const metadata: Metadata = pageMeta(
   "Geotechnical Investigations & Reports Sydney | SFGEO",
@@ -116,19 +120,20 @@ export default function GeotechnicalInvestigationsPage() {
 
       {/* Hero */}
       <section className="pt-36 pb-20 px-6 lg:px-12 max-w-7xl mx-auto">
-        <div className="max-w-[52rem]">
-          <p className="hero-line text-sm uppercase tracking-[0.2em] text-forest-green mb-6 font-semibold">
+        {/* On phones the buttons sit above the paragraph, so they show without scrolling. */}
+        <div className="max-w-[52rem] flex flex-col sm:block">
+          <p className="hero-line -order-1 sm:order-none text-sm uppercase tracking-[0.2em] text-forest-green mb-6 font-semibold">
             Geotechnical Investigations &middot; Principal-Led &middot; Sydney
           </p>
-          <h1 className="text-[min(2.25rem,8.2vw)] sm:text-6xl font-montserrat font-light tracking-tight leading-[1.08] mb-8">
+          <h1 className="-order-1 sm:order-none text-[min(2.25rem,8.2vw)] sm:text-6xl font-montserrat font-light tracking-tight leading-[1.08] mb-8">
             <span className="hero-mask"><span className="mask-line mask-d1"><span>Geotechnical Investigations.</span></span></span>{" "}
             <span className="hero-mask"><span className="mask-line mask-d2"><span className="font-semibold h-bold">Engineered Properly.</span></span></span>
           </h1>
-          <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />
-          <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed mb-10">
+          <div className="hero-line hero-d2 -order-1 sm:order-none w-[96px] h-[3px] bg-forest-green mb-8" />
+          <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed sm:mb-10">
             Boreholes, penetrometers and NATA-backed laboratory data, turned into reports your certifier, council and structural engineer can act on, for DAs, complying development, footings, basements and retaining structures across Sydney. The engineer who drills your ground is the engineer who signs your report.
           </p>
-          <div className="hero-line hero-d3 flex flex-col sm:flex-row items-start gap-4">
+          <div className="hero-line hero-d3 -order-1 sm:order-none mb-8 sm:mb-0 flex flex-col sm:flex-row items-start gap-4">
             <Link
               href="tel:+61423483555"
               className="flex items-center justify-center px-8 py-2.5 bg-gradient-to-b from-[#346b43] to-forest-green text-white rounded-full shadow-[0_8px_20px_-6px_rgba(45,90,58,0.4)] hover:shadow-[0_12px_24px_-8px_rgba(45,90,58,0.6)] hover:brightness-105 transition-all hover:-translate-y-0.5 w-full sm:w-auto h-[46px] text-xs font-semibold tracking-wide"
@@ -143,6 +148,7 @@ export default function GeotechnicalInvestigationsPage() {
           </div>
           <p className="hero-line hero-d3 mt-5 text-xs text-gray-400 font-light tracking-wide">Boreholes to AS 1726, quoted per site &middot; Fixed fee in writing within one business day &middot; Reports with laboratory testing typically 8 to 12 business days from fieldwork</p>
           <p className="hero-line hero-d3 mt-1.5 text-xs text-gray-400 font-light tracking-wide">Free site visit &middot; Same-day site visits across Metro Sydney</p>
+          <RatingFact lineClassName="hero-line hero-d3 mt-1.5 text-xs text-gray-400 font-light tracking-wide" />
         </div>
       </section>
 

@@ -1,6 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // Netlify names the deploy context at build time only. /api/contact reads it
+  // so a deploy preview never emails anyone.
+  env: { SFGEO_DEPLOY_CONTEXT: process.env.CONTEXT ?? "" },
   // Ensure private docket assets (engineer signature, etc.) get bundled
   // into the /api/docket serverless function. Without this, Next.js's
   // file tracer doesn't follow runtime fs.readFile() calls and the file

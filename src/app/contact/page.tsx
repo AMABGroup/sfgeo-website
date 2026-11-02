@@ -6,6 +6,9 @@ import type { Metadata } from "next";
 import type { CSSProperties } from "react";
 import { pageMeta } from "@/lib/seo";
 
+// Rebuilt daily for the live Google rating and reviews.
+export const revalidate = 86400;
+
 export const metadata: Metadata = pageMeta(
   "Contact Our Sydney Geotechnical Engineers | SFGEO",
   "Speak directly with a Sydney geotechnical consultant. Fixed-fee quotes for site classifications, investigations, and drilling services across Greater Sydney.",
@@ -15,7 +18,7 @@ export const metadata: Metadata = pageMeta(
 const d = (ms: number) => ({ "--d": `${ms}ms` }) as CSSProperties;
 
 // These two strings are also exported as MAP_SRC (SystemChrome.tsx) and
-// READ_REVIEWS_URL (GoogleReviews.tsx). Both of those are "use client" modules,
+// READ_REVIEWS_URL (GoogleReviewsClient.tsx). Both of those are "use client" modules,
 // and a server component cannot import a plain value across that boundary
 // (every export becomes a client-reference proxy), so they are mirrored here.
 // Keep all three identical.
@@ -110,7 +113,7 @@ export default function ContactPage() {
                     <p className="text-base text-slate-950 font-medium mb-2">Homeowners</p>
                     <ul className="text-[15px] text-gray-600 font-light leading-relaxed list-disc pl-4 space-y-1">
                       <li>The site address</li>
-                      <li>Plans, if you have them</li>
+                      <li>Plans or photos, if you have them</li>
                       <li>What you are building</li>
                       <li>Access notes</li>
                     </ul>
@@ -127,7 +130,7 @@ export default function ContactPage() {
                   </div>
                 </div>
                 <p className="text-sm text-gray-500 font-light mt-4">
-                  Plans too large for the form? Email <a href="mailto:info@sfgeo.com.au" className="text-forest-green font-semibold hover:underline">info@sfgeo.com.au</a>.
+                  Email plans over 20 MB in total to <a href="mailto:info@sfgeo.com.au" className="text-forest-green font-semibold hover:underline">info@sfgeo.com.au</a>.
                 </p>
               </div>
 
