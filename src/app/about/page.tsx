@@ -17,7 +17,7 @@ export const metadata: Metadata = pageMeta(
 const d = (ms: number) => ({ "--d": `${ms}ms` }) as CSSProperties;
 
 const VALUES = [
-  { t: "From The Ground Up.", d: "The Principal has spent 15 years in construction, from labouring to engineering. That first-hand experience is what sets SFGEO apart: advice from someone who knows how the job actually gets built." },
+  { t: "From The Ground Up.", d: "The Principal has spent 15 years in construction: scaffolding, formwork, concreting, labouring, materials testing and structural drafting, then geotechnical engineering. That first-hand experience is what sets SFGEO apart: advice from someone who knows how the job actually gets built." },
   { t: "Direct Access. Always.", d: "Call, email, turn up. You reach the team doing the work directly. No admin queues, no message chains." },
   { t: "Sydney Is Our Backyard.", d: "Locally owned, locally based. We know Sydney’s ground, its councils and its sites, from Sydney Gateway to backyard footings." },
   { t: "On Site. On Time. On Call.", d: "A fixed fee in writing within one business day, classification reports as soon as 2 business days from fieldwork, and the Principal’s mobile answered, not a switchboard." },
