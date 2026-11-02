@@ -12,8 +12,8 @@ const PHONE_LABEL = "AW-18053070765/bl39CNLnkeIcEK3_r6BD";
 const EMAIL_LABEL = "AW-18053070765/HilqCNXnkeIcEK3_r6BD";
 
 // Fires a Google Ads conversion when any tel: or mailto: link is clicked,
-// site-wide. SMS clicks and form submissions report separately via the
-// "Website enquiry" label wired where those live.
+// site-wide. SMS taps go to GA4 as sms_tap from ContactBubble; form submissions
+// report separately via the "Website enquiry" label wired where those live.
 export default function ContactClickTracker() {
   useEffect(() => {
     const onClick = (e: MouseEvent) => {

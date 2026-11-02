@@ -11,8 +11,8 @@ declare global {
 export default function ContactBubble() {
   const handleClick = () => {
     if (typeof window !== "undefined" && window.gtag) {
-      window.gtag("event", "conversion", {
-        send_to: "AW-18053070765/53SQCIy9158cEK3_r6BD",
+      window.gtag("event", "sms_tap", {
+        send_to: "G-VXSTDPETHH",
       });
     }
   };

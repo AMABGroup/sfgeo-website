@@ -10,6 +10,10 @@ import SectionNav from "@/components/ui/SectionNav";
 import CloseBand from "@/components/ui/CloseBand";
 import { pageMeta } from "@/lib/seo";
 import QuietFaq from "@/components/sections/QuietFaq";
+import RatingFact from "@/components/ui/RatingFact";
+
+// Rebuilt daily for the live Google rating and reviews.
+export const revalidate = 86400;
 
 export const metadata: Metadata = pageMeta(
   "Site Classification & Soil Test Sydney | AS 2870 | SFGEO",
@@ -177,7 +181,7 @@ export default function SiteClassificationPage() {
               Call 0423 483 555
             </Link>
           </div>
-          <p className="hero-line hero-d3 mt-5 text-xs text-gray-400 font-light tracking-wide">From $800 + GST &middot; Reports as soon as 2 business days from fieldwork &middot; Response within one business day</p>
+          <p className="hero-line hero-d3 mt-5 text-xs text-gray-400 font-light tracking-wide">From $800 + GST &middot; Reports as soon as 2 business days from fieldwork &middot; Response within one business day<RatingFact /></p>
         </div>
       </section>
 

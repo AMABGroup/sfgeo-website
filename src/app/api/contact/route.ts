@@ -1,7 +1,22 @@
+import { createHash } from "node:crypto";
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { PROJECT_TYPES, START_DATES } from "@/data/projectTypes";
 import { clientIp, rateLimited } from "@/lib/rateLimit";
+import { ACK_FROM, ACK_REPLY_TO, ACK_SUBJECT, acknowledgementText, type AckPlans } from "@/lib/enquiryAck";
+import { getPlanStore } from "@/lib/planStore";
+import {
+  collectPlans,
+  dropAttachments,
+  parsePlanRequest,
+  planEmailBlock,
+  plansComplete,
+  purgeStaleUploads,
+  removeUpload,
+  unsentPlanNames,
+  withTimeout,
+  type PlanResult,
+} from "@/lib/enquiryPlans";
 
 const MAX_BODY_BYTES = 20_000;
 const LIMITS = { name: 120, email: 254, phone: 40, siteAddress: 300, message: 3000 } as const;
@@ -10,6 +25,15 @@ const CLICK_IDS = ["gclid", "gbraid", "wbraid"] as const;
 const UTMS = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"] as const;
 const SOURCE_KEYS = [...CLICK_IDS, ...UTMS, "landing", "referrer"] as const;
 const SOURCE_MAX = 300;
+// Housekeeping after a send is cut off at these, so it never holds up the reply.
+const CLEANUP_MS = 1_500;
+const PURGE_MS = 1_500;
+const ACK_MS = 2_500;
+// Deploy previews and branch deploys share the live Resend key, so they build
+// the emails and hand them back in the reply instead of sending them. A test on
+// a preview can then run the whole route without reaching anyone. Production,
+// and any build that does not name a preview context, sends as normal.
+const DRY_RUN = ["deploy-preview", "branch-deploy"].includes(process.env.SFGEO_DEPLOY_CONTEXT ?? "");
 
 function str(v: unknown, max: number): string | null {
   if (typeof v !== "string") return null;
@@ -56,6 +80,13 @@ function sourceBlock(placement: string, s: LeadSource): string {
     `Landing page: ${s.landing || "(not recorded)"}`,
     `Referrer: ${s.referrer || "(none)"}`,
   ].join("\n");
+}
+
+// Lets a test confirm a deploy is in dry run before posting anything to it.
+// Production answers 405, as it did before this route had a GET.
+export function GET() {
+  if (DRY_RUN) return NextResponse.json({ dryRun: true });
+  return new NextResponse(null, { status: 405, headers: { Allow: "POST" } });
 }
 
 export async function POST(request: Request) {
@@ -117,16 +148,42 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Failed to send email" }, { status: 500 });
     }
     const resend = new Resend(process.env.RESEND_API_KEY);
+    type Email = Parameters<typeof resend.emails.send>[0] & { to: string[] };
+    const dryRun: unknown[] = [];
+    const sendEmail = (email: Email) => {
+      if (!DRY_RUN) return resend.emails.send(email);
+      const { attachments, ...rest } = email;
+      const summary = (attachments ?? []).map((a) => {
+        const bytes = Buffer.from(String(a.content), "base64");
+        return { filename: a.filename, bytes: bytes.length, sha256: createHash("sha256").update(bytes).digest("hex") };
+      });
+      dryRun.push({ ...rest, attachments: summary });
+      return Promise.resolve({ data: { id: "dry-run" }, error: null });
+    };
 
-    const { error } = await resend.emails.send({
-      from: "SFGEO Website <noreply@sfgeo.com.au>",
-      to: ["alli@sfgeo.com.au"],
-      // Only a well-formed address goes in Reply-To, so a malformed one cannot fail the send.
-      ...(validEmail ? { replyTo: email } : {}),
-      subject: oneLine(`${check ? "[CHECK] " : ""}New enquiry from ${name.slice(0, LIMITS.name) || "(no name)"}: ${projectType}`),
-      text: `
+    // Plans (optional): /api/upload has stored them under the upload id. A plan
+    // problem never refuses or loses the lead: it is sent as [CHECK] with the
+    // reason, and whatever reached storage is kept for 7 days.
+    const planRequest = parsePlanRequest(body.uploadId, body.files);
+    const unsent = unsentPlanNames(body.plansNotSent);
+    const store = await getPlanStore();
+    // Runs alongside the send; awaited (with a cap) before replying.
+    const purge = store ? withTimeout(purgeStaleUploads(store, planRequest?.uploadId ?? null), PURGE_MS) : null;
+    const plans: PlanResult | null = planRequest ? await collectPlans(store, planRequest) : null;
+
+    const send = async (attach: boolean) => {
+      const planCheck = plans !== null && !plansComplete(plans);
+      const planText = planEmailBlock(plans, unsent);
+      try {
+        return await sendEmail({
+          from: "SFGEO Website <noreply@sfgeo.com.au>",
+          to: ["alli@sfgeo.com.au"],
+          // Only a well-formed address goes in Reply-To, so a malformed one cannot fail the send.
+          ...(validEmail ? { replyTo: email } : {}),
+          subject: oneLine(`${check || planCheck ? "[CHECK] " : ""}New enquiry from ${name.slice(0, LIMITS.name) || "(no name)"}: ${projectType}`),
+          text: `
 New enquiry received via sfgeo.com.au contact form.
-${check ? `\nFailed checks: ${failed.join(", ")}. Sent so the lead is not lost; check the details before replying.\n` : ""}
+${check ? `\nFailed checks: ${failed.join(", ")}. Sent so the lead is not lost; check the details before replying.\n` : ""}${planCheck ? "\nNot every plan could be attached; see Plans below.\n" : ""}
 Name: ${oneLine(name)}
 Email: ${oneLine(email)}
 Phone: ${oneLine(phone)} (${sanitizedPhone || "no digits"})
@@ -136,21 +193,69 @@ Proposed start date: ${startDate}
 
 Message:
 ${message || "(none provided)"}
-
+${planText ? `\n${planText}\n` : ""}
 ${sourceBlock(placement, leadSource(body.source))}
 
 ---
 Submitted at: ${new Date().toISOString()}
       `,
-    });
+          ...(attach && plans?.attachments.length ? { attachments: plans.attachments } : {}),
+        });
+      } catch (err) {
+        return { data: null, error: { name: "exception", message: err instanceof Error ? err.message : String(err) } };
+      }
+    };
+
+    let { error } = await send(true);
+    if (error && plans?.attachments.length) {
+      // Most likely the attachments themselves: send the lead without them.
+      console.error(`Resend refused the enquiry with plans attached; resending without them [placement: ${placement}]:`, error);
+      dropAttachments(plans, `email service refused the attachments: ${error.name}`);
+      ({ error } = await send(false));
+    }
 
     if (error) {
       console.error(`Resend error [placement: ${placement}]:`, error);
       return NextResponse.json({ error: "Failed to send email" }, { status: 500 });
     }
 
+    // The instant reply to the enquirer, only once the lead has reached Alli and
+    // only to an address that passed every check. It can fail or run late
+    // without touching the lead: the visitor is told the enquiry went either way.
+    const ackPlans: AckPlans = unsent.length || (plans && !plansComplete(plans)) ? "not_received" : plans ? "attached" : "none";
+    const ack =
+      validEmail && email.length <= LIMITS.email
+        ? withTimeout(
+            sendEmail({
+              from: ACK_FROM,
+              to: [email],
+              replyTo: ACK_REPLY_TO,
+              subject: ACK_SUBJECT,
+              text: acknowledgementText(name, ackPlans),
+              headers: { "Auto-Submitted": "auto-replied" },
+            }).then(
+              ({ error: ackError }) => {
+                if (ackError) console.warn(`Acknowledgement not sent: ${ackError.name} [placement: ${placement}]`);
+              },
+              (err) => console.warn(`Acknowledgement not sent: ${err instanceof Error ? err.name : "unknown error"} [placement: ${placement}]`)
+            ),
+            ACK_MS
+          )
+        : null;
+
+    await Promise.all([
+      ack,
+      purge,
+      store && plans?.uploadId && plansComplete(plans) ? withTimeout(removeUpload(store, plans.uploadId), CLEANUP_MS) : null,
+    ]);
+    if (plans && !plansComplete(plans)) console.warn(`Contact sent as [CHECK]: plans not attached [placement: ${placement}]`);
+
     if (check) console.warn(`Contact sent as [CHECK]: ${failed.join(", ")} [placement: ${placement}]`);
-    return NextResponse.json({ success: true }, { status: 200 });
+    // Tells the form whether to ask the visitor to email their plans instead.
+    return NextResponse.json(
+      { success: true, ...(plans ? { plans: plansComplete(plans) ? "attached" : "not_attached" } : {}), ...(DRY_RUN ? { dryRun } : {}) },
+      { status: 200 }
+    );
   } catch (error) {
     console.error(`API error [placement: ${placement}]:`, error);
     return NextResponse.json({ error: "Internal server error" }, { status: 500 });
