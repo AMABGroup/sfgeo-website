@@ -32,7 +32,7 @@ const SEGMENTS = [
     n: "02",
     title: "Drilling",
     href: "/drilling",
-    d: "One 4WD-mounted rig, engineer operated, for borehole drilling across metro and regional New South Wales, with NMLC rock coring through a partner rig. Where the rig cannot get in, motorised hand augers carry through a doorway or down a side passage, and the engineer logs the hole either way. Builders, consultancies and bigger firms book the rig as subcontract capacity.",
+    d: "Borehole drilling and NMLC rock coring across metro and regional New South Wales, built around one 4WD-mounted rig, engineer operated. Where the rig cannot get in, motorised hand augers carry through a doorway or down a side passage, and the engineer logs the hole either way. Builders, consultancies and bigger firms book the rig as subcontract capacity.",
     children: [
       { name: "Borehole Drilling", href: "/borehole-drilling" },
       { name: "Rock Coring", href: "/drilling#rock-coring" },

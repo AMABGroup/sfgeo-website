@@ -10,7 +10,7 @@ import QuietFaq from "@/components/sections/QuietFaq";
 
 export const metadata: Metadata = pageMeta(
   "Borehole Drilling Sydney | Engineer-Logged Boreholes | SFGEO",
-  "Borehole drilling in Sydney on solid flight augers, every hole logged by the engineer on site. Fixed fee in writing within one business day.",
+  "Borehole drilling in Sydney: solid flight and hollow stem augers, every hole logged by the engineer on site. Fixed fee in writing within one business day.",
   "/borehole-drilling",
 );
 
@@ -27,7 +27,7 @@ const DELIVERS = [
 const FAQS = [
   {
     q: "How deep does a borehole go?",
-    a: "Residential boreholes are sized to the base of excavation plus one to two metres. If the depths are already specified, send them with the address. If not, the Principal Engineer reads the plans and the block before quoting and sets them against the structure and the ground beneath it. Where the ground turns to rock and the design needs more, a partner rig takes the hole on as NMLC rock coring.",
+    a: "Residential boreholes are sized to the base of excavation plus one to two metres. If the depths are already specified, send them with the address. If not, the Principal Engineer reads the plans and the block before quoting and sets them against the structure and the ground beneath it. Where the ground turns to rock, the hole continues as NMLC rock coring.",
   },
   {
     q: "What does the borehole log contain?",
@@ -43,7 +43,7 @@ const FAQS = [
   },
   {
     q: "What ground does the rig meet across Sydney?",
-    a: "Most Sydney boreholes start in fill or topsoil over residual clay and finish in weathered shale or sandstone: shale-derived clays across the inner west and the Cumberland Plain, Hawkesbury Sandstone through the north and east, and sand over the Botany basin. Solid flight augers advance through cohesive soils and weathered rock, and the engineer logs each layer as it comes off the flights. Where the hole would collapse, in loose sand or below the water table, a partner rig runs hollow stem augers, because the stem holds the hole open for sampling and testing. Where the auger refuses on rock and the design needs more, a partner rig takes the hole on as NMLC rock coring.",
+    a: "Most Sydney boreholes start in fill or topsoil over residual clay and finish in weathered shale or sandstone: shale-derived clays across the inner west and the Cumberland Plain, Hawkesbury Sandstone through the north and east, and sand over the Botany basin. Solid flight augers advance through cohesive soils and weathered rock, and the engineer logs each layer as it comes off the flights. Hollow stem augers are chosen where the hole would collapse, in loose sand or below the water table, because the stem holds the hole open for sampling and testing. Where the auger refuses on rock and the design needs more, the hole continues as NMLC rock coring.",
   },
 ];
 
@@ -62,7 +62,7 @@ export default function BoreholeDrillingPage() {
     "@type": "Service",
     "name": "Borehole Drilling",
     "serviceType": "Borehole drilling and in-situ testing",
-    "description": "Borehole drilling across Sydney with a 4WD-mounted rig: solid flight augers, hollow stem and rock coring through a partner rig, DCP in-situ testing (SPT on commercial programs), engineer-logged profiles and sampling for laboratory testing.",
+    "description": "Borehole drilling across Sydney: solid flight and hollow stem augers, DCP in-situ testing (SPT on commercial programs), engineer-logged profiles and sampling for laboratory testing.",
     "url": "https://sfgeo.com.au/borehole-drilling",
     "provider": { "@id": "https://sfgeo.com.au/#organization" },
     "areaServed": [
@@ -151,7 +151,7 @@ export default function BoreholeDrillingPage() {
             </h2>
             <div data-fx="line" style={d(200)} className="h-px bg-forest-green w-12 mb-7" />
             <p data-fx="rise" style={d(160)} className="text-gray-600 font-light leading-relaxed">
-              Solid flight augers for Sydney&rsquo;s clays and residual soils; hollow stem through a partner rig when the hole needs support; DCP testing at every hole, and SPT on consultancy and commercial programs, to put numbers behind the descriptions. The material comes up, gets read in the hand, and goes on the log in the field, because the ground doesn&rsquo;t look the same in a photo the next day.
+              Solid flight augers for Sydney&rsquo;s clays and residual soils; hollow stem when the hole needs support; DCP testing at every hole, and SPT on consultancy and commercial programs, to put numbers behind the descriptions. The material comes up, gets read in the hand, and goes on the log in the field, because the ground doesn&rsquo;t look the same in a photo the next day.
             </p>
           </Reveal>
         </div>
@@ -187,7 +187,7 @@ export default function BoreholeDrillingPage() {
           </h2>
           <div data-fx="line" style={d(200)} className="h-px bg-forest-green w-12 mb-7" />
           <p data-fx="rise" style={d(160)} className="text-gray-600 font-light leading-relaxed mb-8">
-            A granny flat doesn&rsquo;t need the borehole a basement does. Investigation depths are scoped to the structure and the ground: through the reactive zone for footings, below founding level for piers, deep enough to see what a basement excavation will meet. Where the ground turns to rock, <Link href="/drilling#rock-coring" className="text-forest-green underline underline-offset-4 decoration-forest-green/40 hover:decoration-forest-green font-medium">NMLC rock coring</Link> takes over on a partner rig; where the rig can&rsquo;t reach, <Link href="/tight-access-drilling" className="text-forest-green underline underline-offset-4 decoration-forest-green/40 hover:decoration-forest-green font-medium">tight access methods</Link> do.
+            A granny flat doesn&rsquo;t need the borehole a basement does. Investigation depths are scoped to the structure and the ground: through the reactive zone for footings, below founding level for piers, deep enough to see what a basement excavation will meet. Where the ground turns to rock, <Link href="/drilling#rock-coring" className="text-forest-green underline underline-offset-4 decoration-forest-green/40 hover:decoration-forest-green font-medium">NMLC rock coring</Link> takes over; where the rig can&rsquo;t reach, <Link href="/tight-access-drilling" className="text-forest-green underline underline-offset-4 decoration-forest-green/40 hover:decoration-forest-green font-medium">tight access methods</Link> do.
           </p>
           <Link data-fx="rise" style={d(220)} href="/drilling" className="text-sm font-semibold tracking-wide text-forest-green group inline-flex items-center gap-2 min-h-[44px]">
             <span className="draw-link">All Drilling Services</span>
@@ -197,7 +197,7 @@ export default function BoreholeDrillingPage() {
       </section>
 
 
-      <QuietFaq intro={<>Engineer-logged boreholes for site classifications, geotechnical investigations and subcontract programmes for other consultancies, drilled by SFGEO&rsquo;s 4WD-mounted rig on solid flight augers, with hollow stem and rock coring through a partner rig. The engineer stands at the hole, logging every layer to AS 1726, testing as it goes and sampling what the design will need. Quoted per site, with a fixed fee in writing within one business day. Metro and regional NSW.</>} faqs={FAQS} />
+      <QuietFaq intro={<>Engineer-logged boreholes for site classifications, geotechnical investigations and subcontract programmes for other consultancies, drilled with solid flight and hollow stem augers. The engineer stands at the hole, logging every layer to AS 1726, testing as it goes and sampling what the design will need. Quoted per site, with a fixed fee in writing within one business day. Metro and regional NSW.</>} faqs={FAQS} />
 
       <CloseBand
         source="borehole-drilling close"
