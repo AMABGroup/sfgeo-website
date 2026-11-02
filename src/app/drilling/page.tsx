@@ -16,7 +16,7 @@ export const revalidate = 86400;
 
 export const metadata: Metadata = pageMeta(
   "Geotechnical & Environmental Drilling Sydney | SFGEO",
-  "Geotechnical and environmental drilling in Sydney and regional NSW from one engineer-operated 4WD rig. Fixed fee in writing within one business day.",
+  "Geotechnical and environmental drilling in Sydney and regional NSW from one engineer-led 4WD rig. Fixed fee in writing within one business day.",
   "/drilling",
 );
 
@@ -32,11 +32,11 @@ const SECTIONS = [
     caption: "01 · Borehole Drilling",
     image: "/sfgeo-crew-mast-reserve.jpg",
     alt: "SFGEO 4WD-mounted drill rig with mast raised on a Sydney reserve",
-    body: "An agile 4WD ute-mounted rig that gets on site fast and drills the ground Sydney is actually made of: Cumberland Plain clays and shales in the west, sands and estuarine profiles near the water, residual soils over sandstone everywhere else. Every borehole is logged by an engineer on site, not decoded from a driller’s notes afterwards.",
+    body: "An agile 4WD ute-mounted rig that gets on site fast and drills the ground Sydney is actually made of: Cumberland Plain clays and shales in the west, sands and estuarine profiles near the water, residual soils over sandstone everywhere else. Every borehole is logged on site and checked by an engineer, not decoded from a driller’s notes afterwards.",
     specs: [
       "Solid flight and hollow stem auger drilling",
-      "Dynamic Cone Penetrometer (DCP) at every hole; SPT on consultancy and commercial programs",
-      "Engineer-logged profiles, scoped to Sydney ground conditions",
+      "Dynamic Cone Penetrometer (DCP) at every hole; SPT on consultancy and commercial programs, to the quoted depth",
+      "Engineer-checked profiles, scoped to Sydney ground conditions",
       "Rapid mobilisation across the Sydney metro and regional NSW",
     ],
     link: { href: "/borehole-drilling", label: "Explore Borehole Drilling" },
@@ -50,7 +50,7 @@ const SECTIONS = [
     caption: "02 · Rock Coring",
     image: "/sfgeo-rock-core-tray-detail-4x3.jpg",
     alt: "Rock core laid out in a core tray at BH1, coring from 3.7 metres, weathered runs over grey shale, labelled run by run",
-    body: "When the design needs more than refusal depth: intact cores from Hawkesbury sandstone and Ashfield shale, recovered, photographed and defect-logged so structural decisions rest on what the rock actually is.",
+    body: "When the design needs more than refusal depth: intact cores from Hawkesbury sandstone and Ashfield shale, drilled on a partner rig under one SFGEO engagement, then recovered, photographed and defect-logged so structural decisions rest on what the rock actually is.",
     specs: [
       "NMLC rock coring with recovery and defect logging",
       "Hawkesbury sandstone, Ashfield shale and interbedded profiles",
@@ -87,9 +87,9 @@ const SECTIONS = [
     caption: "04 · Subcontract Drilling",
     image: "/sfgeo-operator-rig-controls-sydney.jpg",
     alt: "Operator at the controls of the SFGEO drill rig on a Sydney site",
-    body: "The rig and crew are available under your scope: engineering consultancies from boutique practices to some of the bigger firms in Sydney, environmental consultants running PSI and DSI programs, and builders and civil contractors who need holes without the overhead of an in-house crew. Your supervision or ours; engineer operated, always.",
+    body: "The rig and crew are available under your scope: engineering consultancies from boutique practices to some of the bigger firms in Sydney, environmental consultants running PSI and DSI programs, and builders and civil contractors who need holes without the overhead of an in-house crew. Your supervision or ours; engineer-led, always.",
     specs: [
-      "Engineer-operated rig on your program and your paperwork",
+      "Engineer-led rig on your program and your paperwork",
       "Sampling, logs and chain of custody delivered in your format",
       "Environmental sampling for consultant programs, with monitoring wells arranged through a bore driller under our scope",
       "Standing arrangements for repeat capacity",
@@ -126,11 +126,11 @@ const FAQS = [
   },
   {
     q: "Can SFGEO drill for another consultancy?",
-    a: "Yes. Engineering consultancies and environmental consultants book the rig under their own scope and paperwork, with the SFGEO engineer at the controls and on the log. Samples, logs and chain of custody come back in your format for PSI, DSI and geotechnical programmes; repeat capacity can be a standing arrangement. Monitoring wells are installed by a drilling contractor under our scope. See subcontract drilling.",
+    a: "Yes. Engineering consultancies and environmental consultants book the rig under their own scope and paperwork, with the Principal leading the crew and every hole logged on site. Samples, logs and chain of custody come back in your format for PSI, DSI and geotechnical programmes; repeat capacity can be a standing arrangement. Monitoring wells are installed by a drilling contractor under our scope. See subcontract drilling.",
   },
   {
     q: "How far does the rig travel?",
-    a: "Across Greater Sydney and into regional New South Wales. The rig is based in the Inner West. Beyond the metro it travels self-sufficient and the engineer still logs every hole, so a regional programme runs to the same standard as a Sydney one. Book it the same way: the address, the access and the number and depth of holes. Quote a regional programme.",
+    a: "Across Greater Sydney and into regional New South Wales. The rig is based in the Inner West. Beyond the metro it travels self-sufficient and the engineer still checks every log, so a regional programme runs to the same standard as a Sydney one. Book it the same way: the address, the access and the number and depth of holes. Quote a regional programme.",
   },
 ];
 
@@ -148,7 +148,7 @@ export default function DrillingPage() {
     "@type": "Service",
     "name": "Geotechnical Drilling",
     "serviceType": "Geotechnical Drilling & Environmental Sampling",
-    "description": "Borehole drilling, NMLC rock coring, tight-access drilling and subcontract rig capacity across Sydney and regional NSW, engineer operated, with every profile logged on site.",
+    "description": "Borehole drilling, NMLC rock coring, tight-access drilling and subcontract rig capacity across Sydney and regional NSW, engineer-led, with every profile logged on site.",
     "url": "https://sfgeo.com.au/drilling",
     "provider": { "@id": "https://sfgeo.com.au/#organization" },
     "areaServed": [
@@ -187,7 +187,7 @@ export default function DrillingPage() {
       <section className="pt-36 pb-20 px-6 lg:px-12 max-w-7xl mx-auto">
         <div className="max-w-4xl">
           <p className="hero-line text-sm uppercase tracking-[0.2em] text-forest-green mb-6 font-semibold">
-            Drilling &middot; Engineer Operated &middot; 4WD Mobilised
+            Drilling &middot; Engineer-Led &middot; 4WD Mobilised
           </p>
           <h1 className="text-4xl sm:text-6xl font-montserrat font-light tracking-tight leading-[1.08] mb-8">
             <span className="hero-mask"><span className="mask-line mask-d1"><span>Geotechnical &amp; Environmental</span></span></span>{" "}
@@ -195,7 +195,7 @@ export default function DrillingPage() {
           </h1>
           <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />
           <p className="hero-line hero-d2 max-w-3xl text-lg sm:text-xl text-gray-600 font-light leading-relaxed mb-10">
-            Headquartered in Marrickville, mobilised across the Sydney metro and into regional NSW: one 4WD-mounted rig, operated by the engineers who log what it brings up. Drilling for builders, consultancies and some of the bigger firms in Sydney.
+            Headquartered in Marrickville, mobilised across the Sydney metro and into regional NSW: one 4WD-mounted rig, with the crew led by the engineer who answers for what it brings up. Drilling for builders, consultancies and some of the bigger firms in Sydney.
           </p>
           <div className="hero-line hero-d3 flex flex-col sm:flex-row items-start gap-4">
             <Link
@@ -210,7 +210,7 @@ export default function DrillingPage() {
               className="flex items-center justify-center px-8 py-2.5 bg-white text-forest-green rounded-full shadow-[inset_0_0_0_1px_rgba(45,90,58,0.25),0_4px_10px_-4px_rgba(0,0,0,0.05)] hover:bg-forest-green/5 hover:shadow-[inset_0_0_0_1px_rgba(45,90,58,0.4),0_6px_14px_-4px_rgba(0,0,0,0.1)] transition-all hover:-translate-y-0.5 w-full sm:w-auto h-[46px] text-xs font-semibold tracking-wide"
             />
           </div>
-          <p className="hero-line hero-d3 mt-5 text-xs text-gray-400 font-light tracking-wide">Engineer-operated 4WD rig, every hole engineer-logged &middot; Fixed fee in writing within one business day &middot; Sydney metro and regional NSW<RatingFact /></p>
+          <p className="hero-line hero-d3 mt-5 text-xs text-gray-400 font-light tracking-wide">Engineer-led 4WD rig, every log engineer-checked &middot; Fixed fee in writing within one business day &middot; Sydney metro and regional NSW<RatingFact /></p>
         </div>
       </section>
 
@@ -284,7 +284,7 @@ export default function DrillingPage() {
             </h2>
             <div data-fx="line" style={d(200)} className="h-px bg-forest-green w-12 mb-7" />
             <p data-fx="rise" style={d(160)} className="text-gray-600 font-light leading-relaxed">
-              Sunrise on a farm track, frost still on the paddock, mast already up. That&rsquo;s what a regional program looks like when the rig travels self-sufficient. The 4WD rig runs the same engineer-operated standard hours from the nearest bitumen as it does in the Inner West, so consultancies and builders with work beyond the metro don&rsquo;t have to lower the bar to get holes in the ground.
+              Sunrise on a farm track, frost still on the paddock, mast already up. That&rsquo;s what a regional program looks like when the rig travels self-sufficient. The 4WD rig runs to the same engineer-led standard, hours from the nearest bitumen, as it does in the Inner West, so consultancies and builders with work beyond the metro don&rsquo;t have to lower the bar to get holes in the ground.
             </p>
             <div data-fx="rise" style={d(220)}>
               <QuoteCta source="drilling regional" label="Quote A Regional Program" className="mt-8 text-sm font-semibold tracking-wide text-forest-green group inline-flex items-center gap-2 min-h-[44px] draw-link" />
@@ -314,7 +314,7 @@ export default function DrillingPage() {
         </Reveal>
       </section>
 
-      <QuietFaq intro={<>SFGEO drills boreholes, cores rock and runs tight-access and subcontract programmes for builders, engineering consultancies, environmental consultants and some of the bigger firms in Sydney. One 4WD-mounted rig, based in Marrickville and operated by the engineers who log what it brings up, mobilises across the Sydney metro and into regional NSW. Programmes are quoted per site, as a fixed fee in writing within one business day.</>} faqs={FAQS} />
+      <QuietFaq intro={<>SFGEO drills boreholes, cores rock and runs tight-access and subcontract programmes for builders, engineering consultancies, environmental consultants and some of the bigger firms in Sydney. One 4WD-mounted rig, based in Marrickville, with the crew led by the engineer who answers for what it brings up, mobilises across the Sydney metro and into regional NSW. Programmes are quoted per site, as a fixed fee in writing within one business day.</>} faqs={FAQS} />
 
       <CloseBand
         source="drilling close"

@@ -54,7 +54,7 @@ const FAQS = [
   },
   {
     q: "How is a geotechnical investigation priced?",
-    a: "A geotechnical investigation is quoted per site, with a fixed fee in writing within one business day of receiving the site address. Boreholes drive the fee: how many, how deep, and how the rig reaches them, plus NATA-accredited laboratory testing when the site warrants it. Reports with laboratory testing typically land five to seven business days from fieldwork, confirmed in the written quote.",
+    a: "A geotechnical investigation is quoted per site, with a fixed fee in writing within one business day of receiving the site address. Boreholes drive the fee: how many, how deep, and how the rig reaches them, plus NATA-accredited laboratory testing when the site warrants it. Reports with laboratory testing typically land 8 to 12 business days from fieldwork, confirmed in the written quote, with interim findings available where the programme needs them.",
   },
   {
     q: "Why are basements and sloping blocks a custom quote?",

@@ -8,7 +8,12 @@ import { join, extname } from "node:path";
 const ROOTS = ["src"];
 const EXTRA = ["public/llms.txt"];
 const EXT = new Set([".ts", ".tsx", ".js", ".jsx", ".mjs", ".json", ".md", ".mdx", ".txt"]);
-const BANNED = [/\bgenuinely\b/i, /\bhonestly\b/i, /\bstraightforward\b/i, /\b2\s*[–-]\s*3 business days\b/i];
+const BANNED = [/\bgenuinely\b/i, /\bhonestly\b/i, /\bstraightforward\b/i, /\b2\s*[–-]\s*3 business days\b/i, /\bfive to seven business days\b/i, /\bsubcontracted drill crews?\b/i,
+  /\byears of sydney ground\b/i,
+  /\byears on sydney (construction )?sites\b/i,
+  /\bengineer[- ]operated\b/i,
+  /\bnothing templated\b/i,
+  /\bfully insured\b/i];
 
 function walk(dir, out = []) {
   for (const name of readdirSync(dir)) {

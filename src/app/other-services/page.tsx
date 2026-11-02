@@ -81,7 +81,7 @@ const SECTIONS = [
 const FIRST_IMAGE_ID = SECTIONS.find((s) => s.image)?.id;
 
 const ALSO = [
-  { t: "Groundwater Monitoring Wells & Water Bores", d: "Scoped and managed by SFGEO and installed by a drilling contractor. One engagement, with the engineer who logs the ground writing the report." },
+  { t: "Groundwater Monitoring Wells & Water Bores", d: "Scoped and managed by SFGEO and installed by a drilling contractor. One engagement, with the engineer who leads the fieldwork signing the report." },
   {
     t: "Working Platform Assessments",
     d: (
@@ -108,7 +108,7 @@ const FAQS = [
   },
   {
     q: "Does SFGEO do the utility location and dilapidation inspections itself?",
-    a: "No. Utility location, dilapidation records, surveys and structural, civil and hydraulic engineering are carried out by specialist partner firms SFGEO has worked beside on Sydney projects. SFGEO sets the scope, chooses the firm, fits the timing to the geotechnical programme and remains accountable for the package. The geotechnical report itself is SFGEO work, written and signed by the engineer who logged the ground.",
+    a: "No. Utility location, dilapidation records, surveys and structural, civil and hydraulic engineering are carried out by specialist partner firms SFGEO has worked beside on Sydney projects. SFGEO sets the scope, chooses the firm, fits the timing to the geotechnical programme and remains accountable for the package. The geotechnical report itself is SFGEO work, scoped and signed by the engineer who led the fieldwork.",
   },
 ];
 

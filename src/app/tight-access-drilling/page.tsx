@@ -45,7 +45,7 @@ const FAQS = [
   },
   {
     q: "How deep are the boreholes on a tight-access residential site?",
-    a: "Residential boreholes are sized to the base of the excavation plus one to two metres, whether the hole is advanced by the 4WD-mounted rig or a motorised hand auger. The engineer logs each hole on site and cross-checks it with dynamic cone penetrometer testing. Laboratory testing through NATA-accredited laboratories is added when the site warrants it, not by default.",
+    a: "Residential boreholes are sized to the base of the excavation plus one to two metres, whether the hole is advanced by the 4WD-mounted rig or a motorised hand auger. The engineer reads each hole on site and cross-checks it with dynamic cone penetrometer testing. Laboratory testing through NATA-accredited laboratories is added when the site warrants it, not by default.",
   },
   {
     q: "Can you drill under a house, inside a garage or in an undercroft?",
@@ -57,7 +57,7 @@ const FAQS = [
   },
   {
     q: "Does a tight-access site slow the report down?",
-    a: "No, a site classification report is issued as soon as 2 business days from fieldwork, and an investigation with NATA-accredited laboratory testing typically five to seven business days from fieldwork, confirmed in the written quote. The turnaround runs from the day on site, so access shapes the fieldwork rather than the report. Urgent turnaround is by arrangement.",
+    a: "No, a site classification report is issued as soon as 2 business days from fieldwork, and an investigation with NATA-accredited laboratory testing typically 8 to 12 business days from fieldwork, confirmed in the written quote, with interim findings available where the programme needs them. The turnaround runs from the day on site, so access shapes the fieldwork rather than the report. Urgent turnaround is by arrangement.",
   },
 ];
 
@@ -76,7 +76,7 @@ export default function TightAccessDrillingPage() {
     "@type": "Service",
     "name": "Tight Access Drilling",
     "serviceType": "Tight access geotechnical drilling",
-    "description": "Restricted-access geotechnical drilling for Sydney terraces, battleaxe blocks, backyards, basements and zero-clearance sites. Motorised hand augers and 4WD-mounted rig, engineer operated.",
+    "description": "Restricted-access geotechnical drilling for Sydney terraces, battleaxe blocks, backyards, basements and zero-clearance sites. Motorised hand augers and 4WD-mounted rig, principal-led.",
     "url": "https://sfgeo.com.au/tight-access-drilling",
     "provider": { "@id": "https://sfgeo.com.au/#organization" },
     "areaServed": { "@type": "City", "name": "Sydney, New South Wales, Australia" }
@@ -109,7 +109,7 @@ export default function TightAccessDrillingPage() {
           </h1>
           <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />
           <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed mb-8">
-            Terraces, battleaxe blocks, backyards and basements: the Sydney sites where standard rigs stop at the kerb. SFGEO investigates them with motorised hand augers and a 4WD-mounted rig, operated by the engineer who logs the ground and <Link href="/site-classification" className="text-forest-green underline underline-offset-4 decoration-forest-green/40 hover:decoration-forest-green font-medium">signs the report</Link>. Fixed fees, scoped to your block.
+            Terraces, battleaxe blocks, backyards and basements: the Sydney sites where standard rigs stop at the kerb. SFGEO investigates them with motorised hand augers and a 4WD-mounted rig, led by the engineer who reads the ground and <Link href="/site-classification" className="text-forest-green underline underline-offset-4 decoration-forest-green/40 hover:decoration-forest-green font-medium">signs the report</Link>. Fixed fees, scoped to your block.
           </p>
           <div className="hero-line hero-d3 flex flex-col sm:flex-row items-start gap-4">
             <Link
@@ -216,7 +216,7 @@ export default function TightAccessDrillingPage() {
         </Reveal>
       </section>
 
-      <QuietFaq intro={<>Restricted-access geotechnical drilling is for anyone building on a Sydney site where a standard rig stops at the kerb: terraces, battleaxe blocks, backyards, courtyards and basements. SFGEO investigates them with motorised hand augers and a 4WD-mounted rig, operated by the engineer who logs the ground and signs the report. Fixed fees, scoped to your block. Site classification reports follow as soon as 2 business days from fieldwork.</>} faqs={FAQS} />
+      <QuietFaq intro={<>Restricted-access geotechnical drilling is for anyone building on a Sydney site where a standard rig stops at the kerb: terraces, battleaxe blocks, backyards, courtyards and basements. SFGEO investigates them with motorised hand augers and a 4WD-mounted rig, led by the engineer who reads the ground and signs the report. Fixed fees, scoped to your block. Site classification reports follow as soon as 2 business days from fieldwork.</>} faqs={FAQS} />
 
       <CloseBand
         source="tight-access-drilling close"

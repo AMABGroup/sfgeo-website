@@ -35,7 +35,7 @@ const SECTIONS = [
     title: "Geotechnical Investigations",
     image: "/sfgeo-gi-rig-golden-coogee.jpg",
     alt: "Drill rig in golden morning light above a Coogee allotment",
-    body: "Boreholes, penetrometers and NATA-backed laboratory data for DAs, complying development, footings, basements and retaining structures. The engineer who drills your ground is the engineer who signs your report.",
+    body: "Boreholes, penetrometers and NATA-backed laboratory data for DAs, complying development, footings, basements and retaining structures. The engineer who stands on your ground is the engineer who signs your report.",
     link: { href: "/geotechnical-investigations", label: "Explore Geotechnical Investigations" },
   },
   {
@@ -86,7 +86,7 @@ const FAQS = [
   },
   {
     q: "How long does each type of geotechnical report take?",
-    a: "Site classification reports are issued as soon as 2 business days from fieldwork. A geotechnical investigation with NATA-accredited laboratory testing typically takes five to seven business days from fieldwork, confirmed in the written quote. For footing and pier inspections the engineer gives the call at bearing level before leaving site, and the written record follows within days. Urgent turnaround is by arrangement.",
+    a: "Site classification reports are issued as soon as 2 business days from fieldwork. A geotechnical investigation with NATA-accredited laboratory testing typically takes 8 to 12 business days from fieldwork, confirmed in the written quote, with interim findings available where the programme needs them. For footing and pier inspections the engineer gives the call at bearing level before leaving site, and the written record follows within days. Urgent turnaround is by arrangement.",
   },
   {
     q: "Who usually asks for a geotechnical report?",
@@ -144,7 +144,7 @@ export default function GeotechnicalHubPage() {
           <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed">
             From the first hole on an empty block to the last inspection before the pour, one team carries the whole geotechnical scope, and the Principal is across every job.
           </p>
-          <p className="hero-line hero-d3 mt-5 text-xs text-gray-400 font-light tracking-wide">Site classifications from $800 + GST &middot; Fixed fee in writing within one business day &middot; The engineer who drills your site signs the report<RatingFact /></p>
+          <p className="hero-line hero-d3 mt-5 text-xs text-gray-400 font-light tracking-wide">Site classifications from $800 + GST &middot; Fixed fee in writing within one business day &middot; The engineer on your site signs the report<RatingFact /></p>
         </div>
       </section>
 

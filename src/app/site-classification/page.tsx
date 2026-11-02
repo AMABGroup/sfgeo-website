@@ -27,7 +27,7 @@ const REPORT_CONTENTS = [
   "Site classification to AS 2870, with the characteristic surface movement behind it",
   "Allowable bearing pressures for the footing types on your plans",
   "The subsurface profile, layer by layer, with groundwater observations",
-  "Engineer-logged borehole records and a plan of where each hole went",
+  "Engineer-checked borehole records and a plan of where each hole went",
   "Laboratory results, where tested, and what they mean for the footing",
   "Founding recommendations: depth, and the fill, trees, slope or drainage your engineer has to design around",
   "Written to your certifier’s requirements and signed by the Principal Engineer",
@@ -44,7 +44,7 @@ const CLASSES = [
 
 const COMPARE = [
   { volume: "Fieldwork done without the signing engineer present", sfgeo: "Principal Engineer on every site" },
-  { volume: "Templated reports, one size fits all", sfgeo: "Tailored to your certifier, structural engineer and council" },
+  { volume: "Generic reports, one size fits all", sfgeo: "Tailored to your certifier, structural engineer and council" },
   { volume: "Lab testing applied by default, billed regardless", sfgeo: "Lab testing when the site warrants it, not as padding" },
   { volume: "Engineer meets the site via the borehole log", sfgeo: "Principal reviews your block and plans before quoting" },
   { volume: "Separate quotes for drilling, engineering and construction advice", sfgeo: "One professional, one scope" },
@@ -53,7 +53,7 @@ const COMPARE = [
 const PROCESS = [
   { t: "Send The Address", d: "A short project description and any plans you have. Answered within one business day." },
   { t: "Desktop Review & Fixed Fee", d: "The Principal reviews the block, the geology and your plans, and the fee is confirmed in writing within one business day. A site walkover is arranged where the site warrants it." },
-  { t: "Fieldwork", d: "The Principal attends and logs the profile on site, with lab testing through a NATA-accredited laboratory only when the site warrants it." },
+  { t: "Fieldwork", d: "The Principal attends and reads the profile on site, with lab testing through a NATA-accredited laboratory only when the site warrants it." },
   { t: "Report, Signed", d: "Written against your certifier’s and structural engineer’s requirements. As soon as 2 business days from fieldwork; urgent turnaround by arrangement." },
 ];
 
@@ -70,7 +70,7 @@ const NAV = [
 const FAQS = [
   {
     q: "What happens on the day of the soil test?",
-    a: "Fieldwork usually takes a few hours. The Principal Engineer bores the holes with the 4WD-mounted rig, or motorised hand augers where access is tight, logs the profile and cross-checks it with penetrometers. Boreholes are sized to the base of excavation plus one to two metres. Samples go to a NATA-accredited laboratory when the site warrants it. You need not be there, provided access is clear and gates are open.",
+    a: "Fieldwork usually takes a few hours. The Principal Engineer leads the work with the 4WD-mounted rig, or motorised hand augers where access is tight, reads the profile and cross-checks it with penetrometers. Boreholes are sized to the base of excavation plus one to two metres. Samples go to a NATA-accredited laboratory when the site warrants it. You need not be there, provided access is clear and gates are open.",
   },
   {
     q: "What does Class M mean for my footings?",
@@ -86,7 +86,7 @@ const FAQS = [
   },
   {
     q: "What does the site classification report contain?",
-    a: "The report gives the AS 2870 class, the surface movement behind it and allowable bearing pressures for your footings. It sets out the ground profile and groundwater, the borehole logs written on site and a hole plan. Laboratory results appear where tested. It ends with founding depth, plus any fill, trees, slope or drainage to design around. The Principal Engineer writes it to your certifier’s requirements and signs it.",
+    a: "The report gives the AS 2870 class, the surface movement behind it and allowable bearing pressures for your footings. It sets out the ground profile and groundwater, the borehole logs written on site and a hole plan. Laboratory results appear where tested. It ends with founding depth, plus any fill, trees, slope or drainage to design around. The Principal Engineer tailors it to your certifier’s requirements and signs it.",
   },
 ];
 
@@ -166,7 +166,7 @@ export default function SiteClassificationPage() {
           </h1>
           <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />
           <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed mb-10">
-            The AS 2870 report your whole build stands on, led by the Principal Engineer, tailored to your site, your design and your certifier. No templates. No surprises.
+            The AS 2870 report your whole build stands on, led by the Principal Engineer, tailored to your site, your design and your certifier. No drive-by inspections. No surprises.
           </p>
           <div className="hero-line hero-d3 flex flex-col sm:flex-row items-start gap-4">
             <QuoteCta
@@ -216,7 +216,7 @@ export default function SiteClassificationPage() {
               {[
                 "Lets your architect design with the ground, not around it, before redesign fees exist",
                 "Gives your structural engineer real data: a properly read Class M instead of an assumed worst-case H1 is tens of thousands in concrete and steel",
-                "Moves cleanly through DA and CDC, written to your certifier’s requirements, not a template",
+                "Moves cleanly through DA and CDC, written to your certifier’s requirements and specific to your site",
                 "Protects the finished home from the cracks that show up quietly, years later",
               ].map((s) => (
                 <li key={s} className="flex items-start gap-3 text-[15px] text-gray-600 font-light leading-relaxed">
@@ -247,7 +247,7 @@ export default function SiteClassificationPage() {
             </h2>
             <div data-fx="line" style={d(200)} className="h-px bg-forest-green w-12 mb-7" />
             <p data-fx="rise" style={d(160)} className="text-gray-600 font-light leading-relaxed">
-              Most Sydney geotechnical firms run on volume: cheap headline fees, templated reports, conservative defaults, and a signing engineer who never set foot on the property. You pay for that model either way, in concrete you didn&rsquo;t need or a report your certifier rejects. At SFGEO, the person reading your ground has drilled ground like it, built against ground like it, and carries the engineering qualifications on top. One professional, not three.
+              Most Sydney geotechnical firms run on volume: cheap headline fees, generic reports, conservative defaults, and a signing engineer who never set foot on the property. You pay for that model either way, in concrete you didn&rsquo;t need or a report your certifier rejects. At SFGEO, the person reading your ground has drilled ground like it, built against ground like it, and carries the engineering qualifications on top. One professional, not three.
             </p>
           </Reveal>
         </div>

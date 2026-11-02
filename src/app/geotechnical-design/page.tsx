@@ -41,7 +41,7 @@ const FAQS = [
   },
   {
     q: "How is geotechnical design work priced?",
-    a: "The fee is set against the number and depth of boreholes, site access and the laboratory programme. Send the site address and the structural concept. The quote is a fixed fee in writing within one business day. An investigation that includes laboratory testing is typically five to seven business days from fieldwork, confirmed in the written quote. Laboratory testing is applied where the site warrants it, not by default.",
+    a: "The fee is set against the number and depth of boreholes, site access and the laboratory programme. Send the site address and the structural concept. The quote is a fixed fee in writing within one business day. An investigation that includes laboratory testing is typically 8 to 12 business days from fieldwork, confirmed in the written quote, with interim findings available where the programme needs them. Laboratory testing is applied where the site warrants it, not by default.",
   },
 ];
 
@@ -90,7 +90,7 @@ export default function Page() {
             <span className="hero-mask"><span className="mask-line mask-d2"><span className="font-semibold h-bold">The Numbers Under The Design.</span></span></span>
           </h1>
           <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />
-          <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed">Your structure is only as good as the parameters beneath it. SFGEO supplies the site-specific inputs structural and civil engineers design from, investigated, derived and signed by the engineer who read the ground.</p>
+          <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed">Your structure is only as good as the parameters beneath it. SFGEO supplies the site-specific inputs structural and civil engineers design from, investigated, set and signed by the engineer who read the ground.</p>
           <div className="hero-line hero-d3 mt-10 flex flex-col sm:flex-row items-start gap-4">
             <Link
               href="tel:+61423483555"
@@ -107,7 +107,7 @@ export default function Page() {
               className="flex items-center justify-center px-8 py-2.5 bg-white text-forest-green rounded-full shadow-[inset_0_0_0_1px_rgba(45,90,58,0.25),0_4px_10px_-4px_rgba(0,0,0,0.05)] hover:bg-forest-green/5 hover:shadow-[inset_0_0_0_1px_rgba(45,90,58,0.4),0_6px_14px_-4px_rgba(0,0,0,0.1)] transition-all hover:-translate-y-0.5 w-full sm:w-auto h-[46px] text-xs font-semibold tracking-wide"
             />
           </div>
-          <p className="hero-line hero-d3 mt-5 text-xs text-gray-400 font-light tracking-wide">For structural and civil engineers &middot; Fixed fee in writing within one business day &middot; Reports typically five to seven business days from fieldwork</p>
+          <p className="hero-line hero-d3 mt-5 text-xs text-gray-400 font-light tracking-wide">For structural and civil engineers &middot; Fixed fee in writing within one business day &middot; Reports with laboratory testing typically 8 to 12 business days from fieldwork</p>
         </div>
       </section>
 
@@ -160,7 +160,7 @@ export default function Page() {
             {[
               { t: "Parameters, Not Prose", d: "Design values delivered as memos and tables your software takes directly, with the derivation available when reviewers ask." },
               { t: "Alternatives Reviewed", d: "When the contractor proposes a different footing system mid-build, we review it against the ground data fast, so the program holds." },
-              { t: "On Call Through Construction", d: "The engineer who derived the numbers stays reachable when the excavation opens and the ground asks its own questions." },
+              { t: "On Call Through Construction", d: "The engineer who set the numbers stays reachable when the excavation opens and the ground asks its own questions." },
             ].map((c) => (
               <div key={c.t} className="card-lift p-8 bg-white border border-gray-100 rounded-2xl shadow-sm h-full">
                 <h3 className="text-lg font-montserrat font-semibold text-slate-950 mb-3">{c.t}</h3>
@@ -171,7 +171,7 @@ export default function Page() {
         </Reveal>
       </section>
 
-      <QuietFaq intro={<>SFGEO supplies the site-specific inputs structural and civil engineers design from. They cover bearing pressures, pile values, AS 4678 retaining parameters and pavement CBR values. The engineer who read the ground derives and signs each value. Every scope is quoted per site, a fixed fee in writing within one business day. With laboratory testing, reports are typically five to seven business days from fieldwork, confirmed in the written quote.</>} faqs={FAQS} />
+      <QuietFaq intro={<>SFGEO supplies the site-specific inputs structural and civil engineers design from. They cover bearing pressures, pile values, AS 4678 retaining parameters and pavement CBR values. The engineer who read the ground sets and signs each value. Every scope is quoted per site, a fixed fee in writing within one business day. With laboratory testing, reports are typically 8 to 12 business days from fieldwork, confirmed in the written quote, with interim findings available where the programme needs them.</>} faqs={FAQS} />
 
       <CloseBand
         source="geotechnical-design close"

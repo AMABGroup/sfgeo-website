@@ -12,7 +12,7 @@ export const faqs = [
   {
     question: "What makes SFGEO different from other geotechnical firms in Sydney?",
     group: "About SFGEO",
-    answer: "The engineer drills your site. The person who signs your report is the person who extracted the samples, cross-verified the data on site, and sat down to interpret it. No subcontracted drill crews on our investigations, no drive-by inspections.<br/><br/>Every SFGEO report is a comprehensive document, not a template with a few values dropped in. Where practical, we use the drill rig to reach greater depth, and we supplement boreholes with on-the-spot strength tests (penetrometers) so the data is cross-checked on site before it reaches you. The intent is simple: the right data, the first time, so your structural engineer designs accurately, your certifier’s requirements are met, and your builder prices against a design that reflects the ground.<br/><br/>All laboratory work is conducted through a third-party NATA-accredited facility. <a href=\"/contact\">Speak to our team directly</a>."
+    answer: "The Principal has spent 15 years in construction, from labouring to engineering, so your report comes from someone who knows how the job actually gets built. The engineer stands on your ground. The person who signs your report is the person who planned the samples, cross-verified the data on site, and answers for the interpretation. No drive-by inspections.<br/><br/>Every SFGEO report is a comprehensive document, not boilerplate with a few values dropped in. Where practical, we use the drill rig to reach greater depth, and we supplement boreholes with on-the-spot strength tests (penetrometers) so the data is cross-checked on site before it reaches you. The intent is simple: the right data, the first time, so your structural engineer designs accurately, your certifier’s requirements are met, and your builder prices against a design that reflects the ground.<br/><br/>All laboratory work is conducted through a third-party NATA-accredited facility. <a href=\"/contact\">Speak to our team directly</a>."
   },
   {
     question: "What is the difference between a site classification and a full geotechnical report?",
@@ -47,7 +47,7 @@ export const faqs = [
   {
     question: "How long does a soil test and geotechnical report take?",
     group: "Cost & Process",
-    answer: "For a clear <a href=\"/site-classification\">site classification</a>, expect your report as soon as 2 business days from fieldwork. A standard geotechnical investigation that includes NATA-accredited laboratory testing typically lands within five to seven business days, with the turnaround confirmed in the written quote, with the lab schedule being the main variable.<br/><br/>Urgent turnarounds are possible, and we handle them regularly for time-critical DAs, CDCs, and construction programs. We will tell you plainly whether your timeline is workable before you commit.<br/><br/>The only factors that realistically extend a project are the client’s own site readiness and specific lab testing requirements written into the scope. Everything within our control, we move on quickly."
+    answer: "For a clear <a href=\"/site-classification\">site classification</a>, expect your report as soon as 2 business days from fieldwork. A standard geotechnical investigation that includes NATA-accredited laboratory testing typically takes 8 to 12 business days from fieldwork, with interim findings available where the programme needs them. The turnaround is confirmed in the written quote, and the lab schedule is the main variable.<br/><br/>Urgent turnarounds are possible, and we handle them regularly for time-critical DAs, CDCs, and construction programs. We will tell you plainly whether your timeline is workable before you commit.<br/><br/>The only factors that realistically extend a project are the client’s own site readiness and specific lab testing requirements written into the scope. Everything within our control, we move on quickly."
   },
   {
     question: "What is 'Bearing Capacity' and why does my engineer need it?",
@@ -100,9 +100,9 @@ export const faqs = [
     answer: "No. As long as our team has clear, safe access to the property and any locked gates are opened, we can conduct the site investigation independently."
   },
   {
-    question: "Is SFGEO fully insured for residential and commercial work?",
+    question: "Does SFGEO carry Professional Indemnity and Public Liability insurance?",
     group: "About SFGEO",
-    answer: "Yes. We carry comprehensive Professional Indemnity (PI) and Public Liability (PL) insurance covering geotechnical engineering and drilling operations. Certificates of currency can be provided on request for both residential and commercial projects."
+    answer: "Yes. We carry Professional Indemnity (PI) and Public Liability (PL) insurance covering geotechnical engineering. Certificates of currency can be provided on request."
   },
   {
     question: "How do I get a quote for my project?",
@@ -133,7 +133,7 @@ export const homeFaqs = [
   },
   {
     question: "What makes SFGEO different from other geotechnical firms in Sydney?",
-    answer: "The engineer drills your site. The person who signs your report is the person who extracted the samples, cross-verified the data on site, and sat down to interpret it. No subcontracted drill crews on our investigations, no drive-by inspections.<br/><br/>Every SFGEO report is a comprehensive document, not a template with a few values dropped in. Where practical, we use the drill rig to reach greater depth, and we supplement boreholes with on-the-spot strength tests (penetrometers) so the data is cross-checked on site before it reaches you. The intent is simple: the right data, the first time, so your structural engineer designs accurately, your certifier’s requirements are met, and your builder prices against a design that reflects the ground.<br/><br/>All laboratory work is conducted through a third-party NATA-accredited facility. <a href=\"/contact\">Speak to our team directly</a>."
+    answer: "The Principal has spent 15 years in construction, from labouring to engineering, so your report comes from someone who knows how the job actually gets built. The engineer stands on your ground. The person who signs your report is the person who planned the samples, cross-verified the data on site, and answers for the interpretation. No drive-by inspections.<br/><br/>Every SFGEO report is a comprehensive document, not boilerplate with a few values dropped in. Where practical, we use the drill rig to reach greater depth, and we supplement boreholes with on-the-spot strength tests (penetrometers) so the data is cross-checked on site before it reaches you. The intent is simple: the right data, the first time, so your structural engineer designs accurately, your certifier’s requirements are met, and your builder prices against a design that reflects the ground.<br/><br/>All laboratory work is conducted through a third-party NATA-accredited facility. <a href=\"/contact\">Speak to our team directly</a>."
   },
   {
     question: "Do I need a soil test for my project?",
@@ -141,7 +141,7 @@ export const homeFaqs = [
   },
   {
     question: "How long does a soil test and geotechnical report take?",
-    answer: "For a clear AS 2870 site classification, expect your report as soon as 2 business days from fieldwork. A standard geotechnical investigation that includes NATA-accredited laboratory testing typically lands within five to seven business days, with the turnaround confirmed in the written quote, with the lab schedule being the main variable.<br/><br/>Urgent turnarounds are possible, and we handle them regularly for time-critical DAs, CDCs, and construction programs. We will tell you plainly whether your timeline is workable before you commit.<br/><br/>The only factors that realistically extend a project are the client’s own site readiness and specific lab testing requirements written into the scope. Everything within our control, we move on quickly."
+    answer: "For a clear AS 2870 site classification, expect your report as soon as 2 business days from fieldwork. A standard geotechnical investigation that includes NATA-accredited laboratory testing typically takes 8 to 12 business days from fieldwork, with interim findings available where the programme needs them. The turnaround is confirmed in the written quote, and the lab schedule is the main variable.<br/><br/>Urgent turnarounds are possible, and we handle them regularly for time-critical DAs, CDCs, and construction programs. We will tell you plainly whether your timeline is workable before you commit.<br/><br/>The only factors that realistically extend a project are the client’s own site readiness and specific lab testing requirements written into the scope. Everything within our control, we move on quickly."
   },
   {
     question: "Can you work on tight-access, sloping, or restricted sites?",
