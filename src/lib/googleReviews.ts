@@ -160,7 +160,14 @@ async function blobStore(): Promise<PlaceStore | null> {
       await store.setJSON(RECORD_KEY, record);
     },
     async claim(name) {
-      return (await store.setJSON(name, { at: Date.now() }, { onlyIfNew: true })).modified;
+      const id = `${Date.now()}-${Math.random().toString(36).slice(2)}`;
+      if (!(await store.setJSON(name, { at: Date.now(), id }, { onlyIfNew: true })).modified) return false;
+      // A create-only write reports any answer but 412 as written, a 5xx
+      // included, so the claim counts only once the entry reads back as ours.
+      // Otherwise a store that reads but cannot write would let every process
+      // call Places.
+      const back = (await store.get(name, { type: "json" }).catch(() => null)) as { id?: unknown } | null;
+      return back?.id === id;
     },
     async claimedAt(name) {
       const claim = (await store.get(name, { type: "json" }).catch(() => null)) as { at?: unknown } | null;
