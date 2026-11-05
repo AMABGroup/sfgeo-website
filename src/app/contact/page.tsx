@@ -6,8 +6,8 @@ import type { Metadata } from "next";
 import type { CSSProperties } from "react";
 import { pageMeta } from "@/lib/seo";
 
-// Rebuilt daily for the live Google rating and reviews.
-export const revalidate = 86400;
+// Rebuilt hourly from the stored Google rating and reviews (src/lib/googleReviews.ts).
+export const revalidate = 3600;
 
 export const metadata: Metadata = pageMeta(
   "Contact Our Sydney Geotechnical Engineers | SFGEO",

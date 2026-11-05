@@ -15,8 +15,8 @@ import PhotoFrame from "@/components/ui/PhotoFrame";
 import FollowFieldwork from "@/components/ui/FollowFieldwork";
 import { pageMeta } from "@/lib/seo";
 
-// Rebuilt daily for the live Google rating and reviews.
-export const revalidate = 86400;
+// Rebuilt hourly from the stored Google rating and reviews (src/lib/googleReviews.ts).
+export const revalidate = 3600;
 
 export const metadata = pageMeta(
   "Geotechnical Engineer Sydney | Solid Foundation Geotechnical",

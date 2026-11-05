@@ -1,14 +1,18 @@
 import { NextResponse } from 'next/server';
-import { getPlace, hasPlacesKey } from '@/lib/googleReviews';
+import { getCheckedPlace, hasPlacesKey } from '@/lib/googleReviews';
 
-export const revalidate = 86400; // Cache the response for 24 hours to prevent exceeding limits
+// Reads the same stored figure as the pages (src/lib/googleReviews.ts), so a
+// request here never costs more than the one Places call a day they share.
+export const revalidate = 3600;
 
 export async function GET() {
-  const place = await getPlace();
-  if (place) return NextResponse.json(place);
+  const checked = await getCheckedPlace();
+  if (checked) {
+    return NextResponse.json({ ...checked.place, checked_at: new Date(checked.checkedAt).toISOString() });
+  }
 
-  // No key: an empty payload rather than a failure. A failed call stays an
-  // error, which is not cached, so the next request tries again.
+  // No key: an empty payload rather than a failure. No figure from the last
+  // 14 days stays an error, which is not cached.
   if (!hasPlacesKey()) {
     return NextResponse.json({ rating: null, user_ratings_total: 0, reviews: [] });
   }

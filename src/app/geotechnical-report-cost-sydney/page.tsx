@@ -8,8 +8,8 @@ import CloseBand from "@/components/ui/CloseBand";
 import { pageMeta } from "@/lib/seo";
 import RatingFact from "@/components/ui/RatingFact";
 
-// Rebuilt daily for the live Google rating and reviews.
-export const revalidate = 86400;
+// Rebuilt hourly from the stored Google rating and reviews (src/lib/googleReviews.ts).
+export const revalidate = 3600;
 
 export const metadata: Metadata = pageMeta(
   "Geotechnical Report Cost Sydney | From $800 + GST | SFGEO",
