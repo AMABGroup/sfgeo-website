@@ -95,7 +95,7 @@ export default function About() {
           </h1>
           <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />
           <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed">
-            Geotechnical engineers based in Marrickville: a principal-led team, hired locally, backed by a trusted partner network. Our Principal has spent 15 years in construction, from labouring to engineering. When you work with SFGEO, you work with the same team, start to finish.
+            Geotechnical engineers based in Marrickville: a principal-led team, hired locally, backed by a trusted partner network. Our Principal, Alli Atmar, has spent 15 years in construction, from labouring to engineering. When you work with SFGEO, you work with the same team, start to finish.
           </p>
           <FollowFieldwork className="hero-line hero-d3 mt-10" />
         </div>
@@ -128,12 +128,12 @@ export default function About() {
             We were founded on a simple belief: clients deserve direct access to the professional doing the work, not a corporate chain. SFGEO is family owned and Sydney grown. The engineer who quotes your job is the one who stands on your ground and signs the report.
           </p>
           <p data-fx="rise" style={d(280)} className="text-lg text-gray-600 font-light leading-loose">
-            Our Principal Engineer has contributed to Sydney Gateway, the M12 Motorway, Western Sydney Airport, and the Canterbury Aquatic Centre. That depth of experience now serves your project with the responsiveness, transparency, and personal care that only an independent practice can offer.
+            Our Principal Engineer, Alli Atmar BEng&nbsp;(Civil), has contributed to Sydney Gateway, the M12 Motorway, Western Sydney Airport, and the Canterbury Aquatic Centre. That depth of experience now serves your project with the responsiveness, transparency, and personal care that only an independent practice can offer.
           </p>
         </Reveal>
         <PhotoFrame
           src="/sfgeo-crew-night-works-concord.jpg"
-          alt="The Principal and the crew in hard hats and hi-vis beside the ute-mounted drill rig on a Concord street at the end of a night shift"
+          alt="Alli Atmar, SFGEO’s Principal Engineer, and the crew in hard hats and hi-vis beside the ute-mounted drill rig on a Concord street at the end of a night shift"
           caption={<>The Crew &middot; End Of The Shift</>}
           aspect="aspect-[4/3]"
           sizes="(max-width: 1024px) 100vw, 42vw"
@@ -259,13 +259,13 @@ export default function About() {
           <div data-stagger className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             <div className="card-lift p-8 bg-white border border-gray-100 rounded-2xl shadow-sm flex flex-col items-center justify-center text-center h-full">
               <div className="relative h-16 w-full mb-6 max-w-[150px]">
-                <Image src="/ea-logo.png" alt="SFGEO is a member of Engineers Australia" fill className="object-contain" />
+                <Image src="/ea-logo.png" alt="Alli Atmar, SFGEO’s Principal Engineer, is a member of Engineers Australia" fill className="object-contain" />
               </div>
               <span className="block text-sm font-semibold tracking-wide uppercase">Engineers Australia</span>
             </div>
             <div className="card-lift p-8 bg-white border border-gray-100 rounded-2xl shadow-sm flex flex-col items-center justify-center text-center h-full">
               <div className="relative h-16 w-full mb-6 max-w-[150px]">
-                <Image src="/ags-logo.png" alt="SFGEO is a member of the Australian Geomechanics Society" fill className="object-contain" />
+                <Image src="/ags-logo.png" alt="Alli Atmar, SFGEO’s Principal Engineer, is a member of the Australian Geomechanics Society" fill className="object-contain" />
               </div>
               <span className="block text-sm font-semibold tracking-wide uppercase">Australian Geomechanics Society</span>
             </div>
