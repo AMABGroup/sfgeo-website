@@ -3,6 +3,7 @@ import Link from "next/link";
 import type { CSSProperties } from "react";
 import QuoteCta from "@/components/forms/QuoteCta";
 import Reveal from "@/components/ui/Reveal";
+import PhotoFrame from "@/components/ui/PhotoFrame";
 import CloseBand from "@/components/ui/CloseBand";
 import { pageMeta } from "@/lib/seo";
 
@@ -22,8 +23,8 @@ type Job = {
   meta: string;
   paras: { label?: string; text: string }[];
   facts?: string;
-  /** A short card spans the full row on desktop instead of standing as a tall, mostly empty column. */
-  wide?: boolean;
+  /** The job's own site photograph: ground and work only, no house, street or faces; metadata stripped. */
+  photo?: { src: string; alt: string; caption: string };
 };
 
 const JOBS: Job[] = [
@@ -37,6 +38,11 @@ const JOBS: Job[] = [
       { label: "The outcome.", text: "The rock surface was stepped and irregular, so levels could not be carried between test positions. The founding stratum is to be confirmed at each support." },
     ],
     facts: "5 hand-auger boreholes + 4 DCPs · Hand-portable access · Founding to be confirmed at each support",
+    photo: {
+      src: "/sfgeo-hand-auger-garden-neutral-bay.jpg",
+      alt: "SFGEO hand auger borehole in a terraced garden at Neutral Bay, worked from a brick garden path",
+      caption: "Hand Auger · Neutral Bay",
+    },
   },
   {
     service: "Geotechnical Investigation",
@@ -48,12 +54,16 @@ const JOBS: Job[] = [
       { label: "The outcome.", text: "The inferred rock surface fell from west to east across the site, so it was reported as indicative only, with geotechnical inspection of the first piles to confirm the founding." },
     ],
     facts: "2 excavator test pits · Weathered shale and laminite at refusal · Pile inspections recommended",
+    photo: {
+      src: "/sfgeo-pier-holes-cut-platform-hunters-hill.jpg",
+      alt: "Bored pier holes with reinforcement cages on a cut building platform at Hunters Hill, the excavated face beside them",
+      caption: "Cut Platform · Hunters Hill",
+    },
   },
   {
     service: "Footing Inspection",
     title: "Checked Before Concrete",
     meta: "Hornsby · retaining wall footing",
-    wide: true,
     paras: [
       { text: "We inspected a block retaining wall footing against the structural drawings, with penetrometer testing, before concrete." },
     ],
@@ -127,6 +137,19 @@ export default function NorthShorePage() {
         </div>
       </section>
 
+      {/* North Shore ground: feature band */}
+      <section className="pb-20 lg:pb-24 px-6 lg:px-12 max-w-7xl mx-auto">
+        <PhotoFrame
+          src="/sfgeo-sandstone-outcrop-hunters-hill.jpg"
+          alt="Layered sandstone outcrop among eucalypts at Hunters Hill"
+          caption={<>Sandstone Outcrop &middot; Hunters Hill</>}
+          aspect="aspect-[16/10] sm:aspect-[5/2]"
+          sizes="(max-width: 1024px) 100vw, 1216px"
+          position="object-center"
+          className="shadow-[0_20px_50px_-20px_rgba(5,10,7,0.35)]"
+        />
+      </section>
+
       {/* 01 — Recent jobs */}
       <section id="recent-jobs" className="py-20 lg:py-24 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">
         <Reveal variant="group" className="mb-14">
@@ -136,28 +159,51 @@ export default function NorthShorePage() {
           </h2>
           <div data-fx="line" style={d(200)} className="mt-5 h-px bg-forest-green w-12" />
         </Reveal>
-        <Reveal variant="group">
-          <div data-stagger className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            {JOBS.map((job) => (
-              <article key={job.title} className={`card-lift p-8 bg-white border border-gray-100 rounded-2xl shadow-sm h-full flex flex-col${job.wide ? " lg:col-span-2" : ""}`}>
-                <p className="text-xs uppercase tracking-[0.18em] text-forest-green font-semibold mb-3">{job.service}</p>
-                <h3 className="text-lg font-montserrat font-semibold text-slate-950 mb-2">{job.title}</h3>
-                <p className="text-sm italic text-gray-500 font-light mb-5">{job.meta}</p>
-                <div className={`space-y-4 flex-1${job.wide ? " max-w-3xl" : ""}`}>
-                  {job.paras.map((p, i) => (
-                    <p key={i} className="text-gray-600 font-light leading-relaxed text-[15px]">
+        <div className="space-y-16 lg:space-y-24">
+          {JOBS.filter((job) => job.photo).map((job, i) => (
+            <article key={job.title} className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-center">
+              <PhotoFrame
+                src={job.photo!.src}
+                alt={job.photo!.alt}
+                caption={job.photo!.caption}
+                aspect="aspect-[4/3]"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="shadow-[0_20px_50px_-20px_rgba(5,10,7,0.35)]"
+                wrapperClassName={i % 2 ? "lg:order-2" : ""}
+              />
+              <Reveal variant="group">
+                <p data-fx="rise" className="text-xs uppercase tracking-[0.18em] text-forest-green font-semibold mb-3">{job.service}</p>
+                <h3 data-fx="rise" style={d(80)} className="text-2xl sm:text-3xl font-montserrat font-light tracking-tight text-slate-950 mb-2">{job.title}</h3>
+                <p data-fx="rise" style={d(120)} className="text-sm italic text-gray-500 font-light mb-6">{job.meta}</p>
+                <div data-fx="rise" style={d(160)} className="space-y-4">
+                  {job.paras.map((p, k) => (
+                    <p key={k} className="text-gray-600 font-light leading-relaxed text-[15px]">
                       {p.label && <span className="font-semibold text-slate-950">{p.label} </span>}
                       {p.text}
                     </p>
                   ))}
                 </div>
                 {job.facts && (
-                  <p className="mt-6 pt-5 border-t border-gray-100 text-xs text-gray-500 font-light tracking-wide leading-relaxed">{job.facts}</p>
+                  <p data-fx="rise" style={d(220)} className="mt-6 pt-5 border-t border-gray-100 text-xs text-gray-500 font-light tracking-wide leading-relaxed">{job.facts}</p>
                 )}
+              </Reveal>
+            </article>
+          ))}
+          <Reveal variant="group">
+            {JOBS.filter((job) => !job.photo).map((job) => (
+              <article key={job.title} className="card-lift p-8 bg-white border border-gray-100 rounded-2xl shadow-sm">
+                <p className="text-xs uppercase tracking-[0.18em] text-forest-green font-semibold mb-3">{job.service}</p>
+                <h3 className="text-lg font-montserrat font-semibold text-slate-950 mb-2">{job.title}</h3>
+                <p className="text-sm italic text-gray-500 font-light mb-5">{job.meta}</p>
+                <div className="space-y-4 max-w-3xl">
+                  {job.paras.map((p, k) => (
+                    <p key={k} className="text-gray-600 font-light leading-relaxed text-[15px]">{p.text}</p>
+                  ))}
+                </div>
               </article>
             ))}
-          </div>
-        </Reveal>
+          </Reveal>
+        </div>
       </section>
 
       {/* 02 — Services */}
