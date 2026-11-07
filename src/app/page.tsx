@@ -248,7 +248,7 @@ export default function Home() {
             </h2>
             <div data-fx="line" style={d(200)} className="w-[96px] h-[3px] bg-forest-green mb-8" />
             <p data-fx="rise" style={d(180)} className="text-lg text-gray-300 font-light leading-relaxed mb-6 max-w-xl">
-              A principal-led team backed by a trusted partner network. The Principal brings 15 years in construction, from labouring to engineering. Project work runs from Sydney Gateway, the M12 and Western Sydney Airport to granny flats, extensions and knockdown rebuilds across the metro. Hired from the Inner West and working for it: the street lighting and signals a suburb walks home under, as much as its terraces and pools.
+              A principal-led team backed by a trusted partner network. The Principal, Alli Atmar, brings 15 years in construction, from labouring to engineering. Project work runs from Sydney Gateway, the M12 and Western Sydney Airport to granny flats, extensions and knockdown rebuilds across the metro. Hired from the Inner West and working for it: the street lighting and signals a suburb walks home under, as much as its terraces and pools.
             </p>
             <p data-fx="rise" style={d(240)} className="text-[15px] text-white/60 font-light leading-relaxed mb-8 max-w-xl">
               The engineer who quotes your job is the one who stands on your ground and signs the report. Small by design, so nothing is handed down a chain.
@@ -265,7 +265,7 @@ export default function Home() {
           </Reveal>
           <PhotoFrame
             src="/sfgeo-principal-engineer-marrickville.jpg"
-            alt="SFGEO’s Principal Engineer in hard hat and hi-vis beside the site ute on a Sydney job"
+            alt="Alli Atmar, SFGEO’s Principal Engineer, in hard hat and hi-vis beside the site ute on a Sydney job"
             caption={<>The Principal &middot; On Site</>}
             aspect="aspect-[4/5]"
             sizes="(max-width: 1024px) 100vw, 40vw"

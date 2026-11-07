@@ -152,7 +152,7 @@ export default function ContactPage() {
                   <span className="font-medium">Saturday</span><span className="font-light text-gray-500">8am–2pm</span>
                   <span className="font-medium">Sunday</span><span className="font-light text-gray-500">Closed</span>
                 </div>
-                <p className="text-sm text-gray-500 font-light mt-4">The Principal&rsquo;s mobile is the number above, not a switchboard.</p>
+                <p className="text-sm text-gray-500 font-light mt-4">Alli Atmar&rsquo;s mobile is the number above, not a switchboard.</p>
               </div>
 
               <div className={CARD}>
