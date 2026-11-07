@@ -12,7 +12,7 @@ export async function GET() {
   }
 
   // No key: an empty payload rather than a failure. No figure from the last
-  // 14 days stays an error, which is not cached.
+  // day stays an error, which is not cached.
   if (!hasPlacesKey()) {
     return NextResponse.json({ rating: null, user_ratings_total: 0, reviews: [] });
   }

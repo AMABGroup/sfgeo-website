@@ -15,8 +15,9 @@
 //   run of page rebuilds or several builds in a day make one call between them.
 // - A failed call is never stored as the figure: the last good one stays in
 //   use and the next attempt waits an hour.
-// - A figure more than 14 days old is never shown: no number rather than a
-//   stale one.
+// - A figure more than a day old is never shown: no number rather than a
+//   stale one. Google's Places terms restrict caching, and the site kept the
+//   figure for a day before this change (Alli, 7 Nov 2026: 24 hours, not 14 days).
 //
 // Pages that show the figure revalidate hourly, so a page built while no
 // figure was available picks one up within the hour.
@@ -32,7 +33,7 @@ const RECORD_KEY = "place";
 const HOUR = 60 * 60 * 1000;
 const REFRESH_MS = 24 * HOUR; // a good figure is refreshed once a day
 const RETRY_MS = HOUR; // after a failed call, the next one waits this long
-const MAX_AGE_MS = 14 * 24 * HOUR; // never show a figure older than this
+const MAX_AGE_MS = 24 * HOUR; // never show a figure older than this; a failed daily refresh hides it until the hourly retry succeeds
 const PLACES_TIMEOUT_MS = 8000;
 const WAIT_MS = PLACES_TIMEOUT_MS + 4000; // how long a process waits for another's call
 const POLL_MS = 500;
@@ -355,7 +356,7 @@ async function resolveUnshared(key: string): Promise<CheckedPlace | null> {
 
 let memo: { at: number; value: Promise<CheckedPlace | null> } | null = null;
 
-/** The figure and when Google returned it, or null when there is none from the last 14 days. Never throws. */
+/** The figure and when Google returned it, or null when there is none from the last day. Never throws. */
 export function getCheckedPlace(): Promise<CheckedPlace | null> {
   const key = apiKey();
   if (!key) return Promise.resolve(null);
@@ -381,7 +382,7 @@ export function getCheckedPlace(): Promise<CheckedPlace | null> {
   return value;
 }
 
-/** The place as Google last reported it, within the last 14 days, or null. Never throws. */
+/** The place as Google last reported it, within the last day, or null. Never throws. */
 export async function getPlace(): Promise<PlaceDetails | null> {
   return (await getCheckedPlace())?.place ?? null;
 }
