@@ -22,6 +22,8 @@ type Job = {
   meta: string;
   paras: { label?: string; text: string }[];
   facts?: string;
+  /** A short card spans the full row on desktop instead of standing as a tall, mostly empty column. */
+  wide?: boolean;
 };
 
 const JOBS: Job[] = [
@@ -51,6 +53,7 @@ const JOBS: Job[] = [
     service: "Footing Inspection",
     title: "Checked Before Concrete",
     meta: "Hornsby · retaining wall footing",
+    wide: true,
     paras: [
       { text: "We inspected a block retaining wall footing against the structural drawings, with penetrometer testing, before concrete." },
     ],
@@ -134,13 +137,13 @@ export default function NorthShorePage() {
           <div data-fx="line" style={d(200)} className="mt-5 h-px bg-forest-green w-12" />
         </Reveal>
         <Reveal variant="group">
-          <div data-stagger className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div data-stagger className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {JOBS.map((job) => (
-              <article key={job.title} className="card-lift p-8 bg-white border border-gray-100 rounded-2xl shadow-sm h-full flex flex-col">
+              <article key={job.title} className={`card-lift p-8 bg-white border border-gray-100 rounded-2xl shadow-sm h-full flex flex-col${job.wide ? " lg:col-span-2" : ""}`}>
                 <p className="text-xs uppercase tracking-[0.18em] text-forest-green font-semibold mb-3">{job.service}</p>
                 <h3 className="text-lg font-montserrat font-semibold text-slate-950 mb-2">{job.title}</h3>
                 <p className="text-sm italic text-gray-500 font-light mb-5">{job.meta}</p>
-                <div className="space-y-4 flex-1">
+                <div className={`space-y-4 flex-1${job.wide ? " max-w-3xl" : ""}`}>
                   {job.paras.map((p, i) => (
                     <p key={i} className="text-gray-600 font-light leading-relaxed text-[15px]">
                       {p.label && <span className="font-semibold text-slate-950">{p.label} </span>}
