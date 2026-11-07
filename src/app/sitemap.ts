@@ -28,6 +28,7 @@ const ROUTES: Route[] = [
   { path: '/geotechnical-design', lastModified: '2026-09-01', changeFrequency: 'monthly', priority: 0.8 },
   { path: '/geotechnical-report-cost-sydney', lastModified: '2026-09-01', changeFrequency: 'monthly', priority: 0.8 },
   { path: '/projects', lastModified: '2026-09-01', changeFrequency: 'monthly', priority: 0.8 },
+  { path: '/geotechnical-engineer-north-shore', lastModified: '2026-11-07', changeFrequency: 'monthly', priority: 0.7 },
   { path: '/faq', lastModified: '2026-09-01', changeFrequency: 'monthly', priority: 0.7 },
   { path: '/contact', lastModified: '2026-09-01', changeFrequency: 'monthly', priority: 0.7 },
   { path: '/privacy-policy', lastModified: '2026-04-21', changeFrequency: 'yearly', priority: 0.3 },
