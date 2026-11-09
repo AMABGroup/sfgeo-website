@@ -147,6 +147,7 @@ export default function RootLayout({
     "sameAs": [
       "https://www.linkedin.com/company/sfgeo",
       "https://instagram.com/sfgeo.syd",
+      "https://www.facebook.com/sfgeo.syd",
       "https://maps.google.com/?cid=3989342510304756801"
     ],
     "contactPoint": {
