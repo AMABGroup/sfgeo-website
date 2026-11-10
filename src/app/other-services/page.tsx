@@ -226,7 +226,7 @@ export default function OtherServicesPage() {
           </h2>
           <div data-fx="line" style={d(200)} className="h-px bg-forest-green w-12 mb-7" />
           <p data-fx="rise" style={d(160)} className="text-gray-600 font-light leading-relaxed">
-            Every partner in the network is a specialist we&rsquo;ve worked beside on real Sydney projects. SFGEO scopes the work, engages the right firm, coordinates it with the geotechnical program and stays accountable for the whole package. You deal with one team, one invoice trail and one standard, from the first phone call to the last report.
+            Every partner in the network is a specialist we&rsquo;ve worked beside on real Sydney projects. SFGEO scopes the work, engages the right firm, coordinates it with the geotechnical programme and stays accountable for the whole package. You deal with one team, one invoice trail and one standard, from the first phone call to the last report.
           </p>
         </Reveal>
       </section>

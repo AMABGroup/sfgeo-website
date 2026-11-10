@@ -19,7 +19,8 @@ const archivo = Archivo({
   weight: "variable",
   variable: "--font-archivo",
   display: "swap",
-  preload: true,
+  // Menu-only face (the menu is closed on load), so it no longer competes with the hero for bandwidth.
+  preload: false,
 });
 
 // GA4 web stream "sfgeo.com.au" (stream 15752487903), created 10 Sep 2026. The
@@ -40,7 +41,7 @@ export const metadata: Metadata = {
     ? { verification: { ...(GSC_TOKEN ? { google: GSC_TOKEN } : {}), ...(BING_TOKEN ? { other: { "msvalidate.01": BING_TOKEN } } : {}) } }
     : {}),
   title: "Geotechnical Engineer Sydney | Solid Foundation Geotechnical",
-  description: "Sydney's boutique geotechnical consultancy. Principal-led site classifications, investigations, and 4WD drilling with fixed-fee quotes and local expertise.",
+  description: "Principal-led geotechnical engineers in Marrickville, Sydney, for investigations and 4WD drilling. AS 2870 site classifications from $800 + GST.",
   robots: {
     index: true,
     follow: true,
@@ -54,7 +55,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Geotechnical Engineer Sydney | Solid Foundation Geotechnical",
-    description: "Sydney's boutique geotechnical consultancy. Principal-led site classifications, investigations, and 4WD drilling with fixed-fee quotes and local expertise.",
+    description: "Principal-led geotechnical engineers in Marrickville, Sydney, for investigations and 4WD drilling. AS 2870 site classifications from $800 + GST.",
     siteName: "SFGEO",
     locale: "en_AU",
     type: "website",
@@ -70,7 +71,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Geotechnical Engineer Sydney | Solid Foundation Geotechnical",
-    description: "Sydney's boutique geotechnical consultancy. Principal-led site classifications, investigations, and 4WD drilling with fixed-fee quotes and local expertise.",
+    description: "Principal-led geotechnical engineers in Marrickville, Sydney, for investigations and 4WD drilling. AS 2870 site classifications from $800 + GST.",
     images: ['/og/sfgeo-og-card.jpg'],
   },
 };
@@ -161,9 +162,16 @@ export default function RootLayout({
     "taxID": "54 686 815 252",
     "founder": {
       "@type": "Person",
+      "@id": "https://sfgeo.com.au/about#alli-atmar",
       "name": "Alli Atmar",
+      "honorificSuffix": "BEng (Civil)",
       "jobTitle": "Principal Engineer",
-      "worksFor": { "@id": "https://sfgeo.com.au/#organization" }
+      "url": "https://sfgeo.com.au/about",
+      "worksFor": { "@id": "https://sfgeo.com.au/#organization" },
+      "memberOf": [
+        { "@type": "Organization", "name": "Engineers Australia" },
+        { "@type": "Organization", "name": "Australian Geomechanics Society" }
+      ]
     }
   };
 

@@ -6,6 +6,7 @@ export default function CallBubble() {
   return (
     <a
       href="tel:+61423483555"
+      data-cta="call bubble"
       className="fixed bottom-6 left-6 z-50 bg-forest-green text-white p-4 rounded-full shadow-lg hover:bg-forest-green/90 hover:scale-105 hover:shadow-xl transition duration-300 flex items-center justify-center group lg:hidden"
       aria-label="Call SFGEO on 0423 483 555"
     >

@@ -11,6 +11,13 @@ import { pageMeta } from "@/lib/seo";
 import QuietFaq from "@/components/sections/QuietFaq";
 import RatingFact from "@/components/ui/RatingFact";
 
+// The quote pop-up's copy for this page: its own promise, never another service's turnaround.
+const PAGE_QUOTE = {
+  "eyebrow": "Drilling programme",
+  "heading": "Request A Drilling Quote",
+  "subheading": "Send the site, the hole count and the depth. A fixed fee in writing within one business day."
+};
+
 // Rebuilt hourly from the stored Google rating and reviews (src/lib/googleReviews.ts).
 export const revalidate = 3600;
 
@@ -35,7 +42,7 @@ const SECTIONS = [
     body: "An agile 4WD ute-mounted rig that gets on site fast and drills the ground Sydney is actually made of: Cumberland Plain clays and shales in the west, sands and estuarine profiles near the water, residual soils over sandstone everywhere else. Every borehole is logged on site and checked by an engineer, not decoded from a driller’s notes afterwards.",
     specs: [
       "Solid flight and hollow stem auger drilling",
-      "Dynamic Cone Penetrometer (DCP) at every hole; SPT on consultancy and commercial programs, to the quoted depth",
+      "Dynamic Cone Penetrometer (DCP) at every hole; SPT on consultancy and commercial programmes, to the quoted depth",
       "Engineer-checked profiles, scoped to Sydney ground conditions",
       "Rapid mobilisation across the Sydney metro and regional NSW",
     ],
@@ -87,11 +94,11 @@ const SECTIONS = [
     caption: "04 · Subcontract Drilling",
     image: "/sfgeo-operator-rig-controls-sydney.jpg",
     alt: "Operator at the controls of the SFGEO drill rig on a Sydney site",
-    body: "The rig and crew are available under your scope: engineering consultancies from boutique practices to some of the bigger firms in Sydney, environmental consultants running PSI and DSI programs, and builders and civil contractors who need holes without the overhead of an in-house crew. Your supervision or ours; engineer-led, always.",
+    body: "The rig and crew are available under your scope: engineering consultancies from boutique practices to some of the bigger firms in Sydney, environmental consultants running PSI and DSI programmes, and builders and civil contractors who need holes without the overhead of an in-house crew. Your supervision or ours; engineer-led, always.",
     specs: [
-      "Engineer-led rig on your program and your paperwork",
+      "Engineer-led rig on your programme and your paperwork",
       "Sampling, logs and chain of custody delivered in your format",
-      "Environmental sampling for consultant programs, with monitoring wells arranged through a bore driller under our scope",
+      "Environmental sampling for consultant programmes, with monitoring wells arranged through a bore driller under our scope",
       "Standing arrangements for repeat capacity",
     ],
     link: { href: "/subcontract-drilling", label: "Explore Subcontract Drilling" },
@@ -99,10 +106,10 @@ const SECTIONS = [
 ];
 
 const AUDIENCES = [
-  { t: "Builders", d: "Boreholes for the site classification or investigation, booked around your program, and answers when the excavation finds something the report didn’t." },
+  { t: "Builders", d: "Boreholes for the site classification or investigation, booked around your programme, and answers when the excavation finds something the report didn’t." },
   { t: "Engineering Consultancies", d: "Subcontract rig capacity with engineer-grade logging: field data you can put your letterhead on without re-checking it." },
-  { t: "Environmental Consultants", d: "Drilling and sampling for PSI and DSI programs: clean execution, chain of custody kept, monitoring wells through a bore driller under our scope." },
-  { t: "Bigger Firms & Majors", d: "Reliable capacity for programs that can’t wait on a booked-out fleet: night works, staged access and standing arrangements included." },
+  { t: "Environmental Consultants", d: "Drilling and sampling for PSI and DSI programmes: clean execution, chain of custody kept, monitoring wells through a bore driller under our scope." },
+  { t: "Bigger Firms & Majors", d: "Reliable capacity for programmes that can’t wait on a booked-out fleet: night works, staged access and standing arrangements included." },
 ];
 
 const NAV = [
@@ -119,6 +126,7 @@ const FAQS = [
   {
     q: "What ground does SFGEO drill?",
     a: "The soils and rock under Sydney: Cumberland Plain clays and shales in the west, sands and estuarine profiles near the water, residual soils over sandstone across the rest. Residential boreholes are sized to the base of excavation plus one to two metres. When refusal depth is not enough for the design, NMLC coring recovers intact Hawkesbury sandstone and Ashfield shale, photographed and defect-logged. See borehole drilling.",
+    link: { text: "borehole drilling", href: "/borehole-drilling" },
   },
   {
     q: "How is a drilling programme priced?",
@@ -127,10 +135,15 @@ const FAQS = [
   {
     q: "Can SFGEO drill for another consultancy?",
     a: "Yes. Engineering consultancies and environmental consultants book the rig under their own scope and paperwork, with the Principal leading the crew and every hole logged on site. Samples, logs and chain of custody come back in your format for PSI, DSI and geotechnical programmes; repeat capacity can be a standing arrangement. Monitoring wells are installed by a drilling contractor under our scope. See subcontract drilling.",
+    link: { text: "subcontract drilling", href: "/subcontract-drilling" },
   },
   {
     q: "How far does the rig travel?",
     a: "Across Greater Sydney and into regional New South Wales. The rig is based in the Inner West. Beyond the metro it travels self-sufficient and the engineer still checks every log, so a regional programme runs to the same standard as a Sydney one. Book it the same way: the address, the access and the number and depth of holes. Quote a regional programme.",
+  },
+  {
+    q: "Can you supply insurance certificates before the visit?",
+    a: "Yes. SFGEO carries Professional Indemnity and Public Liability insurance, and certificates of currency are provided on request. Ask for them when you send the site, the hole count and the depth, and the fixed fee follows in writing within one business day.",
   },
 ];
 
@@ -200,11 +213,12 @@ export default function DrillingPage() {
           <div className="hero-line hero-d3 flex flex-col sm:flex-row items-start gap-4">
             <Link
               href="tel:+61423483555"
+              data-cta="drilling hero call"
               className="flex items-center justify-center px-8 py-2.5 bg-gradient-to-b from-[#346b43] to-forest-green text-white rounded-full shadow-[0_8px_20px_-6px_rgba(45,90,58,0.4)] hover:shadow-[0_12px_24px_-8px_rgba(45,90,58,0.6)] hover:brightness-105 transition hover:-translate-y-0.5 w-full sm:w-auto h-[46px] text-xs font-semibold tracking-wide"
             >
               Call 0423 483 555
             </Link>
-            <QuoteCta
+            <QuoteCta {...PAGE_QUOTE}
               source="drilling hero"
               label="Request Drilling"
               className="flex items-center justify-center px-8 py-2.5 bg-white text-forest-green rounded-full shadow-[inset_0_0_0_1px_rgba(45,90,58,0.25),0_4px_10px_-4px_rgba(0,0,0,0.05)] hover:bg-forest-green/5 hover:shadow-[inset_0_0_0_1px_rgba(45,90,58,0.4),0_6px_14px_-4px_rgba(0,0,0,0.1)] transition hover:-translate-y-0.5 w-full sm:w-auto h-[46px] text-xs font-semibold tracking-wide"
@@ -284,10 +298,10 @@ export default function DrillingPage() {
             </h2>
             <div data-fx="line" style={d(200)} className="h-px bg-forest-green w-12 mb-7" />
             <p data-fx="rise" style={d(160)} className="text-gray-600 font-light leading-relaxed">
-              Sunrise on a farm track, frost still on the paddock, mast already up. That&rsquo;s what a regional program looks like when the rig travels self-sufficient. The 4WD rig runs to the same engineer-led standard, hours from the nearest bitumen, as it does in the Inner West, so consultancies and builders with work beyond the metro don&rsquo;t have to lower the bar to get holes in the ground.
+              Sunrise on a farm track, frost still on the paddock, mast already up. That&rsquo;s what a regional programme looks like when the rig travels self-sufficient. The 4WD rig runs to the same engineer-led standard, hours from the nearest bitumen, as it does in the Inner West, so consultancies and builders with work beyond the metro don&rsquo;t have to lower the bar to get holes in the ground.
             </p>
             <div data-fx="rise" style={d(220)}>
-              <QuoteCta source="drilling regional" label="Quote A Regional Program" className="mt-8 text-sm font-semibold tracking-wide text-forest-green group inline-flex items-center gap-2 min-h-[44px] draw-link" />
+              <QuoteCta {...PAGE_QUOTE} source="drilling regional" label="Quote A Regional Programme" className="mt-8 text-sm font-semibold tracking-wide text-forest-green group inline-flex items-center gap-2 min-h-[44px] draw-link" />
             </div>
           </Reveal>
         </div>
@@ -317,9 +331,10 @@ export default function DrillingPage() {
       <QuietFaq intro={<>SFGEO drills boreholes, cores rock and runs tight-access and subcontract programmes for builders, engineering consultancies, environmental consultants and some of the bigger firms in Sydney. One 4WD-mounted rig, based in Marrickville, with the crew led by the engineer who answers for what it brings up, mobilises across the Sydney metro and into regional NSW. Programmes are quoted per site, as a fixed fee in writing within one business day.</>} faqs={FAQS} />
 
       <CloseBand
+        quote={PAGE_QUOTE}
         source="drilling close"
         heading={<>One Call. <span className="font-semibold h-bold">Rig On Site.</span></>}
-        sub={<>Tell us the site, the access and the program. You&rsquo;ll have a quote within one business day, and a rig that turns up when it said it would.</>}
+        sub={<>Tell us the site, the access and the programme. You&rsquo;ll have a quote within one business day, and a rig that turns up when it said it would.</>}
       />
     </div>
   );

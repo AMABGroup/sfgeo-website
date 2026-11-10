@@ -45,6 +45,7 @@ export default function ContactForm() {
   const busy = useRef(false);
 
   const successHeadingRef = useRef<HTMLHeadingElement>(null);
+  const errorRef = useRef<HTMLDivElement>(null);
 
   // Read the query once on the client. useSearchParams would force this static
   // route to bail out to client rendering, shipping no form in the HTML at all.
@@ -63,6 +64,10 @@ export default function ContactForm() {
   useEffect(() => {
     if (status === "success") {
       successHeadingRef.current?.focus();
+    } else if (status === "error") {
+      // The alert sits above the fields; on a phone the visitor is down at Submit and would never see it.
+      errorRef.current?.scrollIntoView({ block: "center", behavior: "smooth" });
+      errorRef.current?.focus({ preventScroll: true });
     }
   }, [status]);
 
@@ -262,7 +267,7 @@ export default function ContactForm() {
         </div>
 
         {status === "error" && (
-          <div role="alert" className="bg-red-50 border border-red-100 text-red-600 px-6 py-4 rounded-xl text-sm font-medium">
+          <div ref={errorRef} tabIndex={-1} role="alert" className="bg-red-50 border border-red-100 text-red-600 px-6 py-4 rounded-xl text-sm font-medium outline-none">
             Something went wrong on our end. Please try again, or call us directly on{" "}
             <a href="tel:+61423483555" className="font-semibold underline whitespace-nowrap">0423 483 555</a>.
           </div>

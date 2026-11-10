@@ -9,6 +9,14 @@ import { pageMeta } from "@/lib/seo";
 import QuietFaq from "@/components/sections/QuietFaq";
 import RatingFact from "@/components/ui/RatingFact";
 
+// The quote pop-up's copy for this page: its own promise, never another service's turnaround.
+const PAGE_QUOTE = {
+  "eyebrow": "Footing and pier inspection",
+  "heading": "Book An Inspection",
+  "subheading": "Send the address and the inspection stage. A fixed fee in writing within one business day.",
+  "projectType": "Footing, pier or pile inspection"
+};
+
 // Rebuilt hourly from the stored Google rating and reviews (src/lib/googleReviews.ts).
 export const revalidate = 3600;
 
@@ -75,7 +83,13 @@ export default function Page() {
     "description": "Footing, pier and pile inspections, proof rolls and engineered fill to AS 3798 across Sydney, verified on site and confirmed in writing before the pour.",
     "url": "https://sfgeo.com.au/construction-phase-support",
     "provider": { "@id": "https://sfgeo.com.au/#organization" },
-    "areaServed": { "@type": "City", "name": "Sydney, New South Wales, Australia" }
+    "areaServed": { "@type": "City", "name": "Sydney, New South Wales, Australia" },
+    "offers": {
+      "@type": "Offer",
+      "name": "Footing, pier or pile inspection",
+      "description": "From $600 + GST per inspection. Fixed fee in writing within one business day.",
+      "priceSpecification": { "@type": "PriceSpecification", "minPrice": "600", "priceCurrency": "AUD", "valueAddedTaxIncluded": false, "description": "from $600 + GST per inspection" }
+    }
   };
 
   const faqSchema = {
@@ -106,11 +120,12 @@ export default function Page() {
           <div className="hero-line hero-d3 flex flex-col sm:flex-row items-start gap-4">
             <Link
               href="tel:+61423483555"
+              data-cta="construction-phase-support hero call"
               className="flex items-center justify-center px-8 py-2.5 bg-gradient-to-b from-[#346b43] to-forest-green text-white rounded-full shadow-[0_8px_20px_-6px_rgba(45,90,58,0.4)] hover:shadow-[0_12px_24px_-8px_rgba(45,90,58,0.6)] hover:brightness-105 transition hover:-translate-y-0.5 w-full sm:w-auto h-[46px] text-xs font-semibold tracking-wide"
             >
               Call 0423 483 555
             </Link>
-            <QuoteCta
+            <QuoteCta {...PAGE_QUOTE}
               source="construction-phase-support hero"
               label="Book An Inspection"
               className="flex items-center justify-center px-8 py-2.5 bg-white text-forest-green rounded-full shadow-[inset_0_0_0_1px_rgba(45,90,58,0.25),0_4px_10px_-4px_rgba(0,0,0,0.05)] hover:bg-forest-green/5 hover:shadow-[inset_0_0_0_1px_rgba(45,90,58,0.4),0_6px_14px_-4px_rgba(0,0,0,0.1)] transition hover:-translate-y-0.5 w-full sm:w-auto h-[46px] text-xs font-semibold tracking-wide"
@@ -201,6 +216,7 @@ export default function Page() {
       <QuietFaq intro={<>Construction phase support is the engineer on site for builders and contractors: footing, pier and pile inspections, proof rolls and engineered fill to AS 3798. An open excavation costs money every hour it waits, so SFGEO confirms the ground against the design on site and gives the call before anyone leaves. Single visits are priced from $600 + GST, fixed in writing within one business day, and the record follows within days.</>} faqs={FAQS} />
 
       <CloseBand
+        quote={PAGE_QUOTE}
         source="construction-phase-support close"
         heading={<>Open Excavation? <span className="font-semibold h-bold">Call Now.</span></>}
         sub="Send the drawings and the date the excavation opens. The engineer is on site at bearing level, and the call is made before anyone leaves."

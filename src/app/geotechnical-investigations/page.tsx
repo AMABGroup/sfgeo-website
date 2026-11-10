@@ -11,6 +11,12 @@ import { pageMeta } from "@/lib/seo";
 import QuietFaq from "@/components/sections/QuietFaq";
 import RatingFact from "@/components/ui/RatingFact";
 
+// The quote pop-up's copy for this page: its own promise, never another service's turnaround.
+const PAGE_QUOTE = {
+  "eyebrow": "Geotechnical investigation",
+  "subheading": "Send the address and the plans. Free site visit. A fixed fee in writing within one business day."
+};
+
 // Rebuilt hourly from the stored Google rating and reviews (src/lib/googleReviews.ts).
 export const revalidate = 3600;
 
@@ -41,9 +47,9 @@ const SCOPES = [
   },
 ];
 
-const REGIONS = [
+const REGIONS: { title: string; desc: string; href?: string }[] = [
   { title: "Inner West", desc: "Ashfield Shale country: residual clays over weathered shale, often moderately to highly reactive. Investigations here focus on clay depth and shale weathering, because the difference decides the footing system. Class M and H1 outcomes are common." },
-  { title: "North Shore", desc: "Hawkesbury Sandstone, with outcomes hinging on how much weathered soil sits above the rock. Shallow rock founds beautifully. Bored piers to sandstone carry most of the harbour’s basements. Deeper profiles behave like clay and need proper investigation." },
+  { title: "North Shore", href: "/geotechnical-engineer-north-shore", desc: "Hawkesbury Sandstone, with outcomes hinging on how much weathered soil sits above the rock. Shallow rock founds beautifully. Bored piers to sandstone carry most of the harbour’s basements. Deeper profiles behave like clay and need proper investigation." },
   { title: "Western Sydney", desc: "Bringelly Shale, the most reactive common profile in metropolitan Sydney. Across the Cumberland Plain, H1 and H2 outcomes are frequent, and movement estimates need boreholes deep enough to see the whole active zone." },
   { title: "South West Corridor", desc: "Legacy fill, alluvial soils and reactive clays push a higher proportion of sites into Class P, common across Liverpool and Campbelltown. The investigation’s first job is finding where the fill stops and natural ground begins." },
   { title: "Eastern Suburbs & Coast", desc: "Dune sands over sandstone, steep marine slopes and tight streets. Sand profiles found well but cave in open excavations; the rock surface dips sharply block to block. Investigations here earn their keep on access and depth-to-rock." },
@@ -61,6 +67,7 @@ const FAQS = [
   {
     q: "How much does a geotechnical investigation cost in Sydney?",
     a: "Every investigation is a fixed fee, confirmed in writing within one business day of receiving the address. There is no published starting figure. The fee is set against the number and depth of boreholes, rig access and the laboratory programme the design calls for, and the Principal reviews the block and plans before quoting. What moves a quote is on the geotechnical report cost guide.",
+    link: { text: "geotechnical report cost guide", href: "/geotechnical-report-cost-sydney" },
   },
   {
     q: "How deep are the boreholes?",
@@ -136,11 +143,12 @@ export default function GeotechnicalInvestigationsPage() {
           <div className="hero-line hero-d3 -order-1 sm:order-none mb-8 sm:mb-0 flex flex-col sm:flex-row items-start gap-4">
             <Link
               href="tel:+61423483555"
+              data-cta="geotechnical-investigations hero call"
               className="flex items-center justify-center px-8 py-2.5 bg-gradient-to-b from-[#346b43] to-forest-green text-white rounded-full shadow-[0_8px_20px_-6px_rgba(45,90,58,0.4)] hover:shadow-[0_12px_24px_-8px_rgba(45,90,58,0.6)] hover:brightness-105 transition hover:-translate-y-0.5 w-full sm:w-auto h-[46px] text-xs font-semibold tracking-wide"
             >
               Call The Principal Engineer
             </Link>
-            <QuoteCta
+            <QuoteCta {...PAGE_QUOTE}
               source="geotechnical-investigations hero"
               label="Request A Quote"
               className="flex items-center justify-center px-8 py-2.5 bg-white text-forest-green rounded-full shadow-[inset_0_0_0_1px_rgba(45,90,58,0.25),0_4px_10px_-4px_rgba(0,0,0,0.05)] hover:bg-forest-green/5 hover:shadow-[inset_0_0_0_1px_rgba(45,90,58,0.4),0_6px_14px_-4px_rgba(0,0,0,0.1)] transition hover:-translate-y-0.5 w-full sm:w-auto h-[46px] text-xs font-semibold tracking-wide"
@@ -200,7 +208,7 @@ export default function GeotechnicalInvestigationsPage() {
             />
             <PhotoFrame
               src="/sfgeo-spt-sample-logged-on-site.jpg"
-              alt="Split-spoon sample opened beside the field board recording BH01, 0.50-0.95 m and an SPT N value of 10"
+              alt="Soil sample opened beside the field board at BH01, 0.50 to 0.95 m"
               caption="Logged On Site"
               aspect="aspect-[3/4]"
               sizes="(max-width: 1024px) 50vw, 30vw"
@@ -237,7 +245,7 @@ export default function GeotechnicalInvestigationsPage() {
           <div data-stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {REGIONS.map((r) => (
               <div key={r.title} className="card-lift p-8 bg-white border border-gray-100 rounded-2xl shadow-sm h-full">
-                <h3 className="text-lg font-montserrat font-semibold text-slate-950 mb-3">{r.title}</h3>
+                <h3 className="text-lg font-montserrat font-semibold text-slate-950 mb-3">{r.href ? <Link href={r.href} className="hover:text-forest-green transition-colors">{r.title}</Link> : r.title}</h3>
                 <p className="text-gray-600 font-light leading-relaxed text-[15px]">{r.desc}</p>
               </div>
             ))}
@@ -246,7 +254,7 @@ export default function GeotechnicalInvestigationsPage() {
               <p className="relative z-10 text-lg font-montserrat font-light leading-snug mb-6">
                 Not sure which one you&rsquo;re on? Send the address. The desktop geology is checked before we even quote.
               </p>
-              <QuoteCta
+              <QuoteCta {...PAGE_QUOTE}
                 source="geotechnical-investigations regions"
                 label="Check My Block"
                 className="relative z-10 inline-flex items-center justify-center px-6 py-2.5 bg-gradient-to-b from-[#346b43] to-forest-green text-white rounded-full shadow-[0_8px_20px_-6px_rgba(45,90,58,0.4)] hover:brightness-105 transition hover:-translate-y-0.5 h-[44px] text-xs font-semibold tracking-wide w-fit"
@@ -265,13 +273,13 @@ export default function GeotechnicalInvestigationsPage() {
           </h2>
           <div data-fx="line" style={d(200)} className="h-px bg-forest-green w-12 mb-7" />
           <p data-fx="rise" style={d(160)} className="text-gray-600 font-light leading-relaxed mb-6">
-            Unexpected rock, fill, or reactive clay discovered after contracts are signed becomes a variation, priced by whoever holds the leverage at that moment. An investigation done properly, and done early, converts those unknowns into design parameters while every option is still open and competitively priced.
+            Unexpected rock, fill, or reactive clay discovered after contracts are signed becomes a variation, priced by whoever has the upper hand at that moment. An investigation done properly, and done early, converts those unknowns into design parameters while every option is still open and competitively priced.
           </p>
           <p data-fx="rise" style={d(220)} className="text-gray-600 font-light leading-relaxed mb-6">
             Turnaround is scoped at first contact, and urgent DA, CC and settlement timelines can be accommodated. Call the Principal directly to arrange priority scheduling. And where standard rigs stop at the kerb, our 4WD rig and motorised hand augers keep going. See <Link href="/tight-access-drilling" className="text-forest-green underline underline-offset-4 decoration-forest-green/40 hover:decoration-forest-green font-medium">tight-access drilling</Link>.
           </p>
           <p data-fx="rise" style={d(280)} className="text-gray-600 font-light leading-relaxed">
-            Investigations are quoted fixed-fee against the number and depth of boreholes, access and the laboratory program. Most fall under our Complex Projects tier (basements, multi-storey, retaining walls, sloping or restricted-access blocks), and the fee is confirmed in writing within one business day. What moves the figure is set out in the <Link href="/geotechnical-report-cost-sydney" className="text-forest-green underline underline-offset-4 decoration-forest-green/40 hover:decoration-forest-green font-medium">geotechnical report cost guide</Link>.
+            Investigations are quoted fixed-fee against the number and depth of boreholes, access and the laboratory programme. Most fall under our Complex Projects tier (basements, multi-storey, retaining walls, sloping or restricted-access blocks), and the fee is confirmed in writing within one business day. What moves the figure is set out in the <Link href="/geotechnical-report-cost-sydney" className="text-forest-green underline underline-offset-4 decoration-forest-green/40 hover:decoration-forest-green font-medium">geotechnical report cost guide</Link>.
           </p>
         </Reveal>
       </section>
@@ -284,6 +292,7 @@ export default function GeotechnicalInvestigationsPage() {
       <QuietFaq intro={<>An AS 1726 geotechnical investigation provides the ground data for Sydney DAs, CDCs, footings, basements and retaining structures. Boreholes, penetrometers and NATA-accredited laboratory data become a report your certifier, council and structural engineer can act on. Fees are fixed and quoted per site. Reports with laboratory testing typically take 8 to 12 business days from fieldwork, confirmed in the written quote, with interim findings available where the programme needs them. The engineer who stands on your ground signs your report.</>} faqs={FAQS} />
 
       <CloseBand
+        quote={PAGE_QUOTE}
         source="geotechnical-investigations close"
         heading={<>Start With <span className="font-semibold h-bold">The Ground.</span></>}
         sub={

@@ -5,6 +5,7 @@ import FollowFieldwork from "@/components/ui/FollowFieldwork";
 import type { Metadata } from "next";
 import type { CSSProperties } from "react";
 import { pageMeta } from "@/lib/seo";
+import RatingFact from "@/components/ui/RatingFact";
 
 // Rebuilt hourly from the stored Google rating and reviews (src/lib/googleReviews.ts).
 export const revalidate = 3600;
@@ -49,8 +50,9 @@ export default function ContactPage() {
             </h1>
             <div className="hero-line hero-d2 w-[96px] h-[3px] bg-forest-green mb-8" />
             <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed">
-              Send the address and a sentence about the project. You&rsquo;ll have a fixed-fee quote in writing within one business day, or call <a href="tel:+61423483555" className="text-forest-green font-semibold whitespace-nowrap">0423 483 555</a>.
+              Send the address and a sentence about the project. You&rsquo;ll have a fixed-fee quote in writing within one business day, or call <a href="tel:+61423483555" data-cta="contact hero call" className="text-forest-green font-semibold whitespace-nowrap">0423 483 555</a>.
             </p>
+            <RatingFact lineClassName="hero-line hero-d3 mt-5 text-xs text-gray-500 font-light tracking-wide" />
           </div>
           <FollowFieldwork className="hero-line hero-d3 mt-10 lg:mt-0 lg:shrink-0 lg:pb-2" />
         </div>
@@ -99,7 +101,7 @@ export default function ContactPage() {
                 />
               </div>
               <p data-fx="rise" style={d(260)} className="mt-5 text-sm text-gray-500 font-light leading-relaxed">
-                Suite 3.01, Level 3, 107 Sydenham Road, Marrickville NSW 2204. Visits by appointment. Fieldwork runs across Greater Sydney from here, and drilling programs travel into regional NSW.
+                Suite 3.01, Level 3, 107 Sydenham Road, Marrickville NSW 2204. Visits by appointment. Fieldwork runs across Greater Sydney from here, and drilling programmes travel into regional NSW.
               </p>
             </Reveal>
           </div>
@@ -130,16 +132,16 @@ export default function ContactPage() {
                   </div>
                 </div>
                 <p className="text-sm text-gray-500 font-light mt-4">
-                  Email plans over 20 MB in total to <a href="mailto:info@sfgeo.com.au" className="text-forest-green font-semibold hover:underline">info@sfgeo.com.au</a>.
+                  Email plans over 20 MB in total to <a href="mailto:info@sfgeo.com.au" data-cta="contact plans email" className="text-forest-green font-semibold hover:underline">info@sfgeo.com.au</a>.
                 </p>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <a href="tel:+61423483555" className={`${CARD} group flex flex-col`}>
+                <a href="tel:+61423483555" data-cta="contact call card" className={`${CARD} group flex flex-col`}>
                   <span className="text-[11px] font-semibold text-gray-500 uppercase tracking-[0.2em] mb-2">Speak To An Engineer</span>
                   <span className="text-[17px] font-montserrat font-semibold text-slate-950 group-hover:text-forest-green transition-colors whitespace-nowrap">0423 483 555</span>
                 </a>
-                <a href="mailto:info@sfgeo.com.au" className={`${CARD} group flex flex-col`}>
+                <a href="mailto:info@sfgeo.com.au" data-cta="contact email card" className={`${CARD} group flex flex-col`}>
                   <span className="text-[11px] font-semibold text-gray-500 uppercase tracking-[0.2em] mb-2">Email The Team</span>
                   <span className="text-[17px] font-montserrat font-semibold text-slate-950 group-hover:text-forest-green transition-colors whitespace-nowrap">info@sfgeo.com.au</span>
                 </a>

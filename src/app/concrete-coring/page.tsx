@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import Image from "next/image";
+import Image, { getImageProps } from "next/image";
 import Link from "next/link";
 import type { CSSProperties } from "react";
 import QuoteCta from "@/components/forms/QuoteCta";
@@ -11,6 +11,13 @@ import CloseBand from "@/components/ui/CloseBand";
 import { pageMeta } from "@/lib/seo";
 import QuietFaq from "@/components/sections/QuietFaq";
 import RatingFact from "@/components/ui/RatingFact";
+
+// The quote pop-up's copy for this page: its own promise, never another service's turnaround.
+const PAGE_QUOTE = {
+  "eyebrow": "Concrete coring",
+  "subheading": "Send the address, the slab or wall, and the hole count. A fixed fee in writing within one business day.",
+  "projectType": "Concrete coring"
+};
 
 // Rebuilt hourly from the stored Google rating and reviews (src/lib/googleReviews.ts).
 export const revalidate = 3600;
@@ -60,7 +67,7 @@ const SECTIONS: Section[] = [
     poster: "/sfgeo-pavement-investigation-night-works-concord.jpg",
     alt: "Ute-mounted rig augering into a Concord road pavement during night works, the crew at the controls and beside the mast",
     body: "Core through the pavement and keep going. One visit logs the concrete, the layers beneath it and the subgrade below, so a pavement question and a ground question are answered by the same crew, in the same report, and where the pavement question turns out to be a ground question, the geotechnical engineer is already standing on it.",
-    cta: "Scope A Pavement Program",
+    cta: "Scope A Pavement Programme",
   },
   {
     id: "penetrations",
@@ -179,13 +186,14 @@ export default function ConcreteCoringPage() {
             Any cutting contractor can put a hole in a slab. SFGEO cores it with the engineer standing over the barrel: the core logged and photographed, the thickness verified, and when strength matters, the sample on its way to a NATA-accredited laboratory. One engagement, from the hole to the answer.
           </p>
           <div className="hero-line hero-d3 flex flex-col sm:flex-row items-start gap-4">
-            <QuoteCta
+            <QuoteCta {...PAGE_QUOTE}
               source="concrete-coring hero"
               label="Request A Fixed-Fee Quote"
               className="flex items-center justify-center px-8 py-2.5 bg-gradient-to-b from-[#346b43] to-forest-green text-white rounded-full shadow-[0_8px_20px_-6px_rgba(45,90,58,0.4)] hover:shadow-[0_12px_24px_-8px_rgba(45,90,58,0.6)] hover:brightness-105 transition hover:-translate-y-0.5 w-full sm:w-auto h-[46px] text-xs font-semibold tracking-wide"
             />
             <Link
               href="tel:+61423483555"
+              data-cta="concrete-coring hero call"
               className="flex items-center justify-center px-8 py-2.5 bg-white text-forest-green rounded-full shadow-[inset_0_0_0_1px_rgba(45,90,58,0.25),0_4px_10px_-4px_rgba(0,0,0,0.05)] hover:bg-forest-green/5 hover:shadow-[inset_0_0_0_1px_rgba(45,90,58,0.4),0_6px_14px_-4px_rgba(0,0,0,0.1)] transition hover:-translate-y-0.5 w-full sm:w-auto h-[46px] text-xs font-semibold tracking-wide"
             >
               Call 0423 483 555
@@ -206,11 +214,12 @@ export default function ConcreteCoringPage() {
                 <div data-fx="scale" className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-[0_26px_60px_-26px_rgba(5,10,7,0.4)] bg-[#050A07] flex items-center justify-center">
                   {/* the poster frame, scaled up and blurred, so the portrait clip
                       sits on its own ground instead of two black bars */}
-                  <Image src={sec.poster!} alt="" fill sizes="(max-width:1024px) 100vw, 50vw" priority={idx === 0} className="object-cover blur-2xl scale-110 opacity-60" />
+                  <Image src={sec.poster!} alt="" fill sizes="160px" quality={70} aria-hidden="true" className="object-cover blur-2xl scale-110 opacity-60" />
                   <div className="absolute inset-0 bg-[#050A07]/35" />
                   <LazyVideo
                     src={sec.video}
-                    poster={sec.poster!}
+                    // Optimised (WebP/AVIF, resized) rather than the raw JPEG: these posters load before the clip plays.
+                    poster={getImageProps({ src: sec.poster!, alt: "", width: 600, height: 1067, quality: 70 }).props.src}
                     label={sec.alt}
                     className="relative h-full w-auto max-w-full object-contain"
                   />
@@ -237,7 +246,7 @@ export default function ConcreteCoringPage() {
               <div data-fx="line" style={d(200)} className="h-px bg-forest-green w-12 mb-7" />
               <p data-fx="rise" style={d(160)} className="text-gray-600 font-light leading-relaxed mb-8">{sec.body}</p>
               <div data-fx="rise" style={d(220)}>
-                <QuoteCta source={`concrete-coring ${sec.id}`} label={sec.cta} className="text-sm font-semibold tracking-wide text-forest-green group inline-flex items-center gap-2 min-h-[44px] draw-link" />
+                <QuoteCta {...PAGE_QUOTE} source={`concrete-coring ${sec.id}`} label={sec.cta} className="text-sm font-semibold tracking-wide text-forest-green group inline-flex items-center gap-2 min-h-[44px] draw-link" />
               </div>
             </Reveal>
           </div>
@@ -275,6 +284,7 @@ export default function ConcreteCoringPage() {
       <QuietFaq intro={<>Cores taken with the engineer standing over the barrel, for anyone who needs a slab or pavement verified rather than assumed from the drawings. Each core is logged and photographed on site, the thickness measured, and when strength matters, the sample goes to a NATA-accredited laboratory. Pricing is per hole, from $120 + GST with a three-hole minimum per visit. One engagement, from the hole to the answer.</>} faqs={FAQS} />
 
       <CloseBand
+        quote={PAGE_QUOTE}
         source="concrete-coring close"
         heading={<>One Hole. <span className="font-semibold h-bold">The Whole Answer.</span></>}
         sub="Tell us what the slab is hiding, or what you need to put through it. A fixed fee in writing within one business day."

@@ -46,7 +46,7 @@ const COMMUNITY = [
   {
     place: "Caringbah",
     title: "Industrial Estate, Footing By Footing",
-    line: "Ten lightpole footings and a stormwater unit certified before concrete, a civil contractor’s program kept moving, one verified base at a time.",
+    line: "Ten lightpole footings and a stormwater unit certified before concrete, a civil contractor’s programme kept moving, one verified base at a time.",
     href: "/projects#caringbah",
   },
   {

@@ -97,11 +97,11 @@ export default function ServiceIndex() {
             className="group block border-t border-gray-200 py-8 lg:py-9 transition-colors"
           >
             <div className="flex items-baseline gap-6">
-              <span className={`text-xs font-semibold tracking-[0.2em] tabular-nums transition-colors ${active === i ? "text-forest-green" : "text-gray-500"}`}>
+              <span className={`text-xs font-semibold tracking-[0.2em] tabular-nums transition-colors ${active === i ? "lg:text-forest-green" : ""} text-gray-500`}>
                 {s.n}
               </span>
               <div className="flex-1">
-                <h3 className={`font-montserrat text-2xl sm:text-[1.85rem] font-light tracking-tight transition duration-300 ${active === i ? "text-forest-green translate-x-1.5" : "text-slate-950"}`}>
+                <h3 className={`font-montserrat text-2xl sm:text-[1.85rem] font-light tracking-tight transition duration-300 text-slate-950 ${active === i ? "lg:text-forest-green lg:translate-x-1.5" : ""}`}>
                   {s.title}
                 </h3>
                 <p className="mt-2.5 text-sm text-gray-500 font-light leading-relaxed max-w-md">
@@ -110,7 +110,7 @@ export default function ServiceIndex() {
               </div>
               <span
                 aria-hidden="true"
-                className={`hidden sm:block text-xl font-light transition duration-300 ${active === i ? "text-forest-green translate-x-1" : "text-gray-300"}`}
+                className={`hidden sm:block text-xl font-light transition duration-300 text-gray-300 ${active === i ? "lg:text-forest-green lg:translate-x-1" : ""}`}
               >
                 &rarr;
               </span>

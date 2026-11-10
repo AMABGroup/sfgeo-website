@@ -42,6 +42,7 @@ const FAQS = [
   {
     q: "What does a geotechnical assessment cost, and what sets the fee?",
     a: "Assessments are quoted per site, with a fixed fee in writing within one business day of receiving the address. There is no published band for assessments. What moves the fee is the number and depth of any boreholes, the access, and any laboratory testing through NATA-accredited laboratories. The published bands for site classifications and concrete coring are on the cost guide.",
+    link: { text: "the cost guide", href: "/geotechnical-report-cost-sydney" },
   },
 ];
 
@@ -94,6 +95,7 @@ export default function Page() {
           <div className="hero-line hero-d3 mt-10 flex flex-col sm:flex-row items-start gap-4">
             <Link
               href="tel:+61423483555"
+              data-cta="geotechnical-assessments hero call"
               className="flex items-center justify-center px-8 py-2.5 bg-gradient-to-b from-[#346b43] to-forest-green text-white rounded-full shadow-[0_8px_20px_-6px_rgba(45,90,58,0.4)] hover:shadow-[0_12px_24px_-8px_rgba(45,90,58,0.6)] hover:brightness-105 transition hover:-translate-y-0.5 w-full sm:w-auto h-[46px] text-xs font-semibold tracking-wide"
             >
               Call 0423 483 555
@@ -101,6 +103,7 @@ export default function Page() {
             <QuoteCta
               source="geotechnical-assessments hero"
               label="Scope An Assessment"
+              projectType="Cracking, slope or settlement assessment"
               eyebrow="Geotechnical assessment"
               heading="Scope An Assessment"
               subheading="Tell us the question: the slope, the crack, the council condition. A fixed fee in writing within one business day."
@@ -164,6 +167,7 @@ export default function Page() {
 
       <CloseBand
         source="geotechnical-assessments close"
+        quote={{ eyebrow: "Geotechnical assessment", heading: "Scope An Assessment", subheading: "Tell us the question: the slope, the crack, the council condition. A fixed fee in writing within one business day.", projectType: "Cracking, slope or settlement assessment" }}
         heading={<>One Question? <span className="font-semibold h-bold">Ask It.</span></>}
         sub="Tell us the question and the address. The Principal will say what it takes to answer it in writing, within one business day."
       />

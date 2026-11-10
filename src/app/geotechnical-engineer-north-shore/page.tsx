@@ -6,9 +6,13 @@ import Reveal from "@/components/ui/Reveal";
 import PhotoFrame from "@/components/ui/PhotoFrame";
 import CloseBand from "@/components/ui/CloseBand";
 import { pageMeta } from "@/lib/seo";
+import RatingFact from "@/components/ui/RatingFact";
+
+// Rebuilt hourly from the stored Google rating (src/lib/googleReviews.ts).
+export const revalidate = 3600;
 
 export const metadata: Metadata = pageMeta(
-  "Geotechnical Engineer North Shore | SFGEO",
+  "Geotechnical Engineer North Shore Sydney | SFGEO",
   "Site classifications and geotechnical investigations on Sydney's North Shore, shown through real SFGEO jobs. Fixed fee in writing within one business day.",
   "/geotechnical-engineer-north-shore",
 );
@@ -97,7 +101,21 @@ export default function NorthShorePage() {
     "description": "Site classifications, geotechnical investigations and footing inspections on Sydney's North Shore, led by the Principal Engineer.",
     "url": "https://sfgeo.com.au/geotechnical-engineer-north-shore",
     "provider": { "@id": "https://sfgeo.com.au/#organization" },
-    "areaServed": { "@type": "Place", "name": "North Shore, Sydney, New South Wales, Australia" }
+    "areaServed": { "@type": "Place", "name": "North Shore, Sydney, New South Wales, Australia" },
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "Site classification",
+        "description": "Site classifications from $800 + GST.",
+        "priceSpecification": { "@type": "PriceSpecification", "minPrice": "800", "priceCurrency": "AUD", "valueAddedTaxIncluded": false, "description": "from $800 + GST" }
+      },
+      {
+        "@type": "Offer",
+        "name": "Footing inspection",
+        "description": "Footing inspections from $600 + GST.",
+        "priceSpecification": { "@type": "PriceSpecification", "minPrice": "600", "priceCurrency": "AUD", "valueAddedTaxIncluded": false, "description": "from $600 + GST per inspection" }
+      }
+    ]
   };
 
   return (
@@ -123,6 +141,7 @@ export default function NorthShorePage() {
           <div className="hero-line hero-d3 -order-1 sm:order-none mb-8 sm:mb-0 flex flex-col sm:flex-row items-start gap-4">
             <Link
               href="tel:+61423483555"
+              data-cta="geotechnical-engineer-north-shore hero call"
               className="flex items-center justify-center px-8 py-2.5 bg-gradient-to-b from-[#346b43] to-forest-green text-white rounded-full shadow-[0_8px_20px_-6px_rgba(45,90,58,0.4)] hover:shadow-[0_12px_24px_-8px_rgba(45,90,58,0.6)] hover:brightness-105 transition hover:-translate-y-0.5 w-full sm:w-auto h-[46px] text-xs font-semibold tracking-wide"
             >
               Call The Principal Engineer
@@ -133,7 +152,7 @@ export default function NorthShorePage() {
               className="flex items-center justify-center px-8 py-2.5 bg-white text-forest-green rounded-full shadow-[inset_0_0_0_1px_rgba(45,90,58,0.25),0_4px_10px_-4px_rgba(0,0,0,0.05)] hover:bg-forest-green/5 hover:shadow-[inset_0_0_0_1px_rgba(45,90,58,0.4),0_6px_14px_-4px_rgba(0,0,0,0.1)] transition hover:-translate-y-0.5 w-full sm:w-auto h-[46px] text-xs font-semibold tracking-wide"
             />
           </div>
-          <p className="hero-line hero-d3 mt-5 text-xs text-gray-500 font-light tracking-wide">Fixed fee in writing within one business day</p>
+          <p className="hero-line hero-d3 mt-5 text-xs text-gray-500 font-light tracking-wide">Site classifications from $800 + GST &middot; Footing inspections from $600 + GST &middot; Fixed fee in writing within one business day<RatingFact /></p>
         </div>
       </section>
 

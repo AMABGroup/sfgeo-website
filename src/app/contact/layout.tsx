@@ -5,12 +5,12 @@ export default function ContactLayout({ children }: { children: React.ReactNode 
     "@graph": [
       {
         "@type": "ContactPage",
-        "@id": "https://sfgeo.com.au/contact/#webpage",
+        "@id": "https://sfgeo.com.au/contact#webpage",
         "url": "https://sfgeo.com.au/contact",
         "name": "Contact Solid Foundation Geotechnical",
         "description": "Speak directly with a Sydney geotechnical consultant. Fixed-fee quotes for site classifications, investigations, and drilling services across Greater Sydney.",
         "breadcrumb": {
-          "@id": "https://sfgeo.com.au/contact/#breadcrumb"
+          "@id": "https://sfgeo.com.au/contact#breadcrumb"
         },
         "mainEntity": {
           "@id": "https://sfgeo.com.au/#organization"
@@ -18,7 +18,7 @@ export default function ContactLayout({ children }: { children: React.ReactNode 
       },
       {
         "@type": "BreadcrumbList",
-        "@id": "https://sfgeo.com.au/contact/#breadcrumb",
+        "@id": "https://sfgeo.com.au/contact#breadcrumb",
         "itemListElement": [
           {
             "@type": "ListItem",

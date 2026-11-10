@@ -112,6 +112,8 @@ export default function GoogleReviewsClient({ layout = "grid", data }: Props) {
         {overallRating !== null ? (
           <div data-fx="rise" style={d(80)} className="flex items-baseline gap-4 mb-2">
             <span className="font-montserrat font-light text-5xl leading-none text-slate-950 tabular-nums">{overallRating.toFixed(1)}</span>
+            {/* Text extractors read the two spans as "5.033 Google reviews" without this. */}
+            <span className="sr-only"> out of 5 from </span>
             <span className="flex flex-col gap-1">
               <Stars n={overallRating} />
               {ratingTotal !== null && <span className="text-[12px] text-gray-500 font-light">{ratingTotal} Google review{ratingTotal === 1 ? "" : "s"}</span>}

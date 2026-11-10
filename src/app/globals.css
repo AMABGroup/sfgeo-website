@@ -132,8 +132,8 @@ body {
 @theme {
   --font-archivo: var(--font-archivo);
 }
-.font-disp { font-family: var(--font-archivo), "Arial Narrow", sans-serif; font-stretch: 125%; letter-spacing: -0.01em; }
-.font-disp-wide { font-family: var(--font-archivo), sans-serif; font-stretch: 140%; text-transform: uppercase; letter-spacing: 0.04em; }
+.font-disp { font-family: var(--font-archivo), "Arial Narrow", sans-serif; letter-spacing: -0.01em; }
+.font-disp-wide { font-family: var(--font-archivo), sans-serif; text-transform: uppercase; letter-spacing: 0.04em; }
 
 /* ===== Opening veil choreography ===== */
 /* Painted before hydration by the inline script in layout.tsx, so the hero never flashes
@@ -285,3 +285,11 @@ body {
 
 /* Mask-line reveal for tier-2 hero headings (same as home). */
 .hero-mask { display: block; overflow: hidden; padding-bottom: 0.08em; margin-bottom: -0.08em; }
+
+/* Headings wrap to even lines, so none ends on a single orphaned word (10 Nov 2026 audit).
+   Light → bold headings keep the light phrase wrapping as before (Alli's split rule, 27 Aug 2026): balancing
+   the whole heading broke the light phrase ("Quote In A / Day."). Only the bold phrase balances, inside its
+   atomic inline-block, when it is too long for one line. */
+h1, h2, h3 { text-wrap: balance; }
+:is(h1, h2, h3):has(.h-bold) { text-wrap: wrap; }
+.h-bold { text-wrap: balance; }

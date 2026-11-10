@@ -14,13 +14,14 @@ import Marquee from "@/components/ui/Marquee";
 import PhotoFrame from "@/components/ui/PhotoFrame";
 import FollowFieldwork from "@/components/ui/FollowFieldwork";
 import { pageMeta } from "@/lib/seo";
+import { getPlace } from "@/lib/googleReviews";
 
 // Rebuilt hourly from the stored Google rating and reviews (src/lib/googleReviews.ts).
 export const revalidate = 3600;
 
 export const metadata = pageMeta(
   "Geotechnical Engineer Sydney | Solid Foundation Geotechnical",
-  "Sydney’s boutique geotechnical consultancy. Principal-led site classifications, investigations, and 4WD drilling with fixed-fee quotes and local expertise.",
+  "Principal-led geotechnical engineers in Marrickville, Sydney, for investigations and 4WD drilling. AS 2870 site classifications from $800 + GST.",
   "/"
 );
 
@@ -98,7 +99,12 @@ const caseStudies = [
   },
 ];
 
-export default function Home() {
+// The landing keeps its launch copy on the quote card (Alli approved it with the card, Aug 2026).
+const HOME_QUOTE_SUB = "Scoped against your block and plans. Response within one business day. Reports as soon as 2 business days from fieldwork.";
+
+export default async function Home() {
+  // Live Google rating for the hero card's fine print (same cached figure as RatingFact).
+  const place = await getPlace();
   // One art-directed hero. A <picture> lets the browser fetch a single
   // source per viewport, where two <Image priority> tags preloaded both
   // crops on every device.
@@ -155,6 +161,7 @@ export default function Home() {
               <div className="hero-line hero-d3 lg:hidden flex flex-col sm:flex-row items-center gap-4 w-full">
                 <QuoteCta
                   source="homepage hero mobile"
+                  subheading={HOME_QUOTE_SUB}
                   className="flex items-center justify-center px-5 py-2.5 bg-gradient-to-b from-[#346b43] to-forest-green text-white rounded-full shadow-[0_8px_20px_-6px_rgba(45,90,58,0.4)] hover:shadow-[0_12px_24px_-8px_rgba(45,90,58,0.6)] hover:brightness-105 transition hover:-translate-y-0.5 w-[70%] sm:w-[240px] h-[46px] text-xs font-semibold tracking-wide"
                 />
                 <Link
@@ -170,6 +177,8 @@ export default function Home() {
             <div className="hidden lg:flex flex-col items-center shrink-0">
               <QuickQuoteCard
                 source="homepage hero"
+                subheading={HOME_QUOTE_SUB}
+                rating={place?.rating != null && place.user_ratings_total ? { value: place.rating, total: place.user_ratings_total } : null}
                 headingId="hero-quote-heading"
                 secondaryLink={{ href: "/contact?subject=b2b-enquiry", label: "B2B and subcontract enquiries" }}
               />
@@ -195,7 +204,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 lg:px-12 pt-12 pb-3">
           <div className="max-w-3xl">
             <h2 className="text-[11px] uppercase tracking-[0.28em] text-gray-500 font-semibold mb-3">Where We Work</h2>
-            <p className="text-sm text-gray-500 font-light leading-relaxed">The rig leaves Marrickville for every part of Greater Sydney: the Inner West and the Eastern Suburbs, the Lower North Shore and the Hills, west through Parramatta, Blacktown and Penrith, south-west through Bankstown, Liverpool and Camden, the St George suburbs and the Sutherland Shire. The Illawarra, the Blue Mountains, the Central Coast and regional New South Wales by arrangement.</p>
+            <p className="text-sm text-gray-500 font-light leading-relaxed">The rig leaves Marrickville for every part of Greater Sydney: the Inner West and the Eastern Suburbs, <Link href="/geotechnical-engineer-north-shore" className="hover:text-forest-green transition-colors">the Lower North Shore</Link> and the Hills, west through Parramatta, Blacktown and Penrith, south-west through Bankstown, Liverpool and Camden, the St George suburbs and the Sutherland Shire. The Illawarra, the Blue Mountains, the Central Coast and regional New South Wales by arrangement.</p>
           </div>
         </div>
         <div className="border-b border-gray-100 py-2">
@@ -233,6 +242,7 @@ export default function Home() {
           <Link href="/concrete-coring" className="hover:text-forest-green transition-colors">Concrete coring</Link> &middot;{" "}
           <Link href="/environmental" className="hover:text-forest-green transition-colors">Environmental sampling</Link> &middot;{" "}
           <Link href="/other-services" className="hover:text-forest-green transition-colors">Dilapidation, utility location and surveys</Link> &middot;{" "}
+          <Link href="/geotechnical-engineer-north-shore" className="hover:text-forest-green transition-colors">North Shore</Link> &middot;{" "}
           <Link href="/geotechnical-report-cost-sydney" className="hover:text-forest-green transition-colors">Cost guide</Link> &middot;{" "}
           <Link href="/services" className="hover:text-forest-green transition-colors">All services</Link>
         </p>
@@ -397,12 +407,14 @@ export default function Home() {
             <div data-fx="rise" style={d(240)} className="flex flex-col sm:flex-row gap-4">
               <Link
                 href="tel:+61423483555"
+                data-cta="homepage close call"
                 className="flex items-center justify-center px-8 py-2.5 bg-gradient-to-b from-[#346b43] to-forest-green text-white rounded-full shadow-[0_8px_20px_-6px_rgba(45,90,58,0.4)] hover:shadow-[0_12px_24px_-8px_rgba(45,90,58,0.6)] hover:brightness-105 transition hover:-translate-y-0.5 h-[46px] text-xs font-semibold tracking-wide"
               >
                 Call 0423 483 555
               </Link>
               <QuoteCta
                 source="homepage close"
+                subheading={HOME_QUOTE_SUB}
                 label="Request A Quote"
                 className="flex items-center justify-center px-8 py-2.5 bg-white/5 text-white rounded-full shadow-[inset_0_0_0_1px_rgba(255,255,255,0.25)] hover:bg-white/10 hover:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.45)] transition hover:-translate-y-0.5 h-[46px] text-xs font-semibold tracking-wide backdrop-blur-sm"
               />

@@ -10,7 +10,7 @@ type Props = {
   heading: ReactNode;
   sub?: ReactNode;
   quoteLabel?: string;
-  quote?: { eyebrow?: string; heading?: string; subheading?: string };
+  quote?: { eyebrow?: string; heading?: string; subheading?: string; projectType?: string };
   /** Anything between the sub-line and the buttons (a process grid, an address). */
   children?: ReactNode;
   align?: "center" | "left";
@@ -32,7 +32,7 @@ const d = (ms: number) => ({ "--d": `${ms}ms` }) as CSSProperties;
 export default function CloseBand({ source, kicker, heading, sub, quoteLabel, quote, children, align = "center", className = "" }: Props) {
   const center = align === "center";
   return (
-    <section className={`relative overflow-hidden bg-[#050A07] text-white grain aurora ${className}`}>
+    <section data-cta={source} className={`relative overflow-hidden bg-[#050A07] text-white grain aurora ${className}`}>
       <div className={`max-w-4xl mx-auto px-6 pt-28 pb-40 lg:py-36 ${center ? "text-center" : ""}`}>
         <Reveal variant="group">
           {kicker && (
@@ -57,7 +57,7 @@ export default function CloseBand({ source, kicker, heading, sub, quoteLabel, qu
             <Link href="tel:+61423483555" className={CALL}>
               Call 0423 483 555
             </Link>
-            <QuoteCta source={source} label={quoteLabel} eyebrow={quote?.eyebrow} heading={quote?.heading} subheading={quote?.subheading} className={QUOTE} />
+            <QuoteCta source={source} label={quoteLabel} eyebrow={quote?.eyebrow} heading={quote?.heading} subheading={quote?.subheading} projectType={quote?.projectType} className={QUOTE} />
           </div>
         </Reveal>
       </div>
