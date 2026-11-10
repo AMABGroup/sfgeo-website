@@ -48,11 +48,11 @@ const SCOPES = [
 ];
 
 const REGIONS: { title: string; desc: string; href?: string }[] = [
-  { title: "Inner West", desc: "Ashfield Shale country: residual clays over weathered shale, often moderately to highly reactive. Investigations here focus on clay depth and shale weathering, because the difference decides the footing system. Class M and H1 outcomes are common." },
+  { title: "Inner West", href: "/geotechnical-engineer-inner-west", desc: "Ashfield Shale country: residual clays over weathered shale, often moderately to highly reactive. Investigations here focus on clay depth and shale weathering, because the difference decides the footing system. Class M and H1 outcomes are common." },
   { title: "North Shore", href: "/geotechnical-engineer-north-shore", desc: "Hawkesbury Sandstone, with outcomes hinging on how much weathered soil sits above the rock. Shallow rock founds beautifully. Bored piers to sandstone carry most of the harbour’s basements. Deeper profiles behave like clay and need proper investigation." },
   { title: "Western Sydney", desc: "Bringelly Shale, the most reactive common profile in metropolitan Sydney. Across the Cumberland Plain, H1 and H2 outcomes are frequent, and movement estimates need boreholes deep enough to see the whole active zone." },
-  { title: "South West Corridor", desc: "Legacy fill, alluvial soils and reactive clays. Uncontrolled fill left under the footings or slab can make a site Class P under AS 2870. Where the fill is stripped, the class is set by the natural ground beneath. The investigation’s first job is finding where the fill stops and natural ground begins." },
-  { title: "Eastern Suburbs & Coast", desc: "Dune sands over sandstone, steep marine slopes and tight streets. Sand profiles found well but cave in open excavations; the rock surface dips sharply block to block. Investigations here earn their keep on access and depth-to-rock." },
+  { title: "South West Corridor", href: "/geotechnical-engineer-south-west-sydney", desc: "Legacy fill, alluvial soils and reactive clays. Uncontrolled fill left under the footings or slab can make a site Class P under AS 2870. Where the fill is stripped, the class is set by the natural ground beneath. The investigation’s first job is finding where the fill stops and natural ground begins." },
+  { title: "Eastern Suburbs & Coast", href: "/geotechnical-engineer-eastern-suburbs", desc: "Dune sands over sandstone, steep marine slopes and tight streets. Sand profiles found well but cave in open excavations; the rock surface dips sharply block to block. Investigations here earn their keep on access and depth-to-rock." },
 ];
 
 const NAV = [

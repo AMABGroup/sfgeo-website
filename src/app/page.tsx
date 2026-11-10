@@ -204,7 +204,7 @@ export default async function Home() {
         <div className="max-w-7xl mx-auto px-6 lg:px-12 pt-12 pb-3">
           <div className="max-w-3xl">
             <h2 className="text-[11px] uppercase tracking-[0.28em] text-gray-500 font-semibold mb-3">Where We Work</h2>
-            <p className="text-sm text-gray-500 font-light leading-relaxed">The rig leaves Marrickville for every part of Greater Sydney: the Inner West and the Eastern Suburbs, <Link href="/geotechnical-engineer-north-shore" className="hover:text-forest-green transition-colors">the Lower North Shore</Link> and the Hills, west through Parramatta, Blacktown and Penrith, south-west through Bankstown, Liverpool and Camden, the St George suburbs and the Sutherland Shire. The Illawarra, the Blue Mountains, the Central Coast and regional New South Wales by arrangement.</p>
+            <p className="text-sm text-gray-500 font-light leading-relaxed">The rig leaves Marrickville for every part of Greater Sydney: <Link href="/geotechnical-engineer-inner-west" className="hover:text-forest-green transition-colors">the Inner West</Link> and <Link href="/geotechnical-engineer-eastern-suburbs" className="hover:text-forest-green transition-colors">the Eastern Suburbs</Link>, <Link href="/geotechnical-engineer-north-shore" className="hover:text-forest-green transition-colors">the Lower North Shore</Link> and <Link href="/geotechnical-engineer-hills-district" className="hover:text-forest-green transition-colors">the Hills</Link>, west through <Link href="/geotechnical-engineer-parramatta" className="hover:text-forest-green transition-colors">Parramatta</Link>, Blacktown and Penrith, south-west through <Link href="/geotechnical-engineer-canterbury-bankstown" className="hover:text-forest-green transition-colors">Bankstown</Link>, <Link href="/geotechnical-engineer-south-west-sydney" className="hover:text-forest-green transition-colors">Liverpool and Camden</Link>, <Link href="/geotechnical-engineer-st-george-sutherland-shire" className="hover:text-forest-green transition-colors">the St George suburbs and the Sutherland Shire</Link>. The Illawarra, the Blue Mountains, the Central Coast and regional New South Wales by arrangement.</p>
           </div>
         </div>
         <div className="border-b border-gray-100 py-2">
@@ -243,6 +243,13 @@ export default async function Home() {
           <Link href="/environmental" className="hover:text-forest-green transition-colors">Environmental sampling</Link> &middot;{" "}
           <Link href="/other-services" className="hover:text-forest-green transition-colors">Dilapidation, utility location and surveys</Link> &middot;{" "}
           <Link href="/geotechnical-engineer-north-shore" className="hover:text-forest-green transition-colors">North Shore</Link> &middot;{" "}
+          <Link href="/geotechnical-engineer-eastern-suburbs" className="hover:text-forest-green transition-colors">Eastern Suburbs</Link> &middot;{" "}
+          <Link href="/geotechnical-engineer-inner-west" className="hover:text-forest-green transition-colors">Inner West</Link> &middot;{" "}
+          <Link href="/geotechnical-engineer-parramatta" className="hover:text-forest-green transition-colors">Parramatta</Link> &middot;{" "}
+          <Link href="/geotechnical-engineer-hills-district" className="hover:text-forest-green transition-colors">Hills District</Link> &middot;{" "}
+          <Link href="/geotechnical-engineer-south-west-sydney" className="hover:text-forest-green transition-colors">South West Sydney</Link> &middot;{" "}
+          <Link href="/geotechnical-engineer-canterbury-bankstown" className="hover:text-forest-green transition-colors">Canterbury-Bankstown</Link> &middot;{" "}
+          <Link href="/geotechnical-engineer-st-george-sutherland-shire" className="hover:text-forest-green transition-colors">St George &amp; Sutherland Shire</Link> &middot;{" "}
           <Link href="/geotechnical-report-cost-sydney" className="hover:text-forest-green transition-colors">Cost guide</Link> &middot;{" "}
           <Link href="/services" className="hover:text-forest-green transition-colors">All services</Link>
         </p>
