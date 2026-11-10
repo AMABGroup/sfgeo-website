@@ -65,7 +65,7 @@ export default function ImageOverlay({
       onKeyDown={handleKeyDown}
       className={`absolute inset-0 bg-black/70 flex flex-col items-center justify-center text-center ${compact ? 'p-4' : 'p-6'} transition-opacity duration-300 ease-in-out cursor-pointer ${visibilityClasses}`}
     >
-      <div className={`text-white uppercase ${tracking} font-semibold leading-relaxed ${compact ? 'text-[10px] sm:text-xs' : 'text-sm md:text-base'}`}>
+      <div className={`text-white uppercase ${tracking} font-semibold leading-relaxed ${compact ? 'text-[11px] sm:text-xs' : 'text-sm md:text-base'}`}>
         {children}
       </div>
     </div>

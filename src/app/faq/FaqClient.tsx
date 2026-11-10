@@ -69,7 +69,7 @@ export default function FaqClient() {
               wrapperClassName="hidden lg:block"
             />
             <Reveal variant="group" className="lg:mt-10">
-              <p data-fx="rise" className="text-[10px] uppercase tracking-[0.3em] text-gray-500 font-semibold mb-4">On This Page</p>
+              <p data-fx="rise" className="text-[11px] uppercase tracking-[0.3em] text-gray-500 font-semibold mb-4">On This Page</p>
               <ol data-stagger style={d(80)} className="divide-y divide-gray-100 border-y border-gray-100">
                 {byGroup.map((g, i) => (
                   <li key={g.id}>

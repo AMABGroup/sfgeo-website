@@ -81,7 +81,7 @@ function GroupHeading({ name, hub, onNavigate, prefetch }: { name: string; hub: 
       onClick={onNavigate}
       className="block text-[12px] uppercase tracking-[0.3em] text-[#8FBF9F] hover:text-white font-semibold mb-4 transition-colors"
     >
-      {name} &rarr;
+      {name}&nbsp;&rarr;
     </Link>
   );
 }
@@ -200,7 +200,7 @@ export function SystemHeader() {
   return (
     <>
       <header
-        className={`${pathname === "/" ? "fixed" : "sticky"} top-0 z-[70] w-full transition-all duration-500 ${overDark || open ? "bg-transparent" : "bg-white/95 backdrop-blur border-b border-gray-100"}`}
+        className={`${pathname === "/" ? "fixed" : "sticky"} top-0 z-[70] w-full transition duration-500 ${overDark || open ? "bg-transparent" : "bg-white/95 backdrop-blur border-b border-gray-100"}`}
       >
         <nav aria-label="Primary" className="mx-auto flex max-w-[90rem] items-center justify-between px-6 lg:px-12 h-[72px]">
           <Link href="/" className="relative h-9 w-28 z-[70]" aria-label="SFGEO home">
@@ -210,7 +210,7 @@ export function SystemHeader() {
               fill
               priority
               sizes="140px"
-              className={`object-contain object-left transition-all duration-500 ${overDark || open ? "invert brightness-0" : ""}`}
+              className={`object-contain object-left transition duration-500 ${overDark || open ? "invert brightness-0" : ""}`}
             />
           </Link>
           <div className={`z-[70] flex items-center gap-6 transition-colors ${overDark || open ? "text-white" : "text-slate-950"}`}>
@@ -231,9 +231,9 @@ export function SystemHeader() {
           >
             {open ? "Close" : "Menu"}
             <span className="relative w-6 h-4 block" aria-hidden="true">
-              <span className={`absolute left-0 w-6 h-[1.5px] bg-current transition-all duration-300 ${open ? "top-1/2 rotate-45" : "top-0"}`} />
+              <span className={`absolute left-0 w-6 h-[1.5px] bg-current transition-[top,rotate] duration-300 ${open ? "top-1/2 rotate-45" : "top-0"}`} />
               <span className={`absolute left-0 top-1/2 w-6 h-[1.5px] bg-current transition-opacity duration-300 ${open ? "opacity-0" : ""}`} />
-              <span className={`absolute left-0 w-6 h-[1.5px] bg-current transition-all duration-300 ${open ? "top-1/2 -rotate-45" : "top-full"}`} />
+              <span className={`absolute left-0 w-6 h-[1.5px] bg-current transition-[top,rotate] duration-300 ${open ? "top-1/2 -rotate-45" : "top-full"}`} />
             </span>
           </button>
           </div>
@@ -271,7 +271,7 @@ export function SystemHeader() {
         id="site-menu"
         inert={!open}
         aria-hidden={!open}
-        className={`fixed inset-0 z-[60] bg-[#0A130D] text-white transition-all duration-500 grain ${open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
+        className={`fixed inset-0 z-[60] bg-[#0A130D] text-white transition-opacity duration-500 grain ${open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
       >
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_-10%,rgba(64,120,80,0.45),transparent_65%)] pointer-events-none" />
         {/* Scroll region starts below the 72px header on mobile so rows never
@@ -300,7 +300,7 @@ export function SystemHeader() {
                 <p><a href="mailto:info@sfgeo.com.au" className="text-white text-base font-medium hover:text-[#8FBF9F] transition-colors">info@sfgeo.com.au</a></p>
                 <p className="pt-1.5">Suite 3.01, Level 3, 107 Sydenham Road, Marrickville NSW 2204</p>
                 <p>Mon&ndash;Fri 6am&ndash;6pm &middot; Sat 8am&ndash;2pm</p>
-                <button onClick={openQuote} className="mt-4 mx-auto flex items-center justify-center px-7 h-[44px] bg-gradient-to-b from-[#346b43] to-forest-green text-white rounded-full text-xs font-semibold tracking-wide shadow-[0_8px_20px_-6px_rgba(45,90,58,0.5)] hover:brightness-105 transition-all">
+                <button onClick={openQuote} className="mt-4 mx-auto flex items-center justify-center px-7 h-[44px] bg-gradient-to-b from-[#346b43] to-forest-green text-white rounded-full text-xs font-semibold tracking-wide shadow-[0_8px_20px_-6px_rgba(45,90,58,0.5)] hover:brightness-105 transition">
                   Request A Quote
                 </button>
               </div>
@@ -336,11 +336,11 @@ export function SystemHeader() {
                     <span className={`text-[12px] uppercase tracking-[0.28em] font-semibold transition-colors ${on ? "text-white" : "text-[#8FBF9F]"}`}>{g.name}</span>
                     <span className={`text-[#8FBF9F] transition-transform duration-300 ${on ? "rotate-45" : ""}`} aria-hidden="true">+</span>
                   </button>
-                  <div id={`menu-${g.hub.replace(/^\//, "")}`} inert={!on} className={`overflow-hidden transition-all duration-400 ${on ? "max-h-96 pb-5" : "max-h-0"}`}>
+                  <div id={`menu-${g.hub.replace(/^\//, "")}`} inert={!on} className={`overflow-hidden transition-[max-height,padding] duration-400 ${on ? "max-h-96 pb-5" : "max-h-0"}`}>
                     <ul className="space-y-0.5">
                       <li>
                         <Link href={g.hub} prefetch={menuPrefetch} onClick={closeMenu} className="block py-2 font-disp text-lg font-light text-white hover:text-[#8FBF9F] transition-colors">
-                          All {g.name} &rarr;
+                          All {g.name}&nbsp;&rarr;
                         </Link>
                       </li>
                       {g.links.map((l) => (

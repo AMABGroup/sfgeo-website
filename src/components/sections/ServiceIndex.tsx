@@ -101,7 +101,7 @@ export default function ServiceIndex() {
                 {s.n}
               </span>
               <div className="flex-1">
-                <h3 className={`font-montserrat text-2xl sm:text-[1.85rem] font-light tracking-tight transition-all duration-300 ${active === i ? "text-forest-green translate-x-1.5" : "text-slate-950"}`}>
+                <h3 className={`font-montserrat text-2xl sm:text-[1.85rem] font-light tracking-tight transition duration-300 ${active === i ? "text-forest-green translate-x-1.5" : "text-slate-950"}`}>
                   {s.title}
                 </h3>
                 <p className="mt-2.5 text-sm text-gray-500 font-light leading-relaxed max-w-md">
@@ -110,7 +110,7 @@ export default function ServiceIndex() {
               </div>
               <span
                 aria-hidden="true"
-                className={`hidden sm:block text-xl font-light transition-all duration-300 ${active === i ? "text-forest-green translate-x-1" : "text-gray-300"}`}
+                className={`hidden sm:block text-xl font-light transition duration-300 ${active === i ? "text-forest-green translate-x-1" : "text-gray-300"}`}
               >
                 &rarr;
               </span>

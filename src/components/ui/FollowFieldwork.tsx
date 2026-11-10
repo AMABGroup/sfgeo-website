@@ -38,7 +38,7 @@ export default function FollowFieldwork({ variant = "light", className = "", lab
   const dark = variant === "dark";
   return (
     <div className={className}>
-      <p className={`text-[10px] uppercase tracking-[0.3em] font-semibold mb-4 ${dark ? "text-white/55" : "text-gray-500"}`}>{label}</p>
+      <p className={`text-[11px] uppercase tracking-[0.3em] font-semibold mb-4 ${dark ? "text-white/55" : "text-gray-500"}`}>{label}</p>
       <ul className="flex items-center gap-7">
         {LINKS.map((l) => (
           <li key={l.label}>
@@ -49,7 +49,7 @@ export default function FollowFieldwork({ variant = "light", className = "", lab
               className={`group inline-flex items-center gap-3 text-[12px] font-semibold tracking-[0.18em] uppercase transition-colors ${dark ? "text-white/80 hover:text-white" : "text-slate-950 hover:text-forest-green"}`}
             >
               <span
-                className={`flex h-10 w-10 items-center justify-center rounded-full transition-all duration-300 ${dark ? "shadow-[inset_0_0_0_1px_rgba(255,255,255,0.28)] group-hover:bg-white group-hover:text-[#050A07]" : "shadow-[inset_0_0_0_1px_rgba(10,10,10,0.18)] group-hover:bg-forest-green group-hover:text-white group-hover:shadow-none"}`}
+                className={`flex h-10 w-10 items-center justify-center rounded-full transition duration-300 ${dark ? "shadow-[inset_0_0_0_1px_rgba(255,255,255,0.28)] group-hover:bg-white group-hover:text-[#050A07]" : "shadow-[inset_0_0_0_1px_rgba(10,10,10,0.18)] group-hover:bg-forest-green group-hover:text-white group-hover:shadow-none"}`}
               >
                 {l.icon}
               </span>

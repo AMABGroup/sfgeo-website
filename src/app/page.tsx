@@ -155,11 +155,11 @@ export default function Home() {
               <div className="hero-line hero-d3 lg:hidden flex flex-col sm:flex-row items-center gap-4 w-full">
                 <QuoteCta
                   source="homepage hero mobile"
-                  className="flex items-center justify-center px-5 py-2.5 bg-gradient-to-b from-[#346b43] to-forest-green text-white rounded-full shadow-[0_8px_20px_-6px_rgba(45,90,58,0.4)] hover:shadow-[0_12px_24px_-8px_rgba(45,90,58,0.6)] hover:brightness-105 transition-all hover:-translate-y-0.5 w-[70%] sm:w-[240px] h-[46px] text-xs font-semibold tracking-wide"
+                  className="flex items-center justify-center px-5 py-2.5 bg-gradient-to-b from-[#346b43] to-forest-green text-white rounded-full shadow-[0_8px_20px_-6px_rgba(45,90,58,0.4)] hover:shadow-[0_12px_24px_-8px_rgba(45,90,58,0.6)] hover:brightness-105 transition hover:-translate-y-0.5 w-[70%] sm:w-[240px] h-[46px] text-xs font-semibold tracking-wide"
                 />
                 <Link
                   href="/contact?subject=b2b-enquiry"
-                  className="flex items-center justify-center px-5 py-2.5 bg-[#050A07]/45 text-white rounded-full shadow-[inset_0_0_0_1px_rgba(255,255,255,0.25)] hover:bg-white/10 hover:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.45)] transition-all hover:-translate-y-0.5 w-[70%] sm:w-[240px] h-[46px] backdrop-blur-sm"
+                  className="flex items-center justify-center px-5 py-2.5 bg-[#050A07]/45 text-white rounded-full shadow-[inset_0_0_0_1px_rgba(255,255,255,0.25)] hover:bg-white/10 hover:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.45)] transition hover:-translate-y-0.5 w-[70%] sm:w-[240px] h-[46px] backdrop-blur-sm"
                 >
                   <span className="text-xs font-semibold tracking-wide">B2B Enquiries</span>
                 </Link>
@@ -194,7 +194,7 @@ export default function Home() {
         </div>
         <div className="max-w-7xl mx-auto px-6 lg:px-12 pt-12 pb-3">
           <div className="max-w-3xl">
-            <h2 className="text-[11px] uppercase tracking-[0.28em] text-gray-400 font-semibold mb-3">Where We Work</h2>
+            <h2 className="text-[11px] uppercase tracking-[0.28em] text-gray-500 font-semibold mb-3">Where We Work</h2>
             <p className="text-sm text-gray-500 font-light leading-relaxed">The rig leaves Marrickville for every part of Greater Sydney: the Inner West and the Eastern Suburbs, the Lower North Shore and the Hills, west through Parramatta, Blacktown and Penrith, south-west through Bankstown, Liverpool and Camden, the St George suburbs and the Sutherland Shire. The Illawarra, the Blue Mountains, the Central Coast and regional New South Wales by arrangement.</p>
           </div>
         </div>
@@ -397,14 +397,14 @@ export default function Home() {
             <div data-fx="rise" style={d(240)} className="flex flex-col sm:flex-row gap-4">
               <Link
                 href="tel:+61423483555"
-                className="flex items-center justify-center px-8 py-2.5 bg-gradient-to-b from-[#346b43] to-forest-green text-white rounded-full shadow-[0_8px_20px_-6px_rgba(45,90,58,0.4)] hover:shadow-[0_12px_24px_-8px_rgba(45,90,58,0.6)] hover:brightness-105 transition-all hover:-translate-y-0.5 h-[46px] text-xs font-semibold tracking-wide"
+                className="flex items-center justify-center px-8 py-2.5 bg-gradient-to-b from-[#346b43] to-forest-green text-white rounded-full shadow-[0_8px_20px_-6px_rgba(45,90,58,0.4)] hover:shadow-[0_12px_24px_-8px_rgba(45,90,58,0.6)] hover:brightness-105 transition hover:-translate-y-0.5 h-[46px] text-xs font-semibold tracking-wide"
               >
                 Call 0423 483 555
               </Link>
               <QuoteCta
                 source="homepage close"
                 label="Request A Quote"
-                className="flex items-center justify-center px-8 py-2.5 bg-white/5 text-white rounded-full shadow-[inset_0_0_0_1px_rgba(255,255,255,0.25)] hover:bg-white/10 hover:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.45)] transition-all hover:-translate-y-0.5 h-[46px] text-xs font-semibold tracking-wide backdrop-blur-sm"
+                className="flex items-center justify-center px-8 py-2.5 bg-white/5 text-white rounded-full shadow-[inset_0_0_0_1px_rgba(255,255,255,0.25)] hover:bg-white/10 hover:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.45)] transition hover:-translate-y-0.5 h-[46px] text-xs font-semibold tracking-wide backdrop-blur-sm"
               />
             </div>
             <p data-fx="rise" style={d(300)} className="text-[12px] text-white/60 font-light tracking-wide mt-9">
