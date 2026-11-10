@@ -13,7 +13,9 @@ const BANNED = [/\bgenuinely\b/i, /\bhonestly\b/i, /\bstraightforward\b/i, /\b2\
   /\byears on sydney (construction )?sites\b/i,
   /\bengineer[- ]operated\b/i,
   /\bnothing templated\b/i,
-  /\bfully insured\b/i];
+  /\bfully insured\b/i,
+  /\bleverage\b/i,
+  /\bprograms?\b/i]; // Australian English: programme (COPY_CONSTRAINTS)
 
 function walk(dir, out = []) {
   for (const name of readdirSync(dir)) {

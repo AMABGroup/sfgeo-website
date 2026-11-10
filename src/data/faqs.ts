@@ -47,7 +47,7 @@ export const faqs = [
   {
     question: "How long does a soil test and geotechnical report take?",
     group: "Cost & Process",
-    answer: "For a clear <a href=\"/site-classification\">site classification</a>, expect your report as soon as 2 business days from fieldwork. A standard geotechnical investigation that includes NATA-accredited laboratory testing typically takes 8 to 12 business days from fieldwork, with interim findings available where the programme needs them. The turnaround is confirmed in the written quote, and the lab schedule is the main variable.<br/><br/>Urgent turnarounds are possible, and we handle them regularly for time-critical DAs, CDCs, and construction programs. We will tell you plainly whether your timeline is workable before you commit.<br/><br/>The only factors that realistically extend a project are the client’s own site readiness and specific lab testing requirements written into the scope. Everything within our control, we move on quickly."
+    answer: "For a clear <a href=\"/site-classification\">site classification</a>, expect your report as soon as 2 business days from fieldwork. A standard geotechnical investigation that includes NATA-accredited laboratory testing typically takes 8 to 12 business days from fieldwork, with interim findings available where the programme needs them. The turnaround is confirmed in the written quote, and the lab schedule is the main variable.<br/><br/>Urgent turnarounds are possible, and we handle them regularly for time-critical DAs, CDCs, and construction programmes. We will tell you plainly whether your timeline is workable before you commit.<br/><br/>The only factors that realistically extend a project are the client’s own site readiness and specific lab testing requirements written into the scope. Everything within our control, we move on quickly."
   },
   {
     question: "What is 'Bearing Capacity' and why does my engineer need it?",
@@ -72,7 +72,7 @@ export const faqs = [
   {
     question: "Does SFGEO service Western Sydney, the Inner West, and Greater Sydney?",
     group: "Access & Coverage",
-    answer: "Yes. We work across Greater Sydney from Marrickville: the reactive shale clays of the Inner West and Western Sydney, the Hawkesbury sandstone of the North Shore and Northern Beaches, and the sands of the Eastern Suburbs. For drilling programs the 4WD rig also travels into regional NSW, see <a href=\"/subcontract-drilling\">subcontract drilling</a>."
+    answer: "Yes. We work across Greater Sydney from Marrickville: the reactive shale clays of the Inner West and Western Sydney, the Hawkesbury sandstone of <a href=\"/geotechnical-engineer-north-shore\">the North Shore</a> and Northern Beaches, and the sands of the Eastern Suburbs. For drilling programmes the 4WD rig also travels into regional NSW, see <a href=\"/subcontract-drilling\">subcontract drilling</a>."
   },
   {
     question: "What does a geotechnical investigation actually involve?",
@@ -141,7 +141,7 @@ export const homeFaqs = [
   },
   {
     question: "How long does a soil test and geotechnical report take?",
-    answer: "For a clear AS 2870 site classification, expect your report as soon as 2 business days from fieldwork. A standard geotechnical investigation that includes NATA-accredited laboratory testing typically takes 8 to 12 business days from fieldwork, with interim findings available where the programme needs them. The turnaround is confirmed in the written quote, and the lab schedule is the main variable.<br/><br/>Urgent turnarounds are possible, and we handle them regularly for time-critical DAs, CDCs, and construction programs. We will tell you plainly whether your timeline is workable before you commit.<br/><br/>The only factors that realistically extend a project are the client’s own site readiness and specific lab testing requirements written into the scope. Everything within our control, we move on quickly."
+    answer: "For a clear AS 2870 site classification, expect your report as soon as 2 business days from fieldwork. A standard geotechnical investigation that includes NATA-accredited laboratory testing typically takes 8 to 12 business days from fieldwork, with interim findings available where the programme needs them. The turnaround is confirmed in the written quote, and the lab schedule is the main variable.<br/><br/>Urgent turnarounds are possible, and we handle them regularly for time-critical DAs, CDCs, and construction programmes. We will tell you plainly whether your timeline is workable before you commit.<br/><br/>The only factors that realistically extend a project are the client’s own site readiness and specific lab testing requirements written into the scope. Everything within our control, we move on quickly."
   },
   {
     question: "Can you work on tight-access, sloping, or restricted sites?",

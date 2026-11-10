@@ -22,7 +22,7 @@ const d = (ms: number) => ({ "--d": `${ms}ms` }) as CSSProperties;
 
 const DELIVERS = [
   { t: "The Soil Profile", d: "Every layer logged as it comes off the flights, material, moisture and consistency, and checked by the engineer, not reconstructed later." },
-  { t: "In-Situ Strength", d: "Dynamic Cone Penetrometer testing beside every hole, and Standard Penetration Testing down the hole to the quoted depth on consultancy and commercial programs, so the log carries numbers as well as descriptions." },
+  { t: "In-Situ Strength", d: "Dynamic Cone Penetrometer testing beside every hole, and Standard Penetration Testing down the hole to the quoted depth on consultancy and commercial programmes, so the log carries numbers as well as descriptions." },
   { t: "Groundwater Observations", d: "Seepage and standing water levels recorded during and after drilling, the observation that changes basement and footing design most often." },
   { t: "Samples For The Lab", d: "Disturbed and undisturbed samples taken at the depths that matter, bagged, labelled and tracked to NATA-accredited laboratories when testing is warranted." },
 ];
@@ -66,7 +66,7 @@ export default function BoreholeDrillingPage() {
     "@type": "Service",
     "name": "Borehole Drilling",
     "serviceType": "Borehole drilling and in-situ testing",
-    "description": "Borehole drilling across Sydney: solid flight and hollow stem augers, DCP in-situ testing (SPT on commercial programs), engineer-checked profiles and sampling for laboratory testing.",
+    "description": "Borehole drilling across Sydney: solid flight and hollow stem augers, DCP in-situ testing (SPT on commercial programmes), engineer-checked profiles and sampling for laboratory testing.",
     "url": "https://sfgeo.com.au/borehole-drilling",
     "provider": { "@id": "https://sfgeo.com.au/#organization" },
     "areaServed": [
@@ -116,6 +116,7 @@ export default function BoreholeDrillingPage() {
             />
             <Link
               href="tel:+61423483555"
+              data-cta="borehole-drilling hero call"
               className="flex items-center justify-center px-8 py-2.5 bg-white text-forest-green rounded-full shadow-[inset_0_0_0_1px_rgba(45,90,58,0.25),0_4px_10px_-4px_rgba(0,0,0,0.05)] hover:bg-forest-green/5 hover:shadow-[inset_0_0_0_1px_rgba(45,90,58,0.4),0_6px_14px_-4px_rgba(0,0,0,0.1)] transition hover:-translate-y-0.5 w-full sm:w-auto h-[46px] text-xs font-semibold tracking-wide"
             >
               Call 0423 483 555
@@ -155,7 +156,7 @@ export default function BoreholeDrillingPage() {
             </h2>
             <div data-fx="line" style={d(200)} className="h-px bg-forest-green w-12 mb-7" />
             <p data-fx="rise" style={d(160)} className="text-gray-600 font-light leading-relaxed">
-              Solid flight augers for Sydney&rsquo;s clays and residual soils; hollow stem when the hole needs support; DCP testing at every hole, and SPT on consultancy and commercial programs, to put numbers behind the descriptions. The material comes up, gets read in the hand, and goes on the log in the field, because the ground doesn&rsquo;t look the same in a photo the next day.
+              Solid flight augers for Sydney&rsquo;s clays and residual soils; hollow stem when the hole needs support; DCP testing at every hole, and SPT on consultancy and commercial programmes, to put numbers behind the descriptions. The material comes up, gets read in the hand, and goes on the log in the field, because the ground doesn&rsquo;t look the same in a photo the next day.
             </p>
           </Reveal>
         </div>

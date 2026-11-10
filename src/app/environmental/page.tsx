@@ -9,6 +9,13 @@ import CloseBand from "@/components/ui/CloseBand";
 import { pageMeta } from "@/lib/seo";
 import QuietFaq from "@/components/sections/QuietFaq";
 
+// The quote pop-up's copy for this page: its own promise, never another service's turnaround.
+const PAGE_QUOTE = {
+  "eyebrow": "Environmental testing",
+  "subheading": "Send the address and what the site was used for. A fixed fee in writing within one business day.",
+  "projectType": "Environmental sampling"
+};
+
 export const metadata: Metadata = pageMeta(
   "Contaminated Land & Environmental Testing Sydney | SFGEO",
   "Engineer-led contaminated land testing across Sydney: PSI, DSI, acid sulfate soils and waste classification. Fixed fee in writing within one business day.",
@@ -65,10 +72,10 @@ const SECTIONS = [
     alt: "Labelled soil sample bag and field tablet during sampling for laboratory testing",
     body: (
       <>
-        Behind every report is a laboratory program scoped to the question: CBR and compaction for pavements, <Link href="/site-classification" className="text-forest-green underline underline-offset-4 decoration-forest-green/40 hover:decoration-forest-green">Atterberg limits and shrink–swell for footings</Link>, pH, sulfate and chloride where concrete meets aggressive ground, and contamination suites where history demands them. Samples are logged in the field by the engineer who took them, and results come back interpreted: numbers with a recommendation, not a spreadsheet to decode.
+        Behind every report is a laboratory programme scoped to the question: CBR and compaction for pavements, <Link href="/site-classification" className="text-forest-green underline underline-offset-4 decoration-forest-green/40 hover:decoration-forest-green">Atterberg limits and shrink–swell for footings</Link>, pH, sulfate and chloride where concrete meets aggressive ground, and contamination suites where history demands them. Samples are logged in the field by the engineer who took them, and results come back interpreted: numbers with a recommendation, not a spreadsheet to decode.
       </>
     ),
-    link: { href: "/contact", label: "Build A Testing Program" },
+    link: { href: "/contact", label: "Build A Testing Programme" },
   },
 ];
 
@@ -90,7 +97,7 @@ const AUDIENCES = [
     t: "Consultants & Engineers",
     d: (
       <>
-        <Link href="/subcontract-drilling" className="text-forest-green underline underline-offset-4 decoration-forest-green/40 hover:decoration-forest-green">Drilling and sampling</Link> for your own assessment programs: clean field data, chain of custody kept. Monitoring wells go in through a bore driller under our scope.
+        <Link href="/subcontract-drilling" className="text-forest-green underline underline-offset-4 decoration-forest-green/40 hover:decoration-forest-green">Drilling and sampling</Link> for your own assessment programmes: clean field data, chain of custody kept. Monitoring wells go in through a bore driller under our scope.
       </>
     ),
   },
@@ -169,11 +176,12 @@ export default function EnvironmentalHubPage() {
           <div className="hero-line hero-d3 flex flex-col sm:flex-row items-start gap-4">
             <Link
               href="tel:+61423483555"
+              data-cta="environmental hero call"
               className="flex items-center justify-center px-8 py-2.5 bg-gradient-to-b from-[#346b43] to-forest-green text-white rounded-full shadow-[0_8px_20px_-6px_rgba(45,90,58,0.4)] hover:shadow-[0_12px_24px_-8px_rgba(45,90,58,0.6)] hover:brightness-105 transition hover:-translate-y-0.5 w-full sm:w-auto h-[46px] text-xs font-semibold tracking-wide"
             >
               Call 0423 483 555
             </Link>
-            <QuoteCta
+            <QuoteCta {...PAGE_QUOTE}
               source="environmental hero"
               label="Scope A Site Investigation"
               className="flex items-center justify-center px-8 py-2.5 bg-white text-forest-green rounded-full shadow-[inset_0_0_0_1px_rgba(45,90,58,0.25),0_4px_10px_-4px_rgba(0,0,0,0.05)] hover:bg-forest-green/5 hover:shadow-[inset_0_0_0_1px_rgba(45,90,58,0.4),0_6px_14px_-4px_rgba(0,0,0,0.1)] transition hover:-translate-y-0.5 w-full sm:w-auto h-[46px] text-xs font-semibold tracking-wide"
@@ -239,6 +247,7 @@ export default function EnvironmentalHubPage() {
       <QuietFaq intro={<>We carry out contaminated land investigation (PSI and DSI), acid sulfate soil assessment and waste classification across Sydney, for buyers, builders, homeowners and consultants. Geotechnical tells you how the ground behaves. Environmental tells you what it&rsquo;s carrying. One crew drills, samples and reports on both. Each site is quoted individually, with a fixed fee in writing within one business day.</>} faqs={FAQS} />
 
       <CloseBand
+        quote={PAGE_QUOTE}
         source="environmental close"
         heading={<>The Ground Has A History. <span className="font-semibold h-bold">Know It.</span></>}
         sub={<>Tell us the site and the question: a purchase, a DA condition, a stockpile, or something the excavator just turned up. You&rsquo;ll have a straight answer on scope and cost within one business day.</>}

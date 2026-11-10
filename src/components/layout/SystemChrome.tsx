@@ -127,6 +127,8 @@ export function SystemHeader() {
   const openQuote = useCallback(() => {
     quoteTriggerRef.current = document.activeElement instanceof HTMLElement ? document.activeElement : null;
     setQuote(true);
+    // GA4 only, matching QuoteCta: opens per placement, to set against generate_lead.
+    window.gtag?.("event", "quote_open", { send_to: "G-VXSTDPETHH", form_placement: "menu quote modal" });
   }, []);
 
   // Keep Tab / Shift+Tab inside the quote dialog.
@@ -164,7 +166,9 @@ export function SystemHeader() {
     // so the Close button is always reachable.
     const main = document.getElementById("main");
     const footer = document.querySelector("footer");
-    [main, footer].forEach((el) => {
+    // The call and text bubbles sit outside main; behind an open menu they must leave the tab order too.
+    const bubbles = document.getElementById("contact-bubbles");
+    [main, footer, bubbles].forEach((el) => {
       if (el) el.inert = modal;
     });
   }, [open, quote]);

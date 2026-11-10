@@ -9,6 +9,13 @@ import CloseBand from "@/components/ui/CloseBand";
 import { pageMeta } from "@/lib/seo";
 import RatingFact from "@/components/ui/RatingFact";
 
+// The quote pop-up's copy for this page: its own promise, never another service's turnaround.
+const PAGE_QUOTE = {
+  "eyebrow": "Tight-access drilling",
+  "heading": "Quote A Tight-Access Site",
+  "subheading": "Send the address and the access. A fixed fee in writing within one business day."
+};
+
 // Rebuilt hourly from the stored Google rating and reviews (src/lib/googleReviews.ts).
 export const revalidate = 3600;
 
@@ -54,6 +61,7 @@ const FAQS = [
   {
     q: "Is a site classification on a tight-access block a custom quote?",
     a: "Yes, restricted access is one of the Complex Projects and Sites criteria, so a site classification on a tight-access block is quoted individually rather than from the $800 + GST or $1,000 + GST starting points. The fee is fixed, scoped to your block and confirmed in writing within one business day. Full price bands are on the geotechnical report cost guide.",
+    link: { text: "geotechnical report cost guide", href: "/geotechnical-report-cost-sydney" },
   },
   {
     q: "Does a tight-access site slow the report down?",
@@ -114,11 +122,12 @@ export default function TightAccessDrillingPage() {
           <div className="hero-line hero-d3 flex flex-col sm:flex-row items-start gap-4">
             <Link
               href="tel:+61423483555"
+              data-cta="tight-access-drilling hero call"
               className="flex items-center justify-center px-8 py-2.5 bg-gradient-to-b from-[#346b43] to-forest-green text-white rounded-full shadow-[0_8px_20px_-6px_rgba(45,90,58,0.4)] hover:shadow-[0_12px_24px_-8px_rgba(45,90,58,0.6)] hover:brightness-105 transition hover:-translate-y-0.5 w-full sm:w-auto h-[46px] text-xs font-semibold tracking-wide"
             >
               Discuss Your Site Access
             </Link>
-            <QuoteCta source="tight-access-drilling hero" label="Quote A Tight-Access Site" className="flex items-center justify-center px-8 py-2.5 bg-white text-forest-green rounded-full shadow-[inset_0_0_0_1px_rgba(45,90,58,0.25),0_4px_10px_-4px_rgba(0,0,0,0.05)] hover:bg-forest-green/5 hover:shadow-[inset_0_0_0_1px_rgba(45,90,58,0.4),0_6px_14px_-4px_rgba(0,0,0,0.1)] transition hover:-translate-y-0.5 w-full sm:w-auto h-[46px] text-xs font-semibold tracking-wide" />
+            <QuoteCta {...PAGE_QUOTE} source="tight-access-drilling hero" label="Quote A Tight-Access Site" className="flex items-center justify-center px-8 py-2.5 bg-white text-forest-green rounded-full shadow-[inset_0_0_0_1px_rgba(45,90,58,0.25),0_4px_10px_-4px_rgba(0,0,0,0.05)] hover:bg-forest-green/5 hover:shadow-[inset_0_0_0_1px_rgba(45,90,58,0.4),0_6px_14px_-4px_rgba(0,0,0,0.1)] transition hover:-translate-y-0.5 w-full sm:w-auto h-[46px] text-xs font-semibold tracking-wide" />
           </div>
           <p className="hero-line hero-d3 mt-5 text-xs text-gray-500 font-light tracking-wide">Fixed fee, quoted per site &middot; Reports as soon as 2 business days from fieldwork &middot; Response within one business day<RatingFact /></p>
         </div>
@@ -219,6 +228,7 @@ export default function TightAccessDrillingPage() {
       <QuietFaq intro={<>Restricted-access geotechnical drilling is for anyone building on a Sydney site where a standard rig stops at the kerb: terraces, battleaxe blocks, backyards, courtyards and basements. SFGEO investigates them with motorised hand augers and a 4WD-mounted rig, led by the engineer who reads the ground and signs the report. Fixed fees, scoped to your block. Site classification reports follow as soon as 2 business days from fieldwork.</>} faqs={FAQS} />
 
       <CloseBand
+        quote={PAGE_QUOTE}
         source="tight-access-drilling close"
         heading={<>Hard To Reach? <span className="font-semibold h-bold">Perfect.</span></>}
         sub={<>Send the address and a photo of the access. You&rsquo;ll have a fixed fee in writing within one business day.</>}

@@ -6,6 +6,7 @@ import FollowFieldwork from "@/components/ui/FollowFieldwork";
 import PhotoFrame from "@/components/ui/PhotoFrame";
 import CloseBand from "@/components/ui/CloseBand";
 import { pageMeta } from "@/lib/seo";
+import { linkPhrase, type PhraseLink } from "@/components/ui/linkPhrase";
 
 export const metadata: Metadata = pageMeta(
   "Projects | Geotechnical Case Studies Sydney | SFGEO",
@@ -20,6 +21,10 @@ type CaseStudy = {
   tag: string;
   title: string;
   location: string;
+  /** Optional page the place name links to (a suburb landing page). */
+  locationHref?: string;
+  /** Optional cross-reference already present in the outcome copy. */
+  outcomeLink?: PhraseLink;
   image: string;
   imageAlt: string;
   brief: string;
@@ -49,6 +54,7 @@ const caseStudies: CaseStudy[] = [
     tag: "Site Classification",
     title: "Dual Occupancy On Reactive Clay",
     location: "Willoughby · demolition, pool removal, two new dwellings",
+    locationHref: "/geotechnical-engineer-north-shore",
     image: "/projects/project-willoughby.jpg",
     imageAlt: "Site classification fieldwork at a Willoughby block",
     brief:
@@ -71,7 +77,7 @@ const caseStudies: CaseStudy[] = [
     ground:
       "At footing depth, the ground was read against the standard’s acceptance criteria: 150 kPa vertical bearing and lateral strength over the full footing depth, in undisturbed soil. It didn’t meet them. Not marginal, not arguable: the standard footing detail could not be used.",
     outcome:
-      "The not-suitable call was made on site that night, the excavation backfilled and the road reopened for the morning peak. The record set out the engineering path forward, a specific footing design in place of the standard detail, because a pole holding signals over six lanes should stand on verified ground, not hope. On the same program, sister intersections passed and proceeded.",
+      "The not-suitable call was made on site that night, the excavation backfilled and the road reopened for the morning peak. The record set out the engineering path forward, a specific footing design in place of the standard detail, because a pole holding signals over six lanes should stand on verified ground, not hope. On the same programme, sister intersections passed and proceeded.",
     facts: ["Night closure works", "150 kPa criteria checked at depth", "Not-suitable call made on site", "Road open by morning"],
   },
   {
@@ -117,6 +123,7 @@ const caseStudies: CaseStudy[] = [
       "One borehole through the reinforced concrete pavement to 4.7 metres: reactive Bringelly Shale clay over weathered shale. The clay was ruled out as a founding stratum, because localised wetting is a fact of life in a dairy yard.",
     outcome:
       "The tank went onto bored piers socketed into weathered shale at 400 to 700 kPa end bearing with shaft adhesion values, and dilapidation surveys recommended for the boundary wall. Issued in two days and independently reviewed by a registered professional geotechnical engineer.",
+    outcomeLink: { text: "dilapidation surveys", href: "/other-services#dilapidation" },
     facts: ["60-tonne tank load", "Piers socketed in shale", "Live factory yard", "Peer-reviewed"],
   },
   {
@@ -161,7 +168,7 @@ const caseStudies: CaseStudy[] = [
     ground:
       "At the Carrington Road post the vacuum truck refused on sandstone at 950 millimetres, verified at 700 kPa, and the contractor broke rock by hand to the standard depth within it. At Darley Road the first position exposed a water main, the second an unidentified service above the rock, and backfill beside the kerb ruled out a piered footing. Neither position could meet the drawing.",
     outcome:
-      "One post approved to pour, one told no, with the reason set out so an alternative footing could be designed rather than argued. Two nights, two records, and an intersection the whole suburb crosses standing on ground that was actually verified. Same program, same standard, a different answer at each post, because the ground decides.",
+      "One post approved to pour, one told no, with the reason set out so an alternative footing could be designed rather than argued. Two nights, two records, and an intersection the whole suburb crosses standing on ground that was actually verified. Same programme, same standard, a different answer at each post, because the ground decides.",
     facts: ["Two night inspections", "Vacuum excavation only", "Sandstone verified at 700 kPa", "Second post sent for redesign"],
   },
   {
@@ -266,7 +273,7 @@ const caseStudies: CaseStudy[] = [
     ground:
       "Full traffic control from the first cone to the last. Locations set out and service-marked before a flight turned, then boreholes advanced through the road pavement, sampled and logged at the hole, backfilled and reinstated one at a time, so no more of the street was open than the work actually needed.",
     outcome:
-      "Every hole drilled, logged and made good inside a single night shift, working alongside one of the bigger testing firms for part of the program. The lane was handed back before dawn and the street traded the next morning as though nothing had happened. The lighting those footings carry is what the street walks home under now, which, for the people on it, is the entire point.",
+      "Every hole drilled, logged and made good inside a single night shift, working alongside one of the bigger testing firms for part of the programme. The lane was handed back before dawn and the street traded the next morning as though nothing had happened. The lighting those footings carry is what the street walks home under now, which, for the people on it, is the entire point.",
     facts: ["Street lighting footings", "Single night shift", "Drilled through the carriageway", "Reopened before trade"],
   },
 ];
@@ -365,7 +372,7 @@ export default function ProjectsPage() {
 
               {/* Text column */}
               <Reveal variant="group" className="flex-1">
-                <p data-fx="rise" className="text-[11px] uppercase tracking-[0.25em] text-forest-green font-semibold mb-4">{cs.location}</p>
+                <p data-fx="rise" className="text-[11px] uppercase tracking-[0.25em] text-forest-green font-semibold mb-4">{cs.locationHref ? (<><Link href={cs.locationHref} className="hover:text-slate-950 transition-colors">{cs.location.split(" · ")[0]}</Link>{cs.location.slice(cs.location.indexOf(" · "))}</>) : cs.location}</p>
                 <h2 data-fx="rise" style={d(80)} className="text-3xl sm:text-4xl font-montserrat font-light tracking-tight text-slate-950 mb-8">
                   {cs.title}
                 </h2>
@@ -381,7 +388,7 @@ export default function ProjectsPage() {
                   </div>
                   <div data-fx="rise" style={d(280)}>
                     <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-forest-green mb-3">The outcome</h3>
-                    <p className="text-slate-800 font-light leading-relaxed">{cs.outcome}</p>
+                    <p className="text-slate-800 font-light leading-relaxed">{linkPhrase(cs.outcome, cs.outcomeLink)}</p>
                   </div>
                 </div>
 

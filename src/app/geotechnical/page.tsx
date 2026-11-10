@@ -69,7 +69,7 @@ const SECTIONS = [
 
 const AUDIENCES = [
   { t: "Homeowners", d: "A classification or investigation for the home, pool or granny flat, explained in plain English and priced fixed." },
-  { t: "Architects & Builders", d: "Reports written to your certifier’s requirements, and inspections that keep the program moving." },
+  { t: "Architects & Builders", d: "Reports written to your certifier’s requirements, and inspections that keep the programme moving." },
   { t: "Engineers & Developers", d: "Parameters your designs can rely on, investigations at any access, peer-review depth on request." },
   { t: "Councils & Asset Owners", d: "Compliance records, asset investigations and assessments that stand up to scrutiny." },
 ];
@@ -83,6 +83,7 @@ const FAQS = [
   {
     q: "How is each geotechnical service priced?",
     a: "Site classifications are fixed fees from $800 + GST (ancillary residential) and from $1,000 + GST (standard residential); complex sites are quoted individually. Investigations, assessments and design parameters are quoted per site against the number and depth of boreholes, access and the laboratory programme. Inspections are quoted per site as single visits or standing engagements. Every fee is confirmed in writing within one business day. See the cost guide.",
+    link: { text: "the cost guide", href: "/geotechnical-report-cost-sydney" },
   },
   {
     q: "How long does each type of geotechnical report take?",

@@ -1,6 +1,7 @@
 // Ping IndexNow (Bing, Yandex, and the engines that read from Bing — including
 // the web index ChatGPT search uses) with every URL in the sitemap.
-// Run after each deploy:  node scripts/indexnow.mjs
+// Production deploys now ping automatically (netlify/functions/deploy-succeeded.mjs, changed URLs only).
+// Run this by hand to resubmit every URL:  node scripts/indexnow.mjs
 const KEY = "e22b4e57f5056ea9b38c349a81e670a1";
 const HOST = "sfgeo.com.au";
 const xml = await (await fetch(`https://${HOST}/sitemap.xml`)).text();

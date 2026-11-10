@@ -12,6 +12,11 @@ import { pageMeta } from "@/lib/seo";
 import QuietFaq from "@/components/sections/QuietFaq";
 import RatingFact from "@/components/ui/RatingFact";
 
+// The quote pop-up's copy for this page: its own promise, never another service's turnaround.
+const PAGE_QUOTE = {
+  "subheading": "Scoped against your block and plans. A fixed fee in writing within one business day. Reports as soon as 2 business days from fieldwork."
+};
+
 // Rebuilt hourly from the stored Google rating and reviews (src/lib/googleReviews.ts).
 export const revalidate = 3600;
 
@@ -37,8 +42,8 @@ const CLASSES = [
   { cls: "A", desc: "Stable. Minimal movement. Sand or rock." },
   { cls: "S", desc: "Slightly reactive. Standard footings." },
   { cls: "M", desc: "Moderately reactive. Stiffened slab." },
-  { cls: "H1", desc: "Highly reactive, 40–60 mm surface movement." },
-  { cls: "H2", desc: "Highly reactive, 60–75 mm." },
+  { cls: "H1", desc: "Highly reactive, 40 to 60 mm surface movement." },
+  { cls: "H2", desc: "Highly reactive, 60 to 75 mm." },
   { cls: "E", desc: "Extremely reactive, greater than 75 mm." },
 ];
 
@@ -117,7 +122,7 @@ export default function SiteClassificationPage() {
         "description": "Granny flats. Small additions. New homes on cleared blocks. Tightly scoped projects with clear access, priced from $800 + GST. Every fee is set against your specific block.",
         "priceSpecification": {
           "@type": "PriceSpecification",
-          "price": "800",
+          "minPrice": "800",
           "priceCurrency": "AUD",
           "valueAddedTaxIncluded": false,
           "description": "from $800 + GST"
@@ -126,10 +131,10 @@ export default function SiteClassificationPage() {
       {
         "@type": "Offer",
         "name": "Standard residential",
-        "description": "The right tier for most Sydney custom builds. Single or double-storey homes on established streets. Pool additions, duplexes, and dwellings with in-ground pools. From $1,000, priced against the work your site actually needs.",
+        "description": "The right tier for most Sydney custom builds. Single or double-storey homes on established streets. Pool additions, duplexes, and dwellings with in-ground pools. From $1,000 + GST, priced against the work your site actually needs.",
         "priceSpecification": {
           "@type": "PriceSpecification",
-          "price": "1000",
+          "minPrice": "1000",
           "priceCurrency": "AUD",
           "valueAddedTaxIncluded": false,
           "description": "from $1,000 + GST"
@@ -169,13 +174,14 @@ export default function SiteClassificationPage() {
             The AS 2870 report your whole build stands on, led by the Principal Engineer, tailored to your site, your design and your certifier. No drive-by inspections. No surprises.
           </p>
           <div className="hero-line hero-d3 flex flex-col sm:flex-row items-start gap-4">
-            <QuoteCta
+            <QuoteCta {...PAGE_QUOTE}
               source="site-classification hero"
               label="Get Your Fixed-Fee Quote"
               className="flex items-center justify-center px-8 py-2.5 bg-gradient-to-b from-[#346b43] to-forest-green text-white rounded-full shadow-[0_8px_20px_-6px_rgba(45,90,58,0.4)] hover:shadow-[0_12px_24px_-8px_rgba(45,90,58,0.6)] hover:brightness-105 transition hover:-translate-y-0.5 w-full sm:w-auto h-[46px] text-xs font-semibold tracking-wide"
             />
             <Link
               href="tel:+61423483555"
+              data-cta="site-classification hero call"
               className="flex items-center justify-center px-8 py-2.5 bg-white text-forest-green rounded-full shadow-[inset_0_0_0_1px_rgba(45,90,58,0.25),0_4px_10px_-4px_rgba(0,0,0,0.05)] hover:bg-forest-green/5 hover:shadow-[inset_0_0_0_1px_rgba(45,90,58,0.4),0_6px_14px_-4px_rgba(0,0,0,0.1)] transition hover:-translate-y-0.5 w-full sm:w-auto h-[46px] text-xs font-semibold tracking-wide"
             >
               Call 0423 483 555
@@ -309,7 +315,7 @@ export default function SiteClassificationPage() {
         </Reveal>
         <Reveal variant="group">
           <div data-fx="rise" className="mt-12 text-center">
-            <QuoteCta
+            <QuoteCta {...PAGE_QUOTE}
               source="site-classification pricing"
               label="Get Your Fixed-Fee Quote"
               className="inline-flex items-center justify-center px-8 py-2.5 bg-gradient-to-b from-[#346b43] to-forest-green text-white rounded-full shadow-[0_8px_20px_-6px_rgba(45,90,58,0.4)] hover:shadow-[0_12px_24px_-8px_rgba(45,90,58,0.6)] hover:brightness-105 transition hover:-translate-y-0.5 h-[46px] text-xs font-semibold tracking-wide"
@@ -350,7 +356,7 @@ export default function SiteClassificationPage() {
             </h2>
             <div data-fx="line" style={d(200)} className="h-px bg-forest-green w-12 mb-7" />
             <p data-fx="rise" style={d(160)} className="text-gray-600 font-light leading-relaxed mb-8">
-              Inner West terraces, battleaxe blocks, rear-yard granny flat positions, stepped sites with deep investigation points. SFGEO runs a 4WD-mounted rig for the sites conventional trucks can&rsquo;t reach, with motorised hand augers covering zero-clearance and internal courtyard work. Access-ready from first contact, so your program doesn&rsquo;t slip waiting on a rig that can&rsquo;t get in.
+              Inner West terraces, battleaxe blocks, rear-yard granny flat positions, stepped sites with deep investigation points. SFGEO runs a 4WD-mounted rig for the sites conventional trucks can&rsquo;t reach, with motorised hand augers covering zero-clearance and internal courtyard work. Access-ready from first contact, so your programme doesn&rsquo;t slip waiting on a rig that can&rsquo;t get in.
             </p>
             <Link data-fx="rise" style={d(220)} href="/tight-access-drilling" className="text-sm font-semibold tracking-wide text-forest-green group inline-flex items-center gap-2 min-h-[44px]">
               <span className="draw-link">Explore Tight Access Capability</span>
@@ -432,6 +438,7 @@ export default function SiteClassificationPage() {
       <QuietFaq intro={<>A site classification is the soil test for a new home, extension, granny flat or pool. Most councils and certifiers require one. It gives your structural engineer the AS 2870 class and the parameters the footing design is drawn from. The Principal Engineer attends every site and signs every report. Fees are fixed, from $800 + GST. The report follows as soon as 2 business days from fieldwork.</>} faqs={FAQS} />
 
       <CloseBand
+        quote={PAGE_QUOTE}
         source="site-classification close"
         heading={<>Start With <span className="font-semibold h-bold">The Address.</span></>}
         sub="Every SFGEO engagement begins with the Principal Engineer reading your block and your plans, and standing on your ground on the day."

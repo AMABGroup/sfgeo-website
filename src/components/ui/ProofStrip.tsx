@@ -68,7 +68,10 @@ function Value({ value, active }: { value: string; active: boolean }) {
     <>
       {pm ? (
         <>
-          <span className="text-[0.42em] font-normal tracking-wide align-[0.35em] mr-2">{pm[1]}</span>
+          {/* Under 400px the word sits above the numeral (in the cell's top padding) so "$800" clears the divider. */}
+          <span className="text-[0.42em] font-normal tracking-wide align-[0.35em] mr-2 max-[399px]:absolute max-[399px]:left-0 max-[399px]:bottom-full max-[399px]:mb-2 max-[399px]:mr-0">{pm[1]}</span>
+          {/* Text extractors otherwise read "From$800": the gap above is margin only. */}
+          <span className="sr-only"> </span>
           {pm[2]}
         </>
       ) : (
@@ -106,17 +109,23 @@ export default function ProofStrip({ items, variant = "light", className = "" }:
   }, []);
 
   const dark = variant === "dark";
+  const rule = dark ? "border-white/10" : "border-gray-200";
   return (
     <div
       ref={ref}
-      className={`grid grid-cols-2 lg:grid-cols-4 ${dark ? "divide-white/10" : "divide-gray-200"} divide-x divide-y lg:divide-y-0 border-y ${dark ? "border-white/10" : "border-gray-200"} ${className}`}
+      className={`grid grid-cols-2 lg:grid-cols-4 border-y ${rule} ${className}`}
     >
       {items.map((it, i) => (
-        <div key={it.label} className={`px-6 py-8 lg:py-10 ${i % 2 === 1 ? "" : "border-l-0"} ${i >= 2 ? "lg:border-t-0" : ""}`}>
-          <p className={`font-montserrat font-light tracking-tight text-4xl lg:text-5xl leading-none ${dark ? "text-white" : "text-slate-950"}`}>
+        // Each cell draws its own rules (Tailwind 4 divide-* also ruled the outer edge of cell 2 and doubled
+        // the bottom of cell 3). Phones: a 2x2 grid with an inner cross. Desktop: three inner verticals.
+        <div
+          key={it.label}
+          className={`px-5 min-[400px]:px-6 py-8 lg:py-10 ${rule} ${i % 2 === 0 ? "border-r" : ""} ${i < 2 ? "border-b" : ""} ${i < items.length - 1 ? "lg:border-r" : "lg:border-r-0"} lg:border-b-0`}
+        >
+          <p className={`relative font-montserrat font-light tracking-tight text-4xl lg:text-5xl leading-none ${dark ? "text-white" : "text-slate-950"}`}>
             <Value value={it.value} active={active} />
           </p>
-          <p className={`mt-3 text-[11px] uppercase tracking-[0.22em] font-semibold ${dark ? "text-[#8FBF9F]" : "text-forest-green"}`}>{it.label}</p>
+          <p className={`mt-3 text-[11px] max-[359px]:text-[10px] uppercase tracking-[0.16em] max-[359px]:tracking-[0.12em] min-[400px]:tracking-[0.22em] font-semibold ${dark ? "text-[#8FBF9F]" : "text-forest-green"}`}>{it.label}</p>
           {it.note && <p className={`mt-1.5 text-[13px] font-light leading-snug ${dark ? "text-white/55" : "text-gray-500"}`}>{it.note}</p>}
         </div>
       ))}

@@ -27,7 +27,13 @@ const FIELD_ORDER = ["name", "phone", "email", "siteAddress", "projectType", "st
  * label, so tracking stays unified. `source` is appended to the message so
  * Alli can see which placement produced the lead.
  */
-export default function QuickQuoteCard({ source, eyebrow = "Fixed-fee quote", heading = "Request A Fixed-Fee Quote", subheading = "Scoped against your block and plans. Response within one business day. Reports as soon as 2 business days from fieldwork.", secondaryLink, headingId = "qq-heading" }: { source: string; eyebrow?: string; heading?: string; subheading?: string; secondaryLink?: { href: string; label: string }; headingId?: string }) {
+// The default subheading carries only the promise every service shares. Pages whose turnaround or price is
+// fixed (site classification, inspections, coring) pass their own line, so the pop-up never contradicts the
+// page behind it (10 Nov 2026 audit: investigations and drilling were being promised the site-classification
+// turnaround).
+export type QuoteRating = { value: number; total: number };
+
+export default function QuickQuoteCard({ source, eyebrow = "Fixed-fee quote", heading = "Request A Fixed-Fee Quote", subheading = "Scoped against your block and plans. A fixed fee in writing within one business day.", secondaryLink, headingId = "qq-heading", projectType, rating }: { source: string; eyebrow?: string; heading?: string; subheading?: string; secondaryLink?: { href: string; label: string }; headingId?: string; projectType?: string; rating?: QuoteRating | null }) {
   const [status, setStatus] = useState<FormStatus>("idle");
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [formData, setFormData] = useState({
@@ -35,7 +41,8 @@ export default function QuickQuoteCard({ source, eyebrow = "Fixed-fee quote", he
     email: "",
     phone: "",
     siteAddress: "",
-    projectType: "",
+    // A service page can preselect its own project type; the visitor can still change it.
+    projectType: projectType && (PROJECT_TYPES as readonly string[]).includes(projectType) ? projectType : "",
     startDate: "",
     website: "", // Honeypot
   });
@@ -149,7 +156,7 @@ export default function QuickQuoteCard({ source, eyebrow = "Fixed-fee quote", he
     `${fieldClasses(field)} appearance-none cursor-pointer ${hasValue ? "text-white" : "text-white/60"}`;
 
   return (
-    <div className="w-full max-w-md rounded-3xl bg-[#050A07] relative overflow-hidden p-9 shadow-[0_24px_60px_-24px_rgba(5,10,7,0.55)] ring-1 ring-white/10">
+    <div data-cta={source} className="w-full max-w-md rounded-3xl bg-[#050A07] relative overflow-hidden p-9 shadow-[0_24px_60px_-24px_rgba(5,10,7,0.55)] ring-1 ring-white/10">
       <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_-20%,rgba(45,90,58,0.35),transparent_70%)] pointer-events-none" />
       <div className="relative z-10">
         {status === "success" ? (
@@ -163,6 +170,10 @@ export default function QuickQuoteCard({ source, eyebrow = "Fixed-fee quote", he
             <p className="text-sm text-gray-400 font-light leading-relaxed">
               Thank you. Your details are with our Principal Engineer. You&apos;ll have a response within one business day.
             </p>
+            <p className="mt-4 text-sm text-gray-400 font-light leading-relaxed">
+              If your project is time-critical, please call{" "}
+              <a href="tel:+61423483555" className="text-[#8FBF9F] hover:text-white transition-colors whitespace-nowrap">0423 483 555</a>.
+            </p>
             {plansNotSent && (
               <p className="mt-4 text-sm text-gray-400 font-light leading-relaxed">
                 Your files did not come through. Please email them to{" "}
@@ -172,7 +183,8 @@ export default function QuickQuoteCard({ source, eyebrow = "Fixed-fee quote", he
           </div>
         ) : (
           <form ref={formRef} onSubmit={handleSubmit} noValidate>
-            <p className="text-[11px] uppercase tracking-[0.25em] text-[#8FBF9F] font-semibold mb-3">
+            {/* pr-20 keeps a long page label clear of the pop-up's Close button. */}
+            <p className="text-[11px] uppercase tracking-[0.25em] text-[#8FBF9F] font-semibold mb-3 pr-20">
               {eyebrow}
             </p>
             <h2 id={headingId} className="text-2xl font-montserrat font-light text-white mb-3">{heading}</h2>
@@ -257,11 +269,16 @@ export default function QuickQuoteCard({ source, eyebrow = "Fixed-fee quote", he
             </button>
             {status === "error" && (
               <p className="mt-3 text-xs text-red-400/90 text-center">
-                Something went wrong. Please call 0423 483 555 or email info@sfgeo.com.au.
+                Something went wrong. Please call{" "}
+                <a href="tel:+61423483555" className="underline underline-offset-2 hover:text-white whitespace-nowrap">0423 483 555</a>{" "}
+                or email{" "}
+                <a href="mailto:info@sfgeo.com.au" className="underline underline-offset-2 hover:text-white">info@sfgeo.com.au</a>.
               </p>
             )}
             <p className="mt-5 text-[11px] text-white/60 font-light text-center tracking-wide">
-              Principal Engineer across every job &middot; Fixed fee, scoped to your block
+              {rating && rating.total > 0
+                ? <>{rating.value.toFixed(1)} from {rating.total} Google review{rating.total === 1 ? "" : "s"} &middot; Principal Engineer across every job</>
+                : <>Principal Engineer across every job &middot; Fixed fee, scoped to your block</>}
             </p>
             {secondaryLink && (
               <div className="mt-5 pt-4 border-t border-white/10 text-center">

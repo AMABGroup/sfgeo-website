@@ -34,6 +34,7 @@ const FAQS = [
   {
     q: "Which investigation do the design parameters come from?",
     a: "A geotechnical investigation on your site: boreholes drilled by the engineer with the 4WD-mounted rig or motorised hand augers, penetrometer tests, and laboratory testing through NATA-accredited laboratories where the site warrants it. Residential boreholes are sized to the base of excavation plus one to two metres. No value is a presumptive figure copied between reports. See geotechnical investigations.",
+    link: { text: "geotechnical investigations", href: "/geotechnical-investigations" },
   },
   {
     q: "What form do the design parameters come in?",
@@ -94,6 +95,7 @@ export default function Page() {
           <div className="hero-line hero-d3 mt-10 flex flex-col sm:flex-row items-start gap-4">
             <Link
               href="tel:+61423483555"
+              data-cta="geotechnical-design hero call"
               className="flex items-center justify-center px-8 py-2.5 bg-gradient-to-b from-[#346b43] to-forest-green text-white rounded-full shadow-[0_8px_20px_-6px_rgba(45,90,58,0.4)] hover:shadow-[0_12px_24px_-8px_rgba(45,90,58,0.6)] hover:brightness-105 transition hover:-translate-y-0.5 w-full sm:w-auto h-[46px] text-xs font-semibold tracking-wide"
             >
               Call 0423 483 555
@@ -101,6 +103,7 @@ export default function Page() {
             <QuoteCta
               source="geotechnical-design hero"
               label="Request Design Parameters"
+              projectType="Design parameters for engineers"
               eyebrow="Design parameters"
               heading="Request Design Parameters"
               subheading="Send the structural concept and the site. Scope and fee in writing within one business day."
@@ -159,7 +162,7 @@ export default function Page() {
           <div data-stagger className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               { t: "Parameters, Not Prose", d: "Design values delivered as memos and tables your software takes directly, with the derivation available when reviewers ask." },
-              { t: "Alternatives Reviewed", d: "When the contractor proposes a different footing system mid-build, we review it against the ground data fast, so the program holds." },
+              { t: "Alternatives Reviewed", d: "When the contractor proposes a different footing system mid-build, we review it against the ground data fast, so the programme holds." },
               { t: "On Call Through Construction", d: "The engineer who set the numbers stays reachable when the excavation opens and the ground asks its own questions." },
             ].map((c) => (
               <div key={c.t} className="card-lift p-8 bg-white border border-gray-100 rounded-2xl shadow-sm h-full">
@@ -175,6 +178,7 @@ export default function Page() {
 
       <CloseBand
         source="geotechnical-design close"
+        quote={{ eyebrow: "Design parameters", heading: "Request Design Parameters", subheading: "Send the structural concept and the site. Scope and fee in writing within one business day.", projectType: "Design parameters for engineers" }}
         heading={<>Designing On Sydney Ground? <span className="font-semibold h-bold">Get Real Numbers.</span></>}
         sub="Send the drawings and the site. The parameters come back derived from the ground, signed, and in a form your software takes directly."
       />

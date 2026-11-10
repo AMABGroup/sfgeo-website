@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
-import QuickQuoteCard from "./QuickQuoteCard";
+import QuickQuoteCard, { type QuoteRating } from "./QuickQuoteCard";
 
 type QuoteCtaProps = {
   source: string;
@@ -11,7 +11,22 @@ type QuoteCtaProps = {
   eyebrow?: string;
   heading?: string;
   subheading?: string;
+  /** Preselects the form's project type on a service page (must match PROJECT_TYPES). */
+  projectType?: string;
 };
+
+// The live rating is fetched once per page view, only when a pop-up first opens,
+// from the same cached /api/reviews figure the pages print.
+let ratingPromise: Promise<QuoteRating | null> | null = null;
+function loadRating(): Promise<QuoteRating | null> {
+  if (!ratingPromise) {
+    ratingPromise = fetch("/api/reviews")
+      .then((r) => (r.ok ? r.json() : null))
+      .then((d) => (d && typeof d.rating === "number" && d.user_ratings_total > 0 ? { value: d.rating, total: d.user_ratings_total } : null))
+      .catch(() => null);
+  }
+  return ratingPromise;
+}
 
 const FOCUSABLE =
   'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
@@ -26,8 +41,9 @@ const FOCUSABLE =
 // rise animation, card-lift on hover or focus) would otherwise become the
 // containing block for `fixed`, shrinking the backdrop and pushing Submit off
 // screen. `open` only turns true after a click, so document is always defined.
-export default function QuoteCta({ source, label = "Request A Quote", className, eyebrow, heading, subheading }: QuoteCtaProps) {
+export default function QuoteCta({ source, label = "Request A Quote", className, eyebrow, heading, subheading, projectType }: QuoteCtaProps) {
   const [open, setOpen] = useState(false);
+  const [rating, setRating] = useState<QuoteRating | null>(null);
   const triggerRef = useRef<HTMLAnchorElement>(null);
   const dialogRef = useRef<HTMLDivElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
@@ -82,6 +98,9 @@ export default function QuoteCta({ source, label = "Request A Quote", className,
           if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
           e.preventDefault();
           setOpen(true);
+          // GA4 only (not a Google Ads conversion): how often a placement's pop-up is opened.
+          window.gtag?.("event", "quote_open", { send_to: "G-VXSTDPETHH", form_placement: source });
+          loadRating().then(setRating);
         }}
         className={className}
       >
@@ -101,7 +120,7 @@ export default function QuoteCta({ source, label = "Request A Quote", className,
               Close ✕
             </button>
             <div className="max-h-[92vh] overflow-y-auto rounded-3xl">
-              <QuickQuoteCard source={source} eyebrow={eyebrow} heading={heading} subheading={subheading} />
+              <QuickQuoteCard source={source} eyebrow={eyebrow} heading={heading} subheading={subheading} projectType={projectType} rating={rating} />
             </div>
           </div>
         </div>,

@@ -1,7 +1,13 @@
 import type { ReactNode } from "react";
 import Accordion from "@/components/ui/Accordion";
+import { linkPhrase, type PhraseLink } from "@/components/ui/linkPhrase";
 
-type Faq = { q: string; a: string };
+// `link` turns a cross-reference already in the answer ("See the cost guide.") into a quiet link.
+// The FAQPage schema keeps reading the plain `a` string.
+type Faq = { q: string; a: string; link?: PhraseLink };
+
+// "AS 3798" never splits across two lines in a question (display only; the schema keeps the plain string).
+const keepStandards = (q: string) => q.replace(/\bAS (\d{4})/g, "AS\u00a0$1");
 
 /**
  * Fine-print strip at the foot of a service page: a small label, an optional
@@ -19,8 +25,8 @@ export default function QuietFaq({ intro, faqs = [], label }: { intro?: ReactNod
         {faqs.length > 0 && (
           <div className="border-t border-gray-100">
             {faqs.map((f) => (
-              <Accordion key={f.q} title={f.q} variant="quiet">
-                {f.a}
+              <Accordion key={f.q} title={keepStandards(f.q)} variant="quiet">
+                {linkPhrase(f.a, f.link)}
               </Accordion>
             ))}
           </div>

@@ -2,25 +2,12 @@
 
 import { ChatBubbleLeftEllipsisIcon } from "@heroicons/react/24/solid";
 
-declare global {
-  interface Window {
-    gtag?: (...args: unknown[]) => void;
-  }
-}
-
+// The sms_tap GA4 event is sent by ContactClickTracker (site-wide), so it fires once.
 export default function ContactBubble() {
-  const handleClick = () => {
-    if (typeof window !== "undefined" && window.gtag) {
-      window.gtag("event", "sms_tap", {
-        send_to: "G-VXSTDPETHH",
-      });
-    }
-  };
-
   return (
-    <a    
+    <a
       href="sms:+61423483555"
-      onClick={handleClick}
+      data-cta="text bubble"
       className="fixed bottom-6 right-6 z-50 bg-forest-green text-white p-4 rounded-full shadow-lg hover:bg-forest-green/90 hover:scale-105 hover:shadow-xl transition duration-300 flex items-center justify-center group lg:hidden"
       aria-label="Text SFGEO on 0423 483 555"
     >
