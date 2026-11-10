@@ -51,7 +51,7 @@ const REGIONS: { title: string; desc: string; href?: string }[] = [
   { title: "Inner West", desc: "Ashfield Shale country: residual clays over weathered shale, often moderately to highly reactive. Investigations here focus on clay depth and shale weathering, because the difference decides the footing system. Class M and H1 outcomes are common." },
   { title: "North Shore", href: "/geotechnical-engineer-north-shore", desc: "Hawkesbury Sandstone, with outcomes hinging on how much weathered soil sits above the rock. Shallow rock founds beautifully. Bored piers to sandstone carry most of the harbour’s basements. Deeper profiles behave like clay and need proper investigation." },
   { title: "Western Sydney", desc: "Bringelly Shale, the most reactive common profile in metropolitan Sydney. Across the Cumberland Plain, H1 and H2 outcomes are frequent, and movement estimates need boreholes deep enough to see the whole active zone." },
-  { title: "South West Corridor", desc: "Legacy fill, alluvial soils and reactive clays push a higher proportion of sites into Class P, common across Liverpool and Campbelltown. The investigation’s first job is finding where the fill stops and natural ground begins." },
+  { title: "South West Corridor", desc: "Legacy fill, alluvial soils and reactive clays. Uncontrolled fill left under the footings or slab can make a site Class P under AS 2870. Where the fill is stripped, the class is set by the natural ground beneath. The investigation’s first job is finding where the fill stops and natural ground begins." },
   { title: "Eastern Suburbs & Coast", desc: "Dune sands over sandstone, steep marine slopes and tight streets. Sand profiles found well but cave in open excavations; the rock surface dips sharply block to block. Investigations here earn their keep on access and depth-to-rock." },
 ];
 
@@ -83,7 +83,7 @@ const FAQS = [
   },
   {
     q: "Do I need a geotechnical investigation for a DA or a CDC?",
-    a: "It depends on the council or certifier and on what is mapped over the block. A standard house or pool on a level block typically needs only an AS 2870 site classification. Basements, excavation near a boundary, retaining walls, sloping or landslip-mapped land, fill, or a Class P result usually trigger a full investigation. Forward council or certifier correspondence with the address and the scope is matched to it.",
+    a: "It depends on the pathway and the block. For a DA, the council can require one, in its DCP or after lodgement. For a CDC, the certifier who issues it asks. A standard house or pool on a level block typically needs only an AS 2870 site classification. Basements, boundary excavation, retaining walls, sloping or landslip-mapped land, fill or a Class P result usually trigger a full investigation.",
   },
 ];
 

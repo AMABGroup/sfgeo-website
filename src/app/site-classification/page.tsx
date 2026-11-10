@@ -40,8 +40,8 @@ const REPORT_CONTENTS = [
 
 const CLASSES = [
   { cls: "A", desc: "Stable. Minimal movement. Sand or rock." },
-  { cls: "S", desc: "Slightly reactive. Standard footings." },
-  { cls: "M", desc: "Moderately reactive. Stiffened slab." },
+  { cls: "S", desc: "Slightly reactive, up to 20 mm. Standard footings." },
+  { cls: "M", desc: "Moderately reactive, 20 to 40 mm. Stiffened slab." },
   { cls: "H1", desc: "Highly reactive, 40 to 60 mm surface movement." },
   { cls: "H2", desc: "Highly reactive, 60 to 75 mm." },
   { cls: "E", desc: "Extremely reactive, greater than 75 mm." },
@@ -74,12 +74,12 @@ const NAV = [
 // Rendered visibly below and mirrored into the FAQPage schema: the two must stay in step.
 const FAQS = [
   {
-    q: "What happens on the day of the soil test?",
-    a: "Fieldwork usually takes a few hours. The Principal Engineer leads the work with the 4WD-mounted rig, or motorised hand augers where access is tight, reads the profile and cross-checks it with penetrometers. Boreholes are sized to the base of excavation plus one to two metres. Samples go to a NATA-accredited laboratory when the site warrants it. You need not be there, provided access is clear and gates are open.",
+    q: "Do I need a soil test for a granny flat in NSW?",
+    a: "Usually, yes. A new granny flat typically needs an AS 2870 site classification: it is what the certifier asks for and what the structural engineer designs the footings to. Granny flats sit in the ancillary tier, from $800 + GST, with the report as soon as 2 business days from fieldwork. Sloping or restricted-access blocks are a custom quote.",
   },
   {
-    q: "What does Class M mean for my footings?",
-    a: "Class M means moderately reactive ground: clay that moves with seasonal moisture, within the range a standard stiffened raft or strip footing is designed for. AS 2870 sets stiffer rafts and deeper footings for the more reactive classes, so the letter on your report is what your structural engineer designs to. Classified as M rather than an assumed worst case, your footings are sized for the ground, not for a guess.",
+    q: "What happens on the day of the soil test?",
+    a: "Fieldwork usually takes a few hours. The Principal Engineer leads the work with the 4WD-mounted rig, or motorised hand augers where access is tight, reads the profile and cross-checks it with penetrometers. Boreholes are sized to the base of excavation plus one to two metres. Samples go to a NATA-accredited laboratory when the site warrants it. You need not be there, provided access is clear and gates are open.",
   },
   {
     q: "Does a site classification include laboratory testing?",
@@ -390,7 +390,7 @@ export default function SiteClassificationPage() {
             </div>
           </div>
           <p data-fx="rise" style={d(160)} className="text-gray-600 font-light leading-relaxed max-w-3xl">
-            <strong className="font-medium text-slate-950">Class P</strong> sits outside the reactivity scale, applied when conditions fall outside the standard framework: fill, steep slope, soft or collapsing soils, reactivity beyond Class E, or proximity to significant trees and watercourses. It requires individual engineering assessment, and often a full <Link href="/geotechnical-investigations" className="text-forest-green underline underline-offset-4 decoration-forest-green/40 hover:decoration-forest-green">geotechnical investigation</Link>.
+            <strong className="font-medium text-slate-950">Class P</strong> sits outside the reactivity scale. AS 2870 applies it where bearing or ground movement is governed by more than normal reactivity: soft or collapsing soils, uncontrolled fill left under the footings, landslip, mine subsidence, erosion, or abnormal moisture such as large trees close to the house. It requires individual engineering assessment, and often a full <Link href="/geotechnical-investigations" className="text-forest-green underline underline-offset-4 decoration-forest-green/40 hover:decoration-forest-green">geotechnical investigation</Link>.
           </p>
         </Reveal>
       </section>

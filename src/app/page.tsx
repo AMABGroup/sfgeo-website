@@ -145,7 +145,7 @@ export default async function Home() {
           <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-10">
             <div className="flex flex-col items-center lg:items-start text-center lg:text-left flex-1 max-w-3xl">
               <p className="hero-line text-sm uppercase tracking-[0.2em] text-[#8FBF9F] mb-6 font-semibold">
-                Independent Geotechnical Consultancy &middot; Sydney
+                Independent Geotechnical Engineers &middot; Sydney
               </p>
               <h1 className="text-[clamp(2.75rem,7vw,6.6rem)] lg:text-[clamp(2.8rem,5.5vw,6.6rem)] xl:text-[clamp(3.2rem,7vw,6.6rem)] tracking-[-0.02em] font-montserrat font-light text-white leading-[1.04] mb-8">
                 <span className="mask-line mask-d1"><span>Geotechnical.</span></span>{" "}
@@ -258,7 +258,7 @@ export default async function Home() {
             </h2>
             <div data-fx="line" style={d(200)} className="w-[96px] h-[3px] bg-forest-green mb-8" />
             <p data-fx="rise" style={d(180)} className="text-lg text-gray-300 font-light leading-relaxed mb-6 max-w-xl">
-              A principal-led team backed by a trusted partner network. The Principal, Alli Atmar, brings 15 years in construction, from labouring to engineering. Project work runs from Sydney Gateway, the M12 and Western Sydney Airport to granny flats, extensions and knockdown rebuilds across the metro. Hired from the Inner West and working for it: the street lighting and signals a suburb walks home under, as much as its terraces and pools.
+              Geotechnical engineers based in Marrickville: a principal-led team backed by a trusted partner network. The Principal, Alli Atmar, brings 15 years in construction, from labouring to engineering. Project work runs from Sydney Gateway, the M12 and Western Sydney Airport to granny flats, extensions and knockdown rebuilds across the metro. Hired from the Inner West and working for it: the street lighting and signals a suburb walks home under, as much as its terraces and pools.
             </p>
             <p data-fx="rise" style={d(240)} className="text-[15px] text-white/60 font-light leading-relaxed mb-8 max-w-xl">
               The engineer who quotes your job is the one who stands on your ground and signs the report. Small by design, so nothing is handed down a chain.
