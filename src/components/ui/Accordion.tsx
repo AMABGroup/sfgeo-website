@@ -30,7 +30,7 @@ export default function Accordion({ title, defaultOpen = false, variant = "defau
             : "text-xl sm:text-2xl font-light font-montserrat text-slate-black group-hover:text-forest-green transition-colors"}>
             {title}
           </span>
-          <span className={`p-1.5 transition-colors flex-shrink-0 ${isOpen ? 'text-forest-green' : 'text-gray-400 group-hover:text-forest-green'}`}>
+          <span className={`p-1.5 transition-colors flex-shrink-0 ${isOpen ? 'text-forest-green' : 'text-gray-500 group-hover:text-forest-green'}`}>
             {isOpen ? <MinusIcon className={quiet ? "w-3.5 h-3.5" : "w-5 h-5"} /> : <PlusIcon className={quiet ? "w-3.5 h-3.5" : "w-5 h-5"} />}
           </span>
         </button>

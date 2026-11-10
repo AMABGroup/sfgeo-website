@@ -251,7 +251,7 @@ export default function QuickQuoteCard({ source, eyebrow = "Fixed-fee quote", he
             <button
               type="submit"
               disabled={status === "submitting"}
-              className="w-full flex items-center justify-center px-5 h-[46px] bg-gradient-to-b from-[#346b43] to-forest-green text-white rounded-full shadow-[0_8px_20px_-6px_rgba(45,90,58,0.5)] hover:shadow-[0_12px_24px_-8px_rgba(45,90,58,0.7)] hover:brightness-105 transition-all hover:-translate-y-0.5 disabled:opacity-60 disabled:hover:translate-y-0 text-xs font-semibold tracking-wide"
+              className="w-full flex items-center justify-center px-5 h-[46px] bg-gradient-to-b from-[#346b43] to-forest-green text-white rounded-full shadow-[0_8px_20px_-6px_rgba(45,90,58,0.5)] hover:shadow-[0_12px_24px_-8px_rgba(45,90,58,0.7)] hover:brightness-105 transition hover:-translate-y-0.5 disabled:opacity-60 disabled:hover:translate-y-0 text-xs font-semibold tracking-wide"
             >
               {status !== "submitting" ? "Request my quote" : progress !== null ? `Sending plans ${progress}%` : "Sending…"}
             </button>

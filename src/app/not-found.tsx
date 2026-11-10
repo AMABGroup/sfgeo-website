@@ -28,7 +28,7 @@ export default function NotFound() {
         </div>
         <Link
           href="/"
-          className="inline-flex items-center justify-center px-8 py-2.5 bg-gradient-to-b from-[#346b43] to-forest-green text-white rounded-full shadow-[0_8px_20px_-6px_rgba(45,90,58,0.4)] hover:brightness-105 transition-all hover:-translate-y-0.5 h-[46px] text-xs font-semibold tracking-wide"
+          className="inline-flex items-center justify-center px-8 py-2.5 bg-gradient-to-b from-[#346b43] to-forest-green text-white rounded-full shadow-[0_8px_20px_-6px_rgba(45,90,58,0.4)] hover:brightness-105 transition hover:-translate-y-0.5 h-[46px] text-xs font-semibold tracking-wide"
         >
           Back To Solid Ground
         </Link>

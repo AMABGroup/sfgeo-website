@@ -162,7 +162,7 @@ export default function OtherServicesPage() {
           <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed">
             Dilapidation reports, utility location and GPR scanning, surveys and specialist engineering across Sydney: the services a project needs beside the geotechnics. Delivered through a trusted partner network, coordinated by SFGEO, under one engagement and one point of contact.
           </p>
-          <p className="hero-line hero-d3 mt-5 text-xs text-gray-400 font-light tracking-wide">Partner-delivered under one SFGEO engagement &middot; Quoted per site &middot; Fixed fee in writing within one business day</p>
+          <p className="hero-line hero-d3 mt-5 text-xs text-gray-500 font-light tracking-wide">Partner-delivered under one SFGEO engagement &middot; Quoted per site &middot; Fixed fee in writing within one business day</p>
         </div>
       </section>
 

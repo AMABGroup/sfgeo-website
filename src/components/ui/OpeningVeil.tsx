@@ -168,7 +168,7 @@ export default function OpeningVeil() {
       <div className={`absolute left-[4.5rem] lg:left-[7.5rem] top-0 bottom-0 w-px bg-gradient-to-b from-white/20 via-white/10 to-white/20 veil-scale transition-opacity duration-300 ${cutting ? "opacity-0" : ""}`} />
 
       {/* Wordmark, centred on the section */}
-      <div className={`absolute inset-0 flex flex-col items-center justify-center gap-6 transition-all duration-500 ${cutting ? "opacity-0 scale-[1.03]" : ""}`}>
+      <div className={`absolute inset-0 flex flex-col items-center justify-center gap-6 transition duration-500 ${cutting ? "opacity-0 scale-[1.03]" : ""}`}>
         <div className="overflow-hidden">
           <div className="relative w-[clamp(200px,32vw,400px)] h-[clamp(52px,8.5vw,105px)] veil-logo">
             <Image src="/SFGEO_logo.png" alt="SFGEO, Solid Foundation Geotechnical" fill sizes="400px" className="object-contain" priority />

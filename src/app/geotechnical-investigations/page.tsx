@@ -136,19 +136,19 @@ export default function GeotechnicalInvestigationsPage() {
           <div className="hero-line hero-d3 -order-1 sm:order-none mb-8 sm:mb-0 flex flex-col sm:flex-row items-start gap-4">
             <Link
               href="tel:+61423483555"
-              className="flex items-center justify-center px-8 py-2.5 bg-gradient-to-b from-[#346b43] to-forest-green text-white rounded-full shadow-[0_8px_20px_-6px_rgba(45,90,58,0.4)] hover:shadow-[0_12px_24px_-8px_rgba(45,90,58,0.6)] hover:brightness-105 transition-all hover:-translate-y-0.5 w-full sm:w-auto h-[46px] text-xs font-semibold tracking-wide"
+              className="flex items-center justify-center px-8 py-2.5 bg-gradient-to-b from-[#346b43] to-forest-green text-white rounded-full shadow-[0_8px_20px_-6px_rgba(45,90,58,0.4)] hover:shadow-[0_12px_24px_-8px_rgba(45,90,58,0.6)] hover:brightness-105 transition hover:-translate-y-0.5 w-full sm:w-auto h-[46px] text-xs font-semibold tracking-wide"
             >
               Call The Principal Engineer
             </Link>
             <QuoteCta
               source="geotechnical-investigations hero"
               label="Request A Quote"
-              className="flex items-center justify-center px-8 py-2.5 bg-white text-forest-green rounded-full shadow-[inset_0_0_0_1px_rgba(45,90,58,0.25),0_4px_10px_-4px_rgba(0,0,0,0.05)] hover:bg-forest-green/5 hover:shadow-[inset_0_0_0_1px_rgba(45,90,58,0.4),0_6px_14px_-4px_rgba(0,0,0,0.1)] transition-all hover:-translate-y-0.5 w-full sm:w-auto h-[46px] text-xs font-semibold tracking-wide"
+              className="flex items-center justify-center px-8 py-2.5 bg-white text-forest-green rounded-full shadow-[inset_0_0_0_1px_rgba(45,90,58,0.25),0_4px_10px_-4px_rgba(0,0,0,0.05)] hover:bg-forest-green/5 hover:shadow-[inset_0_0_0_1px_rgba(45,90,58,0.4),0_6px_14px_-4px_rgba(0,0,0,0.1)] transition hover:-translate-y-0.5 w-full sm:w-auto h-[46px] text-xs font-semibold tracking-wide"
             />
           </div>
-          <p className="hero-line hero-d3 mt-5 text-xs text-gray-400 font-light tracking-wide">Boreholes to AS 1726, quoted per site &middot; Fixed fee in writing within one business day &middot; Reports with laboratory testing typically 8 to 12 business days from fieldwork</p>
-          <p className="hero-line hero-d3 mt-1.5 text-xs text-gray-400 font-light tracking-wide">Free site visit &middot; Same-day site visits across Metro Sydney</p>
-          <RatingFact lineClassName="hero-line hero-d3 mt-1.5 text-xs text-gray-400 font-light tracking-wide" />
+          <p className="hero-line hero-d3 mt-5 text-xs text-gray-500 font-light tracking-wide">Boreholes to AS 1726, quoted per site &middot; Fixed fee in writing within one business day &middot; Reports with laboratory testing typically 8 to 12 business days from fieldwork</p>
+          <p className="hero-line hero-d3 mt-1.5 text-xs text-gray-500 font-light tracking-wide">Free site visit &middot; Same-day site visits across Metro Sydney</p>
+          <RatingFact lineClassName="hero-line hero-d3 mt-1.5 text-xs text-gray-500 font-light tracking-wide" />
         </div>
       </section>
 
@@ -249,7 +249,7 @@ export default function GeotechnicalInvestigationsPage() {
               <QuoteCta
                 source="geotechnical-investigations regions"
                 label="Check My Block"
-                className="relative z-10 inline-flex items-center justify-center px-6 py-2.5 bg-gradient-to-b from-[#346b43] to-forest-green text-white rounded-full shadow-[0_8px_20px_-6px_rgba(45,90,58,0.4)] hover:brightness-105 transition-all hover:-translate-y-0.5 h-[44px] text-xs font-semibold tracking-wide w-fit"
+                className="relative z-10 inline-flex items-center justify-center px-6 py-2.5 bg-gradient-to-b from-[#346b43] to-forest-green text-white rounded-full shadow-[0_8px_20px_-6px_rgba(45,90,58,0.4)] hover:brightness-105 transition hover:-translate-y-0.5 h-[44px] text-xs font-semibold tracking-wide w-fit"
               />
             </div>
           </div>

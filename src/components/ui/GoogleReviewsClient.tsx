@@ -167,8 +167,8 @@ export default function GoogleReviewsClient({ layout = "grid", data }: Props) {
 
       <Reveal variant="group">
         <div data-stagger className="mt-16 flex flex-col sm:flex-row items-center justify-center gap-6">
-          {readBtn("flex items-center justify-center px-8 h-[46px] bg-white text-forest-green rounded-full shadow-[inset_0_0_0_1px_rgba(45,90,58,0.25),0_4px_10px_-4px_rgba(0,0,0,0.05)] hover:bg-forest-green/5 transition-all hover:-translate-y-0.5 text-xs font-semibold tracking-wide")}
-          {writeBtn("flex items-center justify-center px-8 h-[46px] bg-gradient-to-b from-[#346b43] to-forest-green text-white rounded-full text-xs font-semibold tracking-wide shadow-[0_8px_20px_-6px_rgba(45,90,58,0.4)] hover:shadow-[0_12px_24px_-8px_rgba(45,90,58,0.6)] hover:brightness-105 transition-all hover:-translate-y-0.5")}
+          {readBtn("flex items-center justify-center px-8 h-[46px] bg-white text-forest-green rounded-full shadow-[inset_0_0_0_1px_rgba(45,90,58,0.25),0_4px_10px_-4px_rgba(0,0,0,0.05)] hover:bg-forest-green/5 transition hover:-translate-y-0.5 text-xs font-semibold tracking-wide")}
+          {writeBtn("flex items-center justify-center px-8 h-[46px] bg-gradient-to-b from-[#346b43] to-forest-green text-white rounded-full text-xs font-semibold tracking-wide shadow-[0_8px_20px_-6px_rgba(45,90,58,0.4)] hover:shadow-[0_12px_24px_-8px_rgba(45,90,58,0.6)] hover:brightness-105 transition hover:-translate-y-0.5")}
         </div>
       </Reveal>
     </>
