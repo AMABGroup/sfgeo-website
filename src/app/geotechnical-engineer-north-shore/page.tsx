@@ -7,6 +7,7 @@ import PhotoFrame from "@/components/ui/PhotoFrame";
 import CloseBand from "@/components/ui/CloseBand";
 import { pageMeta } from "@/lib/seo";
 import RatingFact from "@/components/ui/RatingFact";
+import QuietFaq from "@/components/sections/QuietFaq";
 
 // Rebuilt hourly from the stored Google rating (src/lib/googleReviews.ts).
 export const revalidate = 3600;
@@ -18,6 +19,25 @@ export const metadata: Metadata = pageMeta(
 );
 
 const d = (ms: number) => ({ "--d": `${ms}ms` }) as CSSProperties;
+
+// Answers approved by Alli, 11 Nov 2026. Approved facts only; no suburb geology.
+// Rendered visibly below and mirrored into the FAQPage schema: the two must stay in step.
+const FAQS = [
+  {
+    q: "How much does a site classification cost on the North Shore?",
+    a: "Site classifications start from $800 + GST for granny flats, small additions and new homes on cleared blocks, and from $1,000 + GST for single or double-storey homes on established streets, pools and duplexes. Sloping blocks, basements, restricted access and prestige-suburb projects are a custom quote. Every fee is fixed in writing within one business day of receiving the site address.",
+    link: { text: "Site classifications", href: "/site-classification" },
+  },
+  {
+    q: "How long does a geotechnical report take on the North Shore?",
+    a: "A site classification report follows as soon as 2 business days from fieldwork. A geotechnical investigation with laboratory testing typically takes 8 to 12 business days from fieldwork, confirmed in the written quote, with interim findings available where the programme needs them. The Principal leads the fieldwork and signs the report.",
+  },
+  {
+    q: "Can you test a tight North Shore block with limited access?",
+    a: "Yes. Motorised hand augers reach zero-clearance and courtyard sites, and the 4WD-mounted rig is sized for tight-access residential sites. Hollow stem auger drilling and NMLC rock coring are available where a deeper programme needs them. Access is checked against the site address and plans before the fixed fee is set.",
+    link: { text: "tight-access residential sites", href: "/tight-access-drilling" },
+  },
+];
 
 // Each card is written from that job's issued report and field record only (North Shore draft, 1 Nov 2026;
 // jobs chosen by Alli, 6-7 Nov 2026). No figure appears that the field record does not support.
@@ -118,10 +138,21 @@ export default function NorthShorePage() {
     ]
   };
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": FAQS.map((f) => ({
+      "@type": "Question",
+      "name": f.q,
+      "acceptedAnswer": { "@type": "Answer", "text": f.a }
+    }))
+  };
+
   return (
     <div className="bg-white text-slate-950 font-inter selection:bg-forest-green selection:text-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       {/* Hero */}
       <section className="pt-36 pb-20 px-6 lg:px-12 max-w-7xl mx-auto">
@@ -249,6 +280,8 @@ export default function NorthShorePage() {
           </div>
         </Reveal>
       </section>
+
+      <QuietFaq faqs={FAQS} />
 
       <CloseBand
         source="north-shore close"

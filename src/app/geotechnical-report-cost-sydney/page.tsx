@@ -25,6 +25,9 @@ export const metadata: Metadata = pageMeta(
 
 const d = (ms: number) => ({ "--d": `${ms}ms` }) as CSSProperties;
 
+// Fees confirmed current by Alli on this date. Change it only when he re-confirms them.
+const FEES_DATED = "2026-11-11";
+
 // The three site-classification tiers — copied verbatim from /site-classification.
 const TIERS = [
   { k: "ANCILLARY RESIDENTIAL", price: <>$800</>, from: true, d: "Granny flats. Small additions. New homes on cleared blocks. Tightly scoped projects with clear access, priced from $800 + GST. Every fee is set against your specific block." },
@@ -96,6 +99,18 @@ export default function GeotechnicalReportCostPage() {
       { "@type": "ListItem", "position": 2, "item": { "@id": "https://sfgeo.com.au/geotechnical-report-cost-sydney", "name": "Geotechnical Report Cost Sydney" } }
     ]
   };
+  // The date the published fees were last confirmed (the "Fees as published" line under the tiers).
+  const pageSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://sfgeo.com.au/geotechnical-report-cost-sydney",
+    "url": "https://sfgeo.com.au/geotechnical-report-cost-sydney",
+    "name": "Geotechnical Report Cost Sydney",
+    "dateModified": FEES_DATED,
+    "inLanguage": "en-AU",
+    "isPartOf": { "@id": "https://sfgeo.com.au/#website" },
+    "about": { "@id": "https://sfgeo.com.au/#organization" }
+  };
   // Every published price, and only those (COPY_CONSTRAINTS Facts): what the bands on this page say, as data.
   const serviceSchema = {
     "@context": "https://schema.org",
@@ -130,6 +145,7 @@ export default function GeotechnicalReportCostPage() {
 
   return (
     <div className="bg-white text-slate-950 font-inter selection:bg-forest-green selection:text-white">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(pageSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
@@ -162,7 +178,7 @@ export default function GeotechnicalReportCostPage() {
               className="flex items-center justify-center px-8 py-2.5 bg-white text-forest-green rounded-full shadow-[inset_0_0_0_1px_rgba(45,90,58,0.25),0_4px_10px_-4px_rgba(0,0,0,0.05)] hover:bg-forest-green/5 hover:shadow-[inset_0_0_0_1px_rgba(45,90,58,0.4),0_6px_14px_-4px_rgba(0,0,0,0.1)] transition hover:-translate-y-0.5 w-full sm:w-auto h-[46px] text-xs font-semibold tracking-wide"
             />
           </div>
-          <p className="hero-line hero-d3 mt-5 text-xs text-gray-500 font-light tracking-wide">Site classification from $800 + GST &middot; Coring $120 + GST per hole, three-hole minimum &middot; Fixed fee in writing within one business day<RatingFact /></p>
+          <p className="hero-line hero-d3 mt-5 text-xs text-gray-500 font-light tracking-wide">Site classification from $800 + GST &middot; Footing inspections from $600 + GST &middot; Fixed fee in writing within one business day<RatingFact /></p>
         </div>
       </section>
 
@@ -192,6 +208,8 @@ export default function GeotechnicalReportCostPage() {
               </div>
             ))}
           </div>
+          {/* Alli confirmed every published fee current, 11 Nov 2026. Move FEES_DATED and this line together. */}
+          <p data-fx="rise" className="mt-6 text-xs text-gray-500 font-light tracking-wide">Fees as published, November 2026.</p>
         </Reveal>
         {/* The tiers are where a reader decides: the same ask as /site-classification's pricing block. */}
         <Reveal variant="group">

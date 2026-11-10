@@ -22,17 +22,17 @@ export const faqs = [
   {
     question: "What does a 'Class P' site classification mean?",
     group: "For Homeowners",
-    answer: "'Class P' stands for a 'Problem' site, common in areas like Liverpool and Campbelltown. It sits outside the standard reactivity scale used in an <a href=\"/site-classification\">AS 2870 site classification</a> and means site-specific geotechnical advice is required for your footing design."
+    answer: "Class P marks a problem site in an <a href=\"/site-classification\">AS 2870 site classification</a>. It applies where bearing or ground movement is governed by more than normal clay reactivity: soft clay, silt or loose sand, uncontrolled fill left under the footings, landslip, mine subsidence, collapsing soils, erosion, or abnormal moisture such as large trees close to the house. Footings on a Class P site need a specific engineering design."
   },
   {
     question: "What does a Class M site classification mean?",
     group: "For Homeowners",
-    answer: "Class M is a moderately reactive site under AS 2870: clay that shrinks and swells with seasonal moisture change, enough to move a footing but within the range a standard stiffened raft or strip footing is designed for. Many Sydney clay sites classify as M. Your structural engineer reads the class straight into the footing design. <a href=\"/site-classification#classes\">See the full class scale</a>."
+    answer: "Class M is a moderately reactive site under AS 2870, with a characteristic surface movement of 20 to 40 mm: clay that shrinks and swells with seasonal moisture change, enough to move a footing but within the range a standard stiffened raft or strip footing is designed for. Many Sydney clay sites classify as M. Your structural engineer reads the class straight into the footing design. <a href=\"/site-classification#classes\">See the full class scale</a>."
   },
   {
     question: "What is a Class H1 or H2 site?",
     group: "For Homeowners",
-    answer: "Class H1 and H2 are highly reactive clay sites under AS 2870, with larger seasonal ground movement than Class M, and H2 moves more than H1. Both are buildable: the standard sets stiffer rafts and deeper footings for each class, and your structural engineer designs to the class. Deep residual clays over shale are the usual H1 and H2 sites in Sydney. <a href=\"/site-classification#classes\">See the full class scale</a>."
+    answer: "Class H1 and H2 are highly reactive clay sites under AS 2870, with a characteristic surface movement of 40 to 60 mm for H1 and 60 to 75 mm for H2. Both are buildable: the standard sets stiffer rafts and deeper footings for each class, and your structural engineer designs to the class. Deep residual clays over shale are the usual H1 and H2 sites in Sydney. <a href=\"/site-classification#classes\">See the full class scale</a>."
   },
   {
     question: "Can you perform tight-access soil testing on restricted Sydney sites?",
@@ -117,7 +117,7 @@ export const faqs = [
   {
     question: "When does a council require a geotechnical report for a DA or CDC?",
     group: "For Builders & Engineers",
-    answer: "It depends on the council and on what is mapped over the block. The common triggers are sloping or landslip-mapped land, cut or fill beyond what the council’s DCP allows without a report, excavation near a boundary or an existing structure, retaining walls above the height the DCP sets, and land flagged for acid sulfate soils or contamination. Some councils name the trigger in the DA checklist; others raise it as a request for further information after lodgement.<br/><br/>Each council’s threshold is its own, so the DCP and the certifier’s checklist are the reference, not a rule of thumb. If you are not sure whether your block is caught, send us the address and any correspondence from council and we will tell you before you commit to anything."
+    answer: "Under a DA, the council can require a geotechnical report at lodgement, through its DCP, or ask for one after. Under a CDC, the certifier who issues it asks. Either way, the certifier wants the AS 2870 site classification before construction, and it is the same document on both pathways. Whether a full report is needed depends on the council and on what is mapped over the block. The common triggers are sloping or landslip-mapped land, cut or fill beyond what the council’s DCP allows without a report, excavation near a boundary or an existing structure, retaining walls above the height the DCP sets, and land flagged for acid sulfate soils or contamination. Some councils name the trigger in the DA checklist; others raise it as a request for further information after lodgement.<br/><br/>Each council’s threshold is its own, so the DCP and the certifier’s checklist are the reference, not a rule of thumb. If you are not sure whether your block is caught, send us the address and any correspondence from council and we will tell you before you commit to anything."
   },
   {
     question: "How long is a geotechnical report valid for?",
