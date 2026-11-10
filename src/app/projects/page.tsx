@@ -39,6 +39,7 @@ const caseStudies: CaseStudy[] = [
     tag: "Geotechnical Investigation",
     title: "A Rural Estate, Read Hole By Hole",
     location: "Kenthurst · 2‑hectare rural‑residential lot",
+    locationHref: "/geotechnical-engineer-hills-district",
     image: "/projects/project-kenthurst.jpg",
     imageAlt: "SFGEO 4WD drill rig investigating a rural-residential estate lot in Kenthurst",
     brief:
@@ -70,6 +71,7 @@ const caseStudies: CaseStudy[] = [
     tag: "Night Works · Construction Phase Support",
     title: "The Footing That Said No",
     location: "Blakehurst · traffic signal upgrade, King Georges Road",
+    locationHref: "/geotechnical-engineer-st-george-sutherland-shire",
     image: "/projects/project-blakehurst-night.jpg",
     imageAlt: "Signal pole footing excavation behind barriers at a closed intersection at night",
     brief:
@@ -85,6 +87,7 @@ const caseStudies: CaseStudy[] = [
     tag: "Limited-Scope Investigation",
     title: "A Plunge Pool Cut Into Rock",
     location: "Bondi Beach · strata courtyard, metres from a four‑storey block",
+    locationHref: "/geotechnical-engineer-eastern-suburbs",
     image: "/projects/project-bondi.jpg",
     imageAlt: "Hand-auger investigation in a Bondi Beach strata courtyard",
     brief:
@@ -100,6 +103,7 @@ const caseStudies: CaseStudy[] = [
     tag: "Geotechnical Investigation",
     title: "A Pile Wall Designed From The Street",
     location: "Coogee · five metres of fall, street to rear",
+    locationHref: "/geotechnical-engineer-eastern-suburbs",
     image: "/projects/project-coogee.jpg",
     imageAlt: "Drilling from the road verge above a steep Coogee allotment",
     brief:
@@ -115,6 +119,7 @@ const caseStudies: CaseStudy[] = [
     tag: "Geotechnical Investigation",
     title: "Sixty Tonnes In A Working Factory",
     location: "Auburn · operating dairy plant, production running",
+    locationHref: "/geotechnical-engineer-parramatta",
     image: "/projects/project-auburn.jpg",
     imageAlt: "Borehole through the concrete yard of an operating Auburn factory",
     brief:
@@ -131,6 +136,7 @@ const caseStudies: CaseStudy[] = [
     tag: "Limited-Scope Investigation",
     title: "The Pod That Needed Different Foundations",
     location: "Bexley North · rear‑yard prefabricated dwelling",
+    locationHref: "/geotechnical-engineer-st-george-sutherland-shire",
     image: "/projects/project-bexley-north.jpg",
     imageAlt: "Hand-auger borehole investigation in a restricted-access Bexley North rear yard",
     brief:
@@ -161,6 +167,7 @@ const caseStudies: CaseStudy[] = [
     tag: "Night Works · Construction Phase Support",
     title: "Two Posts, Two Answers",
     location: "Randwick · signal post upgrade, Carrington and Darley Roads",
+    locationHref: "/geotechnical-engineer-eastern-suburbs",
     image: "/projects/project-randwick-night.jpg",
     imageAlt: "Signal post footing excavation under work lights at a closed Randwick intersection at night",
     brief:
@@ -176,6 +183,7 @@ const caseStudies: CaseStudy[] = [
     tag: "Construction Phase Support",
     title: "Council Orders, Resolved",
     location: "Oatley · new dwelling under council enforcement",
+    locationHref: "/geotechnical-engineer-st-george-sutherland-shire",
     image: "/projects/project-oatley.jpg",
     imageAlt: "Footing excavation inspection at a Sydney residential construction site",
     brief:
@@ -206,6 +214,7 @@ const caseStudies: CaseStudy[] = [
     tag: "Construction Phase Support",
     title: "An Industrial Estate, Footing By Footing",
     location: "Caringbah · industrial development, stormwater and lighting footings",
+    locationHref: "/geotechnical-engineer-st-george-sutherland-shire",
     image: "/projects/project-caringbah.jpg",
     imageAlt: "Dynamic cone penetrometer testing on a compacted pad at an industrial development",
     brief:
@@ -221,6 +230,7 @@ const caseStudies: CaseStudy[] = [
     tag: "Subcontract Drilling",
     title: "Five Holes Down A Living Street",
     location: "Telopea · street lighting investigation, Benaud Place",
+    locationHref: "/geotechnical-engineer-parramatta",
     image: "/projects/project-telopea-verge.jpg",
     imageAlt: "SFGEO 4WD rig drilling from the grass verge of a residential street in Telopea, footpath and traffic lane still open",
     brief:
@@ -236,6 +246,7 @@ const caseStudies: CaseStudy[] = [
     tag: "Construction Phase Support",
     title: "A New Home For A Congregation",
     location: "Northmead · church expansion, new ministry building",
+    locationHref: "/geotechnical-engineer-parramatta",
     image: "/projects/project-northmead-osd.jpg",
     imageAlt: "The detention tank excavation at the church expansion, laser level set up over the exposed weathered shale base",
     brief:
@@ -251,6 +262,7 @@ const caseStudies: CaseStudy[] = [
     tag: "Construction Phase Support",
     title: "The Footing At The Markets Gate",
     location: "Homebush · traffic light footing, Potts Street at Parramatta Road",
+    locationHref: "/geotechnical-engineer-inner-west",
     image: "/projects/project-homebush-signals.jpg",
     imageAlt: "Night view of the Potts Street signals at Parramatta Road, Homebush, the Sydney Markets sign overhead",
     brief:
@@ -266,6 +278,7 @@ const caseStudies: CaseStudy[] = [
     tag: "Subcontract Drilling",
     title: "A High Street, Read Between Midnight And Trade",
     location: "Lakemba · street lighting investigation, Haldon Street",
+    locationHref: "/geotechnical-engineer-canterbury-bankstown",
     image: "/projects/project-lakemba-night.jpg",
     imageAlt: "Haldon Street, Lakemba, under night traffic control, a lane coned off for borehole drilling with the shopfronts closed behind",
     brief:
