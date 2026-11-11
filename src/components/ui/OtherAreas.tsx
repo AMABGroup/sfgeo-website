@@ -25,7 +25,7 @@ export default function OtherAreas({ current, className }: { current?: string; c
         {areas.map((a, i) => (
           <Fragment key={a.href}>
             {i > 0 && " · "}
-            <Link href={a.href} className="hover:text-forest-green transition-colors">{a.name}</Link>
+            <Link href={a.href} className="whitespace-nowrap hover:text-forest-green transition-colors">{a.name}</Link>
           </Fragment>
         ))}
       </p>
