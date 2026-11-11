@@ -84,14 +84,14 @@ const REGION: RegionPageData = {
     { title: "Geotechnical Investigations", desc: "Investigations to AS 1726 for DAs, CDCs, basements and pavements.", href: "/geotechnical-investigations" },
     { title: "Site Classification", desc: "The soil test a certifier asks for: AS 2870 site classifications for homes, duplexes and granny flats.", href: "/site-classification" },
     { title: "Drilling For Consultancies", desc: "Boreholes on the 4WD-mounted rig for other consultancies, logged by us or by their engineer.", href: "/subcontract-drilling" },
-    { title: "Concrete Coring", desc: "$120 + GST per hole, three-hole minimum per visit, for slabs and hardstands.", href: "/concrete-coring" },
+    { title: "Concrete Coring", desc: "From $120 + GST per hole, three-hole minimum per visit, for slabs and hardstands.", href: "/concrete-coring" },
     { title: "Construction Phase Support", desc: "Footing and pier inspections, up to the last one before the pour.", href: "/construction-phase-support" },
   ],
   faqIntro: "Geotechnical engineers based in Marrickville, working in Parramatta and the Cumberland suburbs.",
   faqs: [
     {
       q: "Can you drill through a car park or other hardstand?",
-      a: "Yes. The rig drills through asphalt car parks and hardstands, and a concrete slab can be cored first where the hole needs it. At Parramatta five boreholes went through a car park in a single day for a consultancy's sampling programme. Concrete coring is $120 + GST per hole, with a three-hole minimum per visit.",
+      a: "Yes. The rig drills through asphalt car parks and hardstands, and a concrete slab can be cored first where the hole needs it. At Parramatta five boreholes went through a car park in a single day for a consultancy's sampling programme. Concrete coring is from $120 + GST per hole, with a three-hole minimum per visit.",
       link: { text: "Concrete coring", href: "/concrete-coring" },
     },
     {

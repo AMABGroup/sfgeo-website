@@ -89,7 +89,7 @@ const REGION: RegionPageData = {
   faqIntro: "Geotechnical engineers based in Marrickville, working across the Eastern Suburbs from Randwick and Coogee to Kensington.",
   faqs: [
     {
-      q: "Why do so many Eastern Suburbs blocks come out Class P?",
+      q: "Why can loose dune sand make a site Class P?",
       a: "Loose sand is the usual reason. AS 2870 asks for a minimum bearing capacity at practical footing depths, and loose dune sand often cannot give it, so the site is classified Class P and the footings are designed by engineering. Our recent Randwick, Coogee and Kensington jobs all came out Class P on that basis. Site classifications start from $800 + GST.",
     },
     {

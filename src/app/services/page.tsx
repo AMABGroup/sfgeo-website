@@ -72,7 +72,7 @@ const SEGMENTS = [
     n: "05",
     title: "Concrete Coring",
     href: "/concrete-coring",
-    d: "Engineer-supervised coring of slabs, pavements and penetrations, logged, verified and strength-tested when the question needs a number. Coring is $120 + GST per hole with a three-hole minimum per visit. The final fee depends on core size, location, access and time on site: a fixed fee in writing within one business day.",
+    d: "Engineer-supervised coring of slabs, pavements and penetrations, logged, verified and strength-tested when the question needs a number. Coring is from $120 + GST per hole with a three-hole minimum per visit. The final fee depends on core size, location, access and time on site: a fixed fee in writing within one business day.",
     children: [],
   },
 ];
@@ -105,7 +105,7 @@ export default function ServicesIndexPage() {
           <p className="hero-line hero-d2 text-lg sm:text-xl text-gray-600 font-light leading-relaxed">
             Five service lines, one standard, one point of contact, and the Principal across every job. Start with the segment, or just tell us the project and we&rsquo;ll tell you what it needs.
           </p>
-          <p className="hero-line hero-d3 mt-5 text-xs text-gray-500 font-light tracking-wide">Site classifications from $800 + GST &middot; Coring $120 + GST per hole, three-hole minimum &middot; Fixed fee in writing within one business day<RatingFact /></p>
+          <p className="hero-line hero-d3 mt-5 text-xs text-gray-500 font-light tracking-wide">Site classifications from $800 + GST &middot; Coring from $120 + GST per hole, three-hole minimum &middot; Fixed fee in writing within one business day<RatingFact /></p>
         </div>
       </section>
 

@@ -133,8 +133,8 @@ export default function NorthShorePage() {
       {
         "@type": "Offer",
         "name": "Footing inspection",
-        "description": "Footing inspections from $600 + GST.",
-        "priceSpecification": { "@type": "PriceSpecification", "minPrice": "600", "priceCurrency": "AUD", "valueAddedTaxIncluded": false, "description": "from $600 + GST per inspection" }
+        "description": "Footing inspections from $450 + GST.",
+        "priceSpecification": { "@type": "PriceSpecification", "minPrice": "450", "priceCurrency": "AUD", "valueAddedTaxIncluded": false, "description": "from $450 + GST per inspection" }
       }
     ]
   };
@@ -184,7 +184,7 @@ export default function NorthShorePage() {
               className="flex items-center justify-center px-8 py-2.5 bg-white text-forest-green rounded-full shadow-[inset_0_0_0_1px_rgba(45,90,58,0.25),0_4px_10px_-4px_rgba(0,0,0,0.05)] hover:bg-forest-green/5 hover:shadow-[inset_0_0_0_1px_rgba(45,90,58,0.4),0_6px_14px_-4px_rgba(0,0,0,0.1)] transition hover:-translate-y-0.5 w-full sm:w-auto h-[46px] text-xs font-semibold tracking-wide"
             />
           </div>
-          <p className="hero-line hero-d3 mt-5 text-xs text-gray-500 font-light tracking-wide">Site classifications from $800 + GST &middot; Footing inspections from $600 + GST &middot; Fixed fee in writing within one business day<RatingFact /></p>
+          <p className="hero-line hero-d3 mt-5 text-xs text-gray-500 font-light tracking-wide">Site classifications from $800 + GST &middot; Footing inspections from $450 + GST &middot; Fixed fee in writing within one business day<RatingFact /></p>
         </div>
       </section>
 

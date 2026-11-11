@@ -20,7 +20,7 @@ export const revalidate = 3600;
 
 export const metadata: Metadata = pageMeta(
   "Geotechnical Report Cost Sydney | From $800 + GST | SFGEO",
-  "Soil test and geotechnical report costs in Sydney: site classification from $800 + GST, footing inspections from $600 + GST, coring $120 + GST per hole.",
+  "Soil test and geotechnical report costs in Sydney: site classification from $800 + GST, footing inspections from $450 + GST, coring from $120 + GST per hole.",
   "/geotechnical-report-cost-sydney",
 );
 
@@ -82,13 +82,13 @@ const FAQS: { q: string; a: string; link?: PhraseLink; qLink?: PhraseLink }[] = 
   },
   {
     q: "Is concrete coring priced per hole or per visit?",
-    a: "Per hole, with a minimum per visit: engineer-supervised concrete coring is $120 + GST per hole and each visit carries a three-hole minimum. The final fee depends on core size, location, access and time on site, and it is confirmed as a fixed fee in writing within one business day, before work begins. See what coring covers.",
+    a: "Per hole, with a minimum per visit: engineer-supervised concrete coring is from $120 + GST per hole and each visit carries a three-hole minimum. The final fee depends on core size, location, access and time on site, and it is confirmed as a fixed fee in writing within one business day, before work begins. See what coring covers.",
     link: { text: "what coring covers", href: "/concrete-coring" },
   },
   {
     q: "How is a footing or pier inspection priced?",
     qLink: { text: "footing or pier inspection", href: "/construction-phase-support" },
-    a: "From $600 + GST per inspection, as a fixed fee in writing within one business day of receiving the drawings and the site address. The fee is set against each site and each visit: travel, the number of footings or piers exposed, and whether compaction testing is folded into the same visit. Builders book single visits; contractors with a run of inspections work from a standing schedule of rates.",
+    a: "From $450 + GST per inspection, written record included, as a fixed fee in writing within one business day of receiving the drawings and the site address. The fee is set against each site and each visit: travel, the number of footings or piers exposed, and whether compaction testing is folded into the same visit. Builders book single visits; contractors with a run of inspections work from a standing schedule of rates. A separate engineering letter or report is quoted on top.",
   },
 ];
 
@@ -141,8 +141,8 @@ export default function GeotechnicalReportCostPage() {
         { "@type": "Offer", "name": "Site classification, ancillary residential", "url": "https://sfgeo.com.au/site-classification", "description": "The report gives the AS 2870 class, allowable bearing pressures and founding depth for your engineer.", "priceSpecification": { "@type": "PriceSpecification", "minPrice": "800", "priceCurrency": "AUD", "valueAddedTaxIncluded": false, "description": "from $800 + GST" } },
         { "@type": "Offer", "name": "Site classification, standard residential", "url": "https://sfgeo.com.au/site-classification", "description": "The report gives the AS 2870 class, allowable bearing pressures and founding depth for your engineer.", "priceSpecification": { "@type": "PriceSpecification", "minPrice": "1000", "priceCurrency": "AUD", "valueAddedTaxIncluded": false, "description": "from $1,000 + GST" } },
         { "@type": "Offer", "name": "Site classification, complex projects and sites", "url": "https://sfgeo.com.au/site-classification", "description": "Custom quote: a fixed fee in writing within one business day." },
-        { "@type": "Offer", "name": "Footing, pier or pile inspection", "url": "https://sfgeo.com.au/construction-phase-support", "priceSpecification": { "@type": "PriceSpecification", "minPrice": "600", "priceCurrency": "AUD", "valueAddedTaxIncluded": false, "description": "from $600 + GST per inspection" } },
-        { "@type": "Offer", "name": "Concrete coring", "url": "https://sfgeo.com.au/concrete-coring", "eligibleQuantity": { "@type": "QuantitativeValue", "minValue": 3, "unitText": "holes per visit" }, "priceSpecification": { "@type": "UnitPriceSpecification", "price": "120", "priceCurrency": "AUD", "valueAddedTaxIncluded": false, "unitText": "per hole", "description": "$120 + GST per hole, three-hole minimum per visit" } }
+        { "@type": "Offer", "name": "Footing, pier or pile inspection", "url": "https://sfgeo.com.au/construction-phase-support", "priceSpecification": { "@type": "PriceSpecification", "minPrice": "450", "priceCurrency": "AUD", "valueAddedTaxIncluded": false, "description": "from $450 + GST per inspection" } },
+        { "@type": "Offer", "name": "Concrete coring", "url": "https://sfgeo.com.au/concrete-coring", "eligibleQuantity": { "@type": "QuantitativeValue", "minValue": 3, "unitText": "holes per visit" }, "priceSpecification": { "@type": "UnitPriceSpecification", "price": "120", "priceCurrency": "AUD", "valueAddedTaxIncluded": false, "unitText": "per hole", "description": "from $120 + GST per hole, three-hole minimum per visit" } }
       ]
     }
   };
@@ -192,7 +192,7 @@ export default function GeotechnicalReportCostPage() {
               className="flex items-center justify-center px-8 py-2.5 bg-white text-forest-green rounded-full shadow-[inset_0_0_0_1px_rgba(45,90,58,0.25),0_4px_10px_-4px_rgba(0,0,0,0.05)] hover:bg-forest-green/5 hover:shadow-[inset_0_0_0_1px_rgba(45,90,58,0.4),0_6px_14px_-4px_rgba(0,0,0,0.1)] transition hover:-translate-y-0.5 w-full sm:w-auto h-[46px] text-xs font-semibold tracking-wide"
             />
           </div>
-          <p className="hero-line hero-d3 mt-5 text-xs text-gray-500 font-light tracking-wide">Site classification from $800 + GST &middot; Footing inspections from $600 + GST &middot; Fixed fee in writing within one business day<RatingFact /></p>
+          <p className="hero-line hero-d3 mt-5 text-xs text-gray-500 font-light tracking-wide">Site classification from $800 + GST &middot; Footing inspections from $450 + GST &middot; Fixed fee in writing within one business day<RatingFact /></p>
         </div>
       </section>
 
@@ -271,7 +271,7 @@ export default function GeotechnicalReportCostPage() {
           </h2>
           <div data-fx="line" style={d(200)} className="h-px bg-forest-green w-12 mb-7" />
           <p data-fx="rise" style={d(160)} className="text-gray-600 font-light leading-relaxed mb-8">
-            <Link href="/concrete-coring" className="text-forest-green underline underline-offset-4 decoration-forest-green/40 hover:decoration-forest-green">Engineer-supervised concrete coring</Link> is $120 + GST per hole, with a three-hole minimum per visit. The final fee depends on core size, location, access and time on site, quoted fixed, in writing, before the barrel touches concrete.
+            <Link href="/concrete-coring" className="text-forest-green underline underline-offset-4 decoration-forest-green/40 hover:decoration-forest-green">Engineer-supervised concrete coring</Link> is from $120 + GST per hole, with a three-hole minimum per visit. The final fee depends on core size, location, access and time on site, quoted fixed, in writing, before the barrel touches concrete.
           </p>
           <div data-fx="rise" style={d(220)}>
             <Link href="/concrete-coring" className="text-sm font-semibold tracking-wide text-forest-green group inline-flex items-center gap-2 min-h-[44px]">
