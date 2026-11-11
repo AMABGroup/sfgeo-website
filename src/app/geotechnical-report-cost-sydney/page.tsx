@@ -50,7 +50,11 @@ const FAQS: { q: string; a: string; link?: PhraseLink; qLink?: PhraseLink }[] = 
   {
     q: "Does a soil test cost extra on top of the report?",
     link: { text: "the soil test", href: "/site-classification" },
-    a: "No. A site classification is the soil test, and what many people call a geotech report. One fee covers the fieldwork, laboratory testing where the site warrants it, and the signed report. There is no separate soil-test line.",
+    a: "No. A site classification is the soil test, and what many people call a geotech report. One fee covers the fieldwork, laboratory testing where the site warrants it, and the signed report. There is no separate soil-test line. The report gives the AS 2870 class, allowable bearing pressures and founding depth for your engineer.",
+  },
+  {
+    q: "Does the site classification fee include bearing pressures for my engineer?",
+    a: "Yes. One fee covers the boreholes, the penetrometer tests beside them, the AS 2870 site class, allowable bearing pressures for the footings on your plans, founding depth and groundwater observations, in a report signed by the Principal Engineer.",
   },
   {
     q: "Is the fee fixed?",
@@ -63,6 +67,10 @@ const FAQS: { q: string; a: string; link?: PhraseLink; qLink?: PhraseLink }[] = 
   {
     q: "Do you charge for a quote?",
     a: "No. Send the address and what you are building, and you will have a fixed fee in writing within one business day.",
+  },
+  {
+    q: "Why do site classification quotes differ?",
+    a: "Mostly on what is done on site and who does it. At SFGEO the Principal Engineer leads the fieldwork and signs the report. Boreholes are sized to the base of excavation plus one to two metres, laboratory testing is added when the site warrants it, and the fee is fixed in writing before work begins. Compare quotes on those four points.",
   },
   {
     q: "How is a geotechnical investigation priced?",
@@ -130,8 +138,8 @@ export default function GeotechnicalReportCostPage() {
       "@type": "OfferCatalog",
       "name": "Published starting points (all + GST, confirmed in writing per site)",
       "itemListElement": [
-        { "@type": "Offer", "name": "Site classification, ancillary residential", "url": "https://sfgeo.com.au/site-classification", "priceSpecification": { "@type": "PriceSpecification", "minPrice": "800", "priceCurrency": "AUD", "valueAddedTaxIncluded": false, "description": "from $800 + GST" } },
-        { "@type": "Offer", "name": "Site classification, standard residential", "url": "https://sfgeo.com.au/site-classification", "priceSpecification": { "@type": "PriceSpecification", "minPrice": "1000", "priceCurrency": "AUD", "valueAddedTaxIncluded": false, "description": "from $1,000 + GST" } },
+        { "@type": "Offer", "name": "Site classification, ancillary residential", "url": "https://sfgeo.com.au/site-classification", "description": "The report gives the AS 2870 class, allowable bearing pressures and founding depth for your engineer.", "priceSpecification": { "@type": "PriceSpecification", "minPrice": "800", "priceCurrency": "AUD", "valueAddedTaxIncluded": false, "description": "from $800 + GST" } },
+        { "@type": "Offer", "name": "Site classification, standard residential", "url": "https://sfgeo.com.au/site-classification", "description": "The report gives the AS 2870 class, allowable bearing pressures and founding depth for your engineer.", "priceSpecification": { "@type": "PriceSpecification", "minPrice": "1000", "priceCurrency": "AUD", "valueAddedTaxIncluded": false, "description": "from $1,000 + GST" } },
         { "@type": "Offer", "name": "Site classification, complex projects and sites", "url": "https://sfgeo.com.au/site-classification", "description": "Custom quote: a fixed fee in writing within one business day." },
         { "@type": "Offer", "name": "Footing, pier or pile inspection", "url": "https://sfgeo.com.au/construction-phase-support", "priceSpecification": { "@type": "PriceSpecification", "minPrice": "600", "priceCurrency": "AUD", "valueAddedTaxIncluded": false, "description": "from $600 + GST per inspection" } },
         { "@type": "Offer", "name": "Concrete coring", "url": "https://sfgeo.com.au/concrete-coring", "eligibleQuantity": { "@type": "QuantitativeValue", "minValue": 3, "unitText": "holes per visit" }, "priceSpecification": { "@type": "UnitPriceSpecification", "price": "120", "priceCurrency": "AUD", "valueAddedTaxIncluded": false, "unitText": "per hole", "description": "$120 + GST per hole, three-hole minimum per visit" } }
@@ -325,7 +333,7 @@ export default function GeotechnicalReportCostPage() {
           <p data-fx="rise" style={d(240)} className="mt-6 text-sm text-gray-500 font-light leading-relaxed">Most homes, extensions, pools and granny flats need an AS 2870 site classification, priced by the block, not the size of the build. Granny flats and small additions start from $800 + GST; homes, pools and duplexes on established streets from $1,000 + GST. Complex sites and geotechnical investigations are quoted per site, with a fixed fee in writing within one business day. Classification reports follow as soon as 2 business days from fieldwork.</p>
         </Reveal>
         <Reveal variant="group">
-          {/* Questions are h3s (not dt) so the eight money questions read as headings to search engines. */}
+          {/* Questions are h3s (not dt) so the money questions read as headings to search engines. */}
           <div data-stagger className="max-w-3xl divide-y divide-gray-100 border-y border-gray-100">
             {FAQS.map((f) => (
               <div key={f.q} className="py-7">
