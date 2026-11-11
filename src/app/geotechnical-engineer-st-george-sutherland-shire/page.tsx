@@ -80,7 +80,7 @@ const REGION: RegionPageData = {
     },
   ],
   services: [
-    { title: "Site Classification", desc: "AS 2870 site classifications, the soil test a certifier asks for, for homes, studios and granny flats.", href: "/site-classification" },
+    { title: "Site Classification", desc: "The soil test a certifier asks for: AS 2870 site classifications for homes, studios and granny flats.", href: "/site-classification" },
     { title: "Geotechnical Investigations", desc: "Investigations to AS 1726 for DAs, CDCs, piers and basements.", href: "/geotechnical-investigations" },
     { title: "Construction Phase Support", desc: "Footing, pier and working platform inspections, up to the last one before the pour.", href: "/construction-phase-support" },
     { title: "Tight Access", desc: "Motorised hand augers carry through a standard doorway or side passage, so rear yards can be investigated without vehicle access.", href: "/tight-access-drilling" },
