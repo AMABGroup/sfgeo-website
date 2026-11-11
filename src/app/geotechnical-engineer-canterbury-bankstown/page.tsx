@@ -81,7 +81,7 @@ const REGION: RegionPageData = {
   ],
   services: [
     { title: "Geotechnical Investigations", desc: "Investigations to AS 1726 for DAs, CDCs, basements and dual occupancies.", href: "/geotechnical-investigations" },
-    { title: "Site Classification", desc: "AS 2870 site classifications, the soil test a certifier asks for, for duplexes, additions and granny flats.", href: "/site-classification" },
+    { title: "Site Classification", desc: "The soil test a certifier asks for: AS 2870 site classifications for duplexes, additions and granny flats.", href: "/site-classification" },
     { title: "Environmental Testing", desc: "Acid sulfate soil screening and contaminated land testing through NATA-accredited laboratories.", href: "/environmental" },
     { title: "Tight Access", desc: "Motorised hand augers carry through a standard doorway or side passage, so rear yards can be investigated without vehicle access.", href: "/tight-access-drilling" },
     { title: "Construction Phase Support", desc: "Footing and pier inspections, up to the last one before the pour.", href: "/construction-phase-support" },
