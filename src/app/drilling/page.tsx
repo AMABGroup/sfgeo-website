@@ -140,6 +140,7 @@ const FAQS = [
   {
     q: "How far does the rig travel?",
     a: "Across Greater Sydney and into regional New South Wales. The rig is based in the Inner West. Beyond the metro it travels self-sufficient and the engineer still checks every log, so a regional programme runs to the same standard as a Sydney one. Book it the same way: the address, the access and the number and depth of holes. Quote a regional programme.",
+    link: { text: "Quote a regional programme", href: "/contact" },
   },
   {
     q: "Can you supply insurance certificates before the visit?",

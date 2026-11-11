@@ -46,6 +46,7 @@ const FAQS = [
   {
     q: "What happens if the footing has not reached suitable bearing material?",
     a: "The engineer makes that call on site, before anyone leaves: deepen the footing, or adjust it, judged against the structural drawings and the original investigation. On a six-lane State road, a signal-pole footing was found unsuitable in the middle of the night, backfilled on the engineer’s call, and the road was open again by morning. The written record follows within days. Read the case studies.",
+    link: { text: "case studies", href: "/projects" },
   },
   {
     q: "What is the difference between AS 3798 Level 1 and Level 2 supervision?",

@@ -8,6 +8,7 @@ import CloseBand from "@/components/ui/CloseBand";
 import { pageMeta } from "@/lib/seo";
 import RatingFact from "@/components/ui/RatingFact";
 import { linkPhrase, type PhraseLink } from "@/components/ui/linkPhrase";
+import OtherAreas from "@/components/ui/OtherAreas";
 
 // The quote pop-up's copy for this page: its own promise, never another service's turnaround.
 const PAGE_QUOTE = {
@@ -44,7 +45,8 @@ const DRIVERS = [
   { t: "Laboratory Programme", d: "Testing through a NATA-accredited laboratory when the site warrants it, not as padding." },
 ];
 
-const FAQS: { q: string; a: string; link?: PhraseLink }[] = [
+// `qLink` links words in the question itself, where the answer does not repeat them.
+const FAQS: { q: string; a: string; link?: PhraseLink; qLink?: PhraseLink }[] = [
   {
     q: "Does a soil test cost extra on top of the report?",
     link: { text: "the soil test", href: "/site-classification" },
@@ -77,6 +79,7 @@ const FAQS: { q: string; a: string; link?: PhraseLink }[] = [
   },
   {
     q: "How is a footing or pier inspection priced?",
+    qLink: { text: "footing or pier inspection", href: "/construction-phase-support" },
     a: "From $600 + GST per inspection, as a fixed fee in writing within one business day of receiving the drawings and the site address. The fee is set against each site and each visit: travel, the number of footings or piers exposed, and whether compaction testing is folded into the same visit. Builders book single visits; contractors with a run of inspections work from a standing schedule of rates.",
   },
 ];
@@ -323,12 +326,13 @@ export default function GeotechnicalReportCostPage() {
           <div data-stagger className="max-w-3xl divide-y divide-gray-100 border-y border-gray-100">
             {FAQS.map((f) => (
               <div key={f.q} className="py-7">
-                <h3 className="text-lg font-montserrat font-semibold text-slate-950 mb-3">{f.q}</h3>
+                <h3 className="text-lg font-montserrat font-semibold text-slate-950 mb-3">{linkPhrase(f.q, f.qLink, "hover:text-forest-green transition-colors")}</h3>
                 <div className="text-gray-600 font-light leading-relaxed">{linkPhrase(f.a, f.link)}</div>
               </div>
             ))}
           </div>
         </Reveal>
+        <OtherAreas className="mt-8 max-w-3xl" />
       </section>
 
       <CloseBand

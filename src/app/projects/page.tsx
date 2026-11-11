@@ -199,6 +199,7 @@ const caseStudies: CaseStudy[] = [
     tag: "Investigation For A Consultancy",
     title: "A Boardwalk Read Between Tides",
     location: "Hunters Hill · tidal mangroves, Buffalo Creek Reserve",
+    locationHref: "/geotechnical-engineer-north-shore",
     image: "/projects/project-hunters-hill.jpg",
     imageAlt: "Boardwalk through the tidal mangroves at Buffalo Creek Reserve",
     brief:

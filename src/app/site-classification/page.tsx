@@ -11,6 +11,7 @@ import CloseBand from "@/components/ui/CloseBand";
 import { pageMeta } from "@/lib/seo";
 import QuietFaq from "@/components/sections/QuietFaq";
 import RatingFact from "@/components/ui/RatingFact";
+import OtherAreas from "@/components/ui/OtherAreas";
 
 // The quote pop-up's copy for this page: its own promise, never another service's turnaround.
 const PAGE_QUOTE = {
@@ -356,7 +357,7 @@ export default function SiteClassificationPage() {
             </h2>
             <div data-fx="line" style={d(200)} className="h-px bg-forest-green w-12 mb-7" />
             <p data-fx="rise" style={d(160)} className="text-gray-600 font-light leading-relaxed mb-8">
-              Inner West terraces, battleaxe blocks, rear-yard granny flat positions, stepped sites with deep investigation points. SFGEO runs a 4WD-mounted rig for the sites conventional trucks can&rsquo;t reach, with motorised hand augers covering zero-clearance and internal courtyard work. Access-ready from first contact, so your programme doesn&rsquo;t slip waiting on a rig that can&rsquo;t get in.
+              <Link href="/geotechnical-engineer-inner-west" className="hover:text-forest-green transition-colors">Inner West</Link> terraces, battleaxe blocks, rear-yard granny flat positions, stepped sites with deep investigation points. SFGEO runs a 4WD-mounted rig for the sites conventional trucks can&rsquo;t reach, with motorised hand augers covering zero-clearance and internal courtyard work. Access-ready from first contact, so your programme doesn&rsquo;t slip waiting on a rig that can&rsquo;t get in.
             </p>
             <Link data-fx="rise" style={d(220)} href="/tight-access-drilling" className="text-sm font-semibold tracking-wide text-forest-green group inline-flex items-center gap-2 min-h-[44px]">
               <span className="draw-link">Explore Tight Access Capability</span>
@@ -435,7 +436,7 @@ export default function SiteClassificationPage() {
         <GoogleReviews />
       </section>
 
-      <QuietFaq intro={<>A site classification is the soil test for a new home, extension, granny flat or pool. Most councils and certifiers require one. It gives your structural engineer the AS 2870 class and the parameters the footing design is drawn from. The Principal Engineer attends every site and signs every report. Fees are fixed, from $800 + GST. The report follows as soon as 2 business days from fieldwork.</>} faqs={FAQS} />
+      <QuietFaq intro={<>A site classification is the soil test for a new home, extension, granny flat or pool. Most councils and certifiers require one. It gives your structural engineer the AS 2870 class and the parameters the footing design is drawn from. The Principal Engineer attends every site and signs every report. Fees are fixed, from $800 + GST. The report follows as soon as 2 business days from fieldwork.</>} faqs={FAQS} footer={<OtherAreas />} />
 
       <CloseBand
         quote={PAGE_QUOTE}

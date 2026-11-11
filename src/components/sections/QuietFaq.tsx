@@ -4,7 +4,7 @@ import { linkPhrase, type PhraseLink } from "@/components/ui/linkPhrase";
 
 // `link` turns a cross-reference already in the answer ("See the cost guide.") into a quiet link.
 // The FAQPage schema keeps reading the plain `a` string.
-type Faq = { q: string; a: string; link?: PhraseLink };
+type Faq = { q: string; a: string; link?: PhraseLink | PhraseLink[] };
 
 // "AS 3798" never splits across two lines in a question (display only; the schema keeps the plain string).
 const keepStandards = (q: string) => q.replace(/\bAS (\d{4})/g, "AS\u00a0$1");
@@ -13,9 +13,10 @@ const keepStandards = (q: string) => q.replace(/\bAS (\d{4})/g, "AS\u00a0$1");
  * Fine-print strip at the foot of a service page: a small label, an optional
  * one-paragraph summary and the page's questions as collapsed rows. Every
  * word is in the served HTML (the FAQPage schema describes these rows);
- * nothing competes with the page above it.
+ * nothing competes with the page above it. `footer` is one more line of fine
+ * print under the rows (the region links line).
  */
-export default function QuietFaq({ intro, faqs = [], label }: { intro?: ReactNode; faqs?: Faq[]; label?: string }) {
+export default function QuietFaq({ intro, faqs = [], label, footer }: { intro?: ReactNode; faqs?: Faq[]; label?: string; footer?: ReactNode }) {
   const heading = label ?? (faqs.length ? "Common Questions" : "In Brief");
   return (
     <section aria-label={heading} className="px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100 py-12 lg:py-14">
@@ -31,6 +32,7 @@ export default function QuietFaq({ intro, faqs = [], label }: { intro?: ReactNod
             ))}
           </div>
         )}
+        {footer && <div className="mt-6">{footer}</div>}
       </div>
     </section>
   );

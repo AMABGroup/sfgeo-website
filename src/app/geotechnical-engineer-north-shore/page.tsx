@@ -8,6 +8,7 @@ import CloseBand from "@/components/ui/CloseBand";
 import { pageMeta } from "@/lib/seo";
 import RatingFact from "@/components/ui/RatingFact";
 import QuietFaq from "@/components/sections/QuietFaq";
+import OtherAreas from "@/components/ui/OtherAreas";
 
 // Rebuilt hourly from the stored Google rating (src/lib/googleReviews.ts).
 export const revalidate = 3600;
@@ -281,7 +282,7 @@ export default function NorthShorePage() {
         </Reveal>
       </section>
 
-      <QuietFaq faqs={FAQS} />
+      <QuietFaq faqs={FAQS} footer={<OtherAreas current="/geotechnical-engineer-north-shore" />} />
 
       <CloseBand
         source="north-shore close"
