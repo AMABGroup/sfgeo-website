@@ -14,7 +14,7 @@ type Route = {
 const ROUTES: Route[] = [
   { path: '', lastModified: '2026-11-11', changeFrequency: 'weekly', priority: 1.0 },
   { path: '/about', lastModified: '2026-11-06', changeFrequency: 'monthly', priority: 0.7 },
-  { path: '/services', lastModified: '2026-11-06', changeFrequency: 'monthly', priority: 0.9 },
+  { path: '/services', lastModified: '2026-11-11', changeFrequency: 'monthly', priority: 0.9 },
   { path: '/geotechnical', lastModified: '2026-11-11', changeFrequency: 'monthly', priority: 0.9 },
   { path: '/environmental', lastModified: '2026-11-11', changeFrequency: 'monthly', priority: 0.9 },
   { path: '/geotechnical-investigations', lastModified: '2026-11-11', changeFrequency: 'weekly', priority: 0.9 },

@@ -55,7 +55,7 @@ export type RegionPageData = {
   areaServed: string;
 };
 
-export const REGION_FACTS = "Site classifications from $800 + GST · Footing inspections from $600 + GST · Fixed fee in writing within one business day";
+export const REGION_FACTS = "Site classifications from $800 + GST · Footing inspections from $450 + GST · Fixed fee in writing within one business day";
 
 export function regionSchemas(r: RegionPageData) {
   const url = `https://sfgeo.com.au/${r.slug}`;
@@ -87,8 +87,8 @@ export function regionSchemas(r: RegionPageData) {
       {
         "@type": "Offer",
         "name": "Footing inspection",
-        "description": "Footing inspections from $600 + GST.",
-        "priceSpecification": { "@type": "PriceSpecification", "minPrice": "600", "priceCurrency": "AUD", "valueAddedTaxIncluded": false, "description": "from $600 + GST per inspection" },
+        "description": "Footing inspections from $450 + GST.",
+        "priceSpecification": { "@type": "PriceSpecification", "minPrice": "450", "priceCurrency": "AUD", "valueAddedTaxIncluded": false, "description": "from $450 + GST per inspection" },
       },
     ],
   };
