@@ -18,7 +18,7 @@ const d = (ms: number) => ({ "--d": `${ms}ms` }) as CSSProperties;
 
 // `link` turns words already in a card into quiet links to the matching case studies.
 const CLIENTS: { t: string; d: string; link?: PhraseLink | PhraseLink[] }[] = [
-  { t: "Engineering Consultancies", d: "Boutique practices to some of the bigger firms in Sydney: field data with engineer-grade logging you can put your letterhead on without re-checking it.", link: { text: "field data with engineer-grade logging", href: "/projects#hunters-hill" } },
+  { t: "Engineering Consultancies", d: "Boutique practices to some of the bigger firms in Sydney: field data with engineer-grade logging you can put your letterhead on without re-checking it." },
   { t: "Environmental Consultants", d: "Drilling and sampling for PSI and DSI programmes: clean execution, chain of custody kept, your sampling plan followed to the letter. Monitoring wells through a bore driller under our scope." },
   { t: "Builders & Civil Contractors", d: "Holes without the overhead of an in-house crew: footing probes, pavement investigations, service trenching support, booked around your programme." },
   { t: "Bigger Firms & Majors", d: "Reliable capacity when the fleet is booked out: night works, staged access and standing arrangements, delivered at the same standard every visit.", link: [{ text: "Reliable capacity", href: "/projects#telopea" }, { text: "night works", href: "/projects#lakemba" }] },

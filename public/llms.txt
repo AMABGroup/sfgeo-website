@@ -43,7 +43,7 @@
 
 - All services: https://sfgeo.com.au/services
 - Geotechnical hub: https://sfgeo.com.au/geotechnical
-- Site classification (soil test, AS 2870; also called a lot classification): https://sfgeo.com.au/site-classification
+- Site classification (soil test, AS 2870): https://sfgeo.com.au/site-classification
 - Geotechnical investigations and reports (DA, CDC, basements, footings): https://sfgeo.com.au/geotechnical-investigations
 - Geotechnical assessments (slope stability, settlement and cracking, council orders, second opinions): https://sfgeo.com.au/geotechnical-assessments
 - Construction phase support (footing, pier and pile inspections, proof rolls, fill certification): https://sfgeo.com.au/construction-phase-support

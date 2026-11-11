@@ -74,7 +74,7 @@ const REGION: RegionPageData = {
     },
   ],
   services: [
-    { title: "Site Classification", desc: "AS 2870 site classifications, the soil test a certifier asks for, for extensions, terraces and granny flats.", href: "/site-classification" },
+    { title: "Site Classification", desc: "The soil test a certifier asks for: AS 2870 site classifications for extensions, terraces and granny flats.", href: "/site-classification" },
     { title: "Geotechnical Investigations", desc: "Investigations to AS 1726 for DAs, CDCs, basements and heritage alterations.", href: "/geotechnical-investigations" },
     { title: "Construction Phase Support", desc: "Footing and pier inspections from $600 + GST, up to the last one before the pour.", href: "/construction-phase-support" },
     { title: "Tight Access", desc: "Motorised hand augers carry through a standard doorway or side passage, so courtyards and rear yards can be investigated without vehicle access.", href: "/tight-access-drilling" },
@@ -94,7 +94,6 @@ const REGION: RegionPageData = {
       q: "What happens when a footing base is loose at inspection?",
       a: "The record says where and why, and the fix is checked before concrete. At Newtown the top 200 millimetres at two test points was not adequately compacted; the contractor recompacted it while we watched, and it was reassessed and passed against 150 kPa. Footing inspections start from $600 + GST. More on construction phase support.",
       link: [
-        { text: "Footing inspections", href: "/construction-phase-support" },
         { text: "construction phase support", href: "/construction-phase-support" },
       ],
     },
