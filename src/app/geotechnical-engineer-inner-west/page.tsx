@@ -92,7 +92,9 @@ const REGION: RegionPageData = {
     {
       q: "What happens when a footing base is loose at inspection?",
       a: "The record says where and why, and the fix is checked before concrete. At Newtown the top 200 millimetres at two test points was not adequately compacted; the contractor recompacted it while we watched, and it was reassessed and passed against 150 kPa. Footing inspections start from $600 + GST. More on construction phase support.",
-      link: { text: "construction phase support", href: "/construction-phase-support" },
+      link: [
+        { text: "construction phase support", href: "/construction-phase-support" },
+      ],
     },
   ],
   closeSub: <>Send the address. We are around the corner, and the desktop geology is checked before we quote.</>,

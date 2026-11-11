@@ -6,6 +6,7 @@ import PhotoFrame from "@/components/ui/PhotoFrame";
 import CloseBand from "@/components/ui/CloseBand";
 import RatingFact from "@/components/ui/RatingFact";
 import QuietFaq from "@/components/sections/QuietFaq";
+import OtherAreas from "@/components/ui/OtherAreas";
 import type { PhraseLink } from "@/components/ui/linkPhrase";
 
 /**
@@ -31,7 +32,7 @@ export type RegionJob = {
 
 export type RegionService = { title: string; desc: string; href?: string };
 
-export type RegionFaq = { q: string; a: string; link?: PhraseLink };
+export type RegionFaq = { q: string; a: string; link?: PhraseLink | PhraseLink[] };
 
 export type RegionPageData = {
   /** URL path without the leading slash, e.g. "geotechnical-engineer-eastern-suburbs". */
@@ -253,7 +254,7 @@ export default function RegionPage({ region: r }: { region: RegionPageData }) {
         </Reveal>
       </section>
 
-      <QuietFaq faqs={r.faqs} />
+      <QuietFaq faqs={r.faqs} footer={<OtherAreas current={`/${r.slug}`} />} />
 
       <CloseBand
         quote={quote}

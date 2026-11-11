@@ -6,6 +6,7 @@ import Reveal from "@/components/ui/Reveal";
 import PhotoFrame from "@/components/ui/PhotoFrame";
 import CloseBand from "@/components/ui/CloseBand";
 import QuietFaq from "@/components/sections/QuietFaq";
+import OtherAreas from "@/components/ui/OtherAreas";
 import RatingFact from "@/components/ui/RatingFact";
 
 // Rebuilt hourly from the stored Google rating and reviews (src/lib/googleReviews.ts).
@@ -200,7 +201,7 @@ export default function GeotechnicalHubPage() {
         </Reveal>
       </section>
 
-      <QuietFaq intro={<>SFGEO is a geotechnical engineering consultancy for Sydney homeowners, builders, engineers and councils. The work runs from the first hole on an empty block, through investigations, assessments and design parameters, to the last inspection before the pour. Every job is quoted per site: a fixed fee in writing within one business day. AS 2870 site classification reports follow as soon as 2 business days from fieldwork.</>} faqs={FAQS} />
+      <QuietFaq intro={<>SFGEO is a geotechnical engineering consultancy for Sydney homeowners, builders, engineers and councils. The work runs from the first hole on an empty block, through investigations, assessments and design parameters, to the last inspection before the pour. Every job is quoted per site: a fixed fee in writing within one business day. AS 2870 site classification reports follow as soon as 2 business days from fieldwork.</>} faqs={FAQS} footer={<OtherAreas />} />
 
       <CloseBand
         source="geotechnical close"

@@ -10,6 +10,7 @@ import CloseBand from "@/components/ui/CloseBand";
 import { pageMeta } from "@/lib/seo";
 import QuietFaq from "@/components/sections/QuietFaq";
 import RatingFact from "@/components/ui/RatingFact";
+import { linkPhrase, type PhraseLink } from "@/components/ui/linkPhrase";
 
 // The quote pop-up's copy for this page: its own promise, never another service's turnaround.
 const PAGE_QUOTE = {
@@ -28,7 +29,8 @@ export const metadata: Metadata = pageMeta(
 
 const d = (ms: number) => ({ "--d": `${ms}ms` }) as CSSProperties;
 
-const SCOPES = [
+// `link` turns words already in a card into a quiet link to the matching case study.
+const SCOPES: { title: string; desc: string; link?: PhraseLink }[] = [
   {
     title: "DA & CDC Reports",
     desc: "Geotechnical reports written to answer the questions your council, certifier or structural engineer will actually ask, prepared with the approval pathway in mind from the first borehole."
@@ -39,7 +41,8 @@ const SCOPES = [
   },
   {
     title: "Basements, Excavations & Retaining",
-    desc: "Subsurface profiles, groundwater observations and lateral parameters for basements, cut batters and retaining structures on Sydney’s stepped and sloping blocks."
+    desc: "Subsurface profiles, groundwater observations and lateral parameters for basements, cut batters and retaining structures on Sydney’s stepped and sloping blocks.",
+    link: { text: "stepped and sloping blocks", href: "/projects#kenthurst" }
   },
   {
     title: "Drilling, DCP & Lab Testing",
@@ -47,12 +50,12 @@ const SCOPES = [
   },
 ];
 
-const REGIONS: { title: string; desc: string; href?: string }[] = [
+const REGIONS: { title: string; desc: string; href?: string; link?: PhraseLink }[] = [
   { title: "Inner West", href: "/geotechnical-engineer-inner-west", desc: "Ashfield Shale country: residual clays over weathered shale, often moderately to highly reactive. Investigations here focus on clay depth and shale weathering, because the difference decides the footing system. Class M and H1 outcomes are common." },
   { title: "North Shore", href: "/geotechnical-engineer-north-shore", desc: "Hawkesbury Sandstone, with outcomes hinging on how much weathered soil sits above the rock. Shallow rock founds beautifully. Bored piers to sandstone carry most of the harbour’s basements. Deeper profiles behave like clay and need proper investigation." },
   { title: "Western Sydney", desc: "Bringelly Shale, the most reactive common profile in metropolitan Sydney. Across the Cumberland Plain, H1 and H2 outcomes are frequent, and movement estimates need boreholes deep enough to see the whole active zone." },
   { title: "South West Corridor", href: "/geotechnical-engineer-south-west-sydney", desc: "Legacy fill, alluvial soils and reactive clays. Uncontrolled fill left under the footings or slab can make a site Class P under AS 2870. Where the fill is stripped, the class is set by the natural ground beneath. The investigation’s first job is finding where the fill stops and natural ground begins." },
-  { title: "Eastern Suburbs & Coast", href: "/geotechnical-engineer-eastern-suburbs", desc: "Dune sands over sandstone, steep marine slopes and tight streets. Sand profiles found well but cave in open excavations; the rock surface dips sharply block to block. Investigations here earn their keep on access and depth-to-rock." },
+  { title: "Eastern Suburbs & Coast", href: "/geotechnical-engineer-eastern-suburbs", desc: "Dune sands over sandstone, steep marine slopes and tight streets. Sand profiles found well but cave in open excavations; the rock surface dips sharply block to block. Investigations here earn their keep on access and depth-to-rock.", link: { text: "steep marine slopes", href: "/projects#coogee" } },
 ];
 
 const NAV = [
@@ -176,7 +179,7 @@ export default function GeotechnicalInvestigationsPage() {
             {SCOPES.map((scope) => (
               <div key={scope.title} className="card-lift p-8 bg-white border border-gray-100 rounded-2xl shadow-sm">
                 <h3 className="text-lg font-montserrat font-semibold text-slate-950 mb-3">{scope.title}</h3>
-                <p className="text-gray-600 font-light leading-relaxed text-[15px]">{scope.desc}</p>
+                <p className="text-gray-600 font-light leading-relaxed text-[15px]">{linkPhrase(scope.desc, scope.link)}</p>
               </div>
             ))}
           </div>
@@ -246,7 +249,7 @@ export default function GeotechnicalInvestigationsPage() {
             {REGIONS.map((r) => (
               <div key={r.title} className="card-lift p-8 bg-white border border-gray-100 rounded-2xl shadow-sm h-full">
                 <h3 className="text-lg font-montserrat font-semibold text-slate-950 mb-3">{r.href ? <Link href={r.href} className="hover:text-forest-green transition-colors">{r.title}</Link> : r.title}</h3>
-                <p className="text-gray-600 font-light leading-relaxed text-[15px]">{r.desc}</p>
+                <p className="text-gray-600 font-light leading-relaxed text-[15px]">{linkPhrase(r.desc, r.link)}</p>
               </div>
             ))}
             <div className="card-lift p-8 bg-[#050A07] text-white rounded-2xl h-full flex flex-col justify-between relative overflow-hidden grain">

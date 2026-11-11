@@ -42,7 +42,7 @@ export const faqs = [
   {
     question: "Can you test soil on sloping blocks?",
     group: "Access & Coverage",
-    answer: "Yes. On steep blocks the rig sets up where it can (the street, or the council verge as at Coogee) and motorised hand augers reach the rest of the block. The report addresses what the slope actually raises: differential settlement, slope stability and the retaining parameters your engineer needs, with the rock and soil data behind them."
+    answer: "Yes. On steep blocks the rig sets up where it can (the street, or the council verge <a href=\"/projects#coogee\">as at Coogee</a>) and motorised hand augers reach the rest of the block. The report addresses what the slope actually raises: differential settlement, slope stability and the retaining parameters your engineer needs, with the rock and soil data behind them."
   },
   {
     question: "How long does a soil test and geotechnical report take?",

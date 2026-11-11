@@ -7,6 +7,7 @@ import PhotoFrame from "@/components/ui/PhotoFrame";
 import CloseBand from "@/components/ui/CloseBand";
 import { pageMeta } from "@/lib/seo";
 import QuietFaq from "@/components/sections/QuietFaq";
+import { linkPhrase, type PhraseLink } from "@/components/ui/linkPhrase";
 
 export const metadata: Metadata = pageMeta(
   "Geotechnical Assessments Sydney | Slope & Settlement | SFGEO",
@@ -16,10 +17,11 @@ export const metadata: Metadata = pageMeta(
 
 const d = (ms: number) => ({ "--d": `${ms}ms` }) as CSSProperties;
 
-const ITEMS = [
+// `link` turns words already in a card into a quiet link to the matching case study.
+const ITEMS: { t: string; d: string; link?: PhraseLink }[] = [
   { t: "Slope Stability & Retaining", d: "Batters, cuttings and retaining walls assessed: stability, surcharge and remediation options in plain terms." },
   { t: "Settlement & Cracking", d: "Why the wall cracked, whether it is moving, and what to do about it. Investigation before speculation." },
-  { t: "Council Orders & Compliance", d: "Engineering records written against development control orders and certifier directions." },
+  { t: "Council Orders & Compliance", d: "Engineering records written against development control orders and certifier directions.", link: { text: "development control orders", href: "/projects#oatley" } },
   { t: "Second Opinions", d: "An independent read of someone else’s report before you build, buy or litigate on it." },
   { t: "Purchase Due Diligence", d: "The ground read before you sign: fill, slopes, trees and drainage flagged while you can still walk away." },
   { t: "Pool & Excavation Feasibility", d: "What the dig will hit, what it will cost to hold up, and whether the machine can even get in." },
@@ -144,7 +146,7 @@ export default function Page() {
             {ITEMS.map((it) => (
               <div key={it.t} className="card-lift p-8 bg-white border border-gray-100 rounded-2xl shadow-sm h-full">
                 <h3 className="text-lg font-montserrat font-semibold text-slate-950 mb-3">{it.t}</h3>
-                <p className="text-gray-600 font-light leading-relaxed text-[15px]">{it.d}</p>
+                <p className="text-gray-600 font-light leading-relaxed text-[15px]">{linkPhrase(it.d, it.link)}</p>
               </div>
             ))}
           </div>

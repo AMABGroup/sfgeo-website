@@ -220,7 +220,7 @@ export default function TightAccessDrillingPage() {
             Where The <span className="font-semibold h-bold">Hard Sites Are.</span>
           </h2>
           <p data-fx="rise" style={d(160)} className="text-lg text-gray-600 font-light leading-relaxed">
-            Marrickville, Newtown, Enmore and the Inner West terraces we call home. Paddington and Surry Hills rows. Eastern Suburbs battleaxe blocks, North Shore slopes, and the granny-flat boom across Canterbury-Bankstown and the Hills. If the rig cannot reach it, the augers can, and the engineer comes with them.
+            Marrickville, Newtown, Enmore and <Link href="/geotechnical-engineer-inner-west" className="hover:text-forest-green transition-colors">the Inner West</Link> terraces we call home. Paddington and Surry Hills rows. <Link href="/geotechnical-engineer-eastern-suburbs" className="hover:text-forest-green transition-colors">Eastern Suburbs</Link> battleaxe blocks, <Link href="/geotechnical-engineer-north-shore" className="hover:text-forest-green transition-colors">North Shore</Link> slopes, and the granny-flat boom across <Link href="/geotechnical-engineer-canterbury-bankstown" className="hover:text-forest-green transition-colors">Canterbury-Bankstown</Link> and <Link href="/geotechnical-engineer-hills-district" className="hover:text-forest-green transition-colors">the Hills</Link>. If the rig cannot reach it, the augers can, and the engineer comes with them.
           </p>
         </Reveal>
       </section>

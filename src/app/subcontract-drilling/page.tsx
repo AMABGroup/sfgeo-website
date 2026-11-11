@@ -6,6 +6,7 @@ import PhotoFrame from "@/components/ui/PhotoFrame";
 import CloseBand from "@/components/ui/CloseBand";
 import { pageMeta } from "@/lib/seo";
 import QuietFaq from "@/components/sections/QuietFaq";
+import { linkPhrase, type PhraseLink } from "@/components/ui/linkPhrase";
 
 export const metadata: Metadata = pageMeta(
   "Subcontract Drilling Sydney | Rig And Engineer | SFGEO",
@@ -15,11 +16,12 @@ export const metadata: Metadata = pageMeta(
 
 const d = (ms: number) => ({ "--d": `${ms}ms` }) as CSSProperties;
 
-const CLIENTS = [
+// `link` turns words already in a card into quiet links to the matching case studies.
+const CLIENTS: { t: string; d: string; link?: PhraseLink | PhraseLink[] }[] = [
   { t: "Engineering Consultancies", d: "Boutique practices to some of the bigger firms in Sydney: field data with engineer-grade logging you can put your letterhead on without re-checking it." },
   { t: "Environmental Consultants", d: "Drilling and sampling for PSI and DSI programmes: clean execution, chain of custody kept, your sampling plan followed to the letter. Monitoring wells through a bore driller under our scope." },
   { t: "Builders & Civil Contractors", d: "Holes without the overhead of an in-house crew: footing probes, pavement investigations, service trenching support, booked around your programme." },
-  { t: "Bigger Firms & Majors", d: "Reliable capacity when the fleet is booked out: night works, staged access and standing arrangements, delivered at the same standard every visit." },
+  { t: "Bigger Firms & Majors", d: "Reliable capacity when the fleet is booked out: night works, staged access and standing arrangements, delivered at the same standard every visit.", link: [{ text: "Reliable capacity", href: "/projects#telopea" }, { text: "night works", href: "/projects#lakemba" }] },
 ];
 
 const TERMS = [
@@ -175,7 +177,7 @@ export default function SubcontractDrillingPage() {
             {CLIENTS.map((c) => (
               <div key={c.t} className="card-lift p-8 bg-white border border-gray-100 rounded-2xl shadow-sm h-full">
                 <h3 className="text-lg font-montserrat font-semibold text-slate-950 mb-3">{c.t}</h3>
-                <p className="text-gray-600 font-light leading-relaxed text-[15px]">{c.d}</p>
+                <p className="text-gray-600 font-light leading-relaxed text-[15px]">{linkPhrase(c.d, c.link)}</p>
               </div>
             ))}
           </div>
