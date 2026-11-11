@@ -23,7 +23,7 @@ export const revalidate = 3600;
 
 export const metadata: Metadata = pageMeta(
   "Geotechnical Investigations & Reports Sydney | SFGEO",
-  "Geotechnical investigations to AS 1726 for Sydney DAs, CDCs, basements and footings. Principal-led fieldwork. Fixed fee in writing within one business day.",
+  "Geotechnical reports and investigations to AS 1726 for Sydney DAs, CDCs, basements and footings. Principal-led. Fixed fee in writing within one business day.",
   "/geotechnical-investigations",
 );
 
@@ -282,7 +282,7 @@ export default function GeotechnicalInvestigationsPage() {
             Turnaround is scoped at first contact, and urgent DA, CC and settlement timelines can be accommodated. Call the Principal directly to arrange priority scheduling. And where standard rigs stop at the kerb, our 4WD rig and motorised hand augers keep going. See <Link href="/tight-access-drilling" className="text-forest-green underline underline-offset-4 decoration-forest-green/40 hover:decoration-forest-green font-medium">tight-access drilling</Link>.
           </p>
           <p data-fx="rise" style={d(280)} className="text-gray-600 font-light leading-relaxed">
-            Investigations are quoted fixed-fee against the number and depth of boreholes, access and the laboratory programme. Most fall under our Complex Projects tier (basements, multi-storey, retaining walls, sloping or restricted-access blocks), and the fee is confirmed in writing within one business day. What moves the figure is set out in the <Link href="/geotechnical-report-cost-sydney" className="text-forest-green underline underline-offset-4 decoration-forest-green/40 hover:decoration-forest-green font-medium">geotechnical report cost guide</Link>.
+            Investigations are quoted fixed-fee against the number and depth of boreholes, access and the laboratory programme. Most fall under our Complex Projects tier (basements, multi-storey, retaining walls, sloping or restricted-access blocks), and the fee is confirmed in writing within one business day. What moves the figure is set out in the <Link href="/geotechnical-report-cost-sydney" className="text-forest-green underline underline-offset-4 decoration-forest-green/40 hover:decoration-forest-green font-medium">geotechnical report cost guide</Link>. When the excavation is open we inspect the footings and piers before the pour and put the record in writing. See <Link href="/construction-phase-support" className="text-forest-green underline underline-offset-4 decoration-forest-green/40 hover:decoration-forest-green font-medium">construction phase support</Link>.
           </p>
         </Reveal>
       </section>
@@ -292,7 +292,7 @@ export default function GeotechnicalInvestigationsPage() {
         <GoogleReviews />
       </section>
 
-      <QuietFaq intro={<>An AS 1726 geotechnical investigation provides the ground data for Sydney DAs, CDCs, footings, basements and retaining structures. Boreholes, penetrometers and NATA-accredited laboratory data become a report your certifier, council and structural engineer can act on. Fees are fixed and quoted per site. Reports with laboratory testing typically take 8 to 12 business days from fieldwork, confirmed in the written quote, with interim findings available where the programme needs them. The engineer who stands on your ground signs your report.</>} faqs={FAQS} />
+      <QuietFaq intro={<>An AS 1726 geotechnical investigation provides the ground data for Sydney DAs, CDCs, footings, basements and retaining structures. Boreholes, penetrometers and NATA-accredited laboratory data become a report your certifier, council and structural engineer can act on. Fees are fixed and quoted per site. Reports with laboratory testing typically take 8 to 12 business days from fieldwork, confirmed in the written quote, with interim findings available where the programme needs them. The geotechnical engineer who stands on your ground has spent 15 years in construction, from labouring to engineering, and signs your report.</>} faqs={FAQS} />
 
       <CloseBand
         quote={PAGE_QUOTE}

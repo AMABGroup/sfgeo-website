@@ -12,6 +12,7 @@ import { pageMeta } from "@/lib/seo";
 import QuietFaq from "@/components/sections/QuietFaq";
 import RatingFact from "@/components/ui/RatingFact";
 import OtherAreas from "@/components/ui/OtherAreas";
+import { linkPhrase } from "@/components/ui/linkPhrase";
 
 // The quote pop-up's copy for this page: its own promise, never another service's turnaround.
 const PAGE_QUOTE = {
@@ -23,7 +24,7 @@ export const revalidate = 3600;
 
 export const metadata: Metadata = pageMeta(
   "Site Classification & Soil Test Sydney | AS 2870 | SFGEO",
-  "AS 2870 site classifications for Sydney homes and granny flats: fixed fees from $800 + GST, the engineer on site, reports as soon as 2 business days.",
+  "AS 2870 site classification reports and soil tests for Sydney homes, extensions, pools and granny flats. Reports as soon as 2 business days. From $800 + GST.",
   "/site-classification",
 );
 
@@ -36,7 +37,7 @@ const REPORT_CONTENTS = [
   "Engineer-checked borehole records and a plan of where each hole went",
   "Laboratory results, where tested, and what they mean for the footing",
   "Founding recommendations: depth, and the fill, trees, slope or drainage your engineer has to design around",
-  "Written to your certifier’s requirements and signed by the Principal Engineer",
+  "Written to your certifier’s requirements and signed by the Principal Engineer, Alli Atmar, BEng (Civil)",
 ];
 
 const CLASSES = [
@@ -417,6 +418,9 @@ export default function SiteClassificationPage() {
               </li>
             ))}
           </ul>
+          <p data-fx="rise" className="mt-10 max-w-3xl text-sm text-gray-500 font-light leading-relaxed">
+            {linkPhrase("When the excavation is open we inspect the footings and piers before the pour and put the record in writing. See construction phase support.", { text: "construction phase support", href: "/construction-phase-support" })}
+          </p>
         </Reveal>
       </section>
 
@@ -436,7 +440,7 @@ export default function SiteClassificationPage() {
         <GoogleReviews />
       </section>
 
-      <QuietFaq intro={<>A site classification is the soil test for a new home, extension, granny flat or pool. Most councils and certifiers require one. It gives your structural engineer the AS 2870 class and the parameters the footing design is drawn from. The Principal Engineer attends every site and signs every report. Fees are fixed, from $800 + GST. The report follows as soon as 2 business days from fieldwork.</>} faqs={FAQS} footer={<OtherAreas />} />
+      <QuietFaq intro={<>A site classification is the soil test for a new home, extension, granny flat or pool. Builders and certifiers also call it a soil report or a soil classification report. Most councils and certifiers require one. It gives your structural engineer the AS 2870 class and the parameters the footing design is drawn from. The Principal Engineer has spent 15 years in construction, from labouring to engineering, attends every site and signs every report. Fees are fixed, from $800 + GST. The report follows as soon as 2 business days from fieldwork.</>} faqs={FAQS} footer={<OtherAreas />} />
 
       <CloseBand
         quote={PAGE_QUOTE}

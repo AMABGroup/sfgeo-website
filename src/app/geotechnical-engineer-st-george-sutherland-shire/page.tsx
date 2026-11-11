@@ -7,7 +7,7 @@ export const revalidate = 3600;
 
 export const metadata: Metadata = pageMeta(
   "Geotechnical Engineer St George & Sutherland Shire | SFGEO",
-  "Site classifications, investigations and inspections across St George and the Sutherland Shire. Fixed fee in writing within one business day.",
+  "Soil tests, site classifications and inspections across St George and the Sutherland Shire. Fixed fee in writing within one business day.",
   "/geotechnical-engineer-st-george-sutherland-shire",
 );
 
@@ -80,12 +80,13 @@ const REGION: RegionPageData = {
     },
   ],
   services: [
-    { title: "Site Classification", desc: "AS 2870 site classifications for homes, studios and granny flats.", href: "/site-classification" },
+    { title: "Site Classification", desc: "AS 2870 site classifications, the soil test a certifier asks for, for homes, studios and granny flats.", href: "/site-classification" },
     { title: "Geotechnical Investigations", desc: "Investigations to AS 1726 for DAs, CDCs, piers and basements.", href: "/geotechnical-investigations" },
     { title: "Construction Phase Support", desc: "Footing, pier and working platform inspections, up to the last one before the pour.", href: "/construction-phase-support" },
     { title: "Tight Access", desc: "Motorised hand augers carry through a standard doorway or side passage, so rear yards can be investigated without vehicle access.", href: "/tight-access-drilling" },
     { title: "Testing", desc: "Dynamic cone penetrometer testing, and NATA-accredited laboratory testing where the design calls for it." },
   ],
+  faqIntro: "Geotechnical engineers based in Marrickville, working across St George and the Sutherland Shire.",
   faqs: [
     {
       q: "Do you work across St George and the Sutherland Shire?",

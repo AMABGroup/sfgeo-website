@@ -14,7 +14,7 @@ export const revalidate = 3600;
 
 export const metadata: Metadata = pageMeta(
   "Borehole Drilling Sydney | Engineer-Led Boreholes | SFGEO",
-  "Borehole drilling in Sydney: solid flight and hollow stem augers, every hole logged on site, engineer-checked. Fixed fee in writing within one business day.",
+  "Geotechnical borehole drilling in Sydney: solid flight and hollow stem augers, every hole logged on site. Fixed fee in writing within one business day.",
   "/borehole-drilling",
 );
 

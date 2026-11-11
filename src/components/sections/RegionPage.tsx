@@ -47,6 +47,8 @@ export type RegionPageData = {
   feature?: RegionPhoto & { position?: string };
   jobs: RegionJob[];
   services: RegionService[];
+  /** One fine-print sentence above the questions. */
+  faqIntro?: string;
   faqs: RegionFaq[];
   closeSub: ReactNode;
   schemaDescription: string;
@@ -254,7 +256,7 @@ export default function RegionPage({ region: r }: { region: RegionPageData }) {
         </Reveal>
       </section>
 
-      <QuietFaq faqs={r.faqs} footer={<OtherAreas current={`/${r.slug}`} />} />
+      <QuietFaq intro={r.faqIntro} faqs={r.faqs} footer={<OtherAreas current={`/${r.slug}`} />} />
 
       <CloseBand
         quote={quote}
