@@ -2,6 +2,8 @@
 
 > Family-owned, principal-led geotechnical engineering consultancy based in Marrickville, Sydney (Inner West). Site classifications to AS 2870, geotechnical investigations and reports, geotechnical assessments, footing and pier inspections, geotechnical design parameters, borehole and tight-access drilling with a 4WD-mounted rig, subcontract drilling for other consultancies, environmental (contaminated land) sampling with NATA-accredited laboratory testing, and concrete coring. Fixed fees in writing within one business day. Site classification reports as soon as 2 business days from fieldwork.
 
+Last updated: 11 November 2026. Fees as published, November 2026.
+
 ## Key facts
 
 - Legal entity: AMAB Group Pty Ltd (ABN 54 686 815 252), trading as Solid Foundation Geotechnical (SFGEO)
@@ -26,6 +28,7 @@
 - Site classification (AS 2870), ancillary residential (granny flats, small additions, new homes on cleared blocks): from $800
 - Site classification, standard residential (single or double-storey homes on established streets, pools, duplexes): from $1,000
 - Site classification, complex projects and sites (basements, multi-storey, retaining walls, sloping blocks, restricted access, strata): custom quote
+- A site classification fee includes allowable bearing pressures and founding recommendations for the footings on the plans; they are not a separate report.
 - Concrete coring: $120 per hole, three-hole minimum
 - Footing, pier and pile inspections: from $600 per inspection, fixed fee in writing within one business day; schedule of rates for contractors with a run of inspections
 - Geotechnical investigations, assessments and design parameters: quoted per site against the number and depth of boreholes, access and laboratory programme
@@ -72,8 +75,13 @@
 ## Common questions
 
 - What does a geotechnical report cost in Sydney? Site classifications start from $800 + GST (ancillary residential) and $1,000 + GST (standard residential); complex sites are quoted individually. Coring is $120 + GST per hole with a three-hole minimum. Footing and pier inspections are from $600 + GST per inspection. Geotechnical investigations carry no published range; each is scoped and quoted per site.
+- Why do site classification quotes differ? Mostly on what is done on site and who does it. At SFGEO the Principal Engineer leads the fieldwork and signs the report. Boreholes are sized to the base of excavation plus one to two metres, laboratory testing is added when the site warrants it, and the fee is fixed in writing before work begins. Compare quotes on those four points.
 - How long does a soil test take? Fieldwork is usually a few hours on site; the AS 2870 report follows as soon as 2 business days from fieldwork.
-- Do I need a geotechnical report for a DA or CDC in Sydney? Most councils and private certifiers require an AS 2870 site classification for new dwellings, additions, granny flats and pools; basements, sloping sites and sites with fill typically need a fuller geotechnical investigation.
+- Do I need a geotechnical report for a DA or CDC in Sydney? For a DA, the council can require a geotechnical report at lodgement, through its DCP, or ask for one after. For a CDC, the certifier who issues it asks. The certifier wants the AS 2870 site classification before construction on either pathway, and it is the same document.
+- Do I need a soil test for a granny flat in NSW? Usually, yes. A new granny flat typically needs an AS 2870 site classification: it is what the certifier asks for and what the structural engineer designs the footings to. Granny flats sit in the ancillary tier, from $800 + GST, with the report as soon as 2 business days from fieldwork.
+- What do the AS 2870 site classes mean? Class A: little or no ground movement. Class S: slightly reactive, up to 20 mm characteristic surface movement. Class M: moderately reactive, 20 to 40 mm. Class H1: highly reactive, 40 to 60 mm. Class H2: highly reactive, 60 to 75 mm. Class E: extremely reactive, greater than 75 mm.
+- What is a Class P site? A problem site where bearing or ground movement is governed by more than normal reactivity: soft clay, silt or loose sand, uncontrolled fill left under the footings, landslip, mine subsidence, collapsing soils, erosion, or abnormal moisture such as large trees close to the house. Footings on a Class P site need a specific engineering design.
+- How long is a geotechnical report valid? There is no expiry date written into a geotechnical report. Certifiers and councils typically want a report that reflects the current proposal and the current ground; where the design or the block has changed since the fieldwork, a review letter, an addendum or a fresh visit may be needed.
 - Who does the work? The Principal Engineer reviews the block and plans, leads fieldwork and signs the report. SFGEO does not run the work through a switchboard.
 - Does SFGEO offer SPT on residential jobs? No. Residential investigations are sized to the base of excavation plus one to two metres using the 4WD rig and hand augers; laboratory testing is added when the site warrants it.
 - Does SFGEO drill water bores? Water bores and groundwater monitoring wells are scoped and managed by SFGEO and installed by a drilling contractor.

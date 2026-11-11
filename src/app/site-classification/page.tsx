@@ -121,7 +121,7 @@ export default function SiteClassificationPage() {
       {
         "@type": "Offer",
         "name": "Ancillary residential",
-        "description": "Granny flats. Small additions. New homes on cleared blocks. Tightly scoped projects with clear access, priced from $800 + GST. Every fee is set against your specific block.",
+        "description": "Granny flats. Small additions. New homes on cleared blocks. Tightly scoped projects with clear access, priced from $800 + GST. Every fee is set against your specific block. The fee includes allowable bearing pressures and founding recommendations for the footings on the plans; they are not a separate report.",
         "priceSpecification": {
           "@type": "PriceSpecification",
           "minPrice": "800",
@@ -133,7 +133,7 @@ export default function SiteClassificationPage() {
       {
         "@type": "Offer",
         "name": "Standard residential",
-        "description": "The right tier for most Sydney custom builds. Single or double-storey homes on established streets. Pool additions, duplexes, and dwellings with in-ground pools. From $1,000 + GST, priced against the work your site actually needs.",
+        "description": "The right tier for most Sydney custom builds. Single or double-storey homes on established streets. Pool additions, duplexes, and dwellings with in-ground pools. From $1,000 + GST, priced against the work your site actually needs. The fee includes allowable bearing pressures and founding recommendations for the footings on the plans; they are not a separate report.",
         "priceSpecification": {
           "@type": "PriceSpecification",
           "minPrice": "1000",
