@@ -8,6 +8,7 @@ import PhotoFrame from "@/components/ui/PhotoFrame";
 import CloseBand from "@/components/ui/CloseBand";
 import { pageMeta } from "@/lib/seo";
 import RatingFact from "@/components/ui/RatingFact";
+import { linkPhrase } from "@/components/ui/linkPhrase";
 
 // The quote pop-up's copy for this page: its own promise, never another service's turnaround.
 const PAGE_QUOTE = {
@@ -225,7 +226,7 @@ export default function TightAccessDrillingPage() {
         </Reveal>
       </section>
 
-      <QuietFaq intro={<>Restricted-access geotechnical drilling is for anyone building on a Sydney site where a standard rig stops at the kerb: terraces, battleaxe blocks, backyards, courtyards and basements. SFGEO investigates them with motorised hand augers and a 4WD-mounted rig, led by the engineer who reads the ground and signs the report. Fixed fees, scoped to your block. Site classification reports follow as soon as 2 business days from fieldwork.</>} faqs={FAQS} />
+      <QuietFaq intro={linkPhrase("Restricted-access geotechnical drilling is for anyone building on a Sydney site where a standard rig stops at the kerb: terraces, battleaxe blocks, backyards, courtyards and basements. SFGEO investigates them with motorised hand augers and a 4WD-mounted rig, led by the engineer who reads the ground and signs the report. Fixed fees, scoped to your block. Site classification reports follow as soon as 2 business days from fieldwork.", { text: "geotechnical drilling", href: "/drilling" })} faqs={FAQS} />
 
       <CloseBand
         quote={PAGE_QUOTE}

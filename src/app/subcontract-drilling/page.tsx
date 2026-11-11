@@ -44,13 +44,17 @@ const FAQS = [
   },
   {
     q: "Whose supervision does the rig work under?",
-    a: "Yours or ours. Under your supervision, the rig drills to your borehole schedule and follows your sampling plan to the letter. Under ours, you send the brief and receive finished logs. Either way an engineer leads the crew and every log is engineer-checked, so the field data goes on your letterhead without re-checking. Both arrangements run every week. See the drilling capability.",
+    a: "Yours or ours. Under your supervision, the rig drills to your borehole schedule and follows your sampling plan to the letter. Under ours, you send the brief and receive finished logs. Either way an engineer leads the crew and every log is engineer-checked, so the field data goes on your letterhead without re-checking. Both arrangements run every week. Where the rig cannot reach, the same crew carries motorised hand augers. See the drilling capability.",
     link: { text: "the drilling capability", href: "/drilling" },
   },
   {
     q: "What format do the logs and samples arrive in?",
     a: "Yours. Logs go onto your template, samples follow your sampling plan, and chain of custody is kept from the hole to your laboratory. Every log is written in the field and engineer-checked, so what arrives is engineer-grade rather than spoil and a diary. Where the programme needs monitoring wells, they are scoped and managed by SFGEO and installed by a drilling contractor. See environmental sampling.",
     link: { text: "environmental sampling", href: "/environmental" },
+  },
+  {
+    q: "Whose client is it?",
+    a: "Yours. SFGEO drills to your borehole schedule and hands the logs and samples to you. The report, the advice and the client relationship stay with your firm. The arrangement is confirmed in writing with the rates before the rig moves.",
   },
 ];
 

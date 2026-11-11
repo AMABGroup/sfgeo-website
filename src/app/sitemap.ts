@@ -16,7 +16,7 @@ const ROUTES: Route[] = [
   { path: '/about', lastModified: '2026-11-06', changeFrequency: 'monthly', priority: 0.7 },
   { path: '/services', lastModified: '2026-11-06', changeFrequency: 'monthly', priority: 0.9 },
   { path: '/geotechnical', lastModified: '2026-11-11', changeFrequency: 'monthly', priority: 0.9 },
-  { path: '/environmental', lastModified: '2026-11-10', changeFrequency: 'monthly', priority: 0.9 },
+  { path: '/environmental', lastModified: '2026-11-11', changeFrequency: 'monthly', priority: 0.9 },
   { path: '/geotechnical-investigations', lastModified: '2026-11-11', changeFrequency: 'weekly', priority: 0.9 },
   { path: '/site-classification', lastModified: '2026-11-11', changeFrequency: 'weekly', priority: 0.9 },
   { path: '/drilling', lastModified: '2026-11-11', changeFrequency: 'weekly', priority: 0.9 },

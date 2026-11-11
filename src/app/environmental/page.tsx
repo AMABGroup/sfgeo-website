@@ -120,6 +120,7 @@ const FAQS = [
   {
     q: "Can one site visit cover both geotechnical and environmental testing?",
     a: "Yes. Both scopes can go out on one mobilisation. SFGEO drills its own geotechnical investigations across Sydney, so the environmental sampling can be done on the same visit. Samples for both scopes are logged in the field by the engineer who took them. Consultants running their own assessment programmes can use the same crew for drilling and sampling only.",
+    link: { text: "drills its own geotechnical investigations", href: "/drilling" },
   },
 ];
 
