@@ -139,7 +139,7 @@ export default function Page() {
       <section className="py-20 lg:py-24 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           <PhotoFrame
-            src="/sfgeo-dcp-open-excavation-newtown.jpg"
+            src="/sfgeo-dcp-open-excavation-newtown-v2.jpg"
             alt="SFGEO engineer running a dynamic cone penetrometer in an open excavation beside a Newtown terrace before the pour"
             caption="At Bearing Level"
             aspect="aspect-[4/3]"

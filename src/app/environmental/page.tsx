@@ -68,7 +68,7 @@ const SECTIONS = [
     titleLight: "Soil & Lab",
     titleBold: "Testing.",
     caption: "04 · Soil & Lab Testing",
-    image: "/sfgeo-contaminated-land-sampling-sydney.jpg",
+    image: "/sfgeo-contaminated-land-sampling-sydney-v2.jpg",
     alt: "Labelled soil sample bag and field tablet during sampling for laboratory testing",
     body: (
       <>

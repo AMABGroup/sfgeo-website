@@ -18,7 +18,7 @@ const SERVICES = [
     title: "Drilling",
     desc: "Borehole drilling, tight access and rock coring. 4WD rig and crew, for our investigations and yours.",
     href: "/drilling",
-    image: "/sfgeo-rig-major-earthworks-clean.jpg",
+    image: "/sfgeo-rig-major-earthworks-clean-v2.jpg",
     alt: "SFGEO rig drilling beside major earthworks",
   },
   {
@@ -34,7 +34,7 @@ const SERVICES = [
     title: "Other Professional Services",
     desc: "Utility location and GPR, dilapidation reports, surveying, structural, civil and hydraulic. One point of contact.",
     href: "/other-services",
-    image: "/sfgeo-night-works-team.jpg",
+    image: "/sfgeo-night-works-team-v2.jpg",
     alt: "The SFGEO team on night works at a Sydney intersection",
   },
   {

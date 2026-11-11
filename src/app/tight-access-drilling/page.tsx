@@ -148,7 +148,7 @@ export default function TightAccessDrillingPage() {
               delay={0}
             />
             <PhotoFrame
-              src="/sfgeo-tight-access-rig-terrace-courtyard.jpg"
+              src="/sfgeo-tight-access-rig-terrace-courtyard-v2.jpg"
               alt="The SFGEO 4WD drill rig set up inside a narrow terrace courtyard in Enmore, mast up against the rendered wall"
               caption={<>Terrace Courtyard &middot; Inner West</>}
               aspect="aspect-[3/4]"

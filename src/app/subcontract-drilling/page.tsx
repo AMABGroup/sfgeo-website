@@ -136,7 +136,7 @@ export default function SubcontractDrillingPage() {
         <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-10 lg:gap-16 items-center">
           <div className="grid grid-cols-2 gap-4 sm:gap-6">
             <PhotoFrame
-              src="/sfgeo-night-works-rig-mast-lakemba.jpg"
+              src="/sfgeo-night-works-rig-mast-lakemba-v2.jpg"
               alt="Drill rig with mast raised in a closed traffic lane during night works on a Sydney high street"
               caption="Mobilised"
               aspect="aspect-[3/4]"

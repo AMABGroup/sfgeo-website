@@ -51,7 +51,7 @@ const SECTIONS = [
     titleLight: "Land & Detail",
     titleBold: "Surveys.",
     caption: "03 · Land & Detail Surveys",
-    image: "/sfgeo-level-check-graded-pad.jpg",
+    image: "/sfgeo-level-check-graded-pad-v2.jpg",
     alt: "Level staff standing on a freshly graded pad during earthworks",
     body: (
       <>
@@ -67,7 +67,7 @@ const SECTIONS = [
     titleLight: "Structural, Civil",
     titleBold: "& Hydraulic.",
     caption: "04 · Structural, Civil & Hydraulic",
-    image: "/sfgeo-piling-rig-civil-works.jpg",
+    image: "/sfgeo-piling-rig-civil-works-v2.jpg",
     alt: "Piling rig working beside a brick building on a Sydney site",
     body: (
       <>

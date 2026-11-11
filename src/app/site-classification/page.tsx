@@ -241,7 +241,7 @@ export default function SiteClassificationPage() {
       <section id="difference" className="py-20 lg:py-24 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100 scroll-mt-[136px]">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center mb-14">
           <PhotoFrame
-            src="/sfgeo-principal-engineer-reviewing-architectural-plans-as2870.jpg"
+            src="/sfgeo-principal-engineer-reviewing-architectural-plans-as2870-v2.jpg"
             alt="SFGEO Principal Engineer reviewing architectural plans against AS 2870"
             caption={<>02 &middot; The SFGEO Way</>}
             aspect="aspect-[4/3]"
@@ -332,7 +332,7 @@ export default function SiteClassificationPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           <div className="grid grid-cols-2 gap-4">
             <PhotoFrame
-              src="/sfgeo-4wd-rig-suburban-block-willoughby.jpg"
+              src="/sfgeo-4wd-rig-suburban-block-willoughby-v2.jpg"
               alt="SFGEO 4WD drill rig set up on the front lawn of a suburban Sydney home with the engineer at the hole"
               caption="Backyards"
               aspect="aspect-[3/4]"

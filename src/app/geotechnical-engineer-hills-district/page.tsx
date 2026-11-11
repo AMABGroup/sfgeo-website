@@ -57,7 +57,7 @@ const REGION: RegionPageData = {
       ],
       facts: "3 boreholes + 3 DCPs · Refusal at 0.6 to 1.2 metres · Logs issued the same day",
       photo: {
-        src: "/sfgeo-auger-flight-canoelands.jpg",
+        src: "/sfgeo-auger-flight-canoelands-v2.jpg",
         alt: "Auger flight coated in yellow sandy soil at the back of the SFGEO rig in a dry paddock at Canoelands",
         caption: "Auger Flight · Canoelands",
       },
@@ -73,7 +73,7 @@ const REGION: RegionPageData = {
       ],
       facts: "8 rig boreholes + 8 DCPs · NATA-accredited laboratory testing · Class M",
       photo: {
-        src: "/sfgeo-rig-paddock-kenthurst.jpg",
+        src: "/sfgeo-rig-paddock-kenthurst-v2.jpg",
         alt: "SFGEO 4WD-mounted rig crossing a green paddock at Kenthurst, trees and a post-and-rail fence behind",
         caption: "Paddock · Kenthurst",
       },

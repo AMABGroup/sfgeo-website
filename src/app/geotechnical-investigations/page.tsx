@@ -202,7 +202,7 @@ export default function GeotechnicalInvestigationsPage() {
           </Reveal>
           <div className="grid grid-cols-2 gap-4 sm:gap-6">
             <PhotoFrame
-              src="/sfgeo-night-works-crew-at-rig.jpg"
+              src="/sfgeo-night-works-crew-at-rig-v2.jpg"
               alt="SFGEO engineers working the rig at a borehole during night works on a Sydney street"
               caption="Fieldwork"
               aspect="aspect-[3/4]"
