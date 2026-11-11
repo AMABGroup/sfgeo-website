@@ -10,6 +10,7 @@ import CloseBand from "@/components/ui/CloseBand";
 import { pageMeta } from "@/lib/seo";
 import QuietFaq from "@/components/sections/QuietFaq";
 import RatingFact from "@/components/ui/RatingFact";
+import { linkPhrase, type PhraseLink } from "@/components/ui/linkPhrase";
 
 // The quote pop-up's copy for this page: its own promise, never another service's turnaround.
 const PAGE_QUOTE = {
@@ -23,7 +24,7 @@ export const revalidate = 3600;
 
 export const metadata: Metadata = pageMeta(
   "Geotechnical & Environmental Drilling Sydney | SFGEO",
-  "Geotechnical and environmental drilling in Sydney and regional NSW from one engineer-led 4WD rig. Fixed fee in writing within one business day.",
+  "Geotechnical drilling and environmental drilling across Sydney and regional NSW from an engineer-led 4WD rig. Fixed fee in writing within one business day.",
   "/drilling",
 );
 
@@ -105,10 +106,11 @@ const SECTIONS = [
   },
 ];
 
-const AUDIENCES = [
+// `link` turns words already in a card into a quiet link to the matching page.
+const AUDIENCES: { t: string; d: string; link?: PhraseLink }[] = [
   { t: "Builders", d: "Boreholes for the site classification or investigation, booked around your programme, and answers when the excavation finds something the report didn’t." },
   { t: "Engineering Consultancies", d: "Subcontract rig capacity with engineer-grade logging: field data you can put your letterhead on without re-checking it." },
-  { t: "Environmental Consultants", d: "Drilling and sampling for PSI and DSI programmes: clean execution, chain of custody kept, monitoring wells through a bore driller under our scope." },
+  { t: "Environmental Consultants", d: "Drilling and sampling for PSI and DSI programmes: clean execution, chain of custody kept, monitoring wells through a bore driller under our scope.", link: { text: "PSI and DSI programmes", href: "/environmental#psi-dsi" } },
   { t: "Bigger Firms & Majors", d: "Reliable capacity for programmes that can’t wait on a booked-out fleet: night works, staged access and standing arrangements included." },
 ];
 
@@ -322,14 +324,14 @@ export default function DrillingPage() {
             {AUDIENCES.map((a) => (
               <div key={a.t} className="card-lift p-8 bg-white border border-gray-100 rounded-2xl shadow-sm h-full">
                 <h3 className="text-lg font-montserrat font-semibold text-slate-950 mb-3 min-h-[56px]">{a.t}</h3>
-                <p className="text-gray-600 font-light leading-relaxed text-[15px]">{a.d}</p>
+                <p className="text-gray-600 font-light leading-relaxed text-[15px]">{linkPhrase(a.d, a.link)}</p>
               </div>
             ))}
           </div>
         </Reveal>
       </section>
 
-      <QuietFaq intro={<>SFGEO drills boreholes, cores rock and runs tight-access and subcontract programmes for builders, engineering consultancies, environmental consultants and some of the bigger firms in Sydney. One 4WD-mounted rig, based in Marrickville, with the crew led by the engineer who answers for what it brings up, mobilises across the Sydney metro and into regional NSW. Programmes are quoted per site, as a fixed fee in writing within one business day.</>} faqs={FAQS} />
+      <QuietFaq intro={<>SFGEO runs geotechnical drilling and environmental drilling programmes for builders, engineering consultancies, environmental consultants and some of the bigger firms in Sydney: boreholes, rock coring, tight-access and subcontract work. One 4WD-mounted rig, based in Marrickville, with the crew led by the engineer who answers for what it brings up, mobilises across the Sydney metro and into regional NSW. Programmes are quoted per site, as a fixed fee in writing within one business day.</>} faqs={FAQS} />
 
       <CloseBand
         quote={PAGE_QUOTE}

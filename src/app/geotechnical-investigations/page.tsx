@@ -30,7 +30,7 @@ export const metadata: Metadata = pageMeta(
 const d = (ms: number) => ({ "--d": `${ms}ms` }) as CSSProperties;
 
 // `link` turns words already in a card into a quiet link to the matching case study.
-const SCOPES: { title: string; desc: string; link?: PhraseLink }[] = [
+const SCOPES: { title: string; desc: string; link?: PhraseLink | PhraseLink[] }[] = [
   {
     title: "DA & CDC Reports",
     desc: "Geotechnical reports written to answer the questions your council, certifier or structural engineer will actually ask, prepared with the approval pathway in mind from the first borehole."
@@ -46,7 +46,8 @@ const SCOPES: { title: string; desc: string; link?: PhraseLink }[] = [
   },
   {
     title: "Drilling, DCP & Lab Testing",
-    desc: "Borehole drilling with our 4WD-mounted rig and motorised hand augers for tight access, dynamic cone penetrometer testing, and NATA-accredited laboratory testing where the design calls for it."
+    desc: "Borehole drilling with our 4WD-mounted rig and motorised hand augers for tight access, dynamic cone penetrometer testing, and NATA-accredited laboratory testing where the design calls for it.",
+    link: [{ text: "Borehole drilling", href: "/borehole-drilling" }, { text: "4WD-mounted rig", href: "/drilling" }]
   },
 ];
 
