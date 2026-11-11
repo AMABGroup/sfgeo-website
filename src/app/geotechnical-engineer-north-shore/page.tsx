@@ -15,7 +15,7 @@ export const revalidate = 3600;
 
 export const metadata: Metadata = pageMeta(
   "Geotechnical Engineer North Shore Sydney | SFGEO",
-  "Site classifications and geotechnical investigations on Sydney's North Shore, shown through real SFGEO jobs. Fixed fee in writing within one business day.",
+  "Soil tests, site classifications and investigations on Sydney's North Shore, from real SFGEO jobs. Fixed fee in writing within one business day.",
   "/geotechnical-engineer-north-shore",
 );
 
@@ -96,7 +96,7 @@ const JOBS: Job[] = [
 ];
 
 const SERVICES = [
-  { title: "Site Classification", desc: "AS 2870 site classifications for homes and granny flats.", href: "/site-classification" },
+  { title: "Site Classification", desc: "The soil test a certifier asks for: AS 2870 site classifications for homes and granny flats.", href: "/site-classification" },
   { title: "Geotechnical Investigations", desc: "Investigations to AS 1726 for DAs, CDCs, basements and footings.", href: "/geotechnical-investigations" },
   { title: "Construction Phase Support", desc: "Inspections, up to the last one before the pour.", href: "/construction-phase-support" },
   { title: "Tight Access", desc: "Motorised hand augers carry through a standard doorway or side passage, so rear yards and courtyards can be investigated without vehicle access.", href: "/tight-access-drilling" },
@@ -282,7 +282,7 @@ export default function NorthShorePage() {
         </Reveal>
       </section>
 
-      <QuietFaq faqs={FAQS} footer={<OtherAreas current="/geotechnical-engineer-north-shore" />} />
+      <QuietFaq intro={<>Geotechnical engineers based in Marrickville, working on the North Shore from Neutral Bay to Hornsby.</>} faqs={FAQS} footer={<OtherAreas current="/geotechnical-engineer-north-shore" />} />
 
       <CloseBand
         source="north-shore close"

@@ -7,7 +7,7 @@ export const revalidate = 3600;
 
 export const metadata: Metadata = pageMeta(
   "Geotechnical Engineer Canterbury-Bankstown | SFGEO",
-  "Geotechnical investigations and site classifications from Picnic Point to Panania and Campsie, from real SFGEO jobs. Site classifications from $800 + GST.",
+  "Soil tests, site classifications and investigations from Picnic Point to Panania and Campsie, from real SFGEO jobs. Site classifications from $800 + GST.",
   "/geotechnical-engineer-canterbury-bankstown",
 );
 
@@ -81,11 +81,12 @@ const REGION: RegionPageData = {
   ],
   services: [
     { title: "Geotechnical Investigations", desc: "Investigations to AS 1726 for DAs, CDCs, basements and dual occupancies.", href: "/geotechnical-investigations" },
-    { title: "Site Classification", desc: "AS 2870 site classifications for duplexes, additions and granny flats.", href: "/site-classification" },
+    { title: "Site Classification", desc: "The soil test a certifier asks for: AS 2870 site classifications for duplexes, additions and granny flats.", href: "/site-classification" },
     { title: "Environmental Testing", desc: "Acid sulfate soil screening and contaminated land testing through NATA-accredited laboratories.", href: "/environmental" },
     { title: "Tight Access", desc: "Motorised hand augers carry through a standard doorway or side passage, so rear yards can be investigated without vehicle access.", href: "/tight-access-drilling" },
     { title: "Construction Phase Support", desc: "Footing and pier inspections, up to the last one before the pour.", href: "/construction-phase-support" },
   ],
+  faqIntro: "Geotechnical engineers based in Marrickville, working across Canterbury-Bankstown from Picnic Point to Panania and Campsie.",
   faqs: [
     {
       q: "Do sites near the Georges River need acid sulfate soil testing?",

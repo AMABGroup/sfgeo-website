@@ -20,7 +20,7 @@ const ROUTES: Route[] = [
   { path: '/geotechnical-investigations', lastModified: '2026-11-11', changeFrequency: 'weekly', priority: 0.9 },
   { path: '/site-classification', lastModified: '2026-11-11', changeFrequency: 'weekly', priority: 0.9 },
   { path: '/drilling', lastModified: '2026-11-11', changeFrequency: 'weekly', priority: 0.9 },
-  { path: '/borehole-drilling', lastModified: '2026-11-06', changeFrequency: 'monthly', priority: 0.8 },
+  { path: '/borehole-drilling', lastModified: '2026-11-11', changeFrequency: 'monthly', priority: 0.8 },
   { path: '/subcontract-drilling', lastModified: '2026-11-11', changeFrequency: 'monthly', priority: 0.8 },
   { path: '/tight-access-drilling', lastModified: '2026-11-11', changeFrequency: 'monthly', priority: 0.8 },
   { path: '/concrete-coring', lastModified: '2026-11-10', changeFrequency: 'monthly', priority: 0.8 },

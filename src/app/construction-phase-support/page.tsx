@@ -214,7 +214,7 @@ export default function Page() {
         </Reveal>
       </section>
 
-      <QuietFaq intro={<>Construction phase support is the engineer on site for builders and contractors: footing, pier and pile inspections, proof rolls and engineered fill to AS 3798. An open excavation costs money every hour it waits, so SFGEO confirms the ground against the design on site and gives the call before anyone leaves. Single visits are priced from $600 + GST, fixed in writing within one business day, and the record follows within days.</>} faqs={FAQS} />
+      <QuietFaq intro={<>Construction phase support is the engineer on site for builders and contractors: footing, pier and pile inspections, proof rolls and engineered fill to AS 3798. An open excavation costs money every hour it waits, so SFGEO confirms the ground against the design on site and gives the call before anyone leaves. Single visits are priced from $600 + GST, fixed in writing within one business day, and the record follows within days. The Principal has spent 15 years in construction, from labouring to engineering, formwork and concreting included.</>} faqs={FAQS} />
 
       <CloseBand
         quote={PAGE_QUOTE}

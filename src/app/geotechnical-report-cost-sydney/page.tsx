@@ -50,7 +50,7 @@ const FAQS: { q: string; a: string; link?: PhraseLink; qLink?: PhraseLink }[] = 
   {
     q: "Does a soil test cost extra on top of the report?",
     link: { text: "the soil test", href: "/site-classification" },
-    a: "No. A site classification is the soil test. One fee covers the fieldwork, laboratory testing where the site warrants it, and the signed report. There is no separate soil-test line.",
+    a: "No. A site classification is the soil test, and what many people call a geotech report. One fee covers the fieldwork, laboratory testing where the site warrants it, and the signed report. There is no separate soil-test line.",
   },
   {
     q: "Is the fee fixed?",
@@ -102,7 +102,8 @@ export default function GeotechnicalReportCostPage() {
       { "@type": "ListItem", "position": 2, "item": { "@id": "https://sfgeo.com.au/geotechnical-report-cost-sydney", "name": "Geotechnical Report Cost Sydney" } }
     ]
   };
-  // The date the published fees were last confirmed (the "Fees as published" line under the tiers).
+  // The date the published fees were last confirmed, and who reviewed them (the "Fees as published" line under the tiers).
+  // reviewedBy points at the founder Person in the sitewide Organization JSON-LD (src/app/layout.tsx).
   const pageSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
@@ -110,6 +111,8 @@ export default function GeotechnicalReportCostPage() {
     "url": "https://sfgeo.com.au/geotechnical-report-cost-sydney",
     "name": "Geotechnical Report Cost Sydney",
     "dateModified": FEES_DATED,
+    "lastReviewed": FEES_DATED,
+    "reviewedBy": { "@id": "https://sfgeo.com.au/about#alli-atmar" },
     "inLanguage": "en-AU",
     "isPartOf": { "@id": "https://sfgeo.com.au/#website" },
     "about": { "@id": "https://sfgeo.com.au/#organization" }
@@ -211,8 +214,8 @@ export default function GeotechnicalReportCostPage() {
               </div>
             ))}
           </div>
-          {/* Alli confirmed every published fee current, 11 Nov 2026. Move FEES_DATED and this line together. */}
-          <p data-fx="rise" className="mt-6 text-xs text-gray-500 font-light tracking-wide">Fees as published, November 2026.</p>
+          {/* Alli confirmed every published fee current, 11 Nov 2026. Move FEES_DATED and this line together. The reviewer named here is the reviewedBy Person in pageSchema. */}
+          <p data-fx="rise" className="mt-6 text-xs text-gray-500 font-light tracking-wide">Fees as published, November 2026. Reviewed by Alli Atmar, BEng (Civil), Principal Engineer.</p>
         </Reveal>
         {/* The tiers are where a reader decides: the same ask as /site-classification's pricing block. */}
         <Reveal variant="group">

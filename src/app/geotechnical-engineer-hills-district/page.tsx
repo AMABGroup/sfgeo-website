@@ -7,7 +7,7 @@ export const revalidate = 3600;
 
 export const metadata: Metadata = pageMeta(
   "Geotechnical Engineer Hills District Sydney | SFGEO",
-  "Site classifications, investigations and drilling in the Hills District, from Castle Hill to Kenthurst. Reports as soon as 2 business days from fieldwork.",
+  "Soil tests, site classifications and investigations in the Hills District, from Castle Hill to Kenthurst. Site classifications from $800 + GST.",
   "/geotechnical-engineer-hills-district",
 );
 
@@ -80,12 +80,13 @@ const REGION: RegionPageData = {
     },
   ],
   services: [
-    { title: "Site Classification", desc: "AS 2870 site classifications for new homes, pools and granny flats.", href: "/site-classification" },
+    { title: "Site Classification", desc: "The soil test a certifier asks for: AS 2870 site classifications for new homes, pools and granny flats.", href: "/site-classification" },
     { title: "Geotechnical Investigations", desc: "Investigations to AS 1726 for DAs, CDCs, retaining walls, pools and acreage homes.", href: "/geotechnical-investigations" },
     { title: "Testing", desc: "Dynamic cone penetrometer testing, and NATA-accredited laboratory testing where the design calls for it." },
     { title: "Drilling For Consultancies", desc: "Boreholes drilled and logged on the 4WD-mounted rig for other consultancies' reports.", href: "/subcontract-drilling" },
     { title: "Construction Phase Support", desc: "Footing and pier inspections, up to the last one before the pour.", href: "/construction-phase-support" },
   ],
+  faqIntro: "Geotechnical engineers based in Marrickville, working across the Hills District from Castle Hill to Kenthurst.",
   faqs: [
     {
       q: "What site class do Hills District homes usually get?",

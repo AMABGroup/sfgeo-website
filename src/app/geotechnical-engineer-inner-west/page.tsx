@@ -7,7 +7,7 @@ export const revalidate = 3600;
 
 export const metadata: Metadata = pageMeta(
   "Geotechnical Engineer Inner West Sydney | SFGEO",
-  "Site classifications, investigations and footing inspections across the Inner West, from our Marrickville office. Footing inspections from $600 + GST.",
+  "Soil tests, site classifications and footing inspections across the Inner West, from our Marrickville office. Site classifications from $800 + GST.",
   "/geotechnical-engineer-inner-west",
 );
 
@@ -74,12 +74,13 @@ const REGION: RegionPageData = {
     },
   ],
   services: [
-    { title: "Site Classification", desc: "AS 2870 site classifications for extensions, terraces and granny flats.", href: "/site-classification" },
+    { title: "Site Classification", desc: "The soil test a certifier asks for: AS 2870 site classifications for extensions, terraces and granny flats.", href: "/site-classification" },
     { title: "Geotechnical Investigations", desc: "Investigations to AS 1726 for DAs, CDCs, basements and heritage alterations.", href: "/geotechnical-investigations" },
     { title: "Construction Phase Support", desc: "Footing and pier inspections from $600 + GST, up to the last one before the pour.", href: "/construction-phase-support" },
     { title: "Tight Access", desc: "Motorised hand augers carry through a standard doorway or side passage, so courtyards and rear yards can be investigated without vehicle access.", href: "/tight-access-drilling" },
     { title: "Testing", desc: "Dynamic cone penetrometer testing, and NATA-accredited laboratory testing where the design calls for it." },
   ],
+  faqIntro: "Geotechnical engineers based in Marrickville, working across the Inner West from Burwood to Newtown.",
   faqs: [
     {
       q: "Do you cover the whole Inner West?",

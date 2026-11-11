@@ -7,7 +7,7 @@ export const revalidate = 3600;
 
 export const metadata: Metadata = pageMeta(
   "Geotechnical Engineer Parramatta Sydney | SFGEO",
-  "Geotechnical investigations, site classifications and drilling in Parramatta and the Cumberland suburbs. Fixed fee in writing within one business day.",
+  "Soil tests, site classifications, investigations and drilling in Parramatta and the Cumberland suburbs. Fixed fee in writing within one business day.",
   "/geotechnical-engineer-parramatta",
 );
 
@@ -82,11 +82,12 @@ const REGION: RegionPageData = {
   ],
   services: [
     { title: "Geotechnical Investigations", desc: "Investigations to AS 1726 for DAs, CDCs, basements and pavements.", href: "/geotechnical-investigations" },
-    { title: "Site Classification", desc: "AS 2870 site classifications for homes, duplexes and granny flats.", href: "/site-classification" },
+    { title: "Site Classification", desc: "The soil test a certifier asks for: AS 2870 site classifications for homes, duplexes and granny flats.", href: "/site-classification" },
     { title: "Drilling For Consultancies", desc: "Boreholes on the 4WD-mounted rig for other consultancies, logged by us or by their engineer.", href: "/subcontract-drilling" },
     { title: "Concrete Coring", desc: "$120 + GST per hole, three-hole minimum per visit, for slabs and hardstands.", href: "/concrete-coring" },
     { title: "Construction Phase Support", desc: "Footing and pier inspections, up to the last one before the pour.", href: "/construction-phase-support" },
   ],
+  faqIntro: "Geotechnical engineers based in Marrickville, working in Parramatta and the Cumberland suburbs.",
   faqs: [
     {
       q: "Can you drill through a car park or other hardstand?",

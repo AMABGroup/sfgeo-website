@@ -7,7 +7,7 @@ export const revalidate = 3600;
 
 export const metadata: Metadata = pageMeta(
   "Geotechnical Engineer South West Sydney | SFGEO",
-  "Site classifications and drilling across South West Sydney, from Hinchinbrook and Chipping Norton to Austral. Site classifications from $800 + GST.",
+  "Soil tests, site classifications and drilling in South West Sydney, from Hinchinbrook and Chipping Norton to Austral. Site classifications from $800 + GST.",
   "/geotechnical-engineer-south-west-sydney",
 );
 
@@ -80,12 +80,13 @@ const REGION: RegionPageData = {
     },
   ],
   services: [
-    { title: "Site Classification", desc: "AS 2870 site classifications for granny flats, studios and new homes.", href: "/site-classification" },
+    { title: "Site Classification", desc: "The soil test a certifier asks for: AS 2870 site classifications for granny flats, studios and new homes.", href: "/site-classification" },
     { title: "Geotechnical Investigations", desc: "Investigations to AS 1726 for DAs, CDCs, basements and footings.", href: "/geotechnical-investigations" },
     { title: "Drilling For Consultancies", desc: "Boreholes drilled and logged on the 4WD-mounted rig for other consultancies' reports, on new estates and established streets.", href: "/subcontract-drilling" },
     { title: "Construction Phase Support", desc: "Footing and pier inspections, up to the last one before the pour.", href: "/construction-phase-support" },
     { title: "Testing", desc: "Dynamic cone penetrometer testing, and NATA-accredited laboratory testing where the design calls for it." },
   ],
+  faqIntro: "Geotechnical engineers based in Marrickville, working across South West Sydney from Hinchinbrook and Chipping Norton to Austral.",
   faqs: [
     {
       q: "Is the clay in South West Sydney highly reactive?",
