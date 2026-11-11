@@ -39,12 +39,12 @@ const FAQS = [
   },
   {
     q: "Is SPT available on consultancy and commercial programmes?",
-    a: "Yes, on consultancy and commercial programmes. SPT is not offered on residential jobs. Where your programme calls for it, SPT and penetrometer testing run alongside the drilling to the quoted depth and go on the log in the field. Because an engineer leads the crew, anomalies are flagged on site and the log arrives engineer-grade. Where the ute cannot reach, the same crew carries motorised hand augers. See borehole drilling.",
+    a: "Yes, on consultancy and commercial programmes. SPT is not offered on residential jobs. Where your programme calls for it, SPT and penetrometer testing run alongside the drilling to the quoted depth and go on the log in the field. Because an engineer leads the crew, anomalies are flagged on site and the log arrives engineer-grade. See borehole drilling.",
     link: { text: "borehole drilling", href: "/borehole-drilling" },
   },
   {
     q: "Whose supervision does the rig work under?",
-    a: "Yours or ours. Under your supervision, the rig drills to your borehole schedule and follows your sampling plan to the letter. Under ours, you send the brief and receive finished logs. Either way an engineer leads the crew and every log is engineer-checked, so the field data goes on your letterhead without re-checking. Both arrangements run every week. See the drilling capability.",
+    a: "Yours or ours. Under your supervision, the rig drills to your borehole schedule and follows your sampling plan to the letter. Under ours, you send the brief and receive finished logs. Either way an engineer leads the crew and every log is engineer-checked, so the field data goes on your letterhead without re-checking. Both arrangements run every week. Where the rig cannot reach, the same crew carries motorised hand augers. See the drilling capability.",
     link: { text: "the drilling capability", href: "/drilling" },
   },
   {
