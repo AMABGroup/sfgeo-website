@@ -41,7 +41,7 @@ const REGION: RegionPageData = {
       ],
       facts: "1 rig borehole + 2 DCPs · Class M · Inferred rock at 1.84 metres",
       photo: {
-        src: "/sfgeo-rig-borehole-profile-peakhurst-heights.jpg",
+        src: "/sfgeo-rig-borehole-profile-peakhurst-heights-v2.jpg",
         alt: "SFGEO rig drilling at Peakhurst Heights, the recovered soil profile laid out in bands on the slab in front",
         caption: "Profile Laid Out · Peakhurst Heights",
       },

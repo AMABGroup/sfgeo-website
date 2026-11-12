@@ -104,7 +104,7 @@ export default function About() {
       {/* Full-width banner */}
       <section className="px-6 lg:px-12 max-w-7xl mx-auto pb-20">
         <PhotoFrame
-          src="/sfgeo-night-works-high-street-sydney.jpg"
+          src="/sfgeo-night-works-high-street-sydney-v2.jpg"
           alt="A Sydney high street closed under traffic control for overnight geotechnical works, shopfronts shut and the lane coned off"
           caption={<>Night Works &middot; Sydney</>}
           aspect="aspect-[16/9] lg:aspect-[21/9]"
@@ -145,7 +145,7 @@ export default function About() {
       {/* Community — the why */}
       <section className="relative overflow-hidden bg-[#050A07] text-white grain aurora">
         <Image
-          src="/sfgeo-street-handed-back-dawn.jpg"
+          src="/sfgeo-street-handed-back-dawn-v2.jpg"
           alt=""
           fill
           sizes="100vw"

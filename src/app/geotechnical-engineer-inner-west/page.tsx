@@ -36,7 +36,7 @@ const REGION: RegionPageData = {
       ],
       facts: "4 hand augers + 1 rig borehole + 5 DCPs · Basement in weathered bedrock · Class M outside it",
       photo: {
-        src: "/sfgeo-rig-driveway-burwood.jpg",
+        src: "/sfgeo-rig-driveway-burwood-v2.jpg",
         alt: "SFGEO 4WD-mounted rig set up on a Burwood driveway, the operator in hi-vis at the controls",
         caption: "Driveway Rig · Burwood",
       },

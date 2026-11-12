@@ -38,7 +38,7 @@ const SECTIONS = [
     titleLight: "Borehole",
     titleBold: "Drilling.",
     caption: "01 · Borehole Drilling",
-    image: "/sfgeo-crew-mast-reserve.jpg",
+    image: "/sfgeo-crew-mast-reserve-v2.jpg",
     alt: "SFGEO 4WD-mounted drill rig with mast raised on a Sydney reserve",
     body: "An agile 4WD ute-mounted rig that gets on site fast and drills the ground Sydney is actually made of: Cumberland Plain clays and shales in the west, sands and estuarine profiles near the water, residual soils over sandstone everywhere else. Every borehole is logged on site and checked by an engineer, not decoded from a driller’s notes afterwards.",
     specs: [
@@ -93,7 +93,7 @@ const SECTIONS = [
     titleLight: "Subcontract",
     titleBold: "Drilling.",
     caption: "04 · Subcontract Drilling",
-    image: "/sfgeo-operator-rig-controls-sydney.jpg",
+    image: "/sfgeo-operator-rig-controls-sydney-v2.jpg",
     alt: "Operator at the controls of the SFGEO drill rig on a Sydney site",
     body: "The rig and crew are available under your scope: engineering consultancies from boutique practices to some of the bigger firms in Sydney, environmental consultants running PSI and DSI programmes, and builders and civil contractors who need holes without the overhead of an in-house crew. Your supervision or ours; engineer-led, always.",
     specs: [

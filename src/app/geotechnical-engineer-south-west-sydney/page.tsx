@@ -57,7 +57,7 @@ const REGION: RegionPageData = {
       ],
       facts: "1 rig borehole to 3.0 metres + 1 DCP · Class H2 · Rig set up in a narrow rear yard",
       photo: {
-        src: "/sfgeo-rig-backyard-chipping-norton.jpg",
+        src: "/sfgeo-rig-backyard-chipping-norton-v2.jpg",
         alt: "SFGEO operator at the 4WD-mounted rig on a narrow strip of lawn beside a side fence at Chipping Norton",
         caption: "Rear Yard · Chipping Norton",
       },

@@ -232,7 +232,7 @@ const caseStudies: CaseStudy[] = [
     title: "Five Holes Down A Living Street",
     location: "Telopea · street lighting investigation, Benaud Place",
     locationHref: "/geotechnical-engineer-parramatta",
-    image: "/projects/project-telopea-verge.jpg",
+    image: "/projects/project-telopea-verge-v2.jpg",
     imageAlt: "SFGEO 4WD rig drilling from the grass verge of a residential street in Telopea, footpath and traffic lane still open",
     brief:
       "One of the bigger testing firms in Sydney needed five boreholes along a residential street: the ground data to found new safety lighting going into a renewing suburb. Drilled, sampled and handed over clean, without shutting the street down around the people who live on it.",

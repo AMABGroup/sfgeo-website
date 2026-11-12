@@ -58,7 +58,7 @@ const REGION: RegionPageData = {
       ],
       facts: "3 rig boreholes + 3 DCPs · Fill to more than 1.5 metres · Geogrid-reinforced pavement",
       photo: {
-        src: "/sfgeo-rig-church-car-park-northmead.jpg",
+        src: "/sfgeo-rig-church-car-park-northmead-v2.jpg",
         alt: "SFGEO operator in hi-vis beside the 4WD-mounted rig on a cleared site at Northmead, a spoil mound behind",
         caption: "Rig · Northmead",
       },
@@ -74,7 +74,7 @@ const REGION: RegionPageData = {
       ],
       facts: "3 rig boreholes with penetrometer tests · Shale at 4.0 to 4.4 metres · Shoring and bearing parameters",
       photo: {
-        src: "/sfgeo-dcp-lawn-south-wentworthville.jpg",
+        src: "/sfgeo-dcp-lawn-south-wentworthville-v2.jpg",
         alt: "Penetrometer standing in a front lawn at South Wentworthville, the back of the SFGEO rig beside it",
         caption: "Penetrometer · South Wentworthville",
       },
