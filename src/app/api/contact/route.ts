@@ -23,7 +23,7 @@ const LIMITS = { name: 120, email: 254, phone: 40, siteAddress: 300, message: 30
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 const CLICK_IDS = ["gclid", "gbraid", "wbraid"] as const;
 const UTMS = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"] as const;
-const SOURCE_KEYS = [...CLICK_IDS, ...UTMS, "landing", "referrer"] as const;
+const SOURCE_KEYS = [...CLICK_IDS, ...UTMS, "landing", "referrer", "click_first_seen"] as const;
 const SOURCE_MAX = 300;
 // Housekeeping after a send is cut off at these, so it never holds up the reply.
 const CLEANUP_MS = 1_500;
@@ -72,6 +72,12 @@ function leadSource(v: unknown): LeadSource {
 function sourceBlock(placement: string, s: LeadSource): string {
   const clicks = CLICK_IDS.filter((k) => s[k]).map((k) => `${k} ${s[k]}`);
   const utms = UTMS.filter((k) => s[k]).map((k) => `${k.slice(4)}=${s[k]}`);
+  // Key lines a script can read, one per line and only when present.
+  const keys = [
+    ...CLICK_IDS.filter((k) => s[k]).map((k) => `${k}: ${s[k]}`),
+    ...(s.click_first_seen ? [`click_first_seen: ${s.click_first_seen}`] : []),
+    ...(s.landing ? [`landing: ${s.landing}`] : []),
+  ];
   return [
     "Lead source",
     `Form: ${placement}`,
@@ -79,6 +85,7 @@ function sourceBlock(placement: string, s: LeadSource): string {
     `UTM: ${utms.length ? utms.join(", ") : "(none)"}`,
     `Landing page: ${s.landing || "(not recorded)"}`,
     `Referrer: ${s.referrer || "(none)"}`,
+    ...keys,
   ].join("\n");
 }
 
