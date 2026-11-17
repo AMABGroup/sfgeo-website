@@ -23,7 +23,7 @@ const LIMITS = { name: 120, email: 254, phone: 40, siteAddress: 300, message: 30
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 const CLICK_IDS = ["gclid", "gbraid", "wbraid"] as const;
 const UTMS = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"] as const;
-const SOURCE_KEYS = [...CLICK_IDS, ...UTMS, "landing", "referrer", "click_first_seen"] as const;
+const SOURCE_KEYS = [...CLICK_IDS, ...UTMS, "landing", "referrer", "click_first_seen", "click_landing"] as const;
 const SOURCE_MAX = 300;
 // Housekeeping after a send is cut off at these, so it never holds up the reply.
 const CLEANUP_MS = 1_500;
@@ -43,7 +43,9 @@ function str(v: unknown, max: number): string | null {
 // Trimmed text, cut only at the body cap, so a lead that breaks a field limit
 // still arrives in full in its [CHECK] email.
 const text = (v: unknown) => (typeof v === "string" ? v.trim().slice(0, MAX_BODY_BYTES) : "");
-const oneLine = (s: string) => s.replace(/[\r\n]+/g, " ");
+// Every kind of line break, not only CR and LF: U+2028, U+2029, U+0085, VT and FF
+// would otherwise start a new line for a script that reads the email.
+const oneLine = (s: string) => s.replace(/[\r\n\u2028\u2029\u0085\v\f]+/g, " ");
 const allowed = (list: readonly { value: string }[] | readonly string[], v: string) =>
   (list as readonly unknown[]).some((x) => (typeof x === "string" ? x : (x as { value: string }).value) === v);
 
@@ -64,7 +66,7 @@ function leadSource(v: unknown): LeadSource {
   if (!v || typeof v !== "object" || Array.isArray(v)) return out;
   for (const k of SOURCE_KEYS) {
     const x = (v as Record<string, unknown>)[k];
-    if (typeof x === "string" && x.trim()) out[k] = oneLine(x.trim()).slice(0, SOURCE_MAX);
+    if (typeof x === "string" && x.trim()) out[k] = oneLine(x).trim().slice(0, SOURCE_MAX);
   }
   return out;
 }
@@ -72,12 +74,16 @@ function leadSource(v: unknown): LeadSource {
 function sourceBlock(placement: string, s: LeadSource): string {
   const clicks = CLICK_IDS.filter((k) => s[k]).map((k) => `${k} ${s[k]}`);
   const utms = UTMS.filter((k) => s[k]).map((k) => `${k.slice(4)}=${s[k]}`);
-  // Key lines a script can read, one per line and only when present.
-  const keys = [
-    ...CLICK_IDS.filter((k) => s[k]).map((k) => `${k}: ${s[k]}`),
-    ...(s.click_first_seen ? [`click_first_seen: ${s.click_first_seen}`] : []),
-    ...(s.landing ? [`landing: ${s.landing}`] : []),
-  ];
+  // Key lines a script can read, one per line, only when present and only when
+  // there is a click id. click_landing is the page the ad click landed on; the
+  // "Landing page" line above stays the page this visit started on.
+  const keys = clicks.length
+    ? [
+        ...CLICK_IDS.filter((k) => s[k]).map((k) => `${k}: ${s[k]}`),
+        ...(s.click_first_seen ? [`click_first_seen: ${s.click_first_seen}`] : []),
+        ...(s.click_landing ? [`click_landing: ${s.click_landing}`] : []),
+      ]
+    : [];
   return [
     "Lead source",
     `Form: ${placement}`,
