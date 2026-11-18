@@ -25,7 +25,7 @@ export default function PrivacyPolicyPage() {
               We collect your personal information directly from you: when you submit an enquiry through our website contact form, correspond with us by email or telephone, or engage us for our services. We may also receive project details from your authorised architects or structural engineers where you have instructed them to retain our services on your behalf.
             </p>
             <p className="mt-3">
-              When you submit an enquiry through the website, we also record how you found us: the page you first landed on, the site or search that referred you, and any campaign tag or advertising click identifier in the link. This is kept with your enquiry so we can see which channels are working.
+              When you submit an enquiry through the website, we also record how you found us: the page you first landed on, the site or search that referred you, and any campaign tag or advertising click identifier in the link. This is kept with your enquiry so we can see which channels are working. If you arrive from one of our advertisements, the click identifier is also kept in your browser for up to 90 days, so an enquiry you send on a later visit can be matched to that advertisement.
             </p>
           </div>
 
